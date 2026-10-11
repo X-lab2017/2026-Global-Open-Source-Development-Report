@@ -23,6 +23,8 @@
 
 ## 本轮已确定（2026-10-11）
 
+引言的首要读者已确定为**政府与国际组织决策者**，见 [引言写作要求](INTRODUCTION_BRIEF.md)。
+
 附录 B 采用主编指定的[飞书文档](https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf)；引言独立重新撰写。最新飞书正文尚待核对，来源决定和正文核验分别记录在 [决策表](DECISIONS.md)。A01 仍在进行中。
 
 ## 分工与状态
