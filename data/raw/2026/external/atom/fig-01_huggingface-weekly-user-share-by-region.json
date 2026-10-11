@@ -1,0 +1,1026 @@
+[
+ {
+  "date": "Mar 06 23",
+  "us": 5.75,
+  "europe": 28.54,
+  "china": 0.97,
+  "unaffiliated": 31.88,
+  "other": 32.86
+ },
+ {
+  "date": "Mar 13 23",
+  "us": 6.91,
+  "europe": 27.88,
+  "china": 1.42,
+  "unaffiliated": 35.19,
+  "other": 28.6
+ },
+ {
+  "date": "Mar 20 23",
+  "us": 6.17,
+  "europe": 28.07,
+  "china": 1.71,
+  "unaffiliated": 35.21,
+  "other": 28.84
+ },
+ {
+  "date": "Mar 27 23",
+  "us": 6.15,
+  "europe": 27.15,
+  "china": 1.74,
+  "unaffiliated": 36.01,
+  "other": 28.95
+ },
+ {
+  "date": "Apr 03 23",
+  "us": 8.57,
+  "europe": 19.78,
+  "china": 1.47,
+  "unaffiliated": 41.03,
+  "other": 29.16
+ },
+ {
+  "date": "Apr 10 23",
+  "us": 7.86,
+  "europe": 24.58,
+  "china": 1.68,
+  "unaffiliated": 37.4,
+  "other": 28.48
+ },
+ {
+  "date": "Apr 17 23",
+  "us": 8.17,
+  "europe": 22.44,
+  "china": 1.71,
+  "unaffiliated": 39.4,
+  "other": 28.29
+ },
+ {
+  "date": "Apr 24 23",
+  "us": 8.72,
+  "europe": 20.09,
+  "china": 1.27,
+  "unaffiliated": 46.23,
+  "other": 23.69
+ },
+ {
+  "date": "May 01 23",
+  "us": 8.4,
+  "europe": 20.59,
+  "china": 0.85,
+  "unaffiliated": 45.95,
+  "other": 24.21
+ },
+ {
+  "date": "May 08 23",
+  "us": 10.1,
+  "europe": 17.47,
+  "china": 0.75,
+  "unaffiliated": 50.47,
+  "other": 21.22
+ },
+ {
+  "date": "May 15 23",
+  "us": 12.41,
+  "europe": 16.12,
+  "china": 0.8,
+  "unaffiliated": 51.55,
+  "other": 19.13
+ },
+ {
+  "date": "May 22 23",
+  "us": 12.81,
+  "europe": 16.49,
+  "china": 0.81,
+  "unaffiliated": 50.07,
+  "other": 19.82
+ },
+ {
+  "date": "May 29 23",
+  "us": 12.78,
+  "europe": 14.99,
+  "china": 1.24,
+  "unaffiliated": 54.31,
+  "other": 16.67
+ },
+ {
+  "date": "Jun 05 23",
+  "us": 12.71,
+  "europe": 14.7,
+  "china": 1.45,
+  "unaffiliated": 53.46,
+  "other": 17.68
+ },
+ {
+  "date": "Jun 12 23",
+  "us": 15.65,
+  "europe": 13.98,
+  "china": 1.33,
+  "unaffiliated": 56.23,
+  "other": 12.8
+ },
+ {
+  "date": "Jun 19 23",
+  "us": 14.87,
+  "europe": 13.88,
+  "china": 1.25,
+  "unaffiliated": 54.64,
+  "other": 15.35
+ },
+ {
+  "date": "Jun 26 23",
+  "us": 15.17,
+  "europe": 13.34,
+  "china": 1.21,
+  "unaffiliated": 55.93,
+  "other": 14.36
+ },
+ {
+  "date": "Jul 03 23",
+  "us": 14.91,
+  "europe": 10.27,
+  "china": 1.19,
+  "unaffiliated": 64.62,
+  "other": 9.02
+ },
+ {
+  "date": "Jul 10 23",
+  "us": 15.47,
+  "europe": 10.51,
+  "china": 1.46,
+  "unaffiliated": 66.74,
+  "other": 5.82
+ },
+ {
+  "date": "Jul 17 23",
+  "us": 17.83,
+  "europe": 10.32,
+  "china": 1.32,
+  "unaffiliated": 64.5,
+  "other": 6.03
+ },
+ {
+  "date": "Jul 24 23",
+  "us": 16.6,
+  "europe": 14.73,
+  "china": 1.07,
+  "unaffiliated": 62.05,
+  "other": 5.55
+ },
+ {
+  "date": "Jul 31 23",
+  "us": 17.03,
+  "europe": 15.78,
+  "china": 1.16,
+  "unaffiliated": 60.64,
+  "other": 5.38
+ },
+ {
+  "date": "Aug 07 23",
+  "us": 17.62,
+  "europe": 13.52,
+  "china": 1.44,
+  "unaffiliated": 62.47,
+  "other": 4.95
+ },
+ {
+  "date": "Aug 14 23",
+  "us": 17.9,
+  "europe": 14.78,
+  "china": 1.35,
+  "unaffiliated": 60.77,
+  "other": 5.19
+ },
+ {
+  "date": "Aug 21 23",
+  "us": 20.7,
+  "europe": 13.64,
+  "china": 1.32,
+  "unaffiliated": 59.71,
+  "other": 4.63
+ },
+ {
+  "date": "Aug 28 23",
+  "us": 17.16,
+  "europe": 13.09,
+  "china": 1.37,
+  "unaffiliated": 63.59,
+  "other": 4.78
+ },
+ {
+  "date": "Sep 04 23",
+  "us": 16.32,
+  "europe": 11.1,
+  "china": 1.41,
+  "unaffiliated": 65.89,
+  "other": 5.27
+ },
+ {
+  "date": "Sep 11 23",
+  "us": 16.21,
+  "europe": 10.09,
+  "china": 1.15,
+  "unaffiliated": 66.65,
+  "other": 5.91
+ },
+ {
+  "date": "Sep 18 23",
+  "us": 19.12,
+  "europe": 12.17,
+  "china": 1.26,
+  "unaffiliated": 62.48,
+  "other": 4.97
+ },
+ {
+  "date": "Sep 25 23",
+  "us": 18.43,
+  "europe": 14.33,
+  "china": 1.32,
+  "unaffiliated": 61.67,
+  "other": 4.26
+ },
+ {
+  "date": "Oct 02 23",
+  "us": 21.01,
+  "europe": 15.66,
+  "china": 1.22,
+  "unaffiliated": 57.09,
+  "other": 5.01
+ },
+ {
+  "date": "Oct 09 23",
+  "us": 18.91,
+  "europe": 13.27,
+  "china": 1.33,
+  "unaffiliated": 62.29,
+  "other": 4.2
+ },
+ {
+  "date": "Oct 16 23",
+  "us": 16.14,
+  "europe": 11.61,
+  "china": 1.21,
+  "unaffiliated": 67.5,
+  "other": 3.54
+ },
+ {
+  "date": "Oct 23 23",
+  "us": 18.64,
+  "europe": 16.65,
+  "china": 1.94,
+  "unaffiliated": 59.29,
+  "other": 3.47
+ },
+ {
+  "date": "Oct 30 23",
+  "us": 21.12,
+  "europe": 16.02,
+  "china": 1.6,
+  "unaffiliated": 57.61,
+  "other": 3.65
+ },
+ {
+  "date": "Nov 06 23",
+  "us": 20.68,
+  "europe": 14.97,
+  "china": 1.91,
+  "unaffiliated": 59.08,
+  "other": 3.36
+ },
+ {
+  "date": "Nov 13 23",
+  "us": 20.81,
+  "europe": 16.87,
+  "china": 2.36,
+  "unaffiliated": 56.43,
+  "other": 3.53
+ },
+ {
+  "date": "Nov 20 23",
+  "us": 19.09,
+  "europe": 20.96,
+  "china": 2.64,
+  "unaffiliated": 53.53,
+  "other": 3.78
+ },
+ {
+  "date": "Nov 27 23",
+  "us": 20.36,
+  "europe": 20.45,
+  "china": 2.82,
+  "unaffiliated": 53.27,
+  "other": 3.1
+ },
+ {
+  "date": "Dec 04 23",
+  "us": 20.54,
+  "europe": 17,
+  "china": 3.03,
+  "unaffiliated": 56.63,
+  "other": 2.79
+ },
+ {
+  "date": "Dec 11 23",
+  "us": 16.98,
+  "europe": 14.4,
+  "china": 2.27,
+  "unaffiliated": 63.82,
+  "other": 2.53
+ },
+ {
+  "date": "Dec 18 23",
+  "us": 14.55,
+  "europe": 13.39,
+  "china": 2.35,
+  "unaffiliated": 67.11,
+  "other": 2.59
+ },
+ {
+  "date": "Dec 25 23",
+  "us": 12.21,
+  "europe": 13.34,
+  "china": 2.34,
+  "unaffiliated": 69.47,
+  "other": 2.64
+ },
+ {
+  "date": "Jan 01 24",
+  "us": 13.56,
+  "europe": 15.33,
+  "china": 2.67,
+  "unaffiliated": 65.46,
+  "other": 2.98
+ },
+ {
+  "date": "Jan 08 24",
+  "us": 14.53,
+  "europe": 15.28,
+  "china": 2.85,
+  "unaffiliated": 64.2,
+  "other": 3.14
+ },
+ {
+  "date": "Jan 15 24",
+  "us": 15.42,
+  "europe": 17.27,
+  "china": 2.75,
+  "unaffiliated": 61.03,
+  "other": 3.54
+ },
+ {
+  "date": "Jan 22 24",
+  "us": 17.25,
+  "europe": 19.61,
+  "china": 2.67,
+  "unaffiliated": 56.79,
+  "other": 3.68
+ },
+ {
+  "date": "Jan 29 24",
+  "us": 14.16,
+  "europe": 11.42,
+  "china": 1.86,
+  "unaffiliated": 70.28,
+  "other": 2.28
+ },
+ {
+  "date": "Feb 05 24",
+  "us": 14.2,
+  "europe": 12.51,
+  "china": 2.1,
+  "unaffiliated": 68.62,
+  "other": 2.57
+ },
+ {
+  "date": "Feb 12 24",
+  "us": 13.5,
+  "europe": 14.15,
+  "china": 1.85,
+  "unaffiliated": 67.58,
+  "other": 2.91
+ },
+ {
+  "date": "Feb 19 24",
+  "us": 13.64,
+  "europe": 14.69,
+  "china": 2.03,
+  "unaffiliated": 67.02,
+  "other": 2.62
+ },
+ {
+  "date": "Feb 26 24",
+  "us": 14.97,
+  "europe": 12.1,
+  "china": 2.03,
+  "unaffiliated": 68.51,
+  "other": 2.4
+ },
+ {
+  "date": "Mar 04 24",
+  "us": 13.81,
+  "europe": 10.3,
+  "china": 1.78,
+  "unaffiliated": 72,
+  "other": 2.12
+ },
+ {
+  "date": "Mar 11 24",
+  "us": 14.24,
+  "europe": 10.4,
+  "china": 1.98,
+  "unaffiliated": 71.01,
+  "other": 2.37
+ },
+ {
+  "date": "Mar 18 24",
+  "us": 14.7,
+  "europe": 10.6,
+  "china": 1.87,
+  "unaffiliated": 70.52,
+  "other": 2.3
+ },
+ {
+  "date": "Mar 25 24",
+  "us": 13.66,
+  "europe": 11.79,
+  "china": 2.18,
+  "unaffiliated": 69.97,
+  "other": 2.4
+ },
+ {
+  "date": "Apr 01 24",
+  "us": 13.81,
+  "europe": 12.2,
+  "china": 2.48,
+  "unaffiliated": 69.07,
+  "other": 2.45
+ },
+ {
+  "date": "Apr 08 24",
+  "us": 13,
+  "europe": 9.85,
+  "china": 2.03,
+  "unaffiliated": 73.04,
+  "other": 2.08
+ },
+ {
+  "date": "Apr 15 24",
+  "us": 15.11,
+  "europe": 10.54,
+  "china": 2.44,
+  "unaffiliated": 69.67,
+  "other": 2.25
+ },
+ {
+  "date": "Apr 22 24",
+  "us": 17.02,
+  "europe": 10.28,
+  "china": 2.35,
+  "unaffiliated": 68.01,
+  "other": 2.35
+ },
+ {
+  "date": "Apr 29 24",
+  "us": 14.59,
+  "europe": 10.73,
+  "china": 2.16,
+  "unaffiliated": 70.19,
+  "other": 2.32
+ },
+ {
+  "date": "May 06 24",
+  "us": 14.31,
+  "europe": 10.47,
+  "china": 2.4,
+  "unaffiliated": 70.34,
+  "other": 2.48
+ },
+ {
+  "date": "May 13 24",
+  "us": 14.65,
+  "europe": 10.33,
+  "china": 2.41,
+  "unaffiliated": 70.29,
+  "other": 2.32
+ },
+ {
+  "date": "May 20 24",
+  "us": 15.03,
+  "europe": 9.72,
+  "china": 2.81,
+  "unaffiliated": 70.39,
+  "other": 2.05
+ },
+ {
+  "date": "May 27 24",
+  "us": 15.19,
+  "europe": 10.19,
+  "china": 2.65,
+  "unaffiliated": 69.81,
+  "other": 2.15
+ },
+ {
+  "date": "Jun 03 24",
+  "us": 15.92,
+  "europe": 9.19,
+  "china": 2.86,
+  "unaffiliated": 69.76,
+  "other": 2.28
+ },
+ {
+  "date": "Jun 10 24",
+  "us": 16.69,
+  "europe": 12.97,
+  "china": 3.44,
+  "unaffiliated": 64.88,
+  "other": 2.02
+ },
+ {
+  "date": "Jun 17 24",
+  "us": 16.9,
+  "europe": 16.76,
+  "china": 5.4,
+  "unaffiliated": 58.4,
+  "other": 2.53
+ },
+ {
+  "date": "Jun 24 24",
+  "us": 17.28,
+  "europe": 15.25,
+  "china": 5.02,
+  "unaffiliated": 60.27,
+  "other": 2.18
+ },
+ {
+  "date": "Jul 01 24",
+  "us": 15.42,
+  "europe": 15.87,
+  "china": 6.65,
+  "unaffiliated": 59.83,
+  "other": 2.24
+ },
+ {
+  "date": "Jul 08 24",
+  "us": 16.14,
+  "europe": 16.57,
+  "china": 6.37,
+  "unaffiliated": 58.6,
+  "other": 2.32
+ },
+ {
+  "date": "Jul 15 24",
+  "us": 16.32,
+  "europe": 13.44,
+  "china": 5.44,
+  "unaffiliated": 62.52,
+  "other": 2.27
+ },
+ {
+  "date": "Jul 22 24",
+  "us": 16.42,
+  "europe": 12.73,
+  "china": 5,
+  "unaffiliated": 63.72,
+  "other": 2.13
+ },
+ {
+  "date": "Jul 29 24",
+  "us": 17.3,
+  "europe": 11.14,
+  "china": 5.37,
+  "unaffiliated": 63.88,
+  "other": 2.32
+ },
+ {
+  "date": "Aug 05 24",
+  "us": 17.4,
+  "europe": 14.19,
+  "china": 5.88,
+  "unaffiliated": 60.2,
+  "other": 2.33
+ },
+ {
+  "date": "Aug 12 24",
+  "us": 17.24,
+  "europe": 18.45,
+  "china": 6,
+  "unaffiliated": 55.93,
+  "other": 2.38
+ },
+ {
+  "date": "Aug 19 24",
+  "us": 16.64,
+  "europe": 22.83,
+  "china": 6.19,
+  "unaffiliated": 52.34,
+  "other": 1.99
+ },
+ {
+  "date": "Aug 26 24",
+  "us": 16.79,
+  "europe": 21.93,
+  "china": 6.23,
+  "unaffiliated": 52.7,
+  "other": 2.35
+ },
+ {
+  "date": "Sep 02 24",
+  "us": 17.32,
+  "europe": 17.7,
+  "china": 6.98,
+  "unaffiliated": 55.86,
+  "other": 2.14
+ },
+ {
+  "date": "Sep 09 24",
+  "us": 17.22,
+  "europe": 18.4,
+  "china": 7.14,
+  "unaffiliated": 55.26,
+  "other": 1.98
+ },
+ {
+  "date": "Sep 16 24",
+  "us": 20.28,
+  "europe": 17.28,
+  "china": 6.39,
+  "unaffiliated": 53.79,
+  "other": 2.26
+ },
+ {
+  "date": "Sep 23 24",
+  "us": 20.45,
+  "europe": 17.12,
+  "china": 7.39,
+  "unaffiliated": 52.68,
+  "other": 2.35
+ },
+ {
+  "date": "Sep 30 24",
+  "us": 16.67,
+  "europe": 11.8,
+  "china": 5.35,
+  "unaffiliated": 63.63,
+  "other": 2.55
+ },
+ {
+  "date": "Oct 07 24",
+  "us": 15.18,
+  "europe": 10.12,
+  "china": 4.3,
+  "unaffiliated": 68.16,
+  "other": 2.24
+ },
+ {
+  "date": "Oct 14 24",
+  "us": 18.55,
+  "europe": 18.56,
+  "china": 6.57,
+  "unaffiliated": 54.18,
+  "other": 2.14
+ },
+ {
+  "date": "Oct 21 24",
+  "us": 18.88,
+  "europe": 24.54,
+  "china": 6.65,
+  "unaffiliated": 47.96,
+  "other": 1.98
+ },
+ {
+  "date": "Oct 28 24",
+  "us": 19.15,
+  "europe": 20.84,
+  "china": 6,
+  "unaffiliated": 51.81,
+  "other": 2.21
+ },
+ {
+  "date": "Nov 04 24",
+  "us": 19.1,
+  "europe": 24.99,
+  "china": 6.52,
+  "unaffiliated": 47.14,
+  "other": 2.24
+ },
+ {
+  "date": "Nov 11 24",
+  "us": 19.45,
+  "europe": 20.08,
+  "china": 6.34,
+  "unaffiliated": 51.9,
+  "other": 2.22
+ },
+ {
+  "date": "Nov 18 24",
+  "us": 19.11,
+  "europe": 23.45,
+  "china": 6.93,
+  "unaffiliated": 48.14,
+  "other": 2.37
+ },
+ {
+  "date": "Nov 25 24",
+  "us": 20.48,
+  "europe": 23.52,
+  "china": 7.23,
+  "unaffiliated": 46.58,
+  "other": 2.19
+ },
+ {
+  "date": "Dec 02 24",
+  "us": 18.76,
+  "europe": 23.17,
+  "china": 7.03,
+  "unaffiliated": 48.97,
+  "other": 2.07
+ },
+ {
+  "date": "Dec 09 24",
+  "us": 19.17,
+  "europe": 23.55,
+  "china": 7.35,
+  "unaffiliated": 47.55,
+  "other": 2.37
+ },
+ {
+  "date": "Dec 16 24",
+  "us": 19.33,
+  "europe": 22.43,
+  "china": 7.12,
+  "unaffiliated": 49.03,
+  "other": 2.09
+ },
+ {
+  "date": "Dec 23 24",
+  "us": 18.93,
+  "europe": 17.95,
+  "china": 6.76,
+  "unaffiliated": 54.33,
+  "other": 2.03
+ },
+ {
+  "date": "Jan 06 25",
+  "us": 19.32,
+  "europe": 20.67,
+  "china": 7.96,
+  "unaffiliated": 50.11,
+  "other": 1.93
+ },
+ {
+  "date": "Jan 13 25",
+  "us": 19.35,
+  "europe": 21.43,
+  "china": 8.64,
+  "unaffiliated": 48.63,
+  "other": 1.95
+ },
+ {
+  "date": "Jan 20 25",
+  "us": 19.04,
+  "europe": 21.6,
+  "china": 8.25,
+  "unaffiliated": 49.18,
+  "other": 1.93
+ },
+ {
+  "date": "Jan 27 25",
+  "us": 19.41,
+  "europe": 20.53,
+  "china": 14.62,
+  "unaffiliated": 43.62,
+  "other": 1.82
+ },
+ {
+  "date": "Feb 03 25",
+  "us": 17.93,
+  "europe": 18.68,
+  "china": 27.9,
+  "unaffiliated": 33.99,
+  "other": 1.49
+ },
+ {
+  "date": "Feb 10 25",
+  "us": 18.54,
+  "europe": 18.89,
+  "china": 21.52,
+  "unaffiliated": 39.37,
+  "other": 1.68
+ },
+ {
+  "date": "Feb 17 25",
+  "us": 19.3,
+  "europe": 17.84,
+  "china": 16.69,
+  "unaffiliated": 44.36,
+  "other": 1.81
+ },
+ {
+  "date": "Feb 24 25",
+  "us": 19.66,
+  "europe": 17.73,
+  "china": 17.09,
+  "unaffiliated": 43.64,
+  "other": 1.88
+ },
+ {
+  "date": "Mar 03 25",
+  "us": 20.82,
+  "europe": 18.64,
+  "china": 16.16,
+  "unaffiliated": 42.48,
+  "other": 1.9
+ },
+ {
+  "date": "Mar 10 25",
+  "us": 21.22,
+  "europe": 16.13,
+  "china": 15.67,
+  "unaffiliated": 44.92,
+  "other": 2.06
+ },
+ {
+  "date": "Mar 17 25",
+  "us": 21.9,
+  "europe": 17.47,
+  "china": 17.3,
+  "unaffiliated": 41.62,
+  "other": 1.71
+ },
+ {
+  "date": "Mar 24 25",
+  "us": 22.33,
+  "europe": 22.48,
+  "china": 17.81,
+  "unaffiliated": 35.21,
+  "other": 2.17
+ },
+ {
+  "date": "Mar 31 25",
+  "us": 20.98,
+  "europe": 21.2,
+  "china": 17.55,
+  "unaffiliated": 38.16,
+  "other": 2.11
+ },
+ {
+  "date": "Apr 07 25",
+  "us": 20.89,
+  "europe": 22.91,
+  "china": 17.12,
+  "unaffiliated": 37.1,
+  "other": 1.98
+ },
+ {
+  "date": "Apr 14 25",
+  "us": 22.2,
+  "europe": 20.69,
+  "china": 17.9,
+  "unaffiliated": 37.11,
+  "other": 2.09
+ },
+ {
+  "date": "Apr 21 25",
+  "us": 21.95,
+  "europe": 19.25,
+  "china": 17.5,
+  "unaffiliated": 39.49,
+  "other": 1.81
+ },
+ {
+  "date": "Apr 28 25",
+  "us": 20.93,
+  "europe": 23.77,
+  "china": 19.25,
+  "unaffiliated": 34.25,
+  "other": 1.8
+ },
+ {
+  "date": "May 05 25",
+  "us": 19.99,
+  "europe": 22.89,
+  "china": 22.78,
+  "unaffiliated": 32.69,
+  "other": 1.65
+ },
+ {
+  "date": "May 12 25",
+  "us": 20.23,
+  "europe": 24.81,
+  "china": 20.2,
+  "unaffiliated": 33.36,
+  "other": 1.41
+ },
+ {
+  "date": "May 19 25",
+  "us": 20.24,
+  "europe": 25.39,
+  "china": 19.2,
+  "unaffiliated": 33.81,
+  "other": 1.36
+ },
+ {
+  "date": "May 26 25",
+  "us": 20.1,
+  "europe": 25.27,
+  "china": 18.57,
+  "unaffiliated": 34.66,
+  "other": 1.39
+ },
+ {
+  "date": "Jun 02 25",
+  "us": 19.78,
+  "europe": 21.07,
+  "china": 26.7,
+  "unaffiliated": 31.1,
+  "other": 1.34
+ },
+ {
+  "date": "Jun 09 25",
+  "us": 20.44,
+  "europe": 20.3,
+  "china": 26.21,
+  "unaffiliated": 31.6,
+  "other": 1.45
+ },
+ {
+  "date": "Jun 16 25",
+  "us": 20.52,
+  "europe": 18.17,
+  "china": 25.59,
+  "unaffiliated": 34.11,
+  "other": 1.61
+ },
+ {
+  "date": "Jun 23 25",
+  "us": 20.38,
+  "europe": 16.73,
+  "china": 24.55,
+  "unaffiliated": 36.63,
+  "other": 1.71
+ },
+ {
+  "date": "Jun 30 25",
+  "us": 20.19,
+  "europe": 19.28,
+  "china": 24.8,
+  "unaffiliated": 34.21,
+  "other": 1.51
+ },
+ {
+  "date": "Jul 07 25",
+  "us": 19.48,
+  "europe": 21.92,
+  "china": 22.67,
+  "unaffiliated": 34.47,
+  "other": 1.47
+ },
+ {
+  "date": "Jul 14 25",
+  "us": 20.18,
+  "europe": 21.36,
+  "china": 22.87,
+  "unaffiliated": 33.61,
+  "other": 1.99
+ },
+ {
+  "date": "Jul 21 25",
+  "us": 19.76,
+  "europe": 20.27,
+  "china": 23.91,
+  "unaffiliated": 33.64,
+  "other": 2.41
+ },
+ {
+  "date": "Jul 28 25",
+  "us": 19.55,
+  "europe": 21.85,
+  "china": 26.33,
+  "unaffiliated": 30.07,
+  "other": 2.21
+ },
+ {
+  "date": "Aug 11 25",
+  "us": 22.17,
+  "europe": 20.13,
+  "china": 27.98,
+  "unaffiliated": 26.17,
+  "other": 3.55
+ },
+ {
+  "date": "Aug 18 25",
+  "us": 23.13,
+  "europe": 17.56,
+  "china": 27.92,
+  "unaffiliated": 27.71,
+  "other": 3.68
+ },
+ {
+  "date": "Aug 25 25",
+  "us": 22.38,
+  "europe": 17.26,
+  "china": 27.54,
+  "unaffiliated": 29.69,
+  "other": 3.13
+ }
+]

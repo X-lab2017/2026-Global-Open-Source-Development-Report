@@ -1,0 +1,770 @@
+{
+ "summary": {
+  "totalContributions": 0
+ },
+ "data": [
+  {
+   "name": "Unknown",
+   "code": "XX",
+   "flag": "❓",
+   "count": 34973,
+   "percentage": 76.27
+  },
+  {
+   "name": "United States",
+   "code": "US",
+   "flag": "🇺🇸",
+   "count": 3306,
+   "percentage": 7.21
+  },
+  {
+   "name": "Germany",
+   "code": "DE",
+   "flag": "🇩🇪",
+   "count": 893,
+   "percentage": 1.95
+  },
+  {
+   "name": "India",
+   "code": "IN",
+   "flag": "🇮🇳",
+   "count": 874,
+   "percentage": 1.91
+  },
+  {
+   "name": "China",
+   "code": "CN",
+   "flag": "🇨🇳",
+   "count": 867,
+   "percentage": 1.89
+  },
+  {
+   "name": "United Kingdom",
+   "code": "GB",
+   "flag": "🇬🇧",
+   "count": 507,
+   "percentage": 1.11
+  },
+  {
+   "name": "France",
+   "code": "FR",
+   "flag": "🇫🇷",
+   "count": 424,
+   "percentage": 0.92
+  },
+  {
+   "name": "Canada",
+   "code": "CA",
+   "flag": "🇨🇦",
+   "count": 315,
+   "percentage": 0.69
+  },
+  {
+   "name": "Poland",
+   "code": "PL",
+   "flag": "🇵🇱",
+   "count": 273,
+   "percentage": 0.6
+  },
+  {
+   "name": "Israel",
+   "code": "IL",
+   "flag": "🇮🇱",
+   "count": 251,
+   "percentage": 0.55
+  },
+  {
+   "name": "Japan",
+   "code": "JP",
+   "flag": "🇯🇵",
+   "count": 243,
+   "percentage": 0.53
+  },
+  {
+   "name": "Switzerland",
+   "code": "CH",
+   "flag": "🇨🇭",
+   "count": 202,
+   "percentage": 0.44
+  },
+  {
+   "name": "Taiwan",
+   "code": "TW",
+   "flag": "🇹🇼",
+   "count": 199,
+   "percentage": 0.43
+  },
+  {
+   "name": "Netherlands",
+   "code": "NL",
+   "flag": "🇳🇱",
+   "count": 198,
+   "percentage": 0.43
+  },
+  {
+   "name": "Australia",
+   "code": "AU",
+   "flag": "🇦🇺",
+   "count": 171,
+   "percentage": 0.37
+  },
+  {
+   "name": "Russia",
+   "code": "RU",
+   "flag": "🇷🇺",
+   "count": 169,
+   "percentage": 0.37
+  },
+  {
+   "name": "Italy",
+   "code": "IT",
+   "flag": "🇮🇹",
+   "count": 168,
+   "percentage": 0.37
+  },
+  {
+   "name": "Brazil",
+   "code": "BR",
+   "flag": "🇧🇷",
+   "count": 166,
+   "percentage": 0.36
+  },
+  {
+   "name": "Sweden",
+   "code": "SE",
+   "flag": "🇸🇪",
+   "count": 165,
+   "percentage": 0.36
+  },
+  {
+   "name": "Spain",
+   "code": "ES",
+   "flag": "🇪🇸",
+   "count": 144,
+   "percentage": 0.31
+  },
+  {
+   "name": "Finland",
+   "code": "FI",
+   "flag": "🇫🇮",
+   "count": 131,
+   "percentage": 0.29
+  },
+  {
+   "name": "Austria",
+   "code": "AT",
+   "flag": "🇦🇹",
+   "count": 90,
+   "percentage": 0.2
+  },
+  {
+   "name": "Romania",
+   "code": "RO",
+   "flag": "🇷🇴",
+   "count": 86,
+   "percentage": 0.19
+  },
+  {
+   "name": "Oman",
+   "code": "OM",
+   "flag": "🇴🇲",
+   "count": 86,
+   "percentage": 0.19
+  },
+  {
+   "name": "Denmark",
+   "code": "DK",
+   "flag": "🇩🇰",
+   "count": 81,
+   "percentage": 0.18
+  },
+  {
+   "name": "Ireland",
+   "code": "IE",
+   "flag": "🇮🇪",
+   "count": 78,
+   "percentage": 0.17
+  },
+  {
+   "name": "Belgium",
+   "code": "BE",
+   "flag": "🇧🇪",
+   "count": 65,
+   "percentage": 0.14
+  },
+  {
+   "name": "Norway",
+   "code": "NO",
+   "flag": "🇳🇴",
+   "count": 64,
+   "percentage": 0.14
+  },
+  {
+   "name": "Malaysia",
+   "code": "MY",
+   "flag": "🇲🇾",
+   "count": 54,
+   "percentage": 0.12
+  },
+  {
+   "name": "Singapore",
+   "code": "SG",
+   "flag": "🇸🇬",
+   "count": 52,
+   "percentage": 0.11
+  },
+  {
+   "name": "Ukraine",
+   "code": "UA",
+   "flag": "🇺🇦",
+   "count": 48,
+   "percentage": 0.1
+  },
+  {
+   "name": "Portugal",
+   "code": "PT",
+   "flag": "🇵🇹",
+   "count": 46,
+   "percentage": 0.1
+  },
+  {
+   "name": "Hungary",
+   "code": "HU",
+   "flag": "🇭🇺",
+   "count": 38,
+   "percentage": 0.08
+  },
+  {
+   "name": "Argentina",
+   "code": "AR",
+   "flag": "🇦🇷",
+   "count": 38,
+   "percentage": 0.08
+  },
+  {
+   "name": "Greece",
+   "code": "GR",
+   "flag": "🇬🇷",
+   "count": 33,
+   "percentage": 0.07
+  },
+  {
+   "name": "Bulgaria",
+   "code": "BG",
+   "flag": "🇧🇬",
+   "count": 27,
+   "percentage": 0.06
+  },
+  {
+   "name": "New Zealand",
+   "code": "NZ",
+   "flag": "🇳🇿",
+   "count": 26,
+   "percentage": 0.06
+  },
+  {
+   "name": "Mexico",
+   "code": "MX",
+   "flag": "🇲🇽",
+   "count": 25,
+   "percentage": 0.05
+  },
+  {
+   "name": "Turkey",
+   "code": "TR",
+   "flag": "🇹🇷",
+   "count": 23,
+   "percentage": 0.05
+  },
+  {
+   "name": "Czech Republic",
+   "code": "CZ",
+   "flag": "🇨🇿",
+   "count": 22,
+   "percentage": 0.05
+  },
+  {
+   "name": "Vietnam",
+   "code": "VN",
+   "flag": "🇻🇳",
+   "count": 20,
+   "percentage": 0.04
+  },
+  {
+   "name": "Indonesia",
+   "code": "ID",
+   "flag": "🇮🇩",
+   "count": 20,
+   "percentage": 0.04
+  },
+  {
+   "name": "Pakistan",
+   "code": "PK",
+   "flag": "🇵🇰",
+   "count": 20,
+   "percentage": 0.04
+  },
+  {
+   "name": "Serbia",
+   "code": "RS",
+   "flag": "🇷🇸",
+   "count": 19,
+   "percentage": 0.04
+  },
+  {
+   "name": "Lithuania",
+   "code": "LT",
+   "flag": "🇱🇹",
+   "count": 15,
+   "percentage": 0.03
+  },
+  {
+   "name": "South Africa",
+   "code": "ZA",
+   "flag": "🇿🇦",
+   "count": 15,
+   "percentage": 0.03
+  },
+  {
+   "name": "Croatia",
+   "code": "HR",
+   "flag": "🇭🇷",
+   "count": 13,
+   "percentage": 0.03
+  },
+  {
+   "name": "Egypt",
+   "code": "EG",
+   "flag": "🇪🇬",
+   "count": 13,
+   "percentage": 0.03
+  },
+  {
+   "name": "Estonia",
+   "code": "EE",
+   "flag": "🇪🇪",
+   "count": 12,
+   "percentage": 0.03
+  },
+  {
+   "name": "United Arab Emirates",
+   "code": "AE",
+   "flag": "🇦🇪",
+   "count": 11,
+   "percentage": 0.02
+  },
+  {
+   "name": "Chile",
+   "code": "CL",
+   "flag": "🇨🇱",
+   "count": 10,
+   "percentage": 0.02
+  },
+  {
+   "name": "Slovakia",
+   "code": "SK",
+   "flag": "🇸🇰",
+   "count": 10,
+   "percentage": 0.02
+  },
+  {
+   "name": "Slovenia",
+   "code": "SI",
+   "flag": "🇸🇮",
+   "count": 10,
+   "percentage": 0.02
+  },
+  {
+   "name": "Bangladesh",
+   "code": "BD",
+   "flag": "🇧🇩",
+   "count": 9,
+   "percentage": 0.02
+  },
+  {
+   "name": "Kenya",
+   "code": "KE",
+   "flag": "🇰🇪",
+   "count": 9,
+   "percentage": 0.02
+  },
+  {
+   "name": "Hong Kong",
+   "code": "HK",
+   "flag": "🇭🇰",
+   "count": 9,
+   "percentage": 0.02
+  },
+  {
+   "name": "Colombia",
+   "code": "CO",
+   "flag": "🇨🇴",
+   "count": 8,
+   "percentage": 0.02
+  },
+  {
+   "name": "Cyprus",
+   "code": "CY",
+   "flag": "🇨🇾",
+   "count": 8,
+   "percentage": 0.02
+  },
+  {
+   "name": "Thailand",
+   "code": "TH",
+   "flag": "🇹🇭",
+   "count": 8,
+   "percentage": 0.02
+  },
+  {
+   "name": "Philippines",
+   "code": "PH",
+   "flag": "🇵🇭",
+   "count": 7,
+   "percentage": 0.02
+  },
+  {
+   "name": "Belarus",
+   "code": "BY",
+   "flag": "🇧🇾",
+   "count": 7,
+   "percentage": 0.02
+  },
+  {
+   "name": "Kazakhstan",
+   "code": "KZ",
+   "flag": "🇰🇿",
+   "count": 6,
+   "percentage": 0.01
+  },
+  {
+   "name": "Iran",
+   "code": "IR",
+   "flag": "🇮🇷",
+   "count": 6,
+   "percentage": 0.01
+  },
+  {
+   "name": "Iceland",
+   "code": "IS",
+   "flag": "🇮🇸",
+   "count": 5,
+   "percentage": 0.01
+  },
+  {
+   "name": "Georgia",
+   "code": "GE",
+   "flag": "🇬🇪",
+   "count": 5,
+   "percentage": 0.01
+  },
+  {
+   "name": "Costa Rica",
+   "code": "CR",
+   "flag": "🇨🇷",
+   "count": 5,
+   "percentage": 0.01
+  },
+  {
+   "name": "Sri Lanka",
+   "code": "LK",
+   "flag": "🇱🇰",
+   "count": 4,
+   "percentage": 0.01
+  },
+  {
+   "name": "Latvia",
+   "code": "LV",
+   "flag": "🇱🇻",
+   "count": 4,
+   "percentage": 0.01
+  },
+  {
+   "name": "Nepal",
+   "code": "NP",
+   "flag": "🇳🇵",
+   "count": 4,
+   "percentage": 0.01
+  },
+  {
+   "name": "Armenia",
+   "code": "AM",
+   "flag": "🇦🇲",
+   "count": 4,
+   "percentage": 0.01
+  },
+  {
+   "name": "Peru",
+   "code": "PE",
+   "flag": "🇵🇪",
+   "count": 3,
+   "percentage": 0.01
+  },
+  {
+   "name": "Lebanon",
+   "code": "LB",
+   "flag": "🇱🇧",
+   "count": 3,
+   "percentage": 0.01
+  },
+  {
+   "name": "Tunisia",
+   "code": "TN",
+   "flag": "🇹🇳",
+   "count": 3,
+   "percentage": 0.01
+  },
+  {
+   "name": "Uganda",
+   "code": "UG",
+   "flag": "🇺🇬",
+   "count": 3,
+   "percentage": 0.01
+  },
+  {
+   "name": "Morocco",
+   "code": "MA",
+   "flag": "🇲🇦",
+   "count": 3,
+   "percentage": 0.01
+  },
+  {
+   "name": "Uruguay",
+   "code": "UY",
+   "flag": "🇺🇾",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Bosnia and Herzegovina",
+   "code": "BA",
+   "flag": "🇧🇦",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Jamaica",
+   "code": "JM",
+   "flag": "🇯🇲",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Niger",
+   "code": "NE",
+   "flag": "🇳🇪",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Kuwait",
+   "code": "KW",
+   "flag": "🇰🇼",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Venezuela",
+   "code": "VE",
+   "flag": "🇻🇪",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Albania",
+   "code": "AL",
+   "flag": "🇦🇱",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Jordan",
+   "code": "JO",
+   "flag": "🇯🇴",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Algeria",
+   "code": "DZ",
+   "flag": "🇩🇿",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Iraq",
+   "code": "IQ",
+   "flag": "🇮🇶",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Paraguay",
+   "code": "PY",
+   "flag": "🇵🇾",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Nigeria",
+   "code": "NG",
+   "flag": "🇳🇬",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Macedonia",
+   "code": "MK",
+   "flag": "🇲🇰",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Cambodia",
+   "code": "KH",
+   "flag": "🇰🇭",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Saudi Arabia",
+   "code": "SA",
+   "flag": "🇸🇦",
+   "count": 2,
+   "percentage": 0
+  },
+  {
+   "name": "Ghana",
+   "code": "GH",
+   "flag": "🇬🇭",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Cameroon",
+   "code": "CM",
+   "flag": "🇨🇲",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Luxembourg",
+   "code": "LU",
+   "flag": "🇱🇺",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Maldives",
+   "code": "MV",
+   "flag": "🇲🇻",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Qatar",
+   "code": "QA",
+   "flag": "🇶🇦",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Macao",
+   "code": "MO",
+   "flag": "🇲🇴",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Afghanistan",
+   "code": "AF",
+   "flag": "🇦🇫",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Malta",
+   "code": "MT",
+   "flag": "🇲🇹",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Mozambique",
+   "code": "MZ",
+   "flag": "🇲🇿",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Montenegro",
+   "code": "ME",
+   "flag": "🇲🇪",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Cuba",
+   "code": "CU",
+   "flag": "🇨🇺",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Moldova",
+   "code": "MD",
+   "flag": "🇲🇩",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Uzbekistan",
+   "code": "UZ",
+   "flag": "🇺🇿",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Isle of Man",
+   "code": "IM",
+   "flag": "🇮🇲",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Mongolia",
+   "code": "MN",
+   "flag": "🇲🇳",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Guernsey",
+   "code": "GG",
+   "flag": "🇬🇬",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Mauritius",
+   "code": "MU",
+   "flag": "🇲🇺",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "French Polynesia",
+   "code": "PF",
+   "flag": "🇵🇫",
+   "count": 1,
+   "percentage": 0
+  },
+  {
+   "name": "Ecuador",
+   "code": "EC",
+   "flag": "🇪🇨",
+   "count": 1,
+   "percentage": 0
+  }
+ ]
+}

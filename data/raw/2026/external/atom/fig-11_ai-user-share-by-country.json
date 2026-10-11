@@ -1,0 +1,52 @@
+[
+ {
+  "period": "Oct 24",
+  "unitedStates": 27,
+  "china": 8
+ },
+ {
+  "period": "Nov 24",
+  "unitedStates": 26,
+  "china": 8
+ },
+ {
+  "period": "Dec 24",
+  "unitedStates": 26,
+  "china": 8.5
+ },
+ {
+  "period": "Jan 25",
+  "unitedStates": 25,
+  "china": 9
+ },
+ {
+  "period": "Feb 25",
+  "unitedStates": 25,
+  "china": 9
+ },
+ {
+  "period": "Mar 25",
+  "unitedStates": 25,
+  "china": 13
+ },
+ {
+  "period": "Apr 25",
+  "unitedStates": 26,
+  "china": 17
+ },
+ {
+  "period": "May 25",
+  "unitedStates": 27,
+  "china": 21
+ },
+ {
+  "period": "Jun 25",
+  "unitedStates": 28,
+  "china": 21
+ },
+ {
+  "period": "Jul 25",
+  "unitedStates": 29,
+  "china": 20
+ }
+]

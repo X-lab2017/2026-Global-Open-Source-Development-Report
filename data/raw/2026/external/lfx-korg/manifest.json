@@ -1,0 +1,55 @@
+{
+  "source": "https://insights.linuxfoundation.org",
+  "project": "korg",
+  "exported_at": "2026-10-11T03:56:12.265455+00:00",
+  "endpoints": [
+    {
+      "file": "contributor-leaderboard.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/contributor-leaderboard?limit=100&includeCollaborations=false",
+      "bytes": 26261
+    },
+    {
+      "file": "organization-leaderboard.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/organization-leaderboard?limit=100&includeCollaborations=false",
+      "bytes": 30898
+    },
+    {
+      "file": "active-contributors.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/active-contributors",
+      "bytes": 6812
+    },
+    {
+      "file": "active-organizations.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/active-organizations",
+      "bytes": 6759
+    },
+    {
+      "file": "geographical-distribution.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/geographical-distribution?includeCollaborations=false",
+      "bytes": 12653
+    },
+    {
+      "file": "contributor-dependency.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/contributor-dependency?includeCollaborations=false",
+      "bytes": 1513
+    },
+    {
+      "file": "organization-dependency.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/organization-dependency?includeCollaborations=false",
+      "bytes": 1672
+    },
+    {
+      "file": "activity-types.json",
+      "status": "ok",
+      "endpoint": "/api/widget/contributors/activity-types?includeCollaborations=false",
+      "bytes": 844
+    }
+  ]
+}

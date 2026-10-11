@@ -1,0 +1,354 @@
+{
+ "summary": {
+  "current": 41779,
+  "previous": 7200,
+  "percentageChange": 480.26388888888886,
+  "changeValue": 34579,
+  "periodFrom": "2010-01-01T00:00:00.000Z",
+  "periodTo": "2026-10-11T03:56:01.841Z"
+ },
+ "maintainerCount": 2114,
+ "reviewerCount": 0,
+ "data": [
+  {
+   "startDate": "2010-01-01",
+   "endDate": "2010-03-31",
+   "contributors": 1754
+  },
+  {
+   "startDate": "2010-04-01",
+   "endDate": "2010-06-30",
+   "contributors": 1842
+  },
+  {
+   "startDate": "2010-07-01",
+   "endDate": "2010-09-30",
+   "contributors": 1917
+  },
+  {
+   "startDate": "2010-10-01",
+   "endDate": "2010-12-31",
+   "contributors": 2003
+  },
+  {
+   "startDate": "2011-01-01",
+   "endDate": "2011-03-31",
+   "contributors": 2110
+  },
+  {
+   "startDate": "2011-04-01",
+   "endDate": "2011-06-30",
+   "contributors": 1959
+  },
+  {
+   "startDate": "2011-07-01",
+   "endDate": "2011-09-30",
+   "contributors": 1961
+  },
+  {
+   "startDate": "2011-10-01",
+   "endDate": "2011-12-31",
+   "contributors": 1926
+  },
+  {
+   "startDate": "2012-01-01",
+   "endDate": "2012-03-31",
+   "contributors": 2093
+  },
+  {
+   "startDate": "2012-04-01",
+   "endDate": "2012-06-30",
+   "contributors": 2144
+  },
+  {
+   "startDate": "2012-07-01",
+   "endDate": "2012-09-30",
+   "contributors": 2189
+  },
+  {
+   "startDate": "2012-10-01",
+   "endDate": "2012-12-31",
+   "contributors": 2155
+  },
+  {
+   "startDate": "2013-01-01",
+   "endDate": "2013-03-31",
+   "contributors": 2323
+  },
+  {
+   "startDate": "2013-04-01",
+   "endDate": "2013-06-30",
+   "contributors": 2303
+  },
+  {
+   "startDate": "2013-07-01",
+   "endDate": "2013-09-30",
+   "contributors": 2322
+  },
+  {
+   "startDate": "2013-10-01",
+   "endDate": "2013-12-31",
+   "contributors": 2304
+  },
+  {
+   "startDate": "2014-01-01",
+   "endDate": "2014-03-31",
+   "contributors": 2363
+  },
+  {
+   "startDate": "2014-04-01",
+   "endDate": "2014-06-30",
+   "contributors": 2537
+  },
+  {
+   "startDate": "2014-07-01",
+   "endDate": "2014-09-30",
+   "contributors": 2605
+  },
+  {
+   "startDate": "2014-10-01",
+   "endDate": "2014-12-31",
+   "contributors": 2408
+  },
+  {
+   "startDate": "2015-01-01",
+   "endDate": "2015-03-31",
+   "contributors": 2668
+  },
+  {
+   "startDate": "2015-04-01",
+   "endDate": "2015-06-30",
+   "contributors": 2587
+  },
+  {
+   "startDate": "2015-07-01",
+   "endDate": "2015-09-30",
+   "contributors": 2709
+  },
+  {
+   "startDate": "2015-10-01",
+   "endDate": "2015-12-31",
+   "contributors": 2675
+  },
+  {
+   "startDate": "2016-01-01",
+   "endDate": "2016-03-31",
+   "contributors": 2750
+  },
+  {
+   "startDate": "2016-04-01",
+   "endDate": "2016-06-30",
+   "contributors": 2711
+  },
+  {
+   "startDate": "2016-07-01",
+   "endDate": "2016-09-30",
+   "contributors": 2729
+  },
+  {
+   "startDate": "2016-10-01",
+   "endDate": "2016-12-31",
+   "contributors": 2647
+  },
+  {
+   "startDate": "2017-01-01",
+   "endDate": "2017-03-31",
+   "contributors": 2959
+  },
+  {
+   "startDate": "2017-04-01",
+   "endDate": "2017-06-30",
+   "contributors": 2960
+  },
+  {
+   "startDate": "2017-07-01",
+   "endDate": "2017-09-30",
+   "contributors": 2932
+  },
+  {
+   "startDate": "2017-10-01",
+   "endDate": "2017-12-31",
+   "contributors": 2890
+  },
+  {
+   "startDate": "2018-01-01",
+   "endDate": "2018-03-31",
+   "contributors": 2953
+  },
+  {
+   "startDate": "2018-04-01",
+   "endDate": "2018-06-30",
+   "contributors": 2896
+  },
+  {
+   "startDate": "2018-07-01",
+   "endDate": "2018-09-30",
+   "contributors": 2846
+  },
+  {
+   "startDate": "2018-10-01",
+   "endDate": "2018-12-31",
+   "contributors": 2904
+  },
+  {
+   "startDate": "2019-01-01",
+   "endDate": "2019-03-31",
+   "contributors": 2981
+  },
+  {
+   "startDate": "2019-04-01",
+   "endDate": "2019-06-30",
+   "contributors": 3048
+  },
+  {
+   "startDate": "2019-07-01",
+   "endDate": "2019-09-30",
+   "contributors": 3009
+  },
+  {
+   "startDate": "2019-10-01",
+   "endDate": "2019-12-31",
+   "contributors": 3017
+  },
+  {
+   "startDate": "2020-01-01",
+   "endDate": "2020-03-31",
+   "contributors": 3048
+  },
+  {
+   "startDate": "2020-04-01",
+   "endDate": "2020-06-30",
+   "contributors": 3128
+  },
+  {
+   "startDate": "2020-07-01",
+   "endDate": "2020-09-30",
+   "contributors": 3253
+  },
+  {
+   "startDate": "2020-10-01",
+   "endDate": "2020-12-31",
+   "contributors": 3138
+  },
+  {
+   "startDate": "2021-01-01",
+   "endDate": "2021-03-31",
+   "contributors": 3329
+  },
+  {
+   "startDate": "2021-04-01",
+   "endDate": "2021-06-30",
+   "contributors": 3334
+  },
+  {
+   "startDate": "2021-07-01",
+   "endDate": "2021-09-30",
+   "contributors": 3126
+  },
+  {
+   "startDate": "2021-10-01",
+   "endDate": "2021-12-31",
+   "contributors": 3258
+  },
+  {
+   "startDate": "2022-01-01",
+   "endDate": "2022-03-31",
+   "contributors": 3281
+  },
+  {
+   "startDate": "2022-04-01",
+   "endDate": "2022-06-30",
+   "contributors": 3447
+  },
+  {
+   "startDate": "2022-07-01",
+   "endDate": "2022-09-30",
+   "contributors": 3558
+  },
+  {
+   "startDate": "2022-10-01",
+   "endDate": "2022-12-31",
+   "contributors": 3389
+  },
+  {
+   "startDate": "2023-01-01",
+   "endDate": "2023-03-31",
+   "contributors": 3514
+  },
+  {
+   "startDate": "2023-04-01",
+   "endDate": "2023-06-30",
+   "contributors": 3468
+  },
+  {
+   "startDate": "2023-07-01",
+   "endDate": "2023-09-30",
+   "contributors": 3391
+  },
+  {
+   "startDate": "2023-10-01",
+   "endDate": "2023-12-31",
+   "contributors": 3473
+  },
+  {
+   "startDate": "2024-01-01",
+   "endDate": "2024-03-31",
+   "contributors": 3421
+  },
+  {
+   "startDate": "2024-04-01",
+   "endDate": "2024-06-30",
+   "contributors": 3569
+  },
+  {
+   "startDate": "2024-07-01",
+   "endDate": "2024-09-30",
+   "contributors": 3507
+  },
+  {
+   "startDate": "2024-10-01",
+   "endDate": "2024-12-31",
+   "contributors": 3376
+  },
+  {
+   "startDate": "2025-01-01",
+   "endDate": "2025-03-31",
+   "contributors": 3450
+  },
+  {
+   "startDate": "2025-04-01",
+   "endDate": "2025-06-30",
+   "contributors": 3608
+  },
+  {
+   "startDate": "2025-07-01",
+   "endDate": "2025-09-30",
+   "contributors": 3821
+  },
+  {
+   "startDate": "2025-10-01",
+   "endDate": "2025-12-31",
+   "contributors": 3657
+  },
+  {
+   "startDate": "2026-01-01",
+   "endDate": "2026-03-31",
+   "contributors": 4238
+  },
+  {
+   "startDate": "2026-04-01",
+   "endDate": "2026-06-30",
+   "contributors": 4567
+  },
+  {
+   "startDate": "2026-07-01",
+   "endDate": "2026-09-30",
+   "contributors": 4358
+  },
+  {
+   "startDate": "2026-10-01",
+   "endDate": "2026-12-31",
+   "contributors": 363
+  }
+ ]
+}

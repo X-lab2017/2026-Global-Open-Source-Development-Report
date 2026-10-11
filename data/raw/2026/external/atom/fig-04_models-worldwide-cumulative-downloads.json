@@ -1,0 +1,176 @@
+[
+ {
+  "period": "Nov 23",
+  "usa": 7,
+  "china": 0,
+  "eu": 1
+ },
+ {
+  "period": "Dec 23",
+  "usa": 9,
+  "china": 0,
+  "eu": 1
+ },
+ {
+  "period": "Jan 24",
+  "usa": 11,
+  "china": 1,
+  "eu": 3
+ },
+ {
+  "period": "Feb 24",
+  "usa": 14,
+  "china": 1,
+  "eu": 6
+ },
+ {
+  "period": "Mar 24",
+  "usa": 17,
+  "china": 2,
+  "eu": 9
+ },
+ {
+  "period": "Apr 24",
+  "usa": 22,
+  "china": 2,
+  "eu": 15
+ },
+ {
+  "period": "May 24",
+  "usa": 27,
+  "china": 3,
+  "eu": 21
+ },
+ {
+  "period": "Jun 24",
+  "usa": 33,
+  "china": 5,
+  "eu": 25
+ },
+ {
+  "period": "Jul 24",
+  "usa": 39,
+  "china": 6,
+  "eu": 28
+ },
+ {
+  "period": "Aug 24",
+  "usa": 49,
+  "china": 9,
+  "eu": 32
+ },
+ {
+  "period": "Sep 24",
+  "usa": 60,
+  "china": 12,
+  "eu": 35
+ },
+ {
+  "period": "Oct 24",
+  "usa": 71,
+  "china": 17,
+  "eu": 38
+ },
+ {
+  "period": "Nov 24",
+  "usa": 92,
+  "china": 25,
+  "eu": 42
+ },
+ {
+  "period": "Dec 24",
+  "usa": 115,
+  "china": 38,
+  "eu": 45
+ },
+ {
+  "period": "Jan 25",
+  "usa": 134,
+  "china": 50,
+  "eu": 52
+ },
+ {
+  "period": "Feb 25",
+  "usa": 157,
+  "china": 67,
+  "eu": 59
+ },
+ {
+  "period": "Mar 25",
+  "usa": 177,
+  "china": 97,
+  "eu": 65
+ },
+ {
+  "period": "Apr 25",
+  "usa": 203,
+  "china": 129,
+  "eu": 72
+ },
+ {
+  "period": "May 25",
+  "usa": 227,
+  "china": 164,
+  "eu": 78
+ },
+ {
+  "period": "Jun 25",
+  "usa": 251,
+  "china": 203,
+  "eu": 83
+ },
+ {
+  "period": "Jul 25",
+  "usa": 273,
+  "china": 249,
+  "eu": 88
+ },
+ {
+  "period": "Aug 25",
+  "usa": 312,
+  "china": 335,
+  "eu": 96
+ },
+ {
+  "period": "Sep 25",
+  "usa": 377,
+  "china": 424,
+  "eu": 103
+ },
+ {
+  "period": "Oct 25",
+  "usa": 443,
+  "china": 521,
+  "eu": 111
+ },
+ {
+  "period": "Nov 25",
+  "usa": 495,
+  "china": 612,
+  "eu": 121
+ },
+ {
+  "period": "Dec 25",
+  "usa": 547,
+  "china": 716,
+  "eu": 131
+ },
+ {
+  "period": "Jan 26",
+  "usa": 610,
+  "china": 844,
+  "eu": 142
+ },
+ {
+  "period": "Feb 26",
+  "usa": 663,
+  "china": 971,
+  "eu": 150
+ },
+ {
+  "period": "Mar 26",
+  "usa": 723,
+  "china": 1151,
+  "eu": 163
+ }
+]

@@ -1,0 +1,48 @@
+{
+ "git": [
+  {
+   "key": "approved-commit",
+   "label": "Approved a commit"
+  },
+  {
+   "key": "authored-commit",
+   "label": "Authored a commit"
+  },
+  {
+   "key": "co-authored-commit",
+   "label": "Co-authored a commit"
+  },
+  {
+   "key": "committed-commit",
+   "label": "Committed a commit"
+  },
+  {
+   "key": "influenced-commit",
+   "label": "Influenced a commit"
+  },
+  {
+   "key": "informed-commit",
+   "label": "Informed a commit"
+  },
+  {
+   "key": "reported-commit",
+   "label": "Reported a commit"
+  },
+  {
+   "key": "resolved-commit",
+   "label": "Resolved a commit"
+  },
+  {
+   "key": "reviewed-commit",
+   "label": "Reviewed a commit"
+  },
+  {
+   "key": "signed-off-commit",
+   "label": "Signed off a commit"
+  },
+  {
+   "key": "tested-commit",
+   "label": "Tested a commit"
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+[
+ {
+  "bucket": "<1B",
+  "percentOfTotal": 7,
+  "downloads": 144
+ },
+ {
+  "bucket": "1-5B",
+  "percentOfTotal": 32.2,
+  "downloads": 659.8
+ },
+ {
+  "bucket": "7-9B",
+  "percentOfTotal": 37.9,
+  "downloads": 774.7
+ },
+ {
+  "bucket": "10-50B",
+  "percentOfTotal": 14.3,
+  "downloads": 293.6
+ },
+ {
+  "bucket": "50-100B",
+  "percentOfTotal": 3.9,
+  "downloads": 79.3
+ },
+ {
+  "bucket": "100-250B",
+  "percentOfTotal": 1.7,
+  "downloads": 34.4
+ },
+ {
+  "bucket": "250B+",
+  "percentOfTotal": 3,
+  "downloads": 60.6
+ }
+]

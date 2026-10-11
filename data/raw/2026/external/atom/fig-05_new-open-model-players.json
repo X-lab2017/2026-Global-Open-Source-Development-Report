@@ -1,0 +1,132 @@
+[
+ {
+  "period": "Jul 6",
+  "zaiOrg": 0,
+  "nvidia": 0,
+  "openai": 0,
+  "moonshotai": 0,
+  "minimax": 0,
+  "deepseek": 0,
+  "huggingface": 0
+ },
+ {
+  "period": "Jul 19",
+  "zaiOrg": 0,
+  "nvidia": 0,
+  "openai": 0,
+  "moonshotai": 0.4,
+  "minimax": 0.1,
+  "deepseek": 3.4,
+  "huggingface": 1.1
+ },
+ {
+  "period": "Aug 3",
+  "zaiOrg": 0.1,
+  "nvidia": 0,
+  "openai": 0,
+  "moonshotai": 0.8,
+  "minimax": 0.1,
+  "deepseek": 8.8,
+  "huggingface": 3.9
+ },
+ {
+  "period": "Aug 18",
+  "zaiOrg": 1.6,
+  "nvidia": 0.8,
+  "openai": 0.3,
+  "moonshotai": 1.1,
+  "minimax": 0.2,
+  "deepseek": 13.6,
+  "huggingface": 5.6
+ },
+ {
+  "period": "Sep 4",
+  "zaiOrg": 3.2,
+  "nvidia": 1.7,
+  "openai": 8.3,
+  "moonshotai": 1.7,
+  "minimax": 0.3,
+  "deepseek": 23.4,
+  "huggingface": 7
+ },
+ {
+  "period": "Sep 18",
+  "zaiOrg": 4.6,
+  "nvidia": 3.5,
+  "openai": 13.4,
+  "moonshotai": 2.1,
+  "minimax": 0.4,
+  "deepseek": 28.8,
+  "huggingface": 8.7
+ },
+ {
+  "period": "Oct 2",
+  "zaiOrg": 5.7,
+  "nvidia": 4.7,
+  "openai": 18.2,
+  "moonshotai": 2.3,
+  "minimax": 0.4,
+  "deepseek": 33.2,
+  "huggingface": 10.2
+ },
+ {
+  "period": "Oct 16",
+  "zaiOrg": 6.7,
+  "nvidia": 5.6,
+  "openai": 22.1,
+  "moonshotai": 2.5,
+  "minimax": 0.5,
+  "deepseek": 37.4,
+  "huggingface": 11.3
+ },
+ {
+  "period": "Oct 30",
+  "zaiOrg": 7.6,
+  "nvidia": 6.4,
+  "openai": 26.2,
+  "moonshotai": 2.7,
+  "minimax": 0.5,
+  "deepseek": 41.7,
+  "huggingface": 12.6
+ },
+ {
+  "period": "Nov 13",
+  "zaiOrg": 8.6,
+  "nvidia": 7.1,
+  "openai": 30.4,
+  "moonshotai": 3,
+  "minimax": 0.6,
+  "deepseek": 46.2,
+  "huggingface": 14.1
+ },
+ {
+  "period": "Nov 27",
+  "zaiOrg": 9.7,
+  "nvidia": 8.2,
+  "openai": 37.1,
+  "moonshotai": 3.2,
+  "minimax": 0.6,
+  "deepseek": 51.7,
+  "huggingface": 15.5
+ },
+ {
+  "period": "Dec 11",
+  "zaiOrg": 10.6,
+  "nvidia": 9.3,
+  "openai": 42.7,
+  "moonshotai": 3.4,
+  "minimax": 0.7,
+  "deepseek": 58.9,
+  "huggingface": 16.9
+ },
+ {
+  "period": "Dec 28",
+  "zaiOrg": 11.5,
+  "nvidia": 10.2,
+  "openai": 48.6,
+  "moonshotai": 3.7,
+  "minimax": 0.8,
+  "deepseek": 64.6,
+  "huggingface": 18
+ }
+]

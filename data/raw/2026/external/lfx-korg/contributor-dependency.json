@@ -1,0 +1,72 @@
+{
+ "topContributors": {
+  "count": 100,
+  "percentage": 45.93000000000003
+ },
+ "otherContributors": {
+  "count": 45753,
+  "percentage": 54.06999999999997
+ },
+ "list": [
+  {
+   "avatar": "https://avatars.githubusercontent.com/u/1053866?u=e7a17fe2fd2d92c6e18e50b0bc6296546267dafb&v=4",
+   "name": "David S. Miller",
+   "contributions": 236673,
+   "percentage": 3.73,
+   "roles": [
+    "maintainer"
+   ],
+   "githubHandleArray": [
+    "davem330"
+   ]
+  },
+  {
+   "avatar": "https://avatars.githubusercontent.com/u/1024025?v=4",
+   "name": "Linus Torvalds",
+   "contributions": 193264,
+   "percentage": 3.05,
+   "roles": [
+    "maintainer"
+   ],
+   "githubHandleArray": [
+    "torvalds"
+   ]
+  },
+  {
+   "avatar": "https://avatars.githubusercontent.com/u/14953?v=4",
+   "name": "Greg KH",
+   "contributions": 164535,
+   "percentage": 2.59,
+   "roles": [
+    "maintainer"
+   ],
+   "githubHandleArray": [
+    "gregkh"
+   ]
+  },
+  {
+   "avatar": "https://avatars.githubusercontent.com/u/2903?u=bfd4ef3385bcf27ae093f2bacf99b78dc917018c&v=4",
+   "name": "Mark Brown",
+   "contributions": 113560,
+   "percentage": 1.79,
+   "roles": [
+    "maintainer"
+   ],
+   "githubHandleArray": [
+    "broonie"
+   ]
+  },
+  {
+   "avatar": "https://avatars.githubusercontent.com/u/118310711?v=4",
+   "name": "Alex Deucher",
+   "contributions": 93428,
+   "percentage": 1.47,
+   "roles": [
+    "maintainer"
+   ],
+   "githubHandleArray": [
+    "alexdeucher"
+   ]
+  }
+ ]
+}

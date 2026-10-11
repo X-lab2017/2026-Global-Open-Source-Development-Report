@@ -1,0 +1,164 @@
+[
+ {
+  "month": "Aug 24",
+  "usScore": 1308.907449224918,
+  "usModel": "llama-3.1-405b-instruct",
+  "chinaScore": 1258.8447057493975,
+  "chinaModel": "deepseek-v2-api-0628",
+  "otherScore": 1286.7827790008785,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Sep 24",
+  "usScore": 1312.7298616713224,
+  "usModel": "llama-3.1-405b-instruct-bf16",
+  "chinaScore": 1278.649669346693,
+  "chinaModel": "qwen2.5-72b-instruct",
+  "otherScore": 1288.3696935735281,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Oct 24",
+  "usScore": 1311.4315632430132,
+  "usModel": "llama-3.1-405b-instruct-bf16",
+  "chinaScore": 1280.915363252416,
+  "chinaModel": "deepseek-v2.5",
+  "otherScore": 1289.2364875668995,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Nov 24",
+  "usScore": 1311.6509138965732,
+  "usModel": "llama-3.1-405b-instruct-fp8",
+  "chinaScore": 1282.7958171847617,
+  "chinaModel": "deepseek-v2.5",
+  "otherScore": 1289.6392561091684,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Dec 24",
+  "usScore": 1311.8963242690986,
+  "usModel": "llama-3.1-405b-instruct-fp8",
+  "chinaScore": 1333.379349219597,
+  "chinaModel": "deepseek-v3",
+  "otherScore": 1290.553856060554,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Jan 25",
+  "usScore": 1313.4185916868616,
+  "usModel": "llama-3.1-405b-instruct-bf16",
+  "chinaScore": 1375.4376662476902,
+  "chinaModel": "deepseek-r1",
+  "otherScore": 1291.0325691601668,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Feb 25",
+  "usScore": 1313.3346789800473,
+  "usModel": "llama-3.1-405b-instruct-bf16",
+  "chinaScore": 1379.4655929000608,
+  "chinaModel": "deepseek-r1",
+  "otherScore": 1291.1165736748123,
+  "otherModel": "mistral-large-2407"
+ },
+ {
+  "month": "Mar 25",
+  "usScore": 1338.5788805008956,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1379.4962035264855,
+  "chinaModel": "deepseek-r1",
+  "otherScore": 1330.816364982724,
+  "otherModel": "command-a-03-2025"
+ },
+ {
+  "month": "Apr 25",
+  "usScore": 1341.1781258659003,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1382.3390389963051,
+  "chinaModel": "deepseek-v3-0324",
+  "otherScore": 1324.4988056344866,
+  "otherModel": "command-a-03-2025"
+ },
+ {
+  "month": "May 25",
+  "usScore": 1342.6344845431306,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1382.4683086935163,
+  "chinaModel": "deepseek-v3-0324",
+  "otherScore": 1324.9159744420665,
+  "otherModel": "command-a-03-2025"
+ },
+ {
+  "month": "Jun 25",
+  "usScore": 1361.6515937855208,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1412.7934101888804,
+  "chinaModel": "deepseek-r1-0528",
+  "otherScore": 1344.9386642234583,
+  "otherModel": "command-a-03-2025"
+ },
+ {
+  "month": "Jul 25",
+  "usScore": 1364.5886014505356,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1419.8157394283194,
+  "chinaModel": "qwen3-235b-a22b-instruct-2507",
+  "otherScore": 1351.5787653881814,
+  "otherModel": "mistral-small-2506"
+ },
+ {
+  "month": "Aug 25",
+  "usScore": 1364.5886014505356,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1433,
+  "chinaModel": "qwen3-235b-a22b-instruct-2507",
+  "otherScore": 1351.5787653881814,
+  "otherModel": "mistral-small-2506"
+ },
+ {
+  "month": "Sep 25",
+  "usScore": 1365,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1433,
+  "chinaModel": "qwen3-235b-a22b-instruct-2507",
+  "otherScore": 1352,
+  "otherModel": "mistral-small-2506"
+ },
+ {
+  "month": "Oct 25",
+  "usScore": 1365,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1433,
+  "chinaModel": "qwen3-235b-a22b-instruct-2507",
+  "otherScore": 1352,
+  "otherModel": "mistral-small-2506"
+ },
+ {
+  "month": "Nov 25",
+  "usScore": 1365,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1433,
+  "chinaModel": "qwen3-235b-a22b-instruct-2507",
+  "otherScore": 1352,
+  "otherModel": "mistral-small-2506"
+ },
+ {
+  "month": "Dec 25",
+  "usScore": 1365,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1433,
+  "chinaModel": "qwen3-235b-a22b-instruct-2507",
+  "otherScore": 1352,
+  "otherModel": "mistral-small-2506"
+ },
+ {
+  "month": "Jan 26",
+  "usScore": 1365,
+  "usModel": "gemma-3-27b-it",
+  "chinaScore": 1439,
+  "chinaModel": "glm-4.7",
+  "otherScore": 1415,
+  "otherModel": "mistral-large-3"
+ }
+]

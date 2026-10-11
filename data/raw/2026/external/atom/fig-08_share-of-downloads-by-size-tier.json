@@ -1,0 +1,22 @@
+[
+ {
+  "sizeTier": "<10B",
+  "deepseek": 4,
+  "qwen": 42
+ },
+ {
+  "sizeTier": "10-100B",
+  "deepseek": 10,
+  "qwen": 33
+ },
+ {
+  "sizeTier": "100B+",
+  "deepseek": 39,
+  "qwen": 4
+ },
+ {
+  "sizeTier": "250B+",
+  "deepseek": 56,
+  "qwen": 1
+ }
+]

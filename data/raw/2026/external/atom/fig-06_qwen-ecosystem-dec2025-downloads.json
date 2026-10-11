@@ -1,0 +1,26 @@
+[
+ {
+  "name": "Qwen",
+  "qwen": 87.5,
+  "metaLlama": 0,
+  "deepseek": 0,
+  "openai": 0,
+  "mistral": 0,
+  "nvidia": 0,
+  "zaiOrg": 0,
+  "moonshotai": 0,
+  "minimax": 0
+ },
+ {
+  "name": "All Others",
+  "qwen": 0,
+  "metaLlama": 26.5,
+  "deepseek": 12.5,
+  "openai": 10.9,
+  "mistral": 7.2,
+  "nvidia": 1.9,
+  "zaiOrg": 1.7,
+  "moonshotai": 0.4,
+  "minimax": 0.2
+ }
+]

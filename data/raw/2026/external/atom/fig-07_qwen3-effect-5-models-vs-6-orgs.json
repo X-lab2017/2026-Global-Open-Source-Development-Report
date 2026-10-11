@@ -1,0 +1,30 @@
+[
+ {
+  "name": "5 Qwen3 Models",
+  "qwen06B": 8.3,
+  "qwen17B": 5.3,
+  "qwen8B": 4.4,
+  "qwen4BInstruct": 4.1,
+  "qwen4B": 3.8,
+  "mistral": 0,
+  "openai": 0,
+  "nvidia": 0,
+  "zaiOrg": 0,
+  "moonshotai": 0,
+  "minimax": 0
+ },
+ {
+  "name": "6 Organizations",
+  "qwen06B": 0,
+  "qwen17B": 0,
+  "qwen8B": 0,
+  "qwen4BInstruct": 0,
+  "qwen4B": 0,
+  "mistral": 7.2,
+  "openai": 10.9,
+  "nvidia": 1.9,
+  "zaiOrg": 1.7,
+  "moonshotai": 0.4,
+  "minimax": 0.2
+ }
+]

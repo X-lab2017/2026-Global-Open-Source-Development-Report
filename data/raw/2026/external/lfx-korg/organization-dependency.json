@@ -1,0 +1,57 @@
+{
+ "topOrganizations": {
+  "count": 9,
+  "percentage": 52.97
+ },
+ "otherOrganizations": {
+  "count": 1,
+  "percentage": 47.03
+ },
+ "list": [
+  {
+   "id": "d7bf07d9-780b-4279-bfbc-d83f85950353",
+   "slug": "red-hat",
+   "logo": "https://avatars.githubusercontent.com/u/33972111?s=200&v=4",
+   "name": "Red Hat",
+   "contributions": 725866,
+   "percentage": 14.95,
+   "website": ""
+  },
+  {
+   "id": "64ac334b-50b9-4b40-bf54-301489f432e6",
+   "slug": "intel-corporation",
+   "logo": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://intel.com&size=64",
+   "name": "Intel Corporation",
+   "contributions": 537913,
+   "percentage": 11.08,
+   "website": ""
+  },
+  {
+   "id": "cdfbdeb0-5d40-11ee-a43d-93b0a1d0bf78",
+   "slug": "linux-kernel",
+   "logo": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://kernel.org&size=64",
+   "name": "Linux Kernel",
+   "contributions": 277346,
+   "percentage": 5.71,
+   "website": ""
+  },
+  {
+   "id": "9f7f73b0-95d6-49c2-bffe-8300c03852ef",
+   "slug": "linaro",
+   "logo": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://linaro.org&size=64",
+   "name": "Linaro",
+   "contributions": 233646,
+   "percentage": 4.81,
+   "website": ""
+  },
+  {
+   "id": "987a49ec-31c9-4611-a5f0-a0ce52a999b2",
+   "slug": "suse",
+   "logo": "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://suse.com&size=64",
+   "name": "SUSE",
+   "contributions": 200253,
+   "percentage": 4.12,
+   "website": ""
+  }
+ ]
+}

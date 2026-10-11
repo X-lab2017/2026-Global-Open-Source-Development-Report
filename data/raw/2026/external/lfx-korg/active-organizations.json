@@ -1,0 +1,352 @@
+{
+ "summary": {
+  "current": 5263,
+  "previous": 1201,
+  "percentageChange": 338.218151540383,
+  "changeValue": 4062,
+  "periodFrom": "2010-01-01T00:00:00.000Z",
+  "periodTo": "2026-10-11T03:56:03.712Z"
+ },
+ "data": [
+  {
+   "startDate": "2010-01-01",
+   "endDate": "2010-03-31",
+   "organizations": 419
+  },
+  {
+   "startDate": "2010-04-01",
+   "endDate": "2010-06-30",
+   "organizations": 454
+  },
+  {
+   "startDate": "2010-07-01",
+   "endDate": "2010-09-30",
+   "organizations": 444
+  },
+  {
+   "startDate": "2010-10-01",
+   "endDate": "2010-12-31",
+   "organizations": 448
+  },
+  {
+   "startDate": "2011-01-01",
+   "endDate": "2011-03-31",
+   "organizations": 492
+  },
+  {
+   "startDate": "2011-04-01",
+   "endDate": "2011-06-30",
+   "organizations": 458
+  },
+  {
+   "startDate": "2011-07-01",
+   "endDate": "2011-09-30",
+   "organizations": 467
+  },
+  {
+   "startDate": "2011-10-01",
+   "endDate": "2011-12-31",
+   "organizations": 472
+  },
+  {
+   "startDate": "2012-01-01",
+   "endDate": "2012-03-31",
+   "organizations": 503
+  },
+  {
+   "startDate": "2012-04-01",
+   "endDate": "2012-06-30",
+   "organizations": 495
+  },
+  {
+   "startDate": "2012-07-01",
+   "endDate": "2012-09-30",
+   "organizations": 499
+  },
+  {
+   "startDate": "2012-10-01",
+   "endDate": "2012-12-31",
+   "organizations": 484
+  },
+  {
+   "startDate": "2013-01-01",
+   "endDate": "2013-03-31",
+   "organizations": 502
+  },
+  {
+   "startDate": "2013-04-01",
+   "endDate": "2013-06-30",
+   "organizations": 487
+  },
+  {
+   "startDate": "2013-07-01",
+   "endDate": "2013-09-30",
+   "organizations": 494
+  },
+  {
+   "startDate": "2013-10-01",
+   "endDate": "2013-12-31",
+   "organizations": 487
+  },
+  {
+   "startDate": "2014-01-01",
+   "endDate": "2014-03-31",
+   "organizations": 528
+  },
+  {
+   "startDate": "2014-04-01",
+   "endDate": "2014-06-30",
+   "organizations": 546
+  },
+  {
+   "startDate": "2014-07-01",
+   "endDate": "2014-09-30",
+   "organizations": 587
+  },
+  {
+   "startDate": "2014-10-01",
+   "endDate": "2014-12-31",
+   "organizations": 540
+  },
+  {
+   "startDate": "2015-01-01",
+   "endDate": "2015-03-31",
+   "organizations": 604
+  },
+  {
+   "startDate": "2015-04-01",
+   "endDate": "2015-06-30",
+   "organizations": 606
+  },
+  {
+   "startDate": "2015-07-01",
+   "endDate": "2015-09-30",
+   "organizations": 610
+  },
+  {
+   "startDate": "2015-10-01",
+   "endDate": "2015-12-31",
+   "organizations": 578
+  },
+  {
+   "startDate": "2016-01-01",
+   "endDate": "2016-03-31",
+   "organizations": 616
+  },
+  {
+   "startDate": "2016-04-01",
+   "endDate": "2016-06-30",
+   "organizations": 628
+  },
+  {
+   "startDate": "2016-07-01",
+   "endDate": "2016-09-30",
+   "organizations": 613
+  },
+  {
+   "startDate": "2016-10-01",
+   "endDate": "2016-12-31",
+   "organizations": 605
+  },
+  {
+   "startDate": "2017-01-01",
+   "endDate": "2017-03-31",
+   "organizations": 639
+  },
+  {
+   "startDate": "2017-04-01",
+   "endDate": "2017-06-30",
+   "organizations": 645
+  },
+  {
+   "startDate": "2017-07-01",
+   "endDate": "2017-09-30",
+   "organizations": 646
+  },
+  {
+   "startDate": "2017-10-01",
+   "endDate": "2017-12-31",
+   "organizations": 647
+  },
+  {
+   "startDate": "2018-01-01",
+   "endDate": "2018-03-31",
+   "organizations": 666
+  },
+  {
+   "startDate": "2018-04-01",
+   "endDate": "2018-06-30",
+   "organizations": 629
+  },
+  {
+   "startDate": "2018-07-01",
+   "endDate": "2018-09-30",
+   "organizations": 624
+  },
+  {
+   "startDate": "2018-10-01",
+   "endDate": "2018-12-31",
+   "organizations": 649
+  },
+  {
+   "startDate": "2019-01-01",
+   "endDate": "2019-03-31",
+   "organizations": 638
+  },
+  {
+   "startDate": "2019-04-01",
+   "endDate": "2019-06-30",
+   "organizations": 658
+  },
+  {
+   "startDate": "2019-07-01",
+   "endDate": "2019-09-30",
+   "organizations": 644
+  },
+  {
+   "startDate": "2019-10-01",
+   "endDate": "2019-12-31",
+   "organizations": 656
+  },
+  {
+   "startDate": "2020-01-01",
+   "endDate": "2020-03-31",
+   "organizations": 657
+  },
+  {
+   "startDate": "2020-04-01",
+   "endDate": "2020-06-30",
+   "organizations": 672
+  },
+  {
+   "startDate": "2020-07-01",
+   "endDate": "2020-09-30",
+   "organizations": 708
+  },
+  {
+   "startDate": "2020-10-01",
+   "endDate": "2020-12-31",
+   "organizations": 663
+  },
+  {
+   "startDate": "2021-01-01",
+   "endDate": "2021-03-31",
+   "organizations": 705
+  },
+  {
+   "startDate": "2021-04-01",
+   "endDate": "2021-06-30",
+   "organizations": 713
+  },
+  {
+   "startDate": "2021-07-01",
+   "endDate": "2021-09-30",
+   "organizations": 679
+  },
+  {
+   "startDate": "2021-10-01",
+   "endDate": "2021-12-31",
+   "organizations": 702
+  },
+  {
+   "startDate": "2022-01-01",
+   "endDate": "2022-03-31",
+   "organizations": 693
+  },
+  {
+   "startDate": "2022-04-01",
+   "endDate": "2022-06-30",
+   "organizations": 715
+  },
+  {
+   "startDate": "2022-07-01",
+   "endDate": "2022-09-30",
+   "organizations": 709
+  },
+  {
+   "startDate": "2022-10-01",
+   "endDate": "2022-12-31",
+   "organizations": 672
+  },
+  {
+   "startDate": "2023-01-01",
+   "endDate": "2023-03-31",
+   "organizations": 714
+  },
+  {
+   "startDate": "2023-04-01",
+   "endDate": "2023-06-30",
+   "organizations": 688
+  },
+  {
+   "startDate": "2023-07-01",
+   "endDate": "2023-09-30",
+   "organizations": 659
+  },
+  {
+   "startDate": "2023-10-01",
+   "endDate": "2023-12-31",
+   "organizations": 663
+  },
+  {
+   "startDate": "2024-01-01",
+   "endDate": "2024-03-31",
+   "organizations": 636
+  },
+  {
+   "startDate": "2024-04-01",
+   "endDate": "2024-06-30",
+   "organizations": 616
+  },
+  {
+   "startDate": "2024-07-01",
+   "endDate": "2024-09-30",
+   "organizations": 600
+  },
+  {
+   "startDate": "2024-10-01",
+   "endDate": "2024-12-31",
+   "organizations": 568
+  },
+  {
+   "startDate": "2025-01-01",
+   "endDate": "2025-03-31",
+   "organizations": 549
+  },
+  {
+   "startDate": "2025-04-01",
+   "endDate": "2025-06-30",
+   "organizations": 567
+  },
+  {
+   "startDate": "2025-07-01",
+   "endDate": "2025-09-30",
+   "organizations": 572
+  },
+  {
+   "startDate": "2025-10-01",
+   "endDate": "2025-12-31",
+   "organizations": 548
+  },
+  {
+   "startDate": "2026-01-01",
+   "endDate": "2026-03-31",
+   "organizations": 608
+  },
+  {
+   "startDate": "2026-04-01",
+   "endDate": "2026-06-30",
+   "organizations": 575
+  },
+  {
+   "startDate": "2026-07-01",
+   "endDate": "2026-09-30",
+   "organizations": 554
+  },
+  {
+   "startDate": "2026-10-01",
+   "endDate": "2026-12-31",
+   "organizations": 71
+  }
+ ]
+}

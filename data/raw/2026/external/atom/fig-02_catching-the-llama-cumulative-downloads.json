@@ -1,0 +1,254 @@
+[
+ {
+  "date": "Nov 23",
+  "qwen": 4,
+  "metaLlama": 25,
+  "mistral": 36,
+  "google": 0,
+  "deepseek": 21,
+  "others": 14
+ },
+ {
+  "date": "Dec 23",
+  "qwen": 2,
+  "metaLlama": 11,
+  "mistral": 57,
+  "google": 0,
+  "deepseek": 2,
+  "others": 28
+ },
+ {
+  "date": "Jan 24",
+  "qwen": 1,
+  "metaLlama": 3,
+  "mistral": 54,
+  "google": 0,
+  "deepseek": 5,
+  "others": 37
+ },
+ {
+  "date": "Feb 24",
+  "qwen": 5,
+  "metaLlama": 9,
+  "mistral": 34,
+  "google": 12,
+  "deepseek": 3,
+  "others": 37
+ },
+ {
+  "date": "Mar 24",
+  "qwen": 4,
+  "metaLlama": 11,
+  "mistral": 42,
+  "google": 18,
+  "deepseek": 1,
+  "others": 24
+ },
+ {
+  "date": "Apr 24",
+  "qwen": 5,
+  "metaLlama": 38,
+  "mistral": 16,
+  "google": 11,
+  "deepseek": 2,
+  "others": 28
+ },
+ {
+  "date": "May 24",
+  "qwen": 4,
+  "metaLlama": 42,
+  "mistral": 21,
+  "google": 4,
+  "deepseek": 2,
+  "others": 27
+ },
+ {
+  "date": "Jun 24",
+  "qwen": 31,
+  "metaLlama": 24,
+  "mistral": 16,
+  "google": 5,
+  "deepseek": 5,
+  "others": 19
+ },
+ {
+  "date": "Jul 24",
+  "qwen": 9,
+  "metaLlama": 30,
+  "mistral": 15,
+  "google": 9,
+  "deepseek": 13,
+  "others": 24
+ },
+ {
+  "date": "Aug 24",
+  "qwen": 9,
+  "metaLlama": 44,
+  "mistral": 11,
+  "google": 10,
+  "deepseek": 3,
+  "others": 23
+ },
+ {
+  "date": "Sep 24",
+  "qwen": 32,
+  "metaLlama": 41,
+  "mistral": 9,
+  "google": 7,
+  "deepseek": 2,
+  "others": 9
+ },
+ {
+  "date": "Oct 24",
+  "qwen": 25,
+  "metaLlama": 39,
+  "mistral": 7,
+  "google": 10,
+  "deepseek": 2,
+  "others": 17
+ },
+ {
+  "date": "Nov 24",
+  "qwen": 40,
+  "metaLlama": 27,
+  "mistral": 7,
+  "google": 6,
+  "deepseek": 2,
+  "others": 18
+ },
+ {
+  "date": "Dec 24",
+  "qwen": 35,
+  "metaLlama": 32,
+  "mistral": 7,
+  "google": 6,
+  "deepseek": 1,
+  "others": 19
+ },
+ {
+  "date": "Jan 25",
+  "qwen": 24,
+  "metaLlama": 24,
+  "mistral": 8,
+  "google": 2,
+  "deepseek": 23,
+  "others": 19
+ },
+ {
+  "date": "Feb 25",
+  "qwen": 37,
+  "metaLlama": 20,
+  "mistral": 7,
+  "google": 2,
+  "deepseek": 13,
+  "others": 21
+ },
+ {
+  "date": "Mar 25",
+  "qwen": 34,
+  "metaLlama": 14,
+  "mistral": 7,
+  "google": 19,
+  "deepseek": 10,
+  "others": 16
+ },
+ {
+  "date": "Apr 25",
+  "qwen": 47,
+  "metaLlama": 16,
+  "mistral": 4,
+  "google": 9,
+  "deepseek": 6,
+  "others": 18
+ },
+ {
+  "date": "May 25",
+  "qwen": 46,
+  "metaLlama": 14,
+  "mistral": 4,
+  "google": 11,
+  "deepseek": 8,
+  "others": 17
+ },
+ {
+  "date": "Jun 25",
+  "qwen": 44,
+  "metaLlama": 21,
+  "mistral": 9,
+  "google": 9,
+  "deepseek": 5,
+  "others": 12
+ },
+ {
+  "date": "Jul 25",
+  "qwen": 48,
+  "metaLlama": 22,
+  "mistral": 5,
+  "google": 8,
+  "deepseek": 5,
+  "others": 12
+ },
+ {
+  "date": "Aug 25",
+  "qwen": 40,
+  "metaLlama": 18,
+  "mistral": 4,
+  "google": 16,
+  "deepseek": 4,
+  "others": 18
+ },
+ {
+  "date": "Sep 25",
+  "qwen": 49,
+  "metaLlama": 17,
+  "mistral": 4,
+  "google": 9,
+  "deepseek": 6,
+  "others": 15
+ },
+ {
+  "date": "Oct 25",
+  "qwen": 39,
+  "metaLlama": 26,
+  "mistral": 6,
+  "google": 11,
+  "deepseek": 5,
+  "others": 13
+ },
+ {
+  "date": "Nov 25",
+  "qwen": 47,
+  "metaLlama": 21,
+  "mistral": 4,
+  "google": 13,
+  "deepseek": 4,
+  "others": 11
+ },
+ {
+  "date": "Dec 25",
+  "qwen": 53,
+  "metaLlama": 15,
+  "mistral": 5,
+  "google": 14,
+  "deepseek": 3,
+  "others": 10
+ },
+ {
+  "date": "Jan 26",
+  "qwen": 46,
+  "metaLlama": 16,
+  "mistral": 4,
+  "google": 13,
+  "deepseek": 5,
+  "others": 16
+ },
+ {
+  "date": "Feb 26",
+  "qwen": 69,
+  "metaLlama": 11,
+  "mistral": 2,
+  "google": 8,
+  "deepseek": 1,
+  "others": 9
+ }
+]

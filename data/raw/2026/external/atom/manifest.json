@@ -1,0 +1,201 @@
+{
+  "source": "https://www.atomproject.ai",
+  "page_chunk": "https://www.atomproject.ai/_next/static/chunks/app/page-e2261b95167395c4.js",
+  "exported_at": "2026-10-11T03:55:47.918Z",
+  "datasets": [
+    {
+      "file": "fig-01_huggingface-weekly-user-share-by-region.json",
+      "rows": 128,
+      "keys": [
+        "date",
+        "us",
+        "europe",
+        "china",
+        "unaffiliated",
+        "other"
+      ]
+    },
+    {
+      "file": "fig-02_catching-the-llama-cumulative-downloads.json",
+      "rows": 28,
+      "keys": [
+        "date",
+        "qwen",
+        "metaLlama",
+        "mistral",
+        "google",
+        "deepseek",
+        "others"
+      ]
+    },
+    {
+      "file": "fig-03_global-regional-model-adoption.json",
+      "rows": 28,
+      "keys": [
+        "date",
+        "china",
+        "unitedStates",
+        "europe"
+      ]
+    },
+    {
+      "file": "fig-04_models-worldwide-cumulative-downloads.json",
+      "rows": 29,
+      "keys": [
+        "period",
+        "usa",
+        "china",
+        "eu"
+      ]
+    },
+    {
+      "file": "fig-05_new-open-model-players.json",
+      "rows": 13,
+      "keys": [
+        "period",
+        "zaiOrg",
+        "nvidia",
+        "openai",
+        "moonshotai",
+        "minimax",
+        "deepseek",
+        "huggingface"
+      ]
+    },
+    {
+      "file": "fig-06_qwen-ecosystem-dec2025-downloads.json",
+      "rows": 2,
+      "keys": [
+        "name",
+        "qwen",
+        "metaLlama",
+        "deepseek",
+        "openai",
+        "mistral",
+        "nvidia",
+        "zaiOrg",
+        "moonshotai",
+        "minimax"
+      ]
+    },
+    {
+      "file": "fig-07_qwen3-effect-5-models-vs-6-orgs.json",
+      "rows": 2,
+      "keys": [
+        "name",
+        "qwen06B",
+        "qwen17B",
+        "qwen8B",
+        "qwen4BInstruct",
+        "qwen4B",
+        "mistral",
+        "openai",
+        "nvidia",
+        "zaiOrg",
+        "moonshotai",
+        "minimax"
+      ]
+    },
+    {
+      "file": "fig-08_share-of-downloads-by-size-tier.json",
+      "rows": 4,
+      "keys": [
+        "sizeTier",
+        "deepseek",
+        "qwen"
+      ]
+    },
+    {
+      "file": "fig-09_share-of-downloads-by-parameter-count.json",
+      "rows": 7,
+      "keys": [
+        "bucket",
+        "percentOfTotal",
+        "downloads"
+      ]
+    },
+    {
+      "file": "fig-10_americas-new-entrants.json",
+      "rows": 23,
+      "keys": [
+        "period",
+        "nvidia",
+        "allenai",
+        "ibm",
+        "ai21",
+        "arcee"
+      ]
+    },
+    {
+      "file": "fig-11_ai-user-share-by-country.json",
+      "rows": 10,
+      "keys": [
+        "period",
+        "unitedStates",
+        "china"
+      ]
+    },
+    {
+      "file": "fig-12_open-model-inference-market-share.json",
+      "rows": 15,
+      "keys": [
+        "date",
+        "deepseek",
+        "meta",
+        "mistral",
+        "qwen",
+        "openai",
+        "minimax",
+        "xiaomi",
+        "google",
+        "zhipu",
+        "moonshot",
+        "other"
+      ]
+    },
+    {
+      "file": "fig-13_ai-user-share-yearly.json",
+      "rows": 6,
+      "keys": [
+        "year",
+        "usa",
+        "china"
+      ]
+    },
+    {
+      "file": "fig-14_community-elo-rankings-lmarena.json",
+      "rows": 18,
+      "keys": [
+        "month",
+        "usScore",
+        "usModel",
+        "chinaScore",
+        "chinaModel",
+        "otherScore",
+        "otherModel"
+      ]
+    },
+    {
+      "file": "fig-15_performance-intelligence-artificialanalysis.json",
+      "rows": 15,
+      "keys": [
+        "date",
+        "usa",
+        "china",
+        "eu"
+      ]
+    },
+    {
+      "file": "fig-16_derivatives-per-base-model.json",
+      "rows": 29,
+      "keys": [
+        "period",
+        "qwen",
+        "llama",
+        "deepseek",
+        "mistral",
+        "openai"
+      ]
+    }
+  ]
+}
