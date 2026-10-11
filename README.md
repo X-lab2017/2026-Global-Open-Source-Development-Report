@@ -17,8 +17,18 @@
 │   ├── chapter3/            # 全球开源影响力排行榜（GOSR）
 │   ├── chapter4/            # 全球开源技术全景洞察（GOSL）
 │   └── chapter6/            # 未来展望与政策建议
-└── appendices/              # 附录 A：指标体系与数据来源；附录：开源 AI DPG 评估框架
+├── appendices/              # 附录 A：指标体系与数据来源；附录：开源 AI DPG 评估框架
+├── data/                    # 数据资产（规范见 data/README.md）
+│   ├── meta/                # 指标定义与口径（附录 A 各表的 CSV 版）
+│   ├── processed/           # 图表源数据：每张图对应一个同名 CSV
+│   └── raw/                 # OpenDigger 原始导出（只增不改）
+├── figures/                 # 报告图片（与 data/processed/ 同名同构）
+└── scripts/                 # 数据计算与图表生成脚本
 ```
+
+## 数据规范（协作者必读）
+
+报告遵循「**一张图 ↔ 一个同名 CSV**」原则：正文每张图的数据存放于 `data/processed/<章节>/fig-<章号>-<节号>-<序号>_<描述>.csv`，图片存放于 `figures/` 同章同主干名。新增图表时必须同时在 `data/README.md` 的索引表登记。详见 [data/README.md](data/README.md)。
 
 ## 撰写进度
 
