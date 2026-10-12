@@ -1,0 +1,13 @@
+项目,Project OpenRank,OpenRank,组合分
+opentitan,692.7,5328.0,870.3
+sail riscv,241.2,4108.8,378.2
+riscv unified db,240.7,4105.5,377.5
+caliptra sw,298.6,2232.1,373.0
+caliptra mcu sw,267.6,1488.1,317.2
+riscv isa manual,313.7,67.6,316.0
+riscv arch test,208.3,2243.6,283.1
+caliptra ss,223.4,1295.1,266.6
+riscv pvm,179.3,1996.9,245.9
+risc0,141.2,1509.5,191.5
+oerv team,159.4,682.7,182.2
+caliptra rtl,153.0,753.8,178.1

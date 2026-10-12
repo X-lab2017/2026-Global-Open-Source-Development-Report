@@ -1,0 +1,13 @@
+layer_id,子领域,2022,2023,2024,2025,2026
+:technology/agentic_ai/agentic_coding,编码代理,728.1,1304.1,1861.3,5370.9,28176.2
+:technology/agentic_ai/personal_ai_assistants,个人助手,0.0,42.7,1031.1,2500.9,12154.4
+:technology/agentic_ai/code_first_frameworks,代码优先框架,0.0,2192.6,7260.6,7334.7,7994.5
+:technology/agentic_ai/workflow_and_agent_builders,工作流与代理构建,825.2,1463.3,4056.9,10704.0,7830.1
+:technology/agentic_ai/chatbot_workspaces,聊天工作区,0.0,79.7,1430.4,6851.6,4891.7
+:technology/agentic_ai/memory_knowledge_and_context,记忆知识与上下文,1356.1,1473.5,2084.2,4161.9,3575.7
+:technology/agentic_ai/observability_and_evaluation,可观测与评估,0.0,58.4,901.8,2667.1,2800.5
+:technology/agentic_ai/coding_workflows_and_harnesses,编码工作流与工具链,0.0,0.0,0.0,0.0,2027.7
+:technology/agentic_ai/development_sandboxes,开发沙箱,108.4,1137.7,1255.0,1579.4,1710.5
+:technology/agentic_ai/multi_agent_orchestration,多代理编排,0.0,0.0,0.0,148.2,1597.5
+:technology/agentic_ai/protocols_and_interoperability,协议与互操作,0.0,0.0,0.0,994.0,1572.5
+:technology/agentic_ai/tools_web_and_computer_use,工具与计算机使用,0.0,0.0,0.0,0.0,587.9
