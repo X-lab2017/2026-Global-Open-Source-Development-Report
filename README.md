@@ -6,7 +6,7 @@
 
 《2026 全球开源发展报告》追踪全球开源生态在人工智能时代的演进，以开源发展目标（OSDGs）明确研究方向，以开源发展目标指标体系（The OSDGs Indicator System，OSDI）组织可追溯的观测与分析。本仓库以开源方式运作本报告的撰写与发布。
 
-## 当前 Preview · v0.5
+## 当前 Preview · v0.6
 
 - [第一章正文入口](chapters/chapter1/本章介绍.md)：价值—目标—指标，衔接四个核心研究板块。
 - [附录 A 方法基础](appendices/附录A-指标体系与数据来源.md)与[二十九项指标字典](data/meta/osdi_indicator_dictionary.csv)。

@@ -39,6 +39,8 @@ jobs:
           python3 preview/web/build_portal.py --output _site --base-path "$BASE_PATH"
           python3 preview/web/check_portal.py --output _site --base-path "$BASE_PATH"
           python3 preview/web/check_report.py --output _site
+          python3 preview/web/check_chapter_visuals.py --output _site --repo-root .
+          node --check _site/chapter-visuals.js
           node --check _site/report.js
           node --check _site/portal.js
           node --check _site/explore.js

@@ -2,6 +2,7 @@
 from pathlib import Path,PurePosixPath
 from urllib.parse import quote,urlsplit,unquote
 import html,json,re,posixpath
+import chapter_visuals
 
 ROOT=Path(__file__).resolve().parents[1]
 R=json.loads((ROOT/'content/report.json').read_text())
@@ -61,6 +62,9 @@ def render(src,lang,prefix,skip_title=True):
             out.append(f'<h{level} id="{hid}">{inline(h[2],src,lang)} <a class="heading-anchor" href="#{hid}" aria-label="{T(lang,"链接至此处","Link to this heading")}">#</a></h{level}>');i+=1;continue
         img=re.fullmatch(r'!\[([^\]]*)\]\(([^)]+)\)',line)
         if img:
+            kind=chapter_visuals.FIGURES.get(Path(img[2]).name)
+            if kind:
+                out.append(chapter_visuals.render(kind,lang,R,source));i+=1;continue
             url=mapped_url(img[2],src,lang)
             out.append(f'<figure class="report-figure"><a href="{E(url)}" data-figure="true" aria-label="{E(T(lang,"放大图表：","Enlarge figure: ")+img[1])}"><img src="{E(url)}" alt="{E(img[1])}" loading="lazy"></a><figcaption>'+T(lang,'点击放大 · ','Enlarge · ')+a(url,T(lang,'下载 SVG ↓','Download SVG ↓'),'','download')+'</figcaption></figure>');i+=1;continue
         if line.startswith('|'):
@@ -92,7 +96,7 @@ def translation_note(lang):
 def source_bar(src,lang):
     return '<div class="source-bar"><span>'+T(lang,'正文与事实源：GitHub','Manuscript source: GitHub')+'</span>'+a(source(src),T(lang,'查看本页原稿 ↗','View source manuscript ↗'))+a(path(lang,'data/sources/'),T(lang,'查数据与来源 →','Data and sources →'))+'</div>'
 def chapter(lang):
-    out=[translation_note(lang),'<div class="reading-tools"><span>'+T(lang,'第一章已接入完整正文 · Preview v0.5','Full Chapter 1 · Preview v0.5')+'</span><button data-print>'+T(lang,'打印本章','Print chapter')+'</button></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="'+T(lang,'本章阅读进度','Chapter reading progress')+'"></progress>']
+    out=[translation_note(lang),'<div class="reading-tools"><span>'+T(lang,'第一章已接入完整正文 · Preview v0.6','Full Chapter 1 · Preview v0.6')+'</span><button data-print>'+T(lang,'打印本章','Print chapter')+'</button></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="'+T(lang,'本章阅读进度','Chapter reading progress')+'"></progress>']
     out.append('<nav class="reading-route" aria-label="'+T(lang,'本章阅读路径','Chapter reading path')+'">'+''.join(a('#ch01-s0'+str(i+1),'<b>1.'+str(i+1)+'</b><span>'+T(lang,z,e)+'</span>','') for i,(z,e) in enumerate([('价值：为什么研究','Value: why study it'),('目标：朝哪里发展','Goals: where to go'),('指标：如何观察','Measures: how to observe')]))+'</nav>')
     out.append('<section id="chapter-intro">'+source_bar(INTRO,lang)+render(INTRO,lang,'intro')+'</section>')
     for i,src in enumerate(PARTS):

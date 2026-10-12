@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "edition": 2026,
-  "structure_version": "0.5-chapter1-methods-preview",
+  "structure_version": "0.6-chapter1-interactive-preview",
   "updated_at": "2026-10-12",
   "status": "content-preview",
   "title": {
@@ -1159,5 +1159,27 @@
       }
     }
   ],
-  "source_fallback_ref": "docs/osdg-report-publication-plan-20261011"
+  "source_fallback_ref": "docs/osdg-report-publication-plan-20261011",
+  "interactive_figures": [
+    {
+      "id": "fig-linux",
+      "section": "1.1"
+    },
+    {
+      "id": "fig-models",
+      "section": "1.1"
+    },
+    {
+      "id": "fig-public-goods",
+      "section": "1.1"
+    },
+    {
+      "id": "fig-osdg-goals",
+      "section": "1.2"
+    },
+    {
+      "id": "fig-osdi-map",
+      "section": "1.3"
+    }
+  ]
 }
