@@ -1,0 +1,1165 @@
+{
+  "schema_version": "2.0",
+  "edition": 2026,
+  "structure_version": "0.4-core-chapters-preview",
+  "updated_at": "2026-10-12",
+  "status": "architecture-preview",
+  "title": {
+    "zh": "2026 全球开源发展报告",
+    "en": "Global Open Source Development Report 2026"
+  },
+  "theme": {
+    "zh": "从普惠到质量，从参与到影响",
+    "en": "From inclusion to quality, from participation to impact"
+  },
+  "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+  "source_ref": "docs/osdg-report-publication-plan-20261011",
+  "period": {
+    "start": "2025-07-01",
+    "end": "2026-06-30",
+    "historical_rule": "previous July 1 through report-year June 30"
+  },
+  "primary_platform": "GitHub",
+  "supplementary_platforms": [
+    "Gitee",
+    "AtomGit",
+    "GitLab"
+  ],
+  "front_matter": [
+    {
+      "id": "summary",
+      "route": "summary/",
+      "title": {
+        "zh": "执行摘要",
+        "en": "Executive summary"
+      },
+      "question": {
+        "zh": "今年最重要的发现与行动是什么？",
+        "en": "What are this year’s key findings and actions?"
+      },
+      "kind": "summary",
+      "source_path": "outline/执行摘要.md",
+      "status": "draft",
+      "template": "chapter",
+      "research_status": "pending-review"
+    },
+    {
+      "id": "introduction",
+      "route": "introduction/",
+      "title": {
+        "zh": "引言：人工智能时代的开源发展",
+        "en": "Introduction: open source in the age of AI"
+      },
+      "question": {
+        "zh": "为什么做这份报告，读者如何使用？",
+        "en": "Why this report, and how should readers use it?"
+      },
+      "kind": "introduction",
+      "source_path": "chapters/引言-人工智能时代的开源发展.md",
+      "status": "draft",
+      "template": "chapter",
+      "brief_source": "planning/INTRODUCTION_BRIEF.md",
+      "research_status": "pending-review"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "ch01",
+      "number": "1",
+      "route": "chapters/01/",
+      "title": {
+        "zh": "开源发展目标与指标体系",
+        "en": "Goals and indicators"
+      },
+      "question": {
+        "zh": "怎样衡量开源发展？",
+        "en": "How can open source development be measured?"
+      },
+      "phase": {
+        "zh": "目标",
+        "en": "Goals"
+      },
+      "kind": "framework",
+      "sections": [
+        {
+          "id": "ch01-s01",
+          "number": "1.1",
+          "title": {
+            "zh": "开源：数字公共品与可持续发展",
+            "en": "Open source, public goods and sustainable development"
+          },
+          "question": {
+            "zh": "为什么需要从公共价值理解开源？",
+            "en": "Why view open source through public value?"
+          },
+          "presentation": {
+            "zh": "价值关系图、问题导读",
+            "en": "Concept map and reading guide"
+          },
+          "source_path": "chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch01-s01",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch01-s02",
+          "number": "1.2",
+          "title": {
+            "zh": "OSDGs：开源发展目标框架",
+            "en": "OSDGs: the development goals"
+          },
+          "question": {
+            "zh": "四大支柱和十个维度如何构成共同目标？",
+            "en": "How do four pillars and ten dimensions form shared goals?"
+          },
+          "presentation": {
+            "zh": "圆盘、支柱与维度释义",
+            "en": "Interactive disk and dimension guide"
+          },
+          "source_path": "chapters/chapter1/1.2-OSDGs-开源发展目标框架.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch01-s02",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch01-s03",
+          "number": "1.3",
+          "title": {
+            "zh": "OSDI：开源发展目标指标体系",
+            "en": "OSDI: The OSDGs Indicator System"
+          },
+          "question": {
+            "zh": "目标如何转化为可追踪指标？",
+            "en": "How do goals become traceable indicators?"
+          },
+          "presentation": {
+            "zh": "指标字典、角色与覆盖状态",
+            "en": "Indicator dictionary, roles and coverage"
+          },
+          "source_path": "chapters/chapter1/1.3-OSDI-开源发展度量体系.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch01-s03",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        }
+      ],
+      "status": "draft",
+      "template": "chapter",
+      "introduction_source": "chapters/chapter1/本章介绍.md",
+      "section_pattern": "framework",
+      "research_status": "pending-review"
+    },
+    {
+      "id": "ch02",
+      "number": "2",
+      "route": "chapters/02/",
+      "title": {
+        "zh": "全球开源生态观测地图（GOSO）",
+        "en": "Global open source observatory (GOSO)"
+      },
+      "question": {
+        "zh": "全球开源生态的规模、结构与参与格局如何变化？",
+        "en": "How are the scale, structure and participation patterns of global open source changing?"
+      },
+      "phase": {
+        "zh": "观测",
+        "en": "Observation"
+      },
+      "kind": "observation",
+      "sections": [
+        {
+          "id": "ch02-s01",
+          "number": "2.1",
+          "title": {
+            "zh": "全球开源活跃地图",
+            "en": "Participation"
+          },
+          "question": {
+            "zh": "谁在参与，参与规模如何变化？",
+            "en": "Who participates, and how is participation changing?"
+          },
+          "presentation": {
+            "zh": "地区地图、年度趋势、数据表",
+            "en": "Regional map, annual trends and table"
+          },
+          "source_path": "chapters/chapter2/2.1-全球开源活跃地图-V-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s01",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch02-s02",
+          "number": "2.2",
+          "title": {
+            "zh": "全球开源贡献地图",
+            "en": "Contribution"
+          },
+          "question": {
+            "zh": "贡献来自哪里，如何比较贡献强度？",
+            "en": "Where do contributions originate, and how can intensity be compared?"
+          },
+          "presentation": {
+            "zh": "贡献趋势、人均对照、区域分布",
+            "en": "Contribution trends, per-capita comparison and distribution"
+          },
+          "source_path": "chapters/chapter2/2.2-全球开源贡献地图-C-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s02",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch02-s03",
+          "number": "2.3",
+          "title": {
+            "zh": "全球开源项目影响力地图",
+            "en": "Project influence"
+          },
+          "question": {
+            "zh": "项目影响力如何分布与演变？",
+            "en": "How is project influence distributed and changing?"
+          },
+          "presentation": {
+            "zh": "地区分布、样本趋势",
+            "en": "Regional distribution and sample trends"
+          },
+          "source_path": "chapters/chapter2/2.3-全球开源项目影响力地图-I-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s03",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch02-s04",
+          "number": "2.4",
+          "title": {
+            "zh": "全球开源人才地图",
+            "en": "Talent"
+          },
+          "question": {
+            "zh": "高影响力人才在哪里，如何成长？",
+            "en": "Where is high-impact talent, and how does it grow?"
+          },
+          "presentation": {
+            "zh": "人才分布、城市对照、年度变化",
+            "en": "Talent map, city comparison and annual change"
+          },
+          "source_path": "chapters/chapter2/2.4-全球开源人才地图-T-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s04",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch02-s05",
+          "number": "2.5",
+          "title": {
+            "zh": "全球开源多样性地图",
+            "en": "Diversity"
+          },
+          "question": {
+            "zh": "不同地区怎样参与跨地域协作？",
+            "en": "How do regions participate in cross-border collaboration?"
+          },
+          "presentation": {
+            "zh": "贡献构成、跨地区连接",
+            "en": "Contribution composition and cross-region connections"
+          },
+          "source_path": "chapters/chapter2/2.5-全球开源多样性地图-D-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s05",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch02-s06",
+          "number": "2.6",
+          "title": {
+            "zh": "全球开源治理与社会公益地图",
+            "en": "Governance and public value"
+          },
+          "question": {
+            "zh": "治理实践与公共价值有哪些可观察证据？",
+            "en": "What evidence can describe governance and public value?"
+          },
+          "presentation": {
+            "zh": "托管与许可趋势、实践案例",
+            "en": "Stewardship and license trends, practice cases"
+          },
+          "source_path": "chapters/chapter2/2.6-全球开源治理与社会公益地图-G-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s06",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch02-s07",
+          "number": "2.7",
+          "title": {
+            "zh": "全球开源资产地图",
+            "en": "Open assets"
+          },
+          "question": {
+            "zh": "代码、模型与数据资产怎样积累和复用？",
+            "en": "How do code, models and data accumulate and get reused?"
+          },
+          "presentation": {
+            "zh": "分资产供给趋势、复用证据",
+            "en": "Supply trends by asset type and evidence of reuse"
+          },
+          "source_path": "chapters/chapter2/2.7-全球开源资产地图-A-Map.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch02-s07",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        }
+      ],
+      "status": "draft",
+      "template": "chapter",
+      "introduction_source": "chapters/chapter2/本章介绍.md",
+      "section_pattern": "observation",
+      "research_status": "pending-review",
+      "label": "GOSO",
+      "core_chapter": true
+    },
+    {
+      "id": "ch03",
+      "number": "3",
+      "route": "chapters/03/",
+      "title": {
+        "zh": "全球开源影响力排行榜（GOSR）",
+        "en": "Global open source influence rankings (GOSR)"
+      },
+      "question": {
+        "zh": "谁在贡献，贡献如何形成全球影响力？",
+        "en": "Who contributes, and how do contributions create global influence?"
+      },
+      "phase": {
+        "zh": "评估",
+        "en": "Assessment"
+      },
+      "kind": "ranking",
+      "sections": [
+        {
+          "id": "ch03-s01",
+          "number": "3.1",
+          "title": {
+            "zh": "全球行政区划影响力排行榜",
+            "en": "Regions"
+          },
+          "question": {
+            "zh": "哪些地区形成持续的协作影响？",
+            "en": "Which regions sustain collaborative influence?"
+          },
+          "presentation": {
+            "zh": "地区榜单、可比年度对照",
+            "en": "Regional table and comparable annual changes"
+          },
+          "source_path": "chapters/chapter3/3.1-全球行政区划影响力排行榜-R-Ranking.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch03-s01",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch03-s02",
+          "number": "3.2",
+          "title": {
+            "zh": "全球开源企业影响力排行榜",
+            "en": "Companies"
+          },
+          "question": {
+            "zh": "企业如何参与和支持开源协作？",
+            "en": "How do companies participate in and support open collaboration?"
+          },
+          "presentation": {
+            "zh": "企业榜单、贡献结构",
+            "en": "Company table and contribution structure"
+          },
+          "source_path": "chapters/chapter3/3.2-全球开源企业影响力排行榜-C-Ranking.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch03-s02",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch03-s03",
+          "number": "3.3",
+          "title": {
+            "zh": "全球开源基金会影响力排行榜",
+            "en": "Foundations"
+          },
+          "question": {
+            "zh": "基金会托管生态的影响如何分布？",
+            "en": "How is influence distributed across foundation ecosystems?"
+          },
+          "presentation": {
+            "zh": "基金会榜单、项目构成",
+            "en": "Foundation table and project composition"
+          },
+          "source_path": "chapters/chapter3/3.3-全球开源基金会影响力排行榜-F-Ranking.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch03-s03",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch03-s04",
+          "number": "3.4",
+          "title": {
+            "zh": "全球开源项目影响力排行榜",
+            "en": "Projects"
+          },
+          "question": {
+            "zh": "已核验项目样本中，哪些项目具有较高影响？",
+            "en": "Which verified sample projects have greater influence?"
+          },
+          "presentation": {
+            "zh": "项目样本榜、覆盖说明",
+            "en": "Project sample table and coverage notes"
+          },
+          "source_path": "chapters/chapter3/3.4-全球开源项目影响力排行榜-P-Ranking.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch03-s04",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch03-s05",
+          "number": "3.5",
+          "title": {
+            "zh": "全球新势力开源项目排行榜",
+            "en": "Emerging projects"
+          },
+          "question": {
+            "zh": "哪些新势力正在形成影响？",
+            "en": "Which emerging projects are building influence?"
+          },
+          "presentation": {
+            "zh": "新势力榜单、成长轨迹",
+            "en": "Emerging-project table and growth trajectories"
+          },
+          "source_path": "chapters/chapter3/3.5-全球新势力开源项目排行榜-E-Ranking.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch03-s05",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch03-s06",
+          "number": "3.6",
+          "title": {
+            "zh": "全球开源大模型影响力排行榜",
+            "en": "Models"
+          },
+          "question": {
+            "zh": "模型复用网络中哪些节点具有影响？",
+            "en": "Which models matter within reuse networks?"
+          },
+          "presentation": {
+            "zh": "ModelRank 样本榜、网络解释链接",
+            "en": "ModelRank sample table and network explanation"
+          },
+          "source_path": "chapters/chapter3/3.6-全球开源大模型影响力排行榜.md",
+          "status": "outline",
+          "data_status": "pending-review",
+          "related": [
+            "ch05-s02"
+          ],
+          "anchor": "ch03-s06",
+          "source_heading": null,
+          "next_action": "提供本节发现、材料与来源"
+        }
+      ],
+      "status": "draft",
+      "template": "chapter",
+      "introduction_source": "chapters/chapter3/本章介绍.md",
+      "section_pattern": "ranking",
+      "research_status": "pending-review",
+      "label": "GOSR",
+      "core_chapter": true
+    },
+    {
+      "id": "ch04",
+      "number": "4",
+      "route": "chapters/04/",
+      "title": {
+        "zh": "全球开源技术全景洞察（GOSL）",
+        "en": "Global open source technology landscapes (GOSL)"
+      },
+      "question": {
+        "zh": "关键开源技术生态如何组织与演进？",
+        "en": "How are key open source technology ecosystems organized and evolving?"
+      },
+      "phase": {
+        "zh": "洞察",
+        "en": "Insights"
+      },
+      "kind": "landscape",
+      "sections": [
+        {
+          "id": "ch04-s01",
+          "number": "4.1",
+          "title": {
+            "zh": "Agentic AI 全景洞察",
+            "en": "Agentic AI"
+          },
+          "question": {
+            "zh": "智能体技术链有哪些关键环节？",
+            "en": "What are the key layers of the agent technology stack?"
+          },
+          "presentation": {
+            "zh": "技术分层、代表项目、案例",
+            "en": "Technology layers, representative projects and case"
+          },
+          "source_path": "chapters/chapter4/4.1-Agentic-AI-全景洞察-A-Landscape.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch04-s01",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch04-s02",
+          "number": "4.2",
+          "title": {
+            "zh": "AI 大模型全景洞察",
+            "en": "Foundation models"
+          },
+          "question": {
+            "zh": "模型技术栈如何连接训练、推理与应用？",
+            "en": "How does the model stack connect training, inference and applications?"
+          },
+          "presentation": {
+            "zh": "模型技术栈、工具与项目关联",
+            "en": "Model stack, tools and project relationships"
+          },
+          "source_path": "chapters/chapter4/4.2-AI-大模型全景洞察.md",
+          "status": "outline",
+          "data_status": "pending-review",
+          "related": [
+            "ch05-s01",
+            "ch03-s06",
+            "ch05-s03"
+          ],
+          "anchor": "ch04-s02",
+          "source_heading": null,
+          "next_action": "提供本节发现、材料与来源"
+        },
+        {
+          "id": "ch04-s03",
+          "number": "4.3",
+          "title": {
+            "zh": "云基础设施全景洞察",
+            "en": "Cloud infrastructure"
+          },
+          "question": {
+            "zh": "云基础设施的协作分工怎样演变？",
+            "en": "How is collaboration across cloud infrastructure evolving?"
+          },
+          "presentation": {
+            "zh": "分层全景、趋势与案例",
+            "en": "Layered landscape, trends and case"
+          },
+          "source_path": "chapters/chapter4/4.3-云基础设施全景洞察-C-Landscape.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch04-s03",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch04-s04",
+          "number": "4.4",
+          "title": {
+            "zh": "数据库系统全景洞察",
+            "en": "Database systems"
+          },
+          "question": {
+            "zh": "数据库生态的技术类别和项目关系如何变化？",
+            "en": "How are database categories and project relationships changing?"
+          },
+          "presentation": {
+            "zh": "分类全景、项目与趋势",
+            "en": "Category landscape, projects and trends"
+          },
+          "source_path": "chapters/chapter4/4.4-数据库系统全景洞察-D-Landscape.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch04-s04",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch04-s05",
+          "number": "4.5",
+          "title": {
+            "zh": "RISC-V 全景洞察",
+            "en": "RISC-V"
+          },
+          "question": {
+            "zh": "开放指令集生态怎样连接软硬件？",
+            "en": "How does an open instruction-set ecosystem connect hardware and software?"
+          },
+          "presentation": {
+            "zh": "规范、工具链、验证与应用分层",
+            "en": "Specifications, toolchains, validation and applications"
+          },
+          "source_path": "chapters/chapter4/4.5-RISC-V-全景洞察-V-Landscape.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch04-s05",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch04-s06",
+          "number": "4.6",
+          "title": {
+            "zh": "PyTorch 基金会全景洞察",
+            "en": "PyTorch Foundation"
+          },
+          "question": {
+            "zh": "训练与推理工具链怎样形成协作生态？",
+            "en": "How do training and inference tools form a collaborative ecosystem?"
+          },
+          "presentation": {
+            "zh": "基金会边界、工具链关系",
+            "en": "Foundation scope and toolchain relationships"
+          },
+          "source_path": "chapters/chapter4/4.6-PyTorch-基金会全景洞察-P-Landscape.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch04-s06",
+          "source_heading": null,
+          "next_action": "按统一小节模式整理现有初稿"
+        }
+      ],
+      "status": "draft",
+      "template": "chapter",
+      "introduction_source": "chapters/chapter4/本章介绍.md",
+      "section_pattern": "landscape",
+      "research_status": "pending-review",
+      "label": "GOSL",
+      "core_chapter": true
+    },
+    {
+      "id": "ch05",
+      "number": "5",
+      "route": "chapters/05/",
+      "title": {
+        "zh": "全球开源大模型发展洞察（GOSM）",
+        "en": "Global open model development (GOSM)"
+      },
+      "question": {
+        "zh": "开源大模型的供给、复用与开放治理如何发展？",
+        "en": "How are open model supply, reuse and open governance developing?"
+      },
+      "phase": {
+        "zh": "治理",
+        "en": "Governance"
+      },
+      "kind": "model",
+      "sections": [
+        {
+          "id": "ch05-s01",
+          "number": "5.1",
+          "title": {
+            "zh": "供给与贡献",
+            "en": "Supply and contribution"
+          },
+          "question": {
+            "zh": "谁在供给，供给结构怎样变化？",
+            "en": "Who supplies models, and how is the supply structure changing?"
+          },
+          "presentation": {
+            "zh": "供给趋势、家族与发布者分布",
+            "en": "Supply trends, families and publishers"
+          },
+          "source_path": "chapters/chapter5/5.1-供给与贡献.md",
+          "status": "outline",
+          "data_status": "pending-review",
+          "anchor": "ch05-s01",
+          "source_heading": null,
+          "next_action": "提供本节发现、材料与来源"
+        },
+        {
+          "id": "ch05-s02",
+          "number": "5.2",
+          "title": {
+            "zh": "网络与影响力",
+            "en": "Networks and influence"
+          },
+          "question": {
+            "zh": "模型如何派生、复用并形成生态影响？",
+            "en": "How do models spread through derivation and reuse?"
+          },
+          "presentation": {
+            "zh": "复用关系图、ModelRank 方法",
+            "en": "Reuse network and ModelRank methodology"
+          },
+          "source_path": "chapters/chapter5/5.2-网络与影响力.md",
+          "status": "outline",
+          "data_status": "pending-review",
+          "related": [
+            "ch03-s06"
+          ],
+          "anchor": "ch05-s02",
+          "source_heading": null,
+          "next_action": "提供本节发现、材料与来源"
+        },
+        {
+          "id": "ch05-s03",
+          "number": "5.3",
+          "title": {
+            "zh": "开源开放与分级体系",
+            "en": "Openness and classification"
+          },
+          "question": {
+            "zh": "代码、权重、数据与治理如何共同描述开放？",
+            "en": "How do code, weights, data and governance describe openness?"
+          },
+          "presentation": {
+            "zh": "开放属性矩阵、可复核案例",
+            "en": "Openness attribute matrix and verifiable cases"
+          },
+          "source_path": "chapters/chapter5/5.3-开源开放与分级体系.md",
+          "status": "outline",
+          "data_status": "pending-review",
+          "related": [
+            "appendix-c"
+          ],
+          "anchor": "ch05-s03",
+          "source_heading": null,
+          "next_action": "提供本节发现、材料与来源"
+        }
+      ],
+      "status": "outline",
+      "template": "chapter",
+      "introduction_source": null,
+      "section_pattern": "model-research",
+      "research_status": "pending-review",
+      "label": "GOSM",
+      "core_chapter": true
+    },
+    {
+      "id": "ch06",
+      "number": "6",
+      "route": "chapters/06/",
+      "title": {
+        "zh": "未来展望与行动建议",
+        "en": "Outlook and action"
+      },
+      "question": {
+        "zh": "不同参与者下一步可以采取哪些行动？",
+        "en": "What actions can different participants take next?"
+      },
+      "phase": {
+        "zh": "行动",
+        "en": "Action"
+      },
+      "kind": "action",
+      "sections": [
+        {
+          "id": "ch06-s01",
+          "number": "6.1",
+          "title": {
+            "zh": "核心洞察与趋势展望",
+            "en": "Findings and outlook"
+          },
+          "question": {
+            "zh": "哪些变化已被观察，哪些仍是展望？",
+            "en": "Which changes are observed, and which remain projections?"
+          },
+          "presentation": {
+            "zh": "发现与趋势对照",
+            "en": "Findings and projections comparison"
+          },
+          "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch06-s01",
+          "source_heading": "6.1 核心洞察与趋势预测",
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch06-s02",
+          "number": "6.2",
+          "title": {
+            "zh": "面向政府与国际组织的建议",
+            "en": "Governments and international organizations"
+          },
+          "question": {
+            "zh": "公共政策如何回应已识别的发展问题？",
+            "en": "How can public policy respond to identified development issues?"
+          },
+          "presentation": {
+            "zh": "证据—行动—跟踪指标",
+            "en": "Evidence, action and tracking indicators"
+          },
+          "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch06-s02",
+          "source_heading": "6.2 面向政府与国际组织的建议",
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch06-s03",
+          "number": "6.3",
+          "title": {
+            "zh": "面向企业与组织的建议",
+            "en": "Companies and organizations"
+          },
+          "question": {
+            "zh": "企业如何把持续贡献纳入发展策略？",
+            "en": "How can companies incorporate sustained contribution into strategy?"
+          },
+          "presentation": {
+            "zh": "行动表、实践案例",
+            "en": "Action table and practice cases"
+          },
+          "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch06-s03",
+          "source_heading": "6.3 面向企业与组织的建议",
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch06-s04",
+          "number": "6.4",
+          "title": {
+            "zh": "面向社区与全球合作的倡议",
+            "en": "Communities and global cooperation"
+          },
+          "question": {
+            "zh": "社区如何支持包容、维护与跨地域合作？",
+            "en": "How can communities support inclusion, maintenance and cooperation?"
+          },
+          "presentation": {
+            "zh": "合作行动与参与路径",
+            "en": "Cooperation actions and participation paths"
+          },
+          "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch06-s04",
+          "source_heading": "6.4 面向社区与全球合作的倡议",
+          "next_action": "按统一小节模式整理现有初稿"
+        },
+        {
+          "id": "ch06-s05",
+          "number": "6.5",
+          "title": {
+            "zh": "结语：迈向可持续的数字未来",
+            "en": "Closing: a sustainable digital future"
+          },
+          "question": {
+            "zh": "全书的研究与行动如何形成持续迭代？",
+            "en": "How can research and action become a continuing cycle?"
+          },
+          "presentation": {
+            "zh": "全书收束与下一年度观察方向",
+            "en": "Closing narrative and next-year observation priorities"
+          },
+          "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
+          "status": "draft",
+          "data_status": "pending-review",
+          "anchor": "ch06-s05",
+          "source_heading": "6.5 结语：迈向可持续的数字未来",
+          "next_action": "按统一小节模式整理现有初稿"
+        }
+      ],
+      "status": "draft",
+      "template": "chapter",
+      "introduction_source": null,
+      "section_pattern": "action",
+      "research_status": "pending-review"
+    }
+  ],
+  "back_matter": [
+    {
+      "id": "appendix-a",
+      "route": "methodology/",
+      "title": {
+        "zh": "附录 A：指标、数据与研究方法",
+        "en": "Appendix A: indicators, data and methods"
+      },
+      "question": {
+        "zh": "结论如何核验与复现？",
+        "en": "How can findings be checked and reproduced?"
+      },
+      "kind": "methods",
+      "source_path": "appendices/附录A-指标体系与数据来源.md",
+      "status": "draft",
+      "template": "methodology",
+      "research_status": "pending-review"
+    },
+    {
+      "id": "appendix-b",
+      "route": "appendices/declaration/",
+      "title": {
+        "zh": "附录 B：宣言",
+        "en": "Appendix B: declaration"
+      },
+      "question": {
+        "zh": "报告采用怎样的共同价值表达？",
+        "en": "Which declaration accompanies the report?"
+      },
+      "kind": "declaration",
+      "source_path": "appendices/附录B-宣言.md",
+      "source_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
+      "status": "source-confirmed",
+      "template": "declaration",
+      "reference_snapshot": "chapters/引言-宣言.md",
+      "authoritative_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
+      "research_status": "pending-review"
+    },
+    {
+      "id": "appendix-c",
+      "route": "appendices/dpg/",
+      "title": {
+        "zh": "附录 C：开源人工智能数字公共产品评估框架",
+        "en": "Appendix C: open source AI digital public goods assessment"
+      },
+      "question": {
+        "zh": "如何组织公共价值的评估与证据？",
+        "en": "How can public-value assessment and evidence be organized?"
+      },
+      "kind": "dpg",
+      "source_path": "appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md",
+      "status": "draft",
+      "template": "methodology",
+      "research_status": "pending-review"
+    },
+    {
+      "id": "downloads",
+      "route": "downloads/",
+      "title": {
+        "zh": "数据、下载与引用",
+        "en": "Data, downloads and citation"
+      },
+      "question": {
+        "zh": "如何获取、引用与复用报告？",
+        "en": "How can the report be accessed, cited and reused?"
+      },
+      "kind": "downloads",
+      "status": "outline",
+      "template": "downloads",
+      "research_status": "pending-review"
+    }
+  ],
+  "content_pattern": {
+    "zh": [
+      "研究问题",
+      "核心发现",
+      "图表证据",
+      "解读与案例",
+      "行动建议",
+      "方法与来源"
+    ],
+    "en": [
+      "Research question",
+      "Key findings",
+      "Evidence",
+      "Interpretation and cases",
+      "Actions",
+      "Methods and sources"
+    ]
+  },
+  "release_policy": "Structure readiness is separate from research, translation and publication readiness.",
+  "report": {
+    "title_zh": "2026 全球开源发展报告",
+    "title_en": "Global Open Source Development Report 2026",
+    "primary_audience": "政府与国际组织决策者",
+    "period_start": "2025-07-01",
+    "period_end": "2026-06-30",
+    "historical_years": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "historical_window": "上年7月1日至当年6月30日",
+    "primary_platform": "GitHub",
+    "supplementary_platforms": [
+      "Gitee",
+      "AtomGit",
+      "GitLab"
+    ]
+  },
+  "presentation": {
+    "visual_baseline": "V5：云白阅读、深海蓝发布、青金强调",
+    "brand_repository": "X-lab2017/osdg-brand",
+    "primary_locale": "zh",
+    "english_status": "architecture-translated-full-text-pending",
+    "theme_modes": [
+      "light",
+      "dark"
+    ],
+    "reference_preview": "https://osdg-report-preview.token4all.chatgpt.site"
+  },
+  "page_templates": [
+    "overview",
+    "chapter",
+    "framework",
+    "methodology",
+    "declaration",
+    "downloads"
+  ],
+  "section_patterns": {
+    "framework": [
+      "问题与定义",
+      "框架图或指标解释",
+      "适用边界",
+      "来源"
+    ],
+    "observation": [
+      "核心发现",
+      "趋势与区域图表",
+      "解读",
+      "方法与局限",
+      "行动含义"
+    ],
+    "ranking": [
+      "样本与方法",
+      "榜单",
+      "变化解读",
+      "局限与来源"
+    ],
+    "landscape": [
+      "技术分层",
+      "代表项目",
+      "趋势与案例",
+      "来源"
+    ],
+    "model-research": [
+      "研究问题",
+      "供给或复用证据",
+      "机制与治理解读",
+      "局限与来源"
+    ],
+    "action": [
+      "前文发现",
+      "行动主体",
+      "建议行动",
+      "跟踪指标与适用条件"
+    ]
+  },
+  "minimum_submission": [
+    "一句核心发现或本节要回答的问题",
+    "相关图表、表格或原始材料",
+    "来源及需要说明的问题"
+  ],
+  "workflow": {
+    "preview": "可展示有状态标注的初稿与明确空态，未核验数字不作为已证实发现",
+    "publication": "内容、数据、编辑、浏览器及打印验收完成后由主编批准正式发布",
+    "missing_content": "显示待补与提交入口，不虚构正文、数值、图表或下载链接",
+    "publication_status": "not-approved",
+    "canonical_content": "保留现有chapters/、appendices/、outline/；本索引不复制正文"
+  },
+  "route_status": "implemented-private-preview",
+  "implementation_status": {
+    "manifest": "ready-for-review",
+    "website_renderer": "architecture-pages-implemented",
+    "full_text_renderer": "pending",
+    "pdf_pipeline": "pending"
+  },
+  "framework_entry": {
+    "id": "framework",
+    "route": "/?lang=zh#framework",
+    "source_ids": [
+      "ch01-s02",
+      "ch01-s03"
+    ],
+    "draft_indicator_registry": "planning/indicator-readiness.csv"
+  },
+  "brand": {
+    "report": "GOSD",
+    "goals_visual": "OSDG",
+    "goals_text": "OSDGs",
+    "indicators": "OSDI",
+    "chain": [
+      "GOSD",
+      "OSDG",
+      "OSDI"
+    ],
+    "core_chapters": [
+      "GOSO",
+      "GOSR",
+      "GOSL",
+      "GOSM"
+    ]
+  },
+  "navigation": [
+    "overview",
+    "report",
+    "data",
+    "presentation",
+    "film",
+    "release"
+  ],
+  "review_status": "public-preview",
+  "research_questions": [
+    {
+      "chapter_id": "ch02",
+      "label": "GOSO",
+      "question": {
+        "zh": "全球开源生态的规模、结构与参与格局如何变化？",
+        "en": "How are the scale, structure and participation patterns of global open source changing?"
+      }
+    },
+    {
+      "chapter_id": "ch03",
+      "label": "GOSR",
+      "question": {
+        "zh": "谁在贡献，贡献如何形成全球影响力？",
+        "en": "Who contributes, and how do contributions create global influence?"
+      }
+    },
+    {
+      "chapter_id": "ch04",
+      "label": "GOSL",
+      "question": {
+        "zh": "关键开源技术生态如何组织与演进？",
+        "en": "How are key open source technology ecosystems organized and evolving?"
+      }
+    },
+    {
+      "chapter_id": "ch05",
+      "label": "GOSM",
+      "question": {
+        "zh": "开源大模型的供给、复用与开放治理如何发展？",
+        "en": "How are open model supply, reuse and open governance developing?"
+      }
+    },
+    {
+      "chapter_id": "ch06",
+      "label": "行动建议",
+      "question": {
+        "zh": "不同参与者下一步可以采取哪些行动？",
+        "en": "What actions can different participants take next?"
+      }
+    }
+  ]
+}
