@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0",
   "edition": 2026,
-  "structure_version": "0.4-core-chapters-preview",
+  "structure_version": "0.5-chapter1-methods-preview",
   "updated_at": "2026-10-12",
-  "status": "architecture-preview",
+  "status": "content-preview",
   "title": {
     "zh": "2026 全球开源发展报告",
     "en": "Global Open Source Development Report 2026"
@@ -13,7 +13,7 @@
     "en": "From inclusion to quality, from participation to impact"
   },
   "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
-  "source_ref": "docs/osdg-report-publication-plan-20261011",
+  "source_ref": "main",
   "period": {
     "start": "2025-07-01",
     "end": "2026-06-30",
@@ -68,12 +68,12 @@
       "number": "1",
       "route": "chapters/01/",
       "title": {
-        "zh": "开源发展目标与指标体系",
-        "en": "Goals and indicators"
+        "zh": "从开源公共价值到可验证的发展指标",
+        "en": "From public value to verifiable development indicators"
       },
       "question": {
-        "zh": "怎样衡量开源发展？",
-        "en": "How can open source development be measured?"
+        "zh": "为什么研究、朝哪里发展、如何用证据判断变化？",
+        "en": "Why study open source, where should it develop, and how can evidence reveal change?"
       },
       "phase": {
         "zh": "目标",
@@ -97,11 +97,11 @@
             "en": "Concept map and reading guide"
           },
           "source_path": "chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "working-definitions-with-evidence-gaps",
           "anchor": "ch01-s01",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "持续完善数据与方法，按证据更新"
         },
         {
           "id": "ch01-s02",
@@ -119,11 +119,11 @@
             "en": "Interactive disk and dimension guide"
           },
           "source_path": "chapters/chapter1/1.2-OSDGs-开源发展目标框架.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "working-definitions-with-evidence-gaps",
           "anchor": "ch01-s02",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "持续完善数据与方法，按证据更新"
         },
         {
           "id": "ch01-s03",
@@ -141,18 +141,18 @@
             "en": "Indicator dictionary, roles and coverage"
           },
           "source_path": "chapters/chapter1/1.3-OSDI-开源发展度量体系.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "working-definitions-with-evidence-gaps",
           "anchor": "ch01-s03",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "持续完善数据与方法，按证据更新"
         }
       ],
-      "status": "draft",
+      "status": "preview",
       "template": "chapter",
       "introduction_source": "chapters/chapter1/本章介绍.md",
       "section_pattern": "framework",
-      "research_status": "pending-review"
+      "research_status": "framework-approved-preview"
     },
     {
       "id": "ch02",
@@ -910,9 +910,9 @@
       },
       "kind": "methods",
       "source_path": "appendices/附录A-指标体系与数据来源.md",
-      "status": "draft",
+      "status": "preview",
       "template": "methodology",
-      "research_status": "pending-review"
+      "research_status": "working-methods-preview"
     },
     {
       "id": "appendix-b",
@@ -971,19 +971,15 @@
   "content_pattern": {
     "zh": [
       "研究问题",
-      "核心发现",
-      "图表证据",
-      "解读与案例",
-      "行动建议",
-      "方法与来源"
+      "概念与证据",
+      "解释与边界",
+      "用途与衔接"
     ],
     "en": [
       "Research question",
-      "Key findings",
-      "Evidence",
-      "Interpretation and cases",
-      "Actions",
-      "Methods and sources"
+      "Concepts and evidence",
+      "Interpretation and limits",
+      "Application and transition"
     ]
   },
   "release_policy": "Structure readiness is separate from research, translation and publication readiness.",
@@ -1075,14 +1071,15 @@
     "preview": "可展示有状态标注的初稿与明确空态，未核验数字不作为已证实发现",
     "publication": "内容、数据、编辑、浏览器及打印验收完成后由主编批准正式发布",
     "missing_content": "显示待补与提交入口，不虚构正文、数值、图表或下载链接",
-    "publication_status": "not-approved",
-    "canonical_content": "保留现有chapters/、appendices/、outline/；本索引不复制正文"
+    "publication_status": "preview-approved",
+    "canonical_content": "GitHub chapters/、appendices/、data/ 为最终源；content/report.json 为自动生成的网站快照",
+    "formal_publication_status": "pending-final-review"
   },
-  "route_status": "implemented-private-preview",
+  "route_status": "public-preview",
   "implementation_status": {
-    "manifest": "ready-for-review",
-    "website_renderer": "architecture-pages-implemented",
-    "full_text_renderer": "pending",
+    "manifest": "approved-framework",
+    "website_renderer": "content-preview-implemented",
+    "full_text_renderer": "chapter1-and-methods-implemented",
     "pdf_pipeline": "pending"
   },
   "framework_entry": {
@@ -1161,5 +1158,6 @@
         "en": "What actions can different participants take next?"
       }
     }
-  ]
+  ],
+  "source_fallback_ref": "docs/osdg-report-publication-plan-20261011"
 }

@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - 'preview/**'
+      - 'chapters/chapter1/**'
+      - 'appendices/附录A-指标体系与数据来源.md'
+      - 'data/meta/**'
+      - 'data/processed/**'
+      - 'figures/chapter1/**'
       - '.github/workflows/gosd-preview-pages.yml'
   workflow_dispatch:
 
@@ -30,8 +35,11 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: |
+          python3 preview/web/import_report.py --repo-root . --source-ref "$GITHUB_SHA"
           python3 preview/web/build_portal.py --output _site --base-path "$BASE_PATH"
           python3 preview/web/check_portal.py --output _site --base-path "$BASE_PATH"
+          python3 preview/web/check_report.py --output _site
+          node --check _site/report.js
           node --check _site/portal.js
           node --check _site/explore.js
       - name: Upload generated preview

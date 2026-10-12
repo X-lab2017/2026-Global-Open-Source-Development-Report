@@ -2,15 +2,16 @@
 """Build bilingual architecture pages into the existing OSDG static site."""
 from pathlib import Path
 import argparse, html, json, shutil
+import report_content as report
 from urllib.parse import quote
 
 ROOT=Path(__file__).resolve().parents[1]
 M=json.loads((ROOT/'content/manifest.json').read_text())
 UNITS=M['front_matter']+M['chapters']+M['back_matter']
 REPO='https://github.com/'+M['repository']+'/blob/'+M['source_ref']+'/'
-STATES={'draft':('初稿入口','Draft available'),'outline':('结构已建立','Outline ready'),'source-confirmed':('来源已确定','Source selected')}
+STATES={'preview':('正文已上线','Manuscript available'),'draft':('初稿入口','Draft available'),'outline':('结构已建立','Outline ready'),'source-confirmed':('来源已确定','Source selected')}
 E=lambda s:html.escape(str(s),quote=True)
-def source(path):return REPO+quote(path,safe='/')
+def source(path):return report.source(path)
 def url(u,lang):return '/2026/'+lang+'/'+u['route']
 def link(href,title,cls='inline-link'):return f'<a class="{cls}" href="{E(href)}">{E(title)}</a>'
 def para(text):return '<p>'+E(text)+'</p>'
@@ -30,6 +31,8 @@ def validate():
 
 def body(u,lang):
     zh=lang=='zh';t=lambda z,e:z if zh else e
+    if u['id']=='ch01':return report.chapter(lang)
+    if u['kind']=='methods':return report.methods(lang)
     out=[]
     if 'sections' in u:
         out.append('<div class="reader-note">'+t('本页展示本章结构与呈现模式。各节保留初稿入口，核心发现与图表在逐章整理、核验后接入。','This page presents the chapter structure and presentation plan. Source drafts remain accessible; findings and figures will be integrated as each chapter is reviewed.')+'</div>')
@@ -38,7 +41,7 @@ def body(u,lang):
             status=STATES[s['status']][0 if zh else 1]
             out.append(f'<section class="chapter-section" id="{s["id"]}"><div class="section-topline"><span class="section-number">{s["number"]}</span><span>{status}</span></div><h2>{E(s["title"][lang])}</h2>')
             out.append(para(s['question'][lang]))
-            out.append('<dl class="section-spec"><dt>'+t('拟呈现','Presentation')+'</dt><dd>'+E(s['presentation'][lang])+'</dd><dt>'+t('阅读顺序','Reading order')+'</dt><dd>'+t('核心发现 → 证据与解读 → 行动建议','Key findings → Evidence and interpretation → Actions')+'</dd></dl>')
+            out.append('<dl class="section-spec"><dt>'+t('拟呈现','Presentation')+'</dt><dd>'+E(s['presentation'][lang])+'</dd><dt>'+t('阅读顺序','Reading order')+'</dt><dd>'+t('研究问题 → 证据与解释 → 适用边界与启示','Research question → Evidence and interpretation → Scope and implications')+'</dd></dl>')
             out.append('<div class="section-actions">'+link(source(s['source_path']),t('阅读现有初稿 ↗','Read source draft ↗') if s['status']=='draft' else t('查看写作结构 ↗','View writing outline ↗'),'') )
             for rid in s.get('related',[]):
                 parent=next((x for x in UNITS if x['id']==rid or any(y['id']==rid for y in x.get('sections',[]))),None)
@@ -49,7 +52,7 @@ def body(u,lang):
             if s['number']=='1.2':out.append(link('/?lang='+lang+'#framework',t('探索 OSDG 圆盘 ↗','Explore the OSDG disk ↗'),''))
             if s['number']=='2.1':out.append(link('/?lang='+lang+'#chapter-2',t('查看现有图表试读 ↗','View the existing chart preview ↗'),''))
             out.append('</div></section>')
-        out.append('<details class="chapter-section"><summary>'+t('统一小节模式','Shared section format')+'</summary><div class="pattern">'+''.join(f'<span><b>{i+1:02d}</b>{E(x)}</span>' for i,x in enumerate(M['content_pattern'][lang]))+'</div>'+para(t('每条核心发现连接证据；图表配来源、数据表与可下载数据；方法细节集中展开。','Each finding links to evidence. Figures include sources, tables and downloadable data, with methods available alongside.'))+'</details>')
+        out.append('<details class="chapter-section"><summary>'+t('章节组织原则','Chapter structure principles')+'</summary><div class="pattern">'+''.join(f'<span><b>{i+1:02d}</b>{E(x)}</span>' for i,x in enumerate(M['content_pattern'][lang]))+'</div>'+para(t('各章依研究问题组织叙事，不强制复用同一套小标题；证据、来源、边界与方法保持一致的可查证要求。','Narrative structure follows each chapter’s research question. Evidence, sources, limitations and methods remain consistently traceable.'))+'</details>')
     elif u['kind']=='summary':
         out.append('<div class="reader-note">'+t('执行摘要的版式与证据位置先建立。年度核心结论在相关章节核验后集中定稿。','The summary structure is ready. Annual findings will be finalized after their supporting chapters are verified.')+'</div>')
         out.append('<h2>'+t('用五个问题串起年度发现','Five questions connect the annual findings')+'</h2>')

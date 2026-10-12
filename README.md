@@ -6,12 +6,12 @@
 
 《2026 全球开源发展报告》追踪全球开源生态在人工智能时代的演进，以开源发展目标（OSDGs）明确研究方向，以开源发展目标指标体系（The OSDGs Indicator System，OSDI）组织可追溯的观测与分析。本仓库以开源方式运作本报告的撰写与发布。
 
-## 本轮内容审阅
+## 当前 Preview · v0.5
 
-- [第一章修订稿入口](chapters/chapter1/本章介绍.md)：价值—目标—指标，衔接四个核心研究板块。
+- [第一章正文入口](chapters/chapter1/本章介绍.md)：价值—目标—指标，衔接四个核心研究板块。
 - [附录 A 方法基础](appendices/附录A-指标体系与数据来源.md)与[二十九项指标字典](data/meta/osdi_indicator_dictionary.csv)。
 - [数据可用性清单](data/meta/数据可用性清单.md)与[写作和演示复用规范](editorial/章节写作与内容复用规范.md)。
-- [本轮修订说明](editorial/第一章修订说明-20261012.md)。当前为内容审阅稿，已验收的线上 Preview 架构继续沿用。下列旧稿进度不代表相关发现已完成数据核验。
+- [本轮修订说明](editorial/第一章修订说明-20261012.md)。第一章与方法基础已接入 [在线 Preview](https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/01/)，沿用已验收的六栏目导航。下列旧稿进度不代表相关发现已完成数据核验。
 
 ## 目录结构
 
