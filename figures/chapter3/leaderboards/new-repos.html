@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本年新创建开源仓库排行榜 Top 30</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #070F1A; color: #EDF9FF;
+       font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif; }
+.page { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+.board { background: rgba(17, 30, 51); box-shadow: inset 0px -1px 4px rgba(157, 195, 230, 0.6);
+         border-radius: 12px; padding: 10px; }
+.board-title { display: flex; justify-content: center; align-items: center; margin: 10px 0 4px; }
+.board-title img { width: 36px; height: 36px; margin-right: 8px; }
+.board-title span { color: #CCE7FF; font-size: 20px; font-weight: 700; }
+.board-sub { text-align: center; font-size: 12px; color: rgba(204, 231, 255, 0.55); margin-bottom: 12px; }
+.board-note { font-size: 12px; color: rgba(204, 231, 255, 0.55); margin: 10px 4px 4px; line-height: 1.7; }
+table { table-layout: fixed; width: 100%; border: none; border-collapse: collapse; }
+th { border: none; text-align: left; font-size: 15px; font-weight: 700; padding: 8px 6px;
+     color: #CCE7FF; white-space: nowrap; }
+td { border: none; padding: 6px; font-family: Arial, 'PingFang SC', sans-serif; font-size: 14px;
+     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tbody tr { border-top: 1px solid rgba(175, 206, 232, 0.2); }
+tbody tr:nth-child(even) { background-color: rgba(175, 206, 232, 0.1); }
+tbody tr:hover { background-color: rgba(175, 206, 232, 0.22); }
+.cell-name { display: flex; align-items: center; padding-right: 8px; min-width: 0; }
+.cell-name img { width: 18px; height: 18px; margin-right: 10px; object-fit: contain; border-radius: 3px; }
+.cell-name span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; }
+.up { color: #3fb950; } .down { color: #f85149; } .flat { color: rgba(204,231,255,0.6); }
+.badge-new { display: inline-block; background: rgba(63, 185, 80, 0.18); color: #3fb950;
+             border: 1px solid rgba(63, 185, 80, 0.5); border-radius: 10px;
+             font-size: 12px; padding: 0 8px; line-height: 18px; }
+.footer { text-align: center; color: rgba(204, 231, 255, 0.4); font-size: 12px; margin: 24px 0 40px; }
+a { color: #6eb6ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="board">
+    <div class="board-title"><img src="assets/earth-animation.gif" alt=""><span>本年新创建开源仓库排行榜 Top 30</span></div>
+    <div class="board-sub">统计周期：2025.7—2026.6　数据来源：OpenDigger</div>
+    <table>
+      <thead><tr><th style="width:50px">#</th><th style="width:250px">仓库</th><th style="width:90px">平台</th><th style="width:130px">OpenRank</th><th style="width:110px">开发者规模</th><th style="width:130px">创建时间</th></tr></thead>
+      <tbody>
+<tr><td>1</td><td><div class="cell-name"><img src="https://github.com/openclaw.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="openclaw/openclaw">openclaw/openclaw</span></div></td><td>GitHub</td><td><span class="num">7,047.46</span></td><td><span class="num">18,624</span></td><td><span class="num">2025-11-24</span></td></tr>
+<tr><td>2</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/ops-transformer">cann/ops-transformer</span></div></td><td>AtomGit</td><td><span class="num">2,607.14</span></td><td><span class="num">1,010</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>3</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/ops-nn">cann/ops-nn</span></div></td><td>AtomGit</td><td><span class="num">2,146.38</span></td><td><span class="num">1,006</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>4</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/pytorch">Ascend/pytorch</span></div></td><td>AtomGit</td><td><span class="num">1,919.09</span></td><td><span class="num">1,050</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>5</td><td><div class="cell-name"><img src="https://atomgit.com/mindspore.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="mindspore/mindspore">mindspore/mindspore</span></div></td><td>AtomGit</td><td><span class="num">1,823.15</span></td><td><span class="num">1,711</span></td><td><span class="num">2025-12-01</span></td></tr>
+<tr><td>6</td><td><div class="cell-name"><img src="https://github.com/NousResearch.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="NousResearch/hermes-agent">NousResearch/hermes-agent</span></div></td><td>GitHub</td><td><span class="num">1,765.39</span></td><td><span class="num">3,960</span></td><td><span class="num">2025-07-22</span></td></tr>
+<tr><td>7</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/pypto">cann/pypto</span></div></td><td>AtomGit</td><td><span class="num">1,224.15</span></td><td><span class="num">431</span></td><td><span class="num">2025-12-01</span></td></tr>
+<tr><td>8</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/ops-math">cann/ops-math</span></div></td><td>AtomGit</td><td><span class="num">1,096.59</span></td><td><span class="num">713</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>9</td><td><div class="cell-name"><img src="https://github.com/langchain-ai.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="langchain-ai/deepagents">langchain-ai/deepagents</span></div></td><td>GitHub</td><td><span class="num">1,017.25</span></td><td><span class="num">786</span></td><td><span class="num">2025-07-27</span></td></tr>
+<tr><td>10</td><td><div class="cell-name"><img src="https://atomgit.com/openharmony.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="openharmony/multimedia_media_library">openharmony/multimedia_media_library</span></div></td><td>AtomGit</td><td><span class="num">904.71</span></td><td><span class="num">235</span></td><td><span class="num">2025-07-01</span></td></tr>
+<tr><td>11</td><td><div class="cell-name"><img src="https://github.com/ibm-developer-skills-network.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub">ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub</span></div></td><td>GitHub</td><td><span class="num">883.12</span></td><td><span class="num">2,223</span></td><td><span class="num">2025-09-04</span></td></tr>
+<tr><td>12</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/asc-devkit">cann/asc-devkit</span></div></td><td>AtomGit</td><td><span class="num">879.20</span></td><td><span class="num">480</span></td><td><span class="num">2025-11-01</span></td></tr>
+<tr><td>13</td><td><div class="cell-name"><img src="https://atomgit.com/openharmony.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="openharmony/ability_ability_runtime">openharmony/ability_ability_runtime</span></div></td><td>AtomGit</td><td><span class="num">769.24</span></td><td><span class="num">408</span></td><td><span class="num">2025-07-01</span></td></tr>
+<tr><td>14</td><td><div class="cell-name"><img src="https://github.com/aden-hive.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="aden-hive/hive">aden-hive/hive</span></div></td><td>GitHub</td><td><span class="num">769.19</span></td><td><span class="num">1,454</span></td><td><span class="num">2026-01-12</span></td></tr>
+<tr><td>15</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/runtime">cann/runtime</span></div></td><td>AtomGit</td><td><span class="num">761.13</span></td><td><span class="num">347</span></td><td><span class="num">2026-01-01</span></td></tr>
+<tr><td>16</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/ModelZoo-PyTorch">Ascend/ModelZoo-PyTorch</span></div></td><td>AtomGit</td><td><span class="num">703.95</span></td><td><span class="num">863</span></td><td><span class="num">2025-11-01</span></td></tr>
+<tr><td>17</td><td><div class="cell-name"><img src="https://github.com/vllm-project.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="vllm-project/vllm-omni">vllm-project/vllm-omni</span></div></td><td>GitHub</td><td><span class="num">703.14</span></td><td><span class="num">539</span></td><td><span class="num">2025-09-11</span></td></tr>
+<tr><td>18</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/mind-cluster">Ascend/mind-cluster</span></div></td><td>AtomGit</td><td><span class="num">691.49</span></td><td><span class="num">279</span></td><td><span class="num">2025-08-01</span></td></tr>
+<tr><td>19</td><td><div class="cell-name"><img src="https://github.com/Facepunch.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Facepunch/sbox-public">Facepunch/sbox-public</span></div></td><td>GitHub</td><td><span class="num">687.71</span></td><td><span class="num">695</span></td><td><span class="num">2025-11-24</span></td></tr>
+<tr><td>20</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/hcomm">cann/hcomm</span></div></td><td>AtomGit</td><td><span class="num">684.72</span></td><td><span class="num">292</span></td><td><span class="num">2025-11-01</span></td></tr>
+<tr><td>21</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/MindSpeed-LLM">Ascend/MindSpeed-LLM</span></div></td><td>AtomGit</td><td><span class="num">671.85</span></td><td><span class="num">606</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>22</td><td><div class="cell-name"><img src="https://github.com/noctalia-dev.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="noctalia-dev/noctalia">noctalia-dev/noctalia</span></div></td><td>GitHub</td><td><span class="num">659.16</span></td><td><span class="num">660</span></td><td><span class="num">2025-07-11</span></td></tr>
+<tr><td>23</td><td><div class="cell-name"><img src="https://github.com/AvengeMedia.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="AvengeMedia/DankMaterialShell">AvengeMedia/DankMaterialShell</span></div></td><td>GitHub</td><td><span class="num">648.98</span></td><td><span class="num">738</span></td><td><span class="num">2025-07-10</span></td></tr>
+<tr><td>24</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/op-plugin">Ascend/op-plugin</span></div></td><td>AtomGit</td><td><span class="num">647.23</span></td><td><span class="num">791</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>25</td><td><div class="cell-name"><img src="https://atomgit.com/openharmony.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="openharmony/multimedia_av_codec">openharmony/multimedia_av_codec</span></div></td><td>AtomGit</td><td><span class="num">634.40</span></td><td><span class="num">199</span></td><td><span class="num">2025-07-01</span></td></tr>
+<tr><td>26</td><td><div class="cell-name"><img src="https://atomgit.com/cann.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="cann/ge">cann/ge</span></div></td><td>AtomGit</td><td><span class="num">628.91</span></td><td><span class="num">434</span></td><td><span class="num">2026-01-01</span></td></tr>
+<tr><td>27</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/torchair">Ascend/torchair</span></div></td><td>AtomGit</td><td><span class="num">603.00</span></td><td><span class="num">602</span></td><td><span class="num">2025-10-01</span></td></tr>
+<tr><td>28</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/MindSpeed-MM">Ascend/MindSpeed-MM</span></div></td><td>AtomGit</td><td><span class="num">602.54</span></td><td><span class="num">289</span></td><td><span class="num">2025-09-01</span></td></tr>
+<tr><td>29</td><td><div class="cell-name"><img src="https://atomgit.com/Ascend.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ascend/RecSDK">Ascend/RecSDK</span></div></td><td>AtomGit</td><td><span class="num">598.00</span></td><td><span class="num">121</span></td><td><span class="num">2025-08-01</span></td></tr>
+<tr><td>30</td><td><div class="cell-name"><img src="https://github.com/PlatformNetwork.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="PlatformNetwork/bounty-challenge">PlatformNetwork/bounty-challenge</span></div></td><td>GitHub</td><td><span class="num">596.41</span></td><td><span class="num">543</span></td><td><span class="num">2026-01-02</span></td></tr>
+      </tbody>
+    </table>
+    <div class="board-note">判定口径：项目/仓库纳入统计的所有仓库在 2025.7 之前均无 OpenRank 活动记录，且 repo_info 中有创建记录的仓库其创建时间不早于 2025.7（repo_info 仅覆盖 GitHub，AtomGit/Gitee 仓库以首次活动时间为准）；按本期 OpenRank 排序。</div>
+  </div>
+  <div class="footer">Data: OpenDigger · Generated for GOSR 第三章</div>
+</div>
+</body>
+</html>

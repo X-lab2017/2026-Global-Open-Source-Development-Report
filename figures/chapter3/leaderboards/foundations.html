@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>全球开源基金会 OpenRank 排行榜</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #070F1A; color: #EDF9FF;
+       font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif; }
+.page { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+.board { background: rgba(17, 30, 51); box-shadow: inset 0px -1px 4px rgba(157, 195, 230, 0.6);
+         border-radius: 12px; padding: 10px; }
+.board-title { display: flex; justify-content: center; align-items: center; margin: 10px 0 4px; }
+.board-title img { width: 36px; height: 36px; margin-right: 8px; }
+.board-title span { color: #CCE7FF; font-size: 20px; font-weight: 700; }
+.board-sub { text-align: center; font-size: 12px; color: rgba(204, 231, 255, 0.55); margin-bottom: 12px; }
+.board-note { font-size: 12px; color: rgba(204, 231, 255, 0.55); margin: 10px 4px 4px; line-height: 1.7; }
+table { table-layout: fixed; width: 100%; border: none; border-collapse: collapse; }
+th { border: none; text-align: left; font-size: 15px; font-weight: 700; padding: 8px 6px;
+     color: #CCE7FF; white-space: nowrap; }
+td { border: none; padding: 6px; font-family: Arial, 'PingFang SC', sans-serif; font-size: 14px;
+     overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tbody tr { border-top: 1px solid rgba(175, 206, 232, 0.2); }
+tbody tr:nth-child(even) { background-color: rgba(175, 206, 232, 0.1); }
+tbody tr:hover { background-color: rgba(175, 206, 232, 0.22); }
+.cell-name { display: flex; align-items: center; padding-right: 8px; min-width: 0; }
+.cell-name img { width: 18px; height: 18px; margin-right: 10px; object-fit: contain; border-radius: 3px; }
+.cell-name span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; }
+.up { color: #3fb950; } .down { color: #f85149; } .flat { color: rgba(204,231,255,0.6); }
+.badge-new { display: inline-block; background: rgba(63, 185, 80, 0.18); color: #3fb950;
+             border: 1px solid rgba(63, 185, 80, 0.5); border-radius: 10px;
+             font-size: 12px; padding: 0 8px; line-height: 18px; }
+.footer { text-align: center; color: rgba(204, 231, 255, 0.4); font-size: 12px; margin: 24px 0 40px; }
+a { color: #6eb6ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="board">
+    <div class="board-title"><img src="assets/earth-animation.gif" alt=""><span>全球开源基金会 OpenRank 排行榜</span></div>
+    <div class="board-sub">统计周期：2025.7—2026.6　数据来源：OpenDigger</div>
+    <table>
+      <thead><tr><th style="width:60px">#</th><th style="width:320px">基金会名称</th><th style="width:200px">OpenRank</th><th style="width:160px">开发者规模</th><th style="width:160px">所属国家</th></tr></thead>
+      <tbody>
+<tr><td>1</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/linux_foundation.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Linux 基金会（含子基金会）">Linux 基金会（含子基金会）</span></div></td><td><span class="num">196,128.27</span></td><td><span class="num">63,940</span></td><td>🇺🇸美国</td></tr>
+<tr><td>2</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/openatom.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="开放原子开源基金会">开放原子开源基金会</span></div></td><td><span class="num">99,965.35</span></td><td><span class="num">23,173</span></td><td>🇨🇳中国</td></tr>
+<tr><td>3</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/apache.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Apache 软件基金会">Apache 软件基金会</span></div></td><td><span class="num">81,247.51</span></td><td><span class="num">19,251</span></td><td>🇺🇸美国</td></tr>
+<tr><td>4</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/nixos.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Stichting NixOS Foundation">Stichting NixOS Foundation</span></div></td><td><span class="num">21,258.31</span></td><td><span class="num">7,606</span></td><td>🇳🇱荷兰</td></tr>
+<tr><td>5</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/rust.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Rust 基金会">Rust 基金会</span></div></td><td><span class="num">14,687.80</span></td><td><span class="num">4,729</span></td><td>🇺🇸美国</td></tr>
+<tr><td>6</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/python.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Python 软件基金会">Python 软件基金会</span></div></td><td><span class="num">11,915.48</span></td><td><span class="num">3,397</span></td><td>🇺🇸美国</td></tr>
+<tr><td>7</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/godot.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Godot Foundation">Godot Foundation</span></div></td><td><span class="num">5,866.91</span></td><td><span class="num">4,449</span></td><td>🇳🇱荷兰</td></tr>
+<tr><td>8</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/ruby.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Ruby 基金会">Ruby 基金会</span></div></td><td><span class="num">5,664.56</span></td><td><span class="num">2,058</span></td><td>🇯🇵日本</td></tr>
+<tr><td>9</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/duckdb.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="DuckDB Foundation">DuckDB Foundation</span></div></td><td><span class="num">2,784.56</span></td><td><span class="num">1,601</span></td><td></td></tr>
+<tr><td>10</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/csa_iot.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Connectivity Standards Alliance">Connectivity Standards Alliance</span></div></td><td><span class="num">2,004.52</span></td><td><span class="num">470</span></td><td>🇺🇸美国</td></tr>
+<tr><td>11</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/php.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="PHP 基金会">PHP 基金会</span></div></td><td><span class="num">1,992.35</span></td><td><span class="num">1,437</span></td><td>🇺🇸美国</td></tr>
+<tr><td>12</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/bevy.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Bevy Foundation">Bevy Foundation</span></div></td><td><span class="num">1,804.98</span></td><td><span class="num">865</span></td><td>🇺🇸美国</td></tr>
+<tr><td>13</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/gentoo.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Gentoo Foundation">Gentoo Foundation</span></div></td><td><span class="num">1,735.37</span></td><td><span class="num">502</span></td><td>🇺🇸美国</td></tr>
+<tr><td>14</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/trino.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Trino Foundation">Trino Foundation</span></div></td><td><span class="num">1,535.95</span></td><td><span class="num">683</span></td><td>🇺🇸美国</td></tr>
+<tr><td>15</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/zig.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Zig 软件基金会">Zig 软件基金会</span></div></td><td><span class="num">1,054.30</span></td><td><span class="num">869</span></td><td>🇺🇸美国</td></tr>
+<tr><td>16</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/openinfra.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="OpenInfra Foundation">OpenInfra Foundation</span></div></td><td><span class="num">587.23</span></td><td><span class="num">292</span></td><td>🇺🇸美国</td></tr>
+<tr><td>17</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/free_ebook.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Free EBook Foundation">Free EBook Foundation</span></div></td><td><span class="num">408.75</span></td><td><span class="num">764</span></td><td>🇺🇸美国</td></tr>
+<tr><td>18</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/farama.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="farama">farama</span></div></td><td><span class="num">357.83</span></td><td><span class="num">194</span></td><td>🇺🇸美国</td></tr>
+<tr><td>19</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/anoma.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Anoma Foundation">Anoma Foundation</span></div></td><td><span class="num">219.73</span></td><td><span class="num">50</span></td><td>🇨🇭瑞士</td></tr>
+<tr><td>20</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/eclipse.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="Eclipse Foundation">Eclipse Foundation</span></div></td><td><span class="num">111.19</span></td><td><span class="num">189</span></td><td>🇨🇦加拿大</td></tr>
+<tr><td>21</td><td><div class="cell-name"><img src="https://oss.open-digger.cn/logos/foundations/girlscript.png" alt="" loading="lazy" onerror="this.style.display='none'"><span title="GirlScript Foundation">GirlScript Foundation</span></div></td><td><span class="num">1.74</span></td><td><span class="num">5</span></td><td>🇮🇳印度</td></tr>
+      </tbody>
+    </table>
+    <div class="board-note">注：「Linux 基金会（含子基金会）」条目已合并其旗下全部子基金会（FinOps Foundation、Hyperledger Foundation、LF AI & Data Foundation、LF Edge Foundation、LF Networking Foundation、Linux 基金会、Open 3D Foundation、OpenJS Foundation、OpenSSF Foundation、Presto Foundation、PyTorch Foundation、RICSV Foundation、云原生计算基金会、智能体人工智能基金会（AAIF）），OpenRank 为家族合计，开发者规模为跨仓库去重后的人数。</div>
+  </div>
+  <div class="footer">Data: OpenDigger · Generated for GOSR 第三章</div>
+</div>
+</body>
+</html>
