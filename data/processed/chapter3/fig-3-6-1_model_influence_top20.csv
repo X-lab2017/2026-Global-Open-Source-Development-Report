@@ -1,0 +1,21 @@
+rank,model_id,publisher,country_code,country,task,modelrank_value,model_url
+1,Qwen/Qwen3.8-27B,Qwen,CN,China,Multimodal Understanding,27930.09152550399,https://huggingface.co/Qwen/Qwen3.8-27B
+2,Qwen/Qwen3.5-9B-Base,Qwen,CN,China,Multimodal Understanding,14343.715079288893,https://huggingface.co/Qwen/Qwen3.5-9B-Base
+3,meta-llama/Llama-3.1-8B,meta-llama,US,United States,Text Generation,14144.485682483186,https://huggingface.co/meta-llama/Llama-3.1-8B
+4,Qwen/Qwen2.5-7B,Qwen,CN,China,Text Generation,14018.324191475465,https://huggingface.co/Qwen/Qwen2.5-7B
+5,Qwen/Qwen2.5-7B-Instruct,Qwen,CN,China,Text Generation,13298.166505738669,https://huggingface.co/Qwen/Qwen2.5-7B-Instruct
+6,meta-llama/Llama-3.1-8B-Instruct,meta-llama,US,United States,Text Generation,11019.358287317573,https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct
+7,Qwen/Qwen3-14B,Qwen,CN,China,Text Generation,10275.301357074417,https://huggingface.co/Qwen/Qwen3-14B
+8,Qwen/Qwen3-8B-Base,Qwen,CN,China,Text Generation,9832.335775634087,https://huggingface.co/Qwen/Qwen3-8B-Base
+9,Qwen/Qwen3-8B,Qwen,CN,China,Text Generation,9596.089587139062,https://huggingface.co/Qwen/Qwen3-8B
+10,Qwen/Qwen2.5-VL-3B-Instruct,Qwen,CN,China,Multimodal Understanding,9310.457355049584,https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct
+11,lerobot/smolvla_base,lerobot,US,United States,Robotics,9229.637130318906,https://huggingface.co/lerobot/smolvla_base
+12,Qwen/Qwen3-14B-Base,Qwen,CN,China,Text Generation,9030.199178962765,https://huggingface.co/Qwen/Qwen3-14B-Base
+13,Qwen/Qwen3.5-9B,Qwen,CN,China,Multimodal Understanding,8195.73635756345,https://huggingface.co/Qwen/Qwen3.5-9B
+14,Qwen/Qwen3.5-4B-Base,Qwen,CN,China,Multimodal Understanding,8088.412649519708,https://huggingface.co/Qwen/Qwen3.5-4B-Base
+15,Qwen/Qwen3.5-4B,Qwen,CN,China,Multimodal Understanding,7995.8680758518685,https://huggingface.co/Qwen/Qwen3.5-4B
+16,Qwen/Qwen3.6-27B,Qwen,CN,China,Multimodal Understanding,7531.666833063055,https://huggingface.co/Qwen/Qwen3.6-27B
+17,Qwen/Qwen2.5-3B,Qwen,CN,China,Text Generation,6520.059226148725,https://huggingface.co/Qwen/Qwen2.5-3B
+18,Qwen/Qwen2.5-1.5B,Qwen,CN,China,Text Generation,6416.318520623921,https://huggingface.co/Qwen/Qwen2.5-1.5B
+19,Qwen/Qwen3-0.6B-Base,Qwen,CN,China,Text Generation,6407.403643978367,https://huggingface.co/Qwen/Qwen3-0.6B-Base
+20,krea/Krea-2-Raw,krea,US,United States,Image Generation,6375.050641368365,https://huggingface.co/krea/Krea-2-Raw

@@ -32,6 +32,7 @@ chapter,chapter_tag,chapter_title,indicator_code,use,availability
 3,GOSR,全球开源影响力排行榜,HighImpactTalent,明确主体、样本和算法后形成排名或主体画像,规划用途；以指标字典状态为准
 5,GOSM,全球开源大模型发展洞察,ModelAdoption,观察开放供给、模型与数据复用及治理,规划用途；以指标字典状态为准
 5,GOSM,全球开源大模型发展洞察,ModelCommunityHeat,观察开放供给、模型与数据复用及治理,规划用途；以指标字典状态为准
+3,GOSR,全球开源影响力排行榜,ModelRank,展示2026年8月模型影响力榜单,月度榜单数据已入库；完整复现链待核验
 5,GOSM,全球开源大模型发展洞察,ModelRank,观察开放供给、模型与数据复用及治理,规划用途；以指标字典状态为准
 5,GOSM,全球开源大模型发展洞察,DataAdoption,观察开放供给、模型与数据复用及治理,规划用途；以指标字典状态为准
 5,GOSM,全球开源大模型发展洞察,DataCommunityHeat,观察开放供给、模型与数据复用及治理,规划用途；以指标字典状态为准
