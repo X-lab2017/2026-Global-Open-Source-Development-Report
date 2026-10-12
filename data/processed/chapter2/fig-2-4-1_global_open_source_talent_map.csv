@@ -1,0 +1,176 @@
+region_code,region_name,talent_count,as_of
+US,United States,35005,2026-07
+DE,Germany,14157,2026-07
+CN,China,12653,2026-07
+GB,United Kingdom,9810,2026-07
+FR,France,7744,2026-07
+IN,India,7571,2026-07
+CA,Canada,6665,2026-07
+BR,Brazil,5245,2026-07
+JP,Japan,4821,2026-07
+NL,Netherlands,4463,2026-07
+KR,South Korea,4272,2026-07
+PL,Poland,3438,2026-07
+AU,Australia,3271,2026-07
+CH,Switzerland,2942,2026-07
+ES,Spain,2908,2026-07
+RU,Russia,2667,2026-07
+IT,Italy,2416,2026-07
+SE,Sweden,2289,2026-07
+UA,Ukraine,1717,2026-07
+NO,Norway,1664,2026-07
+CZ,Czechia,1624,2026-07
+AT,Austria,1457,2026-07
+BE,Belgium,1424,2026-07
+VN,Vietnam,1306,2026-07
+AR,Argentina,1243,2026-07
+FI,Finland,1224,2026-07
+ID,Indonesia,1214,2026-07
+DK,Denmark,1213,2026-07
+PT,Portugal,1086,2026-07
+SG,Singapore,844,2026-07
+NG,Nigeria,810,2026-07
+NZ,New Zealand,801,2026-07
+TR,Turkey,779,2026-07
+IL,Israel,749,2026-07
+CO,Colombia,651,2026-07
+MX,Mexico,631,2026-07
+LK,Sri Lanka,617,2026-07
+BD,Bangladesh,615,2026-07
+RO,Romania,585,2026-07
+HU,Hungary,574,2026-07
+BG,Bulgaria,513,2026-07
+PH,Philippines,505,2026-07
+KE,Kenya,498,2026-07
+IE,Ireland,487,2026-07
+ZA,South Africa,464,2026-07
+GR,Greece,463,2026-07
+HK,Hong Kong,439,2026-07
+TH,Thailand,438,2026-07
+PK,Pakistan,435,2026-07
+RS,Serbia,424,2026-07
+EG,Egypt,391,2026-07
+CL,Chile,308,2026-07
+EE,Estonia,283,2026-07
+IR,Iran,280,2026-07
+AE,United Arab Emirates,278,2026-07
+NP,Nepal,267,2026-07
+SK,Slovakia,263,2026-07
+BY,Belarus,262,2026-07
+HR,Croatia,259,2026-07
+GE,Georgia,258,2026-07
+GH,Ghana,236,2026-07
+MY,Malaysia,232,2026-07
+PE,Peru,229,2026-07
+LT,Lithuania,223,2026-07
+SI,Slovenia,204,2026-07
+CR,Costa Rica,165,2026-07
+KZ,Kazakhstan,164,2026-07
+MA,Morocco,154,2026-07
+UY,Uruguay,151,2026-07
+AM,Armenia,142,2026-07
+CY,Cyprus,137,2026-07
+RW,Rwanda,124,2026-07
+UZ,Uzbekistan,124,2026-07
+LV,Latvia,123,2026-07
+VE,Venezuela,121,2026-07
+CM,Cameroon,108,2026-07
+ET,Ethiopia,107,2026-07
+UG,Uganda,107,2026-07
+LU,Luxembourg,103,2026-07
+TN,Tunisia,101,2026-07
+EC,Ecuador,97,2026-07
+IS,Iceland,84,2026-07
+BO,Bolivia,79,2026-07
+DO,Dominican Republic,68,2026-07
+DZ,Algeria,66,2026-07
+MG,Madagascar,66,2026-07
+BA,Bosnia and Herzegovina,63,2026-07
+MK,North Macedonia,63,2026-07
+MD,Moldova,62,2026-07
+SA,Saudi Arabia,60,2026-07
+KH,Cambodia,58,2026-07
+TZ,Tanzania,57,2026-07
+ME,Montenegro,55,2026-07
+GT,Guatemala,47,2026-07
+PY,Paraguay,42,2026-07
+MM,Myanmar,37,2026-07
+KG,Kyrgyzstan,36,2026-07
+MT,Malta,36,2026-07
+AZ,Azerbaijan,35,2026-07
+CU,Cuba,35,2026-07
+SV,El Salvador,35,2026-07
+PR,Puerto Rico,35,2026-07
+JO,Jordan,32,2026-07
+LB,Lebanon,32,2026-07
+NI,Nicaragua,31,2026-07
+CD,Democratic Republic of the Congo,28,2026-07
+YE,Yemen,28,2026-07
+IQ,Iraq,26,2026-07
+MU,Mauritius,25,2026-07
+AO,Angola,23,2026-07
+PA,Panama,23,2026-07
+ZM,Zambia,22,2026-07
+MW,Malawi,21,2026-07
+MZ,Mozambique,21,2026-07
+QA,Qatar,21,2026-07
+HN,Honduras,19,2026-07
+SN,Senegal,18,2026-07
+ZW,Zimbabwe,17,2026-07
+AF,Afghanistan,16,2026-07
+AL,Albania,15,2026-07
+AD,Andorra,15,2026-07
+BJ,Benin,15,2026-07
+SY,Syria,15,2026-07
+MN,Mongolia,14,2026-07
+TT,Trinidad and Tobago,14,2026-07
+OM,Oman,13,2026-07
+JM,Jamaica,12,2026-07
+TG,Togo,12,2026-07
+PS,Palestine,11,2026-07
+LI,Liechtenstein,8,2026-07
+NA,Namibia,8,2026-07
+BS,Bahamas,6,2026-07
+BH,Bahrain,6,2026-07
+BW,Botswana,6,2026-07
+HT,Haiti,6,2026-07
+ML,Mali,6,2026-07
+SD,Sudan,6,2026-07
+TJ,Tajikistan,6,2026-07
+TM,Turkmenistan,6,2026-07
+BI,Burundi,5,2026-07
+CV,Cabo Verde,5,2026-07
+SZ,Eswatini,5,2026-07
+GL,Greenland,4,2026-07
+KW,Kuwait,4,2026-07
+LY,Libya,4,2026-07
+MV,Maldives,4,2026-07
+SR,Suriname,4,2026-07
+BZ,Belize,3,2026-07
+BT,Bhutan,3,2026-07
+CI,Côte d'Ivoire,3,2026-07
+XK,Kosovo,3,2026-07
+LA,Laos,3,2026-07
+MC,Monaco,3,2026-07
+NE,Niger,3,2026-07
+KP,North Korea,3,2026-07
+SM,San Marino,3,2026-07
+BB,Barbados,2,2026-07
+BF,Burkina Faso,2,2026-07
+GM,Gambia,2,2026-07
+GY,Guyana,2,2026-07
+LS,Lesotho,2,2026-07
+CG,Republic of the Congo,2,2026-07
+WS,Samoa,2,2026-07
+SO,Somalia,2,2026-07
+SS,South Sudan,2,2026-07
+TL,Timor-Leste,2,2026-07
+GA,Gabon,1,2026-07
+GN,Guinea,1,2026-07
+LR,Liberia,1,2026-07
+MR,Mauritania,1,2026-07
+PG,Papua New Guinea,1,2026-07
+SC,Seychelles,1,2026-07
+SB,Solomon Islands,1,2026-07
+TO,Tonga,1,2026-07
+TV,Tuvalu,1,2026-07

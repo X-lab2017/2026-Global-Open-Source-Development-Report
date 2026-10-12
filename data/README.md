@@ -66,8 +66,12 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 | 图 2.3 | figures/chapter2/fig-2-1-3_five_region_active_developers_trend.png | processed/chapter2/fig-2-1-3_five_region_active_developers_trend.csv | 年度活跃开发者数量 | 待接入统一构建脚本 | OpenDigger、Gitee、AtomGit，2022—2026 |
 | 图 2.6 | figures/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.png | processed/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.csv | 开发者 OpenRank 贡献度 | 待接入统一构建脚本 | OpenDigger、Gitee、AtomGit，2022—2026 |
 | 图 2.9 | figures/chapter2/fig-2-3-2_five_region_project_openrank_influence_trend.png | processed/chapter2/fig-2-3-2_five_region_project_openrank_influence_trend.csv | 项目 OpenRank 影响力 | 待接入统一构建脚本 | OpenDigger、Gitee、AtomGit，2022—2026 |
-| 图 2.13 | figures/chapter2/fig-2-4-4_china_top10_city_talent_trend.png | processed/chapter2/fig-2-4-4_china_top10_city_talent_trend.csv | 前5%开源人才数量 | 待接入统一构建脚本 | OpenDigger，2022—2026 |
-| 图 2.14 | figures/chapter2/fig-2-5-1_country_contribution_share_trend.png | processed/chapter2/fig-2-5-1_country_contribution_share_trend.csv | 国家贡献占全球比例 | 待接入统一构建脚本 | OpenDigger，2022—2026 |
+| 图 2-4-1 | figures/chapter2/fig-2-4-1_global_open_source_talent_map.png | processed/chapter2/fig-2-4-1_global_open_source_talent_map.csv | 前5%开源人才数量（国家/地区分布） | 待接入统一构建脚本 | OpenDigger，截至2026年7月 |
+| 图 2-4-2 | figures/chapter2/fig-2-4-2_five_region_open_source_talent_trend.png | processed/chapter2/fig-2-4-2_five_region_open_source_talent_trend.csv | 前5%开源人才数量（五域趋势） | 待接入统一构建脚本 | OpenDigger，2022—2026 |
+| 图 2-4-3 | figures/chapter2/fig-2-4-3_china_city_open_source_talent_map.png | processed/chapter2/fig-2-4-3_china_city_open_source_talent_map.csv | 前5%开源人才数量（中国市级分布） | 待接入统一构建脚本 | OpenDigger，截至2026年7月 |
+| 图 2-4-4 | figures/chapter2/fig-2-4-4_china_top10_city_talent_trend.png | processed/chapter2/fig-2-4-4_china_top10_city_talent_trend.csv | 前5%开源人才数量（城市趋势） | 待接入统一构建脚本 | OpenDigger，2022—2026 |
+| 图 2-5-1 | figures/chapter2/fig-2-5-1_country_contribution_share_trend.png | processed/chapter2/fig-2-5-1_country_contribution_share_trend.csv | 国家贡献占全球比例 | 待接入统一构建脚本 | OpenDigger，2022—2026 |
+| 图 2-5-2 | figures/chapter2/fig-2-5-2_cross_border_project_contribution_flow.png | processed/chapter2/fig-2-5-2_cross_border_project_contribution_flow.csv | 开发者来源国对项目所属国的 OpenRank 贡献流向 | 待接入统一构建脚本 | OpenDigger，2026统计周期 |
 | 图 2.16 | figures/chapter2/fig-2-6-1_foundation_share_and_active_repositories.png | processed/chapter2/fig-2-6-1_foundation_share_and_active_repositories.csv | 基金会项目 OpenRank 占比、活跃仓库数 | 待接入统一构建脚本 | OpenDigger、基金会项目清单，2022—2026 |
 | 图 2.17 | figures/chapter2/fig-2-6-2_active_repository_license_trend.png | processed/chapter2/fig-2-6-2_active_repository_license_trend.csv | 按许可证统计的活跃仓库数 | 待接入统一构建脚本 | OpenDigger events，2022—2026 |
 | 图 2.18 | figures/chapter2/fig-2-6-3_mulan_permissive_license_trend.png | processed/chapter2/fig-2-6-3_mulan_permissive_license_trend.csv | 累计活跃仓库数、项目 OpenRank 影响力 | 待接入统一构建脚本 | OpenDigger events，2022—2026 |
