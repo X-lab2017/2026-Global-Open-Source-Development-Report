@@ -4,7 +4,7 @@
 
 ## 方法与准备状态
 
-[统一指标字典](meta/osdi_indicator_dictionary.csv)维护框架定义，[数据可用性清单](meta/数据可用性清单.md)登记当前文件与待办。GitHub 是数据与方法的维护基准。`raw/2026/external/` 的 LFX korg、ATOM 快照仅用于背景案例，不纳入 OSDI。下方索引中的计划路径和脚本不表示均已实现；当前实际文件见[文件清单](meta/dataset_inventory.csv)。
+[统一指标字典](meta/osdi_indicator_dictionary.csv)维护框架定义，[数据可用性清单](meta/数据可用性清单.md)登记当前文件与待办。GitHub 是数据与方法的维护基准。`raw/2026/external/` 的 LFX korg、ATOM、open-share 快照仅用于背景案例与地图交互底数，不纳入 OSDI。下方索引中的计划路径和脚本不表示均已实现；当前实际文件见[文件清单](meta/dataset_inventory.csv)。
 
 ## 目录结构
 
@@ -56,6 +56,18 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 
 - 单文件 **> 50 MB**：使用 Git LFS
 - 单文件 **> 100 MB**：GitHub 拒绝推送；只保留聚合结果，原始数据放 OpenDigger / OSS 并在本 README 登记链接
+
+## 外部平台快照
+
+### open-share GOSO 地图快照（`raw/2026/external/open-share/`）
+
+第二章 2.1–2.3 世界地图（开发者数量 / 贡献度 / 影响力）的交互底数来自 [open-share.com GOSD 视图](https://open-share.com/insight/open-world/gosd)（GitHub 账号登录，支持中国下钻省级）。端点由站点前端包逆向发现，可用 `scripts/fetch_open_share.py` 全量重取：
+
+- 全球：`https://selfoss.open-digger.cn/openshare/overview/{metric}.json`，`metric ∈ developers | contribution | influence`；`overview_half_year/` 为半年度变体
+- 国家下钻：`.../overview/{CC}/{metric}.json`（当前仅 CN、US 开放下钻）
+- 地理边界：`https://open-share.com/geo/{world|CN|US}.json`
+
+文件结构：`leaderboards[].data[]` 含 `rank / name（英文国名，与世界 GeoJSON 的 properties.name 匹配）/ name_zh / value / change / code（ISO 3166）`。省级数据 `name_zh` 与中国 GeoJSON 的 `properties.fullname` 精确匹配。快照时间：2026-10-11。
 
 ## 图表 ↔ 数据索引（维护这张表！）
 
