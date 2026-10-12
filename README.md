@@ -13,6 +13,15 @@
 - [数据可用性清单](data/meta/数据可用性清单.md)与[写作和演示复用规范](editorial/章节写作与内容复用规范.md)。
 - [本轮修订说明](editorial/第一章修订说明-20261012.md)。第一章与方法基础已接入 [在线 Preview](https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/01/)，沿用已验收的六栏目导航。下列旧稿进度不代表相关发现已完成数据核验。
 
+## 网络交互版（gosd-web）
+
+报告全文内容已撰写进双语交互式网站，代码与数据快照托管于 [X-lab2017/gosd-web](https://github.com/X-lab2017/gosd-web)：
+
+- 覆盖执行摘要、引言宣言、第一至六章及附录（行为口径 + 开源 AI DPG 评估框架），中/EN 双语，深色演示与浅色阅读双主题；
+- 图表数据即本仓库 `data/processed/` 的同名 CSV 快照（`src/data/ch2|ch3|ch4|ch5/`），更新数据后同步复制即可；
+- 网站图表规范与 [X-lab2017/osdg-brand](https://github.com/X-lab2017/osdg-brand) 的 `data-viz` 模块定稿一致。
+
+
 ## 目录结构
 
 ```
@@ -45,10 +54,10 @@
 
 **待撰写**：
 
-- 3.6 全球开源大模型影响力排行榜（M-Ranking）
-- 4.2 AI 大模型全景洞察（M-Landscape）
-- 第五章 全球开源大模型发展洞察（GOSM）：5.1 供给与贡献 / 5.2 网络与影响力 / 5.3 开源开放与分级体系
-- 结语：迈向可持续的数字未来
+- 3.6 全球开源大模型影响力排行榜（M-Ranking）：图表数据已入库（`data/processed/chapter3/fig-3-6-*`），交互呈现见 gosd-web，正文待补
+- 4.2 AI 大模型全景洞察（M-Landscape）：图表数据已入库（`data/processed/chapter4/fig-4-2-*`），交互呈现见 gosd-web，正文待补
+- 第五章 全球开源大模型发展洞察（GOSM）：5.1 供给与贡献 / 5.2 网络与影响力 / 5.3 开源开放与分级体系——图表数据已入库（`data/processed/chapter5/`），交互呈现见 gosd-web，正文待补
+- 结语：迈向可持续的数字未来（第六章 6.5 已含结语，独立结语待归位）
 - 附录 C：开源人工智能数字公共产品评估框架（当前 DPG 框架文档暂定编号为附录 B，待与目录对齐）
 
 ## 协作方式
