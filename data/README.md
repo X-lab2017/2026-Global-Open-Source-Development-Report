@@ -68,8 +68,12 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 | 图 2.17 | figures/chapter2/fig-2-6-2_active_repository_license_trend.png | processed/chapter2/fig-2-6-2_active_repository_license_trend.csv | 按许可证统计的活跃仓库数 | 待接入统一构建脚本 | OpenDigger events，2022—2026 |
 | 图 2.18 | figures/chapter2/fig-2-6-3_mulan_permissive_license_trend.png | processed/chapter2/fig-2-6-3_mulan_permissive_license_trend.csv | 累计活跃仓库数、项目 OpenRank 影响力 | 待接入统一构建脚本 | OpenDigger events，2022—2026 |
 | 图 2.19 | figures/chapter2/fig-2-7-1_platform_active_repository_trend.png | processed/chapter2/fig-2-7-1_platform_active_repository_trend.csv | 有效活跃仓库数 | 待接入统一构建脚本 | GitHub、Gitee、GitCode、GitLab，2022—2026 |
-| 图 3-2-1 | figures/chapter3/fig-3-2-1_company_openrank_top10.png | processed/chapter3/fig-3-2-1_company_openrank_top10.csv | OpenRank 影响力 | scripts/build_chart_data.py | OpenDigger 2026-07 导出 |
-| … | … | … | … | … | … |
+| 图 3.1 | figures/chapter3/fig-3-1-1_gosr_framework.png | 无（框架图，数据即各榜榜首） | - | - | - |
+| 图 3.2 | figures/chapter3/fig-3-2-1_global_company_yearly_rank.png | processed/chapter3/fig-3-2-1_global_company_yearly_rank.csv | 企业 OpenRank 年度排名（2026 为统计周期口径） | OSreport2026/export_top100/dump_chapter3_data.py | OpenDigger，2016—2026 |
+| 图 3.3 | figures/chapter3/fig-3-2-2_global_company_monthly_rank.png | processed/chapter3/fig-3-2-2_global_company_monthly_rank.csv | 企业 OpenRank 月度排名 | 同上 | OpenDigger，2025.7—2026.6 |
+| 图 3.4 | figures/chapter3/fig-3-2-3_china_company_yearly_rank.png | processed/chapter3/fig-3-2-3_china_company_yearly_rank.csv | 中国企业 OpenRank 年度排名 | 同上 | OpenDigger，2016—2026 |
+| 图 3.5 | figures/chapter3/fig-3-2-4_china_company_monthly_rank.png | processed/chapter3/fig-3-2-4_china_company_monthly_rank.csv | 中国企业 OpenRank 月度排名 | 同上 | OpenDigger，2025.7—2026.6 |
+| 图 3.6 | figures/chapter3/fig-3-3-1_foundation_monthly_rank.png | processed/chapter3/fig-3-3-1_foundation_monthly_rank.csv | 基金会 OpenRank 月度排名（Linux 家族合并口径） | 同上 | OpenDigger，2025.7—2026.6 |
 
 新增图表时，**必须**在上表登记一行，并同步提交对应的 CSV 数据文件。
 
@@ -80,5 +84,26 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 | 表 2.1 | processed/chapter2/table-2-2-1_china_province_openrank_per_capita_top10.csv | 省市 OpenRank 贡献度 ÷ 活跃开发者数量 | OpenDigger 2026统计周期 |
 | 表 2.2 | processed/chapter2/table-2-4-1_china_city_talent_top10.csv | 个人 OpenRank 累计值位居全部开发者前5% | OpenDigger，截至2026年7月 |
 | 表 2.3 | processed/chapter2/table-2-5-1_china_us_project_contribution_top10.csv | 开发者来源国对项目所属国的 OpenRank 贡献度 | OpenDigger 2026统计周期 |
+
+## 第三章报告表格数据
+
+| 表编号 | 数据文件 | 指标口径 | 数据来源 |
+|---|---|---|---|
+| 表 3.1 | processed/chapter3/table-3-0-1_gosr_top1_overview.csv | 五大榜单榜首与中国最高位次速览 | OpenDigger 2026统计周期 |
+| 表 3.2 | processed/chapter3/table-3-1-1_global_division_openrank_top30.csv | 行政区划开发者 OpenRank（OpenWorld 口径） | OpenDigger 2026统计周期 |
+| 表 3.3 | processed/chapter3/table-3-1-2_division_country_entry_counts.csv | Top 100 各国入选行政区数量（全量） | OpenDigger 2026统计周期 |
+| 表 3.4 | processed/chapter3/table-3-1-3_china_province_openrank_top30.csv | 中国省级行政区开发者 OpenRank | OpenDigger 2026统计周期 |
+| 表 3.5 | processed/chapter3/table-3-1-4_china_city_openrank_top30.csv | 中国城市级开发者 OpenRank | OpenDigger 2026统计周期 |
+| 表 3.6 | processed/chapter3/table-3-2-1_global_company_openrank_top30.csv | 企业 OpenRank、活跃仓库数、活跃开发者数 | OpenDigger 2026统计周期 |
+| 表 3.7 | processed/chapter3/table-3-2-2_china_company_openrank_top30.csv | 中国企业 OpenRank、活跃仓库数、活跃开发者数 | OpenDigger 2026统计周期 |
+| 表 3.8 | processed/chapter3/table-3-3-1_global_foundation_openrank.csv | 基金会 OpenRank（Linux 家族合并口径）、活跃开发者数 | OpenDigger 2026统计周期 |
+| 表 3.9 | processed/chapter3/table-3-4-1_global_project_openrank_top30.csv | 项目 OpenRank、活跃开发者数 | OpenDigger 2026统计周期 |
+| 表 3.10 | processed/chapter3/table-3-4-2_project_country_distribution_top100.csv | Top 100 项目发起组织国家分布（全量） | OpenDigger 2026统计周期 |
+| 表 3.11 | processed/chapter3/table-3-4-3_china_project_openrank_top30.csv | 中国项目 OpenRank、活跃开发者数 | OpenDigger 2026统计周期 |
+| 表 3.12 | processed/chapter3/table-3-4-4_china_project_rising.csv | 中国项目两期名次对比（跃升先锋） | OpenDigger 2026统计周期 vs 基期 |
+| 表 3.13 | processed/chapter3/table-3-5-1_new_repo_openrank_top30.csv | 本年新创建仓库 OpenRank、创建时间 | OpenDigger 2026统计周期 |
+| 表 3.14 | processed/chapter3/table-3-5-2_new_project_openrank_top30.csv | 本年新创立项目 OpenRank、平台、创建时间 | OpenDigger 2026统计周期 |
+| 表 3.15 | processed/chapter3/table-3-5-3_new_repo_domain_distribution.csv | 新仓库技术领域分布（人工标注复核） | OpenDigger 2026统计周期 |
+| 表 3.16 | processed/chapter3/table-3-5-4_new_repo_language_distribution.csv | 新仓库主要编程语言分布 | OpenDigger repo_info + 人工标注 |
 
 尚未接入统一原始数据构建管线的文件，在索引中标记为“待接入统一构建脚本”，后续应补齐对应查询或转换脚本，避免将人工整理结果误标为全流程自动生成。

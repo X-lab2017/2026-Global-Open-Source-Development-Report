@@ -1,0 +1,31 @@
+rank,project,openrank,active_developers,initiator_zh,country_zh
+1,OpenHarmony,75809.42,12640,开放原子开源基金会,🇨🇳中国
+2,Azure,29382.06,10544,微软,🇺🇸美国
+3,C#/.Net,26437.85,8758,微软,🇺🇸美国
+4,PyTorch,24785.25,4806,PyTorch Foundation,🇺🇸美国
+5,NixOS,21258.31,7606,Stichting NixOS Foundation,🇳🇱荷兰
+6,LLVM,20026.38,4889,伊利诺伊大学厄巴纳-香槟分校,🇺🇸美国
+7,vLLM,19532.07,8612,加州大学伯克利分校,🇺🇸美国
+8,openEuler,18950.48,9039,开放原子开源基金会,🇨🇳中国
+9,DataDog,16551.18,3250,DataDog,🇺🇸美国
+10,OpenShift,16465.88,2134,红帽,🇺🇸美国
+11,VSCode,15422.31,24897,微软,🇺🇸美国
+12,OpenClaw,14842.31,19318,,
+13,CANN,14719.47,5460,华为,🇨🇳中国
+14,Rust,14687.80,4729,Rust 基金会,🇺🇸美国
+15,Ascend,12973.33,5798,华为,🇨🇳中国
+16,Home Assistant,12840.53,16046,Nabu Casa Inc.,🇺🇸美国
+17,Odoo,12357.48,1716,Odoo,🇧🇪比利时
+18,Python,11915.48,3397,Python 软件基金会,🇺🇸美国
+19,JavaScript/TypeScript,11640.41,3812,,
+20,Swift,11020.91,1174,苹果,🇺🇸美国
+21,Conda Forge,10637.63,3472,,
+22,SGLang,10549.41,3393,加州大学伯克利分校,🇺🇸美国
+23,OpenTelemetry,10309.52,3868,云原生计算基金会,🇺🇸美国
+24,Kubernetes,9604.20,4047,云原生计算基金会,🇺🇸美国
+25,Claude Code,9241.59,32814,Anthropic,🇺🇸美国
+26,Zephyr,8645.65,2247,Linux 基金会,🇺🇸美国
+27,Cloudflare,7834.37,4100,Cloudflare,🇺🇸美国
+28,NextCloud,7603.19,5065,NextCloud,🇩🇪德国
+29,LangChain,7505.73,5251,LangChain,🇺🇸美国
+30,Dify,7496.88,3929,Dify AI,🇺🇸美国

@@ -1,0 +1,31 @@
+rank,company,company_zh,openrank,active_repos,active_developers,country_zh
+1,Microsoft,微软,167060.26,4588,79750,🇺🇸美国
+2,Huawei,华为,141253.65,20311,39177,🇨🇳中国
+3,Google,谷歌,82517.69,1529,40099,🇺🇸美国
+4,Meta,Meta,49739.14,741,19050,🇺🇸美国
+5,Amazon,亚马逊,36597.60,3171,15485,🇺🇸美国
+6,NVIDIA,英伟达,35291.10,674,10162,🇺🇸美国
+7,RedHat,红帽,30259.54,823,6065,🇺🇸美国
+8,Elastic,Elastic,29080.36,347,2774,🇺🇸美国
+9,Anthropic,Anthropic,25147.06,94,38901,🇺🇸美国
+10,Mozilla,Mozilla,24974.30,536,8601,🇺🇸美国
+11,Alibaba,阿里巴巴,21370.04,2363,15269,🇨🇳中国
+12,Grafana Labs,Grafana Labs,21185.41,578,4820,🇺🇸美国
+13,ByteDance,字节跳动,19551.65,500,13295,🇨🇳中国
+14,Hugging Face,Hugging Face,17744.48,231,7392,🇺🇸美国
+15,IBM,IBM,16860.93,2189,10204,🇺🇸美国
+16,DataDog,DataDog,16551.18,487,3250,🇺🇸美国
+17,OpenAI,OpenAI,15756.56,115,13233,🇺🇸美国
+18,JetBrains,JetBrains,15377.58,245,6044,🇳🇱荷兰
+19,Expensify,Expensify,15181.91,23,925,🇺🇸美国
+20,Apple,苹果,15172.63,246,3251,🇺🇸美国
+21,Tenstorrent,Tenstorrent,14837.01,75,972,🇺🇸美国
+22,Ant group,蚂蚁集团,14466.01,727,7924,🇨🇳中国
+23,Zed Industry,Zed Industry,13640.16,26,7476,🇺🇸美国
+24,HashiCorp,HashiCorp,13537.34,570,5653,🇺🇸美国
+25,Nabu Casa Inc.,Nabu Casa Inc.,12840.53,59,16046,🇺🇸美国
+26,Vercel,Vercel,12522.59,131,6268,🇺🇸美国
+27,Odoo,Odoo,12357.48,25,1716,🇧🇪比利时
+28,Intel,英特尔,12201.84,410,3168,🇺🇸美国
+29,Astral,Astral,11893.78,38,3405,🇺🇸美国
+30,Anomaly,Anomaly,10585.67,27,10822,🇺🇸美国
