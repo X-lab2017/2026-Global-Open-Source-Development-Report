@@ -1,18 +1,24 @@
-# meta/：指标定义与口径数据
+# meta/：统一框架、指标定义与证据状态
 
-本目录存放报告**指标体系本身**的结构化数据，即附录 A《指标体系与数据来源》中各表格的 CSV 版本，是 `scripts/build_chart_data.py` 计算口径的依据。
+GitHub 是本报告正文、数据、方法与引用的维护基准。飞书用于过渡协作；确认的修改先进入仓库，再按需同步到飞书与展示端。
 
-## 文件清单（已从飞书导出，2026-10-11 同步）
+| 文件 | 用途 |
+|---|---|
+| [osdg-framework.json](osdg-framework.json) | 四支柱、十维度、二十九指标的统一结构，沿用确认的框架编码 |
+| [osdi_indicator_dictionary.csv](osdi_indicator_dictionary.csv) | 二十九指标的工作定义、对象、计算规则、单位、状态与数据路径 |
+| [chapter_indicator_map.csv](chapter_indicator_map.csv) | 四个研究板块的指标规划用途；不表示相关结果已经产生 |
+| [dataset_inventory.csv](dataset_inventory.csv) | 当前13份processed数据的字段、行数、关联、待办与校验值 |
+| [数据可用性清单.md](数据可用性清单.md) | 面向审阅的可用性与待补事项 |
+| [behaviors.csv](behaviors.csv) | 五类协作行为；区分报告概念与OpenDigger事件实现 |
+| [data_sources.csv](data_sources.csv) | 来源、用途与纳入边界 |
+| [glossary.csv](glossary.csv) | 中英文术语 |
+| indicators_activity / influence / modelrank / diversity / governance_assets.csv | 按专题保留的口径摘要；以统一字典及附录A为准 |
+| [source_register.csv](source_register.csv) | 第一章及方法基础的引用与核验记录 |
 
-| 文件 | 对应附录 A 内容 | 飞书 sheet-id | 状态 |
-|---|---|---|---|
-| [`behaviors.csv`](behaviors.csv) | 五类核心贡献行为定义 | aQFhoQ | ✅ 已导出 |
-| [`indicators_activity.csv`](indicators_activity.csv) | 活跃度指标 | vbC6vR | ✅ 已导出 |
-| [`indicators_influence.csv`](indicators_influence.csv) | OpenRank 影响力指标 | hJg6W8 | ✅ 已导出 |
-| [`indicators_modelrank.csv`](indicators_modelrank.csv) | ModelRank 模型影响力指标 | 96be4o | ✅ 已导出 |
-| [`indicators_diversity.csv`](indicators_diversity.csv) | 人才与贡献多样性指标 | pY7fWI | ✅ 已导出 |
-| [`indicators_governance_assets.csv`](indicators_governance_assets.csv) | 治理与数字资产指标 | vq3NsW | ✅ 已导出 |
-| [`data_sources.csv`](data_sources.csv) | 数据来源与平台清单 | qJtcdB | ✅ 已导出 |
-| [`glossary.csv`](glossary.csv) | 术语对照表 | AiT42c | ✅ 已导出 |
+## 状态解释
 
-> 飞书源表：token `AkvfsxJOBhmbqmt1zr0c42Synwg`。更新口径时先改本目录 CSV，再同步飞书与正文；反向亦然，注意保持两边一致。
+框架收录、方法明确、数据入库、完成复现和允许发布是不同状态。`method_status` 描述规则成熟度；`data_status` 描述当前仓库资料；待补问题写入 `remaining_evidence`。暂缺数据不填零，不用外部故事数据补足本报告指标。
+
+第一章介绍原理，[附录 A](../../appendices/附录A-指标体系与数据来源.md)维护全书共同方法。报告正文的定义修订不意味着既有CSV已经按新定义重算；必须保留原值并记录后续核验或版本变更。
+
+Preview 中的框架文件是展示副本。当前线上仍为已验收的架构预览；本次内容审阅通过后，再由这里的统一结构同步展示副本和全文页面。

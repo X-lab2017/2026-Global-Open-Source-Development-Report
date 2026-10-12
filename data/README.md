@@ -2,6 +2,10 @@
 
 本目录存放《2026 全球开源发展报告》的全部数据资产，遵循**「一张图 ↔ 一个同名 CSV」**原则，保证报告中的每一张图都有可审查、可复现的数据来源。
 
+## 方法与准备状态
+
+[统一指标字典](meta/osdi_indicator_dictionary.csv)维护框架定义，[数据可用性清单](meta/数据可用性清单.md)登记当前文件与待办。GitHub 是数据与方法的维护基准。`raw/2026/external/` 的 LFX korg、ATOM 快照仅用于背景案例，不纳入 OSDI。下方索引中的计划路径和脚本不表示均已实现；当前实际文件见[文件清单](meta/dataset_inventory.csv)。
+
 ## 目录结构
 
 ```
@@ -57,7 +61,7 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 
 | 图编号 | 图文件 | 数据文件 | 指标口径 | 生成脚本 | 数据来源 |
 |---|---|---|---|---|---|
-| 图 2-1-1 | figures/chapter2/fig-2-1-1_global_activity_map.png | processed/chapter2/fig-2-1-1_global_activity_map.csv | OpenRank 活跃度 | scripts/build_chart_data.py | OpenDigger 2026-07 导出 |
+| 图 2-1-1 | figures/chapter2/fig-2-1-1_global_activity_map.png | processed/chapter2/fig-2-1-1_global_activity_map.csv | Activity 活跃度 | scripts/build_chart_data.py | OpenDigger 2026-07 导出 |
 | 图 2.2 | figures/chapter2/fig-2-1-2_five_region_total_developers.png | processed/chapter2/fig-2-1-2_five_region_total_developers.csv | 开发者总量 | 待接入统一构建脚本 | OpenDigger、Gitee、AtomGit，2026统计周期 |
 | 图 2.3 | figures/chapter2/fig-2-1-3_five_region_active_developers_trend.png | processed/chapter2/fig-2-1-3_five_region_active_developers_trend.csv | 年度活跃开发者数量 | 待接入统一构建脚本 | OpenDigger、Gitee、AtomGit，2022—2026 |
 | 图 2.6 | figures/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.png | processed/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.csv | 开发者 OpenRank 贡献度 | 待接入统一构建脚本 | OpenDigger、Gitee、AtomGit，2022—2026 |
@@ -75,14 +79,14 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 | 图 3.5 | figures/chapter3/fig-3-2-4_china_company_monthly_rank.png | processed/chapter3/fig-3-2-4_china_company_monthly_rank.csv | 中国企业 OpenRank 月度排名 | 同上 | OpenDigger，2025.7—2026.6 |
 | 图 3.6 | figures/chapter3/fig-3-3-1_foundation_monthly_rank.png | processed/chapter3/fig-3-3-1_foundation_monthly_rank.csv | 基金会 OpenRank 月度排名（Linux 家族合并口径） | 同上 | OpenDigger，2025.7—2026.6 |
 
-新增图表时，**必须**在上表登记一行，并同步提交对应的 CSV 数据文件。
+新增定量图表时，**必须**在上表登记一行，并同步提交对应的 CSV 数据文件。框架和流程等概念图在 `figures/` 中登记结构来源，不为概念图虚构数据CSV。
 
 ## 第二章报告表格数据
 
 | 表编号 | 数据文件 | 指标口径 | 数据来源 |
 |---|---|---|---|
 | 表 2.1 | processed/chapter2/table-2-2-1_china_province_openrank_per_capita_top10.csv | 省市 OpenRank 贡献度 ÷ 活跃开发者数量 | OpenDigger 2026统计周期 |
-| 表 2.2 | processed/chapter2/table-2-4-1_china_city_talent_top10.csv | 个人 OpenRank 累计值位居全部开发者前5% | OpenDigger，截至2026年7月 |
+| 表 2.2 | processed/chapter2/table-2-4-1_china_city_talent_top10.csv | 个人年度全域 OpenRank 前5%（总体与汇总规则待核验） | OpenDigger，截至2026年7月 |
 | 表 2.3 | processed/chapter2/table-2-5-1_china_us_project_contribution_top10.csv | 开发者来源国对项目所属国的 OpenRank 贡献度 | OpenDigger 2026统计周期 |
 
 ## 第三章报告表格数据

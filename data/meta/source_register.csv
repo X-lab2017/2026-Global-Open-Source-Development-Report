@@ -1,0 +1,17 @@
+source_id,title,url_or_repo_path,supports,used_in,boundary,checked_on
+S01,联合国SDGs目标,https://sdgs.un.org/goals,17项目标及发展议题,1.1;1.2,原始机构资料,2026-10-12
+S02,联合国SDG全球指标框架,https://unstats.un.org/sdgs/indicators/indicators-list/,目标与指标的组织方式,1.1;1.2,原始机构资料,2026-10-12
+S03,数字公共品标准,https://www.digitalpublicgoods.net/standard,数字公共品要求及认可边界,1.1,原始机构资料,2026-10-12
+S04,Open Source AI Definition 1.0,https://opensource.org/ai/open-source-ai-definition,代码、参数与数据说明的开放要求,1.1;附录A,原始机构资料,2026-10-12
+S05,OpenDigger简介,https://open-digger.cn/docs/user_docs/intro,项目发起方与公开指标入口,1.3,主要方法来源,2026-10-12
+S06,OpenDigger指标使用指南,https://open-digger.cn/docs/user_docs/metrics/metrics_usage_guide,指标名称与静态数据接口,1.3;附录A,主要方法来源,2026-10-12
+S07,OpenDigger Activity,https://open-digger.cn/docs/user_docs/metrics/activity,行为强度定义、公式和权重,1.3;附录A,主要方法来源,2026-10-12
+S08,社区OpenRank贡献度,https://open-digger.cn/docs/user_docs/metrics/community_openrank,项目内协作网络贡献,1.3;附录A,主要方法来源,2026-10-12
+S09,全域OpenRank影响力,https://open-digger.cn/docs/user_docs/metrics/global_openrank,开发者-仓库协作网络及历史继承,1.3;附录A,主要方法来源,2026-10-12
+S10,The ATOM Project,https://www.atomproject.ai/,新增微调与衍生模型地区份额的图意,1.1,外部背景；不进入OSDI,2026-10-12
+S11,LFX korg仓库快照,data/raw/2026/external/lfx-korg/EXPORT_INFO.md,累计榜单总记录数；对应JSON meta.total,1.1,外部背景；2026-10-11导出,2026-10-12
+S12,ATOM仓库快照,data/raw/2026/external/atom/fig-03_global-regional-model-adoption.json,Feb 26中国70；当月新增微调/衍生份额,1.1,外部背景；2026-10-11导出,2026-10-12
+S13,OSDG品牌框架v1.0,https://github.com/X-lab2017/osdg-brand/tree/ad441ae810f878bcd53956da1f1b889b0defa45c,四支柱、十维度与品牌视觉,1.2,固定版本,2026-10-12
+S14,OpenDigger全域OpenRank实现入口,https://github.com/X-lab2017/open-digger/blob/5c2ffc4f5b3dd37ebcb20514c7abfee6853bd830/src/cron/tasks/globalOpenrank.ts,公开实现与固定参考版本,附录A,参考版本；不代表报告数据生产版本,2026-10-12
+S15,OpenDigger社区OpenRank实现入口,https://github.com/X-lab2017/open-digger/blob/5c2ffc4f5b3dd37ebcb20514c7abfee6853bd830/src/cron/tasks/communityOpenrank.ts,公开实现与固定参考版本,附录A,参考版本；不代表报告数据生产版本,2026-10-12
+S16,OpenDigger指标实现,https://github.com/X-lab2017/open-digger/blob/5c2ffc4f5b3dd37ebcb20514c7abfee6853bd830/src/metrics/indices.ts,Activity权重及事件实现核对,附录A,参考版本；不代表报告数据生产版本,2026-10-12
