@@ -1,6 +1,6 @@
-缩写,中文名称,英文名称,定义
-OI,创建议题,Open Issue,创建问题、功能建议或技术讨论
-ID,议题讨论,Issue Discussion,在Issue或Pull Request中参与讨论和评论
-OPR,提交代码请求,Open Pull Request,创建代码合并请求，提交代码或文档修改
-PRR,代码评审,Pull Request Review,对代码请求进行审查、评论、批准或提出修改意见
-MPR,合并代码请求,Merge Pull Request,代码经评审后被正式合并至项目
+缩写,中文名称,英文名称,定义,实现边界
+OI,创建议题,Open Issue,创建问题、功能建议或技术讨论,对应有效Issue创建；排除重复与自动化记录
+ID,议题讨论,Issue Discussion,参与Issue或PR的普通讨论评论,与代码行评审评论分别记录，防止重计
+OPR,提交代码请求,Open Pull Request,创建代码或文档合并请求,按有效PR标识去重
+PRR,代码评审评论,Pull Request Review Comment,对PR的代码行或差异提出评审评论,OpenDigger Activity使用评审评论事件；不等同全部批准/请求修改事件
+MPR,代码请求被合入,Merged Pull Request,已提交PR被正式合入,计数归属按实际算法；合入不必然代表经过人工评审

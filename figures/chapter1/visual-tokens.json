@@ -1,0 +1,146 @@
+{
+  "version": "v5",
+  "languages": [
+    "zh-CN",
+    "en"
+  ],
+  "default_editorial_mode": "light",
+  "default_web_mode": "system",
+  "themes": {
+    "light": {
+      "bg": "#F3F8FA",
+      "surface": "#FFFFFF",
+      "raised": "#E5F0F4",
+      "ink": "#10334D",
+      "muted": "#4C697B",
+      "brand": "#156993",
+      "line": "#CADCE5",
+      "button": "#156993",
+      "buttonText": "#FFFFFF",
+      "cyan": "#007D87",
+      "gold": "#886400",
+      "goldDisplay": "#E7C652",
+      "fills": [
+        "#087984",
+        "#2D61A2",
+        "#77538F",
+        "#3E7B50"
+      ],
+      "acc": [
+        "#159EAB",
+        "#528DD0",
+        "#A174B7",
+        "#79AA50"
+      ],
+      "ring": [
+        "#279FA9",
+        "#4E87C5",
+        "#9973B7",
+        "#82AE53"
+      ],
+      "sc": [
+        [
+          "#57B4B5",
+          "#298C9D"
+        ],
+        [
+          "#7FA4D8",
+          "#5194BC",
+          "#3E71B5"
+        ],
+        [
+          "#BC8EBB",
+          "#9976BC",
+          "#7E5B9A"
+        ],
+        [
+          "#A5BD5C",
+          "#68A58D"
+        ]
+      ],
+      "name": "LIGHT / 云白青蓝"
+    },
+    "dark": {
+      "bg": "#0A2C49",
+      "surface": "#123B58",
+      "raised": "#194864",
+      "ink": "#F6FBFF",
+      "muted": "#BAD2DE",
+      "brand": "#76D5E4",
+      "line": "#3A657D",
+      "button": "#F2D15C",
+      "buttonText": "#12334A",
+      "cyan": "#67D5DB",
+      "gold": "#F2D15C",
+      "goldDisplay": "#F2D15C",
+      "fills": [
+        "#14586B",
+        "#28568C",
+        "#654B80",
+        "#397651"
+      ],
+      "acc": [
+        "#65D4D6",
+        "#83B8ED",
+        "#CAA0DD",
+        "#ACD67B"
+      ],
+      "ring": [
+        "#68C8CC",
+        "#77A9DE",
+        "#AD8ACC",
+        "#A0C86C"
+      ],
+      "sc": [
+        [
+          "#8AD5CE",
+          "#4EA7B9"
+        ],
+        [
+          "#9BBDEB",
+          "#6AB5D6",
+          "#5F8CCC"
+        ],
+        [
+          "#D0A0CD",
+          "#B596D4",
+          "#9372B9"
+        ],
+        [
+          "#C1D77B",
+          "#8FC9AB"
+        ]
+      ],
+      "name": "DARK / 深海青蓝"
+    }
+  },
+  "font": {
+    "zh": "Noto Sans SC",
+    "en": "DejaVu Sans"
+  },
+  "shape": {
+    "radius_px": 4,
+    "focus_width_px": 3,
+    "min_touch_px": 44
+  },
+  "motion": {
+    "duration_ms": 160,
+    "reduced_motion": "disable nonessential transitions"
+  },
+  "mark": {
+    "full_min_px": 64,
+    "simplified_min_px": 24,
+    "flat_only": true
+  },
+  "framework": {
+    "goals": 4,
+    "strategies": 10,
+    "measures": 29,
+    "segments_per_quadrant": [
+      2,
+      3,
+      3,
+      2
+    ]
+  }
+}
