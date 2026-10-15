@@ -1,0 +1,188 @@
+{
+  "2.1": {
+    "pdf": "2.1 全球开源活跃地图（V-Map）.pdf",
+    "sha256": "60ea5a6164298523416f5cafa2a433ead37e9f22152c0d2e3c8ec783b71bd40a",
+    "images": [
+      {
+        "file": "2.1-01.webp",
+        "page": 1,
+        "width": 1280,
+        "height": 614
+      },
+      {
+        "file": "2.1-02.webp",
+        "page": 2,
+        "width": 1466,
+        "height": 898
+      },
+      {
+        "file": "2.1-03.webp",
+        "page": 2,
+        "width": 1394,
+        "height": 1004
+      },
+      {
+        "file": "2.1-04.webp",
+        "page": 3,
+        "width": 1280,
+        "height": 615
+      }
+    ]
+  },
+  "2.2": {
+    "pdf": "2.2 全球开源贡献地图（C-Map）.pdf",
+    "sha256": "3f5dbd2e063ccb2eefbccb312b4861ec4ef5432ecb42ad83f7f692fcf547b914",
+    "images": [
+      {
+        "file": "2.2-01.webp",
+        "page": 1,
+        "width": 1280,
+        "height": 619
+      },
+      {
+        "file": "2.2-02.webp",
+        "page": 2,
+        "width": 1394,
+        "height": 1016
+      },
+      {
+        "file": "2.2-03.webp",
+        "page": 3,
+        "width": 1108,
+        "height": 680
+      },
+      {
+        "file": "2.2-04.webp",
+        "page": 3,
+        "width": 1280,
+        "height": 614
+      }
+    ]
+  },
+  "2.3": {
+    "pdf": "2.3 全球开源项目影响力地图（I-Map）.pdf",
+    "sha256": "742b974b524b194b75df13b9ed816640e0207dbe62eb6184c5d377aec98122e7",
+    "images": [
+      {
+        "file": "2.3-01.webp",
+        "page": 1,
+        "width": 1280,
+        "height": 615
+      },
+      {
+        "file": "2.3-02.webp",
+        "page": 2,
+        "width": 1452,
+        "height": 1268
+      }
+    ]
+  },
+  "2.4": {
+    "pdf": "2.4 全球开源人才地图（T-Map）.pdf",
+    "sha256": "67072107ae2b17121232b142b01351e70fa3035f40a90f362e85f4de17c91a3f",
+    "images": [
+      {
+        "file": "2.4-01.webp",
+        "page": 1,
+        "width": 1478,
+        "height": 794
+      },
+      {
+        "file": "2.4-02.webp",
+        "page": 2,
+        "width": 1402,
+        "height": 1014
+      },
+      {
+        "file": "2.4-03.webp",
+        "page": 3,
+        "width": 823,
+        "height": 676
+      },
+      {
+        "file": "2.4-04.webp",
+        "page": 3,
+        "width": 898,
+        "height": 642
+      },
+      {
+        "file": "2.4-05.webp",
+        "page": 4,
+        "width": 1420,
+        "height": 1040
+      }
+    ]
+  },
+  "2.5": {
+    "pdf": "2.5 全球开源多样性地图（D-Map）.pdf",
+    "sha256": "822c75c38fed830df19dd9e890393b0489587ff79110d09734077739fe1b1a43",
+    "images": [
+      {
+        "file": "2.5-01.webp",
+        "page": 1,
+        "width": 1492,
+        "height": 822
+      },
+      {
+        "file": "2.5-02.webp",
+        "page": 2,
+        "width": 1374,
+        "height": 696
+      },
+      {
+        "file": "2.5-03.webp",
+        "page": 3,
+        "width": 1280,
+        "height": 837
+      }
+    ]
+  },
+  "2.6": {
+    "pdf": "2.6 全球开源治理与社会公益地图（G-Map）.pdf",
+    "sha256": "867b60e98ec6c9dc0d70e0ffd3f0b15c90b8ee4770fd424d1b664e2162f610f2",
+    "images": [
+      {
+        "file": "2.6-01.webp",
+        "page": 1,
+        "width": 1388,
+        "height": 912
+      },
+      {
+        "file": "2.6-02.webp",
+        "page": 2,
+        "width": 1398,
+        "height": 1032
+      },
+      {
+        "file": "2.6-03.webp",
+        "page": 3,
+        "width": 1368,
+        "height": 936
+      }
+    ]
+  },
+  "2.7": {
+    "pdf": "2.7 全球开源资产地图（A-Map）.pdf",
+    "sha256": "b76a899de1a721cc4b553dcfd6f069ca694e1387727d2a9e2390cb28525b381e",
+    "images": [
+      {
+        "file": "2.7-01.webp",
+        "page": 1,
+        "width": 2076,
+        "height": 662
+      },
+      {
+        "file": "2.7-02.webp",
+        "page": 2,
+        "width": 1280,
+        "height": 732
+      },
+      {
+        "file": "2.7-03.webp",
+        "page": 3,
+        "width": 1280,
+        "height": 729
+      }
+    ]
+  }
+}

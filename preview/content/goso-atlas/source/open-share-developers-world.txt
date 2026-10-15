@@ -1,0 +1,1088 @@
+- complementary:
+  - link "OpenShare":
+    - /url: /
+    - img "OpenShare"
+  - navigation "导航菜单":
+    - list:
+      - button "数据洞察" [expanded]:
+        - generic: 数据洞察
+      - list:
+        - link "OpenWorld":
+          - /url: /insight/open-world
+        - link "OpenLeaderboard":
+          - /url: /login?redirect=%2Finsight%2Fopen-leaderboard
+      - link "个人中心":
+        - /url: /login?redirect=%2Fprofile
+        - generic: 个人中心
+      - link "积分钱包":
+        - /url: /login?redirect=%2Fpoints
+        - generic: 积分钱包
+      - link "积分商城":
+        - /url: /login?redirect=%2Fshop
+        - generic: 积分商城
+      - link "我的组织":
+        - /url: /login?redirect=%2Forganizations
+        - generic: 我的组织
+      - link "消息中心":
+        - /url: /login?redirect=%2Fmessages
+        - generic: 消息中心
+      - link "人才触达":
+        - /url: /login?redirect=%2Ftalent-reach
+        - generic: 人才触达
+      - button "设置":
+        - generic: 设置
+  - link "登录":
+    - /url: /login
+    - generic: 登录
+  - button "折叠侧边栏":
+- main:
+  - generic: 全球开源脉动
+  - heading "OpenWorld" [level=1]
+  - generic: / 全球
+  - paragraph: 从全球视角观察开发者密度、贡献价值与项目影响力
+  - generic: 数据持续更新
+  - paragraph: 观察维度
+  - combobox [active]:
+    - generic: 开发者数量
+  - region "全球开源数据概览":
+    - paragraph: 数据来源
+    - link "OpenDigger":
+      - /url: https://open-digger.cn
+    - paragraph: 日志总量
+    - generic: 96.51亿
+    - paragraph: 仓库总量
+    - generic: 3.80亿
+    - paragraph: 开发者总量
+    - generic: 1.93亿
+    - paragraph: 覆盖国家与地区
+    - generic: "246"
+    - paragraph: 数据更新时间
+    - generic: 2026-10
+  - paragraph: 全球态势
+  - heading "全球开发者数量热力地图" [level=2]
+  - generic: 中国与美国支持区域下钻
+  - generic "开发者数量 - 全球"
+  - button "↻ 重置缩放"
+  - article:
+    - heading "全球开发者总量趋势" [level=3]
+    - paragraph: 1.93亿
+    - text: 23.7%
+  - article:
+    - heading "全球活跃开发者总量趋势" [level=3]
+    - paragraph: 2890.36万
+    - text: 9.3%
+  - article:
+    - heading "中国活跃开发者数量趋势" [level=3]
+    - paragraph: 250.48万
+    - text: 13.8%
+  - complementary:
+    - paragraph: 实时排名
+    - heading "各国最新开发者总量排行榜" [level=3]
+    - generic: TOP 100
+    - list:
+      - button "1 美国 3241.05万 ▲ +529.74万":
+        - generic: "1"
+        - generic: 美国
+        - generic: 3241.05万
+        - generic "5297462": ▲ +529.74万
+      - button "2 印度 2672.70万 ▲ +619.49万":
+        - generic: "2"
+        - generic: 印度
+        - generic: 2672.70万
+        - generic "6194972": ▲ +619.49万
+      - button "3 中国 1838.63万 ▲ +203.52万":
+        - generic: "3"
+        - generic: 中国
+        - generic: 1838.63万
+        - generic "2035204": ▲ +203.52万
+      - button "4 巴西 831.79万 ▲ +178.94万":
+        - generic: "4"
+        - generic: 巴西
+        - generic: 831.79万
+        - generic "1789412": ▲ +178.94万
+      - button "5 英国 555.97万 ▲ +87.55万":
+        - generic: "5"
+        - generic: 英国
+        - generic: 555.97万
+        - generic "875527": ▲ +87.55万
+      - button "6 日本 543.39万 ▲ +115.25万":
+        - generic: "6"
+        - generic: 日本
+        - generic: 543.39万
+        - generic "1152507": ▲ +115.25万
+      - button "7 印度尼西亚 527.00万 ▲ +108.52万":
+        - generic: "7"
+        - generic: 印度尼西亚
+        - generic: 527.00万
+        - generic "1085253": ▲ +108.52万
+      - button "8 德国 525.56万 ▲ +97.78万":
+        - generic: "8"
+        - generic: 德国
+        - generic: 525.56万
+        - generic "977859": ▲ +97.78万
+      - button "9 俄罗斯 462.76万 ▲ +53.04万":
+        - generic: "9"
+        - generic: 俄罗斯
+        - generic: 462.76万
+        - generic "530456": ▲ +53.04万
+      - button "10 法国 403.40万 ▲ +70.61万":
+        - generic: "10"
+        - generic: 法国
+        - generic: 403.40万
+        - generic "706108": ▲ +70.61万
+      - button "11 加拿大 399.13万 ▲ +63.28万":
+        - generic: "11"
+        - generic: 加拿大
+        - generic: 399.13万
+        - generic "632801": ▲ +63.28万
+      - button "12 韩国 314.57万 ▲ +58.36万":
+        - generic: "12"
+        - generic: 韩国
+        - generic: 314.57万
+        - generic "583674": ▲ +58.36万
+      - button "13 越南 297.27万 ▲ +65.86万":
+        - generic: "13"
+        - generic: 越南
+        - generic: 297.27万
+        - generic "658643": ▲ +65.86万
+      - button "14 墨西哥 286.51万 ▲ +62.74万":
+        - generic: "14"
+        - generic: 墨西哥
+        - generic: 286.51万
+        - generic "627403": ▲ +62.74万
+      - button "15 菲律宾 281.55万 ▲ +70.10万":
+        - generic: "15"
+        - generic: 菲律宾
+        - generic: 281.55万
+        - generic "701096": ▲ +70.10万
+      - button "16 西班牙 280.20万 ▲ +56.88万":
+        - generic: "16"
+        - generic: 西班牙
+        - generic: 280.20万
+        - generic "568802": ▲ +56.88万
+      - button "17 土耳其 254.40万 ▲ +49.89万":
+        - generic: "17"
+        - generic: 土耳其
+        - generic: 254.40万
+        - generic "498945": ▲ +49.89万
+      - button "18 巴基斯坦 249.74万 ▲ +66.11万":
+        - generic: "18"
+        - generic: 巴基斯坦
+        - generic: 249.74万
+        - generic "661171": ▲ +66.11万
+      - button "19 澳大利亚 236.83万 ▲ +39.02万":
+        - generic: "19"
+        - generic: 澳大利亚
+        - generic: 236.83万
+        - generic "390273": ▲ +39.02万
+      - button "20 荷兰 218.53万 ▲ +47.59万":
+        - generic: "20"
+        - generic: 荷兰
+        - generic: 218.53万
+        - generic "475975": ▲ +47.59万
+      - button "21 新加坡 217.05万 ▲ +54.06万":
+        - generic: "21"
+        - generic: 新加坡
+        - generic: 217.05万
+        - generic "540678": ▲ +54.06万
+      - button "22 波兰 207.47万 ▲ +36.19万":
+        - generic: "22"
+        - generic: 波兰
+        - generic: 207.47万
+        - generic "361916": ▲ +36.19万
+      - button "23 意大利 198.96万 ▲ +39.36万":
+        - generic: "23"
+        - generic: 意大利
+        - generic: 198.96万
+        - generic "393696": ▲ +39.36万
+      - button "24 孟加拉国 188.22万 ▲ +40.69万":
+        - generic: "24"
+        - generic: 孟加拉国
+        - generic: 188.22万
+        - generic "406905": ▲ +40.69万
+      - button "25 尼日利亚 179.45万 ▲ +36.75万":
+        - generic: "25"
+        - generic: 尼日利亚
+        - generic: 179.45万
+        - generic "367531": ▲ +36.75万
+      - button "26 乌克兰 172.90万 ▲ +23.65万":
+        - generic: "26"
+        - generic: 乌克兰
+        - generic: 172.90万
+        - generic "236598": ▲ +23.65万
+      - button "27 哥伦比亚 167.08万 ▲ +37.57万":
+        - generic: "27"
+        - generic: 哥伦比亚
+        - generic: 167.08万
+        - generic "375747": ▲ +37.57万
+      - button "28 埃及 162.64万 ▲ +41.62万":
+        - generic: "28"
+        - generic: 埃及
+        - generic: 162.64万
+        - generic "416202": ▲ +41.62万
+      - button "29 阿根廷 159.93万 ▲ +30.63万":
+        - generic: "29"
+        - generic: 阿根廷
+        - generic: 159.93万
+        - generic "306337": ▲ +30.63万
+      - button "30 泰国 157.01万 ▲ +36.70万":
+        - generic: "30"
+        - generic: 泰国
+        - generic: 157.01万
+        - generic "367000": ▲ +36.70万
+      - button "31 马来西亚 113.90万 ▲ +22.57万":
+        - generic: "31"
+        - generic: 马来西亚
+        - generic: 113.90万
+        - generic "225759": ▲ +22.57万
+      - button "32 南非 105.89万 ▲ +25.07万":
+        - generic: "32"
+        - generic: 南非
+        - generic: 105.89万
+        - generic "250745": ▲ +25.07万
+      - button "33 瑞典 102.90万 ▲ +16.93万":
+        - generic: "33"
+        - generic: 瑞典
+        - generic: 102.90万
+        - generic "169309": ▲ +16.93万
+      - button "34 沙特阿拉伯 98.80万 ▲ +26.64万":
+        - generic: "34"
+        - generic: 沙特阿拉伯
+        - generic: 98.80万
+        - generic "266403": ▲ +26.64万
+      - button "35 以色列 93.59万 ▲ +17.76万":
+        - generic: "35"
+        - generic: 以色列
+        - generic: 93.59万
+        - generic "177688": ▲ +17.76万
+      - button "36 秘鲁 90.70万 ▲ +21.09万":
+        - generic: "36"
+        - generic: 秘鲁
+        - generic: 90.70万
+        - generic "210912": ▲ +21.09万
+      - button "37 摩洛哥 90.64万 ▲ +23.25万":
+        - generic: "37"
+        - generic: 摩洛哥
+        - generic: 90.64万
+        - generic "232512": ▲ +23.25万
+      - button "38 伊朗 89.85万 ▲ +11.71万":
+        - generic: "38"
+        - generic: 伊朗
+        - generic: 89.85万
+        - generic "117156": ▲ +11.71万
+      - button "39 智利 80.90万 ▲ +17.15万":
+        - generic: "39"
+        - generic: 智利
+        - generic: 80.90万
+        - generic "171552": ▲ +17.15万
+      - button "40 罗马尼亚 79.55万 ▲ +14.51万":
+        - generic: "40"
+        - generic: 罗马尼亚
+        - generic: 79.55万
+        - generic "145129": ▲ +14.51万
+      - button "41 瑞士 78.13万 ▲ +14.95万":
+        - generic: "41"
+        - generic: 瑞士
+        - generic: 78.13万
+        - generic "149537": ▲ +14.95万
+      - button "42 比利时 74.89万 ▲ +13.11万":
+        - generic: "42"
+        - generic: 比利时
+        - generic: 74.89万
+        - generic "131159": ▲ +13.11万
+      - button "43 葡萄牙 74.04万 ▲ +14.99万":
+        - generic: "43"
+        - generic: 葡萄牙
+        - generic: 74.04万
+        - generic "149989": ▲ +14.99万
+      - button "44 肯尼亚 67.81万 ▲ +17.40万":
+        - generic: "44"
+        - generic: 肯尼亚
+        - generic: 67.81万
+        - generic "174054": ▲ +17.40万
+      - button "45 阿拉伯联合酋长国 65.61万 ▲ +16.87万":
+        - generic: "45"
+        - generic: 阿拉伯联合酋长国
+        - generic: 65.61万
+        - generic "168707": ▲ +16.87万
+      - button "46 奥地利 61.13万 ▲ +12.79万":
+        - generic: "46"
+        - generic: 奥地利
+        - generic: 61.13万
+        - generic "127963": ▲ +12.79万
+      - button "47 捷克 60.61万 ▲ +12.04万":
+        - generic: "47"
+        - generic: 捷克
+        - generic: 60.61万
+        - generic "120462": ▲ +12.04万
+      - button "48 阿尔及利亚 58.69万 ▲ +16.41万":
+        - generic: "48"
+        - generic: 阿尔及利亚
+        - generic: 58.69万
+        - generic "164155": ▲ +16.41万
+      - button "49 丹麦 54.33万 ▲ +8.40万":
+        - generic: "49"
+        - generic: 丹麦
+        - generic: 54.33万
+        - generic "84042": ▲ +8.40万
+      - button "50 斯里兰卡 54.14万 ▲ +10.93万":
+        - generic: "50"
+        - generic: 斯里兰卡
+        - generic: 54.14万
+        - generic "109313": ▲ +10.93万
+      - button "51 芬兰 53.82万 ▲ +10.73万":
+        - generic: "51"
+        - generic: 芬兰
+        - generic: 53.82万
+        - generic "107389": ▲ +10.73万
+      - button "52 挪威 51.00万 ▲ +9.18万":
+        - generic: "52"
+        - generic: 挪威
+        - generic: 51.00万
+        - generic "91810": ▲ +9.18万
+      - button "53 爱尔兰 48.75万 ▲ +7.71万":
+        - generic: "53"
+        - generic: 爱尔兰
+        - generic: 48.75万
+        - generic "77151": ▲ +7.71万
+      - button "54 尼泊尔 48.69万 ▲ +11.90万":
+        - generic: "54"
+        - generic: 尼泊尔
+        - generic: 48.69万
+        - generic "119029": ▲ +11.90万
+      - button "55 匈牙利 46.49万 ▲ +7.27万":
+        - generic: "55"
+        - generic: 匈牙利
+        - generic: 46.49万
+        - generic "72711": ▲ +7.27万
+      - button "56 哈萨克斯坦 46.34万 ▲ +12.47万":
+        - generic: "56"
+        - generic: 哈萨克斯坦
+        - generic: 46.34万
+        - generic "124772": ▲ +12.47万
+      - button "57 伊拉克 45.43万 ▲ +15.69万":
+        - generic: "57"
+        - generic: 伊拉克
+        - generic: 45.43万
+        - generic "156968": ▲ +15.69万
+      - button "58 新西兰 44.12万 ▲ +6.69万":
+        - generic: "58"
+        - generic: 新西兰
+        - generic: 44.12万
+        - generic "66993": ▲ +6.69万
+      - button "59 突尼斯 42.05万 ▲ +8.72万":
+        - generic: "59"
+        - generic: 突尼斯
+        - generic: 42.05万
+        - generic "87226": ▲ +8.72万
+      - button "60 厄瓜多尔 41.88万 ▲ +10.43万":
+        - generic: "60"
+        - generic: 厄瓜多尔
+        - generic: 41.88万
+        - generic "104342": ▲ +10.43万
+      - button "61 白俄罗斯 40.79万 ▲ +4.91万":
+        - generic: "61"
+        - generic: 白俄罗斯
+        - generic: 40.79万
+        - generic "49129": ▲ +4.91万
+      - button "62 乌兹别克斯坦 39.50万 ▲ +11.92万":
+        - generic: "62"
+        - generic: 乌兹别克斯坦
+        - generic: 39.50万
+        - generic "119252": ▲ +11.92万
+      - button "63 希腊 39.40万 ▲ +6.52万":
+        - generic: "63"
+        - generic: 希腊
+        - generic: 39.40万
+        - generic "65204": ▲ +6.52万
+      - button "64 保加利亚 36.20万 ▲ +6.68万":
+        - generic: "64"
+        - generic: 保加利亚
+        - generic: 36.20万
+        - generic "66812": ▲ +6.68万
+      - button "65 委内瑞拉 34.50万 ▲ +8.71万":
+        - generic: "65"
+        - generic: 委内瑞拉
+        - generic: 34.50万
+        - generic "87193": ▲ +8.71万
+      - button "66 加纳 32.83万 ▲ +8.40万":
+        - generic: "66"
+        - generic: 加纳
+        - generic: 32.83万
+        - generic "84017": ▲ +8.40万
+      - button "67 塞尔维亚 32.53万 ▲ +4.79万":
+        - generic: "67"
+        - generic: 塞尔维亚
+        - generic: 32.53万
+        - generic "47971": ▲ +4.79万
+      - button "68 埃塞俄比亚 25.13万 ▲ +7.29万":
+        - generic: "68"
+        - generic: 埃塞俄比亚
+        - generic: 25.13万
+        - generic "72915": ▲ +7.29万
+      - button "69 约旦 24.29万 ▲ +6.82万":
+        - generic: "69"
+        - generic: 约旦
+        - generic: 24.29万
+        - generic "68247": ▲ +6.82万
+      - button "70 柬埔寨 23.54万 ▲ +7.82万":
+        - generic: "70"
+        - generic: 柬埔寨
+        - generic: 23.54万
+        - generic "78259": ▲ +7.82万
+      - button "71 哥斯达黎加 23.13万 ▲ +4.47万":
+        - generic: "71"
+        - generic: 哥斯达黎加
+        - generic: 23.13万
+        - generic "44784": ▲ +4.47万
+      - button "72 立陶宛 22.70万 ▲ +4.24万":
+        - generic: "72"
+        - generic: 立陶宛
+        - generic: 22.70万
+        - generic "42470": ▲ +4.24万
+      - button "73 玻利维亚 22.25万 ▲ +5.70万":
+        - generic: "73"
+        - generic: 玻利维亚
+        - generic: 22.25万
+        - generic "57082": ▲ +5.70万
+      - button "74 多米尼加 21.74万 ▲ +5.82万":
+        - generic: "74"
+        - generic: 多米尼加
+        - generic: 21.74万
+        - generic "58271": ▲ +5.82万
+      - button "75 斯洛伐克 21.28万 ▲ +4.08万":
+        - generic: "75"
+        - generic: 斯洛伐克
+        - generic: 21.28万
+        - generic "40893": ▲ +4.08万
+      - button "76 缅甸 19.91万 ▲ +4.53万":
+        - generic: "76"
+        - generic: 缅甸
+        - generic: 19.91万
+        - generic "45367": ▲ +4.53万
+      - button "77 格鲁吉亚 19.85万 ▲ +3.73万":
+        - generic: "77"
+        - generic: 格鲁吉亚
+        - generic: 19.85万
+        - generic "37302": ▲ +3.73万
+      - button "78 危地马拉 19.56万 ▲ +4.56万":
+        - generic: "78"
+        - generic: 危地马拉
+        - generic: 19.56万
+        - generic "45678": ▲ +4.56万
+      - button "79 阿塞拜疆 19.53万 ▲ +5.22万":
+        - generic: "79"
+        - generic: 阿塞拜疆
+        - generic: 19.53万
+        - generic "52262": ▲ +5.22万
+      - button "80 克罗地亚 19.15万 ▲ +2.97万":
+        - generic: "80"
+        - generic: 克罗地亚
+        - generic: 19.15万
+        - generic "29776": ▲ +2.97万
+      - button "81 拉脱维亚 19.08万 ▲ +5.12万":
+        - generic: "81"
+        - generic: 拉脱维亚
+        - generic: 19.08万
+        - generic "51206": ▲ +5.12万
+      - button "82 黎巴嫩 16.52万 ▲ +3.55万":
+        - generic: "82"
+        - generic: 黎巴嫩
+        - generic: 16.52万
+        - generic "35581": ▲ +3.55万
+      - button "83 乌拉圭 16.05万 ▲ +3.07万":
+        - generic: "83"
+        - generic: 乌拉圭
+        - generic: 16.05万
+        - generic "30703": ▲ +3.07万
+      - button "84 爱沙尼亚 14.90万 ▲ +2.98万":
+        - generic: "84"
+        - generic: 爱沙尼亚
+        - generic: 14.90万
+        - generic "29825": ▲ +2.98万
+      - button "85 乌干达 14.71万 ▲ +4.69万":
+        - generic: "85"
+        - generic: 乌干达
+        - generic: 14.71万
+        - generic "46953": ▲ +4.69万
+      - button "86 也门 14.67万 ▲ +5.21万":
+        - generic: "86"
+        - generic: 也门
+        - generic: 14.67万
+        - generic "52169": ▲ +5.21万
+      - button "87 亚美尼亚 14.11万 ▲ +2.43万":
+        - generic: "87"
+        - generic: 亚美尼亚
+        - generic: 14.11万
+        - generic "24303": ▲ +2.43万
+      - button "88 摩尔多瓦 14.07万 ▲ +3.74万":
+        - generic: "88"
+        - generic: 摩尔多瓦
+        - generic: 14.07万
+        - generic "37444": ▲ +3.74万
+      - button "89 喀麦隆 13.91万 ▲ +4.12万":
+        - generic: "89"
+        - generic: 喀麦隆
+        - generic: 13.91万
+        - generic "41223": ▲ +4.12万
+      - button "90 萨尔瓦多 13.61万 ▲ +3.22万":
+        - generic: "90"
+        - generic: 萨尔瓦多
+        - generic: 13.61万
+        - generic "32261": ▲ +3.22万
+      - button "91 吉尔吉斯斯坦 12.15万 ▲ +3.13万":
+        - generic: "91"
+        - generic: 吉尔吉斯斯坦
+        - generic: 12.15万
+        - generic "31395": ▲ +3.13万
+      - button "92 坦桑尼亚 12.11万 ▲ +3.63万":
+        - generic: "92"
+        - generic: 坦桑尼亚
+        - generic: 12.11万
+        - generic "36389": ▲ +3.63万
+      - button "93 斯洛文尼亚 11.73万 ▲ +1.91万":
+        - generic: "93"
+        - generic: 斯洛文尼亚
+        - generic: 11.73万
+        - generic "19151": ▲ +1.91万
+      - button "94 科特迪瓦 11.29万 ▲ +3.34万":
+        - generic: "94"
+        - generic: 科特迪瓦
+        - generic: 11.29万
+        - generic "33491": ▲ +3.34万
+      - button "95 巴勒斯坦 11.25万 ▲ +2.34万":
+        - generic: "95"
+        - generic: 巴勒斯坦
+        - generic: 11.25万
+        - generic "23431": ▲ +2.34万
+      - button "96 科威特 11.20万 ▲ +2.72万":
+        - generic: "96"
+        - generic: 科威特
+        - generic: 11.20万
+        - generic "27223": ▲ +2.72万
+      - button "97 卡塔尔 10.90万 ▲ +2.88万":
+        - generic: "97"
+        - generic: 卡塔尔
+        - generic: 10.90万
+        - generic "28882": ▲ +2.88万
+      - button "98 阿尔巴尼亚 10.34万 ▲ +1.95万":
+        - generic: "98"
+        - generic: 阿尔巴尼亚
+        - generic: 10.34万
+        - generic "19588": ▲ +1.95万
+      - button "99 洪都拉斯 10.31万 ▲ +2.76万":
+        - generic: "99"
+        - generic: 洪都拉斯
+        - generic: 10.31万
+        - generic "27650": ▲ +2.76万
+      - button "100 波斯尼亚和黑塞哥维那 9.92万 ▲ +1.52万":
+        - generic: "100"
+        - generic: 波斯尼亚和黑塞哥维那
+        - generic: 9.92万
+        - generic "15288": ▲ +1.52万
+    - paragraph: 实时排名
+    - heading "各国活跃开发者数量排行榜" [level=3]
+    - generic: TOP 100
+    - list:
+      - button "1 美国 494.14万 ▲ +53.13万":
+        - generic: "1"
+        - generic: 美国
+        - generic: 494.14万
+        - generic "531351.58": ▲ +53.13万
+      - button "2 印度 285.08万 ▲ +22.16万":
+        - generic: "2"
+        - generic: 印度
+        - generic: 285.08万
+        - generic "221662.88": ▲ +22.16万
+      - button "3 中国 250.48万 ▲ +30.40万":
+        - generic: "3"
+        - generic: 中国
+        - generic: 250.48万
+        - generic "304046.58": ▲ +30.40万
+      - button "4 巴西 193.45万 ▲ +13.37万":
+        - generic: "4"
+        - generic: 巴西
+        - generic: 193.45万
+        - generic "133794.23": ▲ +13.37万
+      - button "5 德国 141.90万 ▲ +13.31万":
+        - generic: "5"
+        - generic: 德国
+        - generic: 141.90万
+        - generic "133151.38": ▲ +13.31万
+      - button "6 英国 113.36万 ▲ +9.53万":
+        - generic: "6"
+        - generic: 英国
+        - generic: 113.36万
+        - generic "95310.96": ▲ +9.53万
+      - button "7 加拿大 90.62万 ▲ +7.26万":
+        - generic: "7"
+        - generic: 加拿大
+        - generic: 90.62万
+        - generic "72646.32": ▲ +7.26万
+      - button "8 法国 87.50万 ▲ +7.90万":
+        - generic: "8"
+        - generic: 法国
+        - generic: 87.50万
+        - generic "79047.7": ▲ +7.90万
+      - button "9 俄罗斯 61.80万 ▲ +1.86万":
+        - generic: "9"
+        - generic: 俄罗斯
+        - generic: 61.80万
+        - generic "18658.35": ▲ +1.86万
+      - button "10 日本 49.02万 ▲ +6.41万":
+        - generic: "10"
+        - generic: 日本
+        - generic: 49.02万
+        - generic "64184.48": ▲ +6.41万
+      - button "11 韩国 48.69万 ▲ +4.64万":
+        - generic: "11"
+        - generic: 韩国
+        - generic: 48.69万
+        - generic "46467.07": ▲ +4.64万
+      - button "12 印度尼西亚 48.66万 ▲ +5.01万":
+        - generic: "12"
+        - generic: 印度尼西亚
+        - generic: 48.66万
+        - generic "50102.28": ▲ +5.01万
+      - button "13 波兰 45.71万 ▲ +3.00万":
+        - generic: "13"
+        - generic: 波兰
+        - generic: 45.71万
+        - generic "30080.5": ▲ +3.00万
+      - button "14 澳大利亚 45.70万 ▲ +5.13万":
+        - generic: "14"
+        - generic: 澳大利亚
+        - generic: 45.70万
+        - generic "51372.72": ▲ +5.13万
+      - button "15 荷兰 45.19万 ▲ +3.99万":
+        - generic: "15"
+        - generic: 荷兰
+        - generic: 45.19万
+        - generic "39937.98": ▲ +3.99万
+      - button "16 西班牙 45.01万 ▲ +3.69万":
+        - generic: "16"
+        - generic: 西班牙
+        - generic: 45.01万
+        - generic "36919.87": ▲ +3.69万
+      - button "17 意大利 36.57万 ▲ +3.70万":
+        - generic: "17"
+        - generic: 意大利
+        - generic: 36.57万
+        - generic "37025.86": ▲ +3.70万
+      - button "18 土耳其 34.90万 ▲ +2.19万":
+        - generic: "18"
+        - generic: 土耳其
+        - generic: 34.90万
+        - generic "21994.19": ▲ +2.19万
+      - button "19 阿根廷 32.13万 ▲ +2.82万":
+        - generic: "19"
+        - generic: 阿根廷
+        - generic: 32.13万
+        - generic "28214.95": ▲ +2.82万
+      - button "20 乌克兰 32.11万 ▲ +1.13万":
+        - generic: "20"
+        - generic: 乌克兰
+        - generic: 32.11万
+        - generic "11314.61": ▲ +1.13万
+      - button "21 越南 30.80万 ▲ +3.04万":
+        - generic: "21"
+        - generic: 越南
+        - generic: 30.80万
+        - generic "30443.89": ▲ +3.04万
+      - button "22 瑞典 28.95万 ▲ +2.33万":
+        - generic: "22"
+        - generic: 瑞典
+        - generic: 28.95万
+        - generic "23352.93": ▲ +2.33万
+      - button "23 孟加拉国 27.78万 ▲ +3.34万":
+        - generic: "23"
+        - generic: 孟加拉国
+        - generic: 27.78万
+        - generic "33428.87": ▲ +3.34万
+      - button "24 巴基斯坦 25.84万 ▲ +2.10万":
+        - generic: "24"
+        - generic: 巴基斯坦
+        - generic: 25.84万
+        - generic "21044.03": ▲ +2.10万
+      - button "25 瑞士 25.11万 ▲ +2.85万":
+        - generic: "25"
+        - generic: 瑞士
+        - generic: 25.11万
+        - generic "28553.26": ▲ +2.85万
+      - button "26 墨西哥 24.65万 ▲ +2.06万":
+        - generic: "26"
+        - generic: 墨西哥
+        - generic: 24.65万
+        - generic "20637.04": ▲ +2.06万
+      - button "27 尼日利亚 24.02万 ▲ +2.25万":
+        - generic: "27"
+        - generic: 尼日利亚
+        - generic: 24.02万
+        - generic "22598.15": ▲ +2.25万
+      - button "28 哥伦比亚 23.65万 ▲ +2.04万":
+        - generic: "28"
+        - generic: 哥伦比亚
+        - generic: 23.65万
+        - generic "20463.67": ▲ +2.04万
+      - button "29 葡萄牙 18.54万 ▲ +1.33万":
+        - generic: "29"
+        - generic: 葡萄牙
+        - generic: 18.54万
+        - generic "13327.73": ▲ +1.33万
+      - button "30 埃及 17.40万 ▲ +1.39万":
+        - generic: "30"
+        - generic: 埃及
+        - generic: 17.40万
+        - generic "13994.59": ▲ +1.39万
+      - button "31 挪威 15.61万 ▲ +1.69万":
+        - generic: "31"
+        - generic: 挪威
+        - generic: 15.61万
+        - generic "16976.61": ▲ +1.69万
+      - button "32 比利时 15.53万 ▲ +1.30万":
+        - generic: "32"
+        - generic: 比利时
+        - generic: 15.53万
+        - generic "13094.37": ▲ +1.30万
+      - button "33 新加坡 15.16万 ▲ +1.76万":
+        - generic: "33"
+        - generic: 新加坡
+        - generic: 15.16万
+        - generic "17696.87": ▲ +1.76万
+      - button "34 丹麦 14.79万 ▲ +1.34万":
+        - generic: "34"
+        - generic: 丹麦
+        - generic: 14.79万
+        - generic "13477.11": ▲ +1.34万
+      - button "35 捷克 14.74万 ▲ +1.55万":
+        - generic: "35"
+        - generic: 捷克
+        - generic: 14.74万
+        - generic "15566.37": ▲ +1.55万
+      - button "36 奥地利 14.64万 ▲ +1.49万":
+        - generic: "36"
+        - generic: 奥地利
+        - generic: 14.64万
+        - generic "14962.03": ▲ +1.49万
+      - button "37 伊朗 13.69万 ▲ +4,845.18":
+        - generic: "37"
+        - generic: 伊朗
+        - generic: 13.69万
+        - generic "4845.18": ▲ +4,845.18
+      - button "38 芬兰 13.67万 ▲ +1.13万":
+        - generic: "38"
+        - generic: 芬兰
+        - generic: 13.67万
+        - generic "11328.22": ▲ +1.13万
+      - button "39 斯里兰卡 12.90万 ▲ +1.56万":
+        - generic: "39"
+        - generic: 斯里兰卡
+        - generic: 12.90万
+        - generic "15670.16": ▲ +1.56万
+      - button "40 肯尼亚 12.82万 ▲ +9,774.25":
+        - generic: "40"
+        - generic: 肯尼亚
+        - generic: 12.82万
+        - generic "9774.25": ▲ +9,774.25
+      - button "41 菲律宾 12.74万 ▲ +1.41万":
+        - generic: "41"
+        - generic: 菲律宾
+        - generic: 12.74万
+        - generic "14193.08": ▲ +1.41万
+      - button "42 南非 11.69万 ▲ +8,487.5":
+        - generic: "42"
+        - generic: 南非
+        - generic: 11.69万
+        - generic "8487.5": ▲ +8,487.5
+      - button "43 罗马尼亚 11.33万 ▲ +6,897.6":
+        - generic: "43"
+        - generic: 罗马尼亚
+        - generic: 11.33万
+        - generic "6897.6": ▲ +6,897.6
+      - button "44 以色列 11.12万 ▲ +1.25万":
+        - generic: "44"
+        - generic: 以色列
+        - generic: 11.12万
+        - generic "12588.2": ▲ +1.25万
+      - button "45 智利 10.59万 ▲ +1.05万":
+        - generic: "45"
+        - generic: 智利
+        - generic: 10.59万
+        - generic "10537.38": ▲ +1.05万
+      - button "46 新西兰 10.48万 ▲ +1.07万":
+        - generic: "46"
+        - generic: 新西兰
+        - generic: 10.48万
+        - generic "10727.98": ▲ +1.07万
+      - button "47 泰国 10.46万 ▲ +1.31万":
+        - generic: "47"
+        - generic: 泰国
+        - generic: 10.46万
+        - generic "13191.86": ▲ +1.31万
+      - button "48 希腊 8.78万 ▲ +7,093.91":
+        - generic: "48"
+        - generic: 希腊
+        - generic: 8.78万
+        - generic "7093.91": ▲ +7,093.91
+      - button "49 秘鲁 8.59万 ▲ +7,650.84":
+        - generic: "49"
+        - generic: 秘鲁
+        - generic: 8.59万
+        - generic "7650.84": ▲ +7,650.84
+      - button "50 匈牙利 8.47万 ▲ +6,362.07":
+        - generic: "50"
+        - generic: 匈牙利
+        - generic: 8.47万
+        - generic "6362.07": ▲ +6,362.07
+      - button "51 尼泊尔 8.38万 ▲ +8,818.08":
+        - generic: "51"
+        - generic: 尼泊尔
+        - generic: 8.38万
+        - generic "8818.08": ▲ +8,818.08
+      - button "52 保加利亚 7.40万 ▲ +3,899.38":
+        - generic: "52"
+        - generic: 保加利亚
+        - generic: 7.40万
+        - generic "3899.38": ▲ +3,899.38
+      - button "53 马来西亚 7.35万 ▲ +8,048.24":
+        - generic: "53"
+        - generic: 马来西亚
+        - generic: 7.35万
+        - generic "8048.24": ▲ +8,048.24
+      - button "54 爱尔兰 7.34万 ▲ +7,016.87":
+        - generic: "54"
+        - generic: 爱尔兰
+        - generic: 7.34万
+        - generic "7016.87": ▲ +7,016.87
+      - button "55 塞尔维亚 6.82万 ▲ +4,479.25":
+        - generic: "55"
+        - generic: 塞尔维亚
+        - generic: 6.82万
+        - generic "4479.25": ▲ +4,479.25
+      - button "56 白俄罗斯 6.59万 ▼ -982.82":
+        - generic: "56"
+        - generic: 白俄罗斯
+        - generic: 6.59万
+        - generic "-982.82": ▼ -982.82
+      - button "57 阿拉伯联合酋长国 6.54万 ▲ +6,807.65":
+        - generic: "57"
+        - generic: 阿拉伯联合酋长国
+        - generic: 6.54万
+        - generic "6807.65": ▲ +6,807.65
+      - button "58 摩洛哥 6.27万 ▲ +3,739.63":
+        - generic: "58"
+        - generic: 摩洛哥
+        - generic: 6.27万
+        - generic "3739.63": ▲ +3,739.63
+      - button "59 乌兹别克斯坦 4.89万 ▲ +1,831.66":
+        - generic: "59"
+        - generic: 乌兹别克斯坦
+        - generic: 4.89万
+        - generic "1831.66": ▲ +1,831.66
+      - button "60 加纳 4.86万 ▲ +5,197":
+        - generic: "60"
+        - generic: 加纳
+        - generic: 4.86万
+        - generic "5197": ▲ +5,197
+      - button "61 哈萨克斯坦 4.48万 ▲ +1,998.34":
+        - generic: "61"
+        - generic: 哈萨克斯坦
+        - generic: 4.48万
+        - generic "1998.34": ▲ +1,998.34
+      - button "62 格鲁吉亚 4.17万 ▲ +3,026.12":
+        - generic: "62"
+        - generic: 格鲁吉亚
+        - generic: 4.17万
+        - generic "3026.12": ▲ +3,026.12
+      - button "63 委内瑞拉 4.11万 ▲ +4,049.62":
+        - generic: "63"
+        - generic: 委内瑞拉
+        - generic: 4.11万
+        - generic "4049.62": ▲ +4,049.62
+      - button "64 突尼斯 3.91万 ▲ +2,740.4":
+        - generic: "64"
+        - generic: 突尼斯
+        - generic: 3.91万
+        - generic "2740.4": ▲ +2,740.4
+      - button "65 克罗地亚 3.90万 ▲ +2,518.12":
+        - generic: "65"
+        - generic: 克罗地亚
+        - generic: 3.90万
+        - generic "2518.12": ▲ +2,518.12
+      - button "66 埃塞俄比亚 3.85万 ▲ +4,205.83":
+        - generic: "66"
+        - generic: 埃塞俄比亚
+        - generic: 3.85万
+        - generic "4205.83": ▲ +4,205.83
+      - button "67 立陶宛 3.84万 ▲ +1,385.89":
+        - generic: "67"
+        - generic: 立陶宛
+        - generic: 3.84万
+        - generic "1385.89": ▲ +1,385.89
+      - button "68 斯洛伐克 3.82万 ▲ +2,966.97":
+        - generic: "68"
+        - generic: 斯洛伐克
+        - generic: 3.82万
+        - generic "2966.97": ▲ +2,966.97
+      - button "69 厄瓜多尔 3.76万 ▲ +3,408.05":
+        - generic: "69"
+        - generic: 厄瓜多尔
+        - generic: 3.76万
+        - generic "3408.05": ▲ +3,408.05
+      - button "70 爱沙尼亚 3.65万 ▲ +3,096.02":
+        - generic: "70"
+        - generic: 爱沙尼亚
+        - generic: 3.65万
+        - generic "3096.02": ▲ +3,096.02
+      - button "71 沙特阿拉伯 3.55万 ▲ +3,951.98":
+        - generic: "71"
+        - generic: 沙特阿拉伯
+        - generic: 3.55万
+        - generic "3951.98": ▲ +3,951.98
+      - button "72 乌拉圭 3.34万 ▲ +3,033.93":
+        - generic: "72"
+        - generic: 乌拉圭
+        - generic: 3.34万
+        - generic "3033.93": ▲ +3,033.93
+      - button "73 哥斯达黎加 3.24万 ▲ +3,505.84":
+        - generic: "73"
+        - generic: 哥斯达黎加
+        - generic: 3.24万
+        - generic "3505.84": ▲ +3,505.84
+      - button "74 阿尔及利亚 2.87万 ▲ +2,169.45":
+        - generic: "74"
+        - generic: 阿尔及利亚
+        - generic: 2.87万
+        - generic "2169.45": ▲ +2,169.45
+      - button "75 斯洛文尼亚 2.64万 ▲ +2,685.59":
+        - generic: "75"
+        - generic: 斯洛文尼亚
+        - generic: 2.64万
+        - generic "2685.59": ▲ +2,685.59
+      - button "76 亚美尼亚 2.50万 ▲ +1,737.77":
+        - generic: "76"
+        - generic: 亚美尼亚
+        - generic: 2.50万
+        - generic "1737.77": ▲ +1,737.77
+      - button "77 拉脱维亚 2.44万 ▲ +1,850.58":
+        - generic: "77"
+        - generic: 拉脱维亚
+        - generic: 2.44万
+        - generic "1850.58": ▲ +1,850.58
+      - button "78 乌干达 2.35万 ▲ +2,389.07":
+        - generic: "78"
+        - generic: 乌干达
+        - generic: 2.35万
+        - generic "2389.07": ▲ +2,389.07
+      - button "79 多米尼加 2.34万 ▲ +2,616.37":
+        - generic: "79"
+        - generic: 多米尼加
+        - generic: 2.34万
+        - generic "2616.37": ▲ +2,616.37
+      - button "80 阿塞拜疆 2.18万 ▲ +1,038.22":
+        - generic: "80"
+        - generic: 阿塞拜疆
+        - generic: 2.18万
+        - generic "1038.22": ▲ +1,038.22
+      - button "81 卢旺达 2.06万 ▲ +2,933.83":
+        - generic: "81"
+        - generic: 卢旺达
+        - generic: 2.06万
+        - generic "2933.83": ▲ +2,933.83
+      - button "82 危地马拉 2.00万 ▲ +1,871.52":
+        - generic: "82"
+        - generic: 危地马拉
+        - generic: 2.00万
+        - generic "1871.52": ▲ +1,871.52
+      - button "83 塞浦路斯 1.88万 ▲ +1,898.78":
+        - generic: "83"
+        - generic: 塞浦路斯
+        - generic: 1.88万
+        - generic "1898.78": ▲ +1,898.78
+      - button "84 喀麦隆 1.79万 ▲ +2,214.36":
+        - generic: "84"
+        - generic: 喀麦隆
+        - generic: 1.79万
+        - generic "2214.36": ▲ +2,214.36
+      - button "85 玻利维亚 1.72万 ▲ +2,193.91":
+        - generic: "85"
+        - generic: 玻利维亚
+        - generic: 1.72万
+        - generic "2193.91": ▲ +2,193.91
+      - button "86 萨尔瓦多 1.65万 ▲ +1,520.06":
+        - generic: "86"
+        - generic: 萨尔瓦多
+        - generic: 1.65万
+        - generic "1520.06": ▲ +1,520.06
+      - button "87 缅甸 1.57万 ▲ +1,229.73":
+        - generic: "87"
+        - generic: 缅甸
+        - generic: 1.57万
+        - generic "1229.73": ▲ +1,229.73
+      - button "88 波斯尼亚和黑塞哥维那 1.49万 ▲ +691.97":
+        - generic: "88"
+        - generic: 波斯尼亚和黑塞哥维那
+        - generic: 1.49万
+        - generic "691.97": ▲ +691.97
+      - button "89 卢森堡 1.44万 ▲ +1,272.92":
+        - generic: "89"
+        - generic: 卢森堡
+        - generic: 1.44万
+        - generic "1272.92": ▲ +1,272.92
+      - button "90 柬埔寨 1.38万 ▲ +1,412.99":
+        - generic: "90"
+        - generic: 柬埔寨
+        - generic: 1.38万
+        - generic "1412.99": ▲ +1,412.99
+      - button "91 摩尔多瓦 1.33万 ▲ +959.22":
+        - generic: "91"
+        - generic: 摩尔多瓦
+        - generic: 1.33万
+        - generic "959.22": ▲ +959.22
+      - button "92 黎巴嫩 1.32万 ▲ +1,479.36":
+        - generic: "92"
+        - generic: 黎巴嫩
+        - generic: 1.32万
+        - generic "1479.36": ▲ +1,479.36
+      - button "93 伊拉克 1.29万 ▲ +1,162.09":
+        - generic: "93"
+        - generic: 伊拉克
+        - generic: 1.29万
+        - generic "1162.09": ▲ +1,162.09
+      - button "94 吉尔吉斯斯坦 1.25万 ▼ -269.06":
+        - generic: "94"
+        - generic: 吉尔吉斯斯坦
+        - generic: 1.25万
+        - generic "-269.06": ▼ -269.06
+      - button "95 坦桑尼亚 1.22万 ▲ +644.46":
+        - generic: "95"
+        - generic: 坦桑尼亚
+        - generic: 1.22万
+        - generic "644.46": ▲ +644.46
+      - button "96 约旦 1.16万 ▲ +1,051.16":
+        - generic: "96"
+        - generic: 约旦
+        - generic: 1.16万
+        - generic "1051.16": ▲ +1,051.16
+      - button "97 巴拉圭 1.15万 ▲ +961.62":
+        - generic: "97"
+        - generic: 巴拉圭
+        - generic: 1.15万
+        - generic "961.62": ▲ +961.62
+      - button "98 冰岛 1.14万 ▲ +1,028.3":
+        - generic: "98"
+        - generic: 冰岛
+        - generic: 1.14万
+        - generic "1028.3": ▲ +1,028.3
+      - button "99 北马其顿 1.08万 ▲ +350.05":
+        - generic: "99"
+        - generic: 北马其顿
+        - generic: 1.08万
+        - generic "350.05": ▲ +350.05
+      - button "100 安哥拉 1.01万 ▲ +758.42":
+        - generic: "100"
+        - generic: 安哥拉
+        - generic: 1.01万
+        - generic "758.42": ▲ +758.42
+  - generic: 开发者数量 · 全球
+- region "Notifications alt+T"

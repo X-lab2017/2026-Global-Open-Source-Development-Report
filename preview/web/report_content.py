@@ -3,6 +3,7 @@ from pathlib import Path,PurePosixPath
 from urllib.parse import quote,urlsplit,unquote
 import html,json,re,posixpath
 import chapter_visuals
+import chapter1_tables
 
 ROOT=Path(__file__).resolve().parents[1]
 R=json.loads((ROOT/'content/report.json').read_text())
@@ -49,7 +50,11 @@ def inline(text,src,lang):
 def headings(src,prefix):
     return [(anchor(m[2],prefix),m[2],len(m[1])) for m in re.finditer(r'^(#{2,4}) (.+)$',R['documents'][src],re.M)]
 def render(src,lang,prefix,skip_title=True):
-    lines=R['documents'][src].splitlines();out=[];i=0
+    text=R['documents'][src]
+    if src==PARTS[2]:
+        text=re.sub(r'\*\*图 1-3-1：OSDI 指标地图。\*\*[^\n]*', '', text)
+        text=re.sub(r'\*\*表 1.3.1：OSDI 的三级结构。\*\*[^\n]*', '', text)
+    lines=text.splitlines();out=[];i=0
     while i<len(lines):
         line=lines[i].strip()
         if not line:i+=1;continue
@@ -73,7 +78,16 @@ def render(src,lang,prefix,skip_title=True):
                 cells=[s.strip() for s in lines[i].strip().strip('|').split('|')]
                 if not all(re.fullmatch(r':?-+:?',s) for s in cells):rows.append(cells)
                 i+=1
-            out.append('<div class="reader-table-wrap" role="region" tabindex="0" aria-label="'+T(lang,'报告数据表，可横向滚动','Report table, horizontally scrollable')+'"><table class="reader-table"><thead><tr>'+''.join('<th scope="col">'+inline(c,src,lang)+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+inline(c,src,lang)+'</td>' for c in row)+'</tr>' for row in rows[1:])+'</tbody></table></div>');continue
+            if src==PARTS[2] and rows[0][0]=='层级':continue
+            if src.startswith(CH1):
+                fid=prefix+'-table-'+str(i)
+                out.append(chapter1_tables.render(rows,lang,fid,lambda c:inline(c,src,lang),source(src)))
+                continue
+            folded=src==PARTS[2] and rows[0][0]=='支柱／维度'
+            if folded:out.append('<details class="osdi-reference-table"><summary>'+T(lang,'完整指标清单（29项，查证用）','Full indicator table (29 measures)')+'</summary>')
+            out.append('<div class="reader-table-wrap" role="region" tabindex="0" aria-label="'+T(lang,'报告数据表，可横向滚动','Report table, horizontally scrollable')+'"><table class="reader-table"><thead><tr>'+''.join('<th scope="col">'+inline(c,src,lang)+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+inline(c,src,lang)+'</td>' for c in row)+'</tr>' for row in rows[1:])+'</tbody></table></div>')
+            if folded:out.append('</details>')
+            continue
         if line.startswith('$$'):
             # The one canonical Activity equation, rendered without an external runtime.
             assert 'A_{u,r,m}' in line and 'sqrt' in line
@@ -101,10 +115,11 @@ def chapter(lang):
     out.append('<section id="chapter-intro">'+source_bar(INTRO,lang)+render(INTRO,lang,'intro')+'</section>')
     for i,src in enumerate(PARTS):
         sid='ch01-s0'+str(i+1);title=R['documents'][src].splitlines()[0][2:]
+        if i==2:out.append('<div class="reader-note">'+T(lang,'方法与数据进展：以下保留第一章 v0.6 方法原文；仓库现已新增 ModelRank v1、模型全景与 GOSM 数据。最新文件、时间窗和准备状态以指标词典及数据目录为准，GOSO 2.7 已复用模型供给观察。','Methods and data update: the v0.6 method text below is retained. The repository now contains ModelRank v1, model-landscape and GOSM data. Consult the dictionary and data catalogue for current scope and readiness; GOSO 2.7 reuses model-supply observations.')+'</div>')
         out.append('<section class="chapter-section" id="'+sid+'"><div class="section-topline">1.'+str(i+1)+' / '+T(lang,'正文试读','MANUSCRIPT PREVIEW')+'</div><h2>'+E(title)+'</h2><details class="local-toc"><summary>'+T(lang,'本节目录','In this section')+'</summary><nav>'+''.join(a('#'+hid,E(label),'') for hid,label,level in headings(src,sid) if level==2)+'</nav></details>'+render(src,lang,sid)+source_bar(src,lang)+'</section>')
     return ''.join(out)
 def methods(lang):
-    return translation_note(lang)+source_bar(METHOD,lang)+'<details class="local-toc" open><summary>'+T(lang,'方法目录','Methods contents')+'</summary><nav>'+''.join(a('#'+hid,E(label),'') for hid,label,level in headings(METHOD,'method') if level==2)+'</nav></details>'+render(METHOD,lang,'method')
+    return '<div class="reader-note">'+T(lang,'数据进展：基础目录已收录 50 份 processed CSV；4.1 专题新增证据在节内另列；下文附录保留早期 34 份文件盘点及原方法记录。新增模型数据采用各表标注的月度或快照窗口，不统一归入代码报告年度。','Data update: the base catalogue contains 50 processed CSVs; section 4.1 lists its supplementary evidence separately. The source appendix below retains its earlier 34-file inventory and method record. New model data retain their stated monthly or snapshot windows.')+'</div>'+translation_note(lang)+source_bar(METHOD,lang)+'<details class="local-toc" open><summary>'+T(lang,'方法目录','Methods contents')+'</summary><nav>'+''.join(a('#'+hid,E(label),'') for hid,label,level in headings(METHOD,'method') if level==2)+'</nav></details>'+render(METHOD,lang,'method')
 def feature(lang):
     return '<section class="chapter-feature"><div><span class="eyebrow">NEW / CHAPTER 01</span><h2>'+T(lang,'先读第一章，建立共同的研究坐标。','Start with Chapter 1.<br>A shared basis for the research.')+'</h2>'+p(T(lang,'从 Linux 的全球协作到开放模型的复用，理解 AI 时代的开源变化；沿着价值、目标与指标，进入整份报告。','From Linux collaboration to open model reuse, explore changes in open source and the report’s values, goals and measures.'))+a(path(lang,'chapters/01/'),T(lang,'阅读第一章 →','Read Chapter 1 →'),'text-link')+'</div><div class="feature-route">'+''.join(a(path(lang,'chapters/01/')+'#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+T(lang,z,e)+'</strong><span>↗</span>','') for i,(z,e) in enumerate([('开源的公共价值','Public value'),('OSDGs 目标框架','OSDGs goals'),('OSDI 指标体系','OSDI measures')]))+'</div></section>'
 def evidence_summary(lang):
@@ -128,9 +143,9 @@ def indicators(lang,search,framework,english):
     return ''.join(out)
 def datasets(lang,search):
     t=lambda z,e:T(lang,z,e)
-    out=[evidence_summary(lang),'<div class="reader-note">'+t('当前收录第二章 13 份、第三章 21 份数据。提供原文件下载和逐项核验说明；不改变现有数据值，也不将样本榜单直接视为完整指标结果。','Includes 13 Chapter 2 files and 21 Chapter 3 files. Original downloads and review notes are available; sample rankings do not by themselves establish complete indicator results.')+'</div><form class="filter-bar" id="dataset-filters" role="search"><label>'+t('查找数据','Find a dataset')+'<input type="search" id="dataset-q" placeholder="OpenRank / GOSR / DevScale"></label><label>'+t('所属章节','Chapter')+'<select id="dataset-chapter"><option value="">'+t('全部章节','All chapters')+'</option><option value="2">GOSO · 2</option><option value="3">GOSR · 3</option></select></label><button type="reset">'+t('重置筛选','Reset filters')+'</button></form><p id="dataset-count" aria-live="polite"></p><div id="dataset-list">']
+    out=[evidence_summary(lang),'<div class="reader-note">'+t('基础目录收录 50 份数据（4.1 新增专题证据见节内来源）：第二章 13 份、第三章 25 份、第四章 3 份、第五章 9 份。代码年度、模型月度与补充快照按各表说明区分。原始文件与数据值保持不变。','The base catalogue includes 50 files (additional 4.1 evidence is listed in that section): 13 in Chapter 2, 25 in Chapter 3, 3 in Chapter 4 and 9 in Chapter 5. Annual code data, monthly model data and supplemental snapshots retain their own observation windows.')+'</div><form class="filter-bar" id="dataset-filters" role="search"><label>'+t('查找数据','Find a dataset')+'<input type="search" id="dataset-q" placeholder="OpenRank / GOSR / DevScale"></label><label>'+t('所属章节','Chapter')+'<select id="dataset-chapter"><option value="">'+t('全部章节','All chapters')+'</option><option value="2">GOSO · 2</option><option value="3">GOSR · 3</option><option value="4">GOSL · 4</option><option value="5">GOSM · 5</option></select></label><button type="reset">'+t('重置筛选','Reset filters')+'</button></form><p id="dataset-count" aria-live="polite"></p><div id="dataset-list">']
     for r in R['datasets']:
-        label=('GOSO' if r['chapter']=='2' else 'GOSR');file=Path(r['path']).name
+        label={'2':'GOSO','3':'GOSR','4':'GOSL','5':'GOSM'}.get(r['chapter'],'GOSD');file=Path(r['path']).name
         out.append(f'<details class="dataset-entry" id="dataset-{r["dataset_id"]}" data-chapter="{r["chapter"]}" data-search="{E((" ".join(r.values())+" "+label).lower())}"><summary><small>{label} · {r["row_count"]} '+t('行','rows')+'</small><strong>'+E(file)+'</strong></summary><div class="dataset-detail">'+p(r['review_note'])+'<dl class="definition-grid"><dt>'+t('字段','Fields')+'</dt><dd><code>'+E(r['fields'].replace(';',' · '))+'</code></dd><dt>'+t('状态','Status')+'</dt><dd>'+E(r['status'])+'</dd><dt>'+t('候选关联','Candidate links')+'</dt><dd>'+(' · '.join(a(path(lang,'data/indicators/')+'#indicator-'+x,E(x)) for x in r['related_indicators'].split(';') if x) or t('背景或样本结构资料','Background or sample structure'))+'</dd><dt>SHA-256</dt><dd><code>'+r['sha256']+'</code></dd></dl><div class="section-actions">'+a('/assets/report/data/'+file,t('下载原 CSV ↓','Download original CSV ↓'),'','download')+a(source(r['path']),t('GitHub 原文件 ↗','GitHub source ↗'))+a(path(lang,'methodology/')+'#'+anchor('A.7 现有数据与外部案例的边界','method'),t('方法与范围 →','Methods and scope →'))+'</div></div></details>')
         search.append({'lang':lang,'title':file,'description':label+' · '+r['related_indicators'],'url':path(lang,'data/sources/')+'#dataset-'+r['dataset_id'],'category':t('数据来源','Data sources')})
     out.append('</div><p id="dataset-empty" hidden>'+t('没有匹配的数据，请调整筛选条件。','No matching files. Adjust the filters.')+'</p><div class="section-actions">'+a('/assets/report/dataset_inventory.csv',t('下载文件清单 CSV ↓','Download file inventory CSV ↓'),'','download')+a('/assets/report/source_register.csv',t('下载引用来源 CSV ↓','Download source register CSV ↓'),'','download')+'</div><section class="content-block" id="external-stories"><h2>'+t('开篇故事，独立保留来源','Opening stories: separate sources')+'</h2>'+p(t('LFX korg 与 ATOM 快照仅作外部背景引用，不进入 OSDI 指标、正式榜单或上述文件计数。每个故事在第一章标明时间、样本及解释边界。','LFX korg and ATOM snapshots are external background references, excluded from OSDI, formal rankings and the file count above. Chapter 1 states their dates, samples and limitations.'))+a(path(lang,'chapters/01/')+'#ch01-s01',t('阅读故事与原始引用 →','Read the stories and original citations →'))+'</section>')

@@ -1,0 +1,253 @@
+- complementary:
+  - link "OpenShare":
+    - /url: /
+    - img "OpenShare"
+  - navigation "导航菜单":
+    - list:
+      - button "数据洞察" [expanded]:
+        - generic: 数据洞察
+      - list:
+        - link "OpenWorld":
+          - /url: /insight/open-world
+        - link "OpenLeaderboard":
+          - /url: /login?redirect=%2Finsight%2Fopen-leaderboard
+      - link "个人中心":
+        - /url: /login?redirect=%2Fprofile
+        - generic: 个人中心
+      - link "积分钱包":
+        - /url: /login?redirect=%2Fpoints
+        - generic: 积分钱包
+      - link "积分商城":
+        - /url: /login?redirect=%2Fshop
+        - generic: 积分商城
+      - link "我的组织":
+        - /url: /login?redirect=%2Forganizations
+        - generic: 我的组织
+      - link "消息中心":
+        - /url: /login?redirect=%2Fmessages
+        - generic: 消息中心
+      - link "人才触达":
+        - /url: /login?redirect=%2Ftalent-reach
+        - generic: 人才触达
+      - button "设置":
+        - generic: 设置
+  - link "登录":
+    - /url: /login
+    - generic: 登录
+  - button "折叠侧边栏":
+- main:
+  - generic: 全球开源脉动
+  - heading "OpenWorld" [level=1]
+  - generic: / 中国
+  - paragraph: 从全球视角观察开发者密度、贡献价值与项目影响力
+  - generic: 数据持续更新
+  - paragraph: 观察维度
+  - combobox:
+    - generic: 开发者 OpenRank 贡献度
+  - region "全球开源数据概览":
+    - paragraph: 数据来源
+    - link "OpenDigger":
+      - /url: https://open-digger.cn
+    - paragraph: 日志总量
+    - generic: 96.51亿
+    - paragraph: 仓库总量
+    - generic: 3.80亿
+    - paragraph: 开发者总量
+    - generic: 1.93亿
+    - paragraph: 覆盖国家与地区
+    - generic: "246"
+    - paragraph: 数据更新时间
+    - generic: 2026-10
+  - paragraph: 全球态势
+  - heading "中国开发者 OpenRank 贡献度热力地图" [level=2]
+  - generic: 中国与美国支持区域下钻
+  - button "← 返回世界地图"
+  - generic "开发者 OpenRank 贡献度 - 中国"
+  - button "↻ 重置缩放"
+  - article:
+    - heading "中国开发者 OpenRank 贡献度总量趋势" [level=3]
+    - paragraph: 93.68万
+    - text: 30.6%
+  - article:
+    - heading [level=3]
+    - paragraph: 暂无数据
+  - article:
+    - heading [level=3]
+    - paragraph: 暂无数据
+  - complementary:
+    - paragraph: 实时排名
+    - heading "中国各省开发者 OpenRank 贡献度排行榜" [level=3]
+    - generic: TOP 34
+    - list:
+      - button "1 北京市 19.93万 ▼ -8.36万":
+        - generic: "1"
+        - generic: 北京市
+        - generic: 19.93万
+        - generic "-83685.58": ▼ -8.36万
+      - button "2 上海市 17.99万 ▼ -7.90万":
+        - generic: "2"
+        - generic: 上海市
+        - generic: 17.99万
+        - generic "-79056.6": ▼ -7.90万
+      - button "3 广东省 11.65万 ▼ -5.81万":
+        - generic: "3"
+        - generic: 广东省
+        - generic: 11.65万
+        - generic "-58145.54": ▼ -5.81万
+      - button "4 台湾省 11.60万 ▼ -3.45万":
+        - generic: "4"
+        - generic: 台湾省
+        - generic: 11.60万
+        - generic "-34512.03": ▼ -3.45万
+      - button "5 浙江省 11.19万 ▼ -4.07万":
+        - generic: "5"
+        - generic: 浙江省
+        - generic: 11.19万
+        - generic "-40752.95": ▼ -4.07万
+      - button "6 四川省 4.45万 ▼ -2.34万":
+        - generic: "6"
+        - generic: 四川省
+        - generic: 4.45万
+        - generic "-23425.32": ▼ -2.34万
+      - button "7 江苏省 3.57万 ▼ -2.02万":
+        - generic: "7"
+        - generic: 江苏省
+        - generic: 3.57万
+        - generic "-20239.98": ▼ -2.02万
+      - button "8 湖北省 2.43万 ▼ -1.53万":
+        - generic: "8"
+        - generic: 湖北省
+        - generic: 2.43万
+        - generic "-15341.78": ▼ -1.53万
+      - button "9 陕西省 1.56万 ▼ -6,471.36":
+        - generic: "9"
+        - generic: 陕西省
+        - generic: 1.56万
+        - generic "-6471.36": ▼ -6,471.36
+      - button "10 福建省 1.43万 ▼ -7,241.29":
+        - generic: "10"
+        - generic: 福建省
+        - generic: 1.43万
+        - generic "-7241.29": ▼ -7,241.29
+      - button "11 湖南省 1.08万 ▼ -4,974.47":
+        - generic: "11"
+        - generic: 湖南省
+        - generic: 1.08万
+        - generic "-4974.47": ▼ -4,974.47
+      - button "12 山东省 9,552.09 ▼ -5,777.32":
+        - generic: "12"
+        - generic: 山东省
+        - generic: 9,552.09
+        - generic "-5777.32": ▼ -5,777.32
+      - button "13 重庆市 9,362.71 ▼ -6,300.9":
+        - generic: "13"
+        - generic: 重庆市
+        - generic: 9,362.71
+        - generic "-6300.9": ▼ -6,300.9
+      - button "14 安徽省 8,253.31 ▼ -4,328.8":
+        - generic: "14"
+        - generic: 安徽省
+        - generic: 8,253.31
+        - generic "-4328.8": ▼ -4,328.8
+      - button "15 辽宁省 6,658.79 ▼ -3,947.63":
+        - generic: "15"
+        - generic: 辽宁省
+        - generic: 6,658.79
+        - generic "-3947.63": ▼ -3,947.63
+      - button "16 天津市 5,853.7 ▼ -3,253.68":
+        - generic: "16"
+        - generic: 天津市
+        - generic: 5,853.7
+        - generic "-3253.68": ▼ -3,253.68
+      - button "17 云南省 4,795.25 ▼ -1,604.66":
+        - generic: "17"
+        - generic: 云南省
+        - generic: 4,795.25
+        - generic "-1604.66": ▼ -1,604.66
+      - button "18 河南省 4,482.09 ▼ -3,053.03":
+        - generic: "18"
+        - generic: 河南省
+        - generic: 4,482.09
+        - generic "-3053.03": ▼ -3,053.03
+      - button "19 广西壮族自治区 2,913.62 ▼ -850.73":
+        - generic: "19"
+        - generic: 广西壮族自治区
+        - generic: 2,913.62
+        - generic "-850.73": ▼ -850.73
+      - button "20 黑龙江省 2,877.11 ▼ -2,129.27":
+        - generic: "20"
+        - generic: 黑龙江省
+        - generic: 2,877.11
+        - generic "-2129.27": ▼ -2,129.27
+      - button "21 江西省 2,434 ▼ -1,865.9":
+        - generic: "21"
+        - generic: 江西省
+        - generic: 2,434
+        - generic "-1865.9": ▼ -1,865.9
+      - button "22 吉林省 2,330.59 ▼ -1,181.53":
+        - generic: "22"
+        - generic: 吉林省
+        - generic: 2,330.59
+        - generic "-1181.53": ▼ -1,181.53
+      - button "23 河北省 1,540.79 ▼ -1,248.95":
+        - generic: "23"
+        - generic: 河北省
+        - generic: 1,540.79
+        - generic "-1248.95": ▼ -1,248.95
+      - button "24 山西省 1,537.68 ▼ -557.19":
+        - generic: "24"
+        - generic: 山西省
+        - generic: 1,537.68
+        - generic "-557.19": ▼ -557.19
+      - button "25 贵州省 1,166.33 ▼ -630.5":
+        - generic: "25"
+        - generic: 贵州省
+        - generic: 1,166.33
+        - generic "-630.5": ▼ -630.5
+      - button "26 海南省 898.77 ▼ -374.37":
+        - generic: "26"
+        - generic: 海南省
+        - generic: "898.77"
+        - generic "-374.37": ▼ -374.37
+      - button "27 甘肃省 600.15 ▼ -372.62":
+        - generic: "27"
+        - generic: 甘肃省
+        - generic: "600.15"
+        - generic "-372.62": ▼ -372.62
+      - button "28 新疆维吾尔自治区 553.71 ▼ -313.62":
+        - generic: "28"
+        - generic: 新疆维吾尔自治区
+        - generic: "553.71"
+        - generic "-313.62": ▼ -313.62
+      - button "29 香港特别行政区 469.14 ▼ -52.56":
+        - generic: "29"
+        - generic: 香港特别行政区
+        - generic: "469.14"
+        - generic "-52.56": ▼ -52.56
+      - button "30 青海省 464.73 ▲ +312.8":
+        - generic: "30"
+        - generic: 青海省
+        - generic: "464.73"
+        - generic "312.8": ▲ +312.8
+      - button "31 内蒙古自治区 241.85 ▼ -498.61":
+        - generic: "31"
+        - generic: 内蒙古自治区
+        - generic: "241.85"
+        - generic "-498.61": ▼ -498.61
+      - button "32 澳门特别行政区 163.1 ▼ -40.23":
+        - generic: "32"
+        - generic: 澳门特别行政区
+        - generic: "163.1"
+        - generic "-40.23": ▼ -40.23
+      - button "33 西藏自治区 154.18 ▼ -120.01":
+        - generic: "33"
+        - generic: 西藏自治区
+        - generic: "154.18"
+        - generic "-120.01": ▼ -120.01
+      - button "34 宁夏回族自治区 84.94 ▼ -183.07":
+        - generic: "34"
+        - generic: 宁夏回族自治区
+        - generic: "84.94"
+        - generic "-183.07": ▼ -183.07
+  - generic: 开发者 OpenRank 贡献度 · 中国
+- region "Notifications alt+T"

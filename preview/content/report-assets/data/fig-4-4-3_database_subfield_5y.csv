@@ -1,0 +1,18 @@
+layer_id,子领域,2022,2023,2024,2025,2026
+:technology/database/relational,关系型,42224.1,53637.4,55919.9,53680.0,36796.9
+:technology/database/key_value,键值,23435.6,23805.5,21965.1,21758.5,15433.6
+:technology/database/document,文档,15398.9,16771.2,19396.2,20390.8,14988.8
+:technology/database/wide_column,宽列,9504.9,11230.4,11792.9,11667.1,8068.4
+:technology/database/search_engine,搜索引擎,7505.6,7588.6,9126.7,9579.5,7287.0
+:technology/database/time_series,时序,8075.7,8749.2,8193.2,8148.6,5172.9
+:technology/database/vector,向量,2404.2,3537.8,5273.2,5308.1,3398.4
+:technology/database/graph,图,3801.9,5540.7,5201.8,4172.2,2749.8
+:technology/database/object_oriented,面向对象,2635.9,3093.6,3827.1,3820.1,2117.0
+:technology/database/hierarchical,层次,1064.3,1299.9,1039.8,947.8,556.4
+:technology/database/rdf,RDF,615.1,681.6,528.3,399.4,320.3
+:technology/database/spatial,空间,247.6,234.4,290.1,258.8,184.1
+:technology/database/event,事件,249.0,250.4,317.4,324.5,170.9
+:technology/database/native_xml,原生 XML,213.3,204.8,149.3,140.9,161.8
+:technology/database/array,数组,330.6,400.6,380.3,259.0,142.9
+:technology/database/columnar,列存,306.3,174.3,201.8,175.6,74.5
+:technology/database/content,内容,7.3,10.2,36.3,24.1,29.8

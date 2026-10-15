@@ -3,6 +3,9 @@
 from pathlib import Path
 import argparse, html, json, shutil
 import report_content as report
+import goso_content as goso
+import gosr_content as gosr
+import landscape_content as landscape
 from urllib.parse import quote
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -32,6 +35,9 @@ def validate():
 def body(u,lang):
     zh=lang=='zh';t=lambda z,e:z if zh else e
     if u['id']=='ch01':return report.chapter(lang)
+    if u['id']=='ch02':return goso.chapter(lang)
+    if u['id']=='ch03':return gosr.chapter(lang)
+    if u['id']=='ch04':return landscape.chapter(lang)
     if u['kind']=='methods':return report.methods(lang)
     out=[]
     if 'sections' in u:

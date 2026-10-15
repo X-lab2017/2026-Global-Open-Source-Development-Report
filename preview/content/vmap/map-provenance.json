@@ -1,0 +1,54 @@
+{
+  "reference": "https://open-share.com/insight/open-world/gosd",
+  "aspect_scale": 0.75,
+  "projection": "No custom projection. Longitude/latitude affine layout with ECharts geoJSON aspectScale 0.75.",
+  "viewport": [
+    880,
+    470
+  ],
+  "padding": [
+    24,
+    18,
+    24,
+    60
+  ],
+  "shape_simplification": false,
+  "scopes": {
+    "world": {
+      "geojson": "world.json",
+      "sha256": "049b334579e5a42d5d16c72d014d380e048e39fc1504049f212acb589484d2fa",
+      "geographic_bounds": [
+        -180,
+        -55.776855468749964,
+        180,
+        83.56484374999997
+      ],
+      "shape_ratio": 1.9376827002527939,
+      "uniform_scale": 2.813228216663316,
+      "offset": [
+        60.21419075045236,
+        17.99999999999997
+      ],
+      "source_features": 217,
+      "rendered_features": 217
+    },
+    "china": {
+      "geojson": "CN.json",
+      "sha256": "ae4797ddcfb541b0d8046e00e4b185b7fec56ea18994390a3f502577be4f6afe",
+      "geographic_bounds": [
+        73.502355,
+        17.986898,
+        135.08722,
+        53.563624
+      ],
+      "shape_ratio": 1.2982827242169506,
+      "uniform_scale": 11.018439414576823,
+      "offset": [
+        185.5365860534777,
+        18.0
+      ],
+      "source_features": 36,
+      "rendered_features": 36
+    }
+  }
+}

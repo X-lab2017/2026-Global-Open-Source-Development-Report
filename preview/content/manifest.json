@@ -188,11 +188,11 @@
             "en": "Regional map, annual trends and table"
           },
           "source_path": "chapters/chapter2/2.1-全球开源活跃地图-V-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s01",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         },
         {
           "id": "ch02-s02",
@@ -210,11 +210,11 @@
             "en": "Contribution trends, per-capita comparison and distribution"
           },
           "source_path": "chapters/chapter2/2.2-全球开源贡献地图-C-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s02",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         },
         {
           "id": "ch02-s03",
@@ -232,11 +232,11 @@
             "en": "Regional distribution and sample trends"
           },
           "source_path": "chapters/chapter2/2.3-全球开源项目影响力地图-I-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s03",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         },
         {
           "id": "ch02-s04",
@@ -254,11 +254,11 @@
             "en": "Talent map, city comparison and annual change"
           },
           "source_path": "chapters/chapter2/2.4-全球开源人才地图-T-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s04",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         },
         {
           "id": "ch02-s05",
@@ -276,11 +276,11 @@
             "en": "Contribution composition and cross-region connections"
           },
           "source_path": "chapters/chapter2/2.5-全球开源多样性地图-D-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s05",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         },
         {
           "id": "ch02-s06",
@@ -298,11 +298,11 @@
             "en": "Stewardship and license trends, practice cases"
           },
           "source_path": "chapters/chapter2/2.6-全球开源治理与社会公益地图-G-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s06",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         },
         {
           "id": "ch02-s07",
@@ -320,18 +320,18 @@
             "en": "Supply trends by asset type and evidence of reuse"
           },
           "source_path": "chapters/chapter2/2.7-全球开源资产地图-A-Map.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-backed-review",
           "anchor": "ch02-s07",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审主张、图表与集中待补材料"
         }
       ],
-      "status": "draft",
+      "status": "preview",
       "template": "chapter",
       "introduction_source": "chapters/chapter2/本章介绍.md",
       "section_pattern": "observation",
-      "research_status": "pending-review",
+      "research_status": "editorial-review",
       "label": "GOSO",
       "core_chapter": true
     },
@@ -369,11 +369,11 @@
             "en": "Regional table and comparable annual changes"
           },
           "source_path": "chapters/chapter3/3.1-全球行政区划影响力排行榜-R-Ranking.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "anchor": "ch03-s01",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审解释与补齐方法边界"
         },
         {
           "id": "ch03-s02",
@@ -391,11 +391,11 @@
             "en": "Company table and contribution structure"
           },
           "source_path": "chapters/chapter3/3.2-全球开源企业影响力排行榜-C-Ranking.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "anchor": "ch03-s02",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审解释与补齐方法边界"
         },
         {
           "id": "ch03-s03",
@@ -413,11 +413,11 @@
             "en": "Foundation table and project composition"
           },
           "source_path": "chapters/chapter3/3.3-全球开源基金会影响力排行榜-F-Ranking.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "anchor": "ch03-s03",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审解释与补齐方法边界"
         },
         {
           "id": "ch03-s04",
@@ -435,11 +435,11 @@
             "en": "Project sample table and coverage notes"
           },
           "source_path": "chapters/chapter3/3.4-全球开源项目影响力排行榜-P-Ranking.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "anchor": "ch03-s04",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审解释与补齐方法边界"
         },
         {
           "id": "ch03-s05",
@@ -457,11 +457,11 @@
             "en": "Emerging-project table and growth trajectories"
           },
           "source_path": "chapters/chapter3/3.5-全球新势力开源项目排行榜-E-Ranking.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "anchor": "ch03-s05",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "评审解释与补齐方法边界"
         },
         {
           "id": "ch03-s06",
@@ -479,21 +479,21 @@
             "en": "ModelRank sample table and network explanation"
           },
           "source_path": "chapters/chapter3/3.6-全球开源大模型影响力排行榜.md",
-          "status": "outline",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "related": [
             "ch05-s02"
           ],
           "anchor": "ch03-s06",
           "source_heading": null,
-          "next_action": "提供本节发现、材料与来源"
+          "next_action": "评审解释与补齐方法边界"
         }
       ],
-      "status": "draft",
+      "status": "preview",
       "template": "chapter",
       "introduction_source": "chapters/chapter3/本章介绍.md",
       "section_pattern": "ranking",
-      "research_status": "pending-review",
+      "research_status": "review-draft",
       "label": "GOSR",
       "core_chapter": true
     },
@@ -531,11 +531,11 @@
             "en": "Technology layers, representative projects and case"
           },
           "source_path": "chapters/chapter4/4.1-Agentic-AI-全景洞察-A-Landscape.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked",
           "anchor": "ch04-s01",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "审阅 Agentic AI 样章，补齐双口径 OpenRank 与历史窗口说明"
         },
         {
           "id": "ch04-s02",
@@ -1181,5 +1181,6 @@
       "id": "fig-osdi-map",
       "section": "1.3"
     }
-  ]
+  ],
+  "version": "0.7-review"
 }

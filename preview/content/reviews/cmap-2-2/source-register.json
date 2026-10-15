@@ -1,0 +1,130 @@
+{
+  "id": "cmap-2-2-review-20261015",
+  "status": "proposal_pending_review",
+  "review_plan": "docs/cmap-2-2-review-plan-20261015.md",
+  "report_tables_modified": false,
+  "sources": [
+    {
+      "file": "source/overview-CN-contribution.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview/CN/contribution.json",
+      "retrieved_date": "2026-10-15",
+      "source_updated_at": "2026-10-08T08:06:42.223Z",
+      "period": {
+        "reportYear": 2025,
+        "start": "2025-01-01",
+        "endExclusive": "2026-01-01",
+        "totalSnapshotQuarter": null
+      },
+      "time_dimension": "natural_year",
+      "sha256": "3ecb0030259200d01fb7952f96b2823146b11ed339f8b69ef9962d35589f993a",
+      "status": "review_evidence_not_approved_osdi_mapping"
+    },
+    {
+      "file": "source/overview-contribution.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview/contribution.json",
+      "retrieved_date": "2026-10-15",
+      "source_updated_at": "2026-10-08T08:06:42.223Z",
+      "period": {
+        "reportYear": 2025,
+        "start": "2025-01-01",
+        "endExclusive": "2026-01-01",
+        "totalSnapshotQuarter": null
+      },
+      "time_dimension": "natural_year",
+      "sha256": "79a223f2079a9b86c0c2dccc8845f5c164a2e1a4e1cef16c6f62ef62b77ab779",
+      "status": "review_evidence_not_approved_osdi_mapping"
+    },
+    {
+      "file": "source/overview-meta.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview/meta.json",
+      "retrieved_date": "2026-10-15",
+      "source_updated_at": "2026-10-08T08:06:42.223Z",
+      "period": {
+        "reportYear": 2025,
+        "start": "2025-01-01",
+        "endExclusive": "2026-01-01",
+        "totalSnapshotQuarter": null
+      },
+      "time_dimension": "natural_year",
+      "sha256": "141f49881d2bb932bf9ff54d09464d5eb2f5887ab3a8e1f4aa2ae38274fc0f44",
+      "status": "review_evidence_not_approved_osdi_mapping"
+    },
+    {
+      "file": "source/overview_half_year-CN-contribution.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/CN/contribution.json",
+      "retrieved_date": "2026-10-15",
+      "source_updated_at": "2026-10-08T08:18:22.697Z",
+      "period": {
+        "reportYear": 2026,
+        "start": "2025-07-01",
+        "endExclusive": "2026-07-01",
+        "totalSnapshotQuarter": 2
+      },
+      "time_dimension": "half_year",
+      "sha256": "e3b38cf47ba7c8eb752160459413ba5ce613b5718d3925f0d9fabb302a0e2973",
+      "status": "review_evidence_not_approved_osdi_mapping"
+    },
+    {
+      "file": "source/overview_half_year-contribution.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/contribution.json",
+      "retrieved_date": "2026-10-15",
+      "source_updated_at": "2026-10-08T08:18:22.697Z",
+      "period": {
+        "reportYear": 2026,
+        "start": "2025-07-01",
+        "endExclusive": "2026-07-01",
+        "totalSnapshotQuarter": 2
+      },
+      "time_dimension": "half_year",
+      "sha256": "5991b71eb546685f54cf986e46b378bc82ac7ea64f99c852c6db9f0c6d0c1a4f",
+      "status": "review_evidence_not_approved_osdi_mapping"
+    },
+    {
+      "file": "source/overview_half_year-meta.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/meta.json",
+      "retrieved_date": "2026-10-15",
+      "source_updated_at": "2026-10-08T08:18:22.697Z",
+      "period": {
+        "reportYear": 2026,
+        "start": "2025-07-01",
+        "endExclusive": "2026-07-01",
+        "totalSnapshotQuarter": 2
+      },
+      "time_dimension": "half_year",
+      "sha256": "93c18a23103a8bfa027233a42b1da6f69ab10d75e56cb368d9a60863033e72e9",
+      "status": "review_evidence_not_approved_osdi_mapping"
+    },
+    {
+      "file": "source/calendar-developers.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview/developers.json",
+      "source": "accepted V-Map source snapshot",
+      "period": "2025 natural year",
+      "sha256": "d0f5ee2f59633fc2f826f5774cad754639b9f608cb0621893b058c4a93bbf701",
+      "status": "auxiliary_denominator_scope_to_verify_for_cmap"
+    },
+    {
+      "file": "source/calendar-CN-developers.json",
+      "url": "https://selfoss.open-digger.cn/openshare/overview/CN/developers.json",
+      "source": "accepted V-Map source snapshot",
+      "period": "2025 natural year",
+      "sha256": "ee4e70835f0e19d9b97ebba6a9bc48426320fbcc21bc61e6908d4719d11e0127",
+      "status": "auxiliary_denominator_scope_to_verify_for_cmap"
+    },
+    {
+      "file": "source/repository-contribution-trend.csv",
+      "url": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/main/data/processed/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.csv",
+      "git_blob_sha": "08cd16a82a5cbb7acc4818db651775ab4d617076",
+      "retrieved_date": "2026-10-15",
+      "sha256": "6ec42dd568bbed1610cb3f468d92564b394bde81a46ae74e3fc49254213cf877",
+      "status": "original_manuscript_evidence_scope_not_aligned"
+    },
+    {
+      "file": "source/repository-province-average.csv",
+      "url": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/main/data/processed/chapter2/table-2-2-1_china_province_openrank_per_capita_top10.csv",
+      "git_blob_sha": "34b989092e2cc4ed7a5e4222fd680a9f9cb9c6c4",
+      "retrieved_date": "2026-10-15",
+      "sha256": "9e368036caacff8d781c5ad8cbe3f08b4d8f8a46839ea5e529c96e4b0811503e",
+      "status": "original_manuscript_evidence_scope_not_aligned"
+    }
+  ]
+}

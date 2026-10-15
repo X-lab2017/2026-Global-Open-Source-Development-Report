@@ -1,0 +1,738 @@
+{
+  "format": 1,
+  "description": "Exact static image assets for the approved Preview; restored by web/prepare_assets.py.",
+  "bundles": [
+    {
+      "file": "images-01.zip",
+      "sha256": "7d39d281e0ea773548d3e0eee7ca9660e64740c58c29550ae13373c80b74670e",
+      "files": [
+        {
+          "path": "content/gosr/original/3.6-p2-1.png",
+          "sha256": "dd89e82679a24c9dae7461cd035c9167e530a264f095ab787b840933b5d8b2c0",
+          "size": 151900
+        },
+        {
+          "path": "content/gosr/original/3.6-p3-1.png",
+          "sha256": "45678d96f375e29c39d6a88a1e95200646c75f4dd3d5c7b3c039cbdd6ed5f32c",
+          "size": 187864
+        },
+        {
+          "path": "content/gosr/original/intro-p1-1.png",
+          "sha256": "4c92b32b2c8c1ab26c730dda0d197bbf706973ffad6e5dbf255eca2cc88bbe31",
+          "size": 47581
+        },
+        {
+          "path": "content/landscape/logos/a2aproject.png",
+          "sha256": "901182fcfd2e1e039661cdbd8b8d8959f82090b849d3dff95f994bf10aab9a28",
+          "size": 11154
+        },
+        {
+          "path": "content/landscape/logos/a2ui-project.png",
+          "sha256": "bd3b0110573b2fc2d097ba208a1090d16b9166c64c7d8f8bb48d6939cc9e0993",
+          "size": 4050
+        },
+        {
+          "path": "content/landscape/logos/aaif-goose.png",
+          "sha256": "13fa0716933ec7a23af3b0cdd889f0c128a9ba31d342c805b6acc2da933f7690",
+          "size": 4886
+        },
+        {
+          "path": "content/landscape/logos/activepieces.png",
+          "sha256": "a8f074c42ba0b691af1a9ea34d3f9fb54bc8200666ff83b243088d5cad3a893d",
+          "size": 3060
+        },
+        {
+          "path": "content/landscape/logos/affaan-m.jpg",
+          "sha256": "756c5eefeb35e9887c771287bdee3902e440d03ef7b53d644f4c9b3bb4a7bb28",
+          "size": 3750
+        },
+        {
+          "path": "content/landscape/logos/ag-ui-protocol.png",
+          "sha256": "b8410805f05ea7fa8743fac5756c9ea969d474c3304c075dbf6b4652a56e5a39",
+          "size": 5162
+        },
+        {
+          "path": "content/landscape/logos/agentgateway.png",
+          "sha256": "42a3148dbca6ae57bd2a82922ec77fec581c8d70c9a1bfcc41bc80809ee6f455",
+          "size": 4292
+        },
+        {
+          "path": "content/landscape/logos/agentscope-ai.png",
+          "sha256": "1400ec6654c3ab58e788341c6d606db7210f12b862b476beb6aee0747e7600b5",
+          "size": 6741
+        },
+        {
+          "path": "content/landscape/logos/agno-agi.png",
+          "sha256": "9baa60a0a45126615d82e4227dc87136d577cbd4f54b222c106fbdd63203031e",
+          "size": 1668
+        },
+        {
+          "path": "content/landscape/logos/ai-dynamo.png",
+          "sha256": "114d9ae2470a55d8b20347a0f7591bd0f176134c837604daabdbcb9038670f48",
+          "size": 14817
+        },
+        {
+          "path": "content/landscape/logos/airbytehq.png",
+          "sha256": "caeaf1d2df7556e44880764964dc6d1d75941a1dad4c88d479981bb75cd141e2",
+          "size": 11459
+        },
+        {
+          "path": "content/landscape/logos/alibaba.png",
+          "sha256": "ded63d3c953bbf47543ff7c98f60281d3d438a54fd91547867bbfed0e0a9fae3",
+          "size": 3633
+        },
+        {
+          "path": "content/landscape/logos/anomalyco.png",
+          "sha256": "2c7d40f26e127b7913275e7fddd271b1d7afa792bb40a6edff996fdf45b839f7",
+          "size": 2015
+        },
+        {
+          "path": "content/landscape/logos/anthropics.png",
+          "sha256": "4f6a996613b46dd7c7db71e93aeb5f707661990ee6609ca46543625f2ab8abdb",
+          "size": 3616
+        },
+        {
+          "path": "content/landscape/logos/apache.png",
+          "sha256": "513d44f28f7a8f60c61870dac6a4df21fa8e4d3236feca5ed1b91aba8d3a7447",
+          "size": 8984
+        },
+        {
+          "path": "content/landscape/logos/areal-project.jpg",
+          "sha256": "96caab8c5c71c1abb2518c04cb602f5dbf50a8ff801fe3c74a2e6a2a4b87e259",
+          "size": 5960
+        },
+        {
+          "path": "content/landscape/logos/arize-ai.jpg",
+          "sha256": "a0fe723686823a427f943ce2ac8d4399bcabf176cfdd56ac35fc6ef30d3ba55a",
+          "size": 2866
+        },
+        {
+          "path": "content/landscape/logos/astrbotdevs.png",
+          "sha256": "4c445667b1163597131691a82fea4379025c0dc71e9f58f7afee98b5eeaf15f4",
+          "size": 3481
+        },
+        {
+          "path": "content/landscape/logos/berriai.png",
+          "sha256": "c623ce754d3de00b12334414a636b5acdaad6cc95c0d76326d0f7f86f4b76fe8",
+          "size": 35467
+        },
+        {
+          "path": "content/landscape/logos/browser-use.png",
+          "sha256": "6b96c54f73c3d09d4b2fd70d415d6574eaaabd9f4e00ff27acd7b98ef0aa03f1",
+          "size": 6428
+        },
+        {
+          "path": "content/landscape/logos/bytedance.png",
+          "sha256": "b1217162d1eac9fd95dac9365857dfe9f7bee66278e1b5eb31ce9b2771dc6dd9",
+          "size": 1662
+        },
+        {
+          "path": "content/landscape/logos/cherryhq.png",
+          "sha256": "647053aab27e6e37bdf2f96c59bfd5695aea879b28a3817a64a23e54c956af65",
+          "size": 8763
+        },
+        {
+          "path": "content/landscape/logos/cline.png",
+          "sha256": "3743e030729b57229fedbfc765759bd3e6c0c4709a467d5885b156947041e6a0",
+          "size": 3173
+        },
+        {
+          "path": "content/landscape/logos/code-yeongyu.jpg",
+          "sha256": "e08efa3246810e44a212ab85a00415b7877c99cb289fad48d18d83d4373baac0",
+          "size": 7828
+        },
+        {
+          "path": "content/landscape/logos/coder.png",
+          "sha256": "d7b45df5f8870fa2b3d2e3c7d2e06e9ca5ee9abd91b43b2a4da9f88de8fd6f5c",
+          "size": 1347
+        },
+        {
+          "path": "content/landscape/logos/comet-ml.png",
+          "sha256": "f832f76161c908a0eb8c6a058f6cb718fd75d2f92479db427f8b261080a105e8",
+          "size": 8837
+        },
+        {
+          "path": "content/landscape/logos/copilotkit.png",
+          "sha256": "384670ebaf83e80f0a40c5d22554a8a05b5a1de79b222ed892c9510e1fb4da8c",
+          "size": 13942
+        },
+        {
+          "path": "content/landscape/logos/crewaiinc.png",
+          "sha256": "4facf678ef6cf10a883a15485eca46a06270775fceb56e674623e7fe5d3c5c9f",
+          "size": 8604
+        },
+        {
+          "path": "content/landscape/logos/cvat-ai.png",
+          "sha256": "53e7702c5dba3382b7f25faa673b0230eb1b471c3ff1edb2b919216f9f0680e9",
+          "size": 2676
+        },
+        {
+          "path": "content/landscape/logos/danny-avila.jpg",
+          "sha256": "5e731ff5ca59f04adc4899a88653155fc74ccb4844982a4b65149f9cf37642a4",
+          "size": 6380
+        },
+        {
+          "path": "content/landscape/logos/dao-ailab.png",
+          "sha256": "2b6de63dcacccb518de9bc40d1533071b1d4c23bcf6cbf0fc79636a70ee06766",
+          "size": 1550
+        },
+        {
+          "path": "content/landscape/logos/datahub-project.png",
+          "sha256": "9555922668bf7abd30c060922cf773e31107a22f18804090d6b3a6d4a5a4de13",
+          "size": 9908
+        },
+        {
+          "path": "content/landscape/logos/daytonaio.png",
+          "sha256": "e80cf6e7eba2a191f22d489d01610812d6b0cc17e1a27bf9462fabc01c6acb23",
+          "size": 2221
+        },
+        {
+          "path": "content/landscape/logos/deepseek-ai.png",
+          "sha256": "b511c13793372884be86cd9977e4a16f19d14d77ceabbf34c66f17316e2df54e",
+          "size": 4797
+        },
+        {
+          "path": "content/landscape/logos/deepspeedai.png",
+          "sha256": "cd4c7b778fb06960a5e0337de660a36af14fb25f6a6e8e64093ac06723ba06a4",
+          "size": 6944
+        },
+        {
+          "path": "content/landscape/logos/delta-io.png",
+          "sha256": "0be4354165b4063978cde4b9578d72728d405d68021c4438876f754e4f565514",
+          "size": 6027
+        },
+        {
+          "path": "content/landscape/logos/diegosouzapw.jpg",
+          "sha256": "11a27ec464ddde800ced453ab1156b12cee96150023cc9ea1acd60262ecf77b7",
+          "size": 6361
+        },
+        {
+          "path": "content/landscape/logos/docling-project.png",
+          "sha256": "ca37743e9f0fbc79c942e3c390e96cddbda46867c815ef2a2125e5e68d5c7aa1",
+          "size": 22693
+        },
+        {
+          "path": "content/landscape/logos/earendil-works.jpg",
+          "sha256": "5efdd95bc5fee5708f1fd83111788d41fa8e1926a5b4dd6b1b68022717601992",
+          "size": 4609
+        },
+        {
+          "path": "content/landscape/logos/esengine.jpg",
+          "sha256": "1791f1c6f961ce204b1c9626dbe0fd4cfbe44ea00f36b8e684c36b18d2917dff",
+          "size": 5185
+        },
+        {
+          "path": "content/landscape/logos/farion1231.jpg",
+          "sha256": "a559abd5b4d34178acfeb3d54596d1d2d9a5bf576777d19d7a56d179cf695320",
+          "size": 5044
+        },
+        {
+          "path": "content/landscape/logos/firecrawl.png",
+          "sha256": "2236aaf0fcaf020b1408cc085455ea5fa95e15935009cca5ebccc5813b1dc194",
+          "size": 3302
+        },
+        {
+          "path": "content/landscape/logos/flashinfer-ai.png",
+          "sha256": "92a2753e0f40c44655d4277b0b07328fe71a61a70100d6df0e5135cd72865dda",
+          "size": 12186
+        },
+        {
+          "path": "content/landscape/logos/flowiseai.png",
+          "sha256": "7936bdb991ff4b939c290697d105a0ba7d41c23f42f77b5dd4515033ad225d92",
+          "size": 15331
+        },
+        {
+          "path": "content/landscape/logos/ggml-org.jpg",
+          "sha256": "db133339c436c0112290ab5d917a61843bf20eb2c0aecb246621ea7a0919ef2a",
+          "size": 3197
+        },
+        {
+          "path": "content/landscape/logos/github.png",
+          "sha256": "e3e26a860d6648652118f54218303d9e33efb4af4c270da9638d800fe3bec4b7",
+          "size": 3986
+        },
+        {
+          "path": "content/landscape/logos/google-gemini.jpg",
+          "sha256": "ce966289fd3dc868be3bc2a69af4b2e39a0af4862b8091dece332be826fb65b1",
+          "size": 3015
+        },
+        {
+          "path": "content/landscape/logos/google.png",
+          "sha256": "a8a9cfef3ad9aeda06d883a4eeaa6e35584ab0fb910032dd74c076e4bfc08cd4",
+          "size": 5806
+        },
+        {
+          "path": "content/landscape/logos/herdrdev.png",
+          "sha256": "ba2ce5886facdbdc1d5a42ddd55f1d91e4fe568308d523f7aaf3c5bad321255c",
+          "size": 18588
+        },
+        {
+          "path": "content/landscape/logos/higress-group.png",
+          "sha256": "edb5d87bbe159c275dbe06e8ca414919508a81c69e6d7c1dcabe17ca11b8b353",
+          "size": 3380
+        },
+        {
+          "path": "content/landscape/logos/hiyouga.jpg",
+          "sha256": "e8895ba272024f8d91e65b6a9d54dbcc158c00aba6c6bd43c85423e4e8d54244",
+          "size": 5535
+        },
+        {
+          "path": "content/landscape/logos/hkuds.jpg",
+          "sha256": "6ae8324f63f19bea7c64073520f3fbba1be012a2d0c151b17a60f1f8ef096f09",
+          "size": 7423
+        },
+        {
+          "path": "content/landscape/logos/huggingface.png",
+          "sha256": "d109edafe40733dd32ef4acef19c157dc3558edc8168b3348aa13a399cd4da65",
+          "size": 19685
+        },
+        {
+          "path": "content/landscape/logos/humansignal.png",
+          "sha256": "8c4219a42971f3272bfc5e2cbd502af6d0b259122234620f999d7653c2bdd215",
+          "size": 1463
+        },
+        {
+          "path": "content/landscape/logos/ibm.jpg",
+          "sha256": "a85c2b1d1959e408841341e6baaee7b2e61364cbbd95f18267f6194522af366a",
+          "size": 3985
+        },
+        {
+          "path": "content/landscape/logos/infiniflow.png",
+          "sha256": "7c350ea1fad203abb091cbe0586f447e6e204af8b40387af265256d99a19b811",
+          "size": 11824
+        },
+        {
+          "path": "content/landscape/logos/jax-ml.png",
+          "sha256": "b726e225485315a54d3da16290a1065652094cfd696c719dd38988fb92061439",
+          "size": 9825
+        },
+        {
+          "path": "content/landscape/logos/jetbrains.png",
+          "sha256": "b4d965609e3c5011cdac045ea536e8cf4d175ead36bd5bad0fe6433408ebd89b",
+          "size": 10394
+        },
+        {
+          "path": "content/landscape/logos/kilo-org.png",
+          "sha256": "49d3b843fd7244cb8cd6d2280bb7534f25c79dbdaf0b664f7528982146ca044e",
+          "size": 1329
+        },
+        {
+          "path": "content/landscape/logos/kserve.png",
+          "sha256": "033617cae55994819af280d8fd5f001e4699629b8ae9f15c1544e811b50e006a",
+          "size": 10360
+        },
+        {
+          "path": "content/landscape/logos/kubernetes-sigs.png",
+          "sha256": "63919040e9cb77f05b4e46c96a85beab7df54fb9575dd7de28669a8ec69cc49e",
+          "size": 10463
+        },
+        {
+          "path": "content/landscape/logos/langchain-ai.png",
+          "sha256": "f4fcbe28ca804c33c8fc98b31bead000a5c2639f228675e0e56bb9f68cc30ebe",
+          "size": 3727
+        },
+        {
+          "path": "content/landscape/logos/langflow-ai.png",
+          "sha256": "cbb728b2490faccf6e59f176440f3aa956c3bc9f1f4c09ac5a0363caf55fd4ea",
+          "size": 3309
+        },
+        {
+          "path": "content/landscape/logos/langfuse.png",
+          "sha256": "6814993d925c682207a87871357a4935c6fe3f74b1365a864bb3f4a4150da237",
+          "size": 8481
+        },
+        {
+          "path": "content/landscape/logos/langgenius.png",
+          "sha256": "0b49ba529247826e4b387dc5f7f87beead25266db4594c775add7f956a0473fc",
+          "size": 2715
+        },
+        {
+          "path": "content/landscape/logos/larksuite.png",
+          "sha256": "a67e2502076a672f1d854edb5177d86c61181033fd231c515d82969c011c4476",
+          "size": 5009
+        },
+        {
+          "path": "content/landscape/logos/livekit.png",
+          "sha256": "1de30a698f846f5df80f0dc96f881c726d329e22e4eb9019fa85cb481a90fdf9",
+          "size": 6526
+        },
+        {
+          "path": "content/landscape/logos/llm-d.png",
+          "sha256": "52bb4d03dc5770146e51d7673cba53cf5044a7853d390d41db46b4f8ab1e1b71",
+          "size": 7865
+        },
+        {
+          "path": "content/landscape/logos/lmcache.jpg",
+          "sha256": "acd28531ef3a28291380e2af6fa26ebb0fe43079d4b38fd8bbb3cae9a2d1134d",
+          "size": 3964
+        },
+        {
+          "path": "content/landscape/logos/lobehub.png",
+          "sha256": "d91855bbc5f29cb264d84a2b1f05019b0bada0c290e5758fda98f5ff266e2044",
+          "size": 29653
+        },
+        {
+          "path": "content/landscape/logos/mastra-ai.png",
+          "sha256": "ec3c52b8e72dc81998c6ea99467b2be136477bdc948cecac7c88bfcbd9bb3a45",
+          "size": 8454
+        },
+        {
+          "path": "content/landscape/logos/mem0ai.png",
+          "sha256": "598b248fe18597a79e7e73e38015700ac34b2379415f0068a2eac1bf83b078bf",
+          "size": 7293
+        },
+        {
+          "path": "content/landscape/logos/microsoft.png",
+          "sha256": "e6d0600da8151473acacf865c539cdd1e8f8a4a0f609a7ddf2a4d21454db0c22",
+          "size": 538
+        },
+        {
+          "path": "content/landscape/logos/milvus-io.png",
+          "sha256": "495059c135afc0c7bed2b32d2a67f8de212635090d2e3a2fb3fa4a7d17c32c8b",
+          "size": 6590
+        },
+        {
+          "path": "content/landscape/logos/mlflow.png",
+          "sha256": "2895665ff75772ba4405b61385e33b5e0671dabc99a6c9a49233ced102fd4de4",
+          "size": 4992
+        },
+        {
+          "path": "content/landscape/logos/modelcontextprotocol.png",
+          "sha256": "5bfb8aea84a0b6c5f346968761ed48393a7a6a459fe385de020f3e7d7f64874d",
+          "size": 3575
+        },
+        {
+          "path": "content/landscape/logos/modelscope.png",
+          "sha256": "d5c365504c6df4eb32348707379808a49aa6fc4c03cb4f8b8ce72fc01ca92cf0",
+          "size": 1106
+        },
+        {
+          "path": "content/landscape/logos/moonshotai.jpg",
+          "sha256": "adadec8f90861997d7418c5f1bbcfd074eb96e5c44d16bf042812a6782101418",
+          "size": 5091
+        },
+        {
+          "path": "content/landscape/logos/multica-ai.png",
+          "sha256": "df0d8ff45f8f3961f767916d2b4c776223fefcc13b6029e4a8518a7cce6e872e",
+          "size": 10806
+        },
+        {
+          "path": "content/landscape/logos/n8n-io.png",
+          "sha256": "9f2d14be5dac3d36f05da53d7cab0b46a897167e926f6ef4aed50154d43a2b7b",
+          "size": 3927
+        },
+        {
+          "path": "content/landscape/logos/nousresearch.png",
+          "sha256": "3bdfa0a7db7b5e842c88fe4d6c0ec7c94c0720f982d032a80f3fd05117a00513",
+          "size": 17501
+        },
+        {
+          "path": "content/landscape/logos/nvidia-nemo.png",
+          "sha256": "b63882d2c8e9f37df80e2d9e50a6cb1ee8207dbfa61b849e7ccb5b5d080f8936",
+          "size": 6675
+        },
+        {
+          "path": "content/landscape/logos/nvidia.png",
+          "sha256": "6bdd0ea7d7dd4833c56f13de4aa057d2553741cbecaa363a64d88982c088ba7d",
+          "size": 6455
+        },
+        {
+          "path": "content/landscape/logos/obra.jpg",
+          "sha256": "a198100669a6fc31f931e263c12beb129b9fe5c3d0e338869af81e5f22b766b3",
+          "size": 4827
+        },
+        {
+          "path": "content/landscape/logos/oceanbase.jpg",
+          "sha256": "76a3cae150da1c0f33258abc39c08960960661d1cabb7e9662c6a8e042cf15d0",
+          "size": 2849
+        },
+        {
+          "path": "content/landscape/logos/ollama.png",
+          "sha256": "206962f002f5736d4b53ba4c3faebacd91d5c7f0c92c127d8df8c72c4e165cd5",
+          "size": 5502
+        },
+        {
+          "path": "content/landscape/logos/open-metadata.png",
+          "sha256": "b439144edcdb2d8d0a9422d1974bfa30e9740eac59db1a81d733f057b8efbede",
+          "size": 9508
+        },
+        {
+          "path": "content/landscape/logos/open-webui.png",
+          "sha256": "4d4b8f2bfa2636f5d29e8a9fcc6bd37d42fb13cc08cfa0f820f46b2ba1772439",
+          "size": 27401
+        },
+        {
+          "path": "content/landscape/logos/openai.png",
+          "sha256": "54320e3bfb7a021b858f1e0bf3e71f590c1f8801389f48ec74ca621dd54c40e7",
+          "size": 4181
+        },
+        {
+          "path": "content/landscape/logos/openclaw.jpg",
+          "sha256": "bdf27fc48a38d8a6e39141322a22e112ef8318713fd1e95c94a666b5edc441fb",
+          "size": 6039
+        },
+        {
+          "path": "content/landscape/logos/openhands.png",
+          "sha256": "16d41104721a224283a65694546f81226d827b0d817aa9aad6b3578776417d72",
+          "size": 7276
+        },
+        {
+          "path": "content/landscape/logos/openmind.png",
+          "sha256": "67003e2b3b5a39413d14d8a9ad40b1d8caed92d9b8bce5b0279072ba662c7f16",
+          "size": 4564
+        },
+        {
+          "path": "content/landscape/logos/opensandbox-group.png",
+          "sha256": "890b722bd7431a84b1634defd96512088f47749eac971f5c771f41b01e85a8f9",
+          "size": 9639
+        },
+        {
+          "path": "content/landscape/logos/openvinotoolkit.png",
+          "sha256": "4c05dd16d7a0fcb2619ae82d8726c53f7ee47c20b3485486dbbf483b50d83315",
+          "size": 4174
+        },
+        {
+          "path": "content/landscape/logos/openxla.png",
+          "sha256": "f910ee464aa3e9508a264ca9643d1ff3d98a8d01ad8c1727e3cd0e8432157385",
+          "size": 5496
+        },
+        {
+          "path": "content/landscape/logos/paddlepaddle.jpg",
+          "sha256": "a96e96dbd19c8c5a3518628ddc5bd396f7e9a82d79b7a74d0907fd969230be8a",
+          "size": 3944
+        },
+        {
+          "path": "content/landscape/logos/paperclipai.png",
+          "sha256": "67f66f6cce59132ec11cbeef81933ff9983876ffa06f7a95bf79e0874f3c2482",
+          "size": 6663
+        },
+        {
+          "path": "content/landscape/logos/pingdotgg.png",
+          "sha256": "3c365e293da50df9804c74aa9141f4a813844c933dd51147e15ea6f919fe2294",
+          "size": 6709
+        },
+        {
+          "path": "content/landscape/logos/pipecat-ai.png",
+          "sha256": "bdfe5dd667204310e106462dbd91d4886e7b9bc3ef4ddfc6e22ce660d700b2c9",
+          "size": 1907
+        },
+        {
+          "path": "content/landscape/logos/promptfoo.png",
+          "sha256": "4088346fee07e5d8ef80f550700849acb9587bbb0ea19ba4ce8e3c4bd2920bad",
+          "size": 14448
+        },
+        {
+          "path": "content/landscape/logos/pydantic.png",
+          "sha256": "23e1f562949a4b67b5730af6b6c2232fa448cc10568e96059f5b28daf04127c7",
+          "size": 7688
+        },
+        {
+          "path": "content/landscape/logos/pytorch.jpg",
+          "sha256": "03001095574ba2745e92ccc6c6bec0355d98c7b9e45aea1af2207940908dedff",
+          "size": 3413
+        },
+        {
+          "path": "content/landscape/logos/quantumnous.png",
+          "sha256": "1db51ed17e1a3c5f4d6b24860d3af1d7f628b1dd06a15139add32d0a68f6c014",
+          "size": 7735
+        },
+        {
+          "path": "content/landscape/logos/qwenlm.png",
+          "sha256": "32b910bb95b2bf8bbcfea4e2a7c1df7961d8cf2cc3846279112e30d067d56d3d",
+          "size": 13967
+        },
+        {
+          "path": "content/landscape/logos/ray-project.png",
+          "sha256": "3fd2bc6155caac9f3d80789bcc89ed43e579f52d3e07c75e4f41191837c96b49",
+          "size": 6381
+        },
+        {
+          "path": "content/landscape/logos/rlinf.jpg",
+          "sha256": "4dad347b04dea08e018107499f408252ae3c2c5cd264c4aa1600b8dd4393a9e1",
+          "size": 3766
+        },
+        {
+          "path": "content/landscape/logos/sgl-project.png",
+          "sha256": "791f62d9c9b3b215fbf86db688fda4adb926073d641ff415931f57b0fbbbbc0e",
+          "size": 10404
+        },
+        {
+          "path": "content/landscape/logos/stablyai.png",
+          "sha256": "42af87cd162a000aa3e8c40aa7152f80e0fc7c8ffc2bf740aaa14f6a2832c11f",
+          "size": 4875
+        },
+        {
+          "path": "content/landscape/logos/stacklok.png",
+          "sha256": "b1f7f3e2f1d35503adb789fa6d220dad6cdbdbf197936f5934b1bdd980fe024d",
+          "size": 5822
+        },
+        {
+          "path": "content/landscape/logos/supermemoryai.png",
+          "sha256": "360ad5ae7c1f3b0e4a883910379c71e893b230cc6fc4380ca4c25a5e30beb077",
+          "size": 2024
+        },
+        {
+          "path": "content/landscape/logos/tensorflow.png",
+          "sha256": "b091c51f581701aad4c695eb6bf5c58e02aef3f94fcbae3b466d6374ad1439b7",
+          "size": 3610
+        },
+        {
+          "path": "content/landscape/logos/topoteretes.png",
+          "sha256": "c593ade5a5929365b289e3f9c88db88532366321fd760bdc7cce3d399540a52a",
+          "size": 2619
+        },
+        {
+          "path": "content/landscape/logos/triton-lang.png",
+          "sha256": "b1c5f3ba96be7f41c1a46c22af08712a0a39d37272890b8a532aab55303d7dac",
+          "size": 17034
+        },
+        {
+          "path": "content/landscape/logos/trycua.png",
+          "sha256": "47f7be6f86e1dd9ec6a7822547a2ce8e9b7a1e6447c95af4cb02fc75252414ee",
+          "size": 14736
+        },
+        {
+          "path": "content/landscape/logos/unslothai.png",
+          "sha256": "13c2caed46899bccf90450ede9079e9eae5ae77cc1e4125828d83eabe07563a7",
+          "size": 9129
+        },
+        {
+          "path": "content/landscape/logos/vectorize-io.jpg",
+          "sha256": "ddeaab50a418abfe53d3824f252478b047cd385b9041f7c87148b41de898107a",
+          "size": 1910
+        },
+        {
+          "path": "content/landscape/logos/vercel-labs.png",
+          "sha256": "f3d9676ee8b55bfeb18214ffdf2665c29318d2df7f327f8c18d8e2f3eae0d66e",
+          "size": 1070
+        },
+        {
+          "path": "content/landscape/logos/vercel.png",
+          "sha256": "8d12d3ae78e4e2e2e5777eafb09732c7261f565eae4bd3006c70fabfab386bca",
+          "size": 842
+        },
+        {
+          "path": "content/landscape/logos/verl-project.png",
+          "sha256": "1608eb68296eb7e797b66c4c8f490e04e7525ce5172aa1d05ecf47aee3e126cd",
+          "size": 1554
+        },
+        {
+          "path": "content/landscape/logos/vllm-project.png",
+          "sha256": "0505f816373731298ee3f42ee182bbafc8a7f5364d9d4f82db3593666d5c9dd3",
+          "size": 3048
+        },
+        {
+          "path": "content/landscape/logos/volcano-sh.png",
+          "sha256": "d70aeb2570c25c9af161741240e2592afaf43ce3f382299330f2b44587be727a",
+          "size": 8117
+        },
+        {
+          "path": "content/landscape/logos/volcengine.jpg",
+          "sha256": "ab61b88fe2e07ea6efd4b185981d3086981ae949185a5c3bdbbc995ee0eab27b",
+          "size": 2696
+        },
+        {
+          "path": "content/landscape/logos/wandb.png",
+          "sha256": "3244172f0f065d90f4618a1432fa3b075ed9b8cce50e6f6a663f5c9be4ef29d7",
+          "size": 3755
+        },
+        {
+          "path": "content/landscape/logos/warpdotdev.png",
+          "sha256": "47030d84fcbe10f39cec08d02bf8c3165f82a3b1e0f057a75511a5c3d7b30759",
+          "size": 1714
+        },
+        {
+          "path": "content/landscape/logos/zeroclaw-labs.jpg",
+          "sha256": "83f90344a71a2cea211414fc02312f89587b1f2d2de7460f0253c099cfd93c2d",
+          "size": 8527
+        }
+      ]
+    },
+    {
+      "file": "images-02.zip",
+      "sha256": "0f59c4a6351e2dc075e47ad0c43292366dd36b7352d57f9388be9e3da8cb49d1",
+      "files": [
+        {
+          "path": "content/landscape/original/draft-p1-1.png",
+          "sha256": "a6c6c12b573c9f258f142a3b71bf9941e5de8a9dbde7e709cc23ddb1adeb50f3",
+          "size": 1160801
+        },
+        {
+          "path": "content/landscape/original/draft-p2-1.png",
+          "sha256": "5c948931102a2f10a29134233829cd346f895593bc2cb08b76e9de0457eaca7e",
+          "size": 106652
+        },
+        {
+          "path": "content/landscape/original/draft-p3-1.png",
+          "sha256": "93b856117f32f88240d9e9b24a6c6dd7d50ec85d31f7c2c547fe90d5b9b5a5a4",
+          "size": 92176
+        },
+        {
+          "path": "content/landscape/original/draft-p3-2.png",
+          "sha256": "5533534faf5abead0c21a8f23d3ba0cc41bd8f378154890af5a39f2f59a882c8",
+          "size": 73325
+        },
+        {
+          "path": "content/landscape/original/draft-p4-1.png",
+          "sha256": "3419aa471c52bb79c31fca81f31358f1ff76502a7048e0f067130448b6311ae1",
+          "size": 61886
+        }
+      ]
+    },
+    {
+      "file": "images-03.zip",
+      "sha256": "2db400d8691d2c04fa86a9c44c3c6a399524477c4df9b064d77ed94f60104f79",
+      "files": [
+        {
+          "path": "content/landscape/original/landscape_agent_infra.png",
+          "sha256": "b88ef41321f0eb43176b4b9bf4c2ccb36449d45a79ee51f87a6607835376c7c1",
+          "size": 2120210
+        }
+      ]
+    },
+    {
+      "file": "images-04.zip",
+      "sha256": "3f9accfd35d11802fe844efe5e2be341da06c300a1d775f6e23b1ac0807e0e38",
+      "files": [
+        {
+          "path": "content/landscape/original/landscape_model_infra.png",
+          "sha256": "d7e8a8e8aa6740a3b11267887bbb492fc760f8d5e2d846cf07b6298538c04e00",
+          "size": 1354707
+        }
+      ]
+    },
+    {
+      "file": "images-05.zip",
+      "sha256": "f9a6dceecfc0f093eda118db22ac468df1501736e0045509a7179d7244337823",
+      "files": [
+        {
+          "path": "content/vmap/china-openshare-20261015.png",
+          "sha256": "83feb7c6b79eab757af85a11f98b56bf120a54b07854627b06e50808a6efe18c",
+          "size": 1262368
+        }
+      ]
+    },
+    {
+      "file": "images-06.zip",
+      "sha256": "5ea84633e876123ccd1aaee783b8f56deb41ced98f9f8aaa31f220dc3e10b0b1",
+      "files": [
+        {
+          "path": "content/vmap/china-reference.png",
+          "sha256": "36a52e7b3bd97d2b0d555958e807907bed8f865b9f5543d935795df340013a47",
+          "size": 746593
+        }
+      ]
+    },
+    {
+      "file": "images-07.zip",
+      "sha256": "7b8a5ae56e61e9dbac5232bd268da0de41e84c669923087fad64a77e79ce7f4a",
+      "files": [
+        {
+          "path": "content/vmap/global-openshare.png",
+          "sha256": "46de3ceefb4e8452bc0426c0bb4d2cbcc7c458afed0782d2ed515c639c2bff21",
+          "size": 1467759
+        }
+      ]
+    }
+  ]
+}

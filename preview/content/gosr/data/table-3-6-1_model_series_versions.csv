@@ -1,0 +1,7 @@
+model_series,models,ranked_versions
+Qwen2.5,5,7B、7B-Instruct、VL-3B-Instruct、3B、1.5B
+Qwen3,5,14B、14B-Base、8B、8B-Base、0.6B-Base
+Qwen3.5,4,9B、9B-Base、4B、4B-Base
+Qwen3.6,1,27B
+Qwen3.8,1,27B
+Llama-3.1,2,8B、8B-Instruct

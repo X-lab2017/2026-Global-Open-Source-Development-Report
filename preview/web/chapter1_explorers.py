@@ -1,0 +1,41 @@
+"""Two focused interactive replacements on the v0.12 reading edition."""
+from pathlib import Path
+import json,html
+R=Path(__file__).resolve().parents[1]
+M=json.loads((R/'content/manifest.json').read_text())
+E=lambda x:html.escape(str(x),quote=True)
+def tr(lang,z,e):return z if lang=='zh' else e
+def href(lang,c):return '/2026/'+lang+'/'+c['route']
+def logic(lang,r,source):
+ t=lambda z,e:tr(lang,z,e)
+ short=[('价值与方法','Values & methods'),('生态观测地图','Ecological observatory'),('影响力排行榜','Influence rankings'),('技术全景洞察','Technology landscapes'),('大模型发展洞察','Open model development'),('未来展望与行动建议','Outlook & action')]
+ labels=['FOUNDATION','GOSO','GOSR','GOSL','GOSM','ACTION'];notes=[('建立全书的研究坐标','Set the research coordinates'),('规模与结构','Scale & structure'),('贡献与影响','Contribution & influence'),('组织与演进','Organization & evolution'),('供给与复用','Supply & reuse'),('从研究证据形成行动建议','Turn research evidence into action')]
+ def node(i):
+  c=M['chapters'][i];return '<button type="button" class="logic-chapter logic-c'+str(i+1)+'" data-logic-chapter="'+str(i+1)+'" aria-controls="logic-detail-'+str(i+1)+'" aria-expanded="'+str(i==0).lower()+'"><span class="logic-node-top"><small>'+t('第'+str(i+1)+'章','CHAPTER '+str(i+1))+'</small><b>'+labels[i]+'</b></span><strong>'+t(*short[i])+'</strong><span>'+t(*notes[i])+'</span><em>'+str(len(c['sections']))+t(' 个小节 · 点击查看',' sections · explore')+' <i aria-hidden="true">＋</i></em></button>'
+ out='<figure class="chapter-explorer logic-explorer" id="fig-report-logic" data-lang="'+lang+'"><div class="explorer-heading"><div><span class="eyebrow">GOSD / REPORT ARCHITECTURE</span><h3>'+t('从共同目标，到可验证的证据与行动','From shared goals to evidence and action')+'</h3><p>'+t('六章、一条研究主线。左侧选择章节，右侧查看小节。','Six chapters, one research logic. Select on the left; explore on the right.')+'</p></div></div><div class="logic-canvas"><section class="logic-foundation" aria-label="'+t('第一章：价值与方法','Chapter 1: values and methods')+'">' +node(0)
+ out+='<div class="logic-chain" aria-label="SDGs → OSDGs → OSDI">'
+ for key,title,desc,count in [('sdg','UN SDGs',t('价值参照与研究启发','Shared values & inspiration'),t('17项可持续发展目标','17 sustainable development goals')),('osdg','OSDGs',t('开源发展目标框架','Open source development goals'),t('4大支柱 · 10个维度','4 pillars · 10 dimensions')),('osdi','OSDI',t('开源发展目标指标体系','The OSDGs Indicator System'),t('29项指标 · 分项观测','29 indicators · distinct observations'))]:
+  out+='<button class="logic-framework" type="button" data-logic-framework="'+key+'" aria-controls="logic-framework-detail" aria-expanded="false"><b>'+title+'</b><strong>'+desc+'</strong><span>'+count+'</span></button>'
+ out+='</div></section><div class="logic-stage-label">'+t('共同的目标与指标，支撑四个研究板块','Shared goals and measures support four research chapters')+'</div><div class="logic-core">'+''.join(node(i) for i in range(1,5))+'</div><div class="logic-converge-label">'+t('综合研究发现 → 明确行动对象与合作方向','Synthesize findings → identify action and cooperation')+'</div>'+node(5)+'</div>'
+ out+='<div class="logic-inspector">'
+ for i,c in enumerate(M['chapters']):
+  out+='<section class="logic-detail" id="logic-detail-'+str(i+1)+'"'+(' hidden' if i else '')+' aria-label="'+E(c['title'][lang])+'"><div class="logic-detail-heading"><div><small>'+t('第'+str(i+1)+'章','CHAPTER '+str(i+1))+'</small><h4>'+E(c['title'][lang])+'</h4></div><a href="'+href(lang,c)+'">'+t('阅读本章 ↗','Read chapter ↗')+'</a></div><p>'+E(c['question'][lang])+'</p><div class="logic-section-list">'
+  for sec in c['sections']:out+='<a href="'+href(lang,c)+'#'+sec['id']+'"><b>'+sec['number']+'</b><span><strong>'+E(sec['title'][lang])+'</strong><small>'+E(sec['question'][lang])+'</small></span><i aria-hidden="true">↗</i></a>'
+  out+='</div></section>'
+ out+='<section id="logic-framework-detail" hidden aria-live="polite"></section></div><figcaption>'+t('图1-0-1 · GOSD全书逻辑。四个评价支柱与四个研究板块交叉对应，不作一一配对。','Figure 1-0-1 · Report logic. The four pillars cut across the research chapters.')+' <a href="/assets/report/fig-1-0-1_report_logic.svg" download>'+t('原静态图 ↓','Static original ↓')+'</a></figcaption><noscript><style>.logic-explorer .logic-detail[hidden]{display:block!important}</style><p>'+t('以下保留全书小节链接；启用JavaScript可点选展开。','All section links are available below. Enable JavaScript for selective exploration.')+'</p></noscript></figure>'
+ return out
+
+def indicators(lang,r,source):
+ t=lambda z,e:tr(lang,z,e);rows=r['indicators']
+ out='<figure class="chapter-explorer osdi-explorer" id="fig-osdi-map" data-lang="'+lang+'"><div class="explorer-heading"><div><span class="eyebrow">OSDI / INDICATOR EXPLORER</span><h3>'+t('一眼看全貌，逐层看指标','See the whole, explore the detail')+'</h3><p>'+t('左侧看全貌，右侧看指标。点击切换，画面保持不变。','Overview on the left, indicators on the right. Explore without scrolling.')+'</p></div><button class="osdi-reset" type="button" hidden>'+t('返回全貌','Reset overview')+'</button></div><div class="osdi-levels" aria-label="'+t('目标、维度、指标','Goals, dimensions and indicators')+'"><span><b>4</b>'+t('大支柱 · 目标','pillars · goals')+'</span><i aria-hidden="true">→</i><span><b>10</b>'+t('个维度 · 研究领域','dimensions · research areas')+'</span><i aria-hidden="true">→</i><span><b>29</b>'+t('项指标 · 具体观察','indicators · observations')+'</span></div><div class="osdi-overview">'
+ for pi in range(1,5):
+  group=[x for x in rows if x['pillar_id']=='X'+str(pi)];dims=list(dict.fromkeys(x['dimension_id'] for x in group));p=group[0]
+  out+='<section class="osdi-pillar pillar-'+str(pi)+'"><button type="button" class="osdi-pillar-button" data-osdi-pillar="X'+str(pi)+'" aria-controls="osdi-detail" aria-pressed="false"><small>X'+str(pi)+'</small><strong>'+E(p['pillar_name_zh' if lang=='zh' else 'pillar_name_en'])+'</strong><span>'+str(len(dims))+t('维度',' dimensions')+' · '+str(len(group))+t('指标',' indicators')+'</span></button><div class="osdi-dimensions">'
+  for dim in dims:
+   items=[x for x in group if x['dimension_id']==dim];out+='<button type="button" data-osdi-dimension="'+dim+'" aria-pressed="false" aria-controls="osdi-detail"><small>'+dim+'</small><strong>'+E(items[0]['dimension_name_zh' if lang=='zh' else 'dimension_name_en'])+'</strong><span>'+str(len(items))+t('项',' measures')+' <i aria-hidden="true">＋</i></span></button>'
+  out+='</div></section>'
+ out+='</div><div class="osdi-detail" id="osdi-detail"><div class="osdi-breadcrumb" role="status">'+t('全貌 · 选择上方任一维度，查看对应指标','Overview · select a dimension above to view its indicators')+'</div><div class="osdi-empty">'+t('目标说明方向，维度组织问题，指标定义观察。','Goals set direction; dimensions organize questions; indicators define observations.')+'</div><div class="osdi-indicator-list" hidden>'
+ for row in rows:
+  code=row['indicator_code'];out+='<details class="osdi-measure" data-osdi-code="'+code+'" data-pillar="'+row['pillar_id']+'" data-dimension="'+row['dimension_id']+'" hidden><summary><span><b>'+E(row['indicator_name_zh'] if lang=='zh' else code)+'</b><small>'+E(code)+'</small></span><em>'+E(row['role'])+'</em><i aria-hidden="true">＋</i></summary><div class="osdi-measure-body"><p>'+E(row['definition'])+'</p><dl><dt>'+t('计算口径','Calculation')+'</dt><dd>'+E(row['calculation_rule'])+'</dd><dt>'+t('单位','Unit')+'</dt><dd>'+E(row['unit'])+'</dd><dt>'+t('SDG关联','SDG links')+'</dt><dd>'+E(row['sdg_links'])+'</dd></dl><details class="osdi-evidence"><summary>'+t('数据状态与方法边界','Evidence and methodology')+'</summary><p>'+E(row['data_status'])+'</p><p>'+E(row['remaining_evidence'])+'</p><p>'+E(row['period_rule'])+'；'+E(row['missing_rule'])+'</p></details><a href="/2026/'+lang+'/data/indicators/#indicator-'+code+'">'+t('完整定义与关联资料 ↗','Full definition & evidence ↗')+'</a></div></details>'
+ out+='</div></div><div class="osdi-foot-tools"><button type="button" class="osdi-all" hidden>'+t('查看全部29项指标','View all 29 indicators')+'</button><a href="/assets/report/osdi_indicator_dictionary.csv" download>'+t('下载完整指标表 CSV ↓','Download indicator table CSV ↓')+'</a></div><figcaption>'+t('图1-3-1 / 表1.3.1 · OSDI三级结构与指标探索。目标—维度—指标不表示计算权重；资料入库不等于测算完成。','Figure 1-3-1 / Table 1.3.1 · Explore the three-level structure. Levels do not imply weights; available files do not mean completed measurements.')+'</figcaption><noscript><style>.osdi-explorer .osdi-indicator-list[hidden],.osdi-explorer .osdi-measure[hidden]{display:block!important}.osdi-explorer .osdi-empty{display:none}</style></noscript></figure>'
+ return out

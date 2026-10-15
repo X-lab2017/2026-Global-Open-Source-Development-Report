@@ -1,0 +1,3060 @@
+{
+  "source": "https://open-share.com/insight/open-world/gosd",
+  "captured_at": "2026-10-12",
+  "display_updated_at": "2026-10",
+  "precision": "Page display labels; values containing 万 are rounded. No historical deltas imported. Ranking coverage only; absent rows are not zero.",
+  "sets": {
+    "developers-world": {
+      "label": "各国最新开发者总量排行榜",
+      "rows": [
+        {
+          "name": "美国",
+          "rank": 1,
+          "value": 32410500.0,
+          "display": "3241.05万",
+          "id": "US"
+        },
+        {
+          "name": "印度",
+          "rank": 2,
+          "value": 26727000.0,
+          "display": "2672.70万",
+          "id": "IN"
+        },
+        {
+          "name": "中国",
+          "rank": 3,
+          "value": 18386300.0,
+          "display": "1838.63万",
+          "id": "CN"
+        },
+        {
+          "name": "巴西",
+          "rank": 4,
+          "value": 8317900.0,
+          "display": "831.79万",
+          "id": "BR"
+        },
+        {
+          "name": "英国",
+          "rank": 5,
+          "value": 5559700.0,
+          "display": "555.97万",
+          "id": "GB"
+        },
+        {
+          "name": "日本",
+          "rank": 6,
+          "value": 5433900.0,
+          "display": "543.39万",
+          "id": "JP"
+        },
+        {
+          "name": "印度尼西亚",
+          "rank": 7,
+          "value": 5270000.0,
+          "display": "527.00万",
+          "id": "ID"
+        },
+        {
+          "name": "德国",
+          "rank": 8,
+          "value": 5255599.999999999,
+          "display": "525.56万",
+          "id": "DE"
+        },
+        {
+          "name": "俄罗斯",
+          "rank": 9,
+          "value": 4627600.0,
+          "display": "462.76万",
+          "id": "RU"
+        },
+        {
+          "name": "法国",
+          "rank": 10,
+          "value": 4034000.0,
+          "display": "403.40万",
+          "id": "FR"
+        },
+        {
+          "name": "加拿大",
+          "rank": 11,
+          "value": 3991300.0,
+          "display": "399.13万",
+          "id": "CA"
+        },
+        {
+          "name": "韩国",
+          "rank": 12,
+          "value": 3145700.0,
+          "display": "314.57万",
+          "id": "KR"
+        },
+        {
+          "name": "越南",
+          "rank": 13,
+          "value": 2972700.0,
+          "display": "297.27万",
+          "id": "VN"
+        },
+        {
+          "name": "墨西哥",
+          "rank": 14,
+          "value": 2865100.0,
+          "display": "286.51万",
+          "id": "MX"
+        },
+        {
+          "name": "菲律宾",
+          "rank": 15,
+          "value": 2815500.0,
+          "display": "281.55万",
+          "id": "PH"
+        },
+        {
+          "name": "西班牙",
+          "rank": 16,
+          "value": 2802000.0,
+          "display": "280.20万",
+          "id": "ES"
+        },
+        {
+          "name": "土耳其",
+          "rank": 17,
+          "value": 2544000.0,
+          "display": "254.40万",
+          "id": "TR"
+        },
+        {
+          "name": "巴基斯坦",
+          "rank": 18,
+          "value": 2497400.0,
+          "display": "249.74万",
+          "id": "PK"
+        },
+        {
+          "name": "澳大利亚",
+          "rank": 19,
+          "value": 2368300.0,
+          "display": "236.83万",
+          "id": "AU"
+        },
+        {
+          "name": "荷兰",
+          "rank": 20,
+          "value": 2185300.0,
+          "display": "218.53万",
+          "id": "NL"
+        },
+        {
+          "name": "新加坡",
+          "rank": 21,
+          "value": 2170500.0,
+          "display": "217.05万",
+          "id": "SG"
+        },
+        {
+          "name": "波兰",
+          "rank": 22,
+          "value": 2074700.0,
+          "display": "207.47万",
+          "id": "PL"
+        },
+        {
+          "name": "意大利",
+          "rank": 23,
+          "value": 1989600.0,
+          "display": "198.96万",
+          "id": "IT"
+        },
+        {
+          "name": "孟加拉国",
+          "rank": 24,
+          "value": 1882200.0,
+          "display": "188.22万",
+          "id": "BD"
+        },
+        {
+          "name": "尼日利亚",
+          "rank": 25,
+          "value": 1794500.0,
+          "display": "179.45万",
+          "id": "NG"
+        },
+        {
+          "name": "乌克兰",
+          "rank": 26,
+          "value": 1729000.0,
+          "display": "172.90万",
+          "id": "UA"
+        },
+        {
+          "name": "哥伦比亚",
+          "rank": 27,
+          "value": 1670800.0000000002,
+          "display": "167.08万",
+          "id": "CO"
+        },
+        {
+          "name": "埃及",
+          "rank": 28,
+          "value": 1626399.9999999998,
+          "display": "162.64万",
+          "id": "EG"
+        },
+        {
+          "name": "阿根廷",
+          "rank": 29,
+          "value": 1599300.0,
+          "display": "159.93万",
+          "id": "AR"
+        },
+        {
+          "name": "泰国",
+          "rank": 30,
+          "value": 1570100.0,
+          "display": "157.01万",
+          "id": "TH"
+        },
+        {
+          "name": "马来西亚",
+          "rank": 31,
+          "value": 1139000.0,
+          "display": "113.90万",
+          "id": "MY"
+        },
+        {
+          "name": "南非",
+          "rank": 32,
+          "value": 1058900.0,
+          "display": "105.89万",
+          "id": "ZA"
+        },
+        {
+          "name": "瑞典",
+          "rank": 33,
+          "value": 1029000.0,
+          "display": "102.90万",
+          "id": "SE"
+        },
+        {
+          "name": "沙特阿拉伯",
+          "rank": 34,
+          "value": 988000.0,
+          "display": "98.80万",
+          "id": "SA"
+        },
+        {
+          "name": "以色列",
+          "rank": 35,
+          "value": 935900.0,
+          "display": "93.59万",
+          "id": "IL"
+        },
+        {
+          "name": "秘鲁",
+          "rank": 36,
+          "value": 907000.0,
+          "display": "90.70万",
+          "id": "PE"
+        },
+        {
+          "name": "摩洛哥",
+          "rank": 37,
+          "value": 906400.0,
+          "display": "90.64万",
+          "id": "MA"
+        },
+        {
+          "name": "伊朗",
+          "rank": 38,
+          "value": 898500.0,
+          "display": "89.85万",
+          "id": "IR"
+        },
+        {
+          "name": "智利",
+          "rank": 39,
+          "value": 809000.0,
+          "display": "80.90万",
+          "id": "CL"
+        },
+        {
+          "name": "罗马尼亚",
+          "rank": 40,
+          "value": 795500.0,
+          "display": "79.55万",
+          "id": "RO"
+        },
+        {
+          "name": "瑞士",
+          "rank": 41,
+          "value": 781300.0,
+          "display": "78.13万",
+          "id": "CH"
+        },
+        {
+          "name": "比利时",
+          "rank": 42,
+          "value": 748900.0,
+          "display": "74.89万",
+          "id": "BE"
+        },
+        {
+          "name": "葡萄牙",
+          "rank": 43,
+          "value": 740400.0000000001,
+          "display": "74.04万",
+          "id": "PT"
+        },
+        {
+          "name": "肯尼亚",
+          "rank": 44,
+          "value": 678100.0,
+          "display": "67.81万",
+          "id": "KE"
+        },
+        {
+          "name": "阿拉伯联合酋长国",
+          "rank": 45,
+          "value": 656100.0,
+          "display": "65.61万",
+          "id": "AE"
+        },
+        {
+          "name": "奥地利",
+          "rank": 46,
+          "value": 611300.0,
+          "display": "61.13万",
+          "id": "AT"
+        },
+        {
+          "name": "捷克",
+          "rank": 47,
+          "value": 606100.0,
+          "display": "60.61万",
+          "id": "CZ"
+        },
+        {
+          "name": "阿尔及利亚",
+          "rank": 48,
+          "value": 586900.0,
+          "display": "58.69万",
+          "id": "DZ"
+        },
+        {
+          "name": "丹麦",
+          "rank": 49,
+          "value": 543300.0,
+          "display": "54.33万",
+          "id": "DK"
+        },
+        {
+          "name": "斯里兰卡",
+          "rank": 50,
+          "value": 541400.0,
+          "display": "54.14万",
+          "id": "LK"
+        },
+        {
+          "name": "芬兰",
+          "rank": 51,
+          "value": 538200.0,
+          "display": "53.82万",
+          "id": "FI"
+        },
+        {
+          "name": "挪威",
+          "rank": 52,
+          "value": 510000.0,
+          "display": "51.00万",
+          "id": "NO"
+        },
+        {
+          "name": "爱尔兰",
+          "rank": 53,
+          "value": 487500.0,
+          "display": "48.75万",
+          "id": "IE"
+        },
+        {
+          "name": "尼泊尔",
+          "rank": 54,
+          "value": 486900.0,
+          "display": "48.69万",
+          "id": "NP"
+        },
+        {
+          "name": "匈牙利",
+          "rank": 55,
+          "value": 464900.0,
+          "display": "46.49万",
+          "id": "HU"
+        },
+        {
+          "name": "哈萨克斯坦",
+          "rank": 56,
+          "value": 463400.00000000006,
+          "display": "46.34万",
+          "id": "KZ"
+        },
+        {
+          "name": "伊拉克",
+          "rank": 57,
+          "value": 454300.0,
+          "display": "45.43万",
+          "id": "IQ"
+        },
+        {
+          "name": "新西兰",
+          "rank": 58,
+          "value": 441200.0,
+          "display": "44.12万",
+          "id": "NZ"
+        },
+        {
+          "name": "突尼斯",
+          "rank": 59,
+          "value": 420500.0,
+          "display": "42.05万",
+          "id": "TN"
+        },
+        {
+          "name": "厄瓜多尔",
+          "rank": 60,
+          "value": 418800.0,
+          "display": "41.88万",
+          "id": "EC"
+        },
+        {
+          "name": "白俄罗斯",
+          "rank": 61,
+          "value": 407900.0,
+          "display": "40.79万",
+          "id": "BY"
+        },
+        {
+          "name": "乌兹别克斯坦",
+          "rank": 62,
+          "value": 395000.0,
+          "display": "39.50万",
+          "id": "UZ"
+        },
+        {
+          "name": "希腊",
+          "rank": 63,
+          "value": 394000.0,
+          "display": "39.40万",
+          "id": "GR"
+        },
+        {
+          "name": "保加利亚",
+          "rank": 64,
+          "value": 362000.0,
+          "display": "36.20万",
+          "id": "BG"
+        },
+        {
+          "name": "委内瑞拉",
+          "rank": 65,
+          "value": 345000.0,
+          "display": "34.50万",
+          "id": "VE"
+        },
+        {
+          "name": "加纳",
+          "rank": 66,
+          "value": 328300.0,
+          "display": "32.83万",
+          "id": "GH"
+        },
+        {
+          "name": "塞尔维亚",
+          "rank": 67,
+          "value": 325300.0,
+          "display": "32.53万",
+          "id": "RS"
+        },
+        {
+          "name": "埃塞俄比亚",
+          "rank": 68,
+          "value": 251300.0,
+          "display": "25.13万",
+          "id": "ET"
+        },
+        {
+          "name": "约旦",
+          "rank": 69,
+          "value": 242900.0,
+          "display": "24.29万",
+          "id": "JO"
+        },
+        {
+          "name": "柬埔寨",
+          "rank": 70,
+          "value": 235400.0,
+          "display": "23.54万",
+          "id": "KH"
+        },
+        {
+          "name": "哥斯达黎加",
+          "rank": 71,
+          "value": 231300.0,
+          "display": "23.13万",
+          "id": "CR"
+        },
+        {
+          "name": "立陶宛",
+          "rank": 72,
+          "value": 227000.0,
+          "display": "22.70万",
+          "id": "LT"
+        },
+        {
+          "name": "玻利维亚",
+          "rank": 73,
+          "value": 222500.0,
+          "display": "22.25万",
+          "id": "BO"
+        },
+        {
+          "name": "多米尼加",
+          "rank": 74,
+          "value": 217399.99999999997,
+          "display": "21.74万",
+          "id": "DO"
+        },
+        {
+          "name": "斯洛伐克",
+          "rank": 75,
+          "value": 212800.0,
+          "display": "21.28万",
+          "id": "SK"
+        },
+        {
+          "name": "缅甸",
+          "rank": 76,
+          "value": 199100.0,
+          "display": "19.91万",
+          "id": "MM"
+        },
+        {
+          "name": "格鲁吉亚",
+          "rank": 77,
+          "value": 198500.0,
+          "display": "19.85万",
+          "id": "GE"
+        },
+        {
+          "name": "危地马拉",
+          "rank": 78,
+          "value": 195600.0,
+          "display": "19.56万",
+          "id": "GT"
+        },
+        {
+          "name": "阿塞拜疆",
+          "rank": 79,
+          "value": 195300.0,
+          "display": "19.53万",
+          "id": "AZ"
+        },
+        {
+          "name": "克罗地亚",
+          "rank": 80,
+          "value": 191500.0,
+          "display": "19.15万",
+          "id": "HR"
+        },
+        {
+          "name": "拉脱维亚",
+          "rank": 81,
+          "value": 190799.99999999997,
+          "display": "19.08万",
+          "id": "LV"
+        },
+        {
+          "name": "黎巴嫩",
+          "rank": 82,
+          "value": 165200.0,
+          "display": "16.52万",
+          "id": "LB"
+        },
+        {
+          "name": "乌拉圭",
+          "rank": 83,
+          "value": 160500.0,
+          "display": "16.05万",
+          "id": "UY"
+        },
+        {
+          "name": "爱沙尼亚",
+          "rank": 84,
+          "value": 149000.0,
+          "display": "14.90万",
+          "id": "EE"
+        },
+        {
+          "name": "乌干达",
+          "rank": 85,
+          "value": 147100.0,
+          "display": "14.71万",
+          "id": "UG"
+        },
+        {
+          "name": "也门",
+          "rank": 86,
+          "value": 146700.0,
+          "display": "14.67万",
+          "id": "YE"
+        },
+        {
+          "name": "亚美尼亚",
+          "rank": 87,
+          "value": 141100.0,
+          "display": "14.11万",
+          "id": "AM"
+        },
+        {
+          "name": "摩尔多瓦",
+          "rank": 88,
+          "value": 140700.0,
+          "display": "14.07万",
+          "id": "MD"
+        },
+        {
+          "name": "喀麦隆",
+          "rank": 89,
+          "value": 139100.0,
+          "display": "13.91万",
+          "id": "CM"
+        },
+        {
+          "name": "萨尔瓦多",
+          "rank": 90,
+          "value": 136100.0,
+          "display": "13.61万",
+          "id": "SV"
+        },
+        {
+          "name": "吉尔吉斯斯坦",
+          "rank": 91,
+          "value": 121500.0,
+          "display": "12.15万",
+          "id": "KG"
+        },
+        {
+          "name": "坦桑尼亚",
+          "rank": 92,
+          "value": 121100.0,
+          "display": "12.11万",
+          "id": "TZ"
+        },
+        {
+          "name": "斯洛文尼亚",
+          "rank": 93,
+          "value": 117300.0,
+          "display": "11.73万",
+          "id": "SI"
+        },
+        {
+          "name": "科特迪瓦",
+          "rank": 94,
+          "value": 112899.99999999999,
+          "display": "11.29万",
+          "id": "CI"
+        },
+        {
+          "name": "巴勒斯坦",
+          "rank": 95,
+          "value": 112500.0,
+          "display": "11.25万",
+          "id": "PS"
+        },
+        {
+          "name": "科威特",
+          "rank": 96,
+          "value": 112000.0,
+          "display": "11.20万",
+          "id": "KW"
+        },
+        {
+          "name": "卡塔尔",
+          "rank": 97,
+          "value": 109000.0,
+          "display": "10.90万",
+          "id": "QA"
+        },
+        {
+          "name": "阿尔巴尼亚",
+          "rank": 98,
+          "value": 103400.0,
+          "display": "10.34万",
+          "id": "AL"
+        },
+        {
+          "name": "洪都拉斯",
+          "rank": 99,
+          "value": 103100.0,
+          "display": "10.31万",
+          "id": "HN"
+        },
+        {
+          "name": "波斯尼亚和黑塞哥维那",
+          "rank": 100,
+          "value": 99200.0,
+          "display": "9.92万",
+          "id": "BA"
+        }
+      ]
+    },
+    "active-world": {
+      "label": "各国活跃开发者数量排行榜",
+      "rows": [
+        {
+          "name": "美国",
+          "rank": 1,
+          "value": 4941400.0,
+          "display": "494.14万",
+          "id": "US"
+        },
+        {
+          "name": "印度",
+          "rank": 2,
+          "value": 2850800.0,
+          "display": "285.08万",
+          "id": "IN"
+        },
+        {
+          "name": "中国",
+          "rank": 3,
+          "value": 2504800.0,
+          "display": "250.48万",
+          "id": "CN"
+        },
+        {
+          "name": "巴西",
+          "rank": 4,
+          "value": 1934500.0,
+          "display": "193.45万",
+          "id": "BR"
+        },
+        {
+          "name": "德国",
+          "rank": 5,
+          "value": 1419000.0,
+          "display": "141.90万",
+          "id": "DE"
+        },
+        {
+          "name": "英国",
+          "rank": 6,
+          "value": 1133600.0,
+          "display": "113.36万",
+          "id": "GB"
+        },
+        {
+          "name": "加拿大",
+          "rank": 7,
+          "value": 906200.0,
+          "display": "90.62万",
+          "id": "CA"
+        },
+        {
+          "name": "法国",
+          "rank": 8,
+          "value": 875000.0,
+          "display": "87.50万",
+          "id": "FR"
+        },
+        {
+          "name": "俄罗斯",
+          "rank": 9,
+          "value": 618000.0,
+          "display": "61.80万",
+          "id": "RU"
+        },
+        {
+          "name": "日本",
+          "rank": 10,
+          "value": 490200.00000000006,
+          "display": "49.02万",
+          "id": "JP"
+        },
+        {
+          "name": "韩国",
+          "rank": 11,
+          "value": 486900.0,
+          "display": "48.69万",
+          "id": "KR"
+        },
+        {
+          "name": "印度尼西亚",
+          "rank": 12,
+          "value": 486599.99999999994,
+          "display": "48.66万",
+          "id": "ID"
+        },
+        {
+          "name": "波兰",
+          "rank": 13,
+          "value": 457100.0,
+          "display": "45.71万",
+          "id": "PL"
+        },
+        {
+          "name": "澳大利亚",
+          "rank": 14,
+          "value": 457000.0,
+          "display": "45.70万",
+          "id": "AU"
+        },
+        {
+          "name": "荷兰",
+          "rank": 15,
+          "value": 451900.0,
+          "display": "45.19万",
+          "id": "NL"
+        },
+        {
+          "name": "西班牙",
+          "rank": 16,
+          "value": 450100.0,
+          "display": "45.01万",
+          "id": "ES"
+        },
+        {
+          "name": "意大利",
+          "rank": 17,
+          "value": 365700.0,
+          "display": "36.57万",
+          "id": "IT"
+        },
+        {
+          "name": "土耳其",
+          "rank": 18,
+          "value": 349000.0,
+          "display": "34.90万",
+          "id": "TR"
+        },
+        {
+          "name": "阿根廷",
+          "rank": 19,
+          "value": 321300.0,
+          "display": "32.13万",
+          "id": "AR"
+        },
+        {
+          "name": "乌克兰",
+          "rank": 20,
+          "value": 321100.0,
+          "display": "32.11万",
+          "id": "UA"
+        },
+        {
+          "name": "越南",
+          "rank": 21,
+          "value": 308000.0,
+          "display": "30.80万",
+          "id": "VN"
+        },
+        {
+          "name": "瑞典",
+          "rank": 22,
+          "value": 289500.0,
+          "display": "28.95万",
+          "id": "SE"
+        },
+        {
+          "name": "孟加拉国",
+          "rank": 23,
+          "value": 277800.0,
+          "display": "27.78万",
+          "id": "BD"
+        },
+        {
+          "name": "巴基斯坦",
+          "rank": 24,
+          "value": 258400.0,
+          "display": "25.84万",
+          "id": "PK"
+        },
+        {
+          "name": "瑞士",
+          "rank": 25,
+          "value": 251100.0,
+          "display": "25.11万",
+          "id": "CH"
+        },
+        {
+          "name": "墨西哥",
+          "rank": 26,
+          "value": 246500.0,
+          "display": "24.65万",
+          "id": "MX"
+        },
+        {
+          "name": "尼日利亚",
+          "rank": 27,
+          "value": 240200.0,
+          "display": "24.02万",
+          "id": "NG"
+        },
+        {
+          "name": "哥伦比亚",
+          "rank": 28,
+          "value": 236500.0,
+          "display": "23.65万",
+          "id": "CO"
+        },
+        {
+          "name": "葡萄牙",
+          "rank": 29,
+          "value": 185400.0,
+          "display": "18.54万",
+          "id": "PT"
+        },
+        {
+          "name": "埃及",
+          "rank": 30,
+          "value": 174000.0,
+          "display": "17.40万",
+          "id": "EG"
+        },
+        {
+          "name": "挪威",
+          "rank": 31,
+          "value": 156100.0,
+          "display": "15.61万",
+          "id": "NO"
+        },
+        {
+          "name": "比利时",
+          "rank": 32,
+          "value": 155300.0,
+          "display": "15.53万",
+          "id": "BE"
+        },
+        {
+          "name": "新加坡",
+          "rank": 33,
+          "value": 151600.0,
+          "display": "15.16万",
+          "id": "SG"
+        },
+        {
+          "name": "丹麦",
+          "rank": 34,
+          "value": 147900.0,
+          "display": "14.79万",
+          "id": "DK"
+        },
+        {
+          "name": "捷克",
+          "rank": 35,
+          "value": 147400.0,
+          "display": "14.74万",
+          "id": "CZ"
+        },
+        {
+          "name": "奥地利",
+          "rank": 36,
+          "value": 146400.0,
+          "display": "14.64万",
+          "id": "AT"
+        },
+        {
+          "name": "伊朗",
+          "rank": 37,
+          "value": 136900.0,
+          "display": "13.69万",
+          "id": "IR"
+        },
+        {
+          "name": "芬兰",
+          "rank": 38,
+          "value": 136700.0,
+          "display": "13.67万",
+          "id": "FI"
+        },
+        {
+          "name": "斯里兰卡",
+          "rank": 39,
+          "value": 129000.0,
+          "display": "12.90万",
+          "id": "LK"
+        },
+        {
+          "name": "肯尼亚",
+          "rank": 40,
+          "value": 128200.0,
+          "display": "12.82万",
+          "id": "KE"
+        },
+        {
+          "name": "菲律宾",
+          "rank": 41,
+          "value": 127400.0,
+          "display": "12.74万",
+          "id": "PH"
+        },
+        {
+          "name": "南非",
+          "rank": 42,
+          "value": 116900.0,
+          "display": "11.69万",
+          "id": "ZA"
+        },
+        {
+          "name": "罗马尼亚",
+          "rank": 43,
+          "value": 113300.0,
+          "display": "11.33万",
+          "id": "RO"
+        },
+        {
+          "name": "以色列",
+          "rank": 44,
+          "value": 111199.99999999999,
+          "display": "11.12万",
+          "id": "IL"
+        },
+        {
+          "name": "智利",
+          "rank": 45,
+          "value": 105900.0,
+          "display": "10.59万",
+          "id": "CL"
+        },
+        {
+          "name": "新西兰",
+          "rank": 46,
+          "value": 104800.0,
+          "display": "10.48万",
+          "id": "NZ"
+        },
+        {
+          "name": "泰国",
+          "rank": 47,
+          "value": 104600.00000000001,
+          "display": "10.46万",
+          "id": "TH"
+        },
+        {
+          "name": "希腊",
+          "rank": 48,
+          "value": 87800.0,
+          "display": "8.78万",
+          "id": "GR"
+        },
+        {
+          "name": "秘鲁",
+          "rank": 49,
+          "value": 85900.0,
+          "display": "8.59万",
+          "id": "PE"
+        },
+        {
+          "name": "匈牙利",
+          "rank": 50,
+          "value": 84700.0,
+          "display": "8.47万",
+          "id": "HU"
+        },
+        {
+          "name": "尼泊尔",
+          "rank": 51,
+          "value": 83800.00000000001,
+          "display": "8.38万",
+          "id": "NP"
+        },
+        {
+          "name": "保加利亚",
+          "rank": 52,
+          "value": 74000.0,
+          "display": "7.40万",
+          "id": "BG"
+        },
+        {
+          "name": "马来西亚",
+          "rank": 53,
+          "value": 73500.0,
+          "display": "7.35万",
+          "id": "MY"
+        },
+        {
+          "name": "爱尔兰",
+          "rank": 54,
+          "value": 73400.0,
+          "display": "7.34万",
+          "id": "IE"
+        },
+        {
+          "name": "塞尔维亚",
+          "rank": 55,
+          "value": 68200.0,
+          "display": "6.82万",
+          "id": "RS"
+        },
+        {
+          "name": "白俄罗斯",
+          "rank": 56,
+          "value": 65900.0,
+          "display": "6.59万",
+          "id": "BY"
+        },
+        {
+          "name": "阿拉伯联合酋长国",
+          "rank": 57,
+          "value": 65400.0,
+          "display": "6.54万",
+          "id": "AE"
+        },
+        {
+          "name": "摩洛哥",
+          "rank": 58,
+          "value": 62699.99999999999,
+          "display": "6.27万",
+          "id": "MA"
+        },
+        {
+          "name": "乌兹别克斯坦",
+          "rank": 59,
+          "value": 48900.0,
+          "display": "4.89万",
+          "id": "UZ"
+        },
+        {
+          "name": "加纳",
+          "rank": 60,
+          "value": 48600.0,
+          "display": "4.86万",
+          "id": "GH"
+        },
+        {
+          "name": "哈萨克斯坦",
+          "rank": 61,
+          "value": 44800.00000000001,
+          "display": "4.48万",
+          "id": "KZ"
+        },
+        {
+          "name": "格鲁吉亚",
+          "rank": 62,
+          "value": 41700.0,
+          "display": "4.17万",
+          "id": "GE"
+        },
+        {
+          "name": "委内瑞拉",
+          "rank": 63,
+          "value": 41100.0,
+          "display": "4.11万",
+          "id": "VE"
+        },
+        {
+          "name": "突尼斯",
+          "rank": 64,
+          "value": 39100.0,
+          "display": "3.91万",
+          "id": "TN"
+        },
+        {
+          "name": "克罗地亚",
+          "rank": 65,
+          "value": 39000.0,
+          "display": "3.90万",
+          "id": "HR"
+        },
+        {
+          "name": "埃塞俄比亚",
+          "rank": 66,
+          "value": 38500.0,
+          "display": "3.85万",
+          "id": "ET"
+        },
+        {
+          "name": "立陶宛",
+          "rank": 67,
+          "value": 38400.0,
+          "display": "3.84万",
+          "id": "LT"
+        },
+        {
+          "name": "斯洛伐克",
+          "rank": 68,
+          "value": 38200.0,
+          "display": "3.82万",
+          "id": "SK"
+        },
+        {
+          "name": "厄瓜多尔",
+          "rank": 69,
+          "value": 37600.0,
+          "display": "3.76万",
+          "id": "EC"
+        },
+        {
+          "name": "爱沙尼亚",
+          "rank": 70,
+          "value": 36500.0,
+          "display": "3.65万",
+          "id": "EE"
+        },
+        {
+          "name": "沙特阿拉伯",
+          "rank": 71,
+          "value": 35500.0,
+          "display": "3.55万",
+          "id": "SA"
+        },
+        {
+          "name": "乌拉圭",
+          "rank": 72,
+          "value": 33400.0,
+          "display": "3.34万",
+          "id": "UY"
+        },
+        {
+          "name": "哥斯达黎加",
+          "rank": 73,
+          "value": 32400.000000000004,
+          "display": "3.24万",
+          "id": "CR"
+        },
+        {
+          "name": "阿尔及利亚",
+          "rank": 74,
+          "value": 28700.0,
+          "display": "2.87万",
+          "id": "DZ"
+        },
+        {
+          "name": "斯洛文尼亚",
+          "rank": 75,
+          "value": 26400.0,
+          "display": "2.64万",
+          "id": "SI"
+        },
+        {
+          "name": "亚美尼亚",
+          "rank": 76,
+          "value": 25000.0,
+          "display": "2.50万",
+          "id": "AM"
+        },
+        {
+          "name": "拉脱维亚",
+          "rank": 77,
+          "value": 24400.0,
+          "display": "2.44万",
+          "id": "LV"
+        },
+        {
+          "name": "乌干达",
+          "rank": 78,
+          "value": 23500.0,
+          "display": "2.35万",
+          "id": "UG"
+        },
+        {
+          "name": "多米尼加",
+          "rank": 79,
+          "value": 23400.0,
+          "display": "2.34万",
+          "id": "DO"
+        },
+        {
+          "name": "阿塞拜疆",
+          "rank": 80,
+          "value": 21800.0,
+          "display": "2.18万",
+          "id": "AZ"
+        },
+        {
+          "name": "卢旺达",
+          "rank": 81,
+          "value": 20600.0,
+          "display": "2.06万",
+          "id": "RW"
+        },
+        {
+          "name": "危地马拉",
+          "rank": 82,
+          "value": 20000.0,
+          "display": "2.00万",
+          "id": "GT"
+        },
+        {
+          "name": "塞浦路斯",
+          "rank": 83,
+          "value": 18800.0,
+          "display": "1.88万",
+          "id": "CY"
+        },
+        {
+          "name": "喀麦隆",
+          "rank": 84,
+          "value": 17900.0,
+          "display": "1.79万",
+          "id": "CM"
+        },
+        {
+          "name": "玻利维亚",
+          "rank": 85,
+          "value": 17200.0,
+          "display": "1.72万",
+          "id": "BO"
+        },
+        {
+          "name": "萨尔瓦多",
+          "rank": 86,
+          "value": 16500.0,
+          "display": "1.65万",
+          "id": "SV"
+        },
+        {
+          "name": "缅甸",
+          "rank": 87,
+          "value": 15700.0,
+          "display": "1.57万",
+          "id": "MM"
+        },
+        {
+          "name": "波斯尼亚和黑塞哥维那",
+          "rank": 88,
+          "value": 14900.0,
+          "display": "1.49万",
+          "id": "BA"
+        },
+        {
+          "name": "卢森堡",
+          "rank": 89,
+          "value": 14400.0,
+          "display": "1.44万",
+          "id": "LU"
+        },
+        {
+          "name": "柬埔寨",
+          "rank": 90,
+          "value": 13799.999999999998,
+          "display": "1.38万",
+          "id": "KH"
+        },
+        {
+          "name": "摩尔多瓦",
+          "rank": 91,
+          "value": 13300.0,
+          "display": "1.33万",
+          "id": "MD"
+        },
+        {
+          "name": "黎巴嫩",
+          "rank": 92,
+          "value": 13200.0,
+          "display": "1.32万",
+          "id": "LB"
+        },
+        {
+          "name": "伊拉克",
+          "rank": 93,
+          "value": 12900.0,
+          "display": "1.29万",
+          "id": "IQ"
+        },
+        {
+          "name": "吉尔吉斯斯坦",
+          "rank": 94,
+          "value": 12500.0,
+          "display": "1.25万",
+          "id": "KG"
+        },
+        {
+          "name": "坦桑尼亚",
+          "rank": 95,
+          "value": 12200.0,
+          "display": "1.22万",
+          "id": "TZ"
+        },
+        {
+          "name": "约旦",
+          "rank": 96,
+          "value": 11600.0,
+          "display": "1.16万",
+          "id": "JO"
+        },
+        {
+          "name": "巴拉圭",
+          "rank": 97,
+          "value": 11500.0,
+          "display": "1.15万",
+          "id": "PY"
+        },
+        {
+          "name": "冰岛",
+          "rank": 98,
+          "value": 11399.999999999998,
+          "display": "1.14万",
+          "id": "IS"
+        },
+        {
+          "name": "北马其顿",
+          "rank": 99,
+          "value": 10800.0,
+          "display": "1.08万",
+          "id": "MK"
+        },
+        {
+          "name": "安哥拉",
+          "rank": 100,
+          "value": 10100.0,
+          "display": "1.01万",
+          "id": "AO"
+        }
+      ]
+    },
+    "developers-china": {
+      "label": "中国各省开发者分布排行榜",
+      "rows": [
+        {
+          "name": "北京市",
+          "rank": 1,
+          "value": 4080100.0,
+          "display": "408.01万",
+          "id": "110000"
+        },
+        {
+          "name": "上海市",
+          "rank": 2,
+          "value": 2989800.0,
+          "display": "298.98万",
+          "id": "310000"
+        },
+        {
+          "name": "广东省",
+          "rank": 3,
+          "value": 2645600.0,
+          "display": "264.56万",
+          "id": "440000"
+        },
+        {
+          "name": "台湾省",
+          "rank": 4,
+          "value": 1701900.0,
+          "display": "170.19万",
+          "id": "710000"
+        },
+        {
+          "name": "浙江省",
+          "rank": 5,
+          "value": 1601500.0,
+          "display": "160.15万",
+          "id": "330000"
+        },
+        {
+          "name": "江苏省",
+          "rank": 6,
+          "value": 1005600.0,
+          "display": "100.56万",
+          "id": "320000"
+        },
+        {
+          "name": "四川省",
+          "rank": 7,
+          "value": 860800.0,
+          "display": "86.08万",
+          "id": "510000"
+        },
+        {
+          "name": "湖北省",
+          "rank": 8,
+          "value": 613400.0,
+          "display": "61.34万",
+          "id": "420000"
+        },
+        {
+          "name": "陕西省",
+          "rank": 9,
+          "value": 411100.0,
+          "display": "41.11万",
+          "id": "610000"
+        },
+        {
+          "name": "福建省",
+          "rank": 10,
+          "value": 301000.0,
+          "display": "30.10万",
+          "id": "350000"
+        },
+        {
+          "name": "山东省",
+          "rank": 11,
+          "value": 288600.0,
+          "display": "28.86万",
+          "id": "370000"
+        },
+        {
+          "name": "湖南省",
+          "rank": 12,
+          "value": 258600.0,
+          "display": "25.86万",
+          "id": "430000"
+        },
+        {
+          "name": "安徽省",
+          "rank": 13,
+          "value": 234800.0,
+          "display": "23.48万",
+          "id": "340000"
+        },
+        {
+          "name": "重庆市",
+          "rank": 14,
+          "value": 234000.0,
+          "display": "23.40万",
+          "id": "500000"
+        },
+        {
+          "name": "辽宁省",
+          "rank": 15,
+          "value": 207000.0,
+          "display": "20.70万",
+          "id": "210000"
+        },
+        {
+          "name": "天津市",
+          "rank": 16,
+          "value": 168400.0,
+          "display": "16.84万",
+          "id": "120000"
+        },
+        {
+          "name": "河南省",
+          "rank": 17,
+          "value": 164400.0,
+          "display": "16.44万",
+          "id": "410000"
+        },
+        {
+          "name": "黑龙江省",
+          "rank": 18,
+          "value": 94100.0,
+          "display": "9.41万",
+          "id": "230000"
+        },
+        {
+          "name": "河北省",
+          "rank": 19,
+          "value": 83800.00000000001,
+          "display": "8.38万",
+          "id": "130000"
+        },
+        {
+          "name": "江西省",
+          "rank": 20,
+          "value": 76400.0,
+          "display": "7.64万",
+          "id": "360000"
+        },
+        {
+          "name": "云南省",
+          "rank": 21,
+          "value": 66700.0,
+          "display": "6.67万",
+          "id": "530000"
+        },
+        {
+          "name": "山西省",
+          "rank": 22,
+          "value": 51400.0,
+          "display": "5.14万",
+          "id": "140000"
+        },
+        {
+          "name": "广西壮族自治区",
+          "rank": 23,
+          "value": 50800.0,
+          "display": "5.08万",
+          "id": "450000"
+        },
+        {
+          "name": "吉林省",
+          "rank": 24,
+          "value": 50599.99999999999,
+          "display": "5.06万",
+          "id": "220000"
+        },
+        {
+          "name": "贵州省",
+          "rank": 25,
+          "value": 34100.0,
+          "display": "3.41万",
+          "id": "520000"
+        },
+        {
+          "name": "甘肃省",
+          "rank": 26,
+          "value": 26900.0,
+          "display": "2.69万",
+          "id": "620000"
+        },
+        {
+          "name": "海南省",
+          "rank": 27,
+          "value": 23400.0,
+          "display": "2.34万",
+          "id": "460000"
+        },
+        {
+          "name": "内蒙古自治区",
+          "rank": 28,
+          "value": 17200.0,
+          "display": "1.72万",
+          "id": "150000"
+        },
+        {
+          "name": "香港特别行政区",
+          "rank": 29,
+          "value": 16400.0,
+          "display": "1.64万",
+          "id": "810000"
+        },
+        {
+          "name": "新疆维吾尔自治区",
+          "rank": 30,
+          "value": 14100.0,
+          "display": "1.41万",
+          "id": "650000"
+        },
+        {
+          "name": "宁夏回族自治区",
+          "rank": 31,
+          "value": 4855.87,
+          "display": "4,855.87",
+          "id": "640000"
+        },
+        {
+          "name": "青海省",
+          "rank": 32,
+          "value": 3392.46,
+          "display": "3,392.46",
+          "id": "630000"
+        },
+        {
+          "name": "西藏自治区",
+          "rank": 33,
+          "value": 2594.23,
+          "display": "2,594.23",
+          "id": "540000"
+        },
+        {
+          "name": "澳门特别行政区",
+          "rank": 34,
+          "value": 1463.41,
+          "display": "1,463.41",
+          "id": "820000"
+        }
+      ]
+    },
+    "active-china": {
+      "label": "中国各省活跃开发者数量排行榜",
+      "rows": [
+        {
+          "name": "北京市",
+          "rank": 1,
+          "value": 548200.0,
+          "display": "54.82万",
+          "id": "110000"
+        },
+        {
+          "name": "上海市",
+          "rank": 2,
+          "value": 409500.0,
+          "display": "40.95万",
+          "id": "310000"
+        },
+        {
+          "name": "广东省",
+          "rank": 3,
+          "value": 359400.0,
+          "display": "35.94万",
+          "id": "440000"
+        },
+        {
+          "name": "台湾省",
+          "rank": 4,
+          "value": 239400.0,
+          "display": "23.94万",
+          "id": "710000"
+        },
+        {
+          "name": "浙江省",
+          "rank": 5,
+          "value": 232800.0,
+          "display": "23.28万",
+          "id": "330000"
+        },
+        {
+          "name": "江苏省",
+          "rank": 6,
+          "value": 135200.0,
+          "display": "13.52万",
+          "id": "320000"
+        },
+        {
+          "name": "四川省",
+          "rank": 7,
+          "value": 116000.0,
+          "display": "11.60万",
+          "id": "510000"
+        },
+        {
+          "name": "湖北省",
+          "rank": 8,
+          "value": 83600.0,
+          "display": "8.36万",
+          "id": "420000"
+        },
+        {
+          "name": "陕西省",
+          "rank": 9,
+          "value": 52100.0,
+          "display": "5.21万",
+          "id": "610000"
+        },
+        {
+          "name": "福建省",
+          "rank": 10,
+          "value": 41100.0,
+          "display": "4.11万",
+          "id": "350000"
+        },
+        {
+          "name": "山东省",
+          "rank": 11,
+          "value": 39800.0,
+          "display": "3.98万",
+          "id": "370000"
+        },
+        {
+          "name": "湖南省",
+          "rank": 12,
+          "value": 34500.0,
+          "display": "3.45万",
+          "id": "430000"
+        },
+        {
+          "name": "安徽省",
+          "rank": 13,
+          "value": 33200.0,
+          "display": "3.32万",
+          "id": "340000"
+        },
+        {
+          "name": "重庆市",
+          "rank": 14,
+          "value": 30299.999999999996,
+          "display": "3.03万",
+          "id": "500000"
+        },
+        {
+          "name": "辽宁省",
+          "rank": 15,
+          "value": 26500.0,
+          "display": "2.65万",
+          "id": "210000"
+        },
+        {
+          "name": "天津市",
+          "rank": 16,
+          "value": 22900.0,
+          "display": "2.29万",
+          "id": "120000"
+        },
+        {
+          "name": "河南省",
+          "rank": 17,
+          "value": 20400.0,
+          "display": "2.04万",
+          "id": "410000"
+        },
+        {
+          "name": "黑龙江省",
+          "rank": 18,
+          "value": 12600.0,
+          "display": "1.26万",
+          "id": "230000"
+        },
+        {
+          "name": "江西省",
+          "rank": 19,
+          "value": 9886.0,
+          "display": "9,886",
+          "id": "360000"
+        },
+        {
+          "name": "云南省",
+          "rank": 20,
+          "value": 9035.77,
+          "display": "9,035.77",
+          "id": "530000"
+        },
+        {
+          "name": "河北省",
+          "rank": 21,
+          "value": 8568.98,
+          "display": "8,568.98",
+          "id": "130000"
+        },
+        {
+          "name": "广西壮族自治区",
+          "rank": 22,
+          "value": 7418.67,
+          "display": "7,418.67",
+          "id": "450000"
+        },
+        {
+          "name": "吉林省",
+          "rank": 23,
+          "value": 6968.54,
+          "display": "6,968.54",
+          "id": "220000"
+        },
+        {
+          "name": "山西省",
+          "rank": 24,
+          "value": 6268.36,
+          "display": "6,268.36",
+          "id": "140000"
+        },
+        {
+          "name": "贵州省",
+          "rank": 25,
+          "value": 4251.15,
+          "display": "4,251.15",
+          "id": "520000"
+        },
+        {
+          "name": "甘肃省",
+          "rank": 26,
+          "value": 3384.25,
+          "display": "3,384.25",
+          "id": "620000"
+        },
+        {
+          "name": "海南省",
+          "rank": 27,
+          "value": 3134.18,
+          "display": "3,134.18",
+          "id": "460000"
+        },
+        {
+          "name": "内蒙古自治区",
+          "rank": 28,
+          "value": 2133.91,
+          "display": "2,133.91",
+          "id": "150000"
+        },
+        {
+          "name": "香港特别行政区",
+          "rank": 29,
+          "value": 1983.87,
+          "display": "1,983.87",
+          "id": "810000"
+        },
+        {
+          "name": "新疆维吾尔自治区",
+          "rank": 30,
+          "value": 1817.16,
+          "display": "1,817.16",
+          "id": "650000"
+        },
+        {
+          "name": "宁夏回族自治区",
+          "rank": 31,
+          "value": 550.15,
+          "display": "550.15",
+          "id": "640000"
+        },
+        {
+          "name": "青海省",
+          "rank": 32,
+          "value": 383.44,
+          "display": "383.44",
+          "id": "630000"
+        },
+        {
+          "name": "西藏自治区",
+          "rank": 33,
+          "value": 333.42,
+          "display": "333.42",
+          "id": "540000"
+        },
+        {
+          "name": "澳门特别行政区",
+          "rank": 34,
+          "value": 183.38,
+          "display": "183.38",
+          "id": "820000"
+        }
+      ]
+    },
+    "contribution-world": {
+      "label": "全球各国开发者 OpenRank 贡献度排行榜",
+      "rows": [
+        {
+          "name": "美国",
+          "rank": 1,
+          "value": 3321000.0,
+          "display": "332.10万",
+          "id": "US"
+        },
+        {
+          "name": "德国",
+          "rank": 2,
+          "value": 1107700.0,
+          "display": "110.77万",
+          "id": "DE"
+        },
+        {
+          "name": "中国",
+          "rank": 3,
+          "value": 936800.0000000001,
+          "display": "93.68万",
+          "id": "CN"
+        },
+        {
+          "name": "英国",
+          "rank": 4,
+          "value": 788400.0,
+          "display": "78.84万",
+          "id": "GB"
+        },
+        {
+          "name": "印度",
+          "rank": 5,
+          "value": 665800.0,
+          "display": "66.58万",
+          "id": "IN"
+        },
+        {
+          "name": "法国",
+          "rank": 6,
+          "value": 606400.0,
+          "display": "60.64万",
+          "id": "FR"
+        },
+        {
+          "name": "加拿大",
+          "rank": 7,
+          "value": 558600.0,
+          "display": "55.86万",
+          "id": "CA"
+        },
+        {
+          "name": "巴西",
+          "rank": 8,
+          "value": 434200.0,
+          "display": "43.42万",
+          "id": "BR"
+        },
+        {
+          "name": "日本",
+          "rank": 9,
+          "value": 372100.0,
+          "display": "37.21万",
+          "id": "JP"
+        },
+        {
+          "name": "荷兰",
+          "rank": 10,
+          "value": 349000.0,
+          "display": "34.90万",
+          "id": "NL"
+        },
+        {
+          "name": "澳大利亚",
+          "rank": 11,
+          "value": 292600.0,
+          "display": "29.26万",
+          "id": "AU"
+        },
+        {
+          "name": "波兰",
+          "rank": 12,
+          "value": 249300.0,
+          "display": "24.93万",
+          "id": "PL"
+        },
+        {
+          "name": "瑞士",
+          "rank": 13,
+          "value": 233700.0,
+          "display": "23.37万",
+          "id": "CH"
+        },
+        {
+          "name": "韩国",
+          "rank": 14,
+          "value": 232399.99999999997,
+          "display": "23.24万",
+          "id": "KR"
+        },
+        {
+          "name": "西班牙",
+          "rank": 15,
+          "value": 230600.0,
+          "display": "23.06万",
+          "id": "ES"
+        },
+        {
+          "name": "意大利",
+          "rank": 16,
+          "value": 186000.0,
+          "display": "18.60万",
+          "id": "IT"
+        },
+        {
+          "name": "俄罗斯",
+          "rank": 17,
+          "value": 182399.99999999997,
+          "display": "18.24万",
+          "id": "RU"
+        },
+        {
+          "name": "瑞典",
+          "rank": 18,
+          "value": 168800.0,
+          "display": "16.88万",
+          "id": "SE"
+        },
+        {
+          "name": "捷克",
+          "rank": 19,
+          "value": 135100.0,
+          "display": "13.51万",
+          "id": "CZ"
+        },
+        {
+          "name": "奥地利",
+          "rank": 20,
+          "value": 124000.0,
+          "display": "12.40万",
+          "id": "AT"
+        },
+        {
+          "name": "挪威",
+          "rank": 21,
+          "value": 123400.0,
+          "display": "12.34万",
+          "id": "NO"
+        },
+        {
+          "name": "乌克兰",
+          "rank": 22,
+          "value": 114500.0,
+          "display": "11.45万",
+          "id": "UA"
+        },
+        {
+          "name": "比利时",
+          "rank": 23,
+          "value": 109000.0,
+          "display": "10.90万",
+          "id": "BE"
+        },
+        {
+          "name": "印度尼西亚",
+          "rank": 24,
+          "value": 106500.0,
+          "display": "10.65万",
+          "id": "ID"
+        },
+        {
+          "name": "丹麦",
+          "rank": 25,
+          "value": 96800.0,
+          "display": "9.68万",
+          "id": "DK"
+        },
+        {
+          "name": "阿根廷",
+          "rank": 26,
+          "value": 96300.00000000001,
+          "display": "9.63万",
+          "id": "AR"
+        },
+        {
+          "name": "芬兰",
+          "rank": 27,
+          "value": 89700.0,
+          "display": "8.97万",
+          "id": "FI"
+        },
+        {
+          "name": "越南",
+          "rank": 28,
+          "value": 89300.0,
+          "display": "8.93万",
+          "id": "VN"
+        },
+        {
+          "name": "葡萄牙",
+          "rank": 29,
+          "value": 81000.0,
+          "display": "8.10万",
+          "id": "PT"
+        },
+        {
+          "name": "新加坡",
+          "rank": 30,
+          "value": 73200.0,
+          "display": "7.32万",
+          "id": "SG"
+        },
+        {
+          "name": "新西兰",
+          "rank": 31,
+          "value": 70900.0,
+          "display": "7.09万",
+          "id": "NZ"
+        },
+        {
+          "name": "土耳其",
+          "rank": 32,
+          "value": 69100.0,
+          "display": "6.91万",
+          "id": "TR"
+        },
+        {
+          "name": "尼日利亚",
+          "rank": 33,
+          "value": 67600.0,
+          "display": "6.76万",
+          "id": "NG"
+        },
+        {
+          "name": "以色列",
+          "rank": 34,
+          "value": 66500.0,
+          "display": "6.65万",
+          "id": "IL"
+        },
+        {
+          "name": "墨西哥",
+          "rank": 35,
+          "value": 61800.0,
+          "display": "6.18万",
+          "id": "MX"
+        },
+        {
+          "name": "哥伦比亚",
+          "rank": 36,
+          "value": 59300.0,
+          "display": "5.93万",
+          "id": "CO"
+        },
+        {
+          "name": "孟加拉国",
+          "rank": 37,
+          "value": 58099.99999999999,
+          "display": "5.81万",
+          "id": "BD"
+        },
+        {
+          "name": "斯里兰卡",
+          "rank": 38,
+          "value": 54100.0,
+          "display": "5.41万",
+          "id": "LK"
+        },
+        {
+          "name": "匈牙利",
+          "rank": 39,
+          "value": 45199.99999999999,
+          "display": "4.52万",
+          "id": "HU"
+        },
+        {
+          "name": "罗马尼亚",
+          "rank": 40,
+          "value": 45100.0,
+          "display": "4.51万",
+          "id": "RO"
+        },
+        {
+          "name": "爱尔兰",
+          "rank": 41,
+          "value": 44000.0,
+          "display": "4.40万",
+          "id": "IE"
+        },
+        {
+          "name": "巴基斯坦",
+          "rank": 42,
+          "value": 41900.00000000001,
+          "display": "4.19万",
+          "id": "PK"
+        },
+        {
+          "name": "保加利亚",
+          "rank": 43,
+          "value": 40700.0,
+          "display": "4.07万",
+          "id": "BG"
+        },
+        {
+          "name": "南非",
+          "rank": 44,
+          "value": 39700.0,
+          "display": "3.97万",
+          "id": "ZA"
+        },
+        {
+          "name": "菲律宾",
+          "rank": 45,
+          "value": 39100.0,
+          "display": "3.91万",
+          "id": "PH"
+        },
+        {
+          "name": "埃及",
+          "rank": 46,
+          "value": 38000.0,
+          "display": "3.80万",
+          "id": "EG"
+        },
+        {
+          "name": "肯尼亚",
+          "rank": 47,
+          "value": 34800.0,
+          "display": "3.48万",
+          "id": "KE"
+        },
+        {
+          "name": "泰国",
+          "rank": 48,
+          "value": 33300.0,
+          "display": "3.33万",
+          "id": "TH"
+        },
+        {
+          "name": "希腊",
+          "rank": 49,
+          "value": 32800.0,
+          "display": "3.28万",
+          "id": "GR"
+        },
+        {
+          "name": "塞尔维亚",
+          "rank": 50,
+          "value": 30200.0,
+          "display": "3.02万",
+          "id": "RS"
+        },
+        {
+          "name": "智利",
+          "rank": 51,
+          "value": 26300.0,
+          "display": "2.63万",
+          "id": "CL"
+        },
+        {
+          "name": "阿拉伯联合酋长国",
+          "rank": 52,
+          "value": 23100.0,
+          "display": "2.31万",
+          "id": "AE"
+        },
+        {
+          "name": "伊朗",
+          "rank": 53,
+          "value": 21500.0,
+          "display": "2.15万",
+          "id": "IR"
+        },
+        {
+          "name": "尼泊尔",
+          "rank": 54,
+          "value": 20900.0,
+          "display": "2.09万",
+          "id": "NP"
+        },
+        {
+          "name": "马来西亚",
+          "rank": 55,
+          "value": 20099.999999999996,
+          "display": "2.01万",
+          "id": "MY"
+        },
+        {
+          "name": "格鲁吉亚",
+          "rank": 56,
+          "value": 19900.0,
+          "display": "1.99万",
+          "id": "GE"
+        },
+        {
+          "name": "白俄罗斯",
+          "rank": 57,
+          "value": 19500.0,
+          "display": "1.95万",
+          "id": "BY"
+        },
+        {
+          "name": "秘鲁",
+          "rank": 58,
+          "value": 19300.0,
+          "display": "1.93万",
+          "id": "PE"
+        },
+        {
+          "name": "爱沙尼亚",
+          "rank": 59,
+          "value": 19100.0,
+          "display": "1.91万",
+          "id": "EE"
+        },
+        {
+          "name": "克罗地亚",
+          "rank": 60,
+          "value": 18500.0,
+          "display": "1.85万",
+          "id": "HR"
+        },
+        {
+          "name": "斯洛伐克",
+          "rank": 61,
+          "value": 18100.0,
+          "display": "1.81万",
+          "id": "SK"
+        },
+        {
+          "name": "斯洛文尼亚",
+          "rank": 62,
+          "value": 15700.0,
+          "display": "1.57万",
+          "id": "SI"
+        },
+        {
+          "name": "立陶宛",
+          "rank": 63,
+          "value": 15600.0,
+          "display": "1.56万",
+          "id": "LT"
+        },
+        {
+          "name": "加纳",
+          "rank": 64,
+          "value": 15100.0,
+          "display": "1.51万",
+          "id": "GH"
+        },
+        {
+          "name": "哥斯达黎加",
+          "rank": 65,
+          "value": 13100.0,
+          "display": "1.31万",
+          "id": "CR"
+        },
+        {
+          "name": "摩洛哥",
+          "rank": 66,
+          "value": 11700.0,
+          "display": "1.17万",
+          "id": "MA"
+        },
+        {
+          "name": "乌拉圭",
+          "rank": 67,
+          "value": 11600.0,
+          "display": "1.16万",
+          "id": "UY"
+        },
+        {
+          "name": "亚美尼亚",
+          "rank": 68,
+          "value": 11500.0,
+          "display": "1.15万",
+          "id": "AM"
+        },
+        {
+          "name": "哈萨克斯坦",
+          "rank": 69,
+          "value": 10800.0,
+          "display": "1.08万",
+          "id": "KZ"
+        },
+        {
+          "name": "委内瑞拉",
+          "rank": 70,
+          "value": 10200.0,
+          "display": "1.02万",
+          "id": "VE"
+        },
+        {
+          "name": "埃塞俄比亚",
+          "rank": 71,
+          "value": 10000.0,
+          "display": "1.00万",
+          "id": "ET"
+        },
+        {
+          "name": "厄瓜多尔",
+          "rank": 72,
+          "value": 9682.48,
+          "display": "9,682.48",
+          "id": "EC"
+        },
+        {
+          "name": "突尼斯",
+          "rank": 73,
+          "value": 9654.42,
+          "display": "9,654.42",
+          "id": "TN"
+        },
+        {
+          "name": "乌兹别克斯坦",
+          "rank": 74,
+          "value": 9379.98,
+          "display": "9,379.98",
+          "id": "UZ"
+        },
+        {
+          "name": "塞浦路斯",
+          "rank": 75,
+          "value": 8822.32,
+          "display": "8,822.32",
+          "id": "CY"
+        },
+        {
+          "name": "拉脱维亚",
+          "rank": 76,
+          "value": 8457.27,
+          "display": "8,457.27",
+          "id": "LV"
+        },
+        {
+          "name": "乌干达",
+          "rank": 77,
+          "value": 8163.44,
+          "display": "8,163.44",
+          "id": "UG"
+        },
+        {
+          "name": "多米尼加",
+          "rank": 78,
+          "value": 7441.58,
+          "display": "7,441.58",
+          "id": "DO"
+        },
+        {
+          "name": "卢森堡",
+          "rank": 79,
+          "value": 7072.16,
+          "display": "7,072.16",
+          "id": "LU"
+        },
+        {
+          "name": "卢旺达",
+          "rank": 80,
+          "value": 6998.51,
+          "display": "6,998.51",
+          "id": "RW"
+        },
+        {
+          "name": "喀麦隆",
+          "rank": 81,
+          "value": 6674.41,
+          "display": "6,674.41",
+          "id": "CM"
+        },
+        {
+          "name": "冰岛",
+          "rank": 82,
+          "value": 6227.45,
+          "display": "6,227.45",
+          "id": "IS"
+        },
+        {
+          "name": "沙特阿拉伯",
+          "rank": 83,
+          "value": 5843.26,
+          "display": "5,843.26",
+          "id": "SA"
+        },
+        {
+          "name": "阿尔及利亚",
+          "rank": 84,
+          "value": 5696.49,
+          "display": "5,696.49",
+          "id": "DZ"
+        },
+        {
+          "name": "玻利维亚",
+          "rank": 85,
+          "value": 5199.9,
+          "display": "5,199.9",
+          "id": "BO"
+        },
+        {
+          "name": "柬埔寨",
+          "rank": 86,
+          "value": 5001.76,
+          "display": "5,001.76",
+          "id": "KH"
+        },
+        {
+          "name": "摩尔多瓦",
+          "rank": 87,
+          "value": 4665.01,
+          "display": "4,665.01",
+          "id": "MD"
+        },
+        {
+          "name": "波斯尼亚和黑塞哥维那",
+          "rank": 88,
+          "value": 4393.01,
+          "display": "4,393.01",
+          "id": "BA"
+        },
+        {
+          "name": "萨尔瓦多",
+          "rank": 89,
+          "value": 4137.74,
+          "display": "4,137.74",
+          "id": "SV"
+        },
+        {
+          "name": "北马其顿",
+          "rank": 90,
+          "value": 4104.63,
+          "display": "4,104.63",
+          "id": "MK"
+        },
+        {
+          "name": "危地马拉",
+          "rank": 91,
+          "value": 4075.03,
+          "display": "4,075.03",
+          "id": "GT"
+        },
+        {
+          "name": "马耳他",
+          "rank": 92,
+          "value": 3929.25,
+          "display": "3,929.25",
+          "id": "MT"
+        },
+        {
+          "name": "马达加斯加",
+          "rank": 93,
+          "value": 3898.05,
+          "display": "3,898.05",
+          "id": "MG"
+        },
+        {
+          "name": "坦桑尼亚",
+          "rank": 94,
+          "value": 3662.51,
+          "display": "3,662.51",
+          "id": "TZ"
+        },
+        {
+          "name": "阿塞拜疆",
+          "rank": 95,
+          "value": 3600.26,
+          "display": "3,600.26",
+          "id": "AZ"
+        },
+        {
+          "name": "缅甸",
+          "rank": 96,
+          "value": 3530.79,
+          "display": "3,530.79",
+          "id": "MM"
+        },
+        {
+          "name": "黑山",
+          "rank": 97,
+          "value": 3371.1,
+          "display": "3,371.1",
+          "id": "ME"
+        },
+        {
+          "name": "约旦",
+          "rank": 98,
+          "value": 3313.9,
+          "display": "3,313.9",
+          "id": "JO"
+        },
+        {
+          "name": "巴拉圭",
+          "rank": 99,
+          "value": 3158.27,
+          "display": "3,158.27",
+          "id": "PY"
+        },
+        {
+          "name": "古巴",
+          "rank": 100,
+          "value": 3151.69,
+          "display": "3,151.69",
+          "id": "CU"
+        }
+      ]
+    },
+    "contribution-china": {
+      "label": "中国各省开发者 OpenRank 贡献度排行榜",
+      "rows": [
+        {
+          "name": "北京市",
+          "rank": 1,
+          "value": 199300.0,
+          "display": "19.93万",
+          "id": "110000"
+        },
+        {
+          "name": "上海市",
+          "rank": 2,
+          "value": 179899.99999999997,
+          "display": "17.99万",
+          "id": "310000"
+        },
+        {
+          "name": "广东省",
+          "rank": 3,
+          "value": 116500.0,
+          "display": "11.65万",
+          "id": "440000"
+        },
+        {
+          "name": "台湾省",
+          "rank": 4,
+          "value": 116000.0,
+          "display": "11.60万",
+          "id": "710000"
+        },
+        {
+          "name": "浙江省",
+          "rank": 5,
+          "value": 111900.0,
+          "display": "11.19万",
+          "id": "330000"
+        },
+        {
+          "name": "四川省",
+          "rank": 6,
+          "value": 44500.0,
+          "display": "4.45万",
+          "id": "510000"
+        },
+        {
+          "name": "江苏省",
+          "rank": 7,
+          "value": 35700.0,
+          "display": "3.57万",
+          "id": "320000"
+        },
+        {
+          "name": "湖北省",
+          "rank": 8,
+          "value": 24300.0,
+          "display": "2.43万",
+          "id": "420000"
+        },
+        {
+          "name": "陕西省",
+          "rank": 9,
+          "value": 15600.0,
+          "display": "1.56万",
+          "id": "610000"
+        },
+        {
+          "name": "福建省",
+          "rank": 10,
+          "value": 14300.0,
+          "display": "1.43万",
+          "id": "350000"
+        },
+        {
+          "name": "湖南省",
+          "rank": 11,
+          "value": 10800.0,
+          "display": "1.08万",
+          "id": "430000"
+        },
+        {
+          "name": "山东省",
+          "rank": 12,
+          "value": 9552.09,
+          "display": "9,552.09",
+          "id": "370000"
+        },
+        {
+          "name": "重庆市",
+          "rank": 13,
+          "value": 9362.71,
+          "display": "9,362.71",
+          "id": "500000"
+        },
+        {
+          "name": "安徽省",
+          "rank": 14,
+          "value": 8253.31,
+          "display": "8,253.31",
+          "id": "340000"
+        },
+        {
+          "name": "辽宁省",
+          "rank": 15,
+          "value": 6658.79,
+          "display": "6,658.79",
+          "id": "210000"
+        },
+        {
+          "name": "天津市",
+          "rank": 16,
+          "value": 5853.7,
+          "display": "5,853.7",
+          "id": "120000"
+        },
+        {
+          "name": "云南省",
+          "rank": 17,
+          "value": 4795.25,
+          "display": "4,795.25",
+          "id": "530000"
+        },
+        {
+          "name": "河南省",
+          "rank": 18,
+          "value": 4482.09,
+          "display": "4,482.09",
+          "id": "410000"
+        },
+        {
+          "name": "广西壮族自治区",
+          "rank": 19,
+          "value": 2913.62,
+          "display": "2,913.62",
+          "id": "450000"
+        },
+        {
+          "name": "黑龙江省",
+          "rank": 20,
+          "value": 2877.11,
+          "display": "2,877.11",
+          "id": "230000"
+        },
+        {
+          "name": "江西省",
+          "rank": 21,
+          "value": 2434.0,
+          "display": "2,434",
+          "id": "360000"
+        },
+        {
+          "name": "吉林省",
+          "rank": 22,
+          "value": 2330.59,
+          "display": "2,330.59",
+          "id": "220000"
+        },
+        {
+          "name": "河北省",
+          "rank": 23,
+          "value": 1540.79,
+          "display": "1,540.79",
+          "id": "130000"
+        },
+        {
+          "name": "山西省",
+          "rank": 24,
+          "value": 1537.68,
+          "display": "1,537.68",
+          "id": "140000"
+        },
+        {
+          "name": "贵州省",
+          "rank": 25,
+          "value": 1166.33,
+          "display": "1,166.33",
+          "id": "520000"
+        },
+        {
+          "name": "海南省",
+          "rank": 26,
+          "value": 898.77,
+          "display": "898.77",
+          "id": "460000"
+        },
+        {
+          "name": "甘肃省",
+          "rank": 27,
+          "value": 600.15,
+          "display": "600.15",
+          "id": "620000"
+        },
+        {
+          "name": "新疆维吾尔自治区",
+          "rank": 28,
+          "value": 553.71,
+          "display": "553.71",
+          "id": "650000"
+        },
+        {
+          "name": "香港特别行政区",
+          "rank": 29,
+          "value": 469.14,
+          "display": "469.14",
+          "id": "810000"
+        },
+        {
+          "name": "青海省",
+          "rank": 30,
+          "value": 464.73,
+          "display": "464.73",
+          "id": "630000"
+        },
+        {
+          "name": "内蒙古自治区",
+          "rank": 31,
+          "value": 241.85,
+          "display": "241.85",
+          "id": "150000"
+        },
+        {
+          "name": "澳门特别行政区",
+          "rank": 32,
+          "value": 163.1,
+          "display": "163.1",
+          "id": "820000"
+        },
+        {
+          "name": "西藏自治区",
+          "rank": 33,
+          "value": 154.18,
+          "display": "154.18",
+          "id": "540000"
+        },
+        {
+          "name": "宁夏回族自治区",
+          "rank": 34,
+          "value": 84.94,
+          "display": "84.94",
+          "id": "640000"
+        }
+      ]
+    },
+    "influence-world": {
+      "label": "全球各国开源项目 OpenRank 影响力排行榜",
+      "rows": [
+        {
+          "name": "美国",
+          "rank": 1,
+          "value": 1447700.0,
+          "display": "144.77万",
+          "id": "US"
+        },
+        {
+          "name": "中国",
+          "rank": 2,
+          "value": 530700.0,
+          "display": "53.07万",
+          "id": "CN"
+        },
+        {
+          "name": "荷兰",
+          "rank": 3,
+          "value": 55000.0,
+          "display": "5.50万",
+          "id": "NL"
+        },
+        {
+          "name": "德国",
+          "rank": 4,
+          "value": 31500.0,
+          "display": "3.15万",
+          "id": "DE"
+        },
+        {
+          "name": "英国",
+          "rank": 5,
+          "value": 23100.0,
+          "display": "2.31万",
+          "id": "GB"
+        },
+        {
+          "name": "加拿大",
+          "rank": 6,
+          "value": 19300.0,
+          "display": "1.93万",
+          "id": "CA"
+        },
+        {
+          "name": "捷克",
+          "rank": 7,
+          "value": 17600.0,
+          "display": "1.76万",
+          "id": "CZ"
+        },
+        {
+          "name": "比利时",
+          "rank": 8,
+          "value": 14200.0,
+          "display": "1.42万",
+          "id": "BE"
+        },
+        {
+          "name": "俄罗斯",
+          "rank": 9,
+          "value": 12200.0,
+          "display": "1.22万",
+          "id": "RU"
+        },
+        {
+          "name": "法国",
+          "rank": 10,
+          "value": 10500.0,
+          "display": "1.05万",
+          "id": "FR"
+        },
+        {
+          "name": "日本",
+          "rank": 11,
+          "value": 8562.04,
+          "display": "8,562.04",
+          "id": "JP"
+        },
+        {
+          "name": "以色列",
+          "rank": 12,
+          "value": 6234.22,
+          "display": "6,234.22",
+          "id": "IL"
+        },
+        {
+          "name": "挪威",
+          "rank": 13,
+          "value": 5604.9,
+          "display": "5,604.9",
+          "id": "NO"
+        },
+        {
+          "name": "冰岛",
+          "rank": 14,
+          "value": 4337.11,
+          "display": "4,337.11",
+          "id": "IS"
+        },
+        {
+          "name": "新加坡",
+          "rank": 15,
+          "value": 4176.13,
+          "display": "4,176.13",
+          "id": "SG"
+        },
+        {
+          "name": "南非",
+          "rank": 16,
+          "value": 3935.08,
+          "display": "3,935.08",
+          "id": "ZA"
+        },
+        {
+          "name": "瑞士",
+          "rank": 17,
+          "value": 3531.83,
+          "display": "3,531.83",
+          "id": "CH"
+        },
+        {
+          "name": "保加利亚",
+          "rank": 18,
+          "value": 3513.73,
+          "display": "3,513.73",
+          "id": "BG"
+        },
+        {
+          "name": "韩国",
+          "rank": 19,
+          "value": 3488.87,
+          "display": "3,488.87",
+          "id": "KR"
+        },
+        {
+          "name": "爱沙尼亚",
+          "rank": 20,
+          "value": 3391.09,
+          "display": "3,391.09",
+          "id": "EE"
+        },
+        {
+          "name": "印度",
+          "rank": 21,
+          "value": 3216.02,
+          "display": "3,216.02",
+          "id": "IN"
+        },
+        {
+          "name": "葡萄牙",
+          "rank": 22,
+          "value": 3124.16,
+          "display": "3,124.16",
+          "id": "PT"
+        },
+        {
+          "name": "瑞典",
+          "rank": 23,
+          "value": 2365.19,
+          "display": "2,365.19",
+          "id": "SE"
+        },
+        {
+          "name": "乌克兰",
+          "rank": 24,
+          "value": 1906.88,
+          "display": "1,906.88",
+          "id": "UA"
+        },
+        {
+          "name": "澳大利亚",
+          "rank": 25,
+          "value": 758.35,
+          "display": "758.35",
+          "id": "AU"
+        },
+        {
+          "name": "丹麦",
+          "rank": 26,
+          "value": 164.03,
+          "display": "164.03",
+          "id": "DK"
+        },
+        {
+          "name": "芬兰",
+          "rank": 27,
+          "value": 121.2,
+          "display": "121.2",
+          "id": "FI"
+        },
+        {
+          "name": "巴西",
+          "rank": 28,
+          "value": 2.46,
+          "display": "2.46",
+          "id": "BR"
+        },
+        {
+          "name": "西班牙",
+          "rank": 29,
+          "value": 0.93,
+          "display": "0.93",
+          "id": "ES"
+        }
+      ]
+    }
+  }
+}

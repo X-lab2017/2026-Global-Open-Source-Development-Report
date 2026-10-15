@@ -26,7 +26,7 @@ for entry in r['datasets']:
     assert not entry['path'].startswith('data/raw/')
 for lang in ['zh','en']:
     chapter=Page((out/f'2026/{lang}/chapters/01/index.html').read_text())
-    assert len(chapter.figures)==2 and all(x.get('alt') for x in chapter.figures)
+    assert len(chapter.figures)==0 and all(x.get('alt') for x in chapter.figures)
     for section in m['chapters'][0]['sections']:assert section['id'] in chapter.ids
     body=' '.join(chapter.text)
     for term in ['45,855','5,686','70%','OpenDigger','ModelRank']:assert term in body,term
@@ -38,4 +38,4 @@ for lang in ['zh','en']:
     for entry in r['datasets']:assert 'dataset-'+entry['dataset_id'] in data.ids
     indicators=Page((out/f'2026/{lang}/data/indicators/index.html').read_text())
     for row in r['indicators']:assert 'indicator-'+row['indicator_code'] in indicators.ids
-print(f'PASS: complete Chapter 1 and methods, 2 accessible figures, 29 definitions, {len(r["datasets"])} byte-identical CSV downloads, bilingual status labels.')
+print(f'PASS: complete Chapter 1 and methods, interactive report structure and downloadable static figures, 29 definitions, {len(r["datasets"])} byte-identical CSV downloads, bilingual status labels.')

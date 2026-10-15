@@ -1,0 +1,427 @@
+- complementary:
+  - link "OpenShare":
+    - /url: /
+    - img "OpenShare"
+  - navigation "导航菜单":
+    - list:
+      - button "数据洞察" [expanded]:
+        - generic: 数据洞察
+      - list:
+        - link "OpenWorld":
+          - /url: /insight/open-world
+        - link "OpenLeaderboard":
+          - /url: /login?redirect=%2Finsight%2Fopen-leaderboard
+      - link "个人中心":
+        - /url: /login?redirect=%2Fprofile
+        - generic: 个人中心
+      - link "积分钱包":
+        - /url: /login?redirect=%2Fpoints
+        - generic: 积分钱包
+      - link "积分商城":
+        - /url: /login?redirect=%2Fshop
+        - generic: 积分商城
+      - link "我的组织":
+        - /url: /login?redirect=%2Forganizations
+        - generic: 我的组织
+      - link "消息中心":
+        - /url: /login?redirect=%2Fmessages
+        - generic: 消息中心
+      - link "人才触达":
+        - /url: /login?redirect=%2Ftalent-reach
+        - generic: 人才触达
+      - button "设置":
+        - generic: 设置
+  - link "登录":
+    - /url: /login
+    - generic: 登录
+  - button "折叠侧边栏":
+- main:
+  - generic: 全球开源脉动
+  - heading "OpenWorld" [level=1]
+  - generic: / 中国
+  - paragraph: 从全球视角观察开发者密度、贡献价值与项目影响力
+  - generic: 数据持续更新
+  - paragraph: 观察维度
+  - combobox:
+    - generic: 开发者数量
+  - region "全球开源数据概览":
+    - paragraph: 数据来源
+    - link "OpenDigger":
+      - /url: https://open-digger.cn
+    - paragraph: 日志总量
+    - generic: 96.51亿
+    - paragraph: 仓库总量
+    - generic: 3.80亿
+    - paragraph: 开发者总量
+    - generic: 1.93亿
+    - paragraph: 覆盖国家与地区
+    - generic: "246"
+    - paragraph: 数据更新时间
+    - generic: 2026-10
+  - paragraph: 全球态势
+  - heading "中国开发者数量热力地图" [level=2]
+  - generic: 中国与美国支持区域下钻
+  - button "← 返回世界地图"
+  - generic "开发者数量 - 中国"
+  - button "↻ 重置缩放"
+  - article:
+    - heading "中国活跃开发者数量趋势" [level=3]
+    - paragraph: 250.48万
+    - text: 13.8%
+  - article:
+    - heading [level=3]
+    - paragraph: 暂无数据
+  - article:
+    - heading [level=3]
+    - paragraph: 暂无数据
+  - complementary:
+    - paragraph: 实时排名
+    - heading "中国各省开发者分布排行榜" [level=3]
+    - generic: TOP 34
+    - list:
+      - button "1 北京市 408.01万 ▲ +45.16万":
+        - generic: "1"
+        - generic: 北京市
+        - generic: 408.01万
+        - generic "451632.7": ▲ +45.16万
+      - button "2 上海市 298.98万 ▲ +33.09万":
+        - generic: "2"
+        - generic: 上海市
+        - generic: 298.98万
+        - generic "330945.5": ▲ +33.09万
+      - button "3 广东省 264.56万 ▲ +29.28万":
+        - generic: "3"
+        - generic: 广东省
+        - generic: 264.56万
+        - generic "292849.25": ▲ +29.28万
+      - button "4 台湾省 170.19万 ▲ +18.83万":
+        - generic: "4"
+        - generic: 台湾省
+        - generic: 170.19万
+        - generic "188390.14": ▲ +18.83万
+      - button "5 浙江省 160.15万 ▲ +17.72万":
+        - generic: "5"
+        - generic: 浙江省
+        - generic: 160.15万
+        - generic "177271.98": ▲ +17.72万
+      - button "6 江苏省 100.56万 ▲ +11.13万":
+        - generic: "6"
+        - generic: 江苏省
+        - generic: 100.56万
+        - generic "111321.44": ▲ +11.13万
+      - button "7 四川省 86.08万 ▲ +9.52万":
+        - generic: "7"
+        - generic: 四川省
+        - generic: 86.08万
+        - generic "95292.16": ▲ +9.52万
+      - button "8 湖北省 61.34万 ▲ +6.79万":
+        - generic: "8"
+        - generic: 湖北省
+        - generic: 61.34万
+        - generic "67901.74": ▲ +6.79万
+      - button "9 陕西省 41.11万 ▲ +4.55万":
+        - generic: "9"
+        - generic: 陕西省
+        - generic: 41.11万
+        - generic "45510.8": ▲ +4.55万
+      - button "10 福建省 30.10万 ▲ +3.33万":
+        - generic: "10"
+        - generic: 福建省
+        - generic: 30.10万
+        - generic "33325.01": ▲ +3.33万
+      - button "11 山东省 28.86万 ▲ +3.19万":
+        - generic: "11"
+        - generic: 山东省
+        - generic: 28.86万
+        - generic "31955.49": ▲ +3.19万
+      - button "12 湖南省 25.86万 ▲ +2.86万":
+        - generic: "12"
+        - generic: 湖南省
+        - generic: 25.86万
+        - generic "28627.41": ▲ +2.86万
+      - button "13 安徽省 23.48万 ▲ +2.59万":
+        - generic: "13"
+        - generic: 安徽省
+        - generic: 23.48万
+        - generic "25998.81": ▲ +2.59万
+      - button "14 重庆市 23.40万 ▲ +2.59万":
+        - generic: "14"
+        - generic: 重庆市
+        - generic: 23.40万
+        - generic "25910.45": ▲ +2.59万
+      - button "15 辽宁省 20.70万 ▲ +2.29万":
+        - generic: "15"
+        - generic: 辽宁省
+        - generic: 20.70万
+        - generic "22913.71": ▲ +2.29万
+      - button "16 天津市 16.84万 ▲ +1.86万":
+        - generic: "16"
+        - generic: 天津市
+        - generic: 16.84万
+        - generic "18643.16": ▲ +1.86万
+      - button "17 河南省 16.44万 ▲ +1.82万":
+        - generic: "17"
+        - generic: 河南省
+        - generic: 16.44万
+        - generic "18201.38": ▲ +1.82万
+      - button "18 黑龙江省 9.41万 ▲ +1.04万":
+        - generic: "18"
+        - generic: 黑龙江省
+        - generic: 9.41万
+        - generic "10418.67": ▲ +1.04万
+      - button "19 河北省 8.38万 ▲ +9,284.76":
+        - generic: "19"
+        - generic: 河北省
+        - generic: 8.38万
+        - generic "9284.76": ▲ +9,284.76
+      - button "20 江西省 7.64万 ▲ +8,460.11":
+        - generic: "20"
+        - generic: 江西省
+        - generic: 7.64万
+        - generic "8460.11": ▲ +8,460.11
+      - button "21 云南省 6.67万 ▲ +7,392.47":
+        - generic: "21"
+        - generic: 云南省
+        - generic: 6.67万
+        - generic "7392.47": ▲ +7,392.47
+      - button "22 山西省 5.14万 ▲ +5,691.61":
+        - generic: "22"
+        - generic: 山西省
+        - generic: 5.14万
+        - generic "5691.61": ▲ +5,691.61
+      - button "23 广西壮族自治区 5.08万 ▲ +5,632.71":
+        - generic: "23"
+        - generic: 广西壮族自治区
+        - generic: 5.08万
+        - generic "5632.71": ▲ +5,632.71
+      - button "24 吉林省 5.06万 ▲ +5,610.62":
+        - generic: "24"
+        - generic: 吉林省
+        - generic: 5.06万
+        - generic "5610.62": ▲ +5,610.62
+      - button "25 贵州省 3.41万 ▲ +3,777.23":
+        - generic: "25"
+        - generic: 贵州省
+        - generic: 3.41万
+        - generic "3777.23": ▲ +3,777.23
+      - button "26 甘肃省 2.69万 ▲ +2,982.02":
+        - generic: "26"
+        - generic: 甘肃省
+        - generic: 2.69万
+        - generic "2982.02": ▲ +2,982.02
+      - button "27 海南省 2.34万 ▲ +2,599.14":
+        - generic: "27"
+        - generic: 海南省
+        - generic: 2.34万
+        - generic "2599.14": ▲ +2,599.14
+      - button "28 内蒙古自治区 1.72万 ▲ +1,914.38":
+        - generic: "28"
+        - generic: 内蒙古自治区
+        - generic: 1.72万
+        - generic "1914.38": ▲ +1,914.38
+      - button "29 香港特别行政区 1.64万 ▲ +1,826.03":
+        - generic: "29"
+        - generic: 香港特别行政区
+        - generic: 1.64万
+        - generic "1826.03": ▲ +1,826.03
+      - button "30 新疆维吾尔自治区 1.41万 ▲ +1,560.96":
+        - generic: "30"
+        - generic: 新疆维吾尔自治区
+        - generic: 1.41万
+        - generic "1560.96": ▲ +1,560.96
+      - button "31 宁夏回族自治区 4,855.87 ▲ +537.5":
+        - generic: "31"
+        - generic: 宁夏回族自治区
+        - generic: 4,855.87
+        - generic "537.5": ▲ +537.5
+      - button "32 青海省 3,392.46 ▲ +375.51":
+        - generic: "32"
+        - generic: 青海省
+        - generic: 3,392.46
+        - generic "375.51": ▲ +375.51
+      - button "33 西藏自治区 2,594.23 ▲ +287.16":
+        - generic: "33"
+        - generic: 西藏自治区
+        - generic: 2,594.23
+        - generic "287.16": ▲ +287.16
+      - button "34 澳门特别行政区 1,463.41 ▲ +161.99":
+        - generic: "34"
+        - generic: 澳门特别行政区
+        - generic: 1,463.41
+        - generic "161.99": ▲ +161.99
+    - paragraph: 实时排名
+    - heading "中国各省活跃开发者数量排行榜" [level=3]
+    - generic: TOP 34
+    - list:
+      - button "1 北京市 54.82万 ▲ +6.45万":
+        - generic: "1"
+        - generic: 北京市
+        - generic: 54.82万
+        - generic "64524.25": ▲ +6.45万
+      - button "2 上海市 40.95万 ▲ +5.07万":
+        - generic: "2"
+        - generic: 上海市
+        - generic: 40.95万
+        - generic "50736.83": ▲ +5.07万
+      - button "3 广东省 35.94万 ▲ +4.39万":
+        - generic: "3"
+        - generic: 广东省
+        - generic: 35.94万
+        - generic "43904.63": ▲ +4.39万
+      - button "4 台湾省 23.94万 ▲ +3.86万":
+        - generic: "4"
+        - generic: 台湾省
+        - generic: 23.94万
+        - generic "38617.59": ▲ +3.86万
+      - button "5 浙江省 23.28万 ▲ +3.22万":
+        - generic: "5"
+        - generic: 浙江省
+        - generic: 23.28万
+        - generic "32267.82": ▲ +3.22万
+      - button "6 江苏省 13.52万 ▲ +1.43万":
+        - generic: "6"
+        - generic: 江苏省
+        - generic: 13.52万
+        - generic "14328.25": ▲ +1.43万
+      - button "7 四川省 11.60万 ▲ +1.19万":
+        - generic: "7"
+        - generic: 四川省
+        - generic: 11.60万
+        - generic "11929.49": ▲ +1.19万
+      - button "8 湖北省 8.36万 ▲ +9,265.9":
+        - generic: "8"
+        - generic: 湖北省
+        - generic: 8.36万
+        - generic "9265.9": ▲ +9,265.9
+      - button "9 陕西省 5.21万 ▲ +5,047.24":
+        - generic: "9"
+        - generic: 陕西省
+        - generic: 5.21万
+        - generic "5047.24": ▲ +5,047.24
+      - button "10 福建省 4.11万 ▲ +4,676.17":
+        - generic: "10"
+        - generic: 福建省
+        - generic: 4.11万
+        - generic "4676.17": ▲ +4,676.17
+      - button "11 山东省 3.98万 ▲ +4,614.14":
+        - generic: "11"
+        - generic: 山东省
+        - generic: 3.98万
+        - generic "4614.14": ▲ +4,614.14
+      - button "12 湖南省 3.45万 ▲ +3,380.07":
+        - generic: "12"
+        - generic: 湖南省
+        - generic: 3.45万
+        - generic "3380.07": ▲ +3,380.07
+      - button "13 安徽省 3.32万 ▲ +3,751.87":
+        - generic: "13"
+        - generic: 安徽省
+        - generic: 3.32万
+        - generic "3751.87": ▲ +3,751.87
+      - button "14 重庆市 3.03万 ▲ +2,638.39":
+        - generic: "14"
+        - generic: 重庆市
+        - generic: 3.03万
+        - generic "2638.39": ▲ +2,638.39
+      - button "15 辽宁省 2.65万 ▲ +2,725.61":
+        - generic: "15"
+        - generic: 辽宁省
+        - generic: 2.65万
+        - generic "2725.61": ▲ +2,725.61
+      - button "16 天津市 2.29万 ▲ +2,119.63":
+        - generic: "16"
+        - generic: 天津市
+        - generic: 2.29万
+        - generic "2119.63": ▲ +2,119.63
+      - button "17 河南省 2.04万 ▲ +1,942.44":
+        - generic: "17"
+        - generic: 河南省
+        - generic: 2.04万
+        - generic "1942.44": ▲ +1,942.44
+      - button "18 黑龙江省 1.26万 ▲ +1,548.12":
+        - generic: "18"
+        - generic: 黑龙江省
+        - generic: 1.26万
+        - generic "1548.12": ▲ +1,548.12
+      - button "19 江西省 9,886 ▲ +866.15":
+        - generic: "19"
+        - generic: 江西省
+        - generic: 9,886
+        - generic "866.15": ▲ +866.15
+      - button "20 云南省 9,035.77 ▲ +1,001.07":
+        - generic: "20"
+        - generic: 云南省
+        - generic: 9,035.77
+        - generic "1001.07": ▲ +1,001.07
+      - button "21 河北省 8,568.98 ▲ +265.6":
+        - generic: "21"
+        - generic: 河北省
+        - generic: 8,568.98
+        - generic "265.6": ▲ +265.6
+      - button "22 广西壮族自治区 7,418.67 ▲ +1,123.96":
+        - generic: "22"
+        - generic: 广西壮族自治区
+        - generic: 7,418.67
+        - generic "1123.96": ▲ +1,123.96
+      - button "23 吉林省 6,968.54 ▲ +545.9":
+        - generic: "23"
+        - generic: 吉林省
+        - generic: 6,968.54
+        - generic "545.9": ▲ +545.9
+      - button "24 山西省 6,268.36 ▲ +792.48":
+        - generic: "24"
+        - generic: 山西省
+        - generic: 6,268.36
+        - generic "792.48": ▲ +792.48
+      - button "25 贵州省 4,251.15 ▲ +284.97":
+        - generic: "25"
+        - generic: 贵州省
+        - generic: 4,251.15
+        - generic "284.97": ▲ +284.97
+      - button "26 甘肃省 3,384.25 ▲ +160.13":
+        - generic: "26"
+        - generic: 甘肃省
+        - generic: 3,384.25
+        - generic "160.13": ▲ +160.13
+      - button "27 海南省 3,134.18 ▲ +332.27":
+        - generic: "27"
+        - generic: 海南省
+        - generic: 3,134.18
+        - generic "332.27": ▲ +332.27
+      - button "28 内蒙古自治区 2,133.91 ▲ +22.88":
+        - generic: "28"
+        - generic: 内蒙古自治区
+        - generic: 2,133.91
+        - generic "22.88": ▲ +22.88
+      - button "29 香港特别行政区 1,983.87 ▲ +256.66":
+        - generic: "29"
+        - generic: 香港特别行政区
+        - generic: 1,983.87
+        - generic "256.66": ▲ +256.66
+      - button "30 新疆维吾尔自治区 1,817.16 ▲ +192.3":
+        - generic: "30"
+        - generic: 新疆维吾尔自治区
+        - generic: 1,817.16
+        - generic "192.3": ▲ +192.3
+      - button "31 宁夏回族自治区 550.15 ▲ +51.18":
+        - generic: "31"
+        - generic: 宁夏回族自治区
+        - generic: "550.15"
+        - generic "51.18": ▲ +51.18
+      - button "32 青海省 383.44 ▲ +50.79":
+        - generic: "32"
+        - generic: 青海省
+        - generic: "383.44"
+        - generic "50.79": ▲ +50.79
+      - button "33 西藏自治区 333.42 ▲ +103.13":
+        - generic: "33"
+        - generic: 西藏自治区
+        - generic: "333.42"
+        - generic "103.13": ▲ +103.13
+      - button "34 澳门特别行政区 183.38 ▼ -21.32":
+        - generic: "34"
+        - generic: 澳门特别行政区
+        - generic: "183.38"
+        - generic "-21.32": ▼ -21.32
+  - generic: 开发者数量 · 中国
+- region "Notifications alt+T"

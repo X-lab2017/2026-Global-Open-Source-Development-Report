@@ -1,0 +1,43 @@
+{
+  "id": "gosd-goso-theme-map-v1",
+  "title": "GOSO 主题地图基线 v1.0",
+  "confirmed_date": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "reference_source_commit": "0ba87a4fb04af15945d133c37cf663d37ae95bd9",
+  "reference_site_version_number": 27,
+  "reference_saved_version_id": "appgprj_6acb8626527881918389aca3222bf146~appgver_dc59c615f9e88191a9a5b31a9800c58e",
+  "reference_url": "https://osdg-report-preview.token4all.chatgpt.site/2026/zh/chapters/02/#ch02-s01",
+  "inherits": "gosd-chapter-presentation-v1",
+  "specification": "docs/goso-theme-map-baseline-v1.md",
+  "scope": "Accepted V-Map narrative, map geometry, single-screen presentation and data-boundary patterns; not approval of unresolved annual/multi-platform figures.",
+  "verification": {
+    "user_accepted_online_version": true,
+    "reference_build_data_geometry_and_interaction_checks": "passed before baseline registration",
+    "browser_automation_visual_retest": "not_performed",
+    "registration_changes_chapter_body": false
+  },
+  "canonical_data_rules": {
+    "default_vmap_period": "2025 natural year",
+    "formal_report_target_period": "previous July 1 to current June 30",
+    "github_and_domestic_union": "conditional scenario, not verified unique union",
+    "map_aspect_scale": 0.75,
+    "five_groups_are_exhaustive": false,
+    "estimates_used_in_current_vmap": false
+  },
+  "reference_sha256": {
+    "web/vmap_content.py": "c5646bcdcaf5fe48af94a70203cb2f4f6d5dc427b0ee6e308fc351adc6045e51",
+    "web/vmap_maps.py": "da6a62ee998284f47d2e8c9bc5ef8c11d7334fe35fa7d491289ec84859744208",
+    "web/vmap.js": "af875e453f56948d600ff79f0d389e5e9ab3857b8aa85350c616962ad4b0035b",
+    "web/vmap.css": "f60495d46753b5da4339c37339b908a9f1d96c7968d4c82ffbc9d475c3d9e076",
+    "web/build_vmap_geometry.py": "bd002e111722ffa3b716b92dfe5b24ec425e8b4acf1a0ef57890ade3cd4cca4e",
+    "web/check_vmap.py": "1e1fcf22cbf57a851b3c442e69dcdcab1a37a921f9a6ae4aa81b2e84f7762859",
+    "web/chapter1-explorers.js": "29fbf213c83a7a6ed955306273953652897a7af7d82b010037db7d64ff538909",
+    "content/vmap/chapter-2-1.md": "bbce2f43c3529f5fd42517edaa48da1d78d846998019bebb7aeb7f69522e9062",
+    "content/vmap/map-geometry.json": "586ffb51e43854a290fce46035dd9f7f28893dd0100d42853e415ee958b15512",
+    "content/vmap/map-provenance.json": "eaf9ae6a8760dcba8287f743192aef6560c64367d3dab1f9d4278402fb4e1591",
+    "content/vmap/fig-2-1-2_platform-coverage.json": "5892bbcc2a3ec25acf7a5c9f88edba80b4c0371213095438940c66a428bfb7c0",
+    "content/vmap/fig-2-1-2_five-year-source.csv": "c35bed5dcb68fd975e6c6fc4ec0e0c8bc6b9d74421c7b95bcb1ae9ea0ab2f8dd",
+    "content/brand/visual-tokens-v5.json": "6e38590929a755aa2218b5f9ad7249dc650f402dbdedfab63856e58298a8bfdc",
+    "dist/2026/zh/chapters/02/index.html": "e075f486d58a1beb62d4d8a3e3f216a2d63970d316b89e3b051e3b050f4143f5"
+  }
+}

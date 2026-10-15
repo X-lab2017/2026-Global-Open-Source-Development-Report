@@ -1,0 +1,40 @@
+{
+  "id": "gosd-chapter-presentation-v1",
+  "title": "GOSD 章节呈现基线 v1.0",
+  "confirmed_date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "reference_preview": "v0.12.5",
+  "reference_commit": "b0225bb786388c1e17f4c56e40fc444d71865b27",
+  "reference_saved_version_id": "appgprj_6acb8626527881918389aca3222bf146~appgver_5a8adf66117c8191a8d2ea69d821ee2f",
+  "reference_url": "https://osdg-report-preview.token4all.chatgpt.site/2026/zh/chapters/01/",
+  "specification": "docs/chapter-presentation-baseline-v1.md",
+  "scope": "Chapter presentation style and interaction patterns; manuscript facts and data remain independently maintained.",
+  "counts": {
+    "interactive_figures": 6,
+    "reference_tables": 10,
+    "paginated_tables": 2
+  },
+  "verification": {
+    "user_confirmed_style": true,
+    "build_and_source_checks": "passed",
+    "paging_checks": "passed",
+    "browser_visual_retest": "not_performed"
+  },
+  "sha256": {
+    "web/base.css": "0dd1738409006aa4ed092ec2506f7068e36a4521192d129d629d853697be16e3",
+    "web/reader.css": "030b022d5b71ef40b84a54a3781d37a8cf73c38d3862631d59caf806a506a2a8",
+    "web/report.css": "963a0b600170e32e5b3a78987f108da0b4aaff40b5543d3684711a2f3556a42f",
+    "web/chapter1_explorers.py": "ed2543176039053454f6c3672c383aff7746a361e5c59c46bbe50c6258898689",
+    "web/chapter_visuals.py": "ee4bf01810438d1aaf3bca16cb99182567f7f1c3437eec2a3b11c92ac6d8c5be",
+    "web/chapter1-explorers.js": "29fbf213c83a7a6ed955306273953652897a7af7d82b010037db7d64ff538909",
+    "web/chapter-visuals.js": "2bea2f6f45a36874607a4b80fd4968856c6b6a24aba0540b0cee8ddbe4e50017",
+    "web/chapter1-explorers.css": "d1acd88ef488bc96dd8f3c033e82d6b8545b6a77bb2245eabe5dcc6e1e60e3b0",
+    "web/chapter-visuals.css": "2c9c7bad86a92db7cfb8069a9c67b7d5a1707cc7f833874bf287ef02e3a8ce22",
+    "web/chapter1-slides.css": "9da536179e200a8d63cabac3b348e0235ce4f400826f59aab839b517ddbd2e1b",
+    "web/chapter1_tables.py": "d5c35a49a9cfc0fff03368bc9b7999e0c14f3fae3a9065ba8c1ca9286cfa5892",
+    "web/report_content.py": "7fb23103727ada8d56aa2c5cd4b7ed266a0839c2bdaff2a5bb16381075eb42a0",
+    "content/brand/visual-tokens-v5.json": "6e38590929a755aa2218b5f9ad7249dc650f402dbdedfab63856e58298a8bfdc",
+    "dist/2026/zh/chapters/01/index.html": "ba042938a5d6b3145b76f24326cb18cf84ca01884319f68c5e2b9e37f22b5810",
+    "dist/2026/en/chapters/01/index.html": "50d4c6f5d1fbf89128f7292b3e52ae054408283efe6c8cdfe1392e69feaacc4e"
+  }
+}

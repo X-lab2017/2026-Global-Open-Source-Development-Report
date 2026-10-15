@@ -1,0 +1,50 @@
+"""Check GOSO evidence, source preservation and review delivery boundaries."""
+from pathlib import Path
+from html.parser import HTMLParser
+import argparse,csv,hashlib,json,math,xml.etree.ElementTree as ET
+import goso_content as goso
+
+parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+out=args.output
+class Page(HTMLParser):
+    def __init__(self,text):
+        super().__init__();self.charts=[];self.fields=[];self.count_sections=0;self.ids=[];self.feed(text)
+    def handle_starttag(self,tag,attrs):
+        a=dict(attrs)
+        if a.get('id'):self.ids.append(a['id'])
+        if 'data-goso-chart' in a:self.charts.append(a['data-goso-chart'])
+        if 'data-review-key' in a:self.fields.append(a['data-review-key'])
+        if tag=='section' and a.get('id','').startswith('ch02-s'):self.count_sections+=1
+
+views=goso.views();vlist=[v for vv in views.values() for v in vv]
+assert len(vlist)==17 and len({v['id'] for v in vlist})==17
+evidence=json.loads((out/'assets/goso/evidence-manifest.json').read_text())
+assert len(evidence['files'])==15 and evidence['source_ref']==goso.REF
+for k,entry in evidence['files'].items():
+    p=out/'assets/report/data'/Path(entry['path']).name
+    assert hashlib.sha256(p.read_bytes()).hexdigest()==entry['sha256'],entry['path']
+for v in vlist:
+    assert all(len(s['values'])==len(v['x']) for s in v['series'])
+    assert all(x is None or math.isfinite(x) for s in v['series'] for x in s['values'])
+    ET.fromstring((out/'assets/goso'/f'{v["id"]}.svg').read_text())
+platform=next(v for v in vlist if v['id']=='platforms')
+atom=next(s for s in platform['series'] if s['key']=='GitCode')
+assert atom['label']=='AtomGit' and atom['values'][:2]==[None,None]
+assert 'GitCode' in (out/'assets/report/data'/Path(goso.FILES['platforms']).name).read_text().splitlines()[0]
+coverage=next(v for v in vlist if v['id']=='coverage')
+known,unknown=coverage['series'][0]['values']
+assert known==71578 and unknown==2990573 and known+unknown==3062151
+assert round(unknown/(known+unknown)*100,2)==97.66
+active=goso.rows('active');assert round((float(active[-1]['China'])/float(active[-2]['China'])-1)*100,1)==42.0
+models=goso.rows('models');assert round((float(models[-1]['models'])/float(models[-2]['models'])-1)*100,1)==58.3
+assert round((float(models[-1]['publishers'])/float(models[-2]['publishers'])-1)*100,1)==48.4
+influence=goso.rows('influence');assert round((float(influence[-1]['China'])/float(influence[0]['China'])-1)*100)==160
+for lang in ['zh','en']:
+    text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
+    assert page.count_sections==7 and page.charts==['i','t','d','g','a']
+    assert len(page.fields)==4 and len(page.ids)==len(set(page.ids))
+    for term in ['97.66%','2026-09-13','AtomGit','GitCode','前 5%','待补充','当前浏览器','后续正文与图表修订在确认后更新']:assert term in text,term
+    for key in evidence['files']:
+        if key not in ('total','active'):assert goso.source(key) in text,key
+assert (out/'assets/goso/GOSO-review-draft.md').exists()
+print('PASS: GOSO seven sections, 17 preserved observation views plus V-Map/C-Map modules, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, four review fields and static exports.')

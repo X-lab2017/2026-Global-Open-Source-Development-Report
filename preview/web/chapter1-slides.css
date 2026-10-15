@@ -1,0 +1,143 @@
+/* Chapter 1 presentation surfaces. Scope typography so manuscript and dialog
+   parents produce identical geometry. Fixed panels never hide overflowing copy. */
+.chapter-one-visual.screen-slide,.chapter-table-figure.screen-slide{
+  box-sizing:border-box;position:absolute;left:0;top:0;width:1280px!important;
+  height:800px;max-width:none!important;transform-origin:top left;
+  margin:0!important;padding:28px!important;border:1px solid var(--line);
+  border-top:3px solid var(--cyan);border-radius:14px;background:var(--paper);
+  font-family:var(--sans);font-size:16px;font-weight:400;line-height:1.5;
+  letter-spacing:normal;text-align:left;color:var(--ink);overflow:visible;
+}
+.chapter-one-visual.screen-slide *,.chapter-table-figure.screen-slide *{box-sizing:border-box}
+.chapter-one-visual.screen-slide [hidden],.chapter-table-figure.screen-slide [hidden]{display:none!important}
+.chapter-one-visual.screen-slide button,.chapter-table-figure.screen-slide button{font-family:var(--sans);font-weight:400;line-height:1.5}
+.chapter-one-visual.screen-slide strong,.chapter-table-figure.screen-slide strong{font-weight:600}
+.chapter-one-visual.screen-slide .viz-heading{position:absolute;top:26px;left:28px;right:28px;margin:0;height:100px}
+.chapter-one-visual.screen-slide .eyebrow,.chapter-table-figure.screen-slide .eyebrow{font-size:12px;line-height:1.5;letter-spacing:.1em;color:var(--cyan)}
+.chapter-one-visual.screen-slide .viz-heading h4,.chapter-table-figure.screen-slide .table-slide-heading h4{
+  font-family:var(--sans)!important;font-size:29px!important;line-height:1.4!important;font-weight:600!important;margin:6px 0!important;
+}
+.chapter-one-visual.screen-slide .viz-heading p{font-size:16px!important;line-height:1.6!important;margin:6px 0!important;color:var(--muted)!important}
+.chapter-one-visual.screen-slide .viz-boundary{position:absolute;left:28px;right:28px;top:689px;margin:0!important;font-size:13px!important;line-height:1.65!important;color:var(--muted)!important}
+.chapter-one-visual.screen-slide>figcaption{position:absolute;left:28px;right:28px;top:744px;margin:0!important;padding:8px 0 0!important;border-top:1px solid var(--line);font-size:12px!important;line-height:1.5!important;color:var(--muted)}
+.chapter-one-visual.screen-slide .viz-source{margin:2px 0 0;font-size:11px;line-height:1.5}
+.chapter-one-visual.screen-slide a.inline-link,.chapter-table-figure.screen-slide a.inline-link{color:var(--brand);border-bottom:1px solid var(--line)}
+.chapter-one-visual.screen-slide .viz-label{font-size:12px;line-height:1.5;margin-bottom:12px}
+/* Linux: ten bars and a persistent inspector, with no truncated names. */
+#fig-linux.screen-slide .viz-chart-label{position:absolute;left:28px;top:141px;width:794px;margin:0;font-size:14px}
+#fig-linux.screen-slide .linux-bars{position:absolute;left:28px;top:178px;width:794px;height:492px;grid-template-rows:repeat(10,1fr);gap:5px}
+#fig-linux.screen-slide .linux-bar{grid-template-columns:252px minmax(0,1fr) 88px;padding:6px 0;gap:18px;height:44px}
+#fig-linux.screen-slide .bar-name{font-size:17px;white-space:normal;overflow:visible;line-height:1.3}
+#fig-linux.screen-slide .bar-name i{font-size:12px;min-width:29px}
+#fig-linux.screen-slide .bar-track{height:21px}
+#fig-linux.screen-slide .linux-bar>b{font-size:17px;font-weight:500}
+#fig-linux.screen-slide .linux-kpis{position:absolute;left:854px;top:140px;width:398px;margin:0;grid-template-columns:1fr;gap:16px}
+#fig-linux.screen-slide .linux-kpis button{display:flex;align-items:center;gap:20px;padding:22px;min-height:111px}
+#fig-linux.screen-slide .linux-kpis strong{font-size:40px;line-height:1.1;font-weight:500}
+#fig-linux.screen-slide .linux-kpis span{display:block;font-size:18px;line-height:1.5;margin:0}
+#fig-linux.screen-slide .linux-kpis small{font-size:12px;line-height:1.5;margin-top:8px}
+#fig-linux.screen-slide .viz-selection{position:absolute;left:854px;top:396px;width:398px;height:142px;display:flex;flex-direction:column;justify-content:center;gap:12px;margin:0;padding:22px;font-size:22px;line-height:1.4;overflow-wrap:anywhere}
+#fig-linux.screen-slide .viz-selection span{font-size:16px;line-height:1.6;color:var(--muted)}
+#fig-linux.screen-slide .viz-boundary{left:854px;right:28px;top:560px;font-size:14px!important;line-height:1.8!important}
+/* Model composition: an overview timeline stays visible for every month. */
+#fig-models.screen-slide .model-readout{position:absolute;left:28px;top:144px;width:280px;display:flex;flex-direction:column;align-items:stretch;gap:30px;margin:0}
+#fig-models.screen-slide .model-readout>div>span{font-size:19px;line-height:1.5}
+#fig-models.screen-slide .model-readout strong{font-size:84px;line-height:1.1;font-weight:500;margin:16px 0}
+#fig-models.screen-slide .model-readout strong small{font-size:32px}
+#fig-models.screen-slide .model-readout p{font-size:17px!important;line-height:1.7!important;margin:12px 0!important;max-width:none;color:var(--muted)!important}
+#fig-models.screen-slide .model-measures>div{font-size:18px;line-height:1.5;gap:12px;padding:13px 0}
+#fig-models.screen-slide .model-measures b{font-size:25px;font-weight:500}
+#fig-models.screen-slide .stack-chart{position:absolute;left:346px;top:151px;width:906px;height:400px;grid-template-columns:42px minmax(0,1fr);gap:12px}
+#fig-models.screen-slide .stack-axis{font-size:13px;line-height:1.5}
+#fig-models.screen-slide .month-bars{gap:7px}
+#fig-models.screen-slide .month-endpoints{position:absolute;left:400px;top:568px;width:852px;margin:0;font-size:14px;line-height:1.5}
+#fig-models.screen-slide .month-control{position:absolute;left:346px;top:611px;width:906px;height:54px;margin:0;padding:14px 20px;font-size:16px;gap:20px;line-height:1.5}
+/* Development goals and reviewable conditions share a balanced two-column field. */
+#fig-public-goods.screen-slide .public-goods-layout{position:absolute;left:28px;top:140px;width:1224px;height:500px;grid-template-columns:440px 752px;gap:32px;align-items:start}
+#fig-public-goods.screen-slide .sdg-side{border-right:1px solid var(--line);border-bottom:0;padding:0 32px 0 0;height:500px}
+#fig-public-goods.screen-slide .sdg-wheel{width:340px;max-width:none;height:340px;margin:10px auto 16px}
+#fig-public-goods.screen-slide .sdg-selection{padding:15px 0 0;border-top:1px solid var(--line);text-align:center;font-size:21px;line-height:1.5;min-height:0}
+#fig-public-goods.screen-slide .sdg-selection b{font-size:17px;margin-bottom:5px;font-weight:600}
+#fig-public-goods.screen-slide .dpga-side{padding:0}
+#fig-public-goods.screen-slide .dpga-wordmark{display:flex;align-items:baseline;gap:22px;font-size:39px;line-height:1.2;margin:0 0 16px}
+#fig-public-goods.screen-slide .dpga-wordmark small{font-size:13px;line-height:1.5;margin:0}
+#fig-public-goods.screen-slide .dpg-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#fig-public-goods.screen-slide .dpg-grid button{height:86px;min-height:0;padding:10px 15px;line-height:1.35}
+#fig-public-goods.screen-slide .dpg-grid b{font-size:12px;line-height:1.3;margin-bottom:3px;font-weight:500}
+#fig-public-goods.screen-slide .dpg-grid span{font-size:17px;line-height:1.35}
+#fig-public-goods.screen-slide .dpg-selection{margin-top:16px;padding:16px 20px;background:var(--pale);height:104px;min-height:0}
+#fig-public-goods.screen-slide .dpg-selection strong{font-size:19px;line-height:1.5;font-weight:600}
+#fig-public-goods.screen-slide .dpg-selection p{font-size:17px!important;line-height:1.6!important;margin:7px 0 0!important;color:var(--muted)!important}
+#fig-public-goods.screen-slide .public-assets{position:absolute;left:28px;top:643px;width:1224px;height:37px;margin:0;padding:0;gap:32px;align-items:center}
+#fig-public-goods.screen-slide .public-assets span{font-size:15px;line-height:1.5;padding:5px 12px}
+/* OSDGs: retain all 4 pillars + 10 dimensions while inspecting one at right. */
+#fig-osdg-goals.screen-slide .goal-map{position:absolute;left:28px;top:142px;width:784px;height:532px;margin:0;line-height:1.5}
+.goal-pillar-row{display:grid;grid-template-columns:36% 1fr;border:1px solid var(--line);border-left:4px solid var(--pillar);background:var(--surface);padding:12px;gap:12px;min-width:0}
+.goal-pillar-row button{border:1px solid var(--line);background:var(--paper);text-align:left;padding:10px;line-height:1.4}
+.goal-pillar-name{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;font-size:16px}
+.goal-pillar-name b{color:var(--pillar)}
+.goal-dimension-buttons{display:grid;gap:6px}
+.goal-dimension-buttons button{display:flex;gap:12px;font-size:14px;align-items:center}
+.goal-dimension-buttons b{font-weight:400;color:var(--muted)}
+#fig-osdg-goals .goal-hotspots{position:static;display:grid;gap:12px}
+#fig-osdg-goals .goal-hotspots button{position:static;cursor:pointer;box-shadow:none;line-height:1.4}
+#fig-osdg-goals .goal-hotspots button[aria-pressed=true]{background:var(--pale);border-color:var(--cyan);box-shadow:inset 0 -2px var(--cyan)}
+#fig-osdg-goals.screen-slide .goal-hotspots{height:532px;grid-template-rows:repeat(4,121px);gap:16px}
+#fig-osdg-goals.screen-slide .goal-pillar-row{grid-template-columns:272px 1fr;padding:10px;gap:14px}
+#fig-osdg-goals.screen-slide .goal-hotspots button{padding:6px 12px}
+#fig-osdg-goals.screen-slide .goal-pillar-name{font-size:21px;line-height:1.4;grid-template-columns:30px 1fr;gap:12px}
+#fig-osdg-goals.screen-slide .goal-dimension-buttons{gap:5px;min-height:0}
+#fig-osdg-goals.screen-slide .goal-dimension-buttons button{font-size:18px;line-height:1.3;padding:3px 12px}
+#fig-osdg-goals.screen-slide .goal-dimension-buttons b{font-size:14px;min-width:28px}
+#fig-osdg-goals.screen-slide .goal-selection{position:absolute;left:840px;top:142px;width:412px;height:532px;display:flex;flex-direction:column;gap:16px;min-height:0;margin:0;padding:23px}
+#fig-osdg-goals.screen-slide .goal-selection .viz-label{font-size:12px;line-height:1.4;margin:0 0 9px}
+#fig-osdg-goals.screen-slide .goal-selection strong{font-size:22px;line-height:1.4;font-weight:600}
+#fig-osdg-goals.screen-slide .goal-selection p{font-size:17px!important;line-height:1.6!important;margin:12px 0!important;color:var(--ink)!important}
+#fig-osdg-goals.screen-slide .goal-selection small{font-size:15px;line-height:1.7;color:var(--muted)}
+#fig-osdg-goals.screen-slide .goal-detail-indicators>div{gap:7px}
+#fig-osdg-goals.screen-slide .goal-detail-indicators a{font-size:12px;line-height:1.5;padding:5px 7px;font-family:var(--sans)}
+#fig-osdg-goals.screen-slide .goal-mobile-select{display:none}
+/* Short comparisons show every row. Long evidence tables use fixed-size pages. */
+.chapter-table-reference{margin:22px 0;padding:14px 0;border-block:1px solid var(--line)}
+.chapter-table-reference>summary{font:14px/1.6 var(--sans);cursor:pointer;color:var(--brand)}
+.chapter-table-figure{margin:24px 0;padding:20px;border:1px solid var(--line);background:var(--paper)}
+.chapter-table-figure .table-slide-heading h4{font-family:var(--sans);font-size:22px;margin:8px 0}
+.chapter-table-figure .table-total{font-size:12px;color:var(--muted)}
+.chapter-compact-table{border-collapse:collapse;width:100%;table-layout:fixed;line-height:1.6;font-size:14px}
+.chapter-compact-table th,.chapter-compact-table td{padding:14px 12px;text-align:left;vertical-align:top;overflow-wrap:anywhere;border-bottom:1px solid var(--line);font-weight:400}
+.chapter-compact-table thead th{background:var(--pale);font-weight:600}
+.chapter-compact-table tbody th{font-weight:600;color:var(--brand)}
+.chapter-table-figure.screen-slide{height:var(--slide-height,720px)}
+.chapter-table-figure.screen-slide .table-slide-heading{position:absolute;left:28px;right:28px;top:26px;height:100px}
+.chapter-table-figure.screen-slide .table-total{position:absolute;right:0;top:0;font-size:14px;line-height:1.5}
+.chapter-table-figure.screen-slide .table-slide-body{position:absolute;left:28px;right:28px;top:130px}
+.chapter-table-figure.screen-slide .chapter-compact-table{margin:0;font:20px/1.65 var(--sans);table-layout:fixed;min-width:0}
+.chapter-table-figure.screen-slide .chapter-compact-table th,.chapter-table-figure.screen-slide .chapter-compact-table td{font-size:20px;line-height:1.65;padding:17px 18px;color:var(--ink);white-space:normal;min-width:0}
+.chapter-table-figure.screen-slide .chapter-compact-table tbody th{font-weight:600;color:var(--brand)}
+.chapter-table-figure.screen-slide .chapter-compact-table thead th{font-size:17px;font-weight:500}
+.chapter-table-figure.screen-slide .chapter-compact-table code{font:17px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+.chapter-table-figure.screen-slide.has-pages .chapter-compact-table th,.chapter-table-figure.screen-slide.has-pages .chapter-compact-table td{font-size:18px;line-height:1.5;padding:10px 16px}
+.chapter-table-figure.screen-slide .table-pagination{position:absolute;left:28px;right:28px;bottom:65px;display:flex;align-items:center;gap:9px;height:40px;font-size:15px;line-height:1.5}
+.chapter-table-figure.screen-slide .table-pagination span{margin-right:auto;color:var(--muted)}
+.chapter-table-figure.screen-slide .table-pagination button{border:1px solid var(--line);padding:7px 12px;min-width:40px;border-radius:4px}
+.chapter-table-figure.screen-slide .table-pagination button[aria-current=page]{background:var(--brand);color:var(--paper)}
+.chapter-table-figure.screen-slide>figcaption{position:absolute;left:28px;right:28px;bottom:22px;top:auto;margin:0!important;padding-top:10px;border-top:1px solid var(--line);font-size:13px!important;line-height:1.6!important;color:var(--muted)}
+@media print{
+ .chapter-one-visual.screen-slide,.chapter-table-figure.screen-slide{position:static!important;width:100%!important;height:auto!important;transform:none!important;display:block!important;margin:18px 0!important;padding:15px!important;break-inside:auto}
+ .chapter-one-visual.screen-slide>*,.chapter-table-figure.screen-slide>*{position:static!important;width:auto!important;height:auto!important;margin:12px 0!important}
+ .chapter-one-visual.screen-slide .viz-heading h4,.chapter-table-figure.screen-slide .table-slide-heading h4{font-size:16pt!important}
+ #fig-linux.screen-slide .linux-bars{display:grid;height:auto;gap:5px}
+ #fig-linux.screen-slide .linux-bar{height:auto;grid-template-columns:180px 1fr 70px}
+ #fig-linux.screen-slide .linux-kpis{display:flex}
+ #fig-models.screen-slide .model-readout{display:flex;flex-direction:row}
+ #fig-models.screen-slide .stack-chart{height:50mm!important}
+ #fig-public-goods.screen-slide .public-goods-layout{grid-template-columns:1fr 1.5fr}
+ #fig-public-goods.screen-slide .sdg-wheel{width:200px;height:200px}
+ #fig-public-goods.screen-slide .sdg-side{height:auto;padding:0 15px 0 0}
+ #fig-osdg-goals.screen-slide .goal-hotspots{display:grid!important;grid-template-rows:none;height:auto}
+ #fig-osdg-goals.screen-slide .goal-pillar-row{grid-template-columns:36% 1fr}
+ .chapter-table-figure.screen-slide .chapter-compact-table th,.chapter-table-figure.screen-slide .chapter-compact-table td{font-size:10pt!important;padding:8px!important}
+ .chapter-table-figure.screen-slide .chapter-compact-table code{font-size:9pt}
+ .chapter-table-figure.screen-slide tbody tr[hidden]{display:table-row!important}
+ .chapter-table-figure.screen-slide .table-pagination,.chapter-table-figure.screen-slide .table-total{display:none!important}
+}

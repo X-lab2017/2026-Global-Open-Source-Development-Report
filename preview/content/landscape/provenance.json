@@ -1,0 +1,990 @@
+{
+  "report_commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+  "landscape_commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+  "files": [
+    {
+      "file": "data/fig-4-1-5_agentic_ai_scatter_top12.csv",
+      "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+      "path": "data/processed/chapter4/fig-4-1-5_agentic_ai_scatter_top12.csv",
+      "commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+      "sha256": "9d00399a3a027c093813b5d91ce3e21d2065a2c06187630189b733efdbdc270c"
+    },
+    {
+      "file": "data/fig-4-1-2_agentic_ai_top10_monthly.csv",
+      "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+      "path": "data/processed/chapter4/fig-4-1-2_agentic_ai_top10_monthly.csv",
+      "commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+      "sha256": "1efff91929451a6e493cc024995b11011ddf8da6f76ad73fcb7b9f0587cb8b8f"
+    },
+    {
+      "file": "data/fig-4-1-3_agentic_ai_subfield_5y.csv",
+      "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+      "path": "data/processed/chapter4/fig-4-1-3_agentic_ai_subfield_5y.csv",
+      "commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+      "sha256": "93bcd576d543438ac3c3cc98ca45268a73d00b95bed4ad6b89571930e53bdb4b"
+    },
+    {
+      "file": "data/fig-4-1-4_agentic_ai_country_top3.csv",
+      "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+      "path": "data/processed/chapter4/fig-4-1-4_agentic_ai_country_top3.csv",
+      "commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+      "sha256": "e04b9d6b582aeead721ab55d8aaae56e3e2c745fd8b7df51ebfad7985de36546"
+    },
+    {
+      "file": "data/fig-4-1-1_agentic_ai_landscape.csv",
+      "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+      "path": "data/processed/chapter4/fig-4-1-1_agentic_ai_landscape.csv",
+      "commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+      "sha256": "ffc8e49af62ef058a089386f5accb2239750326b7c780461752a9bf384cabe2d"
+    },
+    {
+      "file": "data/agentic-ai-projects.csv",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "data/agentic-ai-projects.csv",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "e2d2420e0237846db6659165641200b7ae5fe0e98a0b4c348a0bea244c3e7e2c"
+    },
+    {
+      "file": "data/collaboration-thread-estimates-bootstrap-2026.csv",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "insights/260912_open_collaboration_ai/research/collaboration-thread-estimates-bootstrap-2026.csv",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "3ded13fdbcb45911130e54fb1cd6930435b4e185b7377d88ff2b224295ace3c0"
+    },
+    {
+      "file": "original/landscape_agent_infra.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "insights/260527-agentic_landscape/landscape_agent_infra.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b88ef41321f0eb43176b4b9bf4c2ccb36449d45a79ee51f87a6607835376c7c1"
+    },
+    {
+      "file": "original/landscape_model_infra.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "insights/260527-agentic_landscape/landscape_model_infra.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "d7e8a8e8aa6740a3b11267887bbb492fc760f8d5e2d846cf07b6298538c04e00"
+    },
+    {
+      "file": "logos/a2aproject.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/a2aproject.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "901182fcfd2e1e039661cdbd8b8d8959f82090b849d3dff95f994bf10aab9a28"
+    },
+    {
+      "file": "logos/a2ui-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/a2ui-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "bd3b0110573b2fc2d097ba208a1090d16b9166c64c7d8f8bb48d6939cc9e0993"
+    },
+    {
+      "file": "logos/aaif-goose.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/aaif-goose.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "13fa0716933ec7a23af3b0cdd889f0c128a9ba31d342c805b6acc2da933f7690"
+    },
+    {
+      "file": "logos/activepieces.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/activepieces.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a8f074c42ba0b691af1a9ea34d3f9fb54bc8200666ff83b243088d5cad3a893d"
+    },
+    {
+      "file": "logos/affaan-m.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/affaan-m.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "756c5eefeb35e9887c771287bdee3902e440d03ef7b53d644f4c9b3bb4a7bb28"
+    },
+    {
+      "file": "logos/ag-ui-protocol.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/ag-ui-protocol.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b8410805f05ea7fa8743fac5756c9ea969d474c3304c075dbf6b4652a56e5a39"
+    },
+    {
+      "file": "logos/agentgateway.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/agentgateway.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "42a3148dbca6ae57bd2a82922ec77fec581c8d70c9a1bfcc41bc80809ee6f455"
+    },
+    {
+      "file": "logos/agentscope-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/agentscope-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "1400ec6654c3ab58e788341c6d606db7210f12b862b476beb6aee0747e7600b5"
+    },
+    {
+      "file": "logos/agno-agi.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/agno-agi.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "9baa60a0a45126615d82e4227dc87136d577cbd4f54b222c106fbdd63203031e"
+    },
+    {
+      "file": "logos/ai-dynamo.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/ai-dynamo.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "114d9ae2470a55d8b20347a0f7591bd0f176134c837604daabdbcb9038670f48"
+    },
+    {
+      "file": "logos/airbytehq.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/airbytehq.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "caeaf1d2df7556e44880764964dc6d1d75941a1dad4c88d479981bb75cd141e2"
+    },
+    {
+      "file": "logos/alibaba.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/alibaba.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ded63d3c953bbf47543ff7c98f60281d3d438a54fd91547867bbfed0e0a9fae3"
+    },
+    {
+      "file": "logos/anomalyco.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/anomalyco.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "2c7d40f26e127b7913275e7fddd271b1d7afa792bb40a6edff996fdf45b839f7"
+    },
+    {
+      "file": "logos/anthropics.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/anthropics.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4f6a996613b46dd7c7db71e93aeb5f707661990ee6609ca46543625f2ab8abdb"
+    },
+    {
+      "file": "logos/apache.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/apache.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "513d44f28f7a8f60c61870dac6a4df21fa8e4d3236feca5ed1b91aba8d3a7447"
+    },
+    {
+      "file": "logos/areal-project.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/areal-project.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "96caab8c5c71c1abb2518c04cb602f5dbf50a8ff801fe3c74a2e6a2a4b87e259"
+    },
+    {
+      "file": "logos/arize-ai.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/arize-ai.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a0fe723686823a427f943ce2ac8d4399bcabf176cfdd56ac35fc6ef30d3ba55a"
+    },
+    {
+      "file": "logos/astrbotdevs.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/astrbotdevs.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4c445667b1163597131691a82fea4379025c0dc71e9f58f7afee98b5eeaf15f4"
+    },
+    {
+      "file": "logos/berriai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/berriai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "c623ce754d3de00b12334414a636b5acdaad6cc95c0d76326d0f7f86f4b76fe8"
+    },
+    {
+      "file": "logos/browser-use.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/browser-use.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "6b96c54f73c3d09d4b2fd70d415d6574eaaabd9f4e00ff27acd7b98ef0aa03f1"
+    },
+    {
+      "file": "logos/bytedance.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/bytedance.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b1217162d1eac9fd95dac9365857dfe9f7bee66278e1b5eb31ce9b2771dc6dd9"
+    },
+    {
+      "file": "logos/cherryhq.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/cherryhq.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "647053aab27e6e37bdf2f96c59bfd5695aea879b28a3817a64a23e54c956af65"
+    },
+    {
+      "file": "logos/cline.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/cline.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "3743e030729b57229fedbfc765759bd3e6c0c4709a467d5885b156947041e6a0"
+    },
+    {
+      "file": "logos/code-yeongyu.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/code-yeongyu.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "e08efa3246810e44a212ab85a00415b7877c99cb289fad48d18d83d4373baac0"
+    },
+    {
+      "file": "logos/coder.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/coder.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "d7b45df5f8870fa2b3d2e3c7d2e06e9ca5ee9abd91b43b2a4da9f88de8fd6f5c"
+    },
+    {
+      "file": "logos/comet-ml.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/comet-ml.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "f832f76161c908a0eb8c6a058f6cb718fd75d2f92479db427f8b261080a105e8"
+    },
+    {
+      "file": "logos/copilotkit.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/copilotkit.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "384670ebaf83e80f0a40c5d22554a8a05b5a1de79b222ed892c9510e1fb4da8c"
+    },
+    {
+      "file": "logos/crewaiinc.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/crewaiinc.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4facf678ef6cf10a883a15485eca46a06270775fceb56e674623e7fe5d3c5c9f"
+    },
+    {
+      "file": "logos/cvat-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/cvat-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "53e7702c5dba3382b7f25faa673b0230eb1b471c3ff1edb2b919216f9f0680e9"
+    },
+    {
+      "file": "logos/danny-avila.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/danny-avila.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "5e731ff5ca59f04adc4899a88653155fc74ccb4844982a4b65149f9cf37642a4"
+    },
+    {
+      "file": "logos/dao-ailab.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/dao-ailab.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "2b6de63dcacccb518de9bc40d1533071b1d4c23bcf6cbf0fc79636a70ee06766"
+    },
+    {
+      "file": "logos/datahub-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/datahub-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "9555922668bf7abd30c060922cf773e31107a22f18804090d6b3a6d4a5a4de13"
+    },
+    {
+      "file": "logos/daytonaio.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/daytonaio.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "e80cf6e7eba2a191f22d489d01610812d6b0cc17e1a27bf9462fabc01c6acb23"
+    },
+    {
+      "file": "logos/deepseek-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/deepseek-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b511c13793372884be86cd9977e4a16f19d14d77ceabbf34c66f17316e2df54e"
+    },
+    {
+      "file": "logos/deepspeedai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/deepspeedai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "cd4c7b778fb06960a5e0337de660a36af14fb25f6a6e8e64093ac06723ba06a4"
+    },
+    {
+      "file": "logos/delta-io.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/delta-io.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "0be4354165b4063978cde4b9578d72728d405d68021c4438876f754e4f565514"
+    },
+    {
+      "file": "logos/diegosouzapw.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/diegosouzapw.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "11a27ec464ddde800ced453ab1156b12cee96150023cc9ea1acd60262ecf77b7"
+    },
+    {
+      "file": "logos/docling-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/docling-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ca37743e9f0fbc79c942e3c390e96cddbda46867c815ef2a2125e5e68d5c7aa1"
+    },
+    {
+      "file": "logos/earendil-works.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/earendil-works.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "5efdd95bc5fee5708f1fd83111788d41fa8e1926a5b4dd6b1b68022717601992"
+    },
+    {
+      "file": "logos/esengine.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/esengine.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "1791f1c6f961ce204b1c9626dbe0fd4cfbe44ea00f36b8e684c36b18d2917dff"
+    },
+    {
+      "file": "logos/farion1231.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/farion1231.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a559abd5b4d34178acfeb3d54596d1d2d9a5bf576777d19d7a56d179cf695320"
+    },
+    {
+      "file": "logos/firecrawl.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/firecrawl.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "2236aaf0fcaf020b1408cc085455ea5fa95e15935009cca5ebccc5813b1dc194"
+    },
+    {
+      "file": "logos/flashinfer-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/flashinfer-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "92a2753e0f40c44655d4277b0b07328fe71a61a70100d6df0e5135cd72865dda"
+    },
+    {
+      "file": "logos/flowiseai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/flowiseai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "7936bdb991ff4b939c290697d105a0ba7d41c23f42f77b5dd4515033ad225d92"
+    },
+    {
+      "file": "logos/ggml-org.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/ggml-org.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "db133339c436c0112290ab5d917a61843bf20eb2c0aecb246621ea7a0919ef2a"
+    },
+    {
+      "file": "logos/github.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/github.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "e3e26a860d6648652118f54218303d9e33efb4af4c270da9638d800fe3bec4b7"
+    },
+    {
+      "file": "logos/google.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/google.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a8a9cfef3ad9aeda06d883a4eeaa6e35584ab0fb910032dd74c076e4bfc08cd4"
+    },
+    {
+      "file": "logos/google-gemini.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/google-gemini.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ce966289fd3dc868be3bc2a69af4b2e39a0af4862b8091dece332be826fb65b1"
+    },
+    {
+      "file": "logos/headroomlabs-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/headroomlabs-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "644bcc3eb50e6f8be4d410ac8a98ab2f26757f4bfc00bd35ba963006b97fb4cb"
+    },
+    {
+      "file": "logos/herdrdev.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/herdrdev.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ba2ce5886facdbdc1d5a42ddd55f1d91e4fe568308d523f7aaf3c5bad321255c"
+    },
+    {
+      "file": "logos/higress-group.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/higress-group.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "edb5d87bbe159c275dbe06e8ca414919508a81c69e6d7c1dcabe17ca11b8b353"
+    },
+    {
+      "file": "logos/hiyouga.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/hiyouga.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "e8895ba272024f8d91e65b6a9d54dbcc158c00aba6c6bd43c85423e4e8d54244"
+    },
+    {
+      "file": "logos/hkuds.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/hkuds.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "6ae8324f63f19bea7c64073520f3fbba1be012a2d0c151b17a60f1f8ef096f09"
+    },
+    {
+      "file": "logos/huggingface.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/huggingface.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "d109edafe40733dd32ef4acef19c157dc3558edc8168b3348aa13a399cd4da65"
+    },
+    {
+      "file": "logos/humansignal.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/humansignal.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "8c4219a42971f3272bfc5e2cbd502af6d0b259122234620f999d7653c2bdd215"
+    },
+    {
+      "file": "logos/ibm.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/ibm.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a85c2b1d1959e408841341e6baaee7b2e61364cbbd95f18267f6194522af366a"
+    },
+    {
+      "file": "logos/infiniflow.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/infiniflow.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "7c350ea1fad203abb091cbe0586f447e6e204af8b40387af265256d99a19b811"
+    },
+    {
+      "file": "logos/jax-ml.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/jax-ml.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b726e225485315a54d3da16290a1065652094cfd696c719dd38988fb92061439"
+    },
+    {
+      "file": "logos/jetbrains.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/jetbrains.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b4d965609e3c5011cdac045ea536e8cf4d175ead36bd5bad0fe6433408ebd89b"
+    },
+    {
+      "file": "logos/kilo-org.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/kilo-org.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "49d3b843fd7244cb8cd6d2280bb7534f25c79dbdaf0b664f7528982146ca044e"
+    },
+    {
+      "file": "logos/kserve.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/kserve.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "033617cae55994819af280d8fd5f001e4699629b8ae9f15c1544e811b50e006a"
+    },
+    {
+      "file": "logos/kubernetes-sigs.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/kubernetes-sigs.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "63919040e9cb77f05b4e46c96a85beab7df54fb9575dd7de28669a8ec69cc49e"
+    },
+    {
+      "file": "logos/langchain-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/langchain-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "f4fcbe28ca804c33c8fc98b31bead000a5c2639f228675e0e56bb9f68cc30ebe"
+    },
+    {
+      "file": "logos/langflow-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/langflow-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "cbb728b2490faccf6e59f176440f3aa956c3bc9f1f4c09ac5a0363caf55fd4ea"
+    },
+    {
+      "file": "logos/langfuse.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/langfuse.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "6814993d925c682207a87871357a4935c6fe3f74b1365a864bb3f4a4150da237"
+    },
+    {
+      "file": "logos/langgenius.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/langgenius.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "0b49ba529247826e4b387dc5f7f87beead25266db4594c775add7f956a0473fc"
+    },
+    {
+      "file": "logos/larksuite.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/larksuite.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a67e2502076a672f1d854edb5177d86c61181033fd231c515d82969c011c4476"
+    },
+    {
+      "file": "logos/livekit.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/livekit.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "1de30a698f846f5df80f0dc96f881c726d329e22e4eb9019fa85cb481a90fdf9"
+    },
+    {
+      "file": "logos/llm-d.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/llm-d.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "52bb4d03dc5770146e51d7673cba53cf5044a7853d390d41db46b4f8ab1e1b71"
+    },
+    {
+      "file": "logos/lmcache.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/lmcache.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "acd28531ef3a28291380e2af6fa26ebb0fe43079d4b38fd8bbb3cae9a2d1134d"
+    },
+    {
+      "file": "logos/lobehub.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/lobehub.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "d91855bbc5f29cb264d84a2b1f05019b0bada0c290e5758fda98f5ff266e2044"
+    },
+    {
+      "file": "logos/mastra-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/mastra-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ec3c52b8e72dc81998c6ea99467b2be136477bdc948cecac7c88bfcbd9bb3a45"
+    },
+    {
+      "file": "logos/mem0ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/mem0ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "598b248fe18597a79e7e73e38015700ac34b2379415f0068a2eac1bf83b078bf"
+    },
+    {
+      "file": "logos/microsoft.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/microsoft.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "e6d0600da8151473acacf865c539cdd1e8f8a4a0f609a7ddf2a4d21454db0c22"
+    },
+    {
+      "file": "logos/milvus-io.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/milvus-io.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "495059c135afc0c7bed2b32d2a67f8de212635090d2e3a2fb3fa4a7d17c32c8b"
+    },
+    {
+      "file": "logos/mlflow.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/mlflow.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "2895665ff75772ba4405b61385e33b5e0671dabc99a6c9a49233ced102fd4de4"
+    },
+    {
+      "file": "logos/modelcontextprotocol.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/modelcontextprotocol.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "5bfb8aea84a0b6c5f346968761ed48393a7a6a459fe385de020f3e7d7f64874d"
+    },
+    {
+      "file": "logos/modelscope.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/modelscope.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "d5c365504c6df4eb32348707379808a49aa6fc4c03cb4f8b8ce72fc01ca92cf0"
+    },
+    {
+      "file": "logos/moonshotai.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/moonshotai.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "adadec8f90861997d7418c5f1bbcfd074eb96e5c44d16bf042812a6782101418"
+    },
+    {
+      "file": "logos/multica-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/multica-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "df0d8ff45f8f3961f767916d2b4c776223fefcc13b6029e4a8518a7cce6e872e"
+    },
+    {
+      "file": "logos/n8n-io.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/n8n-io.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "9f2d14be5dac3d36f05da53d7cab0b46a897167e926f6ef4aed50154d43a2b7b"
+    },
+    {
+      "file": "logos/nousresearch.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/nousresearch.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "3bdfa0a7db7b5e842c88fe4d6c0ec7c94c0720f982d032a80f3fd05117a00513"
+    },
+    {
+      "file": "logos/nvidia.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/nvidia.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "6bdd0ea7d7dd4833c56f13de4aa057d2553741cbecaa363a64d88982c088ba7d"
+    },
+    {
+      "file": "logos/nvidia-nemo.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/nvidia-nemo.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b63882d2c8e9f37df80e2d9e50a6cb1ee8207dbfa61b849e7ccb5b5d080f8936"
+    },
+    {
+      "file": "logos/obra.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/obra.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a198100669a6fc31f931e263c12beb129b9fe5c3d0e338869af81e5f22b766b3"
+    },
+    {
+      "file": "logos/oceanbase.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/oceanbase.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "76a3cae150da1c0f33258abc39c08960960661d1cabb7e9662c6a8e042cf15d0"
+    },
+    {
+      "file": "logos/ollama.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/ollama.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "206962f002f5736d4b53ba4c3faebacd91d5c7f0c92c127d8df8c72c4e165cd5"
+    },
+    {
+      "file": "logos/open-metadata.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/open-metadata.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b439144edcdb2d8d0a9422d1974bfa30e9740eac59db1a81d733f057b8efbede"
+    },
+    {
+      "file": "logos/open-webui.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/open-webui.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4d4b8f2bfa2636f5d29e8a9fcc6bd37d42fb13cc08cfa0f820f46b2ba1772439"
+    },
+    {
+      "file": "logos/openai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/openai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "54320e3bfb7a021b858f1e0bf3e71f590c1f8801389f48ec74ca621dd54c40e7"
+    },
+    {
+      "file": "logos/openclaw.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/openclaw.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "bdf27fc48a38d8a6e39141322a22e112ef8318713fd1e95c94a666b5edc441fb"
+    },
+    {
+      "file": "logos/openhands.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/openhands.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "16d41104721a224283a65694546f81226d827b0d817aa9aad6b3578776417d72"
+    },
+    {
+      "file": "logos/openmind.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/openmind.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "67003e2b3b5a39413d14d8a9ad40b1d8caed92d9b8bce5b0279072ba662c7f16"
+    },
+    {
+      "file": "logos/opensandbox-group.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/opensandbox-group.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "890b722bd7431a84b1634defd96512088f47749eac971f5c771f41b01e85a8f9"
+    },
+    {
+      "file": "logos/openvinotoolkit.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/openvinotoolkit.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4c05dd16d7a0fcb2619ae82d8726c53f7ee47c20b3485486dbbf483b50d83315"
+    },
+    {
+      "file": "logos/openxla.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/openxla.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "f910ee464aa3e9508a264ca9643d1ff3d98a8d01ad8c1727e3cd0e8432157385"
+    },
+    {
+      "file": "logos/paddlepaddle.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/paddlepaddle.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "a96e96dbd19c8c5a3518628ddc5bd396f7e9a82d79b7a74d0907fd969230be8a"
+    },
+    {
+      "file": "logos/paperclipai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/paperclipai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "67f66f6cce59132ec11cbeef81933ff9983876ffa06f7a95bf79e0874f3c2482"
+    },
+    {
+      "file": "logos/pingdotgg.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/pingdotgg.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "3c365e293da50df9804c74aa9141f4a813844c933dd51147e15ea6f919fe2294"
+    },
+    {
+      "file": "logos/pipecat-ai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/pipecat-ai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "bdfe5dd667204310e106462dbd91d4886e7b9bc3ef4ddfc6e22ce660d700b2c9"
+    },
+    {
+      "file": "logos/promptfoo.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/promptfoo.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4088346fee07e5d8ef80f550700849acb9587bbb0ea19ba4ce8e3c4bd2920bad"
+    },
+    {
+      "file": "logos/pydantic.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/pydantic.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "23e1f562949a4b67b5730af6b6c2232fa448cc10568e96059f5b28daf04127c7"
+    },
+    {
+      "file": "logos/pytorch.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/pytorch.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "03001095574ba2745e92ccc6c6bec0355d98c7b9e45aea1af2207940908dedff"
+    },
+    {
+      "file": "logos/quantumnous.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/quantumnous.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "1db51ed17e1a3c5f4d6b24860d3af1d7f628b1dd06a15139add32d0a68f6c014"
+    },
+    {
+      "file": "logos/qwenlm.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/qwenlm.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "32b910bb95b2bf8bbcfea4e2a7c1df7961d8cf2cc3846279112e30d067d56d3d"
+    },
+    {
+      "file": "logos/ray-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/ray-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "3fd2bc6155caac9f3d80789bcc89ed43e579f52d3e07c75e4f41191837c96b49"
+    },
+    {
+      "file": "logos/rlinf.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/rlinf.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "4dad347b04dea08e018107499f408252ae3c2c5cd264c4aa1600b8dd4393a9e1"
+    },
+    {
+      "file": "logos/sgl-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/sgl-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "791f62d9c9b3b215fbf86db688fda4adb926073d641ff415931f57b0fbbbbc0e"
+    },
+    {
+      "file": "logos/stablyai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/stablyai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "42af87cd162a000aa3e8c40aa7152f80e0fc7c8ffc2bf740aaa14f6a2832c11f"
+    },
+    {
+      "file": "logos/stacklok.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/stacklok.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b1f7f3e2f1d35503adb789fa6d220dad6cdbdbf197936f5934b1bdd980fe024d"
+    },
+    {
+      "file": "logos/supermemoryai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/supermemoryai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "360ad5ae7c1f3b0e4a883910379c71e893b230cc6fc4380ca4c25a5e30beb077"
+    },
+    {
+      "file": "logos/tensorflow.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/tensorflow.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b091c51f581701aad4c695eb6bf5c58e02aef3f94fcbae3b466d6374ad1439b7"
+    },
+    {
+      "file": "logos/topoteretes.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/topoteretes.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "c593ade5a5929365b289e3f9c88db88532366321fd760bdc7cce3d399540a52a"
+    },
+    {
+      "file": "logos/triton-lang.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/triton-lang.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "b1c5f3ba96be7f41c1a46c22af08712a0a39d37272890b8a532aab55303d7dac"
+    },
+    {
+      "file": "logos/trycua.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/trycua.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "47f7be6f86e1dd9ec6a7822547a2ce8e9b7a1e6447c95af4cb02fc75252414ee"
+    },
+    {
+      "file": "logos/unslothai.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/unslothai.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "13c2caed46899bccf90450ede9079e9eae5ae77cc1e4125828d83eabe07563a7"
+    },
+    {
+      "file": "logos/vectorize-io.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/vectorize-io.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ddeaab50a418abfe53d3824f252478b047cd385b9041f7c87148b41de898107a"
+    },
+    {
+      "file": "logos/vercel.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/vercel.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "8d12d3ae78e4e2e2e5777eafb09732c7261f565eae4bd3006c70fabfab386bca"
+    },
+    {
+      "file": "logos/vercel-labs.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/vercel-labs.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "f3d9676ee8b55bfeb18214ffdf2665c29318d2df7f327f8c18d8e2f3eae0d66e"
+    },
+    {
+      "file": "logos/verl-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/verl-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "1608eb68296eb7e797b66c4c8f490e04e7525ce5172aa1d05ecf47aee3e126cd"
+    },
+    {
+      "file": "logos/vllm-project.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/vllm-project.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "0505f816373731298ee3f42ee182bbafc8a7f5364d9d4f82db3593666d5c9dd3"
+    },
+    {
+      "file": "logos/volcano-sh.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/volcano-sh.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "d70aeb2570c25c9af161741240e2592afaf43ce3f382299330f2b44587be727a"
+    },
+    {
+      "file": "logos/volcengine.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/volcengine.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "ab61b88fe2e07ea6efd4b185981d3086981ae949185a5c3bdbbc995ee0eab27b"
+    },
+    {
+      "file": "logos/wandb.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/wandb.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "3244172f0f065d90f4618a1432fa3b075ed9b8cce50e6f6a663f5c9be4ef29d7"
+    },
+    {
+      "file": "logos/warpdotdev.png",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/warpdotdev.png",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "47030d84fcbe10f39cec08d02bf8c3165f82a3b1e0f057a75511a5c3d7b30759"
+    },
+    {
+      "file": "logos/zeroclaw-labs.jpg",
+      "repository": "antgroup/agentic-ai-landscape",
+      "path": "apps/landscape-web/public/project-logos/zeroclaw-labs.jpg",
+      "commit": "e330d75ea4ca314bc81f6868df63425c8acca5e3",
+      "sha256": "83f90344a71a2cea211414fc02312f89587b1f2d2de7460f0253c099cfd93c2d"
+    }
+  ],
+  "draft_images": [
+    {
+      "file": "draft-p1-1.png",
+      "source": "4.1 Agentic AI 全景洞察（A-Landscape）.pdf",
+      "page": 1,
+      "width": 1280,
+      "height": 693
+    },
+    {
+      "file": "draft-p2-1.png",
+      "source": "4.1 Agentic AI 全景洞察（A-Landscape）.pdf",
+      "page": 2,
+      "width": 915,
+      "height": 515
+    },
+    {
+      "file": "draft-p3-1.png",
+      "source": "4.1 Agentic AI 全景洞察（A-Landscape）.pdf",
+      "page": 3,
+      "width": 915,
+      "height": 515
+    },
+    {
+      "file": "draft-p3-2.png",
+      "source": "4.1 Agentic AI 全景洞察（A-Landscape）.pdf",
+      "page": 3,
+      "width": 915,
+      "height": 515
+    },
+    {
+      "file": "draft-p4-1.png",
+      "source": "4.1 Agentic AI 全景洞察（A-Landscape）.pdf",
+      "page": 4,
+      "width": 915,
+      "height": 515
+    }
+  ],
+  "selection_rule": "Canonical data/agentic-ai-projects.csv: landscape_action in keep/add. The standalone selected CSV export is not the canonical source.",
+  "classification_note": "Recent taxonomy is not backfilled onto historical annual category totals."
+}

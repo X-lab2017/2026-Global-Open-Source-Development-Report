@@ -1,0 +1,18 @@
+/* Scope all adopted tokens to the report chapter. */
+.goso-chapter{--ink:var(--gv-ink);--muted:var(--gv-muted);--line:var(--gv-line);--paper:var(--gv-surface);--pale:var(--gv-raised);--cyan:var(--gv-cyan);--atlas-ocean:var(--gv-bg);--atlas-land:var(--gv-empty);--atlas-border:var(--gv-line);--atlas-grid:var(--gv-split);--atlas-muted:var(--gv-muted);color:var(--gv-ink)}
+.goso-chapter .atlas-map [data-geo].is-selected,.goso-chapter .atlas-map [data-geo]:focus,.goso-chapter .atlas-map [data-geo]:hover{fill:var(--gv-goldDisplay);stroke:var(--gv-ink);stroke-width:1.3;filter:none}
+.goso-chapter .atlas-tooltip{background:var(--gv-surface);border:1px solid var(--gv-line);color:var(--gv-ink);font-size:12px}.goso-chapter .atlas-tooltip span{color:var(--gv-muted)}
+.goso-chapter .atlas-map-label{fill:var(--gv-ink);stroke:var(--gv-bg)}
+.goso-chapter .atlas-toolbar button[aria-pressed=true],.goso-chapter .flow-filter button[aria-pressed=true]{background:var(--gv-button);color:var(--gv-buttonText);border-color:var(--gv-button)}
+.goso-chapter .atlas-ranking button.is-selected{background:var(--gv-raised);color:var(--gv-ink);box-shadow:inset 3px 0 var(--gv-goldDisplay)}
+.goso-chapter .atlas-detail b,.goso-chapter .goso-kpi strong{color:var(--gv-gold)}
+.goso-chapter .atlas-legend i{background:linear-gradient(90deg,var(--gv-m0),var(--gv-m1),var(--gv-m2),var(--gv-m3),var(--gv-m4),var(--gv-m5))}
+.goso-chapter .atlas-legend,.goso-chapter .atlas-period,.goso-chapter .atlas-provenance summary,.goso-chapter .atlas-heading .eyebrow,.goso-chapter .editorial-figure .eyebrow{font-size:10px}
+
+.goso-chapter .editorial-svg,.goso-chapter .governance-small-multiples{background:var(--gv-bg)}
+.goso-chapter :is(button,a,input,select,[tabindex]):focus-visible{outline:3px solid var(--gv-goldDisplay);outline-offset:3px}
+.goso-chapter [data-ribbon]:focus,.goso-chapter [data-stack-segment]:focus{outline:2px solid var(--gv-ink)}
+@media(prefers-reduced-motion:reduce){.goso-chapter *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:800px){.goso-chapter .atlas-legend,.goso-chapter .atlas-period{font-size:10px}}
+
+.goso-chapter .editorial-svg [data-stack-segment] text{fill:var(--gv-ink);stroke:var(--gv-bg);stroke-width:3px;paint-order:stroke}

@@ -1,0 +1,13 @@
+{
+  "version": "v0.9",
+  "world_unit": "CN",
+  "world_components": [
+    "中国大陆",
+    "台湾省",
+    "香港特别行政区",
+    "澳门特别行政区"
+  ],
+  "china_province_taiwan": "710000",
+  "source_statistical_values_changed": false,
+  "combined_geometry_sha256": "778bdf4ef5c31eb1ac5166c30fdac1a3daa8225c65646b1d21a24bc77f7d4f67"
+}

@@ -1,0 +1,750 @@
+- complementary:
+  - link "OpenShare":
+    - /url: /
+    - img "OpenShare"
+  - navigation "导航菜单":
+    - list:
+      - button "数据洞察" [expanded]:
+        - generic: 数据洞察
+      - list:
+        - link "OpenWorld":
+          - /url: /insight/open-world
+        - link "OpenLeaderboard":
+          - /url: /login?redirect=%2Finsight%2Fopen-leaderboard
+      - link "个人中心":
+        - /url: /login?redirect=%2Fprofile
+        - generic: 个人中心
+      - link "积分钱包":
+        - /url: /login?redirect=%2Fpoints
+        - generic: 积分钱包
+      - link "积分商城":
+        - /url: /login?redirect=%2Fshop
+        - generic: 积分商城
+      - link "我的组织":
+        - /url: /login?redirect=%2Forganizations
+        - generic: 我的组织
+      - link "消息中心":
+        - /url: /login?redirect=%2Fmessages
+        - generic: 消息中心
+      - link "人才触达":
+        - /url: /login?redirect=%2Ftalent-reach
+        - generic: 人才触达
+      - button "设置":
+        - generic: 设置
+  - link "登录":
+    - /url: /login
+    - generic: 登录
+  - button "折叠侧边栏":
+- main:
+  - generic: 全球开源脉动
+  - heading "OpenWorld" [level=1]
+  - generic: / 全球
+  - paragraph: 从全球视角观察开发者密度、贡献价值与项目影响力
+  - generic: 数据持续更新
+  - paragraph: 观察维度
+  - combobox [active]:
+    - generic: 开源项目 OpenRank 影响力
+  - region "全球开源数据概览":
+    - paragraph: 数据来源
+    - link "OpenDigger":
+      - /url: https://open-digger.cn
+    - paragraph: 日志总量
+    - generic: 96.51亿
+    - paragraph: 仓库总量
+    - generic: 3.80亿
+    - paragraph: 开发者总量
+    - generic: 1.93亿
+    - paragraph: 覆盖国家与地区
+    - generic: "246"
+    - paragraph: 数据更新时间
+    - generic: 2026-10
+  - paragraph: 全球态势
+  - heading "全球开源项目 OpenRank 影响力热力地图" [level=2]
+  - generic: 项目影响力视角暂不支持下钻
+  - generic "开源项目 OpenRank 影响力 - 全球"
+  - button "↻ 重置缩放"
+  - article:
+    - heading "全球开源项目 OpenRank 影响力总量五年趋势" [level=3]
+    - paragraph: 222.07万
+    - text: 24.4%
+  - article:
+    - heading "美国开源项目 OpenRank 影响力总量趋势" [level=3]
+    - paragraph: 144.77万
+    - text: 29.4%
+  - article:
+    - heading "中国开源项目 OpenRank 影响力总量趋势" [level=3]
+    - paragraph: 53.07万
+    - text: 5.6%
+  - complementary:
+    - paragraph: 实时排名
+    - heading "全球各国开源项目 OpenRank 影响力排行榜" [level=3]
+    - generic: TOP 29
+    - list:
+      - button "1 美国 144.77万 ▼ -60.14万":
+        - generic: "1"
+        - generic: 美国
+        - generic: 144.77万
+        - generic "-601457.16": ▼ -60.14万
+      - button "2 中国 53.07万 ▼ -3.16万":
+        - generic: "2"
+        - generic: 中国
+        - generic: 53.07万
+        - generic "-31673.07": ▼ -3.16万
+      - button "3 荷兰 5.50万 ▼ -2.34万":
+        - generic: "3"
+        - generic: 荷兰
+        - generic: 5.50万
+        - generic "-23484.62": ▼ -2.34万
+      - button "4 德国 3.15万 ▼ -8,445.43":
+        - generic: "4"
+        - generic: 德国
+        - generic: 3.15万
+        - generic "-8445.43": ▼ -8,445.43
+      - button "5 英国 2.31万 ▼ -5,873.43":
+        - generic: "5"
+        - generic: 英国
+        - generic: 2.31万
+        - generic "-5873.43": ▼ -5,873.43
+      - button "6 加拿大 1.93万 ▲ +2,630.74":
+        - generic: "6"
+        - generic: 加拿大
+        - generic: 1.93万
+        - generic "2630.74": ▲ +2,630.74
+      - button "7 捷克 1.76万 ▼ -3,276.34":
+        - generic: "7"
+        - generic: 捷克
+        - generic: 1.76万
+        - generic "-3276.34": ▼ -3,276.34
+      - button "8 比利时 1.42万 ▼ -2,755.16":
+        - generic: "8"
+        - generic: 比利时
+        - generic: 1.42万
+        - generic "-2755.16": ▼ -2,755.16
+      - button "9 俄罗斯 1.22万 ▼ -3,256.26":
+        - generic: "9"
+        - generic: 俄罗斯
+        - generic: 1.22万
+        - generic "-3256.26": ▼ -3,256.26
+      - button "10 法国 1.05万 ▼ -2,669.46":
+        - generic: "10"
+        - generic: 法国
+        - generic: 1.05万
+        - generic "-2669.46": ▼ -2,669.46
+      - button "11 日本 8,562.04 ▼ -3,962.51":
+        - generic: "11"
+        - generic: 日本
+        - generic: 8,562.04
+        - generic "-3962.51": ▼ -3,962.51
+      - button "12 以色列 6,234.22 ▼ -1,806.26":
+        - generic: "12"
+        - generic: 以色列
+        - generic: 6,234.22
+        - generic "-1806.26": ▼ -1,806.26
+      - button "13 挪威 5,604.9 ▼ -2,601.06":
+        - generic: "13"
+        - generic: 挪威
+        - generic: 5,604.9
+        - generic "-2601.06": ▼ -2,601.06
+      - button "14 冰岛 4,337.11 ▼ -1,569.71":
+        - generic: "14"
+        - generic: 冰岛
+        - generic: 4,337.11
+        - generic "-1569.71": ▼ -1,569.71
+      - button "15 新加坡 4,176.13 ▼ -3,562.03":
+        - generic: "15"
+        - generic: 新加坡
+        - generic: 4,176.13
+        - generic "-3562.03": ▼ -3,562.03
+      - button "16 南非 3,935.08 ▼ -3,253.62":
+        - generic: "16"
+        - generic: 南非
+        - generic: 3,935.08
+        - generic "-3253.62": ▼ -3,253.62
+      - button "17 瑞士 3,531.83 ▼ -2,553.72":
+        - generic: "17"
+        - generic: 瑞士
+        - generic: 3,531.83
+        - generic "-2553.72": ▼ -2,553.72
+      - button "18 保加利亚 3,513.73 ▼ -819.56":
+        - generic: "18"
+        - generic: 保加利亚
+        - generic: 3,513.73
+        - generic "-819.56": ▼ -819.56
+      - button "19 韩国 3,488.87 ▼ -1,819.72":
+        - generic: "19"
+        - generic: 韩国
+        - generic: 3,488.87
+        - generic "-1819.72": ▼ -1,819.72
+      - button "20 爱沙尼亚 3,391.09 ▲ +603.59":
+        - generic: "20"
+        - generic: 爱沙尼亚
+        - generic: 3,391.09
+        - generic "603.59": ▲ +603.59
+      - button "21 印度 3,216.02 ▼ -3,363.42":
+        - generic: "21"
+        - generic: 印度
+        - generic: 3,216.02
+        - generic "-3363.42": ▼ -3,363.42
+      - button "22 葡萄牙 3,124.16 ▼ -7,352.83":
+        - generic: "22"
+        - generic: 葡萄牙
+        - generic: 3,124.16
+        - generic "-7352.83": ▼ -7,352.83
+      - button "23 瑞典 2,365.19 ▼ -2,264.46":
+        - generic: "23"
+        - generic: 瑞典
+        - generic: 2,365.19
+        - generic "-2264.46": ▼ -2,264.46
+      - button "24 乌克兰 1,906.88 ▼ -326.46":
+        - generic: "24"
+        - generic: 乌克兰
+        - generic: 1,906.88
+        - generic "-326.46": ▼ -326.46
+      - button "25 澳大利亚 758.35 ▼ -558.15":
+        - generic: "25"
+        - generic: 澳大利亚
+        - generic: "758.35"
+        - generic "-558.15": ▼ -558.15
+      - button "26 丹麦 164.03 ▲ +52.74":
+        - generic: "26"
+        - generic: 丹麦
+        - generic: "164.03"
+        - generic "52.74": ▲ +52.74
+      - button "27 芬兰 121.2 ▼ -152.17":
+        - generic: "27"
+        - generic: 芬兰
+        - generic: "121.2"
+        - generic "-152.17": ▼ -152.17
+      - button "28 巴西 2.46 ▼ -1.61":
+        - generic: "28"
+        - generic: 巴西
+        - generic: "2.46"
+        - generic "-1.61": ▼ -1.61
+      - button "29 西班牙 0.93 ▼ -10.21":
+        - generic: "29"
+        - generic: 西班牙
+        - generic: "0.93"
+        - generic "-10.21": ▼ -10.21
+    - paragraph: 实时排名
+    - heading "全球各企业开源项目 OpenRank 影响力排行榜" [level=3]
+    - generic: TOP 100
+    - list:
+      - button "1 微软 19.21万 ▼ -12.38万" [disabled]:
+        - generic: "1"
+        - generic: 微软
+        - generic: 19.21万
+        - generic "-123852.3": ▼ -12.38万
+      - button "2 华为 16.24万 ▲ +2.64万" [disabled]:
+        - generic: "2"
+        - generic: 华为
+        - generic: 16.24万
+        - generic "26458.99": ▲ +2.64万
+      - button "3 谷歌 9.48万 ▼ -4.89万" [disabled]:
+        - generic: "3"
+        - generic: 谷歌
+        - generic: 9.48万
+        - generic "-48967.91": ▼ -4.89万
+      - button "4 Meta 5.72万 ▼ -3.25万" [disabled]:
+        - generic: "4"
+        - generic: Meta
+        - generic: 5.72万
+        - generic "-32563.78": ▼ -3.25万
+      - button "5 亚马逊 4.20万 ▼ -3.21万" [disabled]:
+        - generic: "5"
+        - generic: 亚马逊
+        - generic: 4.20万
+        - generic "-32157.31": ▼ -3.21万
+      - button "6 英伟达 4.05万 ▲ +717.52" [disabled]:
+        - generic: "6"
+        - generic: 英伟达
+        - generic: 4.05万
+        - generic "717.52": ▲ +717.52
+      - button "7 红帽 3.47万 ▼ -1.13万" [disabled]:
+        - generic: "7"
+        - generic: 红帽
+        - generic: 3.47万
+        - generic "-11341.66": ▼ -1.13万
+      - button "8 Elastic 3.34万 ▼ -5,767.98" [disabled]:
+        - generic: "8"
+        - generic: Elastic
+        - generic: 3.34万
+        - generic "-5767.98": ▼ -5,767.98
+      - button "9 Anthropic 2.89万 ▲ +2.21万" [disabled]:
+        - generic: "9"
+        - generic: Anthropic
+        - generic: 2.89万
+        - generic "22100.9": ▲ +2.21万
+      - button "10 Mozilla 2.87万 ▼ -1.27万" [disabled]:
+        - generic: "10"
+        - generic: Mozilla
+        - generic: 2.87万
+        - generic "-12758.62": ▼ -1.27万
+      - button "11 阿里巴巴 2.45万 ▼ -1.31万" [disabled]:
+        - generic: "11"
+        - generic: 阿里巴巴
+        - generic: 2.45万
+        - generic "-13151.38": ▼ -1.31万
+      - button "12 Grafana Labs 2.43万 ▼ -1.17万" [disabled]:
+        - generic: "12"
+        - generic: Grafana Labs
+        - generic: 2.43万
+        - generic "-11726.69": ▼ -1.17万
+      - button "13 字节跳动 2.24万 ▲ +6,341.03" [disabled]:
+        - generic: "13"
+        - generic: 字节跳动
+        - generic: 2.24万
+        - generic "6341.03": ▲ +6,341.03
+      - button "14 Hugging Face 2.04万 ▼ -1.64万" [disabled]:
+        - generic: "14"
+        - generic: Hugging Face
+        - generic: 2.04万
+        - generic "-16414.6": ▼ -1.64万
+      - button "15 IBM 1.93万 ▼ -8,222.46" [disabled]:
+        - generic: "15"
+        - generic: IBM
+        - generic: 1.93万
+        - generic "-8222.46": ▼ -8,222.46
+      - button "16 DataDog 1.90万 ▼ -4,572.91" [disabled]:
+        - generic: "16"
+        - generic: DataDog
+        - generic: 1.90万
+        - generic "-4572.91": ▼ -4,572.91
+      - button "17 OpenAI 1.81万 ▲ +9,214.91" [disabled]:
+        - generic: "17"
+        - generic: OpenAI
+        - generic: 1.81万
+        - generic "9214.91": ▲ +9,214.91
+      - button "18 JetBrains 捷克 1.76万 ▼ -3,276.34" [disabled]:
+        - generic: "18"
+        - generic: JetBrains
+        - img "捷克"
+        - generic: 1.76万
+        - generic "-3276.34": ▼ -3,276.34
+      - button "19 Expensify 1.74万 ▼ -1,580.98" [disabled]:
+        - generic: "19"
+        - generic: Expensify
+        - generic: 1.74万
+        - generic "-1580.98": ▼ -1,580.98
+      - button "20 苹果 1.74万 ▼ -5,536.89" [disabled]:
+        - generic: "20"
+        - generic: 苹果
+        - generic: 1.74万
+        - generic "-5536.89": ▼ -5,536.89
+      - button "21 Tenstorrent 加拿大 1.70万 ▲ +5,509.87" [disabled]:
+        - generic: "21"
+        - generic: Tenstorrent
+        - img "加拿大"
+        - generic: 1.70万
+        - generic "5509.87": ▲ +5,509.87
+      - button "22 蚂蚁集团 1.66万 ▼ -6,374.88" [disabled]:
+        - generic: "22"
+        - generic: 蚂蚁集团
+        - generic: 1.66万
+        - generic "-6374.88": ▼ -6,374.88
+      - button "23 Zed Industry 1.56万 ▼ -4,063.64" [disabled]:
+        - generic: "23"
+        - generic: Zed Industry
+        - generic: 1.56万
+        - generic "-4063.64": ▼ -4,063.64
+      - button "24 HashiCorp 1.55万 ▼ -1.30万" [disabled]:
+        - generic: "24"
+        - generic: HashiCorp
+        - generic: 1.55万
+        - generic "-13049.94": ▼ -1.30万
+      - button "25 Nabu Casa Inc. 1.47万 ▼ -1.17万" [disabled]:
+        - generic: "25"
+        - generic: Nabu Casa Inc.
+        - generic: 1.47万
+        - generic "-11703.52": ▼ -1.17万
+      - button "26 Vercel 1.44万 ▼ -7,074.74" [disabled]:
+        - generic: "26"
+        - generic: Vercel
+        - generic: 1.44万
+        - generic "-7074.74": ▼ -7,074.74
+      - button "27 Odoo 比利时 1.42万 ▼ -2,755.16" [disabled]:
+        - generic: "27"
+        - generic: Odoo
+        - img "比利时"
+        - generic: 1.42万
+        - generic "-2755.16": ▼ -2,755.16
+      - button "28 英特尔 1.40万 ▼ -1.19万" [disabled]:
+        - generic: "28"
+        - generic: 英特尔
+        - generic: 1.40万
+        - generic "-11934.82": ▼ -1.19万
+      - button "29 Astral 1.36万 ▼ -6,341.98" [disabled]:
+        - generic: "29"
+        - generic: Astral
+        - generic: 1.36万
+        - generic "-6341.98": ▼ -6,341.98
+      - button "30 Anomaly 1.21万 ▲ +9,924.08" [disabled]:
+        - generic: "30"
+        - generic: Anomaly
+        - generic: 1.21万
+        - generic "9924.08": ▲ +9,924.08
+      - button "31 甲骨文 1.20万 ▼ -5,865.21" [disabled]:
+        - generic: "31"
+        - generic: 甲骨文
+        - generic: 1.20万
+        - generic "-5865.21": ▼ -5,865.21
+      - button "32 百度 1.19万 ▼ -8,411.22" [disabled]:
+        - generic: "32"
+        - generic: 百度
+        - generic: 1.19万
+        - generic "-8411.22": ▼ -8,411.22
+      - button "33 腾讯 1.06万 ▼ -3,936.57" [disabled]:
+        - generic: "33"
+        - generic: 腾讯
+        - generic: 1.06万
+        - generic "-3936.57": ▼ -3,936.57
+      - button "34 LangChain 1.04万 ▼ -4,558.12" [disabled]:
+        - generic: "34"
+        - generic: LangChain
+        - generic: 1.04万
+        - generic "-4558.12": ▼ -4,558.12
+      - button "35 Databricks 1.04万 ▼ -4,811.84" [disabled]:
+        - generic: "35"
+        - generic: Databricks
+        - generic: 1.04万
+        - generic "-4811.84": ▼ -4,811.84
+      - button "36 Yandex 俄罗斯 1.03万 ▼ -2,138.33" [disabled]:
+        - generic: "36"
+        - generic: Yandex
+        - img "俄罗斯"
+        - generic: 1.03万
+        - generic "-2138.33": ▼ -2,138.33
+      - button "37 VMWare 1.03万 ▼ -8,185.7" [disabled]:
+        - generic: "37"
+        - generic: VMWare
+        - generic: 1.03万
+        - generic "-8185.7": ▼ -8,185.7
+      - button "38 ConsenSys 9,278.68 ▼ -1,660.86" [disabled]:
+        - generic: "38"
+        - generic: ConsenSys
+        - generic: 9,278.68
+        - generic "-1660.86": ▼ -1,660.86
+      - button "39 Cloudflare 9,009.53 ▼ -1,946.67" [disabled]:
+        - generic: "39"
+        - generic: Cloudflare
+        - generic: 9,009.53
+        - generic "-1946.67": ▼ -1,946.67
+      - button "40 NextCloud 德国 8,743.66 ▼ -5,387.02" [disabled]:
+        - generic: "40"
+        - generic: NextCloud
+        - img "德国"
+        - generic: 8,743.66
+        - generic "-5387.02": ▼ -5,387.02
+      - button "41 Dify AI 8,621.41 ▼ -5,671.13" [disabled]:
+        - generic: "41"
+        - generic: Dify AI
+        - generic: 8,621.41
+        - generic "-5671.13": ▼ -5,671.13
+      - button "42 LinkedIn 7,754.62 ▼ -2,833.9" [disabled]:
+        - generic: "42"
+        - generic: LinkedIn
+        - generic: 7,754.62
+        - generic "-2833.9": ▼ -2,833.9
+      - button "43 Docker 7,751.77 ▼ -3,672.27" [disabled]:
+        - generic: "43"
+        - generic: Docker
+        - generic: 7,751.77
+        - generic "-3672.27": ▼ -3,672.27
+      - button "44 n8n 7,712.39 ▲ +1,850.98" [disabled]:
+        - generic: "44"
+        - generic: n8n
+        - generic: 7,712.39
+        - generic "1850.98": ▲ +1,850.98
+      - button "45 BerriAI 6,868.12 ▲ +284.06" [disabled]:
+        - generic: "45"
+        - generic: BerriAI
+        - generic: 6,868.12
+        - generic "284.06": ▲ +284.06
+      - button "46 Adobe 6,759.7 ▼ -2,989" [disabled]:
+        - generic: "46"
+        - generic: Adobe
+        - generic: 6,759.7
+        - generic "-2989": ▼ -2,989
+      - button "47 PingCAP 6,662.9 ▼ -3,335.89" [disabled]:
+        - generic: "47"
+        - generic: PingCAP
+        - generic: 6,662.9
+        - generic "-3335.89": ▼ -3,335.89
+      - button "48 Rancher Labs 6,301 ▼ -2,280.46" [disabled]:
+        - generic: "48"
+        - generic: Rancher Labs
+        - generic: 6,301
+        - generic "-2280.46": ▼ -2,280.46
+      - button "49 Airbnb 5,743.34 ▼ -1,717.52" [disabled]:
+        - generic: "49"
+        - generic: Airbnb
+        - generic: 5,743.34
+        - generic "-1717.52": ▼ -1,717.52
+      - button "50 Snowflake 5,263.15 ▼ -2,911.15" [disabled]:
+        - generic: "50"
+        - generic: Snowflake
+        - generic: 5,263.15
+        - generic "-2911.15": ▼ -2,911.15
+      - button "51 WordPress 5,227.34 ▼ -2,864.87" [disabled]:
+        - generic: "51"
+        - generic: WordPress
+        - generic: 5,227.34
+        - generic "-2864.87": ▼ -2,864.87
+      - button "52 SoundCloud 德国 5,214.98 ▼ -2,294.33" [disabled]:
+        - generic: "52"
+        - generic: SoundCloud
+        - img "德国"
+        - generic: 5,214.98
+        - generic "-2294.33": ▼ -2,294.33
+      - button "53 Paradigm 5,148.4 ▼ -2,189.16" [disabled]:
+        - generic: "53"
+        - generic: Paradigm
+        - generic: 5,148.4
+        - generic "-2189.16": ▼ -2,189.16
+      - button "54 Supabase 5,089.83 ▼ -1,146.22" [disabled]:
+        - generic: "54"
+        - generic: Supabase
+        - generic: 5,089.83
+        - generic "-1146.22": ▼ -1,146.22
+      - button "55 飞致云 4,974.82 ▼ -3,309.29" [disabled]:
+        - generic: "55"
+        - generic: 飞致云
+        - generic: 4,974.82
+        - generic "-3309.29": ▼ -3,309.29
+      - button "56 MongoDB 4,846.6 ▼ -2,927.95" [disabled]:
+        - generic: "56"
+        - generic: MongoDB
+        - generic: 4,846.6
+        - generic "-2927.95": ▼ -2,927.95
+      - button "57 乐鑫科技 4,744.37 ▼ -3,923.19" [disabled]:
+        - generic: "57"
+        - generic: 乐鑫科技
+        - generic: 4,744.37
+        - generic "-3923.19": ▼ -3,923.19
+      - button "58 Bitwarden 4,728.87 ▼ -1,601.21" [disabled]:
+        - generic: "58"
+        - generic: Bitwarden
+        - generic: 4,728.87
+        - generic "-1601.21": ▼ -1,601.21
+      - button "59 New Relic 4,690.35 ▼ -2,041.72" [disabled]:
+        - generic: "59"
+        - generic: New Relic
+        - generic: 4,690.35
+        - generic "-2041.72": ▼ -2,041.72
+      - button "60 Brave 4,584.48 ▼ -1,347.87" [disabled]:
+        - generic: "60"
+        - generic: Brave
+        - generic: 4,584.48
+        - generic "-1347.87": ▼ -1,347.87
+      - button "61 Gravitational 4,581.29 ▼ -699.46" [disabled]:
+        - generic: "61"
+        - generic: Gravitational
+        - generic: 4,581.29
+        - generic "-699.46": ▼ -699.46
+      - button "62 Camunda 德国 4,440.88 ▼ -296.14" [disabled]:
+        - generic: "62"
+        - generic: Camunda
+        - img "德国"
+        - generic: 4,440.88
+        - generic "-296.14": ▼ -296.14
+      - button "63 Llama Corp 4,337.11 ▼ -1,569.71" [disabled]:
+        - generic: "63"
+        - generic: Llama Corp
+        - generic: 4,337.11
+        - generic "-1569.71": ▼ -1,569.71
+      - button "64 赜睿信息科技 4,118.69 ▼ -2,221.64" [disabled]:
+        - generic: "64"
+        - generic: 赜睿信息科技
+        - generic: 4,118.69
+        - generic "-2221.64": ▼ -2,221.64
+      - button "65 Laravel Holdings 4,040.16 ▼ -2,605.33" [disabled]:
+        - generic: "65"
+        - generic: Laravel Holdings
+        - generic: 4,040.16
+        - generic "-2605.33": ▼ -2,605.33
+      - button "66 Mysten Labs 4,021.3 ▼ -1,141.8" [disabled]:
+        - generic: "66"
+        - generic: Mysten Labs
+        - generic: 4,021.3
+        - generic "-1141.8": ▼ -1,141.8
+      - button "67 Netflix 3,935.82 ▼ -1,657.91" [disabled]:
+        - generic: "67"
+        - generic: Netflix
+        - generic: 3,935.82
+        - generic "-1657.91": ▼ -1,657.91
+      - button "68 Woo 南非 3,935.08 ▼ -3,253.62" [disabled]:
+        - generic: "68"
+        - generic: Woo
+        - img "南非"
+        - generic: 3,935.08
+        - generic "-3253.62": ▼ -3,253.62
+      - button "69 Infinity Flow 3,920.02 ▼ -1,964.48" [disabled]:
+        - generic: "69"
+        - generic: Infinity Flow
+        - generic: 3,920.02
+        - generic "-1964.48": ▼ -1,964.48
+      - button "70 DataStax 3,908.31 ▼ -1,943.87" [disabled]:
+        - generic: "70"
+        - generic: DataStax
+        - generic: 3,908.31
+        - generic "-1943.87": ▼ -1,943.87
+      - button "71 Isovalent 3,846.5 ▼ -1,740.12" [disabled]:
+        - generic: "71"
+        - generic: Isovalent
+        - generic: 3,846.5
+        - generic "-1740.12": ▼ -1,740.12
+      - button "72 Redis Labs 3,818.33 ▼ -231.23" [disabled]:
+        - generic: "72"
+        - generic: Redis Labs
+        - generic: 3,818.33
+        - generic "-231.23": ▼ -231.23
+      - button "73 LiveKit 3,809.8 ▼ -218.77" [disabled]:
+        - generic: "73"
+        - generic: LiveKit
+        - generic: 3,809.8
+        - generic "-218.77": ▼ -218.77
+      - button "74 650 Industries 3,737.77 ▼ -2,999.78" [disabled]:
+        - generic: "74"
+        - generic: 650 Industries
+        - generic: 3,737.77
+        - generic "-2999.78": ▼ -2,999.78
+      - button "75 Valve 3,662.79 ▼ -4,606.78" [disabled]:
+        - generic: "75"
+        - generic: Valve
+        - generic: 3,662.79
+        - generic "-4606.78": ▼ -4,606.78
+      - button "76 ScyllaDB 以色列 3,620.33 ▼ -621.75" [disabled]:
+        - generic: "76"
+        - generic: ScyllaDB
+        - img "以色列"
+        - generic: 3,620.33
+        - generic "-621.75": ▼ -621.75
+      - button "77 Cloudbees 3,603.54 ▼ -2,563" [disabled]:
+        - generic: "77"
+        - generic: Cloudbees
+        - generic: 3,603.54
+        - generic "-2563": ▼ -2,563
+      - button "78 Fivetran 3,535.59 ▼ -1,716.34" [disabled]:
+        - generic: "78"
+        - generic: Fivetran
+        - generic: 3,535.59
+        - generic "-1716.34": ▼ -1,716.34
+      - button "79 GGML.ai 保加利亚 3,513.73 ▼ -819.56" [disabled]:
+        - generic: "79"
+        - generic: GGML.ai
+        - img "保加利亚"
+        - generic: 3,513.73
+        - generic "-819.56": ▼ -819.56
+      - button "80 Coder 3,450.74 ▼ -214.88" [disabled]:
+        - generic: "80"
+        - generic: Coder
+        - generic: 3,450.74
+        - generic "-214.88": ▼ -214.88
+      - button "81 Flant 爱沙尼亚 3,391.09 ▲ +603.59" [disabled]:
+        - generic: "81"
+        - generic: Flant
+        - img "爱沙尼亚"
+        - generic: 3,391.09
+        - generic "603.59": ▲ +603.59
+      - button "82 Nordic Semiconductor 挪威 3,357.77 ▼ -1,156.41" [disabled]:
+        - generic: "82"
+        - generic: Nordic Semiconductor
+        - img "挪威"
+        - generic: 3,357.77
+        - generic "-1156.41": ▼ -1,156.41
+      - button "83 CoreWeave 3,290.03 ▼ -1,615.14" [disabled]:
+        - generic: "83"
+        - generic: CoreWeave
+        - generic: 3,290.03
+        - generic "-1615.14": ▼ -1,615.14
+      - button "84 DuckDB Labs 荷兰 3,202.25 ▼ -962.8" [disabled]:
+        - generic: "84"
+        - generic: DuckDB Labs
+        - img "荷兰"
+        - generic: 3,202.25
+        - generic "-962.8": ▼ -962.8
+      - button "85 SensioLabs 法国 3,125.52 ▼ -1,900.61" [disabled]:
+        - generic: "85"
+        - generic: SensioLabs
+        - img "法国"
+        - generic: 3,125.52
+        - generic "-1900.61": ▼ -1,900.61
+      - button "86 Dio Academia 葡萄牙 3,124.16 ▼ -7,352.83" [disabled]:
+        - generic: "86"
+        - generic: Dio Academia
+        - img "葡萄牙"
+        - generic: 3,124.16
+        - generic "-7352.83": ▼ -7,352.83
+      - button "87 Lyft 3,106.42 ▼ -1,490.53" [disabled]:
+        - generic: "87"
+        - generic: Lyft
+        - generic: 3,106.42
+        - generic "-1490.53": ▼ -1,490.53
+      - button "88 GitHub 3,094.48 ▼ -416.04" [disabled]:
+        - generic: "88"
+        - generic: GitHub
+        - generic: 3,094.48
+        - generic "-416.04": ▼ -416.04
+      - button "89 Pivotal 3,049.3 ▼ -1,895.3" [disabled]:
+        - generic: "89"
+        - generic: Pivotal
+        - generic: 3,049.3
+        - generic "-1895.3": ▼ -1,895.3
+      - button "90 Matra Datavision 法国 3,014.93 ▼ -1,041.11" [disabled]:
+        - generic: "90"
+        - generic: Matra Datavision
+        - img "法国"
+        - generic: 3,014.93
+        - generic "-1041.11": ▼ -1,041.11
+      - button "91 Mattermost 3,012.36 ▼ -1,225.3" [disabled]:
+        - generic: "91"
+        - generic: Mattermost
+        - generic: 3,012.36
+        - generic "-1225.3": ▼ -1,225.3
+      - button "92 Cockroach Labs 3,011.44 ▼ -918.32" [disabled]:
+        - generic: "92"
+        - generic: Cockroach Labs
+        - generic: 3,011.44
+        - generic "-918.32": ▼ -918.32
+      - button "93 Palo Auto Networks 2,957.31 ▼ -1,018.46" [disabled]:
+        - generic: "93"
+        - generic: Palo Auto Networks
+        - generic: 2,957.31
+        - generic "-1018.46": ▼ -1,018.46
+      - button "94 Collate 2,938.24 ▼ -167.24" [disabled]:
+        - generic: "94"
+        - generic: Collate
+        - generic: 2,938.24
+        - generic "-167.24": ▼ -167.24
+      - button "95 Airbyte 2,898.17 ▼ -3,956.39" [disabled]:
+        - generic: "95"
+        - generic: Airbyte
+        - generic: 2,898.17
+        - generic "-3956.39": ▼ -3,956.39
+      - button "96 Ollama 2,874.06 ▼ -2,438.09" [disabled]:
+        - generic: "96"
+        - generic: Ollama
+        - generic: 2,874.06
+        - generic "-2438.09": ▼ -2,438.09
+      - button "97 Kong 2,789.11 ▼ -2,202.75" [disabled]:
+        - generic: "97"
+        - generic: Kong
+        - generic: 2,789.11
+        - generic "-2202.75": ▼ -2,202.75
+      - button "98 SelectDB 2,757.85 ▼ -1,809.09" [disabled]:
+        - generic: "98"
+        - generic: SelectDB
+        - generic: 2,757.85
+        - generic "-1809.09": ▼ -1,809.09
+      - button "99 Metabase 2,756.07 ▼ -581.67" [disabled]:
+        - generic: "99"
+        - generic: Metabase
+        - generic: 2,756.07
+        - generic "-581.67": ▼ -581.67
+      - button "100 LobeHub 新加坡 2,751.99 ▼ -2,209.97" [disabled]:
+        - generic: "100"
+        - generic: LobeHub
+        - img "新加坡"
+        - generic: 2,751.99
+        - generic "-2209.97": ▼ -2,209.97
+  - generic: 开源项目 OpenRank 影响力 · 全球
+- region "Notifications alt+T"

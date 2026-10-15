@@ -1,0 +1,287 @@
+{
+  "repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+  "commit": "fbbbc0d9d59c93573518f8e655e21998965652d0",
+  "code_period": "2025-07-01/2026-06-30",
+  "model_period": "2026-08",
+  "files": [
+    {
+      "file": "fig-3-2-1_global_company_yearly_rank.csv",
+      "sha256": "04cce3a983ff0e74f81e3be8b9070175630e0952a5e454bbad379c824ba96f77",
+      "rows": 11
+    },
+    {
+      "file": "fig-3-2-2_global_company_monthly_rank.csv",
+      "sha256": "9ad47e8b055308c5fdd1ef42e4e6855be70b8064f08dc7eb248f77d80dfa4c47",
+      "rows": 12
+    },
+    {
+      "file": "fig-3-2-3_china_company_yearly_rank.csv",
+      "sha256": "17d3e128a3c69f4087645d726a8050915a775b9cb12c009470c7a19984ded48d",
+      "rows": 11
+    },
+    {
+      "file": "fig-3-2-4_china_company_monthly_rank.csv",
+      "sha256": "c3f501e8101a8da7c8b56ae96d3669ede0b5e6078b7435a3bcd309a0949ee40a",
+      "rows": 12
+    },
+    {
+      "file": "fig-3-3-1_foundation_monthly_rank.csv",
+      "sha256": "3ee901ae2facc3ad0a9ae983a38b848706a825649ffb5f847ad8b21375220c5b",
+      "rows": 12
+    },
+    {
+      "file": "fig-3-6-1_model_influence_top20.csv",
+      "sha256": "da9942a7ab78563aa3ea5d39d9ebba1cce426ed4236d80f15062c28bce0c94a2",
+      "rows": 20
+    },
+    {
+      "file": "fig-3-6-2_model_influence_country_publishers.csv",
+      "sha256": "30554cacfcb5ef3291f8dbadb3e7050fbfbbf2cb802babd87bca9e4353f657cf",
+      "rows": 4
+    },
+    {
+      "file": "fig-3-6-3_model_influence_task_distribution.csv",
+      "sha256": "80850949e7f4984187408b6ccb643ff8ef21410c7ea7c532a97e6a848bd655d5",
+      "rows": 4
+    },
+    {
+      "file": "table-3-0-1_gosr_top1_overview.csv",
+      "sha256": "157d9e911e3ada60933e0343742a5dfb2f0c080efb4b8af75f7907b212bd6740",
+      "rows": 5
+    },
+    {
+      "file": "table-3-1-1_global_division_openrank_top30.csv",
+      "sha256": "240176f475f7a0cb4cbeb5c635ca77b3ce896bd0b6055f1f0f57a63aadada480",
+      "rows": 30
+    },
+    {
+      "file": "table-3-1-2_division_country_entry_counts.csv",
+      "sha256": "c16a35605092f4be24a5951e6a90416b958b6bd30e291029441843cd4ff768ee",
+      "rows": 32
+    },
+    {
+      "file": "table-3-1-3_china_province_openrank_top30.csv",
+      "sha256": "bc3492c3a25ed65313bded82a089fd276886d7f635e23b995fa161c7a651ea29",
+      "rows": 30
+    },
+    {
+      "file": "table-3-1-4_china_city_openrank_top30.csv",
+      "sha256": "5442d8e7d4b794a27d146370f704a8ea5bf8c68e98cb3fc086d396c2c7086413",
+      "rows": 30
+    },
+    {
+      "file": "table-3-2-1_global_company_openrank_top30.csv",
+      "sha256": "efdf39dd239fd211dc874717e5a889a42244d27a0025add4fa1ff744156572bc",
+      "rows": 30
+    },
+    {
+      "file": "table-3-2-2_china_company_openrank_top30.csv",
+      "sha256": "5519ae8570790b51fc4f6ea66dd99ad1e26e7bf6bbbdd4540c2d3b5d657ac9da",
+      "rows": 30
+    },
+    {
+      "file": "table-3-3-1_global_foundation_openrank.csv",
+      "sha256": "3b025c56d9eb0562ae78ca24cfa4eeccd434cec73f60f976eacf0deef4d94987",
+      "rows": 21
+    },
+    {
+      "file": "table-3-4-1_global_project_openrank_top30.csv",
+      "sha256": "9ee3b5e31e8de0ae28fbfa1a7873335f246f99e58eca647d9cde178dcd663d00",
+      "rows": 30
+    },
+    {
+      "file": "table-3-4-2_project_country_distribution_top100.csv",
+      "sha256": "ea5a8ab344eb5373c90287e5552685084a5784753ff1529d519fbc252bce4679",
+      "rows": 13
+    },
+    {
+      "file": "table-3-4-3_china_project_openrank_top30.csv",
+      "sha256": "0404833c5d4b3d59ab56395db435ebed517a250ed3cbfe51c7ece287ffb7a0f3",
+      "rows": 30
+    },
+    {
+      "file": "table-3-4-4_china_project_rising.csv",
+      "sha256": "cf1341008a13e3628951e68d5b1e2f0bbec52468c898e17ce0a9c8cd052f8f66",
+      "rows": 10
+    },
+    {
+      "file": "table-3-5-1_new_repo_openrank_top30.csv",
+      "sha256": "84d0dace1eeeb6205508fd584ec0a15e12aa2ad63ecc9d59a98bd233c0e3a5a6",
+      "rows": 30
+    },
+    {
+      "file": "table-3-5-2_new_project_openrank_top30.csv",
+      "sha256": "23655bdc148cc9e6238405076baf688684db19078293eec0732a58877f4b7632",
+      "rows": 30
+    },
+    {
+      "file": "table-3-5-3_new_repo_domain_distribution.csv",
+      "sha256": "cd0bf48d30acaf351d3c42d436edf895760d868017951b5b6615d7d6aee88ca8",
+      "rows": 6
+    },
+    {
+      "file": "table-3-5-4_new_repo_language_distribution.csv",
+      "sha256": "2fc514cb6236311ef5d8c10aabe47f33073c43dd720b1cebb036f426cf92ff21",
+      "rows": 5
+    },
+    {
+      "file": "table-3-6-1_model_series_versions.csv",
+      "sha256": "b5ca47dfa484e566326dd9bf14310c049e4057a098ffa7bd89ccb3da40cf9f25",
+      "rows": 6
+    }
+  ],
+  "images": [
+    {
+      "file": "3.1-p2-1.png",
+      "section": "3.1",
+      "source": "3.1 全球行政区划影响力排行榜（R-Ranking）.pdf",
+      "page": 2,
+      "width": 1098,
+      "height": 1220
+    },
+    {
+      "file": "3.1-p5-1.png",
+      "section": "3.1",
+      "source": "3.1 全球行政区划影响力排行榜（R-Ranking）.pdf",
+      "page": 5,
+      "width": 862,
+      "height": 1116
+    },
+    {
+      "file": "3.1-p7-1.png",
+      "section": "3.1",
+      "source": "3.1 全球行政区划影响力排行榜（R-Ranking）.pdf",
+      "page": 7,
+      "width": 1094,
+      "height": 1222
+    },
+    {
+      "file": "3.2-p2-1.png",
+      "section": "3.2",
+      "source": "3.2 全球开源企业影响力排行榜（C-Ranking）.pdf",
+      "page": 2,
+      "width": 1138,
+      "height": 1200
+    },
+    {
+      "file": "3.2-p3-1.png",
+      "section": "3.2",
+      "source": "3.2 全球开源企业影响力排行榜（C-Ranking）.pdf",
+      "page": 3,
+      "width": 1280,
+      "height": 716
+    },
+    {
+      "file": "3.2-p4-1.png",
+      "section": "3.2",
+      "source": "3.2 全球开源企业影响力排行榜（C-Ranking）.pdf",
+      "page": 4,
+      "width": 1280,
+      "height": 716
+    },
+    {
+      "file": "3.2-p5-1.png",
+      "section": "3.2",
+      "source": "3.2 全球开源企业影响力排行榜（C-Ranking）.pdf",
+      "page": 5,
+      "width": 1180,
+      "height": 1232
+    },
+    {
+      "file": "3.2-p6-1.png",
+      "section": "3.2",
+      "source": "3.2 全球开源企业影响力排行榜（C-Ranking）.pdf",
+      "page": 6,
+      "width": 1280,
+      "height": 716
+    },
+    {
+      "file": "3.2-p7-1.png",
+      "section": "3.2",
+      "source": "3.2 全球开源企业影响力排行榜（C-Ranking）.pdf",
+      "page": 7,
+      "width": 3000,
+      "height": 1680
+    },
+    {
+      "file": "3.3-p2-1.png",
+      "section": "3.3",
+      "source": "3.3 全球开源基金会影响力排行榜（F-Ranking）.pdf",
+      "page": 2,
+      "width": 1394,
+      "height": 1118
+    },
+    {
+      "file": "3.3-p3-1.png",
+      "section": "3.3",
+      "source": "3.3 全球开源基金会影响力排行榜（F-Ranking）.pdf",
+      "page": 3,
+      "width": 3000,
+      "height": 1680
+    },
+    {
+      "file": "3.4-p2-1.png",
+      "section": "3.4",
+      "source": "3.4 全球开源项目影响力排行榜（P-Ranking）.pdf",
+      "page": 2,
+      "width": 1252,
+      "height": 1278
+    },
+    {
+      "file": "3.4-p4-1.png",
+      "section": "3.4",
+      "source": "3.4 全球开源项目影响力排行榜（P-Ranking）.pdf",
+      "page": 4,
+      "width": 1060,
+      "height": 1144
+    },
+    {
+      "file": "3.5-p2-1.png",
+      "section": "3.5",
+      "source": "3.5 全球新势力开源项目排行榜（E-Ranking）.pdf",
+      "page": 2,
+      "width": 1300,
+      "height": 1226
+    },
+    {
+      "file": "3.5-p3-1.png",
+      "section": "3.5",
+      "source": "3.5 全球新势力开源项目排行榜（E-Ranking）.pdf",
+      "page": 3,
+      "width": 1014,
+      "height": 950
+    },
+    {
+      "file": "3.6-p1-1.png",
+      "section": "3.6",
+      "source": "3.6 全球开源大模型影响力排行榜（M-Ranking）.pdf",
+      "page": 1,
+      "width": 2333,
+      "height": 1160
+    },
+    {
+      "file": "3.6-p2-1.png",
+      "section": "3.6",
+      "source": "3.6 全球开源大模型影响力排行榜（M-Ranking）.pdf",
+      "page": 2,
+      "width": 4800,
+      "height": 1440
+    },
+    {
+      "file": "3.6-p3-1.png",
+      "section": "3.6",
+      "source": "3.6 全球开源大模型影响力排行榜（M-Ranking）.pdf",
+      "page": 3,
+      "width": 4800,
+      "height": 1680
+    },
+    {
+      "file": "intro-p1-1.png",
+      "section": "intro",
+      "source": "第三章：全球开源影响力排行榜（GOSR）.pdf",
+      "page": 1,
+      "width": 880,
+      "height": 364
+    }
+  ]
+}

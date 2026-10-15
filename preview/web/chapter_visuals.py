@@ -1,6 +1,8 @@
 """Five progressively enhanced, source-backed figures for Chapter 1."""
 from pathlib import Path
 import csv,hashlib,html,json,math,shutil
+import chapter1_explorers
+import chapter1_tables
 
 ROOT=Path(__file__).resolve().parents[1]
 E=lambda s:html.escape(str(s),quote=True)
@@ -35,7 +37,7 @@ DIM_NOTES={
  '3.3':('数据如何被采用，并支持后续复用？','How are datasets adopted and reused?'),
  '4.1':('谁参与治理，哪些规则有据可查？','Who governs, and which rules can be verified?'),
  '4.2':('开放技术如何面向公共利益？','How does open technology serve public interests?')}
-FIGURES={'fig-1-1-1_linux_collaboration.svg':'linux','fig-1-1-2_model_derivatives.svg':'models','fig-1-1-3_sdgs_dpga.svg':'public-goods','fig-1-2-1_osdg_framework.svg':'goals','fig-1-3-1_osdi_explorer.svg':'indicators'}
+FIGURES={'fig-1-0-1_report_logic.svg':'report-logic','fig-1-1-1_linux_collaboration.svg':'linux','fig-1-1-2_model_derivatives.svg':'models','fig-1-1-3_sdgs_dpga.svg':'public-goods','fig-1-2-1_osdg_framework.svg':'goals','fig-1-3-1_osdi_explorer.svg':'indicators'}
 def path(lang,route):return '/2026/'+lang+'/'+route
 def link(href,label,extra=''):return f'<a href="{E(href)}" class="inline-link" {extra}>{label}</a>'
 def dump(value):return json.dumps(value,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
@@ -54,7 +56,7 @@ def import_story(repo,ref):
         writer=csv.DictWriter(f,fieldnames=['date','china','unitedStates','europe']);writer.writeheader();writer.writerows(result['models'])
     print('Imported external story samples: 2 leaderboards and 28 monthly observations; kept separate from OSDI.')
 def fig_open(fid,kicker,title,desc,lang):
-    return f'<figure id="{fid}" class="interactive-figure" data-viz="{fid}" aria-labelledby="{fid}-title"><div class="viz-heading"><span class="eyebrow">{kicker}</span><h4 id="{fid}-title">{title}</h4><p>{desc}</p></div>'
+    return f'<figure id="{fid}" class="interactive-figure chapter-one-visual" data-slide-key="{fid}" data-lang="{lang}" data-viz="{fid}" aria-labelledby="{fid}-title"><div class="viz-heading"><span class="eyebrow">{kicker}</span><h4 id="{fid}-title">{title}</h4><p>{desc}</p></div>'
 def fig_end(caption,source):
     zh=caption.startswith('图')
     filename=next((name for name in FIGURES if name[4:].split('_')[0] in caption),None)
@@ -86,9 +88,9 @@ def models(lang,r,source):
         label=d['date']+f' · China {d["china"]}% · US {d["unitedStates"]}% · Europe {d["europe"]}%'
         out+=f'<button type="button" class="month-bar" data-month="{i}" aria-pressed="{str(i==len(data)-1).lower()}" aria-label="{E(label)}">'+''.join(f'<span class="stack-segment region-{key}" style="height:{d[key]}%"></span>' for key in ['china','unitedStates','europe'])+'</button>'
     out+='</div></div><div class="month-endpoints"><span>2023.11</span><span>2024</span><span>2025</span><span>2026.02</span></div><div class="month-control"><label for="model-month">'+t('月份','Month')+f'</label><input id="model-month" type="range" min="0" max="{len(data)-1}" value="{len(data)-1}" step="1"><output id="model-month-label" for="model-month">2026.02</output></div><p id="model-announcement" class="sr-only" aria-live="polite"></p>'
-    out+='<details class="viz-data-table"><summary>'+t('查看完整数据表','View the complete data table')+'</summary><div class="reader-table-wrap"><table class="reader-table"><thead><tr>'+''.join('<th scope="col">'+x+'</th>' for x in [t('月份','Month'),t('中国','China'),t('美国','US'),t('欧洲','Europe')])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+E(d[k])+('' if k=='date' else '%')+'</td>' for k in ['date','china','unitedStates','europe'])+'</tr>' for d in data)+'</tbody></table></div></details>'
     out+='<p class="viz-boundary">'+t('ATOM 跟踪的 Hugging Face 样本；地区指基础模型发布方归属，不是下游用户国籍。原始百分比保留，取整可能使分项之和不等于 100%。本图是外部背景案例，不进入 OSDI 或正式榜单。','ATOM’s tracked Hugging Face sample. Regions refer to base-model publishers, not downstream users. Original percentages are preserved; rounding can leave totals different from 100%. External background only, excluded from OSDI and formal rankings.')+'</p><script type="application/json" id="model-viz-data">'+dump(data)+'</script>'
-    return out+fig_end(t('图 1-1-2 · 从模型供给到生态衍生：月度构成变化。','Figure 1-1-2 · From model supply to derivatives: monthly composition.'),link(source(s['files']['models']['path']),t('仓库固定快照 ↗','Fixed repository snapshot ↗'))+' · '+link('/assets/report/model-derivatives-story.csv',t('下载案例 CSV ↓','Download story CSV ↓'),'download')+' · '+link('https://www.atomproject.ai/','ATOM ↗'))
+    return out+fig_end(t('图 1-1-2 · 从模型供给到生态衍生：月度构成变化。','Figure 1-1-2 · From model supply to derivatives: monthly composition.'),link(source(s['files']['models']['path']),t('仓库固定快照 ↗','Fixed repository snapshot ↗'))+' · '+link('/assets/report/model-derivatives-story.csv',t('下载案例 CSV ↓','Download story CSV ↓'),'download')+' · '+link('https://www.atomproject.ai/','ATOM ↗'))+chapter1_tables.render([[t('月份','Month'),t('中国','China'),t('美国','US'),t('欧洲','Europe')]]+[[d['date']]+[str(d[k])+'%' for k in ['china','unitedStates','europe']] for d in data],lang,'table-model-months',E,'/assets/report/model-derivatives-story.csv')
+
 def wheel_svg(lang):
     def pt(radius,deg):return (160+radius*math.cos(math.radians(deg)),160+radius*math.sin(math.radians(deg)))
     out=['<svg viewBox="0 0 320 320" class="sdg-wheel" role="group" aria-label="'+T(lang,'联合国 17 项可持续发展目标','The 17 UN Sustainable Development Goals')+'">']
@@ -119,12 +121,16 @@ def goal_panel(item,lang):
     return '<div class="goal-detail-copy"><span class="viz-label">'+t('目标解读','GOAL NOTES')+'</span><strong>'+E(item['title'])+'</strong><p>'+E(item['question'])+'</p><small>'+E(item['boundary'])+'</small></div><div class="goal-detail-indicators"><span class="viz-label">'+t('对应指标','RELATED INDICATORS')+'</span><div>'+''.join(link(path(lang,'data/indicators/')+'#indicator-'+code,E(code)) for code in item['indicators'])+'</div></div>'
 def goals(lang,r,source):
     t=lambda z,e:T(lang,z,e);items=goal_records(lang,r)
-    out=fig_open('fig-osdg-goals','04 / OSDGs · FRAMEWORK EXPLORER',t('四个支柱，十个观察维度','Four pillars, ten observation dimensions'),t('在原图上悬停或点击支柱与维度，查看目标内涵、解释边界和对应指标。','Hover or select a pillar or dimension on the original figure to inspect its meaning, limits and indicators.'),lang)
-    out+='<div class="goal-map"><img src="/assets/report/fig-1-2-1_osdg_framework.svg" alt="'+t('OSDGs 四支柱与十维度目标框架矩阵','OSDGs framework matrix: four pillars and ten dimensions')+'" loading="lazy"><div class="goal-hotspots">'
+    out=fig_open('fig-osdg-goals','04 / OSDGs · FRAMEWORK EXPLORER',t('四个支柱，十个观察维度','Four pillars, ten observation dimensions'),t('悬停或点击支柱与维度，查看目标内涵、解释边界和对应指标。','Hover or select a pillar or dimension to inspect its meaning, limits and indicators.'),lang)
+    out+='<div class="goal-map"><div class="goal-hotspots">'
     for pi in range(4):
-        y=16+181*pi;dims=[x for x in items if not x.startswith('X') and x.startswith(str(pi+1)+'.')];width=(1074-(len(dims)-1)*16)/len(dims)
-        coords=[('X'+str(pi+1),16,510)]+[(dim,542+j*(width+16),width) for j,dim in enumerate(dims)]
-        for key,x,w in coords:out+=f'<button type="button" data-goal="{key}" aria-controls="goal-selection" aria-label="{E(items[key]["title"])}" aria-pressed="{str(key=="X1").lower()}" style="left:{x/1632*100:.5f}%;top:{y/740*100:.5f}%;width:{w/1632*100:.5f}%;height:{165/740*100:.5f}%"><span class="sr-only">{E(items[key]["title"])}</span></button>'
+        code='X'+str(pi+1);group=[x for x in r['indicators'] if x['pillar_id']==code]
+        out+=f'<div class="goal-pillar-row" style="--pillar:{COLORS[pi]}">'
+        out+=f'<button type="button" class="goal-pillar-name" data-goal="{code}" aria-controls="goal-selection" aria-pressed="{str(pi==0).lower()}"><b>{code}</b><span>{E(group[0]['pillar_name_zh' if lang=='zh' else 'pillar_name_en'])}</span></button><div class="goal-dimension-buttons">'
+        for dim in dict.fromkeys(x['dimension_id'] for x in group):
+            first=next(x for x in group if x['dimension_id']==dim)
+            out+=f'<button type="button" data-goal="{dim}" aria-controls="goal-selection" aria-pressed="false"><b>{dim}</b><span>{E(first['dimension_name_zh' if lang=='zh' else 'dimension_name_en'])}</span></button>'
+        out+='</div></div>'
     out+='</div></div><label class="goal-mobile-select" for="goal-select">'+t('选择支柱或维度','Choose a pillar or dimension')+'<select id="goal-select">'+''.join('<option value="'+key+'">'+E(item['title'])+'</option>' for key,item in items.items())+'</select></label><div class="goal-selection" id="goal-selection" aria-live="polite">'+goal_panel(items['X1'],lang)+'</div><p class="viz-boundary">'+t('支柱和维度是分类结构，不表示权重或评分。四个评价支柱与 GOSO、GOSR、GOSL、GOSM 交叉对应。','Pillars and dimensions are categories, not weights or scores. They cut across GOSO, GOSR, GOSL and GOSM.')+'</p><script type="application/json" id="goals-viz-data">'+dump(items)+'</script>'
     return out+fig_end(t('图 1-2-1 · OSDGs 目标框架（交互版）。','Figure 1-2-1 · Interactive OSDGs framework.'),link('/assets/report/fig-1-2-1_osdg_framework.svg',t('下载原框架图 SVG ↓','Download framework SVG ↓'),'download')+' · '+link(path(lang,'data/goals/'),t('目标框架详解 →','Explore the goals →')))
 def indicator_panel(row,lang):
@@ -146,4 +152,4 @@ def indicators(lang,r,source):
         out+='</div>'
     out+='</div><div class="atlas-legend"><span><i class="availability-dot related"></i>'+t('有关联资料','Related files')+'</span><span><i class="availability-dot pending"></i>'+t('待补匹配数据','Data pending')+'</span><span id="atlas-role-count" aria-live="polite">'+t('突出显示 29 / 29 项','Highlighting 29 / 29 measures')+'</span></div><div id="indicator-selection" class="indicator-inspector" aria-live="polite">'+indicator_panel(rows[0],lang)+'</div><p class="viz-boundary">'+t('三种角色不构成评分权重；“有关联资料”不等于“指标已算完”。ModelRank 保留概念说明，外部故事数据不用于补齐指标。','Roles do not imply scoring weights. Related files do not mean completed measurements. ModelRank remains conceptual; external stories do not fill indicator gaps.')+'</p><script type="application/json" id="indicators-viz-data">'+dump({x['indicator_code']:x for x in rows})+'</script>'
     return out+fig_end(t('图 1-3-1 · OSDI 指标地图：4 个支柱、10 个维度、29 项指标。','Figure 1-3-1 · OSDI atlas: 4 pillars, 10 dimensions and 29 measures.'),link('/assets/report/osdi_indicator_dictionary.csv',t('统一指标字典 CSV ↓','Canonical indicator dictionary CSV ↓'),'download')+' · '+link(path(lang,'methodology/'),t('方法与范围 →','Methods and scope →')))
-def render(kind,lang,r,source):return {'linux':linux,'models':models,'public-goods':public_goods,'goals':goals,'indicators':indicators}[kind](lang,r,source)
+def render(kind,lang,r,source):return {'linux':linux,'models':models,'public-goods':public_goods,'goals':goals,'indicators':chapter1_explorers.indicators,'report-logic':chapter1_explorers.logic}[kind](lang,r,source)

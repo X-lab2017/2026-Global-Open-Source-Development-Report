@@ -1,0 +1,54 @@
+{
+  "retrieved_date": "2026-10-15",
+  "sources": [
+    {
+      "file": "source/calendar-CN-contribution.json",
+      "sha256": "3ecb0030259200d01fb7952f96b2823146b11ed339f8b69ef9962d35589f993a"
+    },
+    {
+      "file": "source/calendar-CN-developers.json",
+      "sha256": "ee4e70835f0e19d9b97ebba6a9bc48426320fbcc21bc61e6908d4719d11e0127"
+    },
+    {
+      "file": "source/calendar-contribution.json",
+      "sha256": "79a223f2079a9b86c0c2dccc8845f5c164a2e1a4e1cef16c6f62ef62b77ab779"
+    },
+    {
+      "file": "source/calendar-developers.json",
+      "sha256": "d0f5ee2f59633fc2f826f5774cad754639b9f608cb0621893b058c4a93bbf701"
+    },
+    {
+      "file": "source/calendar-influence-reference.json",
+      "sha256": "523b4bbfb9b598e5d8154003cecb1a56fce890fff3df42ed63f2761f826882b6"
+    },
+    {
+      "file": "source/calendar-meta.json",
+      "sha256": "141f49881d2bb932bf9ff54d09464d5eb2f5887ab3a8e1f4aa2ae38274fc0f44"
+    },
+    {
+      "file": "source/repository-contribution-trend.csv",
+      "sha256": "6ec42dd568bbed1610cb3f468d92564b394bde81a46ae74e3fc49254213cf877"
+    },
+    {
+      "file": "source/repository-project-sources.csv",
+      "sha256": "590aeb718d75dabf12d334f24d1b54b61867eb0ac458ec8b9fae077c8bb62d3c"
+    },
+    {
+      "file": "source/repository-province-average.csv",
+      "sha256": "9e368036caacff8d781c5ad8cbe3f08b4d8f8a46839ea5e529c96e4b0811503e"
+    }
+  ],
+  "source_root": "https://selfoss.open-digger.cn/openshare/overview/",
+  "github_repository": "X-lab2017/2026-Global-Open-Source-Development-Report",
+  "repository_contribution_blob": "08cd16a82a5cbb7acc4818db651775ab4d617076",
+  "geometry_reference": "../vmap/map-provenance.json",
+  "method_urls": [
+    "https://open-digger.cn/docs/user-docs/metrics/openrank",
+    "https://open-digger.cn/docs/user-docs/metrics/global-openrank",
+    "https://open-digger.cn/docs/user-docs/metrics/community-openrank"
+  ],
+  "reference_project": "https://github.com/janarosmonaliev/github-globe",
+  "reference_source_blob": "fd2262c04f4b5deb96015fd1136ce7249de63364",
+  "runtime": "Three.js 0.170.0 + OrbitControls; locally served; no flight data reused",
+  "globe_network": "114 fictional nodes / 384 relations illustrate mutual reinforcement and historical continuity, not scores. Data mode separates 20 observed project-sample edges from optional residual-source scenario; see flows.json."
+}

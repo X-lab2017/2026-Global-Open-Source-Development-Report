@@ -1,0 +1,31 @@
+rank,project,platform,openrank,active_developers,initiator_zh,country_zh,repo_count,first_repo_created_at
+1,CANN,AtomGit,14719.47,5460,华为,🇨🇳中国,68,2025-08-01
+2,Hermes Agent,GitHub,1765.39,3960,Nous Research,🇺🇸美国,1,2025-07-22
+3,DeepAgents,GitHub,1017.25,786,LangChain,🇺🇸美国,1,2025-07-27
+4,ZeroClaw,GitHub,876.96,819,,,2,2026-02-13
+5,Paperclip,GitHub,778.06,1077,,,7,2026-02-27
+6,vLLM-Omni,GitHub,703.14,539,加州大学伯克利分校,🇺🇸美国,1,2025-09-11
+7,RLinf,GitHub,661.90,231,,,4,2025-08-14
+8,CLIProxyAPI,GitHub,617.39,1292,,,9,2025-07-01
+9,OpenViking,GitHub,595.71,635,字节跳动,🇨🇳中国,1,2026-01-05
+10,Pi Mono,GitHub,588.01,1152,,,1,2025-08-09
+11,Hive,GitHub,587.11,434,,,2,2026-01-12
+12,CC Switch,GitHub,528.45,1512,,,1,2025-08-04
+13,Oh My OpenAgent,GitHub,519.54,1358,,,1,2025-12-03
+14,Astron,GitHub,502.90,236,科大讯飞,🇨🇳中国,2,2025-09-19
+15,Lark CLI,GitHub,429.27,659,字节跳动,🇨🇳中国,1,2026-03-25
+16,Nanobot,GitHub,427.89,941,香港大学,🇨🇳中国,1,2026-02-01
+17,Beads,GitHub,389.70,726,,,1,2025-10-12
+18,QwenPaw,GitHub,377.86,884,阿里巴巴,🇨🇳中国,1,2026-02-24
+19,Spec Kit,GitHub,349.31,1058,GitHub,🇺🇸美国,1,2025-08-21
+20,Multica,GitHub,302.65,346,,,2,2026-01-13
+21,Claude Mem,GitHub,295.36,740,,,1,2025-08-31
+22,T3 Code,GitHub,292.24,631,Ping.gg,,1,2026-02-08
+23,Eigent,GitHub,281.45,185,,,3,2025-07-29
+24,Kimi CLI,GitHub,238.71,470,Moonshot AI,🇨🇳中国,1,2025-10-15
+25,Agent Sandbox,GitHub,210.23,128,云原生计算基金会,🇺🇸美国,1,2025-08-12
+26,Superpowers,GitHub,206.30,627,,,1,2025-10-09
+27,Parameter Golf,GitHub,171.48,370,OpenAI,🇺🇸美国,1,2026-02-09
+28,RTK,GitHub,167.74,394,,,6,2026-01-22
+29,OmniRoute,GitHub,141.08,328,,,1,2026-02-13
+30,Everything Claude Code,GitHub,131.81,359,,,1,2026-01-18

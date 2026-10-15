@@ -32,16 +32,25 @@ for lang in ['zh','en']:
     page=FigurePage((args.output/f'2026/{lang}/chapters/01/index.html').read_text())
     ids=[a['id'] for _,a in page.tags if 'id' in a]
     assert all(x in ids for x in ['fig-linux','fig-models','fig-public-goods','fig-osdg-goals','fig-osdi-map'])
-    for attr,count in [('data-linux-kind',2),('data-month',28),('data-sdg',17),('data-dpg',9),('data-goal',14),('data-indicator',29),('data-indicator-role',4)]:
+    for attr,count in [('data-linux-kind',2),('data-month',28),('data-sdg',17),('data-dpg',9),('data-goal',14),('data-osdi-code',29),('data-osdi-pillar',4),('data-osdi-dimension',10),('data-logic-chapter',6)]:
         nodes=[a for _,a in page.tags if attr in a];assert len(nodes)==count,(attr,len(nodes))
-        assert all('aria-pressed' in a for a in nodes)
+        if attr=='data-osdi-code':assert all(tag=='details' for tag,a in page.tags if attr in a)
+        elif attr=='data-logic-chapter':assert all('aria-expanded' in a for a in nodes)
+        else:assert all('aria-pressed' in a for a in nodes)
     decoded={key:json.loads(value) for key,value in page.scripts.items()}
     assert decoded['model-viz-data']==story['models']
     assert decoded['linux-viz-data']['organizations']==story['organizations']
     assert decoded['linux-viz-data']['contributors']==story['contributors']
-    assert decoded['indicators-viz-data']=={row['indicator_code']:row for row in report['indicators']}
+    assert {a['data-osdi-code'] for _,a in page.tags if 'data-osdi-code' in a}=={row['indicator_code'] for row in report['indicators']}
+    assert all(row['definition'] in (args.output/f'2026/{lang}/chapters/01/index.html').read_text() for row in report['indicators'])
+    table_figures=[a for tag,a in page.tags if tag=='figure' and 'chapter-table-figure' in a.get('class','')]
+    assert len(table_figures)==10
+    assert all(int(a['data-slide-height']) in [580,620,680,720] for a in table_figures)
+    assert len([a for tag,a in page.tags if tag=='table' and a.get('class')=='chapter-compact-table'])==10
+    assert len([a for tag,a in page.tags if tag=='figure' and 'chapter-one-visual' in a.get('class','')])==4
+    assert len([a for tag,a in page.tags if tag=='nav' and a.get('class')=='table-pagination'])==2
     assert len(decoded['goals-viz-data'])==14
     assert {x for v in decoded['goals-viz-data'].values() for x in v['indicators']}=={r['indicator_code'] for r in report['indicators']}
     assert any(a.get('src','').endswith('/chapter-visuals.js') for _,a in page.tags)
     assert any(a.get('href','').endswith('/chapter-visuals.css') for _,a in page.tags)
-print('PASS: five bilingual interactive figures; 28 exact monthly observations, 14 framework hotspots, 17 SDGs, 9 DPG criteria, 29 canonical indicators; raw data unchanged.')
+print('PASS: six bilingual interactive figures, ten compact source tables; 28 exact monthly observations, 14 framework hotspots, 17 SDGs, 9 DPG criteria, 29 canonical indicators; raw data unchanged.')

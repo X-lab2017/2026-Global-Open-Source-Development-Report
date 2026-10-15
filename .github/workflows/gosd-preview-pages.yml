@@ -40,6 +40,12 @@ jobs:
           python3 preview/web/check_portal.py --output _site --base-path "$BASE_PATH"
           python3 preview/web/check_report.py --output _site
           python3 preview/web/check_chapter_visuals.py --output _site --repo-root .
+          python3 preview/web/check_goso.py --output _site
+          python3 preview/web/check_vmap.py --output _site
+          python3 preview/web/check_cmap.py --output _site
+          python3 preview/web/check_gosr.py --output _site
+          python3 preview/web/check_landscape.py --output _site
+          for file in _site/*.js _site/*.mjs; do node --input-type=module --check < "$file"; done
           node --check _site/chapter-visuals.js
           node --check _site/report.js
           node --check _site/portal.js
