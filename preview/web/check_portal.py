@@ -65,6 +65,7 @@ for entry in json.loads((root/'assets/search-index.json').read_text()):check_url
 for name in ['active-developers.csv','osdi-indicators.csv','framework.json']:
     assert (root/'assets'/name).read_bytes()==(source/'content/assets'/name).read_bytes()
 assert (root/'content.js').read_bytes()==(source/'content/chart-data.js').read_bytes()
-assert len(pages)==50,len(pages)
+assert len(pages)==51,len(pages)
+assert (root/'2026/index.html').read_bytes()==(root/'2026/zh/index.html').read_bytes()
 assert not errors,'\n'.join(errors)
 print(f'PASS: {len(pages)} pages, {count} internal links/assets, 5 research questions, 4 core labels, unchanged data seeds; base={base or "/"}')
