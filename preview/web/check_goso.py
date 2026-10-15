@@ -41,10 +41,11 @@ assert round((float(models[-1]['publishers'])/float(models[-2]['publishers'])-1)
 influence=goso.rows('influence');assert round((float(influence[-1]['China'])/float(influence[0]['China'])-1)*100)==160
 for lang in ['zh','en']:
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
-    assert page.count_sections==7 and page.charts==['i','t','d','g','a']
+    assert page.count_sections==7 and page.charts==['d','g','a']
     assert len(page.fields)==4 and len(page.ids)==len(set(page.ids))
     for term in ['97.66%','2026-09-13','AtomGit','GitCode','前 5%','待补充','当前浏览器','后续正文与图表修订在确认后更新']:assert term in text,term
     for key in evidence['files']:
-        if key not in ('total','active'):assert goso.source(key) in text,key
+        if key not in ('total','active','influence','talent','cities','cross'):assert goso.source(key) in text,key
+    for key in ('fig-2-3-1','fig-2-3-2','fig-2-3-3','fig-2-4-1','fig-2-4-2','fig-2-4-3','fig-2-4-4','fig-2-4-5'):assert key in page.ids,key
 assert (out/'assets/goso/GOSO-review-draft.md').exists()
 print('PASS: GOSO seven sections, 17 preserved observation views plus V-Map/C-Map modules, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, four review fields and static exports.')

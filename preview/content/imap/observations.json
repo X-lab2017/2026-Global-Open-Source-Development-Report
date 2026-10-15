@@ -1,0 +1,570 @@
+{
+  "meta": {
+    "timeDimension": "natural_year",
+    "period": {
+      "reportYear": 2025,
+      "start": "2025-01-01",
+      "endExclusive": "2026-01-01",
+      "totalSnapshotQuarter": null
+    },
+    "metrics": [
+      "developers",
+      "contribution",
+      "influence"
+    ],
+    "drillDownCountries": {
+      "CN": {
+        "name": "China",
+        "name_zh": "中国"
+      },
+      "US": {
+        "name": "United States",
+        "name_zh": "美国"
+      }
+    },
+    "summary": {
+      "totalRecords": 9651850587,
+      "totalRepos": 380657469,
+      "totalDevelopers": 180145424,
+      "activeDevelopers": 27621085,
+      "totalCountries": 246,
+      "dataSource": "OpenDigger",
+      "updatedAt": "2026-10-08T08:06:42.223Z"
+    }
+  },
+  "years": [
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "series": {
+    "influence": {
+      "United States": [
+        1341941.19,
+        1435760.17,
+        1617565.74,
+        1677098.44,
+        1751395.17
+      ],
+      "China": [
+        277365.03,
+        426439.08,
+        501964.51,
+        607950.0,
+        721000.0
+      ],
+      "Europe": [
+        135000.0,
+        146500.0,
+        157500.0,
+        166831.56,
+        183498.95
+      ],
+      "Global South representatives": [
+        4200.0,
+        4650.0,
+        5100.0,
+        5550.0,
+        5976.54
+      ],
+      "India": [
+        2800.0,
+        3150.0,
+        3500.0,
+        3850.0,
+        4139.81
+      ]
+    },
+    "contribution": {
+      "Europe": [
+        4724000.0,
+        5087000.0,
+        5628000.0,
+        6085419.52,
+        6501632.27
+      ],
+      "China": [
+        1335732.28,
+        2061718.92,
+        2442248.42,
+        3008427.55,
+        4429200.83
+      ],
+      "United States": [
+        3404267.2,
+        3445974.56,
+        3675002.59,
+        3893624.35,
+        4239710.05
+      ],
+      "Global South representatives": [
+        797000.0,
+        859000.0,
+        950000.0,
+        1027025.52,
+        1053454.38
+      ],
+      "India": [
+        681000.0,
+        734000.0,
+        812000.0,
+        877175.19,
+        894672.67
+      ]
+    }
+  },
+  "cases": [
+    {
+      "rank": "1",
+      "project": "OpenHarmony",
+      "openrank": 75809.42,
+      "active_developers": 12640,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": "2",
+      "project": "openEuler",
+      "openrank": 18950.48,
+      "active_developers": 9039,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": "24",
+      "project": "AgentScope",
+      "openrank": 1146.0,
+      "active_developers": 1534,
+      "initiator_zh": "阿里巴巴"
+    }
+  ],
+  "sourceCommit": "5c31603a2c8abd16a7e12404473f7fc4b6abe3d6",
+  "chinaProjects": [
+    {
+      "rank": 1.0,
+      "project": "OpenHarmony",
+      "openrank": 75809.42,
+      "active_developers": 12640.0,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": 2.0,
+      "project": "openEuler",
+      "openrank": 18950.48,
+      "active_developers": 9039.0,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": 3.0,
+      "project": "CANN",
+      "openrank": 14719.47,
+      "active_developers": 5460.0,
+      "initiator_zh": "华为"
+    },
+    {
+      "rank": 4.0,
+      "project": "Ascend",
+      "openrank": 12973.33,
+      "active_developers": 5798.0,
+      "initiator_zh": "华为"
+    },
+    {
+      "rank": 5.0,
+      "project": "MindSpore",
+      "openrank": 7321.46,
+      "active_developers": 3109.0,
+      "initiator_zh": "华为"
+    },
+    {
+      "rank": 6.0,
+      "project": "PaddlePaddle",
+      "openrank": 6567.09,
+      "active_developers": 2135.0,
+      "initiator_zh": "百度"
+    },
+    {
+      "rank": 7.0,
+      "project": "Cangjie",
+      "openrank": 4806.2,
+      "active_developers": 3347.0,
+      "initiator_zh": "华为"
+    },
+    {
+      "rank": 8.0,
+      "project": "Ant Design",
+      "openrank": 2657.1,
+      "active_developers": 2370.0,
+      "initiator_zh": "蚂蚁集团"
+    },
+    {
+      "rank": 9.0,
+      "project": "openGauss",
+      "openrank": 2459.62,
+      "active_developers": 685.0,
+      "initiator_zh": "华为"
+    },
+    {
+      "rank": 10.0,
+      "project": "魔搭",
+      "openrank": 2370.03,
+      "active_developers": 2488.0,
+      "initiator_zh": "阿里巴巴"
+    },
+    {
+      "rank": 11.0,
+      "project": "TiDB",
+      "openrank": 2255.32,
+      "active_developers": 446.0,
+      "initiator_zh": "PingCAP"
+    },
+    {
+      "rank": 12.0,
+      "project": "verl",
+      "openrank": 2247.85,
+      "active_developers": 2297.0,
+      "initiator_zh": "字节跳动"
+    },
+    {
+      "rank": 13.0,
+      "project": "1Panel",
+      "openrank": 2002.13,
+      "active_developers": 1084.0,
+      "initiator_zh": "飞致云"
+    },
+    {
+      "rank": 14.0,
+      "project": "openKylin",
+      "openrank": 1757.69,
+      "active_developers": 582.0,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": 15.0,
+      "project": "StarRocks",
+      "openrank": 1716.0,
+      "active_developers": 568.0,
+      "initiator_zh": "StarRocks"
+    },
+    {
+      "rank": 16.0,
+      "project": "RAGFlow",
+      "openrank": 1595.34,
+      "active_developers": 1342.0,
+      "initiator_zh": "Infinity Flow"
+    },
+    {
+      "rank": 17.0,
+      "project": "香山处理器",
+      "openrank": 1434.43,
+      "active_developers": 206.0,
+      "initiator_zh": ""
+    },
+    {
+      "rank": 18.0,
+      "project": "龙蜥",
+      "openrank": 1384.53,
+      "active_developers": 326.0,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": 19.0,
+      "project": "Coze",
+      "openrank": 1306.74,
+      "active_developers": 1565.0,
+      "initiator_zh": "字节跳动"
+    },
+    {
+      "rank": 20.0,
+      "project": "FlagOS",
+      "openrank": 1305.86,
+      "active_developers": 470.0,
+      "initiator_zh": ""
+    },
+    {
+      "rank": 21.0,
+      "project": "openFuyao",
+      "openrank": 1247.62,
+      "active_developers": 192.0,
+      "initiator_zh": "华为"
+    },
+    {
+      "rank": 22.0,
+      "project": "AntV",
+      "openrank": 1160.66,
+      "active_developers": 1000.0,
+      "initiator_zh": "蚂蚁集团"
+    },
+    {
+      "rank": 23.0,
+      "project": "TDengine",
+      "openrank": 1151.39,
+      "active_developers": 256.0,
+      "initiator_zh": "涛思数据"
+    },
+    {
+      "rank": 24.0,
+      "project": "AgentScope",
+      "openrank": 1146.0,
+      "active_developers": 1534.0,
+      "initiator_zh": "阿里巴巴"
+    },
+    {
+      "rank": 25.0,
+      "project": "ms-swift",
+      "openrank": 1074.14,
+      "active_developers": 1283.0,
+      "initiator_zh": "阿里巴巴"
+    },
+    {
+      "rank": 26.0,
+      "project": "inclusionAI",
+      "openrank": 1038.55,
+      "active_developers": 729.0,
+      "initiator_zh": "蚂蚁集团"
+    },
+    {
+      "rank": 27.0,
+      "project": "DeerFlow",
+      "openrank": 995.06,
+      "active_developers": 1423.0,
+      "initiator_zh": "字节跳动"
+    },
+    {
+      "rank": 28.0,
+      "project": "CloudWeGo",
+      "openrank": 983.78,
+      "active_developers": 500.0,
+      "initiator_zh": "字节跳动"
+    },
+    {
+      "rank": 29.0,
+      "project": "KWDB",
+      "openrank": 948.11,
+      "active_developers": 97.0,
+      "initiator_zh": "开放原子开源基金会"
+    },
+    {
+      "rank": 30.0,
+      "project": "DataEase",
+      "openrank": 927.63,
+      "active_developers": 399.0,
+      "initiator_zh": "飞致云"
+    }
+  ],
+  "international": [
+    {
+      "project_country": "China",
+      "rank": 1.0,
+      "developer_country": "China",
+      "openrank": 25204.09,
+      "share_pct": 79.22
+    },
+    {
+      "project_country": "China",
+      "rank": 2.0,
+      "developer_country": "United States",
+      "openrank": 1980.46,
+      "share_pct": 6.22
+    },
+    {
+      "project_country": "China",
+      "rank": 3.0,
+      "developer_country": "Canada",
+      "openrank": 506.18,
+      "share_pct": 1.59
+    },
+    {
+      "project_country": "China",
+      "rank": 4.0,
+      "developer_country": "Germany",
+      "openrank": 425.77,
+      "share_pct": 1.34
+    },
+    {
+      "project_country": "China",
+      "rank": 5.0,
+      "developer_country": "Singapore",
+      "openrank": 416.06,
+      "share_pct": 1.31
+    },
+    {
+      "project_country": "China",
+      "rank": 6.0,
+      "developer_country": "India",
+      "openrank": 368.81,
+      "share_pct": 1.16
+    },
+    {
+      "project_country": "China",
+      "rank": 7.0,
+      "developer_country": "Czechia",
+      "openrank": 233.27,
+      "share_pct": 0.73
+    },
+    {
+      "project_country": "China",
+      "rank": 8.0,
+      "developer_country": "Sweden",
+      "openrank": 185.31,
+      "share_pct": 0.58
+    },
+    {
+      "project_country": "China",
+      "rank": 9.0,
+      "developer_country": "Bulgaria",
+      "openrank": 177.76,
+      "share_pct": 0.56
+    },
+    {
+      "project_country": "China",
+      "rank": 10.0,
+      "developer_country": "United Kingdom",
+      "openrank": 168.39,
+      "share_pct": 0.53
+    },
+    {
+      "project_country": "United States",
+      "rank": 1.0,
+      "developer_country": "United States",
+      "openrank": 120223.9,
+      "share_pct": 38.28
+    },
+    {
+      "project_country": "United States",
+      "rank": 2.0,
+      "developer_country": "China",
+      "openrank": 24420.69,
+      "share_pct": 7.78
+    },
+    {
+      "project_country": "United States",
+      "rank": 3.0,
+      "developer_country": "Germany",
+      "openrank": 21580.29,
+      "share_pct": 6.87
+    },
+    {
+      "project_country": "United States",
+      "rank": 4.0,
+      "developer_country": "United Kingdom",
+      "openrank": 18575.26,
+      "share_pct": 5.91
+    },
+    {
+      "project_country": "United States",
+      "rank": 5.0,
+      "developer_country": "Canada",
+      "openrank": 15938.12,
+      "share_pct": 5.07
+    },
+    {
+      "project_country": "United States",
+      "rank": 6.0,
+      "developer_country": "India",
+      "openrank": 13633.64,
+      "share_pct": 4.34
+    },
+    {
+      "project_country": "United States",
+      "rank": 7.0,
+      "developer_country": "France",
+      "openrank": 11568.78,
+      "share_pct": 3.68
+    },
+    {
+      "project_country": "United States",
+      "rank": 8.0,
+      "developer_country": "Netherlands",
+      "openrank": 7063.68,
+      "share_pct": 2.25
+    },
+    {
+      "project_country": "United States",
+      "rank": 9.0,
+      "developer_country": "Switzerland",
+      "openrank": 5994.4,
+      "share_pct": 1.91
+    },
+    {
+      "project_country": "United States",
+      "rank": 10.0,
+      "developer_country": "Poland",
+      "openrank": 5809.64,
+      "share_pct": 1.85
+    }
+  ],
+  "top100": [
+    {
+      "country_zh": "🇺🇸美国",
+      "projects_in_top100": "69",
+      "representative_projects": "Azure、C#/.Net、PyTorch"
+    },
+    {
+      "country_zh": "未识别",
+      "projects_in_top100": "9",
+      "representative_projects": "OpenClaw、JavaScript/TypeScript、Conda Forge"
+    },
+    {
+      "country_zh": "🇨🇳中国",
+      "projects_in_top100": "7",
+      "representative_projects": "OpenHarmony、openEuler、CANN"
+    },
+    {
+      "country_zh": "🇳🇱荷兰",
+      "projects_in_top100": "3",
+      "representative_projects": "NixOS、Godot Engine、Kotlin"
+    },
+    {
+      "country_zh": "🇩🇪德国",
+      "projects_in_top100": "3",
+      "representative_projects": "NextCloud、n8n、Camunda"
+    },
+    {
+      "country_zh": "🇷🇺俄罗斯",
+      "projects_in_top100": "2",
+      "representative_projects": "ClickHouse、YDB"
+    },
+    {
+      "country_zh": "🇧🇪比利时",
+      "projects_in_top100": "1",
+      "representative_projects": "Odoo"
+    },
+    {
+      "country_zh": "🇯🇵日本",
+      "projects_in_top100": "1",
+      "representative_projects": "Ruby"
+    },
+    {
+      "country_zh": "🇮🇸冰岛",
+      "projects_in_top100": "1",
+      "representative_projects": "DefiLlama"
+    },
+    {
+      "country_zh": "🇿🇦南非",
+      "projects_in_top100": "1",
+      "representative_projects": "WooCommerce"
+    },
+    {
+      "country_zh": "🇮🇱以色列",
+      "projects_in_top100": "1",
+      "representative_projects": "ScyllaDB"
+    },
+    {
+      "country_zh": "🇳🇴挪威",
+      "projects_in_top100": "1",
+      "representative_projects": "nRF Connect"
+    },
+    {
+      "country_zh": "🇧🇬保加利亚",
+      "projects_in_top100": "1",
+      "representative_projects": "llama.cpp"
+    }
+  ],
+  "chinaProjectCounts": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "sourceCommit": "5c31603a2c8abd16a7e12404473f7fc4b6abe3d6",
+  "sourceStatus": "repository_source_method_pending",
+  "figures": [
+    {
+      "id": "fig-2-4-1",
+      "status": "repository_source",
+      "file": "fig-2-4-1_global_open_source_talent_map.csv",
+      "period": "2026-07"
+    },
+    {
+      "id": "fig-2-4-2",
+      "status": "repository_source",
+      "file": "fig-2-4-2_five_region_open_source_talent_trend.csv",
+      "period": "report 2022–2026"
+    },
+    {
+      "id": "fig-2-4-3",
+      "status": "repository_source",
+      "files": [
+        "fig-2-4-3_china_city_open_source_talent_map.csv",
+        "fig-2-4-4_china_top10_city_talent_trend.csv",
+        "table-2-4-1_china_city_talent_top10.csv"
+      ]
+    },
+    {
+      "id": "fig-2-4-4",
+      "status": "simulated_design_only",
+      "file": "simulation.json"
+    },
+    {
+      "id": "fig-2-4-5",
+      "status": "simulated_design_only",
+      "file": "simulation.json"
+    }
+  ],
+  "geometry": "/assets/vmap/map-provenance.json",
+  "notes": [
+    "图1理解人才的网络是教学示意，不输出模拟OpenRank排名。",
+    "全球总量、年度构建、前5%总体和并列规则待补。",
+    "模拟数据不能作为结论、实际人才流动或政策效果预测。"
+  ]
+}

@@ -158,10 +158,10 @@ def chapter(lang):
     vv=views();base='/2026/'+lang+'/';all_data=json.dumps(vv,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     out=['<div class="goso-chapter" lang="zh-CN">',atlas.defs()]
     if lang=='en':out.append('<div class="reader-note" lang="en">GOSO review chapter: the Chinese manuscript and charts are shown below. English translation will follow editorial review.</div>')
-    out.append('<div class="reading-tools"><span>GOSO 样章 · 2.1–2.2 更新于 2026-10-15</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
+    out.append('<div class="reading-tools"><span>GOSO 样章 · 2.1–2.4 已对齐 · 2026-10-15</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
     out.append(editorial.cover())
     out.append('<nav class="atlas-chapter-route" aria-label="七个地图视角">'+''.join('<a href="#ch02-s0'+str(i+1)+'"><b>'+s['code']+'</b><span>'+label+'</span></a>' for i,(s,label) in enumerate(zip(SECTIONS,['参与分布','协作贡献','项目影响','核心人才','跨国协作','治理公益','开放资产'])))+'</nav>')
-    out.append('<details class="goso-scope"><summary>阅读说明 · 报告年度、地图快照与来源</summary><p>2.1 与本次 2.2 依据作者附件及 OpenShare 同版底表，采用 2025 自然年作为当前地图观察窗口；全球和中国地图按平台同源底图与比例绘制，中国包含 34 个省级地区。2.1 国内人数补充为条件情景；2.2 主叙事采用报告五域口径，中国贡献 442.92 万、高于美国 423.97 万，地图仍保留自然年平台参照。3D 地球分别展示虚构协作机制、实测贡献点和项目样本流向；金色虚线仅为可选的未列来源估算。其他小节保留各自标注的快照与仓库年度 CSV，不混合计算。</p><p>数据来自 GitHub 固定版本 '+REF[:7]+'。本章使用第二章 13 份原始 CSV，并复用第五章 2 份模型底表；新增模型数据不是第一章 ATOM 外部故事快照。按作者确认开展跨年比较；尚缺的算法、样本和分母信息集中列在章末。</p><p>OpenDigger 提供主要数据与方法基础，OpenRank 帮助观察协作贡献和网络影响。账户存量、年度活跃、人才、项目和模型分别计量；五组比较不穷尽全球。未对齐的表不交叉计算，空值不补零。</p>'+link(base+'chapters/01/#ch01-s03','回到 1.3 · OSDI 方法基础')+' · '+link(base+'methodology/','完整方法与范围')+'</details>')
+    out.append('<details class="goso-scope"><summary>阅读说明 · 报告年度、地图快照与来源</summary><p>2.1 与本次 2.2 依据作者附件及 OpenShare 同版底表，采用 2025 自然年作为当前地图观察窗口；全球和中国地图按平台同源底图与比例绘制，中国包含 34 个省级地区。2.1 国内人数补充为条件情景；2.2 主叙事采用报告五域口径，中国贡献 442.92 万、高于美国 423.97 万，地图仍保留自然年平台参照。3D 地球分别展示虚构协作机制、实测贡献点和项目样本流向；金色虚线仅为可选的未列来源估算。2.3 同时保留 2025 自然年项目影响力快照与报告 2022—2026 年序列；2.4 的全球人才快照、五域和城市序列也分别标注。人才成长与连接模拟单列，不作为实测发现。其余小节保留各自范围，不混合计算。</p><p>早期地图采用 GitHub 固定版本 '+REF[:7]+'；本次新增图组的版本独立标注。具体文件与版本以各图就近来源说明为准；新增 2.3、2.4 复用仓库 5c31603 及 OpenShare 同源快照，并复用第五章模型底表；新增模型数据不是第一章 ATOM 外部故事快照。按作者确认开展跨年比较；尚缺的算法、样本和分母信息集中列在章末。</p><p>OpenDigger 提供主要数据与方法基础，OpenRank 帮助观察协作贡献和网络影响。账户存量、年度活跃、人才、项目和模型分别计量；五组比较不穷尽全球。未对齐的表不交叉计算，空值不补零。</p>'+link(base+'chapters/01/#ch01-s03','回到 1.3 · OSDI 方法基础')+' · '+link(base+'methodology/','完整方法与范围')+'</details>')
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)
         if s['key']=='v':
@@ -169,6 +169,9 @@ def chapter(lang):
             continue
         if s['key']=='c':
             out.append(__import__('cmap_content').section(lang))
+            continue
+        if s['key'] in ('i','t'):
+            out.append(__import__('goso_maps').section({'i':'imap','t':'tmap'}[s['key']],lang))
             continue
         out.append(f'<section class="chapter-section goso-section" id="{sid}"><div class="section-topline">2.{n} / {s["code"]}</div><h2>{s["name"]}</h2><p class="goso-question">{s["question"]}</p><div class="goso-judgment"><h3>{s["headline"]}</h3><div class="goso-kpi"><strong>{s["kpi"]}</strong><span>{s["kpi_label"]}</span></div></div>')
         primary=editorial.governance_panel() if s['key']=='g' else editorial.flow_panel() if s['key']=='d' else atlas.panel(s['key'])
@@ -202,6 +205,7 @@ def export(out):
     atlas.export(out)
     __import__('vmap_content').export(out)
     __import__('cmap_content').export(out)
+    __import__('goso_maps').export(out)
     vv=views()
     for values in vv.values():
         for v in values:(dest/(v['id']+'.svg')).write_text(__import__('goso_brand').resolve(standalone_svg(v)))
@@ -212,6 +216,9 @@ def export(out):
             continue
         if s['key']=='c':
             manuscript.append(__import__('cmap_content').manuscript())
+            continue
+        if s['key'] in ('i','t'):
+            manuscript.append(__import__('goso_maps').manuscript({'i':'imap','t':'tmap'}[s['key']]))
             continue
         manuscript+=['\n## 2.'+str(i+1)+' '+s['name']+'（'+s['code']+'）\n\n**研究问题：** '+s['question']+'\n\n**核心判断：** '+s['headline']]
         for title,text in s['paragraphs']:manuscript+=['\n### '+title+'\n\n'+text]

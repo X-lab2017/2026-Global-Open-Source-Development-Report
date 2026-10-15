@@ -19,11 +19,24 @@
   ],
   "pending_reviews": [
     {
-      "section": "2.2",
-      "plan": "docs/cmap-2-2-review-plan-20261015.md",
-      "status": "implementation_pending_review",
-      "preview_section": "/2026/zh/chapters/02/#ch02-s02",
-      "implementation_record": "docs/cmap-update-20261015.md"
+      "section": "2.3–2.4",
+      "status": "alignment_for_review",
+      "preview_section": "/2026/zh/chapters/02/#ch02-s03",
+      "implementation_record": "docs/goso-alignment-20261015.md"
+    }
+  ],
+  "implementation_updates": [
+    {
+      "date": "2026-10-15",
+      "sections": [
+        "2.1",
+        "2.2",
+        "2.3",
+        "2.4"
+      ],
+      "record": "docs/goso-alignment-20261015.md",
+      "status": "aligned_for_review",
+      "note": "Shared Chapter 1 presentation lifecycle; source datasets unchanged; T-Map simulations isolated."
     }
   ]
 }
