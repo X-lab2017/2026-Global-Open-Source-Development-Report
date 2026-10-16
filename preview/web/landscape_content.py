@@ -72,10 +72,10 @@ def gallery():
  for i in P['draft_images']:out.append(f'<figure><a href="/assets/landscape/original/{i["file"]}" target="_blank" rel="noopener"><img loading="lazy" src="/assets/landscape/original/{i["file"]}" width="{i["width"]}" height="{i["height"]}" alt="4.1 初稿第 {i["page"]} 页原图"></a><figcaption>附件第 {i["page"]} 页 · 点击查看原尺寸</figcaption></figure>')
  for name in ['landscape_agent_infra.png','landscape_model_infra.png']:out.append(f'<figure><a href="/assets/landscape/original/{name}" target="_blank" rel="noopener"><img loading="lazy" src="/assets/landscape/original/{name}" alt="仓库全景原图 {name}"></a><figcaption>'+link(REPO+'insights/260527-agentic_landscape/'+name,'仓库全景原图与来源 ↗')+'</figcaption></figure>')
  return ''.join(out)+'</div></details>'
-def chapter(lang):
+def chapter_v1(lang):
  m=json.loads((ROOT/'content/manifest.json').read_text());ch=m['chapters'][3]
  if lang!='zh':
-  intro='<div class="reader-note">Section 4.1 is available as a Chinese interactive sample. Annual report evidence and the newer repository landscape are kept separate.</div><section id="ch04-s01"><h2>4.1 Agentic AI landscape</h2>'+link('/2026/zh/chapters/04/#ch04-s01','Read the interactive sample →')+'</section>'
+  intro='<div class="reader-note">Section 4.1 is available as a Chinese interactive sample: 145 selected projects, 25 categories and 12 monthly observations. Country contribution views are explicitly simulated.</div><section id="ch04-s01"><h2>4.1 Agentic AI landscape</h2>'+link('/2026/zh/chapters/04/#ch04-s01','Read the interactive sample →')+'</section>'
   return intro+''.join(f'<section class="chapter-section" id="{s["id"]}"><h2>{E(s["number"]+" "+s["title"][lang])}</h2><p>This section retains its outline and source manuscript.</p>'+link(REPORT+s['source_path'],'View source manuscript ↗')+'</section>' for s in ch['sections'][1:])
  out=['<div class="goso-chapter land-chapter"><p class="reader-note">GOSL 样章 · 本轮聚焦 4.1；4.2—4.6 保留章节入口，后续按样章经验推进。</p><section class="land-intro"><span class="eyebrow">GOSL / FROM RANKINGS TO ECOSYSTEM STRUCTURE</span><h2>从项目位次，走向技术结构。</h2><p>第三章辨识关键参与者，第四章把项目放回技术链条：它解决什么问题，依赖哪些公共能力，又如何形成可持续的协作。Agentic AI 是本章的第一个观察窗口。</p></section><section class="chapter-section" id="ch04-s01"><div class="section-topline"><span>4.1 / A-LANDSCAPE</span><span>交互样章 · 内容评审稿</span></div><h2>Agentic AI 全景洞察</h2><p class="land-thesis">任务入口在扩展，<br>竞争正延伸到执行与协作的基础设施。</p><p class="land-lede">编码代理构成年度样本的最大方向；但要把模型带入持续工作的场景，还需要编排、上下文、工具、隔离与评估。本节结合年度数据和近期全景，把“谁更受关注”推进到“哪些能力正在形成生态”。</p>']
  total=sum(float(x['2026']) for x in R['subfields']);first=float(R['subfields'][0]['2026'])/total*100;four=sum(float(x['2026']) for x in R['subfields'][:4])/total*100
@@ -108,4 +108,12 @@ def chapter(lang):
  for s in ch['sections'][1:]:out.append(f'<section class="chapter-section land-pending" id="{s["id"]}"><div class="section-topline"><span>{s["number"]}</span><span>后续章节入口</span></div><h2>{E(s["title"]["zh"])}</h2><p>{E(s["question"]["zh"])}</p>'+link(REPORT+s['source_path'],'阅读仓库初稿 ↗')+'</section>')
  out.append('<script id="landscape-data" type="application/json">'+json.dumps(PAYLOAD,ensure_ascii=False).replace('<','\\u003c')+'</script></div>')
  return ''.join(out)
-def export(out):shutil.copytree(DIR,out/'assets/landscape',dirs_exist_ok=True)
+def chapter(lang):
+ if lang!='zh':return chapter_v1(lang)
+ import landscape_v2
+ return landscape_v2.chapter()
+
+def export(out):
+ shutil.copytree(DIR,out/'assets/landscape',dirs_exist_ok=True)
+ import landscape_v2
+ landscape_v2.export(out)
