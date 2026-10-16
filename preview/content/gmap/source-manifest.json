@@ -1,0 +1,49 @@
+{
+  "version": "gmap-review-1",
+  "notice": "本轮用于设计评审。新增定量图使用合成数据，不表明真实国家、组织、项目或受益效果。",
+  "simulation": "simulation.json",
+  "existing_series": [
+    {
+      "file": "fig-2-6-1_foundation_share_and_active_repositories.csv",
+      "path": "data/processed/chapter2/fig-2-6-1_foundation_share_and_active_repositories.csv",
+      "sha256": "87daef3d6e3a2ffcb5badbe5a29d1058d7bed11f2ea2fe541353f508d61cb03b",
+      "status": "仓库已有，待口径与复现核验",
+      "display_figure": "图 2-7-2",
+      "note": "保留原 CSV 文件名；报告年窗口和样本范围待核验",
+      "source_url": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/main/data/processed/chapter2/fig-2-6-1_foundation_share_and_active_repositories.csv",
+      "source_blob_sha": "eb21e87e2cff8198c49d5ab087a4e03480351ae1",
+      "site_baseline_commit": "1597e4615093363c81dd6d0f37f90c37730b7cb9"
+    },
+    {
+      "file": "fig-2-6-2_active_repository_license_trend.csv",
+      "path": "data/processed/chapter2/fig-2-6-2_active_repository_license_trend.csv",
+      "sha256": "1dcd66ec2178fe5bc30fcdffa63789cd867be4afe15df58f8503af65c36286be",
+      "status": "仓库已有，待口径与复现核验",
+      "display_figure": "图 2-7-2",
+      "note": "保留原 CSV 文件名；报告年窗口和样本范围待核验",
+      "source_url": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/main/data/processed/chapter2/fig-2-6-2_active_repository_license_trend.csv",
+      "source_blob_sha": "4d3ec05455a0b66f35ad8133c8abac1e01704817",
+      "site_baseline_commit": "1597e4615093363c81dd6d0f37f90c37730b7cb9"
+    },
+    {
+      "file": "fig-2-6-3_mulan_permissive_license_trend.csv",
+      "path": "data/processed/chapter2/fig-2-6-3_mulan_permissive_license_trend.csv",
+      "sha256": "9754fe533dfeb8d09464e680e0a2c97225facbcb73cf958d45d3f21039813635",
+      "status": "仓库已有，待口径与复现核验",
+      "display_figure": "图 2-7-2",
+      "note": "保留原 CSV 文件名；报告年窗口和样本范围待核验",
+      "source_url": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/main/data/processed/chapter2/fig-2-6-3_mulan_permissive_license_trend.csv",
+      "source_blob_sha": "6c85bfc760cf2fc3a0ba3190d9759742425ca46b",
+      "site_baseline_commit": "1597e4615093363c81dd6d0f37f90c37730b7cb9"
+    }
+  ],
+  "geometry": "继承 V-Map / A-Map 已确认 OpenShare 几何；中国包含台湾省",
+  "references": [
+    "https://www.digitalpublicgoods.net/standard",
+    "https://www.digitalpublicgoods.net/registry",
+    "https://www.chaoss.community/practitioner-guide-viability/",
+    "https://openssf.org/projects/scorecard/",
+    "https://huggingface.co/docs/hub/model-cards"
+  ],
+  "unknowns": "未知地域、未检查、不适用、自述待核验分开记录；不填零，不从图形推断真实覆盖。"
+}

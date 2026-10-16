@@ -14,7 +14,7 @@ class Page(HTMLParser):
         if a.get('id'):self.ids.append(a['id'])
         if 'data-goso-chart' in a:self.charts.append(a['data-goso-chart'])
         if 'data-review-key' in a:self.fields.append(a['data-review-key'])
-        if tag=='section' and a.get('id','').startswith('ch02-s'):self.count_sections+=1
+        if tag=='section' and a.get('id','') in [f'ch02-s0{i}' for i in range(1,8)]:self.count_sections+=1
 
 views=goso.views();vlist=[v for vv in views.values() for v in vv]
 assert len(vlist)==17 and len({v['id'] for v in vlist})==17
@@ -41,11 +41,15 @@ assert round((float(models[-1]['publishers'])/float(models[-2]['publishers'])-1)
 influence=goso.rows('influence');assert round((float(influence[-1]['China'])/float(influence[0]['China'])-1)*100)==160
 for lang in ['zh','en']:
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
-    assert page.count_sections==7 and page.charts==['d','g','a']
+    assert page.count_sections==7 and page.charts==[]
     assert len(page.fields)==4 and len(page.ids)==len(set(page.ids))
-    for term in ['97.66%','2026-09-13','AtomGit','GitCode','前 5%','待补充','当前浏览器','后续正文与图表修订在确认后更新']:assert term in text,term
-    for key in evidence['files']:
-        if key not in ('total','active','influence','talent','cities','cross'):assert goso.source(key) in text,key
+    for term in ['AtomGit','前 5%','待补充','当前浏览器','26 个图组','指标反馈与待补证据']:assert term in text,term
+    # Source snapshots are shared by inline and on-demand source panels.
+    for key,entry in evidence['files'].items():
+        assert (out/'assets/report/data'/Path(entry['path']).name).is_file(),key
+    for n,count in enumerate([3,4,3,5,3,3,5],1):
+        for i in range(1,count+1):assert f'fig-2-{n}-{i}' in page.ids
+    assert text.count('class="goso-section-nav"')==7
     for key in ('fig-2-3-1','fig-2-3-2','fig-2-3-3','fig-2-4-1','fig-2-4-2','fig-2-4-3','fig-2-4-4','fig-2-4-5'):assert key in page.ids,key
 assert (out/'assets/goso/GOSO-review-draft.md').exists()
-print('PASS: GOSO seven sections, 17 preserved observation views plus V-Map/C-Map modules, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, four review fields and static exports.')
+print('PASS: GOSO seven sections, 26 numbered interactive figures and 17 preserved static observation views, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, four review fields and static exports.')

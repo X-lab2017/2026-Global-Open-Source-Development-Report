@@ -264,6 +264,28 @@
           "id": "ch02-s05",
           "number": "2.5",
           "title": {
+            "zh": "全球开源资产地图",
+            "en": "Open assets"
+          },
+          "question": {
+            "zh": "代码、模型与数据资产怎样积累和复用？",
+            "en": "How do code, models and data accumulate and get reused?"
+          },
+          "presentation": {
+            "zh": "分资产供给趋势、复用证据",
+            "en": "Supply trends by asset type and evidence of reuse"
+          },
+          "source_path": "chapters/chapter2/2.7-全球开源资产地图-A-Map.md",
+          "status": "preview",
+          "data_status": "source-backed-review",
+          "anchor": "ch02-s05",
+          "source_heading": null,
+          "next_action": "评审主张、图表与集中待补材料"
+        },
+        {
+          "id": "ch02-s06",
+          "number": "2.6",
+          "title": {
             "zh": "全球开源多样性地图",
             "en": "Diversity"
           },
@@ -278,13 +300,13 @@
           "source_path": "chapters/chapter2/2.5-全球开源多样性地图-D-Map.md",
           "status": "preview",
           "data_status": "source-backed-review",
-          "anchor": "ch02-s05",
+          "anchor": "ch02-s06",
           "source_heading": null,
           "next_action": "评审主张、图表与集中待补材料"
         },
         {
-          "id": "ch02-s06",
-          "number": "2.6",
+          "id": "ch02-s07",
+          "number": "2.7",
           "title": {
             "zh": "全球开源治理与社会公益地图",
             "en": "Governance and public value"
@@ -298,28 +320,6 @@
             "en": "Stewardship and license trends, practice cases"
           },
           "source_path": "chapters/chapter2/2.6-全球开源治理与社会公益地图-G-Map.md",
-          "status": "preview",
-          "data_status": "source-backed-review",
-          "anchor": "ch02-s06",
-          "source_heading": null,
-          "next_action": "评审主张、图表与集中待补材料"
-        },
-        {
-          "id": "ch02-s07",
-          "number": "2.7",
-          "title": {
-            "zh": "全球开源资产地图",
-            "en": "Open assets"
-          },
-          "question": {
-            "zh": "代码、模型与数据资产怎样积累和复用？",
-            "en": "How do code, models and data accumulate and get reused?"
-          },
-          "presentation": {
-            "zh": "分资产供给趋势、复用证据",
-            "en": "Supply trends by asset type and evidence of reuse"
-          },
-          "source_path": "chapters/chapter2/2.7-全球开源资产地图-A-Map.md",
           "status": "preview",
           "data_status": "source-backed-review",
           "anchor": "ch02-s07",

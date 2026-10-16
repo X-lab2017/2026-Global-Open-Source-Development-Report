@@ -1,0 +1,44 @@
+{
+  "revision": "D-Map three-figure review 2026-10-16",
+  "repo_ref": "423f9cf14ac8d2886133d3ab63969db5521a2365",
+  "sources": [
+    {
+      "file": "source/table-2-5-1_china_us_project_contribution_top10.csv",
+      "sha256": "590aeb718d75dabf12d334f24d1b54b61867eb0ac458ec8b9fae077c8bb62d3c"
+    },
+    {
+      "file": "source/fig-2-5-1_country_contribution_share_trend.csv",
+      "sha256": "638892993df7769167436e6101ff27620c46117bdaa7358ebf8b4696ab9c6811"
+    },
+    {
+      "file": "source/fig-2-5-2_cross_border_project_contribution_flow.csv",
+      "sha256": "aa9e64aaf25ad6c653061e48f39a92d64692d57d1b2963e4eb99dc74cdc7fc9b"
+    },
+    {
+      "file": "source/original-contribution-sankey.png",
+      "sha256": "50ed14ad95308d97091b8b3edfc63e1460a5c6aa5cc9900cb1f7009c7e19e127"
+    }
+  ],
+  "definitions": {
+    "map": "OpenShare 2025 natural-year snapshot retained from C-Map; shares are within listed geographic contributions, not a newly inferred global total.",
+    "five_year": "Original report five-country shares plus Other; separate scope from the OpenShare snapshot.",
+    "flow": "60 repository edges,14 source regions and10 destinations. Contains domestic edges. Partial sample, not a global complete matrix.",
+    "top10": "Independent China/US source-share table. Original shares preserved; residual 6.76/22.06 percentage points grouped as Other, not inferred countries.",
+    "direction": "Developer location → project affiliation; not human migration, money, or dependency adoption.",
+    "chord": "Directed chords; arrowhead identifies destination. Arc width reflects inbound plus outbound in the displayed matrix.",
+    "normalization": "Flow value mode uses original OpenRank; percentage mode divides each destination by its current included inflow. Source-share dataset uses original share_pct without renormalization.",
+    "simulation": "All Figure3 organizational, role and retention values are hypothetical profiles, not measured countries or verified interventions. No causal effect inferred."
+  },
+  "external_methods": [
+    "https://open-digger.cn/en/docs/user-docs/metrics/new-contributors",
+    "https://www.chaoss.community/kb/metric-organizational-diversity/"
+  ],
+  "figure3_status": "simulated",
+  "missing": [
+    "Complete global source-target matrix and source windows",
+    "Known/unknown location denominator",
+    "Historical organization affiliations and role evidence",
+    "Cohort-level longitudinal participation data"
+  ],
+  "geography": "Same OpenShare geometry as V/C/I/A maps. China includes Taiwan; no separate Taiwan country node."
+}

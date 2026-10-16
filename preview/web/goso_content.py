@@ -152,26 +152,41 @@ def figure(key,vv):
     </figure>'''
 
 def link(path,label):return '<a href="'+E(path)+'">'+E(label)+'</a>'
+SECTIONS = [SECTIONS[i] for i in [0,1,2,3,6,4,5]]
+
 def chapter(lang):
     import goso_atlas as atlas
     import goso_editorial as editorial
     vv=views();base='/2026/'+lang+'/';all_data=json.dumps(vv,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     out=['<div class="goso-chapter" lang="zh-CN">',atlas.defs()]
     if lang=='en':out.append('<div class="reader-note" lang="en">GOSO review chapter: the Chinese manuscript and charts are shown below. English translation will follow editorial review.</div>')
-    out.append('<div class="reading-tools"><span>GOSO 样章 · 2.1–2.4 已对齐 · 2026-10-15</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
+    out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 整章对齐版 · 2026-10-16</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
     out.append(editorial.cover())
-    out.append('<nav class="atlas-chapter-route" aria-label="七个地图视角">'+''.join('<a href="#ch02-s0'+str(i+1)+'"><b>'+s['code']+'</b><span>'+label+'</span></a>' for i,(s,label) in enumerate(zip(SECTIONS,['参与分布','协作贡献','项目影响','核心人才','跨国协作','治理公益','开放资产'])))+'</nav>')
+    import goso_reading as reading
+    out.append(reading.overview())
+    out.append('<div data-goso-directory></div>')
+    out.append('<nav class="atlas-chapter-route" aria-label="七个地图视角">'+''.join('<a href="#ch02-s0'+str(i+1)+'"><b>'+s['code']+'</b><span>'+label+'</span></a>' for i,(s,label) in enumerate(zip(SECTIONS,['活跃参与','协作贡献','项目影响力','开源人才','开放资产','多样性共建','治理与公益'])))+'</nav>')
     out.append('<details class="goso-scope"><summary>阅读说明 · 报告年度、地图快照与来源</summary><p>2.1 与本次 2.2 依据作者附件及 OpenShare 同版底表，采用 2025 自然年作为当前地图观察窗口；全球和中国地图按平台同源底图与比例绘制，中国包含 34 个省级地区。2.1 国内人数补充为条件情景；2.2 主叙事采用报告五域口径，中国贡献 442.92 万、高于美国 423.97 万，地图仍保留自然年平台参照。3D 地球分别展示虚构协作机制、实测贡献点和项目样本流向；金色虚线仅为可选的未列来源估算。2.3 同时保留 2025 自然年项目影响力快照与报告 2022—2026 年序列；2.4 的全球人才快照、五域和城市序列也分别标注。人才成长与连接模拟单列，不作为实测发现。其余小节保留各自范围，不混合计算。</p><p>早期地图采用 GitHub 固定版本 '+REF[:7]+'；本次新增图组的版本独立标注。具体文件与版本以各图就近来源说明为准；新增 2.3、2.4 复用仓库 5c31603 及 OpenShare 同源快照，并复用第五章模型底表；新增模型数据不是第一章 ATOM 外部故事快照。按作者确认开展跨年比较；尚缺的算法、样本和分母信息集中列在章末。</p><p>OpenDigger 提供主要数据与方法基础，OpenRank 帮助观察协作贡献和网络影响。账户存量、年度活跃、人才、项目和模型分别计量；五组比较不穷尽全球。未对齐的表不交叉计算，空值不补零。</p>'+link(base+'chapters/01/#ch01-s03','回到 1.3 · OSDI 方法基础')+' · '+link(base+'methodology/','完整方法与范围')+'</details>')
+    sections=[]
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)
+        if s['key']=='g':
+            out.append(reading.normalize(__import__('gmap_content').section('zh'),n,lang));sections.append(out[-1])
+            continue
+        if s['key']=='d':
+            out.append(reading.normalize(__import__('dmap_content').section('zh'),n,lang));sections.append(out[-1])
+            continue
+        if s['key']=='a':
+            out.append(reading.normalize(__import__('amap_content').section('zh'),n,lang));sections.append(out[-1])
+            continue
         if s['key']=='v':
-            out.append(__import__('vmap_content').section(lang))
+            out.append(reading.normalize(__import__('vmap_content').section(lang),n,lang));sections.append(out[-1])
             continue
         if s['key']=='c':
-            out.append(__import__('cmap_content').section(lang))
+            out.append(reading.normalize(__import__('cmap_content').section(lang),n,lang));sections.append(out[-1])
             continue
         if s['key'] in ('i','t'):
-            out.append(__import__('goso_maps').section({'i':'imap','t':'tmap'}[s['key']],lang))
+            out.append(reading.normalize(__import__('goso_maps').section({'i':'imap','t':'tmap'}[s['key']],lang),n,lang));sections.append(out[-1])
             continue
         out.append(f'<section class="chapter-section goso-section" id="{sid}"><div class="section-topline">2.{n} / {s["code"]}</div><h2>{s["name"]}</h2><p class="goso-question">{s["question"]}</p><div class="goso-judgment"><h3>{s["headline"]}</h3><div class="goso-kpi"><strong>{s["kpi"]}</strong><span>{s["kpi_label"]}</span></div></div>')
         primary=editorial.governance_panel() if s['key']=='g' else editorial.flow_panel() if s['key']=='d' else atlas.panel(s['key'])
@@ -182,22 +197,22 @@ def chapter(lang):
         out.append('<aside class="goso-implication"><span>研究启示</span><p>'+s['takeaway']+'</p></aside>')
         out.append('<div class="goso-method-links">OSDI 查证入口（图表不等同完整指标测算）：'+' · '.join(link(base+'data/indicators/#indicator-'+k,k) for k in s['pillars'])+'</div>')
         out.append('<details class="goso-gap"><summary>待补证据 · '+s['name'].replace('全球开源','')+'</summary><p>'+s['gap']+'</p><div class="goso-blank">待补充</div>'+link('#goso-review','到章末填写评审备注 →')+'</details><p class="goso-bridge">'+s['bridge']+'</p></section>')
-    out.append('<section class="goso-closing" id="goso-next"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h2>把差异变成下一步研究与行动的问题。</h2><p>七幅观测共同提示：开放参与的扩张是起点，持续贡献、共同维护和可复用供给构成不同的能力层次。对这些差异的理解，需要继续深入主体与技术网络，并以公共场景检验开放的价值。</p><div class="goso-next-grid">'+''.join(link(base+'chapters/'+n+'/',tag+' · '+label) for n,tag,label in [('03','GOSR','哪些主体形成影响'),('04','GOSL','技术网络如何演进'),('05','GOSM','模型怎样被复用与治理'),('06','行动建议','哪些条件值得持续投入')])+'</div></section>')
+    out.append('<section class="goso-closing" id="goso-next"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h2>把差异变成下一步研究与行动的问题。</h2><p>七个主题共同提示：开放参与的扩张是起点，持续贡献、共同维护和可复用供给构成不同的能力层次。对这些差异的理解，需要继续深入主体与技术网络，并以公共场景检验开放的价值。</p><div class="goso-next-grid">'+''.join(link(base+'chapters/'+n+'/',tag+' · '+label) for n,tag,label in [('03','GOSR','哪些主体形成影响'),('04','GOSL','技术网络如何演进'),('05','GOSM','模型怎样被复用与治理'),('06','行动建议','哪些条件值得持续投入')])+'</div></section>')
     out.append(review_panel(lang))
     out.append('<script type="application/json" id="goso-chart-data">'+all_data+'</script><script type="application/json" id="goso-atlas-data">'+json.dumps(atlas.payload(),ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></div>')
-    return ''.join(out)
+    return ''.join(out).replace('<div data-goso-directory></div>',reading.figure_directory(sections))
 
 def review_panel(lang):
-    gaps=[('scope','全章主张与阅读顺序','七节编号保持稳定，用三层路径串联；每节保留一个主张、主图与行动线索。'),('methods','数据口径与样本','算法版本、年度汇总、多平台合并、前 5% 基准、地区与项目样本说明。'),('geography','完整地图与分母','全球地理底表、人才完整总体、贡献来源完整关系，以及各项未知处理。'),('public','公共价值案例与开放数据','公共服务场景及受益证据；数据集供给底表与模型归属补全。')]
+    gaps=[('scope','全章主张与阅读顺序','七节按活跃、贡献、影响力、人才、资产、多样性、治理与公益展开；统一问题、指标、证据与行动建议的阅读路径。'),('methods','数据口径与样本','算法版本、年度汇总、多平台合并、前 5% 基准、地区与项目样本说明。'),('geography','完整地图与分母','全球地理底表、人才完整总体、贡献来源完整关系，以及各项未知处理。'),('public','公共价值案例与开放数据','公共服务场景及受益证据；数据集供给底表与模型归属补全。')]
     out=['<section id="goso-review" class="goso-review"><span class="eyebrow">EDITORIAL REVIEW / 集中补充</span><h2>评审与待补材料</h2><p>缺口保留在相应小节，这里集中收集。备注仅保存在当前浏览器，可导出后交回；不会自动写入 GitHub。当前页面用于共同评审，后续正文与图表修订在确认后更新。</p>']
-    out.append('<div class="goso-decisions"><strong>已落实的决定</strong><p>保留七节并优化衔接；开展跨年比较；GitCode 列按 AtomGit 品牌展示；缺失数据留白。附件旧称 OSIDX 统一为 OSDI，按平台推定国籍的旧建议采用现行所在地规则处理。</p></div>')
+    out.append('<div class="goso-decisions"><strong>已落实的决定</strong><p>保留七节并优化衔接；开展跨年比较；GitCode 列按 AtomGit 品牌展示；缺失数据留白或采用醒目标注的设计模拟。附件旧称 OSIDX 统一为 OSDI，按平台推定国籍的旧建议采用现行所在地规则处理。</p></div>')
     for key,label,desc in gaps:out.append('<label class="goso-review-field" for="review-'+key+'"><strong>'+label+'</strong><span>'+desc+'</span><textarea id="review-'+key+'" data-review-key="'+key+'" rows="3" placeholder="待你补充"></textarea></label>')
-    out.append('<div class="goso-review-actions"><button type="button" data-export-notes>导出评审备注 Markdown ↓</button><a href="/assets/goso/GOSO-review-draft.md" download>下载样章正文 Markdown ↓</a><span id="goso-note-status" role="status"></span></div><details><summary>本轮数据与编写记录</summary><p>核对 GitHub 最新提交 '+REF[:7]+'：第二章 13 份 CSV 未变，新增 16 份模型相关 CSV，数据目录现收录 50 份 processed CSV。本章复用两份模型供给底表，ModelRank、开放性与派生关系留给后续章节深入。原始 CSV 字段、数值及缺失均保留。</p><p>本章评审正文根据第一章、三级目录附件与本轮决策编写。原稿中的全球分母、人才占比和未验证因果判断未作为已证实结论。代码、数据与页面可继续复用为其他核心章节的样章模板。</p>'+link(REPO+'data/README.md','查看仓库数据说明 ↗')+'</details></section>')
+    out.append('<div class="goso-review-actions"><button type="button" data-export-notes>导出评审备注 Markdown ↓</button><a href="/assets/goso/GOSO-review-draft.md" download>下载样章正文 Markdown ↓</a><span id="goso-note-status" role="status"></span></div><details><summary>本轮数据与编写记录</summary><p>本版整合第二章 2.1—2.7 的 26 个图组。来源记录、报告年度、平台快照、近似读数、预测与模拟分别保留，具体范围以各图“口径与来源”为准；研究结论与数据准确性留待专家复核。仓库原稿与根目录数据不在本轮呈现优化中改写。</p><p>本章评审正文根据第一章、三级目录附件与本轮决策编写。原稿中的全球分母、人才占比和未验证因果判断未作为已证实结论。代码、数据与页面可继续复用为其他核心章节的样章模板。</p>'+link(REPO+'data/README.md','查看仓库数据说明 ↗')+'</details></section>')
     return ''.join(out)
 
 def feature(lang):
     zh=lang=='zh';p='/2026/'+lang+'/chapters/02/'
-    return '<section class="chapter-feature goso-feature"><div><span class="eyebrow">NEW / GOSO · CHAPTER 02</span><h2>'+('在世界地图上，读懂开源的变化。' if zh else 'Seven views of a changing ecosystem.')+'</h2><p>'+('从全球地图进入中国省级观察，联动地区读数与跨年趋势；通过人才点位、贡献流向和模型地域分布，读懂生态结构。' if zh else 'Explore the GOSO review chapter: regional trends, talent, collaboration, governance and open supply.')+'</p>'+link(p,'阅读 GOSO 样章 →' if zh else 'Read the GOSO chapter →')+'</div><div class="feature-route">'+''.join(link(p+'#ch02-s0'+str(n),label) for n,label in [(1,'01　参与、贡献与影响'),(4,'02　人才与跨地域连接'),(6,'03　治理与开放供给')])+'</div></section>'
+    return '<section class="chapter-feature goso-feature"><div><span class="eyebrow">NEW / GOSO · CHAPTER 02</span><h2>'+('在世界地图上，读懂开源的变化。' if zh else 'Seven views of a changing ecosystem.')+'</h2><p>'+('从全球地图进入中国省级观察，联动地区读数与跨年趋势；通过人才点位、贡献流向和模型地域分布，读懂生态结构。' if zh else 'Explore the GOSO review chapter: regional trends, talent, collaboration, governance and open supply.')+'</p>'+link(p,'阅读 GOSO 样章 →' if zh else 'Read the GOSO chapter →')+'</div><div class="feature-route">'+''.join(link(p+'#ch02-s0'+str(n),label) for n,label in [(1,'01　参与、贡献与影响力'),(4,'02　人才、资产与多样性'),(7,'03　治理与公共价值')])+'</div></section>'
 
 def export(out):
     dest=out/'assets/goso';dest.mkdir(parents=True,exist_ok=True)
@@ -209,8 +224,17 @@ def export(out):
     vv=views()
     for values in vv.values():
         for v in values:(dest/(v['id']+'.svg')).write_text(__import__('goso_brand').resolve(standalone_svg(v)))
-    manuscript=['# 第二章 全球开源生态观测地图（GOSO）\n\n> 样章评审版 v0.10。数据版本 '+REF+'。尚未替换仓库正式原稿。\n\n在世界地图上，读懂开源的变化。\n\n七节沿规模、贡献与影响；人才与跨地域连接；治理与开放供给三层路径展开。地理交互图采用分别标注的 OpenShare 2026-10 页面快照、城市样本、贡献来源与模型地域底表；不将快照值并入报告年度结论。']
+    manuscript=['# 第二章 全球开源生态观测地图（GOSO）\n\n> 整章对齐评审版 · 2026-10-16。历史序列参考版本 '+REF+'。尚未替换仓库正式原稿。\n\n在世界地图上，读懂开源的变化。\n\n七节依次观察活跃参与、协作贡献、项目影响力、人才、资产、多样性与治理公益。地理交互图采用分别标注的 OpenShare 2026-10 页面快照、城市样本、贡献来源与模型地域底表；不将快照值并入报告年度结论。']
     for i,s in enumerate(SECTIONS):
+        if s['key']=='g':
+            manuscript.append('\n## 2.7 全球开源治理与社会公益地图（G-Map）\n\n'+__import__('re').sub('<[^>]+>', ' ', __import__('gmap_content').section('zh')))
+            continue
+        if s['key']=='d':
+            manuscript.append(__import__('dmap_content').manuscript())
+            continue
+        if s['key']=='a':
+            manuscript.append('\n## 2.5 全球开源资产地图（A-Map）\n\n'+__import__('re').sub('<[^>]+>', ' ', __import__('amap_content').section('zh')))
+            continue
         if s['key']=='v':
             manuscript.append(__import__('vmap_content').manuscript())
             continue

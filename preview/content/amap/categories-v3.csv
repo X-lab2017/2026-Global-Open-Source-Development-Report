@@ -1,0 +1,186 @@
+asset_metric,category,year,value,evidence_status
+models,文本生成与转换,2022,5756,simulated
+models,文本生成与转换,2023,28771,simulated
+models,文本生成与转换,2024,103127,simulated
+models,文本生成与转换,2025,268477,simulated
+models,文本生成与转换,2026,444130,source
+models,语言理解与表征,2022,3575,simulated
+models,语言理解与表征,2023,16949,simulated
+models,语言理解与表征,2024,57990,simulated
+models,语言理解与表征,2025,144860,simulated
+models,语言理解与表征,2026,230945,source
+models,视觉与视频,2022,3130,simulated
+models,视觉与视频,2023,14260,simulated
+models,视觉与视频,2024,46954,simulated
+models,视觉与视频,2025,113036,simulated
+models,视觉与视频,2026,173902,source
+models,机器人与强化学习,2022,2338,simulated
+models,机器人与强化学习,2023,10322,simulated
+models,机器人与强化学习,2024,32910,simulated
+models,机器人与强化学习,2025,76636,simulated
+models,机器人与强化学习,2026,113915,source
+models,多模态理解与生成,2022,1290,simulated
+models,多模态理解与生成,2023,5557,simulated
+models,多模态理解与生成,2024,17240,simulated
+models,多模态理解与生成,2025,38955,simulated
+models,多模态理解与生成,2026,56010,source
+models,语音与音频,2022,1453,simulated
+models,语音与音频,2023,6131,simulated
+models,语音与音频,2024,18576,simulated
+models,语音与音频,2025,40839,simulated
+models,语音与音频,2026,56859,source
+models,其他任务,2022,176,simulated
+models,其他任务,2023,728,simulated
+models,其他任务,2024,2161,simulated
+models,其他任务,2025,4633,simulated
+models,其他任务,2026,6253,source
+datasets,机器人与交互,2022,2549,simulated
+datasets,机器人与交互,2023,8391,simulated
+datasets,机器人与交互,2024,22836,simulated
+datasets,机器人与交互,2025,59268,simulated
+datasets,机器人与交互,2026,88513,source
+datasets,表格与时间序列,2022,3050,simulated
+datasets,表格与时间序列,2023,9523,simulated
+datasets,表格与时间序列,2024,24739,simulated
+datasets,表格与时间序列,2025,61609,simulated
+datasets,表格与时间序列,2026,88672,source
+datasets,文本与语言,2022,3820,simulated
+datasets,文本与语言,2023,11459,simulated
+datasets,文本与语言,2024,28648,simulated
+datasets,文本与语言,2025,68754,simulated
+datasets,文本与语言,2026,95492,source
+datasets,视觉与多模态,2022,1592,simulated
+datasets,视觉与多模态,2023,4630,simulated
+datasets,视觉与多模态,2024,11209,simulated
+datasets,视觉与多模态,2025,26021,simulated
+datasets,视觉与多模态,2026,34918,source
+datasets,其他任务,2022,663,simulated
+datasets,其他任务,2023,1879,simulated
+datasets,其他任务,2024,4425,simulated
+datasets,其他任务,2025,9969,simulated
+datasets,其他任务,2026,12940,source
+datasets,语音与音频,2022,577,simulated
+datasets,语音与音频,2023,1602,simulated
+datasets,语音与音频,2024,3686,simulated
+datasets,语音与音频,2025,8079,simulated
+datasets,语音与音频,2026,10154,source
+code,AI 大模型,2022,388560,simulated
+code,AI 大模型,2023,698379,simulated
+code,AI 大模型,2024,1028771,simulated
+code,AI 大模型,2025,1341176,simulated
+code,AI 大模型,2026,1772021,simulated
+code,云基础设施,2022,777121,simulated
+code,云基础设施,2023,825968,simulated
+code,云基础设施,2024,843021,simulated
+code,云基础设施,2025,823657,simulated
+code,云基础设施,2026,854367,simulated
+code,前端与交互,2022,874261,simulated
+code,前端与交互,2023,879689,simulated
+code,前端与交互,2024,843021,simulated
+code,前端与交互,2025,765345,simulated
+code,前端与交互,2026,727794,simulated
+code,编程语言与开发,2022,728551,simulated
+code,编程语言与开发,2023,752101,simulated
+code,编程语言与开发,2024,743002,simulated
+code,编程语言与开发,2025,699743,simulated
+code,编程语言与开发,2026,696150,simulated
+code,应用与解决方案,2022,631410,simulated
+code,应用与解决方案,2023,664804,simulated
+code,应用与解决方案,2024,671559,simulated
+code,应用与解决方案,2025,648719,simulated
+code,应用与解决方案,2026,664507,simulated
+code,区块链与 Web3,2022,339990,simulated
+code,区块链与 Web3,2023,342475,simulated
+code,区块链与 Web3,2024,328635,simulated
+code,区块链与 Web3,2025,298848,simulated
+code,区块链与 Web3,2026,284788,simulated
+code,数据库,2022,291420,simulated
+code,数据库,2023,315613,simulated
+code,数据库,2024,328635,simulated
+code,数据库,2025,328004,simulated
+code,数据库,2026,348075,simulated
+code,RISC-V 与硬件,2022,121425,simulated
+code,RISC-V 与硬件,2023,147734,simulated
+code,RISC-V 与硬件,2024,171461,simulated
+code,RISC-V 与硬件,2025,189513,simulated
+code,RISC-V 与硬件,2026,221502,simulated
+code,大数据与数据工程,2022,291420,simulated
+code,大数据与数据工程,2023,308898,simulated
+code,大数据与数据工程,2024,314346,simulated
+code,大数据与数据工程,2025,306137,simulated
+code,大数据与数据工程,2026,316432,simulated
+code,物联网与边缘计算,2022,169995,simulated
+code,物联网与边缘计算,2023,181309,simulated
+code,物联网与边缘计算,2024,185750,simulated
+code,物联网与边缘计算,2025,182224,simulated
+code,物联网与边缘计算,2026,189859,simulated
+code,操作系统,2022,145710,simulated
+code,操作系统,2023,154449,simulated
+code,操作系统,2024,157173,simulated
+code,操作系统,2025,153068,simulated
+code,操作系统,2026,158216,simulated
+code,工业软件,2022,97140,simulated
+code,工业软件,2023,100727,simulated
+code,工业软件,2024,100019,simulated
+code,工业软件,2025,94756,simulated
+code,工业软件,2026,94929,simulated
+codeInfluence,AI 大模型,2022,183000,image_estimate
+codeInfluence,AI 大模型,2023,255000,image_estimate
+codeInfluence,AI 大模型,2024,402000,image_estimate
+codeInfluence,AI 大模型,2025,535000,image_estimate
+codeInfluence,AI 大模型,2026,668000,scenario
+codeInfluence,云基础设施,2022,240000,image_estimate
+codeInfluence,云基础设施,2023,294000,image_estimate
+codeInfluence,云基础设施,2024,328000,image_estimate
+codeInfluence,云基础设施,2025,334000,image_estimate
+codeInfluence,云基础设施,2026,340000,scenario
+codeInfluence,前端与交互,2022,220000,image_estimate
+codeInfluence,前端与交互,2023,260000,image_estimate
+codeInfluence,前端与交互,2024,298000,image_estimate
+codeInfluence,前端与交互,2025,314000,image_estimate
+codeInfluence,前端与交互,2026,330000,scenario
+codeInfluence,编程语言与开发,2022,183000,image_estimate
+codeInfluence,编程语言与开发,2023,220000,image_estimate
+codeInfluence,编程语言与开发,2024,274000,image_estimate
+codeInfluence,编程语言与开发,2025,292000,image_estimate
+codeInfluence,编程语言与开发,2026,310000,scenario
+codeInfluence,应用与解决方案,2022,128000,image_estimate
+codeInfluence,应用与解决方案,2023,162000,image_estimate
+codeInfluence,应用与解决方案,2024,197000,image_estimate
+codeInfluence,应用与解决方案,2025,221000,image_estimate
+codeInfluence,应用与解决方案,2026,245000,scenario
+codeInfluence,区块链与 Web3,2022,109000,image_estimate
+codeInfluence,区块链与 Web3,2023,127000,image_estimate
+codeInfluence,区块链与 Web3,2024,151000,image_estimate
+codeInfluence,区块链与 Web3,2025,170000,image_estimate
+codeInfluence,区块链与 Web3,2026,189000,scenario
+codeInfluence,数据库,2022,90000,image_estimate
+codeInfluence,数据库,2023,112000,image_estimate
+codeInfluence,数据库,2024,129000,image_estimate
+codeInfluence,数据库,2025,131000,image_estimate
+codeInfluence,数据库,2026,133000,scenario
+codeInfluence,RISC-V 与硬件,2022,66000,image_estimate
+codeInfluence,RISC-V 与硬件,2023,80000,image_estimate
+codeInfluence,RISC-V 与硬件,2024,97000,image_estimate
+codeInfluence,RISC-V 与硬件,2025,114000,image_estimate
+codeInfluence,RISC-V 与硬件,2026,131000,scenario
+codeInfluence,大数据与数据工程,2022,76000,image_estimate
+codeInfluence,大数据与数据工程,2023,101000,image_estimate
+codeInfluence,大数据与数据工程,2024,115000,image_estimate
+codeInfluence,大数据与数据工程,2025,112000,image_estimate
+codeInfluence,大数据与数据工程,2026,109000,scenario
+codeInfluence,物联网与边缘计算,2022,70000,image_estimate
+codeInfluence,物联网与边缘计算,2023,82000,image_estimate
+codeInfluence,物联网与边缘计算,2024,89000,image_estimate
+codeInfluence,物联网与边缘计算,2025,90000,image_estimate
+codeInfluence,物联网与边缘计算,2026,91000,scenario
+codeInfluence,操作系统,2022,38000,image_estimate
+codeInfluence,操作系统,2023,45000,image_estimate
+codeInfluence,操作系统,2024,53000,image_estimate
+codeInfluence,操作系统,2025,59000,image_estimate
+codeInfluence,操作系统,2026,65000,scenario
+codeInfluence,工业软件,2022,18000,image_estimate
+codeInfluence,工业软件,2023,22000,image_estimate
+codeInfluence,工业软件,2024,27000,image_estimate
+codeInfluence,工业软件,2025,30000,image_estimate
+codeInfluence,工业软件,2026,33000,scenario
