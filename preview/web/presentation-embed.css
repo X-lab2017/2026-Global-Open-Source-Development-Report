@@ -1,0 +1,7 @@
+/* Embedded charts use the existing report's presentation lifecycle and dimensions. */
+html:has(.deck-embed-mode),body.deck-embed-mode{margin:0!important;width:100%;height:100%;overflow:hidden!important;background:var(--paper,#f3f8fa)}
+.deck-embed-mode>:not(dialog){display:none!important}
+.deck-embed-mode>.explorer-presentation[open]{display:block!important;width:100vw!important;height:100dvh!important;border-radius:0!important;margin:0!important}
+.deck-embed-mode>.explorer-presentation>.slide-presentation-bar{display:none!important}
+.deck-embed-mode>.explorer-presentation>.explorer-slide-frame{height:100dvh!important;width:100vw!important;margin:0!important}
+.deck-embed-mode .screen-slide{border-radius:0!important;box-shadow:none!important}

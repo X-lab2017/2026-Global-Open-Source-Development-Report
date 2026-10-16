@@ -72,6 +72,20 @@
       }
     } catch {}
   }
+  // A chart can open the report from inside an embedded presentation frame.
+  // Use the deck's validated same-origin route rather than the embed document.
+  if (returnLink && initialParams.get('from') === 'presentation') {
+    const saved = readStore('gosd-deck-return');
+    try {
+      const target = new URL(saved?.url || '', location.origin);
+      if (saved && target.origin === location.origin &&
+          [base + '/2026/zh/presentation/', base + '/2026/en/presentation/'].includes(target.pathname)) {
+        returnLink.href = target.pathname + target.search + target.hash;
+        returnLink.textContent = '← ' + t('返回互动演示：', 'Return to presentation: ') + saved.title;
+        returnLink.hidden = false;
+      }
+    } catch {}
+  }
   function restorePosition() {
     const restore = readStore('gosd-restore');
     if (restore && restore.url === here()) {
@@ -153,7 +167,7 @@
     window.addEventListener('hashchange',revealHash);
     window.addEventListener('popstate',()=>{readFilters();applyFilters(false);revealHash();});
   }
-  const stage=$('#demo');
+  const stage=$('#demo.demo-stage');
   if(stage){
     const slides=$$('[data-slide]'),outline=$$('[data-goto-slide]');
     let current=1;
