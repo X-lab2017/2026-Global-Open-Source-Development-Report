@@ -1,6 +1,4 @@
 /* Shared editorial rhythm for the report entry and foundation chapter. */
-[data-reading-page]:not([data-reading-page=""]) .reader-head h1{font:600 clamp(30px,3.6vw,46px)/1.4 var(--sans);letter-spacing:-.025em}
-[data-reading-page]:not([data-reading-page=""]) .reader-head{padding-top:48px;padding-bottom:30px}
 .reading-home-section h2,.report-introduction h2,.foundation-reading h2{font:600 28px/1.55 var(--sans);letter-spacing:-.015em}
 .reading-home-section p{font:15px/1.9 var(--sans);color:var(--muted);max-width:940px}
 .reading-home-section .identity-item p{font-size:13px;line-height:1.85}
