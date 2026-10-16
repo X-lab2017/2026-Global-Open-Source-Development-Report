@@ -65,14 +65,8 @@ def body(u,lang):
         for ch in M['chapters'][1:]:out.append('<section class="chapter-section"><h3>'+link(url(ch,lang),ch['question'][lang])+'</h3>'+para(t('在此形成一句核心发现，并连接对应章节的证据与行动。','A concise finding here will link to chapter evidence and the resulting action.'))+'</section>')
         out.append('<h2>'+t('行动建议','Action priorities')+'</h2>'+para(t('面向政府与国际组织、企业与基金会、开发者社区组织建议；每条建议说明依据、适用范围与可跟踪的变化。','Recommendations will address governments and international organizations, companies and foundations, and developer communities, with supporting evidence and observable progress.')))
     elif u['kind']=='introduction':
-        out.append('<div class="reader-note">'+t('编辑初稿 · 面向政府与国际组织决策者','Editorial draft · For governments and international organizations')+'</div>')
-        if zh:
-            text=(ROOT/u['source_path']).read_text()
-            out.append('<div class="intro-text">'+''.join(para(x) for x in text.split('\n\n') if x.strip() and not x.startswith(('#','>')))+'</div>')
-        else:
-            out.append(para('The introduction connects public policy, digital development and international cooperation to the report’s goals and evidence. It sets out the observation period and platform scope, explains the six-chapter reading path, and distinguishes research findings from values and future recommendations.'))
-            out.append(para('The full Chinese editorial draft is available. The English chapter text will be translated and reviewed after the Chinese content is settled.'))
-            out.append(link('/2026/zh/introduction/','Read the Chinese introduction →'))
+        import reading_experience
+        out.append(reading_experience.introduction(lang,u))
     elif u['kind']=='methods':
         out.append('<h2>'+t('已经明确的研究边界','Established research scope')+'</h2>')
         rows=[(t('2026 主统计期','2026 period'),'2025-07-01 — 2026-06-30'),(t('历史年度','Historical periods'),t('2022—2026；上年 7 月至当年 6 月','2022–2026; previous July through report-year June')),(t('代码生态主范围','Primary code platform'),'GitHub'),(t('补充平台','Supplementary platforms'),'Gitee · AtomGit · GitLab'),(t('地区归属','Location'),t('公开位置标准化；各年度历史快照；未知单列','Standardized public profiles, annual historical snapshots, unknowns retained')),(t('项目榜单','Project rankings'),t('已核验项目样本，逐步扩充','Verified project sample, expanded in subsequent versions'))]

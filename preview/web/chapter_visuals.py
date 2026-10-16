@@ -82,7 +82,7 @@ def models(lang,r,source):
     t=lambda z,e:T(lang,z,e);s=story();data=s['models'];last=data[-1]
     out=fig_open('fig-models','02 / OPEN MODELS · REUSE & DERIVATIVES',t('开放的影响，延伸到下一次创造','Open impact extends into the next creation'),t('查看 28 个月的新增微调与衍生模型构成；归属按基础模型发布方记录。','Explore 28 months of new fine-tunes and derivatives, attributed to base-model publishers.'),lang)
     out+='<div class="model-readout"><div><span id="model-current-month">2026.02</span><strong><span id="model-china-share">70</span><small>%</small></strong><p>'+t('当月新增衍生基于中国发布方的基础模型','Of new derivatives used base models from Chinese publishers')+'</p></div><div class="model-measures" id="model-measures">'
-    for key,name,color in [('china',t('中国','China'),'#087984'),('unitedStates',t('美国','United States'),'#2d5f9f'),('europe',t('欧洲','Europe'),'#9674a7')]:out+=f'<div style="--region:{color}"><i></i><span>{name}</span><b data-model-value="{key}">{last[key]}%</b></div>'
+    for key,name,color in [('china',t('中国','China'),'#4E87C5'),('unitedStates',t('美国','United States'),'#279FA9'),('europe',t('欧洲','Europe'),'#9973B7')]:out+=f'<div style="--region:{color}"><i></i><span>{name}</span><b data-model-value="{key}">{last[key]}%</b></div>'
     out+='</div></div><div class="stack-chart"><div class="stack-axis"><span>100%</span><span>50%</span><span>0%</span></div><div class="month-bars" role="group" aria-label="'+t('按月选择模型衍生占比','Select monthly model derivative shares')+'">'
     for i,d in enumerate(data):
         label=d['date']+f' · China {d["china"]}% · US {d["unitedStates"]}% · Europe {d["europe"]}%'
