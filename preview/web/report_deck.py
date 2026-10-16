@@ -4,6 +4,7 @@ import csv,html,json,re,shutil
 from goso_reading import Tree
 ROOT=Path(__file__).resolve().parents[1]
 VERSION='review-1.0'
+REVISION='review-1.0.1'
 DATE='2026-10-16'
 E=lambda x:html.escape(str(x),quote=True)
 TOPICS=[
@@ -52,7 +53,7 @@ def data(out):
     add('以可持续发展理解开源公共价值','第一章 / 1.1 VALUE','chart','开放技术需要连接可持续发展与真实公共需求。','SDGs 提供价值参照；DPGA 提供数字公共品的实践入口。',source='/2026/zh/chapters/01/#fig-public-goods',views=views(['fig-public-goods'],['SDGs × 数字公共品']))
     add('OSDGs：朝哪里发展','第一章 / 1.2 GOALS','chart','四个支柱、十个维度，让复杂生态拥有共同的发展语言。','这是本报告的开源发展目标框架，不等同于联合国官方 SDG 指标体系。',source='/2026/zh/chapters/01/#fig-osdg-goals',views=views(['fig-osdg-goals'],['目标框架']))
     add('OSDI：如何用证据判断变化','第一章 / 1.3 INDICATORS','chart','先看全貌，再沿支柱、维度和指标逐层探索。','29 项工作指标分别解释规模、供给、网络效应与公共价值，不自动合成为一个总分。',source='/2026/zh/chapters/01/#fig-osdi-map',views=views(['fig-osdi-map'],['指标探索']))
-    add('参与、贡献、影响力：三个观察坐标','方法 / READ THE MEASURES','concept','参与是起点，协作形成贡献，影响力需要长期积累。','三种观察关联而不互相替代；不能据此计算“贡献到影响力”的转化率。',source='/2026/zh/chapters/01/#ch01-s03')
+    add('如何理解开源的参与、贡献与影响力？','方法 / THREE LENSES, ONE CASE','concept','参与看人群规模，贡献看社区协作，影响力看全域联系与长期积累。','同一虚构案例、三个观察视角：点击连续讲解，或逐步探索；点击人物追踪关系。示例人数可计数，不演算 OpenRank 分值。',source='/2026/zh/chapters/01/#ch01-s03')
     add('GOSO：用七幅地图观察全球生态','第二章 / SEVEN THEMATIC MAPS','route','从谁在参与，走向如何共同创造持久公共价值。','点击任一主题进入；也可以按当前顺序连续讲解。',source='/2026/zh/chapters/02/')
     for i,(code,title,question,action,claim,pillar,indicator,ids,labels) in enumerate(TOPICS,1):
         add(f'2.{i} 全球开源{title}地图',f'GOSO / {code.upper()}','chart',claim,action,source=f'/2026/zh/chapters/02/#ch02-s0{i}',views=views(ids,labels),topic=i,question=question,mapping=pillar+' · '+indicator)
@@ -62,19 +63,20 @@ def data(out):
     add('一起评审，让报告更清晰、更有影响','评审 / REVIEW TOGETHER','review','先对齐主线与体验，再集中完善证据与判断。','保留／加强／调整 · 每条意见对应一个页码、图号和具体视图。',source='/2026/zh/')
     for i,s in enumerate(slides):
         s['notes']=[s['claim'],s['note']]
+        if s['kind']=='concept':s['notes'] += ['参与：本例 9 组人—项目关系，去重后 5 位活跃开发者；开发者总量与本期活跃人数分开。','贡献：进入水情工具社区，围绕 Issue 与 PR 看见提出、讨论、提交、评审与合入；社区 OpenRank 使用完整协作网络。','影响力：拉远到开发者—仓库全域网络，共享开发者连接项目，评价部分继承历史。本例重点解释项目侧，不计算分值。','地域观察：贡献来源看开发者所在地；项目影响力分布看经核验的项目主体归属。人物、项目与国别均为虚构示例。']
         if s.get('topic'):s['notes'].append(sections['ch02-s0'+str(s['topic'])]['position'])
     # Explicit mentions only: no invented indicator-to-chapter coverage or completion claim.
     coverage={str(i):[r['indicator_code'] for r in indicators if re.search(r'(?<![A-Za-z])'+re.escape(r['indicator_code'])+r'(?![A-Za-z])',sections['ch02-s0'+str(i)]['position'])] for i in range(1,8)}
     assert len(slides)==20 and len(figures)==32 and len(indicators)==29
-    return dict(version=VERSION,date=DATE,slides=slides,figures=figures,topics=[dict(code=t[0],title=t[1],question=t[2],action=t[3],slide=10+i) for i,t in enumerate(TOPICS)],sections=sections,indicators=indicators,coverage=coverage,chapters=manifest['chapters'])
+    return dict(version=VERSION,revision=REVISION,date=DATE,slides=slides,figures=figures,topics=[dict(code=t[0],title=t[1],question=t[2],action=t[3],slide=10+i) for i,t in enumerate(TOPICS)],sections=sections,indicators=indicators,coverage=coverage,chapters=manifest['chapters'])
 
 def presentation(lang,out):
     d=data(out)
     payload=json.dumps(d,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
-    return '''<section id="demo" class="review-deck" aria-label="GOSD 20 页互动演示" data-version="'''+VERSION+'''"><div class="deck-viewport"><div class="deck-stage" id="deck-stage"><header class="deck-top"><div class="deck-identity"><b>GOSD</b><span>全球开源发展报告 <em>2026</em></span></div><span class="deck-edition">互动演示 · 评审版 1.0</span><button data-deck-action="unfocus" class="deck-exit-focus" hidden>返回讲解 ↙</button><button data-deck-action="outline">目录</button><button data-deck-action="fullscreen" aria-pressed="false">⛶ 全屏</button></header><div class="deck-heading"><span id="deck-part"></span><h2 id="deck-title"></h2></div><div class="deck-body" id="deck-body"></div><footer class="deck-controls"><button data-deck-action="prev" aria-label="上一页">← 上一页</button><span id="deck-counter" aria-live="polite"></span><button data-deck-action="next" aria-label="下一页">下一页 →</button><div class="deck-progress" aria-hidden="true"><i></i></div><button data-deck-action="notes">讲解提示</button><a id="deck-report" href="/2026/zh/">对应正文 ↗</a><button data-deck-action="share">复制评审链接</button><button data-deck-action="review">评审意见</button></footer><div class="deck-toast" role="status" hidden></div><div id="deck-pool" hidden></div></div></div><p class="deck-mobile-hint">建议横屏或使用桌面浏览器；左右方向键翻页，Page Up / Page Down 可在图内翻页。</p><noscript><p>互动演示需要启用 JavaScript。可直接阅读<a href="/2026/zh/chapters/01/">第一章</a>与<a href="/2026/zh/chapters/02/">第二章</a>。</p></noscript></section><dialog class="deck-dialog" id="deck-dialog"><div class="deck-dialog-head"><h2 id="deck-dialog-title"></h2><button data-deck-close aria-label="关闭">关闭 ×</button></div><div id="deck-dialog-body"></div></dialog><script type="application/json" id="gosd-deck-data">'''+payload+'''</script>'''
+    return '''<section id="demo" class="review-deck" aria-label="GOSD 20 页互动演示" data-version="'''+VERSION+'''"><div class="deck-viewport"><div class="deck-stage" id="deck-stage"><header class="deck-top"><div class="deck-identity"><b>GOSD</b><span>全球开源发展报告 <em>2026</em></span></div><span class="deck-edition">互动演示 · 评审版 1.0.1</span><button data-deck-action="unfocus" class="deck-exit-focus" hidden>返回讲解 ↙</button><button data-deck-action="outline">目录</button><button data-deck-action="fullscreen" aria-pressed="false">⛶ 全屏</button></header><div class="deck-heading"><span id="deck-part"></span><h2 id="deck-title"></h2></div><div class="deck-body" id="deck-body"></div><footer class="deck-controls"><button data-deck-action="prev" aria-label="上一页">← 上一页</button><span id="deck-counter" aria-live="polite"></span><button data-deck-action="next" aria-label="下一页">下一页 →</button><div class="deck-progress" aria-hidden="true"><i></i></div><button data-deck-action="notes">讲解提示</button><a id="deck-report" href="/2026/zh/">对应正文 ↗</a><button data-deck-action="share">复制评审链接</button><button data-deck-action="review">评审意见</button></footer><div class="deck-toast" role="status" hidden></div><div id="deck-pool" hidden></div></div></div><p class="deck-mobile-hint">建议横屏或使用桌面浏览器；左右方向键翻页，Page Up / Page Down 可在图内翻页。</p><noscript><p>互动演示需要启用 JavaScript。可直接阅读<a href="/2026/zh/chapters/01/">第一章</a>与<a href="/2026/zh/chapters/02/">第二章</a>。</p></noscript></section><dialog class="deck-dialog" id="deck-dialog"><div class="deck-dialog-head"><h2 id="deck-dialog-title"></h2><button data-deck-close aria-label="关闭">关闭 ×</button></div><div id="deck-dialog-body"></div></dialog><script type="application/json" id="gosd-deck-data">'''+payload+'''</script>'''
 
 def export(out,base):
-    for name in ['review-deck.css','review-deck.js','presentation-embed.css','presentation-embed.js']:
+    for name in ['review-deck.css','review-deck.js','concept-lenses.css','concept-lenses.js','presentation-embed.css','presentation-embed.js']:
         shutil.copy2(ROOT/'web'/name,out/name)
     # Use the fully built, unchanged Chinese chart documents. The bridge only
     # opens their existing presentation dialog; all chart/data implementations stay shared.
@@ -86,8 +88,8 @@ def export(out,base):
     directory=out/'assets/presentation';directory.mkdir(parents=True,exist_ok=True)
     d=data(out)
     (directory/'review-1.0.json').write_text(json.dumps(d,ensure_ascii=False,indent=2))
-    lines=['# GOSD 互动演示 · 评审版 1.0','',f'版本日期：{DATE}。范围：概览、引言、第一章与第二章。','']
+    lines=['# GOSD 互动演示 · 评审版 1.0.1','',f'版本日期：{DATE}。范围：概览、引言、第一章与第二章。','']
     for n,s in enumerate(d['slides'],1):
-        lines += [f'## {n:02d} · {s["title"]}','',s['claim'],'',s['note'],'',f'正文：{base}{s["source"]}','']
+        lines += [f'## {n:02d} · {s["title"]}','',s['claim'],'',s['note'],'',*([x+'\n' for x in s['notes'][2:]] if s['kind']=='concept' else []),f'正文：{base}{s["source"]}','']
     lines += ['## 评审记录模板','','页码／图号：','当前视图链接：','意见类型：保留／加强／调整','具体问题：','修改建议：','补充证据：','']
     (directory/'review-script.md').write_text('\n'.join(lines))
