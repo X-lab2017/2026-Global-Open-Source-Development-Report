@@ -733,6 +733,397 @@
           "size": 1467759
         }
       ]
+    },
+    {
+      "file": "chapter3-ranking-logos.zip",
+      "sha256": "8f2914b2f868b034e258aa0651194bb9837408a21abfc173f8c7c06ed341b90b",
+      "files": [
+        {
+          "path": "content/gosr/company-logos/assets/alauda.png",
+          "size": 6180,
+          "sha256": "e5cbe8adae8e6101f14477bdaa93a75f301851e897db47779d6f34cac530386d"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/alibaba.png",
+          "size": 2922,
+          "sha256": "d0414e40408502ebd9a6524a90b7e8e597ab160dd823330a331754967406dc1a"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/amazon.png",
+          "size": 4350,
+          "sha256": "bd61d73b6b990675714129206fed865711073eabf2159c8e8d750c21ce449926"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/anomaly.png",
+          "size": 3131,
+          "sha256": "f48da57b0d8e8b3cfaa10be9cd3255c78158f5370c6343d3b12abe13c347ca1a"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/antgroup.png",
+          "size": 16514,
+          "sha256": "533971bc49120c4c252397bab0b12c05e5aa0ba57b2ca60adc2fa00d40203119"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/anthropic.png",
+          "size": 2766,
+          "sha256": "a00d7753a942ff51911a5d3d3be7121d44bcece3e3b9e7812ae6195e44df5697"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/apecloud.png",
+          "size": 4915,
+          "sha256": "f6c62b79bb9f70dd9e9f700df0430982d0cfd5e5dc5c292f5c23db7bf647385f"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/apple.png",
+          "size": 7475,
+          "sha256": "214d9a4b09e7d2671ee917f127e9a848012312ee2816be522ddfd13b527c0216"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/astral.png",
+          "size": 745,
+          "sha256": "88ea39976acbfad7ffbfc367ef0a89d40096b638876379c3ae4bdd1942c8b347"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/baidu.png",
+          "size": 3494,
+          "sha256": "ca5cd949a3869951a855c9f01c5fe40dbbc6dfa8d1146cd0a4a32b65ed469aa0"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/bytedance.png",
+          "size": 1519,
+          "sha256": "1208be6218ba1d4d29a9000c6300dd4942bb96e2a302e1b5612dd35aabfac78b"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/daocloud.png",
+          "size": 5551,
+          "sha256": "6bdb5efa8955391ff85d35b0dff26b503f4f9812da924b065162ad9ec2f0f74e"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/datadog.png",
+          "size": 5924,
+          "sha256": "37f8a9105fcbbba0b334340584293e8a6d6c0688385c8e3f273457e0d28dd257"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/deepin.png",
+          "size": 11510,
+          "sha256": "2fbb3319602fb096a2d5c8f66f72f33f91ce061d4f16dc8eee46235918dd31b3"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/deepseek.png",
+          "size": 3768,
+          "sha256": "cb9c59dede072bcf1ab666344d483918ec4ea11fd1d86d67d34be48a3a7011c2"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/elastic.png",
+          "size": 8815,
+          "sha256": "bf64a3c25e05a68466eb225006b7516e82b8900b3bc5a577b06f872432ed15fd"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/emq.png",
+          "size": 2192,
+          "sha256": "ab9ec9a8f4bb206f1a7732ae92bf095a188a4575e20c95ebe31b4e3b72990e95"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/espressif.png",
+          "size": 9659,
+          "sha256": "196353cb3c2146e0be0826f73666a7ca34872b579275cda0679003f4dfa80858"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/expensify.png",
+          "size": 3456,
+          "sha256": "e19ffe99f137d3d94008a8c792071cabea7bd48b500fd657187643949df2af0a"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/fit2cloud.png",
+          "size": 1253,
+          "sha256": "b5f56a5a64d1b099680a03e5cf2be238aed5bf34eaddf0338c7aa9f377a04847"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/google.png",
+          "size": 4633,
+          "sha256": "77f77619f4b2b3693d31cc40eb12da24eec8e3d2282fffd8289e4b48a2ba8904"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/grafana.png",
+          "size": 18719,
+          "sha256": "677363c8053f9c3066577553b663c91e14814392425418fed0d5c6696569975f"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/hashicorp.png",
+          "size": 2433,
+          "sha256": "4119977794ff0a615a2b5a5e091c2b359d656ed992b95b1450eab0b5043ac76d"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/huanjiyun.png",
+          "size": 7490,
+          "sha256": "dd0bad283074b07a49a5133b844afc8fe30a0fa7cd443ce0ba81ea899deefdb5"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/huawei.png",
+          "size": 24237,
+          "sha256": "f391c848278bf0becea37289d004dbf00b31d383e31814ea80ec741967e85b8e"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/huggingface.png",
+          "size": 15348,
+          "sha256": "f62180eff1833fff76cdf53e9da70b760b0a0c7063756618d40b6b2b3617b240"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/ibm.png",
+          "size": 6843,
+          "sha256": "e3927124ca74895c9fdd4cf5859627f901831f25897b265025d0de5dfe9a3a44"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/iflytek.png",
+          "size": 16659,
+          "sha256": "43252b80a4255067c0b81002f6553e50263ae75399a4ffec4b28c5c3a5210468"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/infiniflow.png",
+          "size": 9096,
+          "sha256": "5e8a03ce409a7e5e94368ae8698b4adb0c7b0cd81575863dc49042f10e79d1b1"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/inspur.png",
+          "size": 8744,
+          "sha256": "1a4be04893b9a761052463ce5a3b1a50f842d7608e1158d9ee73f526c94ed5e5"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/intel.png",
+          "size": 2213,
+          "sha256": "fb593467d56ac5679246f0825cd947dc03d581098921c9e8baf5549472ab3dca"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/jd.png",
+          "size": 3696,
+          "sha256": "2f8707d16fdf7bac9a65916012eebf7dfa247b3664a79aad2b0eaff33f1d330f"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/jetbrains.png",
+          "size": 6832,
+          "sha256": "ad64687c211505a4391106324a554d16e4ab9f242758492653a62637fc11b9e0"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/meta.png",
+          "size": 4504,
+          "sha256": "5d2cae85e318226cfa8360f73f6813b36e302b250555b10bdb00c85156aa2cae"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/microsoft.png",
+          "size": 588,
+          "sha256": "bdb7c3bb25c16eb474f61a900aec69100de43c86e53708c0f149351c6f0ed93f"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/moonshot.png",
+          "size": 18215,
+          "sha256": "9469cfc3d63e6fc195b0cc84005b36d7e2e2e4716e5ef69d463459452f85e396"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/mozilla.png",
+          "size": 1335,
+          "sha256": "b4a3d280ff09b6dc59fe91d46f8b264759d4b558e9c0076adb163080af9f0e43"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/nabucasa.png",
+          "size": 3237,
+          "sha256": "959d0bf0282d0e1e1d9be83087994fa9bde336bdda4d57c797bef7f7cf1b8916"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/nvidia.png",
+          "size": 5129,
+          "sha256": "55b170520ca8a47fb04709932c44d5d4326db769b7f873112d997cf101ac6728"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/odoo.png",
+          "size": 3914,
+          "sha256": "f1a90707b97668bae75279fa3044db33da6923a32b2de99b7d590d57e50dae42"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/openai.png",
+          "size": 3591,
+          "sha256": "1e396278540eae3d874c29270f74d944d277fa7853e0425fa8c57662f6118994"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/openkylin.png",
+          "size": 3070,
+          "sha256": "8b4d6037022714f5b3a6ffc1007ecf7a72e58b75f367772c9fcdbcaaa614654c"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/pingcap.png",
+          "size": 3382,
+          "sha256": "258150d98fb8d4aedff64de27e18cc814144d8b737a1bec9be24358adc704d6b"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/redhat.png",
+          "size": 3207,
+          "sha256": "e4f68d7102dda64f894015d81ba28ad7784d0c96dae25917aeb57bf3a498fa0d"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/seeed.png",
+          "size": 12458,
+          "sha256": "cde479c8bde200252647c29e86a7a5d9e04d63eb43cfc532e95b46c6ef8aca72"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/selectdb.png",
+          "size": 21810,
+          "sha256": "4569b6c6eadae77194d3205667bdbd10650ac3e4c2cb68c9a15bd125549b7ce0"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/sipeed.png",
+          "size": 2591,
+          "sha256": "87b4eb52de377760978cad233786f3925f075336f4b9869525544bab18fcd6c5"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/starrocks.png",
+          "size": 4709,
+          "sha256": "62b627299c96439a0c20eb0a81c813eb96a7fbfa43cd86b4756a382c778d4176"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/taos.png",
+          "size": 8528,
+          "sha256": "673f622984cb03f024df3dc488848916938642c54b0b7d20ad55f58b62cf170d"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/tencent.png",
+          "size": 3592,
+          "sha256": "868fcf5362668bb4248b6d29d76ddb87feec62202027118a7b7fa1020d2140be"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/tenstorrent.png",
+          "size": 10189,
+          "sha256": "6487d330cac9cbcf224441700b5ad7ead35da0548e5a8000ebd0bccb167ee838"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/vercel.png",
+          "size": 712,
+          "sha256": "8fa382f450802489cbd2459d18d05374b797ccd70ed376caf2affc1998b1f06b"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/xiaomi.png",
+          "size": 2884,
+          "sha256": "0ae59e05818625b16d68fac98206dc04015bfb330b5a2543e1be3e7bf6fb384e"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/xorbits.png",
+          "size": 3406,
+          "sha256": "3a3e7d470cfa5becbc26a65756394d4737d67d047a05a5afab98e486a7834262"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/zed.png",
+          "size": 4798,
+          "sha256": "ef551717c5471090f662e0c4cd96f5b50ed23ad251588cf49251d70dc929c1fa"
+        },
+        {
+          "path": "content/gosr/company-logos/assets/zilliz.png",
+          "size": 4563,
+          "sha256": "ff3384c7738ae881f9be04ae62f2166bba5d25c4056dc40e992a8e34f1081a5e"
+        },
+        {
+          "path": "content/gosr/model-org-logos/allenai.png",
+          "size": 1400,
+          "sha256": "044ff8965799a955a4586cb85f8aac3e355b3b95132bd067153cf488ac07c7ed"
+        },
+        {
+          "path": "content/gosr/model-org-logos/answerdotai.png",
+          "size": 3860,
+          "sha256": "c9fe6676a7806c32d4de3eb6ccc2b5697012d294aaf052423f757fbd56b43ec5"
+        },
+        {
+          "path": "content/gosr/model-org-logos/black-forest-labs.png",
+          "size": 2280,
+          "sha256": "e801e13ded60e19fcebb71e9017d9c87e6217135be8e45b76c301909f51dcab2"
+        },
+        {
+          "path": "content/gosr/model-org-logos/deepseek-ai.png",
+          "size": 3768,
+          "sha256": "cb9c59dede072bcf1ab666344d483918ec4ea11fd1d86d67d34be48a3a7011c2"
+        },
+        {
+          "path": "content/gosr/model-org-logos/distilbert.png",
+          "size": 1266,
+          "sha256": "29f8fa15f5bae32389a149b9d8674e0593beaaf25f904ac347a845e78682d246"
+        },
+        {
+          "path": "content/gosr/model-org-logos/facebookai.png",
+          "size": 2050,
+          "sha256": "44776d1145d732720b600e158ffc17e18eb2c9a8335f96b9aff5c02d8292441a"
+        },
+        {
+          "path": "content/gosr/model-org-logos/google.png",
+          "size": 4633,
+          "sha256": "77f77619f4b2b3693d31cc40eb12da24eec8e3d2282fffd8289e4b48a2ba8904"
+        },
+        {
+          "path": "content/gosr/model-org-logos/krea.png",
+          "size": 1384,
+          "sha256": "a000eecdcbf7d822463c515e39d718a42f5dbc882be2cdcf5e0b52f5c43a6c63"
+        },
+        {
+          "path": "content/gosr/model-org-logos/lerobot.png",
+          "size": 6004,
+          "sha256": "6f850e7134bace508aba68d016c16c208f97c25d1d41acb97428124d4392dda2"
+        },
+        {
+          "path": "content/gosr/model-org-logos/liquidai.png",
+          "size": 6670,
+          "sha256": "47560632f45a20a45c6fcc6d7a8bafb6cb0ee17c2df576baa49f30430aca26d9"
+        },
+        {
+          "path": "content/gosr/model-org-logos/marin-community.png",
+          "size": 9016,
+          "sha256": "232452f61e8013ae5f85707debe74ef50ef0ae0ad690a4f38f0a635a0bebcec9"
+        },
+        {
+          "path": "content/gosr/model-org-logos/meta-llama.png",
+          "size": 8108,
+          "sha256": "b202ff7373a9f14706f9cd4afd55cbb4c513e0f53763675dd93552693a623bf8"
+        },
+        {
+          "path": "content/gosr/model-org-logos/meta-models.png",
+          "size": 4504,
+          "sha256": "5d2cae85e318226cfa8360f73f6813b36e302b250555b10bdb00c85156aa2cae"
+        },
+        {
+          "path": "content/gosr/model-org-logos/minimaxai.jpeg",
+          "size": 4194,
+          "sha256": "4620fb75bcb082cf052911e3e89cb956178a9ad05509539adb8e3b46d3cf0a96"
+        },
+        {
+          "path": "content/gosr/model-org-logos/nvidia.png",
+          "size": 5129,
+          "sha256": "55b170520ca8a47fb04709932c44d5d4326db769b7f873112d997cf101ac6728"
+        },
+        {
+          "path": "content/gosr/model-org-logos/openai.png",
+          "size": 3591,
+          "sha256": "1e396278540eae3d874c29270f74d944d277fa7853e0425fa8c57662f6118994"
+        },
+        {
+          "path": "content/gosr/model-org-logos/ornith-ai.png",
+          "size": 6666,
+          "sha256": "303cb660456c2874b40bb2625c647fb13d6106a1c0cc0218ec373e7efb119b89"
+        },
+        {
+          "path": "content/gosr/model-org-logos/qwen.jpeg",
+          "size": 2832,
+          "sha256": "0c74f4f564ec24d5fd552b63efd43a9a85214ab4f6c7951e53c0d4328e5967d0"
+        },
+        {
+          "path": "content/gosr/model-org-logos/tongyi-mai.jpeg",
+          "size": 6150,
+          "sha256": "b33921fceef45fab79daa26a1e970bffc6a8df2d4e25bcc92212c88fca318437"
+        },
+        {
+          "path": "content/gosr/model-org-logos/unsloth.png",
+          "size": 4996,
+          "sha256": "0be5633f7569b145fadd64884fe3a80e1a4002e122942713db3f6a32779e39d1"
+        },
+        {
+          "path": "content/gosr/model-org-logos/zai-org.png",
+          "size": 2506,
+          "sha256": "4e99514652b98edf65295a07269125e6eab777df376623c2e5ab1ce7d58ba72b"
+        }
+      ]
     }
   ]
 }

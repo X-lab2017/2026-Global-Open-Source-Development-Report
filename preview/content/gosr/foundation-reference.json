@@ -1,0 +1,827 @@
+{
+  "retrieved_at": "2026-10-17",
+  "report_cutoff": "2026-06-30",
+  "landscape_url": "https://landscape.linuxfoundation.org/",
+  "landscape_source_url": "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+  "children": [
+    {
+      "id": "cncf",
+      "short": "CNCF",
+      "name": "Cloud Native Computing Foundation",
+      "field": "云原生",
+      "website": "https://www.cncf.io/",
+      "projects": [
+        {
+          "name": "Kubernetes",
+          "url": "https://kubernetes.io/"
+        },
+        {
+          "name": "Prometheus",
+          "url": "https://prometheus.io/"
+        },
+        {
+          "name": "Envoy",
+          "url": "https://www.envoyproxy.io/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://www.cncf.io/"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "pytorch",
+      "short": "PyTorch",
+      "name": "PyTorch Foundation",
+      "field": "AI 框架与推理",
+      "website": "https://pytorch.org/foundation/",
+      "projects": [
+        {
+          "name": "PyTorch",
+          "url": "https://pytorch.org/"
+        },
+        {
+          "name": "vLLM",
+          "url": "https://pytorch.org/projects/vllm/"
+        },
+        {
+          "name": "DeepSpeed",
+          "url": "https://pytorch.org/projects/deepspeed/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://pytorch.org/blog/press-release-pytorch-foundation-expands-welcomes-projects-vllm-deepspeed/",
+        "https://pytorch.org/blog/pytorch-foundation-in-2025-a-year-in-review/"
+      ],
+      "note": "2025 年扩展为多项目伞形基金会；vLLM、DeepSpeed 的加入早于 2026-06 报告截止。不要沿用 vLLM 仍属 LF AI & Data 的旧归属。"
+    },
+    {
+      "id": "lf-ai-data",
+      "short": "LF AI & Data",
+      "name": "LF AI & Data Foundation",
+      "field": "AI 与数据",
+      "website": "https://lfaidata.foundation/",
+      "projects": [
+        {
+          "name": "ONNX",
+          "url": "https://onnx.ai/"
+        },
+        {
+          "name": "Milvus",
+          "url": "https://milvus.io/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://lfaidata.foundation/projects/",
+        "https://github.com/lfai/proposing-projects"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "openjs",
+      "short": "OpenJS",
+      "name": "OpenJS Foundation",
+      "field": "JavaScript 与 Web",
+      "website": "https://openjsf.org/",
+      "projects": [
+        {
+          "name": "Node.js",
+          "url": "https://nodejs.org/"
+        },
+        {
+          "name": "jQuery",
+          "url": "https://jquery.com/"
+        },
+        {
+          "name": "Electron",
+          "url": "https://www.electronjs.org/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://openjsf.org/projects",
+        "https://openjsf.org/blog/electron-joins-the-openjs-foundation"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "openinfra",
+      "short": "OpenInfra",
+      "name": "OpenInfra Foundation",
+      "field": "云与基础设施",
+      "website": "https://openinfra.org/",
+      "projects": [
+        {
+          "name": "OpenStack",
+          "url": "https://www.openstack.org/"
+        },
+        {
+          "name": "Kata Containers",
+          "url": "https://katacontainers.io/"
+        },
+        {
+          "name": "StarlingX",
+          "url": "https://www.starlingx.io/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://openinfra.org/projects/",
+        "https://www.linuxfoundation.org/blog/linux-foundation-newsletter-june-2025"
+      ],
+      "note": "2025 年加入 LF 体系；同时存在于原始全球主榜。保留主榜原值，子榜仅模拟展示内部比较，不与 LF 总值相加。"
+    },
+    {
+      "id": "lf-networking",
+      "short": "LF Networking",
+      "name": "LF Networking",
+      "field": "网络与通信",
+      "website": "https://lfnetworking.org/",
+      "projects": [
+        {
+          "name": "ONAP",
+          "url": "https://www.onap.org/"
+        },
+        {
+          "name": "OpenDaylight",
+          "url": "https://www.opendaylight.org/"
+        },
+        {
+          "name": "FD.io",
+          "url": "https://fd.io/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://lfnetworking.org/projects/",
+        "https://lfnetworking.org/lf-networking-expands-ecosystem-adds-members-leads-initiatives-to-automate-5g-deployments-and-accelerate-automation/"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "lf-edge",
+      "short": "LF Edge",
+      "name": "LF Edge",
+      "field": "边缘与物联网",
+      "website": "https://lfedge.org/",
+      "projects": [
+        {
+          "name": "EdgeX Foundry",
+          "url": "https://www.edgexfoundry.org/"
+        },
+        {
+          "name": "Akraino",
+          "url": "https://lfedge.org/projects/akraino/"
+        },
+        {
+          "name": "EVE",
+          "url": "https://github.com/lf-edge/eve"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://lfedge.org/our-projects/",
+        "https://www.linuxfoundation.org/blog/blog/lf-edge-bringing-complementary-initiatives-together-to-advance-emerging-applications-at-the-edge"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "finos",
+      "short": "FINOS",
+      "name": "Fintech Open Source Foundation",
+      "field": "金融科技",
+      "website": "https://www.finos.org/",
+      "projects": [
+        {
+          "name": "FDC3",
+          "url": "https://fdc3.finos.org/"
+        },
+        {
+          "name": "Legend",
+          "url": "https://github.com/finos/legend"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://www.linuxfoundation.org/blog/blog/finos-joins-the-linux-foundation",
+        "https://fdc3.finos.org/docs/fdc3-intro/",
+        "https://github.com/finos/legend"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "openssf",
+      "short": "OpenSSF",
+      "name": "Open Source Security Foundation",
+      "field": "软件供应链安全",
+      "website": "https://openssf.org/",
+      "projects": [
+        {
+          "name": "Sigstore",
+          "url": "https://www.sigstore.dev/"
+        },
+        {
+          "name": "OpenSSF Scorecard",
+          "url": "https://scorecard.dev/"
+        },
+        {
+          "name": "SLSA",
+          "url": "https://slsa.dev/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://openssf.org/projects/",
+        "https://www.linuxfoundation.org/press/openssf-announces-slsa-version-1.0-release"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "lfdt",
+      "short": "LF Decentralized Trust",
+      "name": "LF Decentralized Trust",
+      "field": "分布式信任",
+      "website": "https://www.lfdecentralizedtrust.org/",
+      "projects": [
+        {
+          "name": "Hyperledger Fabric",
+          "url": "https://www.lfdecentralizedtrust.org/projects"
+        },
+        {
+          "name": "Besu",
+          "url": "https://www.lfdecentralizedtrust.org/projects"
+        },
+        {
+          "name": "Hyperledger Indy",
+          "url": "https://www.lfdecentralizedtrust.org/projects"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://www.linuxfoundation.org/press/linux-foundation-decentralized-trust-launches-with-17-projects-100-founding-members",
+        "https://www.lfdecentralizedtrust.org/projects"
+      ],
+      "note": "2024-09-16 启动的新伞形组织承接 Hyperledger 生态；截至 2026-06 应用 LF Decentralized Trust，勿把旧 Hyperledger Foundation 另列一行重复统计。"
+    },
+    {
+      "id": "aswf",
+      "short": "ASWF",
+      "name": "Academy Software Foundation",
+      "field": "影视与数字内容",
+      "website": "https://www.aswf.io/",
+      "projects": [
+        {
+          "name": "OpenEXR",
+          "url": "https://openexr.com/"
+        },
+        {
+          "name": "OpenColorIO",
+          "url": "https://opencolorio.org/"
+        },
+        {
+          "name": "OpenVDB",
+          "url": "https://www.openvdb.org/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://www.aswf.io/projects/",
+        "https://www.linuxfoundation.org/blog/blog/academy-software-foundation-giving-open-communities-access-to-production-grade-digital-assets-for-testing-demonstration-and-education-purposes"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "cdf",
+      "short": "CD Foundation",
+      "name": "Continuous Delivery Foundation",
+      "field": "持续交付",
+      "website": "https://cd.foundation/",
+      "projects": [
+        {
+          "name": "Jenkins",
+          "url": "https://www.jenkins.io/"
+        },
+        {
+          "name": "Spinnaker",
+          "url": "https://spinnaker.io/"
+        },
+        {
+          "name": "CDEvents",
+          "url": "https://cdevents.dev/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://cd.foundation/projects/",
+        "https://cd.foundation/blog/2025/03/27/project-updates-march-2025/"
+      ],
+      "note": "采用当前和 2025 年资料均可确认的代表项目，未把后续状态不明的 Tekton/旧 Jenkins X 名称回填进报告窗口。"
+    },
+    {
+      "id": "lf-energy",
+      "short": "LF Energy",
+      "name": "LF Energy",
+      "field": "能源与电力",
+      "website": "https://lfenergy.org/",
+      "projects": [
+        {
+          "name": "EVerest",
+          "url": "https://lfenergy.org/projects/everest/"
+        },
+        {
+          "name": "SOGNO",
+          "url": "https://lfenergy.org/projects/sogno/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://lfenergy.org/",
+        "https://lfenergy.org/projects/everest/",
+        "https://www.linuxfoundation.org/blog/blog/the-sogno-project-wins-prestigious-award-for-focus-on-modular-grid-automation"
+      ],
+      "note": "LF 体系中的基金会/伞形社区；代表项目用于解释关注领域，不构成完整项目统计口径。"
+    },
+    {
+      "id": "chips",
+      "short": "CHIPS Alliance",
+      "name": "CHIPS Alliance",
+      "field": "开源芯片与硬件",
+      "website": "https://www.chipsalliance.org/",
+      "projects": [
+        {
+          "name": "Chisel",
+          "url": "https://github.com/chipsalliance/chisel"
+        },
+        {
+          "name": "Verilator",
+          "url": "https://github.com/verilator/verilator"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://www.chipsalliance.org/projects/",
+        "https://github.com/chipsalliance/chisel/blob/main/PROJECT_CHARTER.md",
+        "https://github.com/verilator/verilator"
+      ],
+      "note": "属于 LF directed fund / 开源硬件伞形社区；不是另一个 RISC-V International。"
+    },
+    {
+      "id": "o3df",
+      "short": "Open 3D",
+      "name": "Open 3D Foundation",
+      "field": "3D 引擎与仿真",
+      "website": "https://o3df.org/",
+      "projects": [
+        {
+          "name": "Open 3D Engine",
+          "url": "https://o3de.org/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://o3df.org/about/overview/",
+        "https://o3df.org/all-projects/"
+      ],
+      "note": "官方页面仅确认旗舰项目 O3DE；不为凑足代表项目数量而把引擎模块或第三方游戏伪装成独立托管项目。"
+    },
+    {
+      "id": "aaif",
+      "short": "AAIF",
+      "name": "Agentic AI Foundation",
+      "field": "智能体互操作",
+      "website": "https://aaif.io/",
+      "projects": [
+        {
+          "name": "Model Context Protocol",
+          "url": "https://modelcontextprotocol.io/"
+        },
+        {
+          "name": "goose",
+          "url": "https://goose-docs.ai/"
+        },
+        {
+          "name": "AGENTS.md",
+          "url": "https://agents.md/"
+        }
+      ],
+      "evidence": [
+        "https://landscape.linuxfoundation.org/",
+        "https://github.com/jmertic/lf-landscape/blob/master/landscape.yml",
+        "https://aaif.io/news/linux-foundation-announces-formation-of-aaif",
+        "https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation"
+      ],
+      "note": "2025-12-09 成立。若时序覆盖成立前月份，应留空或标记未成立，不能模拟为早已存在的基金会。仅列创始三项目，避免回填 2026-06 之后新增关系。"
+    }
+  ],
+  "global": {
+    "Linux Foundation": {
+      "short": "LF",
+      "website": "https://www.linuxfoundation.org/",
+      "projects": [
+        {
+          "name": "Linux",
+          "url": "https://www.kernel.org/"
+        },
+        {
+          "name": "Kubernetes",
+          "url": "https://kubernetes.io/"
+        },
+        {
+          "name": "PyTorch",
+          "url": "https://pytorch.org/"
+        }
+      ],
+      "evidence": [
+        "https://www.linuxfoundation.org/projects",
+        "https://www.cncf.io/",
+        "https://pytorch.org/foundation/"
+      ],
+      "note": "代表项目包含 LF 生态内不同层级的项目；原始 LF 分值不由本次子组织模拟榜回算，与单列子组织不可相加。"
+    },
+    "OpenAtom Foundation": {
+      "short": "开放原子",
+      "website": "https://www.openatom.org/",
+      "projects": [
+        {
+          "name": "OpenHarmony",
+          "url": "https://www.openharmony.cn/"
+        },
+        {
+          "name": "openEuler",
+          "url": "https://www.openeuler.org/"
+        }
+      ],
+      "evidence": [
+        "https://www.openatom.org/about",
+        "https://www.openatom.org/journalism/detail/SBLornFvPkhu",
+        "https://www.openeuler.org/"
+      ],
+      "note": "官方资料仅用于识别代表项目，不表示这些项目构成原始分值的完整统计边界。"
+    },
+    "Apache Software Foundation": {
+      "short": "Apache",
+      "website": "https://www.apache.org/",
+      "projects": [
+        {
+          "name": "Apache Spark",
+          "url": "https://spark.apache.org/"
+        },
+        {
+          "name": "Apache Kafka",
+          "url": "https://kafka.apache.org/"
+        },
+        {
+          "name": "Apache Airflow",
+          "url": "https://airflow.apache.org/"
+        }
+      ],
+      "evidence": [
+        "https://projects.apache.org/projects.html",
+        "https://news.apache.org/foundation/entry/the-apache-software-foundation-announces44"
+      ],
+      "note": "官方资料仅用于识别代表项目，不表示这些项目构成原始分值的完整统计边界。"
+    },
+    "Stichting NixOS Foundation": {
+      "short": "NixOS",
+      "website": "https://nixos.org/",
+      "projects": [
+        {
+          "name": "Nix",
+          "url": "https://nixos.org/"
+        },
+        {
+          "name": "Nixpkgs",
+          "url": "https://github.com/NixOS/nixpkgs"
+        },
+        {
+          "name": "NixOS",
+          "url": "https://nixos.org/"
+        }
+      ],
+      "evidence": [
+        "https://nixos.org/community/index.html",
+        "https://nixos.org/governance/"
+      ],
+      "note": "基金会提供 Nix 生态的运营与组织支持，技术治理不等于基金会法人本身。"
+    },
+    "Rust Foundation": {
+      "short": "Rust",
+      "website": "https://rustfoundation.org/",
+      "projects": [
+        {
+          "name": "Rust",
+          "url": "https://www.rust-lang.org/"
+        }
+      ],
+      "evidence": [
+        "https://rustfoundation.org/about/"
+      ],
+      "note": "支持 Rust 语言及其社区，不将整个 crates.io 上的第三方项目视为基金会自有或托管项目。"
+    },
+    "Python Software Foundation": {
+      "short": "Python",
+      "website": "https://www.python.org/psf-landing/",
+      "projects": [
+        {
+          "name": "CPython",
+          "url": "https://www.python.org/"
+        },
+        {
+          "name": "PyPI",
+          "url": "https://pypi.org/"
+        }
+      ],
+      "evidence": [
+        "https://www.python.org/psf/about/",
+        "https://www.python.org/psf/github/"
+      ],
+      "note": "PSF 托管 PyPI，但第三方上传包不等于 PSF 自有或治理项目。"
+    },
+    "Godot Foundation": {
+      "short": "Godot",
+      "website": "https://godot.foundation/",
+      "projects": [
+        {
+          "name": "Godot Engine",
+          "url": "https://godotengine.org/"
+        }
+      ],
+      "evidence": [
+        "https://godot.foundation/"
+      ],
+      "note": "基金会为 Godot 项目提供资金与运营支持；不把使用 Godot 制作的游戏列作基金会托管项目。"
+    },
+    "Ruby Foundation": {
+      "short": "Ruby Foundation",
+      "website": "",
+      "projects": [],
+      "evidence": [
+        "https://www.ruby.or.jp/en/about/",
+        "https://www.ruby.or.jp/en/about/activities/"
+      ],
+      "note": "待核验：原始底表名称为 Ruby Foundation；查到 Ruby Association，但尚不能证明两者为同一统计实体。保留原名称与原分值，代表项目暂不映射。"
+    },
+    "DuckDB Foundation": {
+      "short": "DuckDB",
+      "website": "https://duckdb.foundation/",
+      "projects": [
+        {
+          "name": "DuckDB",
+          "url": "https://duckdb.org/"
+        }
+      ],
+      "evidence": [
+        "https://duckdb.foundation/",
+        "https://duckdb.org/faq"
+      ],
+      "note": "仅列可确认的 DuckDB 核心项目。2026-08 DuckLabs/AWS 消息晚于报告窗口，不据此回填 2026-06 实体边界。"
+    },
+    "Connectivity Standards Alliance": {
+      "short": "CSA",
+      "website": "https://csa-iot.org/",
+      "projects": [
+        {
+          "name": "Matter",
+          "url": "https://csa-iot.org/all-solutions/matter/"
+        },
+        {
+          "name": "Zigbee",
+          "url": "https://csa-iot.org/all-solutions/zigbee/"
+        }
+      ],
+      "evidence": [
+        "https://csa-iot.org/newsroom/connectivity-standards-alliance/",
+        "https://csa-iot.org/newsroom/chip-is-now-matter/"
+      ],
+      "note": "标准联盟，代表条目为标准/技术体系，不能直接视作两个同质的软件仓库。"
+    },
+    "PHP Foundation": {
+      "short": "PHP",
+      "website": "https://thephp.foundation/",
+      "projects": [
+        {
+          "name": "PHP",
+          "url": "https://www.php.net/"
+        }
+      ],
+      "evidence": [
+        "https://thephp.foundation/foundation/",
+        "https://thephp.foundation/blog/2024/02/26/transparency-and-impact-report-2023/"
+      ],
+      "note": "资助 PHP 核心及扩展维护；不把 PHP 生态下所有第三方框架归入该基金会。"
+    },
+    "Bevy Foundation": {
+      "short": "Bevy",
+      "website": "https://bevy.org/foundation/",
+      "projects": [
+        {
+          "name": "Bevy Engine",
+          "url": "https://bevy.org/"
+        }
+      ],
+      "evidence": [
+        "https://bevy.org/foundation/",
+        "https://bevy.org/news/bevy-foundation/"
+      ],
+      "note": "官方资料仅用于识别代表项目，不表示这些项目构成原始分值的完整统计边界。"
+    },
+    "Gentoo Foundation": {
+      "short": "Gentoo",
+      "website": "https://www.gentoo.org/",
+      "projects": [
+        {
+          "name": "Gentoo Linux",
+          "url": "https://www.gentoo.org/"
+        }
+      ],
+      "evidence": [
+        "https://www.gentoo.org/news/2024/04/10/SPI-associated-project.html",
+        "https://www.spi-inc.org/corporate/annual-reports/2024.pdf"
+      ],
+      "note": "历史实体边界：Gentoo 于 2024 年成为 SPI 关联项目，原 Gentoo Foundation 逐步移交/结束运营。保留原始底表名，不将其当作未经变更的现行法律实体。"
+    },
+    "Trino Foundation": {
+      "short": "Trino",
+      "website": "https://trino.io/foundation",
+      "projects": [
+        {
+          "name": "Trino",
+          "url": "https://trino.io/"
+        }
+      ],
+      "evidence": [
+        "https://trino.io/foundation",
+        "https://trino.io/development/roles"
+      ],
+      "note": "官网正式名称为 Trino Software Foundation；主榜保留底表 Trino Foundation 键。"
+    },
+    "Zig Software Foundation": {
+      "short": "Zig",
+      "website": "https://ziglang.org/zsf/",
+      "projects": [
+        {
+          "name": "Zig",
+          "url": "https://ziglang.org/"
+        }
+      ],
+      "evidence": [
+        "https://ziglang.org/zsf/",
+        "https://ziglang.org/news/announcing-zig-software-foundation.html"
+      ],
+      "note": "官方资料仅用于识别代表项目，不表示这些项目构成原始分值的完整统计边界。"
+    },
+    "OpenInfra Foundation": {
+      "short": "OpenInfra",
+      "website": "https://openinfra.org/",
+      "projects": [
+        {
+          "name": "OpenStack",
+          "url": "https://www.openstack.org/"
+        },
+        {
+          "name": "Kata Containers",
+          "url": "https://katacontainers.io/"
+        },
+        {
+          "name": "StarlingX",
+          "url": "https://www.starlingx.io/"
+        }
+      ],
+      "evidence": [
+        "https://openinfra.org/projects/",
+        "https://www.linuxfoundation.org/blog/linux-foundation-newsletter-june-2025"
+      ],
+      "note": "2025 年已加入 LF 体系；主榜沿用原始底表单列，子榜也可展示该生态位置，但两层不可相加。"
+    },
+    "Free EBook Foundation": {
+      "short": "Free Ebook",
+      "website": "https://ebookfoundation.org/",
+      "projects": [
+        {
+          "name": "free-programming-books",
+          "url": "https://ebookfoundation.github.io/free-programming-books-search/"
+        },
+        {
+          "name": "GITenberg",
+          "url": "https://gitenberg.org/"
+        },
+        {
+          "name": "Unglue.it",
+          "url": "https://unglue.it/"
+        }
+      ],
+      "evidence": [
+        "https://ebookfoundation.org/",
+        "https://ebookfoundation.org/gitenberg.html",
+        "https://ebookfoundation.org/unglueit.html"
+      ],
+      "note": "代表项目包括书目/数字图书基础设施；GITenberg 与 Project Gutenberg 有内容关系，但不可据此称基金会治理 Project Gutenberg。"
+    },
+    "farama": {
+      "short": "Farama",
+      "website": "https://farama.org/",
+      "projects": [
+        {
+          "name": "Gymnasium",
+          "url": "https://gymnasium.farama.org/"
+        },
+        {
+          "name": "PettingZoo",
+          "url": "https://pettingzoo.farama.org/"
+        },
+        {
+          "name": "Minari",
+          "url": "https://minari.farama.org/"
+        }
+      ],
+      "evidence": [
+        "https://farama.org/projects",
+        "https://github.com/Farama-Foundation"
+      ],
+      "note": "官网名称 Farama Foundation；主榜保留原始键 farama。"
+    },
+    "Anoma Foundation": {
+      "short": "Anoma",
+      "website": "https://anoma.foundation/",
+      "projects": [
+        {
+          "name": "Anoma",
+          "url": "https://anoma.net/"
+        },
+        {
+          "name": "Namada",
+          "url": "https://namada.net/"
+        }
+      ],
+      "evidence": [
+        "https://anoma.foundation/press/the-anoma-foundation-announces-the-3rd-fundraise-for-anoma",
+        "https://anoma.foundation/privacy-notice"
+      ],
+      "note": "官方说明为资助与协调公共产品研发，不能据此等同于控制链上治理。"
+    },
+    "Eclipse Foundation": {
+      "short": "Eclipse",
+      "website": "https://www.eclipse.org/",
+      "projects": [
+        {
+          "name": "Eclipse IDE",
+          "url": "https://eclipseide.org/"
+        },
+        {
+          "name": "Jakarta EE",
+          "url": "https://jakarta.ee/"
+        },
+        {
+          "name": "Eclipse Mosquitto",
+          "url": "https://mosquitto.org/"
+        }
+      ],
+      "evidence": [
+        "https://www.eclipse.org/projects/project_activity.php",
+        "https://projects.eclipse.org/projects/iot.mosquitto",
+        "https://jakarta.ee/projects/"
+      ],
+      "note": "官方资料仅用于识别代表项目，不表示这些项目构成原始分值的完整统计边界。"
+    },
+    "GirlScript Foundation": {
+      "short": "GirlScript",
+      "website": "https://girlscript.org/",
+      "projects": [
+        {
+          "name": "GirlScript Summer of Code",
+          "url": "https://gssoc.girlscript.org/"
+        }
+      ],
+      "evidence": [
+        "https://github.com/girlscript",
+        "https://gssoc.girlscript.org/activities"
+      ],
+      "note": "此处代表条目为基金会组织的开源参与计划，并非统一托管软件项目；参与该计划的第三方仓库不等于基金会拥有/治理。"
+    }
+  },
+  "scope_notes": [
+    "本资料只核对名称、组织关系和代表项目，未提供任何真实排名或影响力分值。",
+    "LF 下属基金会/伞形社区并不都等同于独立法律法人，建议图题采用“Linux 基金会下属基金会与社区”。",
+    "官方网站为 2026-10-17 访问快照；将组织关系用于 2026-06 时点前，应以已给出的历史公告为边界。",
+    "RISC-V International 是独立的瑞士协会，与 LF 有支持/合作关系，故未纳入严格子组织榜。验证：https://riscv.org/about/",
+    "代表项目不是完整的仓库映射，不可用来解释或重算原始 OpenRank 分值。"
+  ]
+}

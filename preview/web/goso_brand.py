@@ -16,7 +16,7 @@ def resolve(text,theme='light'):
 def export(out):
     cssout=[]
     for theme in ['light','dark']:
-        selector='.goso-chapter' if theme=='light' else '[data-theme="dark"] .goso-chapter'
+        selector='.goso-chapter,.cr-stage' if theme=='light' else '[data-theme="dark"] .goso-chapter,[data-theme="dark"] .cr-stage'
         cssout.append(selector+'{'+''.join('--gv-'+k+':'+v+';' for k,v in values(theme).items())+'}')
     cssout.append((ROOT/'web/goso-brand.css').read_text())
     (out/'goso-brand.css').write_text('\n'.join(cssout))

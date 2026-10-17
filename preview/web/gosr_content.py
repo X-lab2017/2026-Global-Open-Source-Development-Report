@@ -1,6 +1,7 @@
 """GOSR: pinned repository evidence, editorial interpretation and native charts."""
 from pathlib import Path
 import csv,html,json,shutil
+import gosr_reading
 from goso_brand import css,resolve
 ROOT=Path(__file__).resolve().parents[1]
 DIR=ROOT/'content/gosr'
@@ -19,6 +20,7 @@ SPECS=[
 ('foundation','table-3-3-1','全球基金会 · 21 家','foundation_zh',['openrank','active_developers']),
 ('project','table-3-4-1','全球项目 Top 30','project',['openrank','active_developers']),
 ('chinaProject','table-3-4-3','中国项目 Top 30','project',['openrank','active_developers']),
+('rising','table-3-4-4','中国项目两期名次记录（基期待确认）','project',['openrank']),
 ('projectCountries','table-3-4-2','全球项目 Top 100 · 发起组织国家分布','country_zh',['projects_in_top100']),
 ('newRepo','table-3-5-1','新创建仓库 Top 30','repo',['openrank','active_developers']),
 ('newProject','table-3-5-2','新创立项目 Top 30','project',['openrank','active_developers','repo_count']),
@@ -62,12 +64,20 @@ def finding(k,title,text):return f'<div class="gosr-finding"><span>{k}</span><di
 def implications(text,limit):return f'<div class="gosr-implications"><h3>从发现到行动</h3><p>{text}</p><p class="gosr-limit"><strong>解释边界：</strong>{limit}</p></div>'
 def chapter(lang):
  if lang!='zh':return '<div class="reader-note">The GOSR review draft is now available in Chinese, with six ranking dimensions, source tables and interactive comparisons. English editorial translation will follow the Chinese review.</div><p id="gosr-review"><a href="/2026/zh/chapters/03/#gosr-review">Review the evidence gaps →</a></p><p><a href="/2026/zh/chapters/03/">Read the interactive GOSR chapter →</a></p>'+''.join(f'<section id="ch03-s0{i}"><h2>{i}. {name}</h2><a href="/2026/zh/chapters/03/#ch03-s0{i}">Read this section →</a></section>' for i,name in enumerate(['Regions','Companies','Foundations','Projects','Emerging projects','Models'],1))
- out=['<div class="goso-chapter gosr-chapter"><div class="gosr-intro"><span class="eyebrow">CHAPTER 03 / GLOBAL OPEN SOURCE RANKINGS</span><h2>谁在把贡献，<br>转化为全球影响力？</h2><p class="gosr-lede">从地区到组织，从项目到模型。六个观察窗口，辨识协作网络中的关键节点，以及正在变化的影响力结构。</p><p>GOSO 回答生态分布在哪里，GOSR 进一步追问谁在组织协作、承载贡献与推动复用。本章以 OpenDigger 支持的 OpenRank 为代码生态的主要量尺，以 ModelRank 补充模型复用网络的观察。榜单提供可查证的结构信号，并与第一章 OSDGs 的包容性、可持续性和多样性目标相连接。</p><div class="gosr-period"><span><b>代码生态</b>2025.07 — 2026.06 / OpenRank</span><span><b>模型生态</b>2026.08 / ModelRank v1</span></div></div>']
- cards=[('R','区域','加利福尼亚州','50,883.80','OpenRank'),('C','企业','微软','167,060.26','OpenRank'),('F','基金会','Linux 基金会家族','196,128.27','OpenRank'),('P','项目','OpenHarmony','75,809.42','OpenRank'),('E','新势力','CANN','14,719.47','OpenRank · 项目'),('M','模型','Qwen3.8-27B','27,930.09','ModelRank')]
+ out=['<div class="goso-chapter gosr-chapter"><div class="gosr-intro"><span class="eyebrow">CHAPTER 03 / GLOBAL OPEN SOURCE RANKINGS</span><h2>谁在把贡献，<br>转化为全球影响力？</h2><p class="gosr-lede">从地区到组织，从项目到模型。六个观察窗口，辨识协作网络中的关键节点，以及正在变化的影响力结构。</p><p>六类主体分别排名。主榜提供完整对象与分值，分布、关联和时序帮助理解位置；原表、外部补充和模拟评审分别标明。</p><div class="gosr-period"><span><b>代码生态</b>2025.07 — 2026.06 / OpenRank</span><span><b>模型生态</b>2026.08 / ModelRank v1</span></div></div>']
+ out.append(gosr_reading.overview())
+ cards=[('R','区域','加利福尼亚州','50,883.80','OpenRank'),('C','企业','微软','167,060.26','OpenRank'),('F','基金会','Linux 基金会家族','196,128.27','OpenRank'),('P','项目','OpenHarmony','75,809.42','OpenRank'),('E','新势力','openclaw/openclaw','7,047.46','OpenRank · 仓库'),('M','模型','Qwen3.8-27B','27,930.09','ModelRank')]
  out.append('<nav class="gosr-overview" aria-label="六类榜单">'+''.join(f'<a href="#ch03-s0{i}"><span class="gosr-letter">{k}</span><span>{name} / {k}-Ranking</span><strong>{winner}</strong><b>{value}</b><small>{metric} · 本期榜首 →</small></a>' for i,(k,name,winner,value,metric) in enumerate(cards,1))+'</nav>')
  out.append('<p class="gosr-method">六类榜单分别排序，不合成跨对象总榜。OpenRank 不等于治理质量或商业价值；ModelRank 不等于模型能力得分或开放许可证评级。项目按标签聚合仓库，仓库数与项目数不能互换。<a href="/2026/zh/methodology/">查看方法基础 →</a></p>')
  sections=[('R','行政区划','影响力有地理重心，参与规模不是唯一解释。'),('C','开源企业','年度格局相对稳定，月度位次已出现变化。'),('F','开源基金会','头部集中，需要与组织归并口径一起阅读。'),('P','开源项目','基础软件与 AI 工具共同占据影响力前列。'),('E','新势力项目','从仓库冷启动，到有组织的项目供给。'),('M','开源大模型','从单个模型，观察系列复用与任务覆盖。')]
  for i,(tag,name,headline) in enumerate(sections,1):
+  if i!=2:
+   import rankings
+   out.append(gosr_reading.normalize(rankings.section(i,DATA,REPO),i)+gallery(f'3.{i}'));continue
+  if i==2:
+   from company_ranking import section as company_section
+   out.append(gosr_reading.normalize(company_section(DATA,REPO),i)+gallery('3.2'))
+   continue
   out.append(f'<section class="chapter-section gosr-section" id="ch03-s0{i}"><div class="section-topline"><span>3.{i} / {tag}-Ranking</span><span>数据已接入 · 内容评审稿</span></div><h2>{name}影响力排行榜</h2><p class="gosr-thesis">{headline}</p>')
   if i==1:
    out.append(finding('01','规模优势与协作影响，需要分开比较','全球行政区榜中，加利福尼亚州以 50,883.80 居首，英格兰为 36,398.10。北京、上海分别为第 14、16 位。切换“开发者数量”后可以看到：参与规模与 OpenRank 的排序并不相同。扩大参与是基础，持续有效的协作同样值得关注。'))
@@ -75,12 +85,6 @@ def chapter(lang):
    out.append(finding('02','中国城市榜呈现多中心结构','北京、上海在城市榜居前，杭州以 4,388.79 高于深圳的 3,570.17；台北、广州、成都等城市也进入前列。这个截面支持“多中心”的观察，尚不能单独证明城市位次跨年上升，更不能将城市差异直接归因于某一家企业或某项政策。'))
    out.append(panel('gosr-region-counts',['regionCountries'],'Top 100 中，哪些国家拥有更多入榜行政区？','美国 25 个，印度 12 个，中国 7 个。分母为入榜的 100 个行政区，数量不代表各国 OpenRank 份额，也受行政区划粒度影响。'))
    out.append(implications('地方支持政策可以同时关注参与规模、协作影响与人才培养，进一步核对本地贡献流向哪些项目，再决定资源投入。','省级与城市级位置识别覆盖可能不同；本地底表仅提供各 Top 30，不能用其合计推算全国总量或覆盖率。'))
-  elif i==2:
-   out.append(finding('01','微软与华为位居前二，投入结构并不相同','微软本期 OpenRank 为 167,060.26，华为为 141,253.65，两者相差 25,806.61。微软的活跃开发者更多，华为的活跃仓库更多。两类规模指标与影响力不能简单互相替代；组织参与开源的方式，是比单一位次更值得追踪的问题。'))
-   out.append(panel('gosr-companies',['company','chinaCompany'],'企业榜：位次之外，比较参与结构','按 OpenRank、活跃仓库数或活跃开发者数排序。切换指标只改变当前图的顺序，表格保留原榜名次。'))
-   out.append(finding('02','月度领先，不等同于年度领先','底表显示，华为自 2026 年 3 月起在所列月份超过微软；中国企业榜中，字节跳动自 2026 年 4 月起超过阿里巴巴。但本报告年度榜仍分别以微软、阿里巴巴领先。月度图呈现变化发生的时点，年度榜呈现整个统计期的结果，两者并不矛盾。'))
-   out.append(panel('gosr-company-history',['globalMonth','globalYear','chinaMonth','chinaYear'],'企业位次轨迹：短期变化与长期位置','默认选取前三个对象；可同时比较最多 8 条轨迹。排名 1 位于上方，空值保留为缺失；坐标范围随选择变化，不截断低位排名。历史年度标签与 2026 统计期的边界仍需补齐说明。'))
-   out.append(implications('企业评估可以把持续贡献、开发者参与和项目协作结合起来。对阶段性跃升，优先检查贡献来自哪些项目、能否在多个统计期维持，再讨论战略意义。','数据证明位次变化，不直接证明 AI 投入的因果作用；不以榜单倒推企业商业策略。年度与月度排名不能相加、平均或替代影响力分值。'))
   elif i==3:
    foundation=DATA['foundation']['rows'];share=sum(float(x['openrank']) for x in foundation[:3])/sum(float(x['openrank']) for x in foundation[:10])*100
    out.append(finding('01','Linux 家族领先，前三家占头部样本的大部分','Linux 基金会采用包含子基金会的合并口径，本期 OpenRank 为 196,128.27；开放原子、Apache 随后。前三家合计占 Top 10 基金会 OpenRank 的 '+f'{share:.1f}%'+ '。这个比例描述头部样本的集中程度，不能写成整个开源生态的份额。'))
@@ -107,7 +111,9 @@ def chapter(lang):
    out.append(panel('gosr-model-structure',['tasks','publishers','series'],'从任务、发布者与系列三个角度看 Top 20','任务数与发布者数均以 Top 20 为分母。系列表仅覆盖 Qwen 与 Llama 的 18 个模型，不包含另两家发布者。'))
    out.append(implications('模型发布者可以完善版本连续性、模型卡与复用路径；使用者还应结合任务能力、许可证和开放属性进行选择。进一步的复用网络与开放性分析将连接 <a href="/2026/zh/chapters/05/#ch05-s02">第五章 GOSM →</a>。','ModelRank 与 OpenRank 的对象、算法与统计期不同，不能相加或同轴比较；分值高不等于性能更强、训练更开放或许可证更宽松。'))
   out.append(gallery(f'3.{i}')+'</section>')
- out.append('''<section class="chapter-section" id="gosr-review"><span class="eyebrow">REVIEW / EVIDENCE & NEXT STEPS</span><h2>本轮审阅，聚焦三个方法缺口</h2><p>已按最新底表修正基金会月度变化、项目归属数量与模型统计期。下面的缺口影响比较解释，集中保留，后续补充后再深化结论。</p><ol><li><strong>对象与覆盖：</strong>企业、基金会、项目的仓库映射版本，跨平台合并及开发者去重规则，Linux 子基金会归并清单。</li><li><strong>历史可比性：</strong>2016—2025 年度标签对应的起止日期；“跃升先锋”表的明确基期。目前不据此扩写跨年因果结论。</li><li><strong>机制证据：</strong>重大位次变化对应的项目或事件，以及新仓库技术分类规则；用来区分观测到的变化与变化原因。</li></ol><p>GitHub 为事实源。本章 25 份 CSV 固定到仓库版本 <code>'''+REF[:12]+'''</code>，下载文件保持原始字节。附件原图仅供稿件对照；数值及统计口径以本版底表和说明为准。</p><p><a href="/assets/gosr/provenance.json">数据与原图来源清单 ↓</a> · <a href="'''+REPO+'''data/README.md">仓库指标与数据说明 ↗</a> · <a href="/2026/zh/chapters/02/">返回 GOSO →</a></p><details><summary>补充底表：项目两期名次对比（基期待确认）</summary>'''+table(read('table-3-4-4')[1])+'''<a href="/assets/gosr/data/'''+read('table-3-4-4')[0]+'''" download>原始 CSV ↓</a></details>'''+gallery('intro')+'''</section><script id="gosr-data" type="application/json">'''+json.dumps({'datasets':DATA,'labels':LABELS,'source':REPO},ensure_ascii=False).replace('<','\\u003c')+'</script></div>')
+ out.append('''<section class="chapter-section" id="gosr-review"><span class="eyebrow">DATA / SCOPE & SOURCES</span><h2>六类榜单，各自保留范围与来源。</h2><p>代码生态采用 2025.07—2026.06 统计期；模型榜采用 2026.08。每张图可查看口径、下载当前数据或原始底表；筛选保留原榜次，未知与缺失不补零。</p><details><summary>原表、补充数据与模拟范围</summary><p>25 份原始 CSV 固定到报告仓库版本，保持原始字节。模型 Top 100 来自 OpenGauge 同期公开快照；官方项目和模型卡用于补充身份信息，另标核验日期。</p><p>企业共同贡献案例、Linux 基金会旗下组织数值、项目榜第 31—100 位补位及项目贡献份额仍为明确标记的模拟评审内容，不作为真实统计结论。</p><p><a href="/assets/gosr/provenance.json">原表与原图来源清单 ↓</a> · <a href="/assets/gosr/model-rankings-snapshot.json">模型原始快照 ↓</a> · <a href="/2026/zh/methodology/">统计方法 →</a></p></details><nav class="cr-end-nav"><a href="#ch03-s01">↑ 返回地区榜</a><a href="/2026/zh/chapters/04/">继续阅读第四章 →</a></nav></section><script id="gosr-data" type="application/json">'''+json.dumps({'datasets':DATA,'labels':LABELS,'source':REPO},ensure_ascii=False).replace('<','\\u003c')+'</script></div>')
+ import rankings
+ out.append(rankings.payload())
  return ''.join(out)
 def export(out):
  shutil.copytree(DIR,out/'assets/gosr',dirs_exist_ok=True)

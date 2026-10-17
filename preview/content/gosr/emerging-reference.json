@@ -1,0 +1,1753 @@
+{
+  "retrieved_at": "2026-10-17",
+  "domains": [
+    "AI基础软件",
+    "AI智能体与Agent工具",
+    "操作系统与智能终端",
+    "应用与游戏平台",
+    "桌面环境与开发者工具",
+    "教育与开发者服务"
+  ],
+  "projects": {
+    "CANN": {
+      "project": "CANN",
+      "domain": "AI基础软件",
+      "subdomain": "AI 异构计算软件栈",
+      "official_url": "https://www.hiascend.com/cann",
+      "evidence": [
+        "https://www.hiascend.com/cann",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "华为",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "cann/ops-transformer",
+          "url": "https://atomgit.com/cann/ops-transformer",
+          "relation_status": "verified",
+          "evidence": [
+            "https://atomgit.com/cann/ops-transformer"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        },
+        {
+          "repo": "cann/ops-nn",
+          "url": "https://atomgit.com/cann/ops-nn",
+          "relation_status": "verified",
+          "evidence": [
+            "https://atomgit.com/cann/ops-nn"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 68,
+      "source_note": "原表报告纳入 68 仓；本文件只核对部分代表组件关系。当前 CANN 组织目录数量不能代替报告快照，不因属于 Ascend 命名空间而自动并入 CANN。"
+    },
+    "Hermes Agent": {
+      "project": "Hermes Agent",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "个人智能体与长期记忆",
+      "official_url": "https://github.com/NousResearch/hermes-agent",
+      "evidence": [
+        "https://github.com/NousResearch/hermes-agent"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Nous Research",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇺🇸美国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "NousResearch/hermes-agent",
+          "url": "https://github.com/NousResearch/hermes-agent",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/NousResearch/hermes-agent"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "DeepAgents": {
+      "project": "DeepAgents",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体执行框架",
+      "official_url": "https://github.com/langchain-ai/deepagents",
+      "evidence": [
+        "https://github.com/langchain-ai/deepagents"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "LangChain",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇺🇸美国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "langchain-ai/deepagents",
+          "url": "https://github.com/langchain-ai/deepagents",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/langchain-ai/deepagents"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "ZeroClaw": {
+      "project": "ZeroClaw",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "轻量个人智能体基础设施",
+      "official_url": "https://github.com/zeroclaw-labs/zeroclaw",
+      "evidence": [
+        "https://github.com/zeroclaw-labs/zeroclaw"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "zeroclaw-labs/zeroclaw",
+          "url": "https://github.com/zeroclaw-labs/zeroclaw",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/zeroclaw-labs/zeroclaw"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 2,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Paperclip": {
+      "project": "Paperclip",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体团队与工作管理",
+      "official_url": "https://github.com/paperclipai/paperclip",
+      "evidence": [
+        "https://github.com/paperclipai/paperclip"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "paperclipai/paperclip",
+          "url": "https://github.com/paperclipai/paperclip",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/paperclipai/paperclip"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 7,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "vLLM-Omni": {
+      "project": "vLLM-Omni",
+      "domain": "AI基础软件",
+      "subdomain": "多模态模型推理",
+      "official_url": "https://github.com/vllm-project/vllm-omni",
+      "evidence": [
+        "https://github.com/vllm-project/vllm-omni"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "加州大学伯克利分校",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇺🇸美国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "vllm-project/vllm-omni",
+          "url": "https://github.com/vllm-project/vllm-omni",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/vllm-project/vllm-omni"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "RLinf": {
+      "project": "RLinf",
+      "domain": "AI基础软件",
+      "subdomain": "具身与智能体强化学习",
+      "official_url": "https://github.com/RLinf/RLinf",
+      "evidence": [
+        "https://github.com/RLinf/RLinf"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "RLinf/RLinf",
+          "url": "https://github.com/RLinf/RLinf",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/RLinf/RLinf"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 4,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "CLIProxyAPI": {
+      "project": "CLIProxyAPI",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "模型服务代理与 API 兼容",
+      "official_url": "https://github.com/router-for-me/CLIProxyAPI",
+      "evidence": [
+        "https://github.com/router-for-me/CLIProxyAPI"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "router-for-me/CLIProxyAPI",
+          "url": "https://github.com/router-for-me/CLIProxyAPI",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/router-for-me/CLIProxyAPI"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 9,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "OpenViking": {
+      "project": "OpenViking",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体上下文与记忆数据库",
+      "official_url": "https://github.com/volcengine/OpenViking",
+      "evidence": [
+        "https://github.com/volcengine/OpenViking"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "字节跳动",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "volcengine/OpenViking",
+          "url": "https://github.com/volcengine/OpenViking",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/volcengine/OpenViking"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Pi Mono": {
+      "project": "Pi Mono",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体工具链与编程终端",
+      "official_url": "https://github.com/earendil-works/pi",
+      "evidence": [
+        "https://github.com/earendil-works/pi"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "badlogic/pi-mono",
+          "url": "https://github.com/badlogic/pi-mono",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/badlogic/pi-mono"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。 原入口 badlogic/pi-mono 当前重定向到 earendil-works/pi，保留原榜名称。"
+    },
+    "Hive": {
+      "project": "Hive",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "多智能体生产执行框架",
+      "official_url": "https://github.com/aden-hive/hive",
+      "evidence": [
+        "https://github.com/aden-hive/hive"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "aden-hive/hive",
+          "url": "https://github.com/aden-hive/hive",
+          "relation_status": "pending",
+          "evidence": [
+            "https://github.com/aden-hive/hive"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "pending",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 2,
+      "source_note": "官方 Hive 仓库身份明确，但与报告跨榜数值不一致。榜单项目身份/纳入仓库/时间窗待核验，不作项目—仓库值的加总或大小推断。"
+    },
+    "CC Switch": {
+      "project": "CC Switch",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "AI 编程工具配置管理",
+      "official_url": "https://github.com/farion1231/cc-switch",
+      "evidence": [
+        "https://github.com/farion1231/cc-switch"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "farion1231/cc-switch",
+          "url": "https://github.com/farion1231/cc-switch",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/farion1231/cc-switch"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Oh My OpenAgent": {
+      "project": "Oh My OpenAgent",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体编排与编程增强",
+      "official_url": "https://github.com/code-yeongyu/oh-my-openagent",
+      "evidence": [
+        "https://github.com/code-yeongyu/oh-my-openagent"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "code-yeongyu/oh-my-openagent",
+          "url": "https://github.com/code-yeongyu/oh-my-openagent",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/code-yeongyu/oh-my-openagent"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Astron": {
+      "project": "Astron",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "企业智能体工作流",
+      "official_url": "https://github.com/iflytek/astron-agent",
+      "evidence": [
+        "https://github.com/iflytek/astron-agent"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "科大讯飞",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "iflytek/astron-agent",
+          "url": "https://github.com/iflytek/astron-agent",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/iflytek/astron-agent"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 2,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Lark CLI": {
+      "project": "Lark CLI",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "办公应用与智能体接口",
+      "official_url": "https://github.com/larksuite/cli",
+      "evidence": [
+        "https://github.com/larksuite/cli"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "字节跳动",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "larksuite/cli",
+          "url": "https://github.com/larksuite/cli",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/larksuite/cli"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Nanobot": {
+      "project": "Nanobot",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "轻量个人智能体框架",
+      "official_url": "https://github.com/HKUDS/nanobot",
+      "evidence": [
+        "https://github.com/HKUDS/nanobot"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "香港大学",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "HKUDS/nanobot",
+          "url": "https://github.com/HKUDS/nanobot",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/HKUDS/nanobot"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Beads": {
+      "project": "Beads",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "编程智能体记忆与任务管理",
+      "official_url": "https://github.com/gastownhall/beads",
+      "evidence": [
+        "https://github.com/gastownhall/beads"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "steveyegge/beads",
+          "url": "https://github.com/steveyegge/beads",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/steveyegge/beads"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。 原入口 steveyegge/beads 当前重定向到 gastownhall/beads，保留原榜名称。"
+    },
+    "QwenPaw": {
+      "project": "QwenPaw",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "个人 AI 助手与多渠道协作",
+      "official_url": "https://github.com/agentscope-ai/QwenPaw",
+      "evidence": [
+        "https://github.com/agentscope-ai/QwenPaw"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "阿里巴巴",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "agentscope-ai/QwenPaw",
+          "url": "https://github.com/agentscope-ai/QwenPaw",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/agentscope-ai/QwenPaw"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Spec Kit": {
+      "project": "Spec Kit",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "规格驱动的 AI 软件开发",
+      "official_url": "https://github.com/github/spec-kit",
+      "evidence": [
+        "https://github.com/github/spec-kit"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "GitHub",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇺🇸美国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "github/spec-kit",
+          "url": "https://github.com/github/spec-kit",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/github/spec-kit"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Multica": {
+      "project": "Multica",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "人类与智能体协作工作区",
+      "official_url": "https://github.com/multica-ai/multica",
+      "evidence": [
+        "https://github.com/multica-ai/multica"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "multica-ai/multica",
+          "url": "https://github.com/multica-ai/multica",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/multica-ai/multica"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 2,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。 当前 README 自称 source-available，正式发布前应按统计期核对具体许可证，不能仅因公开仓库而断言全部代码符合开源定义。"
+    },
+    "Claude Mem": {
+      "project": "Claude Mem",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "跨会话智能体上下文记忆",
+      "official_url": "https://github.com/thedotmack/claude-mem",
+      "evidence": [
+        "https://github.com/thedotmack/claude-mem"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "thedotmack/claude-mem",
+          "url": "https://github.com/thedotmack/claude-mem",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/thedotmack/claude-mem"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "T3 Code": {
+      "project": "T3 Code",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "AI 编程工作台",
+      "official_url": "https://github.com/pingdotgg/t3code",
+      "evidence": [
+        "https://github.com/pingdotgg/t3code"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ping.gg",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "pingdotgg/t3code",
+          "url": "https://github.com/pingdotgg/t3code",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/pingdotgg/t3code"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Eigent": {
+      "project": "Eigent",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "桌面多智能体协作",
+      "official_url": "https://github.com/eigent-ai/eigent",
+      "evidence": [
+        "https://github.com/eigent-ai/eigent"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "eigent-ai/eigent",
+          "url": "https://github.com/eigent-ai/eigent",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/eigent-ai/eigent"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 3,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Kimi CLI": {
+      "project": "Kimi CLI",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "终端 AI 编程助手",
+      "official_url": "https://github.com/MoonshotAI/kimi-cli",
+      "evidence": [
+        "https://github.com/MoonshotAI/kimi-cli"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Moonshot AI",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇨🇳中国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "MoonshotAI/kimi-cli",
+          "url": "https://github.com/MoonshotAI/kimi-cli",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/MoonshotAI/kimi-cli"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。 当前官方仓库注明旧 Python 版本已归档并指向 Kimi Code CLI；不将新仓库自动代入本期历史对象。"
+    },
+    "Agent Sandbox": {
+      "project": "Agent Sandbox",
+      "domain": "AI基础软件",
+      "subdomain": "智能体隔离运行基础设施",
+      "official_url": "https://github.com/kubernetes-sigs/agent-sandbox",
+      "evidence": [
+        "https://github.com/kubernetes-sigs/agent-sandbox"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "云原生计算基金会",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇺🇸美国",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "kubernetes-sigs/agent-sandbox",
+          "url": "https://github.com/kubernetes-sigs/agent-sandbox",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/kubernetes-sigs/agent-sandbox"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Superpowers": {
+      "project": "Superpowers",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体技能与开发方法",
+      "official_url": "https://github.com/obra/superpowers",
+      "evidence": [
+        "https://github.com/obra/superpowers"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "obra/superpowers",
+          "url": "https://github.com/obra/superpowers",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/obra/superpowers"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "Parameter Golf": {
+      "project": "Parameter Golf",
+      "domain": "教育与开发者服务",
+      "subdomain": "小型语言模型训练竞赛",
+      "official_url": "https://github.com/openai/parameter-golf",
+      "evidence": [
+        "https://github.com/openai/parameter-golf"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "OpenAI",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "🇺🇸美国",
+      "object_type": "模型训练竞赛",
+      "representative_repos": [
+        {
+          "repo": "openai/parameter-golf",
+          "url": "https://github.com/openai/parameter-golf",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/openai/parameter-golf"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。 官方定位为限制模型大小的训练竞赛；领域按主要参与活动编辑归类。"
+    },
+    "RTK": {
+      "project": "RTK",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "开发命令输出压缩",
+      "official_url": "https://github.com/rtk-ai/rtk",
+      "evidence": [
+        "https://github.com/rtk-ai/rtk"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "多仓库项目",
+      "representative_repos": [
+        {
+          "repo": "rtk-ai/rtk",
+          "url": "https://github.com/rtk-ai/rtk",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/rtk-ai/rtk"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 6,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。"
+    },
+    "OmniRoute": {
+      "project": "OmniRoute",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "多模型 API 路由与网关",
+      "official_url": "https://github.com/diegosouzapw/OmniRoute",
+      "evidence": [
+        "https://github.com/diegosouzapw/OmniRoute"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "diegosouzapw/OmniRoute",
+          "url": "https://github.com/diegosouzapw/OmniRoute",
+          "relation_status": "pending",
+          "evidence": [
+            "https://github.com/diegosouzapw/OmniRoute"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "pending",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "官方同名网关候选入口已核对；存在其他同名仓库。原表未给出 OpenDigger 标签对应仓库，报告对象消歧仍待确认。"
+    },
+    "Everything Claude Code": {
+      "project": "Everything Claude Code",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "编程智能体技能与工作流集合",
+      "official_url": "https://github.com/affaan-m/ECC",
+      "evidence": [
+        "https://github.com/affaan-m/ECC"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "未识别",
+      "organization_label_type": "原表组织标签；不据当前仓库所有者补猜历史发起方",
+      "country_label": "未识别",
+      "object_type": "单仓项目（原表）",
+      "representative_repos": [
+        {
+          "repo": "affaan-m/everything-claude-code",
+          "url": "https://github.com/affaan-m/everything-claude-code",
+          "relation_status": "verified",
+          "evidence": [
+            "https://github.com/affaan-m/everything-claude-code"
+          ],
+          "scope": "当前官方代表仓库；不是报告完整聚合清单"
+        }
+      ],
+      "relation_status": "verified",
+      "ranking_membership_status": "source-reported",
+      "full_repo_list_status": "pending",
+      "source_repo_count": 1,
+      "source_note": "用途和代表仓库依据当前官方介绍；项目榜资格与仓库总数沿用原表，未独立核验全部纳入仓库及创建时间。 原入口现重定向到 affaan-m/ECC，保留原榜名称。"
+    }
+  },
+  "classification_note": "domain/subdomain 为基于官方用途的编辑分类，非上游原始领域标签。source_domain 是依据附件叙述及金额/数量回算重建的对照字段；附件未提供逐仓原始标签清单，不将重建映射冒充上游原表。",
+  "mapping_note": "verified 指官方资料证明当前代表仓库或组件与项目的关系；不等于核验报告时点完整 OpenDigger 标签。source-reported 指来自用户底表/附件。pending 指报告对象消歧、标签或快照仍待确认。代表仓库不是项目全部仓库。",
+  "new_project_eligibility_note": "新项目资格要求报告纳入的全部仓库均在统计期内新创建。first_repo_created_at 仅为原表首仓时间，不能单独证明资格；当前仓库迁移、镜像或更名也不能证明整个项目新创立。",
+  "ranking_note": "仓库与项目两个榜单独立排名。项目 OpenRank 不在此按仓库相加；活跃开发者跨仓需去重。仓库入榜不推导项目也入新项目榜。",
+  "platform_note": "AtomGit 作为当前展示平台保留；部分官方内容仍经 gitcode.com 地址可检索，仅作证据，不修改原表平台或创建时间。",
+  "audit": {
+    "source_summary": [
+      {
+        "domain": "AI 基础软件（算子/框架/推理/训练）",
+        "repo_count": "18",
+        "share_pct": "60.0%",
+        "openrank_sum": "18991.66"
+      },
+      {
+        "domain": "AI 智能体与 Agent 工具",
+        "repo_count": "4",
+        "share_pct": "13.3%",
+        "openrank_sum": "10599.29"
+      },
+      {
+        "domain": "操作系统与智能终端",
+        "repo_count": "3",
+        "share_pct": "10.0%",
+        "openrank_sum": "2308.35"
+      },
+      {
+        "domain": "应用与游戏平台",
+        "repo_count": "2",
+        "share_pct": "6.7%",
+        "openrank_sum": "1284.12"
+      },
+      {
+        "domain": "桌面环境与开发者工具",
+        "repo_count": "2",
+        "share_pct": "6.7%",
+        "openrank_sum": "1308.14"
+      },
+      {
+        "domain": "教育与开发者服务",
+        "repo_count": "1",
+        "share_pct": "3.3%",
+        "openrank_sum": "883.12"
+      }
+    ],
+    "source_language_summary": [
+      {
+        "language": "Python",
+        "repo_count": "15",
+        "share_pct": "50.0%"
+      },
+      {
+        "language": "C++",
+        "repo_count": "12",
+        "share_pct": "40.0%"
+      },
+      {
+        "language": "TypeScript",
+        "repo_count": "1",
+        "share_pct": "3.3%"
+      },
+      {
+        "language": "C#",
+        "repo_count": "1",
+        "share_pct": "3.3%"
+      },
+      {
+        "language": "QML",
+        "repo_count": "1",
+        "share_pct": "3.3%"
+      }
+    ],
+    "reconstructed_source_domain_totals": {
+      "AI智能体与Agent工具": {
+        "repo_count": 4,
+        "openrank_sum": 10599.29,
+        "repos": [
+          "openclaw/openclaw",
+          "NousResearch/hermes-agent",
+          "langchain-ai/deepagents",
+          "aden-hive/hive"
+        ],
+        "share_pct": 13.3
+      },
+      "AI基础软件": {
+        "repo_count": 18,
+        "openrank_sum": 18991.66,
+        "repos": [
+          "cann/ops-transformer",
+          "cann/ops-nn",
+          "Ascend/pytorch",
+          "mindspore/mindspore",
+          "cann/pypto",
+          "cann/ops-math",
+          "cann/asc-devkit",
+          "cann/runtime",
+          "Ascend/ModelZoo-PyTorch",
+          "vllm-project/vllm-omni",
+          "Ascend/mind-cluster",
+          "cann/hcomm",
+          "Ascend/MindSpeed-LLM",
+          "Ascend/op-plugin",
+          "cann/ge",
+          "Ascend/torchair",
+          "Ascend/MindSpeed-MM",
+          "Ascend/RecSDK"
+        ],
+        "share_pct": 60.0
+      },
+      "操作系统与智能终端": {
+        "repo_count": 3,
+        "openrank_sum": 2308.35,
+        "repos": [
+          "openharmony/multimedia_media_library",
+          "openharmony/ability_ability_runtime",
+          "openharmony/multimedia_av_codec"
+        ],
+        "share_pct": 10.0
+      },
+      "教育与开发者服务": {
+        "repo_count": 1,
+        "openrank_sum": 883.12,
+        "repos": [
+          "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub"
+        ],
+        "share_pct": 3.3
+      },
+      "应用与游戏平台": {
+        "repo_count": 2,
+        "openrank_sum": 1284.12,
+        "repos": [
+          "Facepunch/sbox-public",
+          "PlatformNetwork/bounty-challenge"
+        ],
+        "share_pct": 6.7
+      },
+      "桌面环境与开发者工具": {
+        "repo_count": 2,
+        "openrank_sum": 1308.14,
+        "repos": [
+          "noctalia-dev/noctalia",
+          "AvengeMedia/DankMaterialShell"
+        ],
+        "share_pct": 6.7
+      }
+    },
+    "editorial_repo_domain_totals": {
+      "AI智能体与Agent工具": {
+        "repo_count": 4,
+        "openrank_sum": 10599.29,
+        "repos": [
+          "openclaw/openclaw",
+          "NousResearch/hermes-agent",
+          "langchain-ai/deepagents",
+          "aden-hive/hive"
+        ],
+        "share_pct": 13.3
+      },
+      "AI基础软件": {
+        "repo_count": 18,
+        "openrank_sum": 18991.66,
+        "repos": [
+          "cann/ops-transformer",
+          "cann/ops-nn",
+          "Ascend/pytorch",
+          "mindspore/mindspore",
+          "cann/pypto",
+          "cann/ops-math",
+          "cann/asc-devkit",
+          "cann/runtime",
+          "Ascend/ModelZoo-PyTorch",
+          "vllm-project/vllm-omni",
+          "Ascend/mind-cluster",
+          "cann/hcomm",
+          "Ascend/MindSpeed-LLM",
+          "Ascend/op-plugin",
+          "cann/ge",
+          "Ascend/torchair",
+          "Ascend/MindSpeed-MM",
+          "Ascend/RecSDK"
+        ],
+        "share_pct": 60.0
+      },
+      "操作系统与智能终端": {
+        "repo_count": 3,
+        "openrank_sum": 2308.35,
+        "repos": [
+          "openharmony/multimedia_media_library",
+          "openharmony/ability_ability_runtime",
+          "openharmony/multimedia_av_codec"
+        ],
+        "share_pct": 10.0
+      },
+      "教育与开发者服务": {
+        "repo_count": 2,
+        "openrank_sum": 1479.53,
+        "repos": [
+          "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+          "PlatformNetwork/bounty-challenge"
+        ],
+        "share_pct": 6.7
+      },
+      "应用与游戏平台": {
+        "repo_count": 1,
+        "openrank_sum": 687.71,
+        "repos": [
+          "Facepunch/sbox-public"
+        ],
+        "share_pct": 3.3
+      },
+      "桌面环境与开发者工具": {
+        "repo_count": 2,
+        "openrank_sum": 1308.14,
+        "repos": [
+          "noctalia-dev/noctalia",
+          "AvengeMedia/DankMaterialShell"
+        ],
+        "share_pct": 6.7
+      }
+    },
+    "editorial_project_domain_counts": {
+      "AI基础软件": 4,
+      "AI智能体与Agent工具": 25,
+      "操作系统与智能终端": 0,
+      "应用与游戏平台": 0,
+      "桌面环境与开发者工具": 0,
+      "教育与开发者服务": 1
+    },
+    "source_summary_arithmetic_matches": true,
+    "source_summary_mapping_verified": false,
+    "repo_openrank_total": 35374.68,
+    "cann_namespace_repos_in_top30": 8,
+    "ascend_namespace_repos_in_top30": 8,
+    "language_row_mapping_status": "pending",
+    "notes": [
+      "原领域汇总六类数量与 OpenRank 合计可回算一致，但原始逐项标签表未提供。",
+      "bounty-challenge 官方用途为开发者赏金激励；编辑分类从应用与游戏平台移入教育与开发者服务。因此两类编辑结果分别为 1/687.71 与 2/1479.53，原表保持 2/1284.12 与 1/883.12。",
+      "Hive 跨榜数值与聚合关系需核验，暂不连线。",
+      "语言表只有汇总，不反推逐仓语言；当前 GitHub 主语言不能自动替代统计期语言。",
+      "附件对上一年结构、可持续性和激励因果的解释没有本次底表时序证据；建议改为观察假设，或删除确定性因果描述。"
+    ]
+  },
+  "recommendations": [
+    "主要呈现两个独立 Top 30，详情中展示技术用途、平台、原表组织标签、创建时间与证据。",
+    "领域图默认展示原表汇总；切换编辑分类时明确标注口径，并并列仓库榜与项目榜。",
+    "新建批次/累积创建图只回溯当前入榜名单的源表创建时间，注明非全量新建规模、非热度走势。",
+    "CANN 以 68 仓来源标签与已核实代表组件展示，不画未知完整仓库树。",
+    "项目资格由完整标签快照校验；当前资料不足时显示原表资格，不以首仓时间替代。"
+  ],
+  "repos": {
+    "openclaw/openclaw": {
+      "repo": "openclaw/openclaw",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "个人 AI 助手",
+      "official_url": "https://github.com/openclaw/openclaw",
+      "evidence": [
+        "https://github.com/openclaw/openclaw"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "openclaw",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "OpenClaw",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "AI智能体与Agent工具",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "cann/ops-transformer": {
+      "repo": "cann/ops-transformer",
+      "domain": "AI基础软件",
+      "subdomain": "Transformer 与 MoE 算子",
+      "official_url": "https://atomgit.com/cann/ops-transformer",
+      "evidence": [
+        "https://gitcode.com/org/CANN/repos",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "cann/ops-nn": {
+      "repo": "cann/ops-nn",
+      "domain": "AI基础软件",
+      "subdomain": "神经网络算子",
+      "official_url": "https://atomgit.com/cann/ops-nn",
+      "evidence": [
+        "https://gitcode.com/cann/ops-nn",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Ascend/pytorch": {
+      "repo": "Ascend/pytorch",
+      "domain": "AI基础软件",
+      "subdomain": "PyTorch 昇腾适配",
+      "official_url": "https://atomgit.com/Ascend/pytorch",
+      "evidence": [
+        "https://github.com/Ascend/pytorch"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "mindspore/mindspore": {
+      "repo": "mindspore/mindspore",
+      "domain": "AI基础软件",
+      "subdomain": "深度学习训练与推理框架",
+      "official_url": "https://atomgit.com/mindspore/mindspore",
+      "evidence": [
+        "https://atomgit.com/mindspore/mindspore"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "mindspore",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "MindSpore",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "NousResearch/hermes-agent": {
+      "repo": "NousResearch/hermes-agent",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "个人智能体与长期记忆",
+      "official_url": "https://github.com/NousResearch/hermes-agent",
+      "evidence": [
+        "https://github.com/NousResearch/hermes-agent"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "NousResearch",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "Hermes Agent",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "AI智能体与Agent工具",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "cann/pypto": {
+      "repo": "cann/pypto",
+      "domain": "AI基础软件",
+      "subdomain": "张量与分块算子编程",
+      "official_url": "https://atomgit.com/cann/pypto",
+      "evidence": [
+        "https://gitcode.com/org/CANN/repos",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "cann/ops-math": {
+      "repo": "cann/ops-math",
+      "domain": "AI基础软件",
+      "subdomain": "基础数学算子",
+      "official_url": "https://atomgit.com/cann/ops-math",
+      "evidence": [
+        "https://gitcode.com/org/CANN/repos",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "langchain-ai/deepagents": {
+      "repo": "langchain-ai/deepagents",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "智能体执行框架",
+      "official_url": "https://github.com/langchain-ai/deepagents",
+      "evidence": [
+        "https://github.com/langchain-ai/deepagents"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "langchain-ai",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "DeepAgents",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "AI智能体与Agent工具",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "openharmony/multimedia_media_library": {
+      "repo": "openharmony/multimedia_media_library",
+      "domain": "操作系统与智能终端",
+      "subdomain": "媒体资源库",
+      "official_url": "https://atomgit.com/openharmony/multimedia_media_library",
+      "evidence": [
+        "https://github.com/openharmony/multimedia_media_library"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "openharmony",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "OpenHarmony",
+      "relation_status": "verified",
+      "source_note": "官方仓库说明证实属于 OpenHarmony；这是既有项目的仓库，不意味着 OpenHarmony 在本期新创立。",
+      "source_domain": "操作系统与智能终端",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub": {
+      "repo": "ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+      "domain": "教育与开发者服务",
+      "subdomain": "Git 与 GitHub 教学",
+      "official_url": "https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub",
+      "evidence": [
+        "https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "ibm-developer-skills-network",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "教学仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "官方课程练习仓库；未发现足以与新项目榜对象连线的项目聚合证据。",
+      "source_domain": "教育与开发者服务",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "cann/asc-devkit": {
+      "repo": "cann/asc-devkit",
+      "domain": "AI基础软件",
+      "subdomain": "Ascend C 算子开发工具",
+      "official_url": "https://atomgit.com/cann/asc-devkit",
+      "evidence": [
+        "https://github.com/hicann/asc-devkit",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "openharmony/ability_ability_runtime": {
+      "repo": "openharmony/ability_ability_runtime",
+      "domain": "操作系统与智能终端",
+      "subdomain": "应用能力运行时",
+      "official_url": "https://atomgit.com/openharmony/ability_ability_runtime",
+      "evidence": [
+        "https://gitcode.com/openharmony/ability_ability_runtime/tree/master"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "openharmony",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "OpenHarmony",
+      "relation_status": "verified",
+      "source_note": "官方仓库说明证实属于 OpenHarmony；这是既有项目的仓库，不意味着 OpenHarmony 在本期新创立。",
+      "source_domain": "操作系统与智能终端",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "aden-hive/hive": {
+      "repo": "aden-hive/hive",
+      "domain": "AI智能体与Agent工具",
+      "subdomain": "多智能体生产执行框架",
+      "official_url": "https://github.com/aden-hive/hive",
+      "evidence": [
+        "https://github.com/aden-hive/hive"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "aden-hive",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "官方当前仓库名为 Hive；报告仓库值 769.19 / 1454 与项目值 587.11 / 434 无法直接按包含关系对齐，故报告映射暂不连线，待核对标签与统计快照。",
+      "source_domain": "AI智能体与Agent工具",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub",
+      "candidate_project_name": "Hive"
+    },
+    "cann/runtime": {
+      "repo": "cann/runtime",
+      "domain": "AI基础软件",
+      "subdomain": "NPU 运行时与维测",
+      "official_url": "https://atomgit.com/cann/runtime",
+      "evidence": [
+        "https://gitcode.com/org/CANN/repos",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Ascend/ModelZoo-PyTorch": {
+      "repo": "Ascend/ModelZoo-PyTorch",
+      "domain": "AI基础软件",
+      "subdomain": "PyTorch 模型适配与样例",
+      "official_url": "https://atomgit.com/Ascend/ModelZoo-PyTorch",
+      "evidence": [
+        "https://github.com/Ascend/ModelZoo-PyTorch"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "vllm-project/vllm-omni": {
+      "repo": "vllm-project/vllm-omni",
+      "domain": "AI基础软件",
+      "subdomain": "多模态模型推理",
+      "official_url": "https://github.com/vllm-project/vllm-omni",
+      "evidence": [
+        "https://github.com/vllm-project/vllm-omni"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "vllm-project",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "vLLM-Omni",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "Ascend/mind-cluster": {
+      "repo": "Ascend/mind-cluster",
+      "domain": "AI基础软件",
+      "subdomain": "AI 集群调度与故障诊断",
+      "official_url": "https://atomgit.com/Ascend/mind-cluster",
+      "evidence": [
+        "https://atomgit.com/Ascend/mind-cluster"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Facepunch/sbox-public": {
+      "repo": "Facepunch/sbox-public",
+      "domain": "应用与游戏平台",
+      "subdomain": "游戏引擎与创作平台",
+      "official_url": "https://github.com/Facepunch/sbox-public",
+      "evidence": [
+        "https://github.com/Facepunch/sbox-public"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Facepunch",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "s&box",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "应用与游戏平台",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "cann/hcomm": {
+      "repo": "cann/hcomm",
+      "domain": "AI基础软件",
+      "subdomain": "集群通信基础库",
+      "official_url": "https://atomgit.com/cann/hcomm",
+      "evidence": [
+        "https://gitcode.com/org/CANN/repos",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Ascend/MindSpeed-LLM": {
+      "repo": "Ascend/MindSpeed-LLM",
+      "domain": "AI基础软件",
+      "subdomain": "大模型训练与微调",
+      "official_url": "https://atomgit.com/Ascend/MindSpeed-LLM",
+      "evidence": [
+        "https://github.com/Ascend/MindSpeed-LLM"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "noctalia-dev/noctalia": {
+      "repo": "noctalia-dev/noctalia",
+      "domain": "桌面环境与开发者工具",
+      "subdomain": "Wayland 桌面 Shell",
+      "official_url": "https://github.com/noctalia-dev/noctalia",
+      "evidence": [
+        "https://github.com/noctalia-dev/noctalia"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "noctalia-dev",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "Noctalia",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "桌面环境与开发者工具",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "AvengeMedia/DankMaterialShell": {
+      "repo": "AvengeMedia/DankMaterialShell",
+      "domain": "桌面环境与开发者工具",
+      "subdomain": "Wayland 桌面 Shell",
+      "official_url": "https://github.com/AvengeMedia/DankMaterialShell",
+      "evidence": [
+        "https://github.com/AvengeMedia/DankMaterialShell"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "AvengeMedia",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "DankMaterialShell",
+      "relation_status": "verified",
+      "source_note": "官方入口支持用途与当前项目身份；不证明报告快照的完整聚合清单。",
+      "source_domain": "桌面环境与开发者工具",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub"
+    },
+    "Ascend/op-plugin": {
+      "repo": "Ascend/op-plugin",
+      "domain": "AI基础软件",
+      "subdomain": "PyTorch 昇腾算子适配",
+      "official_url": "https://atomgit.com/Ascend/op-plugin",
+      "evidence": [
+        "https://github.com/Ascend/op-plugin"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "openharmony/multimedia_av_codec": {
+      "repo": "openharmony/multimedia_av_codec",
+      "domain": "操作系统与智能终端",
+      "subdomain": "音视频编解码",
+      "official_url": "https://atomgit.com/openharmony/multimedia_av_codec",
+      "evidence": [
+        "https://gitcode.com/openharmony/multimedia_av_codec"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "openharmony",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "OpenHarmony",
+      "relation_status": "verified",
+      "source_note": "官方仓库说明证实属于 OpenHarmony；这是既有项目的仓库，不意味着 OpenHarmony 在本期新创立。",
+      "source_domain": "操作系统与智能终端",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "cann/ge": {
+      "repo": "cann/ge",
+      "domain": "AI基础软件",
+      "subdomain": "计算图编译与执行",
+      "official_url": "https://atomgit.com/cann/ge",
+      "evidence": [
+        "https://gitcode.com/cann/ge",
+        "https://gitcode.com/org/CANN/repos"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "cann",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": "CANN",
+      "relation_status": "verified",
+      "source_note": "官方 CANN 组织目录或组件介绍证实 CANN 组件关系；这不是报告所纳入 68 个仓库的完整历史清单。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Ascend/torchair": {
+      "repo": "Ascend/torchair",
+      "domain": "AI基础软件",
+      "subdomain": "PyTorch 图编译优化",
+      "official_url": "https://atomgit.com/Ascend/torchair",
+      "evidence": [
+        "https://github.com/Ascend/torchair"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Ascend/MindSpeed-MM": {
+      "repo": "Ascend/MindSpeed-MM",
+      "domain": "AI基础软件",
+      "subdomain": "多模态模型训练",
+      "official_url": "https://atomgit.com/Ascend/MindSpeed-MM",
+      "evidence": [
+        "https://github.com/Ascend/MindSpeed-MM"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "Ascend/RecSDK": {
+      "repo": "Ascend/RecSDK",
+      "domain": "AI基础软件",
+      "subdomain": "推荐模型与训练工具",
+      "official_url": "https://atomgit.com/Ascend/RecSDK",
+      "evidence": [
+        "https://github.com/Ascend/RecSDK"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "Ascend",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "代码仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "可核对用途及 Ascend 命名空间；尚无本期 OpenDigger 仓库—项目标签快照，不据命名把本仓并入 CANN 的 68 仓。",
+      "source_domain": "AI基础软件",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "AtomGit"
+    },
+    "PlatformNetwork/bounty-challenge": {
+      "repo": "PlatformNetwork/bounty-challenge",
+      "domain": "教育与开发者服务",
+      "subdomain": "缺陷赏金与开发者激励",
+      "official_url": "https://github.com/PlatformNetwork/bounty-challenge",
+      "evidence": [
+        "https://github.com/PlatformNetwork/bounty-challenge"
+      ],
+      "classification_status": "editorial",
+      "organization_label": "PlatformNetwork",
+      "organization_label_type": "仓库命名空间，不等于法人或发起者",
+      "object_type": "开发者激励活动仓库",
+      "project_name": null,
+      "relation_status": "pending",
+      "source_note": "官方现重定向至 CortexLM/bounty，说明为缺陷赏金与开发者激励。编辑归入教育与开发者服务；原附件应用与游戏平台的 2 席/1284.12 可由本仓与 sbox-public 回算，但附件没有逐项标签表，故只标作重建口径。",
+      "source_domain": "应用与游戏平台",
+      "source_domain_status": "reconstructed-from-attachment-and-totals",
+      "platform_display": "GitHub",
+      "current_repo": "CortexLM/bounty"
+    }
+  }
+}

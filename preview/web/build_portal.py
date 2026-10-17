@@ -102,6 +102,7 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
     amap_assets='<link rel="stylesheet" href="/amap.css"><script src="/assets/amap/d3.min.js" defer></script><script src="/assets/amap/data.js" defer></script><script src="/amap.js" defer></script><link rel="stylesheet" href="/dmap.css"><script src="/assets/dmap/data.js" defer></script><script src="/dmap.js" defer></script>' if route=='chapters/02/' else ''
     gmap_assets='<link rel="stylesheet" href="/gmap.css"><script src="/assets/gmap/data.js" defer></script><script src="/gmap.js" defer></script>' if route=='chapters/02/' else ''
     reading_assets='<link rel="stylesheet" href="/goso-reading.css"><script src="/goso-reading.js" defer></script>' if route=='chapters/02/' else ''
+    if route=='chapters/03/':reading_assets+='<link rel="stylesheet" href="/company-ranking.css"><script src="/company-ranking.js" defer></script><link rel="stylesheet" href="/rankings.css"><script src="/ranking-details.js" defer></script><script src="/rankings.js" defer></script>'
     reading_page='chapter1' if route=='chapters/01/' else 'introduction' if route=='introduction/' else 'overview' if is_home else ''
     front_assets='<link rel="stylesheet" href="/reading-experience.css"><script src="/reading-experience.js" defer></script>'
     if route=='presentation/':front_assets+='<link rel="stylesheet" href="/review-deck.css"><link rel="stylesheet" href="/concept-lenses.css"><script src="/concept-lenses.js" defer></script><script src="/review-deck.js" defer></script>'
@@ -190,6 +191,7 @@ def build():
     __import__('dmap_content').export(OUT)
     __import__('gmap_content').export(OUT)
     gosr.export(OUT)
+    for file in ['company-ranking.css','company-ranking.js','rankings.css','rankings.js','ranking-details.js']:shutil.copy2(ROOT/'web'/file,OUT/file)
     landscape.export(OUT)
     shutil.copy2(ROOT/'content/chart-data.js',OUT/'content.js')
     (OUT/'.nojekyll').write_text('')

@@ -1,0 +1,2278 @@
+{
+  "retrieved_at": "2026-10-17",
+  "classification_note": "以下领域、细分领域与对象类型是基于官方项目介绍的编辑分类，不是官方统一分类。官网用于核对项目名称与技术用途，不证明任何影响力名次、贡献份额或发起国家。",
+  "domains": [
+    "AI 与机器学习",
+    "操作系统与硬件",
+    "编程语言与运行时",
+    "开发工具与框架",
+    "云原生与基础设施",
+    "数据与分析",
+    "可观测性与安全",
+    "企业应用与协作",
+    "物联网与边缘"
+  ],
+  "source_label_note": "原表 initiator_zh 字段同时包含公司、基金会与托管者，展示时建议标为“原表组织标签”，不等同于历史发起组织。原表 country_zh 保留原值，应标为“原表国家标签”或清楚注明来源口径待核验。不得将基金会现注册地或现托管地替代发起国。",
+  "aggregation_note": "项目集合与项目生态可能与具体软件项目存在仓库交叉；未经映射核验，不得跨对象加总仓库数、人数或贡献量。候选列表仅供明确标注的模拟 Top 100 布局使用，不构成真实第 31–100 名。",
+  "projects": {
+    "OpenHarmony": {
+      "project": "OpenHarmony",
+      "domain": "操作系统与硬件",
+      "subdomain": "分布式操作系统",
+      "object_type": "项目生态",
+      "website": "https://www.openharmony.cn/",
+      "evidence": [
+        "https://www.openharmony.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_country_label": "🇨🇳中国",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Azure": {
+      "project": "Azure",
+      "domain": "云原生与基础设施",
+      "subdomain": "云平台开源生态",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://azure.github.io/",
+      "evidence": [
+        "https://azure.github.io/"
+      ],
+      "note": "来源定义的聚合对象。官方入口支持领域识别，不能据此确认原始统计纳入了哪些仓库；映射与去重边界待核验。",
+      "source_organization_label": "微软",
+      "source_country_label": "🇺🇸美国"
+    },
+    "C#/.Net": {
+      "project": "C#/.Net",
+      "domain": "编程语言与运行时",
+      "subdomain": "编程语言与应用运行时",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://dotnet.microsoft.com/en-us/",
+      "evidence": [
+        "https://dotnet.microsoft.com/en-us/"
+      ],
+      "note": "来源定义的聚合对象。官方入口支持领域识别，不能据此确认原始统计纳入了哪些仓库；映射与去重边界待核验。",
+      "source_organization_label": "微软",
+      "source_country_label": "🇺🇸美国"
+    },
+    "PyTorch": {
+      "project": "PyTorch",
+      "domain": "AI 与机器学习",
+      "subdomain": "机器学习与深度学习框架",
+      "object_type": "项目生态",
+      "website": "https://pytorch.org/",
+      "evidence": [
+        "https://pytorch.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "PyTorch Foundation",
+      "source_country_label": "🇺🇸美国"
+    },
+    "NixOS": {
+      "project": "NixOS",
+      "domain": "操作系统与硬件",
+      "subdomain": "声明式 Linux 与包管理",
+      "object_type": "项目生态",
+      "website": "https://nixos.org/",
+      "evidence": [
+        "https://nixos.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Stichting NixOS Foundation",
+      "source_country_label": "🇳🇱荷兰"
+    },
+    "LLVM": {
+      "project": "LLVM",
+      "domain": "开发工具与框架",
+      "subdomain": "编译器与工具链",
+      "object_type": "项目生态",
+      "website": "https://llvm.org/",
+      "evidence": [
+        "https://llvm.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "伊利诺伊大学厄巴纳-香槟分校",
+      "source_country_label": "🇺🇸美国"
+    },
+    "vLLM": {
+      "project": "vLLM",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型推理服务",
+      "object_type": "软件项目",
+      "website": "https://vllm.ai/",
+      "evidence": [
+        "https://vllm.ai/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "加州大学伯克利分校",
+      "source_country_label": "🇺🇸美国"
+    },
+    "openEuler": {
+      "project": "openEuler",
+      "domain": "操作系统与硬件",
+      "subdomain": "服务器操作系统",
+      "object_type": "项目生态",
+      "website": "https://www.openeuler.org/en/",
+      "evidence": [
+        "https://www.openeuler.org/en/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_country_label": "🇨🇳中国",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "DataDog": {
+      "project": "DataDog",
+      "domain": "可观测性与安全",
+      "subdomain": "监控与可观测性生态",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://opensource.datadoghq.com/",
+      "evidence": [
+        "https://opensource.datadoghq.com/"
+      ],
+      "note": "来源定义的聚合对象。官方入口支持领域识别，不能据此确认原始统计纳入了哪些仓库；映射与去重边界待核验。",
+      "source_organization_label": "DataDog",
+      "source_country_label": "🇺🇸美国"
+    },
+    "OpenShift": {
+      "project": "OpenShift",
+      "domain": "云原生与基础设施",
+      "subdomain": "容器应用平台",
+      "object_type": "项目生态",
+      "website": "https://www.redhat.com/en/technologies/cloud-computing/openshift",
+      "evidence": [
+        "https://www.redhat.com/en/technologies/cloud-computing/openshift"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "红帽",
+      "source_country_label": "🇺🇸美国"
+    },
+    "VSCode": {
+      "project": "VSCode",
+      "domain": "开发工具与框架",
+      "subdomain": "代码编辑器",
+      "object_type": "软件项目",
+      "website": "https://code.visualstudio.com/",
+      "evidence": [
+        "https://code.visualstudio.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "微软",
+      "source_country_label": "🇺🇸美国"
+    },
+    "OpenClaw": {
+      "project": "OpenClaw",
+      "domain": "AI 与机器学习",
+      "subdomain": "个人 AI 助手与智能体",
+      "object_type": "软件项目",
+      "website": "https://openclaw.ai/",
+      "evidence": [
+        "https://openclaw.ai/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": null,
+      "source_country_label": null
+    },
+    "CANN": {
+      "project": "CANN",
+      "domain": "AI 与机器学习",
+      "subdomain": "异构 AI 计算软件栈",
+      "object_type": "项目生态",
+      "website": "https://www.hiascend.com/cann",
+      "evidence": [
+        "https://www.hiascend.com/cann"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_country_label": "🇨🇳中国",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Rust": {
+      "project": "Rust",
+      "domain": "编程语言与运行时",
+      "subdomain": "系统编程语言",
+      "object_type": "项目生态",
+      "website": "https://rust-lang.org/",
+      "evidence": [
+        "https://rust-lang.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Rust 基金会",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Ascend": {
+      "project": "Ascend",
+      "domain": "AI 与机器学习",
+      "subdomain": "昇腾 AI 软硬件生态",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://www.hiascend.com/",
+      "evidence": [
+        "https://www.hiascend.com/"
+      ],
+      "note": "原表聚合标签。昇腾是软硬件生态，需核对与 CANN、MindSpore 等对象的仓库边界及去重关系。",
+      "source_organization_label": "华为",
+      "source_country_label": "🇨🇳中国",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Home Assistant": {
+      "project": "Home Assistant",
+      "domain": "物联网与边缘",
+      "subdomain": "智能家居自动化",
+      "object_type": "项目生态",
+      "website": "https://www.home-assistant.io/",
+      "evidence": [
+        "https://www.home-assistant.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Nabu Casa Inc.",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Odoo": {
+      "project": "Odoo",
+      "domain": "企业应用与协作",
+      "subdomain": "企业资源与业务应用",
+      "object_type": "项目生态",
+      "website": "https://github.com/odoo/odoo",
+      "evidence": [
+        "https://github.com/odoo/odoo"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Odoo",
+      "source_country_label": "🇧🇪比利时"
+    },
+    "Python": {
+      "project": "Python",
+      "domain": "编程语言与运行时",
+      "subdomain": "通用编程语言",
+      "object_type": "项目生态",
+      "website": "https://www.python.org/",
+      "evidence": [
+        "https://www.python.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Python 软件基金会",
+      "source_country_label": "🇺🇸美国"
+    },
+    "JavaScript/TypeScript": {
+      "project": "JavaScript/TypeScript",
+      "domain": "编程语言与运行时",
+      "subdomain": "Web 语言与类型系统",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://www.typescriptlang.org/",
+      "evidence": [
+        "https://www.typescriptlang.org/"
+      ],
+      "note": "原表合并标签，非单一软件项目。TypeScript 官网仅支持语言领域识别，不证明原表纳入整个 JavaScript 生态；不得与各 Web 框架直接合并加总。",
+      "source_organization_label": null,
+      "source_country_label": null
+    },
+    "Swift": {
+      "project": "Swift",
+      "domain": "编程语言与运行时",
+      "subdomain": "应用与系统编程语言",
+      "object_type": "项目生态",
+      "website": "https://www.swift.org/",
+      "evidence": [
+        "https://www.swift.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "苹果",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Conda Forge": {
+      "project": "Conda Forge",
+      "domain": "开发工具与框架",
+      "subdomain": "软件包构建与分发",
+      "object_type": "项目生态",
+      "website": "https://conda-forge.org/",
+      "evidence": [
+        "https://conda-forge.org/"
+      ],
+      "note": "社区驱动的软件包构建与分发生态；大量 feedstock 仓库不宜与单一软件仓库直接比较仓库数。",
+      "source_organization_label": null,
+      "source_country_label": null
+    },
+    "SGLang": {
+      "project": "SGLang",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型与多模态推理",
+      "object_type": "软件项目",
+      "website": "https://www.sglang.io/",
+      "evidence": [
+        "https://www.sglang.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "加州大学伯克利分校",
+      "source_country_label": "🇺🇸美国"
+    },
+    "OpenTelemetry": {
+      "project": "OpenTelemetry",
+      "domain": "可观测性与安全",
+      "subdomain": "遥测规范与采集工具",
+      "object_type": "项目生态",
+      "website": "https://opentelemetry.io/",
+      "evidence": [
+        "https://opentelemetry.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "云原生计算基金会",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Kubernetes": {
+      "project": "Kubernetes",
+      "domain": "云原生与基础设施",
+      "subdomain": "容器编排",
+      "object_type": "项目生态",
+      "website": "https://kubernetes.io/",
+      "evidence": [
+        "https://kubernetes.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "云原生计算基金会",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Claude Code": {
+      "project": "Claude Code",
+      "domain": "开发工具与框架",
+      "subdomain": "AI 编程工具公开协作仓库",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://github.com/anthropics/claude-code",
+      "evidence": [
+        "https://github.com/anthropics/claude-code"
+      ],
+      "note": "原表统计对象。公开仓库主要用于公开协作；仓库公开不等于整个 Claude Code 产品已按开源许可发布。需核对被统计仓库及许可，不能从名称推断产品开源状态。",
+      "source_organization_label": "Anthropic",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Zephyr": {
+      "project": "Zephyr",
+      "domain": "物联网与边缘",
+      "subdomain": "嵌入式实时操作系统",
+      "object_type": "项目生态",
+      "website": "https://www.zephyrproject.org/",
+      "evidence": [
+        "https://www.zephyrproject.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Linux 基金会",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Cloudflare": {
+      "project": "Cloudflare",
+      "domain": "云原生与基础设施",
+      "subdomain": "边缘与网络开源生态",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://cloudflare.github.io/",
+      "evidence": [
+        "https://cloudflare.github.io/"
+      ],
+      "note": "来源定义的聚合对象。官方入口支持领域识别，不能据此确认原始统计纳入了哪些仓库；映射与去重边界待核验。",
+      "source_organization_label": "Cloudflare",
+      "source_country_label": "🇺🇸美国"
+    },
+    "NextCloud": {
+      "project": "NextCloud",
+      "domain": "企业应用与协作",
+      "subdomain": "文件共享与内容协作",
+      "object_type": "项目生态",
+      "website": "https://nextcloud.com/",
+      "evidence": [
+        "https://nextcloud.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "NextCloud",
+      "source_country_label": "🇩🇪德国"
+    },
+    "LangChain": {
+      "project": "LangChain",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型应用与智能体框架",
+      "object_type": "项目生态",
+      "website": "https://www.langchain.com/",
+      "evidence": [
+        "https://www.langchain.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "LangChain",
+      "source_country_label": "🇺🇸美国"
+    },
+    "Dify": {
+      "project": "Dify",
+      "domain": "AI 与机器学习",
+      "subdomain": "智能体工作流与应用平台",
+      "object_type": "软件项目",
+      "website": "https://dify.ai/",
+      "evidence": [
+        "https://dify.ai/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Dify AI",
+      "source_country_label": "🇺🇸美国"
+    },
+    "MindSpore": {
+      "project": "MindSpore",
+      "domain": "AI 与机器学习",
+      "subdomain": "深度学习框架",
+      "object_type": "项目生态",
+      "website": "https://www.mindspore.cn/",
+      "evidence": [
+        "https://www.mindspore.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "PaddlePaddle": {
+      "project": "PaddlePaddle",
+      "domain": "AI 与机器学习",
+      "subdomain": "深度学习平台",
+      "object_type": "项目生态",
+      "website": "https://www.paddlepaddle.org.cn/",
+      "evidence": [
+        "https://www.paddlepaddle.org.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "百度",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Cangjie": {
+      "project": "Cangjie",
+      "domain": "编程语言与运行时",
+      "subdomain": "通用编程语言",
+      "object_type": "项目生态",
+      "website": "https://cangjie-lang.cn/",
+      "evidence": [
+        "https://cangjie-lang.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Ant Design": {
+      "project": "Ant Design",
+      "domain": "开发工具与框架",
+      "subdomain": "前端 UI 设计与组件",
+      "object_type": "项目生态",
+      "website": "https://ant.design/",
+      "evidence": [
+        "https://ant.design/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "蚂蚁集团",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "openGauss": {
+      "project": "openGauss",
+      "domain": "数据与分析",
+      "subdomain": "关系型数据库",
+      "object_type": "项目生态",
+      "website": "https://opengauss.org/zh/",
+      "evidence": [
+        "https://opengauss.org/zh/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "魔搭": {
+      "project": "魔搭",
+      "domain": "AI 与机器学习",
+      "subdomain": "模型社区与工具生态",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://modelscope.cn/home",
+      "evidence": [
+        "https://modelscope.cn/home"
+      ],
+      "note": "原表模型社区聚合标签；需核对是否与 ms-swift、AgentScope 等具体项目发生仓库重叠。",
+      "source_organization_label": "阿里巴巴",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "TiDB": {
+      "project": "TiDB",
+      "domain": "数据与分析",
+      "subdomain": "分布式 SQL 数据库",
+      "object_type": "项目生态",
+      "website": "https://www.pingcap.com/tidb/",
+      "evidence": [
+        "https://www.pingcap.com/tidb/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "PingCAP",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "verl": {
+      "project": "verl",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型强化学习后训练",
+      "object_type": "软件项目",
+      "website": "https://github.com/verl-project/verl",
+      "evidence": [
+        "https://github.com/verl-project/verl"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "1Panel": {
+      "project": "1Panel",
+      "domain": "云原生与基础设施",
+      "subdomain": "Linux 服务器管理",
+      "object_type": "软件项目",
+      "website": "https://github.com/1Panel-dev/1Panel",
+      "evidence": [
+        "https://github.com/1Panel-dev/1Panel"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "飞致云",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "openKylin": {
+      "project": "openKylin",
+      "domain": "操作系统与硬件",
+      "subdomain": "桌面操作系统",
+      "object_type": "项目生态",
+      "website": "https://www.openkylin.top/",
+      "evidence": [
+        "https://www.openkylin.top/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "StarRocks": {
+      "project": "StarRocks",
+      "domain": "数据与分析",
+      "subdomain": "实时分析数据库",
+      "object_type": "软件项目",
+      "website": "https://www.starrocks.io/",
+      "evidence": [
+        "https://www.starrocks.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "StarRocks",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "RAGFlow": {
+      "project": "RAGFlow",
+      "domain": "AI 与机器学习",
+      "subdomain": "检索增强生成",
+      "object_type": "软件项目",
+      "website": "https://ragflow.io/",
+      "evidence": [
+        "https://ragflow.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Infinity Flow",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "香山处理器": {
+      "project": "香山处理器",
+      "domain": "操作系统与硬件",
+      "subdomain": "RISC-V 开源处理器",
+      "object_type": "项目生态",
+      "website": "https://docs.xiangshan.cc/zh-cn/latest/",
+      "evidence": [
+        "https://docs.xiangshan.cc/zh-cn/latest/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": null,
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "龙蜥": {
+      "project": "龙蜥",
+      "domain": "操作系统与硬件",
+      "subdomain": "服务器操作系统社区",
+      "object_type": "项目生态",
+      "website": "https://openanolis.cn/",
+      "evidence": [
+        "https://openanolis.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Coze": {
+      "project": "Coze",
+      "domain": "AI 与机器学习",
+      "subdomain": "智能体开发平台",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://github.com/coze-dev/coze-studio",
+      "evidence": [
+        "https://github.com/coze-dev/coze-studio"
+      ],
+      "note": "Coze 为平台名称，官方开源入口含 Coze Studio；原表是否同时计入 Coze Loop 等子项目待映射核对。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "FlagOS": {
+      "project": "FlagOS",
+      "domain": "AI 与机器学习",
+      "subdomain": "跨芯片 AI 系统软件栈",
+      "object_type": "项目生态",
+      "website": "https://github.com/flagos-ai",
+      "evidence": [
+        "https://github.com/flagos-ai"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": null,
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "openFuyao": {
+      "project": "openFuyao",
+      "domain": "云原生与基础设施",
+      "subdomain": "多样化算力集群",
+      "object_type": "项目生态",
+      "website": "https://www.openfuyao.cn/zh/",
+      "evidence": [
+        "https://www.openfuyao.cn/zh/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "AntV": {
+      "project": "AntV",
+      "domain": "开发工具与框架",
+      "subdomain": "数据可视化开发框架",
+      "object_type": "项目生态",
+      "website": "https://github.com/antvis",
+      "evidence": [
+        "https://github.com/antvis"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "蚂蚁集团",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "TDengine": {
+      "project": "TDengine",
+      "domain": "数据与分析",
+      "subdomain": "时序数据库",
+      "object_type": "软件项目",
+      "website": "https://www.taosdata.com/",
+      "evidence": [
+        "https://www.taosdata.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "涛思数据",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "AgentScope": {
+      "project": "AgentScope",
+      "domain": "AI 与机器学习",
+      "subdomain": "多智能体开发框架",
+      "object_type": "项目生态",
+      "website": "https://agentscope.io/",
+      "evidence": [
+        "https://agentscope.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "阿里巴巴",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "ms-swift": {
+      "project": "ms-swift",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型训练与微调",
+      "object_type": "软件项目",
+      "website": "https://github.com/modelscope/ms-swift",
+      "evidence": [
+        "https://github.com/modelscope/ms-swift"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "阿里巴巴",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "inclusionAI": {
+      "project": "inclusionAI",
+      "domain": "AI 与机器学习",
+      "subdomain": "AI 模型与工具集合",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://github.com/inclusionAI",
+      "evidence": [
+        "https://github.com/inclusionAI"
+      ],
+      "note": "官方入口是组织及多个模型、框架与工具仓库的集合；不宜等同于单一仓库。",
+      "source_organization_label": "蚂蚁集团",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "DeerFlow": {
+      "project": "DeerFlow",
+      "domain": "AI 与机器学习",
+      "subdomain": "智能体研究与任务执行",
+      "object_type": "软件项目",
+      "website": "https://github.com/bytedance/deer-flow",
+      "evidence": [
+        "https://github.com/bytedance/deer-flow"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "CloudWeGo": {
+      "project": "CloudWeGo",
+      "domain": "云原生与基础设施",
+      "subdomain": "微服务框架与中间件",
+      "object_type": "项目生态",
+      "website": "https://www.cloudwego.io/",
+      "evidence": [
+        "https://www.cloudwego.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "KWDB": {
+      "project": "KWDB",
+      "domain": "数据与分析",
+      "subdomain": "物联网多模数据库",
+      "object_type": "软件项目",
+      "website": "https://github.com/KWDB/KWDB",
+      "evidence": [
+        "https://github.com/KWDB/KWDB"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "DataEase": {
+      "project": "DataEase",
+      "domain": "数据与分析",
+      "subdomain": "BI 与数据分析",
+      "object_type": "软件项目",
+      "website": "https://dataease.io/",
+      "evidence": [
+        "https://dataease.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "飞致云",
+      "source_scope": "中国项目 Top 30 原表"
+    },
+    "Linux kernel": {
+      "project": "Linux kernel",
+      "domain": "操作系统与硬件",
+      "subdomain": "操作系统内核",
+      "object_type": "软件项目",
+      "website": "https://kernel.org/",
+      "evidence": [
+        "https://kernel.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Spark": {
+      "project": "Apache Spark",
+      "domain": "数据与分析",
+      "subdomain": "大规模数据处理",
+      "object_type": "项目生态",
+      "website": "https://spark.apache.org/",
+      "evidence": [
+        "https://spark.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Kafka": {
+      "project": "Apache Kafka",
+      "domain": "数据与分析",
+      "subdomain": "事件流平台",
+      "object_type": "软件项目",
+      "website": "https://kafka.apache.org/",
+      "evidence": [
+        "https://kafka.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Flink": {
+      "project": "Apache Flink",
+      "domain": "数据与分析",
+      "subdomain": "有状态流式计算",
+      "object_type": "软件项目",
+      "website": "https://flink.apache.org/",
+      "evidence": [
+        "https://flink.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Hadoop": {
+      "project": "Apache Hadoop",
+      "domain": "数据与分析",
+      "subdomain": "分布式存储与计算",
+      "object_type": "项目生态",
+      "website": "https://hadoop.apache.org/",
+      "evidence": [
+        "https://hadoop.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Airflow": {
+      "project": "Apache Airflow",
+      "domain": "数据与分析",
+      "subdomain": "数据工作流编排",
+      "object_type": "软件项目",
+      "website": "https://airflow.apache.org/",
+      "evidence": [
+        "https://airflow.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Superset": {
+      "project": "Apache Superset",
+      "domain": "数据与分析",
+      "subdomain": "数据探索与可视化",
+      "object_type": "软件项目",
+      "website": "https://superset.apache.org/",
+      "evidence": [
+        "https://superset.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Cassandra": {
+      "project": "Apache Cassandra",
+      "domain": "数据与分析",
+      "subdomain": "分布式 NoSQL 数据库",
+      "object_type": "软件项目",
+      "website": "https://cassandra.apache.org/_/index.html",
+      "evidence": [
+        "https://cassandra.apache.org/_/index.html"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Arrow": {
+      "project": "Apache Arrow",
+      "domain": "数据与分析",
+      "subdomain": "列式数据与交换格式",
+      "object_type": "项目生态",
+      "website": "https://arrow.apache.org/",
+      "evidence": [
+        "https://arrow.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Iceberg": {
+      "project": "Apache Iceberg",
+      "domain": "数据与分析",
+      "subdomain": "数据湖表格式",
+      "object_type": "软件项目",
+      "website": "https://iceberg.apache.org/",
+      "evidence": [
+        "https://iceberg.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Doris": {
+      "project": "Apache Doris",
+      "domain": "数据与分析",
+      "subdomain": "实时分析数据库",
+      "object_type": "软件项目",
+      "website": "https://doris.apache.org/",
+      "evidence": [
+        "https://doris.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Druid": {
+      "project": "Apache Druid",
+      "domain": "数据与分析",
+      "subdomain": "实时分析数据库",
+      "object_type": "软件项目",
+      "website": "https://druid.apache.org/",
+      "evidence": [
+        "https://druid.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Pulsar": {
+      "project": "Apache Pulsar",
+      "domain": "数据与分析",
+      "subdomain": "分布式消息与流",
+      "object_type": "软件项目",
+      "website": "https://pulsar.apache.org/",
+      "evidence": [
+        "https://pulsar.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache NiFi": {
+      "project": "Apache NiFi",
+      "domain": "数据与分析",
+      "subdomain": "数据流集成",
+      "object_type": "软件项目",
+      "website": "https://nifi.apache.org/",
+      "evidence": [
+        "https://nifi.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache Beam": {
+      "project": "Apache Beam",
+      "domain": "数据与分析",
+      "subdomain": "批流统一编程模型",
+      "object_type": "项目生态",
+      "website": "https://beam.apache.org/",
+      "evidence": [
+        "https://beam.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Apache HTTP Server": {
+      "project": "Apache HTTP Server",
+      "domain": "云原生与基础设施",
+      "subdomain": "Web 服务器",
+      "object_type": "软件项目",
+      "website": "https://httpd.apache.org/",
+      "evidence": [
+        "https://httpd.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "TensorFlow": {
+      "project": "TensorFlow",
+      "domain": "AI 与机器学习",
+      "subdomain": "机器学习平台",
+      "object_type": "项目生态",
+      "website": "https://www.tensorflow.org/",
+      "evidence": [
+        "https://www.tensorflow.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "JAX": {
+      "project": "JAX",
+      "domain": "AI 与机器学习",
+      "subdomain": "可微分与加速数组计算",
+      "object_type": "软件项目",
+      "website": "https://docs.jax.dev/en/latest/",
+      "evidence": [
+        "https://docs.jax.dev/en/latest/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Ray": {
+      "project": "Ray",
+      "domain": "AI 与机器学习",
+      "subdomain": "分布式 AI 计算",
+      "object_type": "项目生态",
+      "website": "https://www.ray.io/",
+      "evidence": [
+        "https://www.ray.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "MLflow": {
+      "project": "MLflow",
+      "domain": "AI 与机器学习",
+      "subdomain": "机器学习与智能体生命周期",
+      "object_type": "项目生态",
+      "website": "https://mlflow.org/",
+      "evidence": [
+        "https://mlflow.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "scikit-learn": {
+      "project": "scikit-learn",
+      "domain": "AI 与机器学习",
+      "subdomain": "经典机器学习",
+      "object_type": "软件项目",
+      "website": "https://scikit-learn.org/",
+      "evidence": [
+        "https://scikit-learn.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "NumPy": {
+      "project": "NumPy",
+      "domain": "数据与分析",
+      "subdomain": "数组与数值计算",
+      "object_type": "软件项目",
+      "website": "https://numpy.org/",
+      "evidence": [
+        "https://numpy.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "SciPy": {
+      "project": "SciPy",
+      "domain": "数据与分析",
+      "subdomain": "科学计算算法",
+      "object_type": "软件项目",
+      "website": "https://scipy.org/",
+      "evidence": [
+        "https://scipy.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "pandas": {
+      "project": "pandas",
+      "domain": "数据与分析",
+      "subdomain": "表格数据分析",
+      "object_type": "软件项目",
+      "website": "https://pandas.pydata.org/",
+      "evidence": [
+        "https://pandas.pydata.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "PostgreSQL": {
+      "project": "PostgreSQL",
+      "domain": "数据与分析",
+      "subdomain": "关系型数据库",
+      "object_type": "软件项目",
+      "website": "https://www.postgresql.org/",
+      "evidence": [
+        "https://www.postgresql.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "MariaDB": {
+      "project": "MariaDB",
+      "domain": "数据与分析",
+      "subdomain": "关系型数据库",
+      "object_type": "项目生态",
+      "website": "https://mariadb.org/",
+      "evidence": [
+        "https://mariadb.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "SQLite": {
+      "project": "SQLite",
+      "domain": "数据与分析",
+      "subdomain": "嵌入式关系型数据库",
+      "object_type": "软件项目",
+      "website": "https://sqlite.org/",
+      "evidence": [
+        "https://sqlite.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Redis": {
+      "project": "Redis",
+      "domain": "数据与分析",
+      "subdomain": "内存数据存储",
+      "object_type": "软件项目",
+      "website": "https://redis.io/",
+      "evidence": [
+        "https://redis.io/"
+      ],
+      "note": "仅列作布局扩展示例候选；正式纳入时须锁定版本、开源许可与仓库边界。与 Valkey 为不同项目，不按别名合并。"
+    },
+    "Valkey": {
+      "project": "Valkey",
+      "domain": "数据与分析",
+      "subdomain": "键值数据存储",
+      "object_type": "软件项目",
+      "website": "https://valkey.io/",
+      "evidence": [
+        "https://valkey.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "ClickHouse": {
+      "project": "ClickHouse",
+      "domain": "数据与分析",
+      "subdomain": "列式分析数据库",
+      "object_type": "软件项目",
+      "website": "https://clickhouse.com/",
+      "evidence": [
+        "https://clickhouse.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "React": {
+      "project": "React",
+      "domain": "开发工具与框架",
+      "subdomain": "用户界面组件库",
+      "object_type": "软件项目",
+      "website": "https://react.dev/",
+      "evidence": [
+        "https://react.dev/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Vue.js": {
+      "project": "Vue.js",
+      "domain": "开发工具与框架",
+      "subdomain": "前端应用框架",
+      "object_type": "项目生态",
+      "website": "https://vuejs.org/",
+      "evidence": [
+        "https://vuejs.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Angular": {
+      "project": "Angular",
+      "domain": "开发工具与框架",
+      "subdomain": "Web 应用框架",
+      "object_type": "项目生态",
+      "website": "https://angular.dev/",
+      "evidence": [
+        "https://angular.dev/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Node.js": {
+      "project": "Node.js",
+      "domain": "编程语言与运行时",
+      "subdomain": "JavaScript 服务端运行时",
+      "object_type": "项目生态",
+      "website": "https://nodejs.org/en",
+      "evidence": [
+        "https://nodejs.org/en"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Deno": {
+      "project": "Deno",
+      "domain": "编程语言与运行时",
+      "subdomain": "JavaScript 与 TypeScript 运行时",
+      "object_type": "软件项目",
+      "website": "https://deno.com/",
+      "evidence": [
+        "https://deno.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Bun": {
+      "project": "Bun",
+      "domain": "编程语言与运行时",
+      "subdomain": "JavaScript 运行时与工具链",
+      "object_type": "软件项目",
+      "website": "https://bun.sh/",
+      "evidence": [
+        "https://bun.sh/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Prometheus": {
+      "project": "Prometheus",
+      "domain": "可观测性与安全",
+      "subdomain": "指标监控与告警",
+      "object_type": "项目生态",
+      "website": "https://prometheus.io/",
+      "evidence": [
+        "https://prometheus.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Grafana": {
+      "project": "Grafana",
+      "domain": "可观测性与安全",
+      "subdomain": "可观测性可视化",
+      "object_type": "软件项目",
+      "website": "https://grafana.com/oss/grafana/",
+      "evidence": [
+        "https://grafana.com/oss/grafana/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "OpenSearch": {
+      "project": "OpenSearch",
+      "domain": "数据与分析",
+      "subdomain": "搜索与分析",
+      "object_type": "项目生态",
+      "website": "https://opensearch.org/",
+      "evidence": [
+        "https://opensearch.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Elasticsearch": {
+      "project": "Elasticsearch",
+      "domain": "数据与分析",
+      "subdomain": "搜索与分析引擎",
+      "object_type": "软件项目",
+      "website": "https://www.elastic.co/elasticsearch",
+      "evidence": [
+        "https://www.elastic.co/elasticsearch"
+      ],
+      "note": "仅列作布局扩展示例候选；正式纳入时须锁定代码部分、版本和许可。与 OpenSearch 为不同项目，不按别名合并。"
+    },
+    "Ansible": {
+      "project": "Ansible",
+      "domain": "云原生与基础设施",
+      "subdomain": "IT 自动化与配置管理",
+      "object_type": "项目生态",
+      "website": "https://www.ansible.com/",
+      "evidence": [
+        "https://www.ansible.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "OpenTofu": {
+      "project": "OpenTofu",
+      "domain": "云原生与基础设施",
+      "subdomain": "基础设施即代码",
+      "object_type": "软件项目",
+      "website": "https://opentofu.org/",
+      "evidence": [
+        "https://opentofu.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Argo": {
+      "project": "Argo",
+      "domain": "云原生与基础设施",
+      "subdomain": "Kubernetes 工作流与 GitOps",
+      "object_type": "项目生态",
+      "website": "https://argoproj.github.io/",
+      "evidence": [
+        "https://argoproj.github.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    },
+    "Envoy": {
+      "project": "Envoy",
+      "domain": "云原生与基础设施",
+      "subdomain": "服务与边缘代理",
+      "object_type": "软件项目",
+      "website": "https://www.envoyproxy.io/",
+      "evidence": [
+        "https://www.envoyproxy.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。"
+    }
+  },
+  "extension_candidates": [
+    {
+      "project": "MindSpore",
+      "domain": "AI 与机器学习",
+      "subdomain": "深度学习框架",
+      "object_type": "项目生态",
+      "website": "https://www.mindspore.cn/",
+      "evidence": [
+        "https://www.mindspore.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "PaddlePaddle",
+      "domain": "AI 与机器学习",
+      "subdomain": "深度学习平台",
+      "object_type": "项目生态",
+      "website": "https://www.paddlepaddle.org.cn/",
+      "evidence": [
+        "https://www.paddlepaddle.org.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "百度",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Cangjie",
+      "domain": "编程语言与运行时",
+      "subdomain": "通用编程语言",
+      "object_type": "项目生态",
+      "website": "https://cangjie-lang.cn/",
+      "evidence": [
+        "https://cangjie-lang.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Ant Design",
+      "domain": "开发工具与框架",
+      "subdomain": "前端 UI 设计与组件",
+      "object_type": "项目生态",
+      "website": "https://ant.design/",
+      "evidence": [
+        "https://ant.design/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "蚂蚁集团",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "openGauss",
+      "domain": "数据与分析",
+      "subdomain": "关系型数据库",
+      "object_type": "项目生态",
+      "website": "https://opengauss.org/zh/",
+      "evidence": [
+        "https://opengauss.org/zh/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "魔搭",
+      "domain": "AI 与机器学习",
+      "subdomain": "模型社区与工具生态",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://modelscope.cn/home",
+      "evidence": [
+        "https://modelscope.cn/home"
+      ],
+      "note": "原表模型社区聚合标签；需核对是否与 ms-swift、AgentScope 等具体项目发生仓库重叠。",
+      "source_organization_label": "阿里巴巴",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "TiDB",
+      "domain": "数据与分析",
+      "subdomain": "分布式 SQL 数据库",
+      "object_type": "项目生态",
+      "website": "https://www.pingcap.com/tidb/",
+      "evidence": [
+        "https://www.pingcap.com/tidb/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "PingCAP",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "verl",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型强化学习后训练",
+      "object_type": "软件项目",
+      "website": "https://github.com/verl-project/verl",
+      "evidence": [
+        "https://github.com/verl-project/verl"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "1Panel",
+      "domain": "云原生与基础设施",
+      "subdomain": "Linux 服务器管理",
+      "object_type": "软件项目",
+      "website": "https://github.com/1Panel-dev/1Panel",
+      "evidence": [
+        "https://github.com/1Panel-dev/1Panel"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "飞致云",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "openKylin",
+      "domain": "操作系统与硬件",
+      "subdomain": "桌面操作系统",
+      "object_type": "项目生态",
+      "website": "https://www.openkylin.top/",
+      "evidence": [
+        "https://www.openkylin.top/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "StarRocks",
+      "domain": "数据与分析",
+      "subdomain": "实时分析数据库",
+      "object_type": "软件项目",
+      "website": "https://www.starrocks.io/",
+      "evidence": [
+        "https://www.starrocks.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "StarRocks",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "RAGFlow",
+      "domain": "AI 与机器学习",
+      "subdomain": "检索增强生成",
+      "object_type": "软件项目",
+      "website": "https://ragflow.io/",
+      "evidence": [
+        "https://ragflow.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "Infinity Flow",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "香山处理器",
+      "domain": "操作系统与硬件",
+      "subdomain": "RISC-V 开源处理器",
+      "object_type": "项目生态",
+      "website": "https://docs.xiangshan.cc/zh-cn/latest/",
+      "evidence": [
+        "https://docs.xiangshan.cc/zh-cn/latest/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": null,
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "龙蜥",
+      "domain": "操作系统与硬件",
+      "subdomain": "服务器操作系统社区",
+      "object_type": "项目生态",
+      "website": "https://openanolis.cn/",
+      "evidence": [
+        "https://openanolis.cn/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Coze",
+      "domain": "AI 与机器学习",
+      "subdomain": "智能体开发平台",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://github.com/coze-dev/coze-studio",
+      "evidence": [
+        "https://github.com/coze-dev/coze-studio"
+      ],
+      "note": "Coze 为平台名称，官方开源入口含 Coze Studio；原表是否同时计入 Coze Loop 等子项目待映射核对。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "FlagOS",
+      "domain": "AI 与机器学习",
+      "subdomain": "跨芯片 AI 系统软件栈",
+      "object_type": "项目生态",
+      "website": "https://github.com/flagos-ai",
+      "evidence": [
+        "https://github.com/flagos-ai"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": null,
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "openFuyao",
+      "domain": "云原生与基础设施",
+      "subdomain": "多样化算力集群",
+      "object_type": "项目生态",
+      "website": "https://www.openfuyao.cn/zh/",
+      "evidence": [
+        "https://www.openfuyao.cn/zh/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "华为",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "AntV",
+      "domain": "开发工具与框架",
+      "subdomain": "数据可视化开发框架",
+      "object_type": "项目生态",
+      "website": "https://github.com/antvis",
+      "evidence": [
+        "https://github.com/antvis"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "蚂蚁集团",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "TDengine",
+      "domain": "数据与分析",
+      "subdomain": "时序数据库",
+      "object_type": "软件项目",
+      "website": "https://www.taosdata.com/",
+      "evidence": [
+        "https://www.taosdata.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "涛思数据",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "AgentScope",
+      "domain": "AI 与机器学习",
+      "subdomain": "多智能体开发框架",
+      "object_type": "项目生态",
+      "website": "https://agentscope.io/",
+      "evidence": [
+        "https://agentscope.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "阿里巴巴",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "ms-swift",
+      "domain": "AI 与机器学习",
+      "subdomain": "大模型训练与微调",
+      "object_type": "软件项目",
+      "website": "https://github.com/modelscope/ms-swift",
+      "evidence": [
+        "https://github.com/modelscope/ms-swift"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "阿里巴巴",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "inclusionAI",
+      "domain": "AI 与机器学习",
+      "subdomain": "AI 模型与工具集合",
+      "object_type": "项目集合（边界待核验）",
+      "website": "https://github.com/inclusionAI",
+      "evidence": [
+        "https://github.com/inclusionAI"
+      ],
+      "note": "官方入口是组织及多个模型、框架与工具仓库的集合；不宜等同于单一仓库。",
+      "source_organization_label": "蚂蚁集团",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "DeerFlow",
+      "domain": "AI 与机器学习",
+      "subdomain": "智能体研究与任务执行",
+      "object_type": "软件项目",
+      "website": "https://github.com/bytedance/deer-flow",
+      "evidence": [
+        "https://github.com/bytedance/deer-flow"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "CloudWeGo",
+      "domain": "云原生与基础设施",
+      "subdomain": "微服务框架与中间件",
+      "object_type": "项目生态",
+      "website": "https://www.cloudwego.io/",
+      "evidence": [
+        "https://www.cloudwego.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "字节跳动",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "KWDB",
+      "domain": "数据与分析",
+      "subdomain": "物联网多模数据库",
+      "object_type": "软件项目",
+      "website": "https://github.com/KWDB/KWDB",
+      "evidence": [
+        "https://github.com/KWDB/KWDB"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "开放原子开源基金会",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "DataEase",
+      "domain": "数据与分析",
+      "subdomain": "BI 与数据分析",
+      "object_type": "软件项目",
+      "website": "https://dataease.io/",
+      "evidence": [
+        "https://dataease.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "source_organization_label": "飞致云",
+      "source_scope": "中国项目 Top 30 原表",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Linux kernel",
+      "domain": "操作系统与硬件",
+      "subdomain": "操作系统内核",
+      "object_type": "软件项目",
+      "website": "https://kernel.org/",
+      "evidence": [
+        "https://kernel.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Spark",
+      "domain": "数据与分析",
+      "subdomain": "大规模数据处理",
+      "object_type": "项目生态",
+      "website": "https://spark.apache.org/",
+      "evidence": [
+        "https://spark.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Kafka",
+      "domain": "数据与分析",
+      "subdomain": "事件流平台",
+      "object_type": "软件项目",
+      "website": "https://kafka.apache.org/",
+      "evidence": [
+        "https://kafka.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Flink",
+      "domain": "数据与分析",
+      "subdomain": "有状态流式计算",
+      "object_type": "软件项目",
+      "website": "https://flink.apache.org/",
+      "evidence": [
+        "https://flink.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Hadoop",
+      "domain": "数据与分析",
+      "subdomain": "分布式存储与计算",
+      "object_type": "项目生态",
+      "website": "https://hadoop.apache.org/",
+      "evidence": [
+        "https://hadoop.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Airflow",
+      "domain": "数据与分析",
+      "subdomain": "数据工作流编排",
+      "object_type": "软件项目",
+      "website": "https://airflow.apache.org/",
+      "evidence": [
+        "https://airflow.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Superset",
+      "domain": "数据与分析",
+      "subdomain": "数据探索与可视化",
+      "object_type": "软件项目",
+      "website": "https://superset.apache.org/",
+      "evidence": [
+        "https://superset.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Cassandra",
+      "domain": "数据与分析",
+      "subdomain": "分布式 NoSQL 数据库",
+      "object_type": "软件项目",
+      "website": "https://cassandra.apache.org/_/index.html",
+      "evidence": [
+        "https://cassandra.apache.org/_/index.html"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Arrow",
+      "domain": "数据与分析",
+      "subdomain": "列式数据与交换格式",
+      "object_type": "项目生态",
+      "website": "https://arrow.apache.org/",
+      "evidence": [
+        "https://arrow.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Iceberg",
+      "domain": "数据与分析",
+      "subdomain": "数据湖表格式",
+      "object_type": "软件项目",
+      "website": "https://iceberg.apache.org/",
+      "evidence": [
+        "https://iceberg.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Doris",
+      "domain": "数据与分析",
+      "subdomain": "实时分析数据库",
+      "object_type": "软件项目",
+      "website": "https://doris.apache.org/",
+      "evidence": [
+        "https://doris.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Druid",
+      "domain": "数据与分析",
+      "subdomain": "实时分析数据库",
+      "object_type": "软件项目",
+      "website": "https://druid.apache.org/",
+      "evidence": [
+        "https://druid.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Pulsar",
+      "domain": "数据与分析",
+      "subdomain": "分布式消息与流",
+      "object_type": "软件项目",
+      "website": "https://pulsar.apache.org/",
+      "evidence": [
+        "https://pulsar.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache NiFi",
+      "domain": "数据与分析",
+      "subdomain": "数据流集成",
+      "object_type": "软件项目",
+      "website": "https://nifi.apache.org/",
+      "evidence": [
+        "https://nifi.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache Beam",
+      "domain": "数据与分析",
+      "subdomain": "批流统一编程模型",
+      "object_type": "项目生态",
+      "website": "https://beam.apache.org/",
+      "evidence": [
+        "https://beam.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Apache HTTP Server",
+      "domain": "云原生与基础设施",
+      "subdomain": "Web 服务器",
+      "object_type": "软件项目",
+      "website": "https://httpd.apache.org/",
+      "evidence": [
+        "https://httpd.apache.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "TensorFlow",
+      "domain": "AI 与机器学习",
+      "subdomain": "机器学习平台",
+      "object_type": "项目生态",
+      "website": "https://www.tensorflow.org/",
+      "evidence": [
+        "https://www.tensorflow.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "JAX",
+      "domain": "AI 与机器学习",
+      "subdomain": "可微分与加速数组计算",
+      "object_type": "软件项目",
+      "website": "https://docs.jax.dev/en/latest/",
+      "evidence": [
+        "https://docs.jax.dev/en/latest/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Ray",
+      "domain": "AI 与机器学习",
+      "subdomain": "分布式 AI 计算",
+      "object_type": "项目生态",
+      "website": "https://www.ray.io/",
+      "evidence": [
+        "https://www.ray.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "MLflow",
+      "domain": "AI 与机器学习",
+      "subdomain": "机器学习与智能体生命周期",
+      "object_type": "项目生态",
+      "website": "https://mlflow.org/",
+      "evidence": [
+        "https://mlflow.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "scikit-learn",
+      "domain": "AI 与机器学习",
+      "subdomain": "经典机器学习",
+      "object_type": "软件项目",
+      "website": "https://scikit-learn.org/",
+      "evidence": [
+        "https://scikit-learn.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "NumPy",
+      "domain": "数据与分析",
+      "subdomain": "数组与数值计算",
+      "object_type": "软件项目",
+      "website": "https://numpy.org/",
+      "evidence": [
+        "https://numpy.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "SciPy",
+      "domain": "数据与分析",
+      "subdomain": "科学计算算法",
+      "object_type": "软件项目",
+      "website": "https://scipy.org/",
+      "evidence": [
+        "https://scipy.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "pandas",
+      "domain": "数据与分析",
+      "subdomain": "表格数据分析",
+      "object_type": "软件项目",
+      "website": "https://pandas.pydata.org/",
+      "evidence": [
+        "https://pandas.pydata.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "PostgreSQL",
+      "domain": "数据与分析",
+      "subdomain": "关系型数据库",
+      "object_type": "软件项目",
+      "website": "https://www.postgresql.org/",
+      "evidence": [
+        "https://www.postgresql.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "MariaDB",
+      "domain": "数据与分析",
+      "subdomain": "关系型数据库",
+      "object_type": "项目生态",
+      "website": "https://mariadb.org/",
+      "evidence": [
+        "https://mariadb.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "SQLite",
+      "domain": "数据与分析",
+      "subdomain": "嵌入式关系型数据库",
+      "object_type": "软件项目",
+      "website": "https://sqlite.org/",
+      "evidence": [
+        "https://sqlite.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Redis",
+      "domain": "数据与分析",
+      "subdomain": "内存数据存储",
+      "object_type": "软件项目",
+      "website": "https://redis.io/",
+      "evidence": [
+        "https://redis.io/"
+      ],
+      "note": "仅列作布局扩展示例候选；正式纳入时须锁定版本、开源许可与仓库边界。与 Valkey 为不同项目，不按别名合并。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Valkey",
+      "domain": "数据与分析",
+      "subdomain": "键值数据存储",
+      "object_type": "软件项目",
+      "website": "https://valkey.io/",
+      "evidence": [
+        "https://valkey.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "ClickHouse",
+      "domain": "数据与分析",
+      "subdomain": "列式分析数据库",
+      "object_type": "软件项目",
+      "website": "https://clickhouse.com/",
+      "evidence": [
+        "https://clickhouse.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "React",
+      "domain": "开发工具与框架",
+      "subdomain": "用户界面组件库",
+      "object_type": "软件项目",
+      "website": "https://react.dev/",
+      "evidence": [
+        "https://react.dev/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Vue.js",
+      "domain": "开发工具与框架",
+      "subdomain": "前端应用框架",
+      "object_type": "项目生态",
+      "website": "https://vuejs.org/",
+      "evidence": [
+        "https://vuejs.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Angular",
+      "domain": "开发工具与框架",
+      "subdomain": "Web 应用框架",
+      "object_type": "项目生态",
+      "website": "https://angular.dev/",
+      "evidence": [
+        "https://angular.dev/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Node.js",
+      "domain": "编程语言与运行时",
+      "subdomain": "JavaScript 服务端运行时",
+      "object_type": "项目生态",
+      "website": "https://nodejs.org/en",
+      "evidence": [
+        "https://nodejs.org/en"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Deno",
+      "domain": "编程语言与运行时",
+      "subdomain": "JavaScript 与 TypeScript 运行时",
+      "object_type": "软件项目",
+      "website": "https://deno.com/",
+      "evidence": [
+        "https://deno.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Bun",
+      "domain": "编程语言与运行时",
+      "subdomain": "JavaScript 运行时与工具链",
+      "object_type": "软件项目",
+      "website": "https://bun.sh/",
+      "evidence": [
+        "https://bun.sh/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Prometheus",
+      "domain": "可观测性与安全",
+      "subdomain": "指标监控与告警",
+      "object_type": "项目生态",
+      "website": "https://prometheus.io/",
+      "evidence": [
+        "https://prometheus.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Grafana",
+      "domain": "可观测性与安全",
+      "subdomain": "可观测性可视化",
+      "object_type": "软件项目",
+      "website": "https://grafana.com/oss/grafana/",
+      "evidence": [
+        "https://grafana.com/oss/grafana/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "OpenSearch",
+      "domain": "数据与分析",
+      "subdomain": "搜索与分析",
+      "object_type": "项目生态",
+      "website": "https://opensearch.org/",
+      "evidence": [
+        "https://opensearch.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Elasticsearch",
+      "domain": "数据与分析",
+      "subdomain": "搜索与分析引擎",
+      "object_type": "软件项目",
+      "website": "https://www.elastic.co/elasticsearch",
+      "evidence": [
+        "https://www.elastic.co/elasticsearch"
+      ],
+      "note": "仅列作布局扩展示例候选；正式纳入时须锁定代码部分、版本和许可。与 OpenSearch 为不同项目，不按别名合并。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Ansible",
+      "domain": "云原生与基础设施",
+      "subdomain": "IT 自动化与配置管理",
+      "object_type": "项目生态",
+      "website": "https://www.ansible.com/",
+      "evidence": [
+        "https://www.ansible.com/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "OpenTofu",
+      "domain": "云原生与基础设施",
+      "subdomain": "基础设施即代码",
+      "object_type": "软件项目",
+      "website": "https://opentofu.org/",
+      "evidence": [
+        "https://opentofu.org/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Argo",
+      "domain": "云原生与基础设施",
+      "subdomain": "Kubernetes 工作流与 GitOps",
+      "object_type": "项目生态",
+      "website": "https://argoproj.github.io/",
+      "evidence": [
+        "https://argoproj.github.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    },
+    {
+      "project": "Envoy",
+      "domain": "云原生与基础设施",
+      "subdomain": "服务与边缘代理",
+      "object_type": "软件项目",
+      "website": "https://www.envoyproxy.io/",
+      "evidence": [
+        "https://www.envoyproxy.io/"
+      ],
+      "note": "领域与对象类型为编辑分类；具体仓库集合仍以原始数据映射为准。",
+      "candidate_only": true,
+      "numeric_status": "无排名与分值声明",
+      "original_country": "未核验"
+    }
+  ],
+  "checks": {
+    "baseline_unique_projects": 56,
+    "baseline_global": 30,
+    "baseline_china": 30,
+    "extension_candidates": 70,
+    "all_unique_names": 100,
+    "all_have_primary_urls": true,
+    "all_have_numeric_ranking_claims": false
+  }
+}

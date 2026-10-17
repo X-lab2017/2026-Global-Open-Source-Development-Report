@@ -1,0 +1,113 @@
+{
+  "retrieved_at": "2026-10-17T05:34:25.724802+00:00",
+  "results": [
+    {
+      "month": "2026-08",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-08",
+      "rows": 100,
+      "total": 931888,
+      "file": "modelrank-2026-08-top100.raw.json",
+      "ok": true,
+      "sha256": "5dcf7b339daffd7c970b2a96797226ec0dc7d272cb6222f2cc2eeaaa19714141"
+    },
+    {
+      "month": "2026-07",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-07",
+      "rows": 100,
+      "total": 896725,
+      "file": "modelrank-2026-07-top100.raw.json",
+      "ok": true,
+      "sha256": "5bc8f015ffa9763496ac32f2bd0b5715c991033b1bae31816a5c0ed11dbbb9e0"
+    },
+    {
+      "month": "2026-06",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-06",
+      "rows": 100,
+      "total": 858842,
+      "file": "modelrank-2026-06-top100.raw.json",
+      "ok": true,
+      "sha256": "cb55838de24913fb87315c217eaad0b6c6ad6e0f25d3a51347611857041e045b"
+    },
+    {
+      "month": "2026-05",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-05",
+      "rows": 100,
+      "total": 810958,
+      "file": "modelrank-2026-05-top100.raw.json",
+      "ok": true,
+      "sha256": "36f7704fb3ccd214d7cf3f37e70990dadc39834f2545929e3ef466b65b5718ea"
+    },
+    {
+      "month": "2026-04",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-04",
+      "rows": 100,
+      "total": 784388,
+      "file": "modelrank-2026-04-top100.raw.json",
+      "ok": true,
+      "sha256": "0052ce1a8b8a2ea0cfbfce32f7da1e33ab29a5a09bf9c825f5dee83f46438f03"
+    },
+    {
+      "month": "2026-03",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-03",
+      "rows": 100,
+      "total": 751114,
+      "file": "modelrank-2026-03-top100.raw.json",
+      "ok": true,
+      "sha256": "03bc972049e52f3bb57d771eeaf674605c60c42bc2b077e7dd64adb570a7d154"
+    },
+    {
+      "month": "2026-02",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-02",
+      "rows": 100,
+      "total": 721365,
+      "file": "modelrank-2026-02-top100.raw.json",
+      "ok": true,
+      "sha256": "09f0c4f26fbf3f926fe270589c577e4802256da59b02ea15f28ca191963e11ff"
+    },
+    {
+      "month": "2026-01",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2026-01",
+      "rows": 100,
+      "total": 693726,
+      "file": "modelrank-2026-01-top100.raw.json",
+      "ok": true,
+      "sha256": "8345f23f14afc2acb5124ad920f3ed4dbbb50347a0681d9cc6f7f1662bff8316"
+    },
+    {
+      "month": "2025-12",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2025-12",
+      "rows": 100,
+      "total": 673096,
+      "file": "modelrank-2025-12-top100.raw.json",
+      "ok": true,
+      "sha256": "1eb44ec5c76c50298c0d479736df059adb4d50db66dd6ab8384089b9d56ab36e"
+    },
+    {
+      "month": "2025-11",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2025-11",
+      "rows": 100,
+      "total": 652368,
+      "file": "modelrank-2025-11-top100.raw.json",
+      "ok": true,
+      "sha256": "29e54a9e97822d6bd94aa05fa687fed9b020fee97be00f40f02acc51a0377dbe"
+    },
+    {
+      "month": "2025-10",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2025-10",
+      "rows": 100,
+      "total": 634093,
+      "file": "modelrank-2025-10-top100.raw.json",
+      "ok": true,
+      "sha256": "62c286db4f4acc199d18d89fe858389c431dd728e8ba62d4b7595ddf99e0bc88"
+    },
+    {
+      "month": "2025-09",
+      "url": "http://47.100.76.186:9529/api/modelrank/?sort_by=score_normalized&page=1&page_size=100&month=2025-09",
+      "rows": 100,
+      "total": 614625,
+      "file": "modelrank-2025-09-top100.raw.json",
+      "ok": true,
+      "sha256": "36269432ba7e22056c6d1b8d4b59915a2f335e978480bbbdd1273d7eb222738e"
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "data_status": "simulated",
+  "period": "2025-07—2026-06",
+  "description": "All ranks, OpenRank values, developer counts and monthly positions are invented for design review. Organization and project identities come from foundation-reference.json. No values were obtained from Linux Foundation Landscape. Do not sum with original LF aggregate.",
+  "sample_size": 16,
+  "rows": [
+    {
+      "id": "cncf",
+      "rank": 1,
+      "openrank": 62500,
+      "active_developers": 21800
+    },
+    {
+      "id": "pytorch",
+      "rank": 2,
+      "openrank": 35800,
+      "active_developers": 13700
+    },
+    {
+      "id": "lf-ai-data",
+      "rank": 3,
+      "openrank": 24900,
+      "active_developers": 6800
+    },
+    {
+      "id": "openjs",
+      "rank": 4,
+      "openrank": 21800,
+      "active_developers": 9500
+    },
+    {
+      "id": "openinfra",
+      "rank": 5,
+      "openrank": 16800,
+      "active_developers": 7100
+    },
+    {
+      "id": "lf-networking",
+      "rank": 6,
+      "openrank": 13200,
+      "active_developers": 4200
+    },
+    {
+      "id": "lf-edge",
+      "rank": 7,
+      "openrank": 11800,
+      "active_developers": 3900
+    },
+    {
+      "id": "finos",
+      "rank": 8,
+      "openrank": 9700,
+      "active_developers": 2800
+    },
+    {
+      "id": "openssf",
+      "rank": 9,
+      "openrank": 8100,
+      "active_developers": 3300
+    },
+    {
+      "id": "lfdt",
+      "rank": 10,
+      "openrank": 6400,
+      "active_developers": 2400
+    },
+    {
+      "id": "aswf",
+      "rank": 11,
+      "openrank": 5200,
+      "active_developers": 1800
+    },
+    {
+      "id": "cdf",
+      "rank": 12,
+      "openrank": 3900,
+      "active_developers": 2200
+    },
+    {
+      "id": "lf-energy",
+      "rank": 13,
+      "openrank": 3100,
+      "active_developers": 1400
+    },
+    {
+      "id": "chips",
+      "rank": 14,
+      "openrank": 2600,
+      "active_developers": 1700
+    },
+    {
+      "id": "o3df",
+      "rank": 15,
+      "openrank": 2100,
+      "active_developers": 1200
+    },
+    {
+      "id": "aaif",
+      "rank": 16,
+      "openrank": 1600,
+      "active_developers": 850
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2025-07",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 12,
+      "cdf": 11,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": ""
+    },
+    {
+      "month": "2025-08",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 7,
+      "lf-edge": 6,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 12,
+      "cdf": 11,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": ""
+    },
+    {
+      "month": "2025-09",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 7,
+      "lf-edge": 6,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 12,
+      "cdf": 11,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": ""
+    },
+    {
+      "month": "2025-10",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 12,
+      "cdf": 11,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": ""
+    },
+    {
+      "month": "2025-11",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": ""
+    },
+    {
+      "month": "2025-12",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 7,
+      "lf-edge": 6,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    },
+    {
+      "month": "2026-01",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 4,
+      "openjs": 3,
+      "openinfra": 5,
+      "lf-networking": 7,
+      "lf-edge": 6,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    },
+    {
+      "month": "2026-02",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 3,
+      "openjs": 4,
+      "openinfra": 5,
+      "lf-networking": 7,
+      "lf-edge": 6,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    },
+    {
+      "month": "2026-03",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 3,
+      "openjs": 4,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 9,
+      "openssf": 8,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    },
+    {
+      "month": "2026-04",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 3,
+      "openjs": 4,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 8,
+      "openssf": 9,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    },
+    {
+      "month": "2026-05",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 3,
+      "openjs": 4,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 8,
+      "openssf": 9,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    },
+    {
+      "month": "2026-06",
+      "cncf": 1,
+      "pytorch": 2,
+      "lf-ai-data": 3,
+      "openjs": 4,
+      "openinfra": 5,
+      "lf-networking": 6,
+      "lf-edge": 7,
+      "finos": 8,
+      "openssf": 9,
+      "lfdt": 10,
+      "aswf": 11,
+      "cdf": 12,
+      "lf-energy": 13,
+      "chips": 14,
+      "o3df": 15,
+      "aaif": 16
+    }
+  ],
+  "availability": {
+    "aaif": {
+      "first_month": "2025-12",
+      "reason": "Agentic AI Foundation established 2025-12-09; preceding months intentionally blank."
+    }
+  }
+}

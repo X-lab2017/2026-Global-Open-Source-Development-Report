@@ -1,0 +1,958 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17",
+  "retrieved_at": "2026-10-17",
+  "ranking_period": "2026-08",
+  "ranking_unit": "Hugging Face 发布账号 / namespace",
+  "notes": [
+    "发布账号的当前身份参考，与 2026-08 模型榜单数值时点分开。",
+    "排行榜按现有 Top100 样本的入榜模型数统计，不是组织综合影响力，也不是全平台发布量。",
+    "归属同一组织的多个发布账号不合并，发布者账号不等同模型原创团队或唯一权利人。",
+    "当前主体类型主要依官方公开账号简介；未将未知身份、个人账号推断成企业。",
+    "Logo 仅用于主体识别；图形权利归原权利人，不表示赞助或认可。",
+    "未补充国家字段：不从人名、账号名、模型语言或团队成员推断国别。"
+  ],
+  "publishers": {
+    "Qwen": {
+      "publisher": "Qwen",
+      "display_name": "Qwen / 通义千问",
+      "organization_type": "company",
+      "type_label": "企业研究团队",
+      "affiliation": "阿里巴巴 / Alibaba Cloud",
+      "identity_status": "verified",
+      "role": "基础语言与多模态模型",
+      "official_url": "https://huggingface.co/Qwen",
+      "checked_at": "2026-10-17",
+      "note": "官方组织卡明确说明 Qwen 模型家族由 Alibaba Cloud 构建；与 Tongyi-MAI 分列。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/Qwen",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方组织卡明确说明 Qwen 模型家族由 Alibaba Cloud 构建；与 Tongyi-MAI 分列。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "21d531c8ed7b918ccdfff17fa05830ec753acfc905ba18f8b2e66bbae0c3f0a3"
+        }
+      ],
+      "logo": {
+        "filename": "qwen.jpeg",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6215ca5692c0ecfba9186921/hrRM50-6XcdWgg2AKpENG.jpeg",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "0c74f4f564ec24d5fd552b63efd43a9a85214ab4f6c7951e53c0d4328e5967d0",
+        "profile_evidence_url": "https://huggingface.co/Qwen",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "qwen.jpeg",
+      "organization": "阿里巴巴 / Alibaba Cloud",
+      "type": "企业研究团队",
+      "status": "verified"
+    },
+    "google": {
+      "publisher": "google",
+      "display_name": "Google",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "Google",
+      "identity_status": "verified",
+      "role": "基础模型与多模态工具",
+      "official_url": "https://huggingface.co/google",
+      "checked_at": "2026-10-17",
+      "note": "Google 官方 HF 组织；本榜仅统计 google 命名空间。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/google",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "Google 官方 HF 组织；本榜仅统计 google 命名空间。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "375da7ca2e14e0592e34832ea166863dd679a4cf9e477424e9800c13fb010bf7"
+        }
+      ],
+      "logo": {
+        "reuse_path": "company-logos/assets/google.png",
+        "source_url": "https://avatars.githubusercontent.com/u/1342004?s=128&v=4",
+        "asset_type": "official_github_org_avatar",
+        "sha256": "77f77619f4b2b3693d31cc40eb12da24eec8e3d2282fffd8289e4b48a2ba8904",
+        "profile_evidence_url": "https://huggingface.co/google",
+        "checked_at": "2026-10-17",
+        "filename": "google.png",
+        "reused_from": "/workspace/scratch/e518e1bbe55e/chapter2-audit/portal-source/content/gosr/company-logos/assets/google.png"
+      },
+      "logo_file": "google.png",
+      "organization": "Google",
+      "type": "企业",
+      "status": "verified"
+    },
+    "meta-llama": {
+      "publisher": "meta-llama",
+      "display_name": "Meta Llama",
+      "organization_type": "company",
+      "type_label": "企业研究团队",
+      "affiliation": "Meta",
+      "identity_status": "verified",
+      "role": "Llama 系列模型",
+      "official_url": "https://huggingface.co/meta-llama",
+      "checked_at": "2026-10-17",
+      "note": "Meta 官方 Llama 发布账号；不与 meta-models 合并。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/meta-llama",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "Meta 官方 Llama 发布账号；不与 meta-models 合并。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "af4d2ce82fde47618e84813608e1897c45cfbe07707c22b44bc598a2ae3c4e5b"
+        }
+      ],
+      "logo": {
+        "filename": "meta-llama.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/646cf8084eefb026fb8fd8bc/oCTqufkdTkjyGodsx1vo1.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "b202ff7373a9f14706f9cd4afd55cbb4c513e0f53763675dd93552693a623bf8",
+        "profile_evidence_url": "https://huggingface.co/meta-llama",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "meta-llama.png",
+      "organization": "Meta",
+      "type": "企业研究团队",
+      "status": "verified"
+    },
+    "unsloth": {
+      "publisher": "unsloth",
+      "display_name": "Unsloth AI",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "Unsloth AI",
+      "identity_status": "verified",
+      "role": "模型训练、量化与部署",
+      "official_url": "https://huggingface.co/unsloth",
+      "checked_at": "2026-10-17",
+      "note": "官方 HF 企业账号；发布的量化或适配版本仍按各自模型 ID 计数。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/unsloth",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方 HF 企业账号；发布的量化或适配版本仍按各自模型 ID 计数。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "193835c90de740ead4f5101096829eb92778515d6b743057c3996b134e92667a"
+        }
+      ],
+      "logo": {
+        "filename": "unsloth.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/62ecdc18b72a69615d6bd857/E4lkPz1TZNLzIFr_dR273.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "0be5633f7569b145fadd64884fe3a80e1a4002e122942713db3f6a32779e39d1",
+        "profile_evidence_url": "https://huggingface.co/unsloth",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "unsloth.png",
+      "organization": "Unsloth AI",
+      "type": "企业",
+      "status": "verified"
+    },
+    "allenai": {
+      "publisher": "allenai",
+      "display_name": "Ai2 / Allen Institute for AI",
+      "organization_type": "research",
+      "type_label": "非营利研究机构",
+      "affiliation": "Ai2",
+      "identity_status": "verified",
+      "role": "开放模型与研究",
+      "official_url": "https://huggingface.co/allenai",
+      "checked_at": "2026-10-17",
+      "note": "官方主页明确其为非营利 AI 研究机构。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/allenai",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方主页明确其为非营利 AI 研究机构。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "150ee589ae631152b562816708bd22b75ddc865c6785fc086bbabb55954680e7"
+        },
+        {
+          "url": "https://allenai.org/about",
+          "source_type": "official_website",
+          "fields": [
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官网说明为非营利 AI 研究机构。",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "logo": {
+        "filename": "allenai.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/652db071b62cf1f8463221e2/CxxwFiaomTa1MCX_B7-pT.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "044ff8965799a955a4586cb85f8aac3e355b3b95132bd067153cf488ac07c7ed",
+        "profile_evidence_url": "https://huggingface.co/allenai",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "allenai.png",
+      "organization": "Ai2",
+      "type": "非营利研究机构",
+      "status": "verified"
+    },
+    "LiquidAI": {
+      "publisher": "LiquidAI",
+      "display_name": "Liquid AI",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "Liquid AI",
+      "identity_status": "verified",
+      "role": "高效基础模型",
+      "official_url": "https://huggingface.co/LiquidAI",
+      "checked_at": "2026-10-17",
+      "note": "官方 HF 企业账号。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/LiquidAI",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方 HF 企业账号。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "2e07f94c72777efa50e18ad78f36f27ada90dd0cc25fd313703f9f24fbf6b762"
+        }
+      ],
+      "logo": {
+        "filename": "liquidai.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/61b8e2ba285851687028d395/EsTgVtnM2IqVRKgPdfqcB.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "47560632f45a20a45c6fcc6d7a8bafb6cb0ee17c2df576baa49f30430aca26d9",
+        "profile_evidence_url": "https://huggingface.co/LiquidAI",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "liquidai.png",
+      "organization": "Liquid AI",
+      "type": "企业",
+      "status": "verified"
+    },
+    "ornith-ai": {
+      "publisher": "ornith-ai",
+      "display_name": "Ornith / DeepReinforce",
+      "organization_type": "company",
+      "type_label": "企业（账号自述）",
+      "affiliation": "DeepReinforce 团队",
+      "identity_status": "partial",
+      "role": "语言与代码模型",
+      "official_url": "https://huggingface.co/ornith-ai",
+      "checked_at": "2026-10-17",
+      "note": "官方账号标为 company，并自述为 DeepReinforce 团队；法律实体归属未单独核验。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/ornith-ai",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方账号标为 company，并自述为 DeepReinforce 团队；法律实体归属未单独核验。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "a8703168ce3dec78d38999d50e9f918d87973b5f209ed1dc35f973f17edb5fe2"
+        }
+      ],
+      "logo": {
+        "filename": "ornith-ai.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/68661bce022667cf9c7534fb/dwzGCqj9B7NGaJRO-NjjP.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "303cb660456c2874b40bb2625c647fb13d6106a1c0cc0218ec373e7efb119b89",
+        "profile_evidence_url": "https://huggingface.co/ornith-ai",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "ornith-ai.png",
+      "organization": "DeepReinforce 团队",
+      "type": "企业（账号自述）",
+      "status": "partial"
+    },
+    "openai": {
+      "publisher": "openai",
+      "display_name": "OpenAI",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "OpenAI",
+      "identity_status": "verified",
+      "role": "开放权重模型与语音模型",
+      "official_url": "https://huggingface.co/openai",
+      "checked_at": "2026-10-17",
+      "note": "OpenAI 官方 HF 组织。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/openai",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "OpenAI 官方 HF 组织。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "d092b96cfe3fba3d365e12db063d7f1cb707c446f566ce8ed3215e0a77ddd708"
+        }
+      ],
+      "logo": {
+        "reuse_path": "company-logos/assets/openai.png",
+        "source_url": "https://avatars.githubusercontent.com/u/14957082?s=128&v=4",
+        "asset_type": "official_github_org_avatar",
+        "sha256": "1e396278540eae3d874c29270f74d944d277fa7853e0425fa8c57662f6118994",
+        "profile_evidence_url": "https://huggingface.co/openai",
+        "checked_at": "2026-10-17",
+        "filename": "openai.png",
+        "reused_from": "/workspace/scratch/e518e1bbe55e/chapter2-audit/portal-source/content/gosr/company-logos/assets/openai.png"
+      },
+      "logo_file": "openai.png",
+      "organization": "OpenAI",
+      "type": "企业",
+      "status": "verified"
+    },
+    "lerobot": {
+      "publisher": "lerobot",
+      "display_name": "LeRobot",
+      "organization_type": "community",
+      "type_label": "项目社区",
+      "affiliation": "Hugging Face",
+      "identity_status": "verified",
+      "role": "机器人学习与模型",
+      "official_url": "https://huggingface.co/lerobot",
+      "checked_at": "2026-10-17",
+      "note": "官方组织卡说明为 Hugging Face 的机器人学习库；保留社区账号单位。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/lerobot",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方组织卡说明为 Hugging Face 的机器人学习库；保留社区账号单位。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "b7622d472860e0e26fd915ae1d25108ccc126f9c45559ba5ed39a6569c6f742b"
+        }
+      ],
+      "logo": {
+        "filename": "lerobot.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/631ce4b244503b72277fc89f/pcLUTLsvMQiR-ujlTgLYF.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "6f850e7134bace508aba68d016c16c208f97c25d1d41acb97428124d4392dda2",
+        "profile_evidence_url": "https://huggingface.co/lerobot",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "lerobot.png",
+      "organization": "Hugging Face",
+      "type": "项目社区",
+      "status": "verified"
+    },
+    "krea": {
+      "publisher": "krea",
+      "display_name": "Krea",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "Krea",
+      "identity_status": "verified",
+      "role": "图像与创意模型",
+      "official_url": "https://huggingface.co/krea",
+      "checked_at": "2026-10-17",
+      "note": "官方 HF 企业账号与 Krea 创意套件链接。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/krea",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方 HF 企业账号与 Krea 创意套件链接。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "131acc17906fc2e5ea2ba0fd92a13600a2490be1a91b9134ffbf19827f72f6ea"
+        }
+      ],
+      "logo": {
+        "filename": "krea.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/62e280af003eac16191c81bd/rCXJv_NvmrFRIE06Smz2q.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "a000eecdcbf7d822463c515e39d718a42f5dbc882be2cdcf5e0b52f5c43a6c63",
+        "profile_evidence_url": "https://huggingface.co/krea",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "krea.png",
+      "organization": "Krea",
+      "type": "企业",
+      "status": "verified"
+    },
+    "deepseek-ai": {
+      "publisher": "deepseek-ai",
+      "display_name": "DeepSeek / 深度求索",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "DeepSeek",
+      "identity_status": "verified",
+      "role": "基础语言与推理模型",
+      "official_url": "https://huggingface.co/deepseek-ai",
+      "checked_at": "2026-10-17",
+      "note": "DeepSeek 官方 HF 企业账号。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/deepseek-ai",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "DeepSeek 官方 HF 企业账号。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "dc3150966b390aeb74ec6d686001158a2a941ec62b7dee4db3e51707f9bb2e0c"
+        }
+      ],
+      "logo": {
+        "reuse_path": "company-logos/assets/deepseek.png",
+        "source_url": "https://avatars.githubusercontent.com/u/148330874?s=128&v=4",
+        "asset_type": "official_github_org_avatar",
+        "sha256": "cb9c59dede072bcf1ab666344d483918ec4ea11fd1d86d67d34be48a3a7011c2",
+        "profile_evidence_url": "https://huggingface.co/deepseek-ai",
+        "checked_at": "2026-10-17",
+        "filename": "deepseek-ai.png",
+        "reused_from": "/workspace/scratch/e518e1bbe55e/chapter2-audit/portal-source/content/gosr/company-logos/assets/deepseek.png"
+      },
+      "logo_file": "deepseek-ai.png",
+      "organization": "DeepSeek",
+      "type": "企业",
+      "status": "verified"
+    },
+    "meta-models": {
+      "publisher": "meta-models",
+      "display_name": "Meta Models",
+      "organization_type": "company",
+      "type_label": "企业研究团队",
+      "affiliation": "Meta",
+      "identity_status": "verified",
+      "role": "Meta 模型发布",
+      "official_url": "https://huggingface.co/meta-models",
+      "checked_at": "2026-10-17",
+      "note": "HF 显示 Meta Inc. 且经过验证；与 meta-llama 分列。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/meta-models",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "HF 显示 Meta Inc. 且经过验证；与 meta-llama 分列。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "306c9356478ebcf33fbf18a0c303bb8c2a626834d2c891bcb39bffc6a904fbf6"
+        }
+      ],
+      "logo": {
+        "reuse_path": "company-logos/assets/meta.png",
+        "source_url": "https://avatars.githubusercontent.com/u/69631?s=128&v=4",
+        "asset_type": "official_github_org_avatar",
+        "sha256": "5d2cae85e318226cfa8360f73f6813b36e302b250555b10bdb00c85156aa2cae",
+        "profile_evidence_url": "https://huggingface.co/meta-models",
+        "checked_at": "2026-10-17",
+        "filename": "meta-models.png",
+        "reused_from": "/workspace/scratch/e518e1bbe55e/chapter2-audit/portal-source/content/gosr/company-logos/assets/meta.png"
+      },
+      "logo_file": "meta-models.png",
+      "organization": "Meta",
+      "type": "企业研究团队",
+      "status": "verified"
+    },
+    "distilbert": {
+      "publisher": "distilbert",
+      "display_name": "DistilBERT community",
+      "organization_type": "community",
+      "type_label": "社区维护账号",
+      "affiliation": "Hugging Face Transformers 团队",
+      "identity_status": "verified",
+      "role": "历史 DistilBERT 检查点维护",
+      "official_url": "https://huggingface.co/distilbert",
+      "checked_at": "2026-10-17",
+      "note": "官方简介明确由 Hugging Face 的 transformers 团队维护；不代表独立企业。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/distilbert",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方简介明确由 Hugging Face 的 transformers 团队维护；不代表独立企业。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "cff28a6899735ad12d883865e6253692ccb622fda68a878d8fd52604d4cf313a"
+        }
+      ],
+      "logo": {
+        "filename": "distilbert.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/5dd96eb166059660ed1ee413/XniwDjCjqOX6V4X4s5bIE.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "29f8fa15f5bae32389a149b9d8674e0593beaaf25f904ac347a845e78682d246",
+        "profile_evidence_url": "https://huggingface.co/distilbert",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "distilbert.png",
+      "organization": "Hugging Face Transformers 团队",
+      "type": "社区维护账号",
+      "status": "verified"
+    },
+    "MiniMaxAI": {
+      "publisher": "MiniMaxAI",
+      "display_name": "MiniMax",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "MiniMax",
+      "identity_status": "verified",
+      "role": "语言、语音与多模态模型",
+      "official_url": "https://huggingface.co/MiniMaxAI",
+      "checked_at": "2026-10-17",
+      "note": "组织卡明确标为 MiniMax 官方 HF 组织。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/MiniMaxAI",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "组织卡明确标为 MiniMax 官方 HF 组织。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "6eddcf16260219d9e013502fc9d45d9e7eb30c49b5fb368c64650ff9215dd4e4"
+        }
+      ],
+      "logo": {
+        "filename": "minimaxai.jpeg",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/676e38ad04af5bec20bc9faf/dUd-LsZEX0H_d4qefO_g6.jpeg",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "4620fb75bcb082cf052911e3e89cb956178a9ad05509539adb8e3b46d3cf0a96",
+        "profile_evidence_url": "https://huggingface.co/MiniMaxAI",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "minimaxai.jpeg",
+      "organization": "MiniMax",
+      "type": "企业",
+      "status": "verified"
+    },
+    "black-forest-labs": {
+      "publisher": "black-forest-labs",
+      "display_name": "Black Forest Labs",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "Black Forest Labs",
+      "identity_status": "verified",
+      "role": "图像生成模型",
+      "official_url": "https://huggingface.co/black-forest-labs",
+      "checked_at": "2026-10-17",
+      "note": "经过验证的 HF 企业账号，链接官方 bfl.ai。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/black-forest-labs",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "经过验证的 HF 企业账号，链接官方 bfl.ai。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "c30b2e0be414db1ed73167c6387c282da3c20a6e37d8af309ac491bad766e569"
+        }
+      ],
+      "logo": {
+        "filename": "black-forest-labs.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/633f7a8f4be90e06da248e0f/m5YoF33abJ09vcwFxt1Mj.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "e801e13ded60e19fcebb71e9017d9c87e6217135be8e45b76c301909f51dcab2",
+        "profile_evidence_url": "https://huggingface.co/black-forest-labs",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "black-forest-labs.png",
+      "organization": "Black Forest Labs",
+      "type": "企业",
+      "status": "verified"
+    },
+    "marin-community": {
+      "publisher": "marin-community",
+      "display_name": "The Marin Project",
+      "organization_type": "community",
+      "type_label": "开放研究社区",
+      "affiliation": "Marin",
+      "identity_status": "verified",
+      "role": "开放基础模型实验",
+      "official_url": "https://huggingface.co/marin-community",
+      "checked_at": "2026-10-17",
+      "note": "官方组织卡将 Marin 定位为共同构建基础模型的开放实验室；按社区账号保留。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/marin-community",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方组织卡将 Marin 定位为共同构建基础模型的开放实验室；按社区账号保留。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "a9b7f5cb4a2837df1df34e4b38ddeae46fc0507414aa3865599ec3386e2de589"
+        }
+      ],
+      "logo": {
+        "filename": "marin-community.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/632116accafe12f481a473cb/AvqBUzIZbcqhbzkKoFjTd.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "232452f61e8013ae5f85707debe74ef50ef0ae0ad690a4f38f0a635a0bebcec9",
+        "profile_evidence_url": "https://huggingface.co/marin-community",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "marin-community.png",
+      "organization": "Marin",
+      "type": "开放研究社区",
+      "status": "verified"
+    },
+    "nvidia": {
+      "publisher": "nvidia",
+      "display_name": "NVIDIA",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "NVIDIA",
+      "identity_status": "verified",
+      "role": "基础模型与行业模型",
+      "official_url": "https://huggingface.co/nvidia",
+      "checked_at": "2026-10-17",
+      "note": "经过验证的 NVIDIA 官方 HF 企业账号。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/nvidia",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "经过验证的 NVIDIA 官方 HF 企业账号。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "c7c9e72ab88b344bc1551f242c6d5593cbb00037f2acdbc120058317141c4c0a"
+        }
+      ],
+      "logo": {
+        "reuse_path": "company-logos/assets/nvidia.png",
+        "source_url": "https://avatars.githubusercontent.com/u/1728152?s=128&v=4",
+        "asset_type": "official_github_org_avatar",
+        "sha256": "55b170520ca8a47fb04709932c44d5d4326db769b7f873112d997cf101ac6728",
+        "profile_evidence_url": "https://huggingface.co/nvidia",
+        "checked_at": "2026-10-17",
+        "filename": "nvidia.png",
+        "reused_from": "/workspace/scratch/e518e1bbe55e/chapter2-audit/portal-source/content/gosr/company-logos/assets/nvidia.png"
+      },
+      "logo_file": "nvidia.png",
+      "organization": "NVIDIA",
+      "type": "企业",
+      "status": "verified"
+    },
+    "zai-org": {
+      "publisher": "zai-org",
+      "display_name": "Z.ai / 智谱",
+      "organization_type": "company",
+      "type_label": "企业",
+      "affiliation": "Zhipu AI / Z.ai",
+      "identity_status": "verified",
+      "role": "GLM 系列模型",
+      "official_url": "https://huggingface.co/zai-org",
+      "checked_at": "2026-10-17",
+      "note": "官方组织卡自述 Zhipu AI (Z.ai)。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/zai-org",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方组织卡自述 Zhipu AI (Z.ai)。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "ac874fdc2458d9d977b2386b0218fdd97d5ed46ccfa7215fafc1cf7f9879236e"
+        }
+      ],
+      "logo": {
+        "filename": "zai-org.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/62dc173789b4cf157d36ebee/i_pxzM2ZDo3Ub-BEgIkE9.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "4e99514652b98edf65295a07269125e6eab777df376623c2e5ab1ce7d58ba72b",
+        "profile_evidence_url": "https://huggingface.co/zai-org",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "zai-org.png",
+      "organization": "Zhipu AI / Z.ai",
+      "type": "企业",
+      "status": "verified"
+    },
+    "FacebookAI": {
+      "publisher": "FacebookAI",
+      "display_name": "Facebook AI community",
+      "organization_type": "community",
+      "type_label": "社区维护账号",
+      "affiliation": "Hugging Face Transformers 团队",
+      "identity_status": "verified",
+      "role": "历史 Facebook AI 检查点维护",
+      "official_url": "https://huggingface.co/FacebookAI",
+      "checked_at": "2026-10-17",
+      "note": "官方简介明确由 Hugging Face 的 transformers 团队维护；历史模型来自 Facebook AI，不能直接当作 Meta 当前官方发布账号。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/FacebookAI",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方简介明确由 Hugging Face 的 transformers 团队维护；历史模型来自 Facebook AI，不能直接当作 Meta 当前官方发布账号。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "078b891943cefd1595206006a4d1ba77664d45354534482bbaf7ce3610fd12d8"
+        }
+      ],
+      "logo": {
+        "filename": "facebookai.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/5dd96eb166059660ed1ee413/Kdjz9yPqcoWdSO-GygEfC.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "44776d1145d732720b600e158ffc17e18eb2c9a8335f96b9aff5c02d8292441a",
+        "profile_evidence_url": "https://huggingface.co/FacebookAI",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "facebookai.png",
+      "organization": "Hugging Face Transformers 团队",
+      "type": "社区维护账号",
+      "status": "verified"
+    },
+    "answerdotai": {
+      "publisher": "answerdotai",
+      "display_name": "Answer.AI",
+      "organization_type": "company",
+      "type_label": "企业研究团队",
+      "affiliation": "Answer.AI",
+      "identity_status": "verified",
+      "role": "实用 AI 研究与开发",
+      "official_url": "https://huggingface.co/answerdotai",
+      "checked_at": "2026-10-17",
+      "note": "HF 标为 company；官网定位为 AI 研发实验室。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/answerdotai",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "HF 标为 company；官网定位为 AI 研发实验室。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "2ce5599f62738d801b21b69f4cdeac17b2110be82f8fa6e4cceaef5558c6a258"
+        },
+        {
+          "url": "https://www.answer.ai/overview.html",
+          "source_type": "official_website",
+          "fields": [
+            "role"
+          ],
+          "note": "官网将其定位为实用 AI 研发实验室。",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "logo": {
+        "filename": "answerdotai.png",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/623e19ff8972a8c030af5277/KTqmARlLjdqMClfLWA-A1.png",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "c9fe6676a7806c32d4de3eb6ccc2b5697012d294aaf052423f757fbd56b43ec5",
+        "profile_evidence_url": "https://huggingface.co/answerdotai",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "answerdotai.png",
+      "organization": "Answer.AI",
+      "type": "企业研究团队",
+      "status": "verified"
+    },
+    "KKHYA": {
+      "publisher": "KKHYA",
+      "display_name": "KKHYA",
+      "organization_type": "individual",
+      "type_label": "个人账号",
+      "affiliation": "未核验",
+      "identity_status": "partial",
+      "role": "模型发布账号",
+      "official_url": "https://huggingface.co/KKHYA",
+      "checked_at": "2026-10-17",
+      "note": "HF 为个人用户页面；仅核验账号形态，不推定机构、职业或所在地。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/KKHYA",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "HF 为个人用户页面；仅核验账号形态，不推定机构、职业或所在地。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "7ed8f3a47793c3b4e32bbc930417ecabd3a8882da1214272a8bcf933b1c235d5"
+        }
+      ],
+      "logo": null,
+      "logo_file": null,
+      "organization": "未核验",
+      "type": "个人账号",
+      "status": "partial"
+    },
+    "models4world": {
+      "publisher": "models4world",
+      "display_name": "models4world",
+      "organization_type": "individual",
+      "type_label": "个人账号",
+      "affiliation": "未核验",
+      "identity_status": "partial",
+      "role": "模型发布账号",
+      "official_url": "https://huggingface.co/models4world",
+      "checked_at": "2026-10-17",
+      "note": "HF 为个人用户页面，暂无公开机构说明；保留身份待补全。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/models4world",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "HF 为个人用户页面，暂无公开机构说明；保留身份待补全。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "b266c3c482d95b093c552f3ee00efb228ae90623636c64f4ebe64639456b0c1f"
+        }
+      ],
+      "logo": null,
+      "logo_file": null,
+      "organization": "未核验",
+      "type": "个人账号",
+      "status": "partial"
+    },
+    "Tongyi-MAI": {
+      "publisher": "Tongyi-MAI",
+      "display_name": "Tongyi-MAI",
+      "organization_type": "company",
+      "type_label": "企业研究团队",
+      "affiliation": "阿里巴巴 / 通义实验室",
+      "identity_status": "verified",
+      "role": "图像生成与 GUI Agent 模型",
+      "official_url": "https://huggingface.co/Tongyi-MAI",
+      "checked_at": "2026-10-17",
+      "note": "官方 MAI-UI 项目页署名 Tongyi Lab, Alibaba Group；与 Qwen 分列。",
+      "evidence": [
+        {
+          "url": "https://huggingface.co/Tongyi-MAI",
+          "source_type": "official_public_profile",
+          "fields": [
+            "display_name",
+            "organization_type",
+            "affiliation",
+            "role"
+          ],
+          "note": "官方 MAI-UI 项目页署名 Tongyi Lab, Alibaba Group；与 Qwen 分列。",
+          "retrieved_at": "2026-10-17",
+          "raw_sha256": "c70e681c5fd0e02226085e87820d9438a78ad7465819109dc0404a2b0ea211db"
+        },
+        {
+          "url": "https://tongyi-mai.github.io/MAI-UI/",
+          "source_type": "official_website",
+          "fields": [
+            "affiliation",
+            "organization_type"
+          ],
+          "note": "官方项目页署名 Tongyi Lab, Alibaba Group。",
+          "retrieved_at": "2026-10-17"
+        }
+      ],
+      "logo": {
+        "filename": "tongyi-mai.jpeg",
+        "source_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/64379d79fac5ea753f1c10f3/fxHO6QoYjdv9_LTyiUD3g.jpeg",
+        "asset_type": "official_huggingface_org_avatar",
+        "sha256": "b33921fceef45fab79daa26a1e970bffc6a8df2d4e25bcc92212c88fca318437",
+        "profile_evidence_url": "https://huggingface.co/Tongyi-MAI",
+        "checked_at": "2026-10-17"
+      },
+      "logo_file": "tongyi-mai.jpeg",
+      "organization": "阿里巴巴 / 通义实验室",
+      "type": "企业研究团队",
+      "status": "verified"
+    },
+    "未识别": {
+      "publisher": "未识别",
+      "display_name": "未识别发布者",
+      "organization_type": "unknown",
+      "type_label": "未识别",
+      "affiliation": "未识别",
+      "identity_status": "pending",
+      "role": "发布者待核验",
+      "official_url": null,
+      "checked_at": "2026-10-17",
+      "note": "原月榜该条目缺失发布者信息；保留样本数并置末，不推定身份。",
+      "evidence": [],
+      "logo": null,
+      "logo_file": null,
+      "organization": "未识别",
+      "type": "未识别",
+      "status": "pending"
+    }
+  }
+}
