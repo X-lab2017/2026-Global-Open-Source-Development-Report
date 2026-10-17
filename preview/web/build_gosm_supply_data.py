@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-CONTENT = ROOT / 'preview/content/gosm'
+CONTENT = Path(__file__).resolve().parents[1] / 'content/gosm'
 OUT = ROOT / 'data/processed/chapter5'
 NAMES = {
     'world': 'fig-5-1-01_global_supply_snapshot',
