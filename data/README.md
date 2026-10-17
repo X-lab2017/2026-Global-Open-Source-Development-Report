@@ -161,15 +161,12 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 
 | 图编号 | CSV（data/processed/chapter5/） | 内容与范围 |
 |---|---|---|
-| 5.1-01 | fig-5-1-01_global_supply_snapshot.csv | 模型／配套数据集的国家分布、账号、下载与点赞 |
-| 5.1-02 | fig-5-1-02_china_us_supply.csv | 中美拥有所选资产的账号、数量、下载、点赞及样本份额 |
-| 5.1-03 | fig-5-1-03_china_us_publishers.csv | 中美全部关联组织账号的两类资产；排名与集中度底表 |
-| 5.1-04 | fig-5-1-04_china_supply_geography.csv | 中国省级与组织数据、归属待补残差 |
-| 5.1-05 | fig-5-1-05_supply_growth.csv | 截至2026-07的平台月表；2026-09-13报告年度回溯分别记录 |
-| 5.1-06 | fig-5-1-06_monthly_release.csv | 原报告四国月表，2025-09至2026-08 |
-| 5.1-07 | fig-5-1-07_publisher_portfolio.csv | 826个关联组织的模型与配套数据集资产组合 |
-| 5.1-08 | fig-5-1-08_supply_scenarios.csv | **完全模拟**：角色预设与独立参与递推实验，无国家映射 |
+| 5.1-01 | fig-5-1-01_supply_panorama.csv | 国家分布与全平台模型、数据集月度新增；报告年度回溯分别记录 |
+| 5.1-02 | fig-5-1-02_china_us_comparison.csv | 中美账号、数量、下载、关注，以及发布者排名与集中度底表 |
+| 5.1-03 | fig-5-1-03_china_supply_map.csv | 中国省级与组织数据、归属待补残差 |
 
-原始补充数据与来源指纹：`preview/content/gosm/supply-original.json.gz`；界面精简数据：`supply-observation.json`；详细范围与模拟公式：`supply-methods.md`和`supply-scenarios.json`（均在同目录）。
+原始补充数据与来源指纹：`preview/content/gosm/supply-original.json.gz`；界面数据：`supply-observation.json`；详细口径：`supply-methods.md`（均在同目录）。
 
-复现：`python preview/web/build_gosm_supply_data.py`；核验：`python preview/web/build_gosm_supply_data.py --check`。转换过程校验国家与组织合计、中国省级残差、有资产的发布账号数。数据清单同步登记上述8份CSV。
+复现：`python preview/web/build_gosm_supply_data.py`；核验：`python preview/web/build_gosm_supply_data.py --check`。转换过程校验国家与组织合计、中国省级残差、有资产账号数。清单登记当前3份合并底表。
+
+旧版八图CSV（global_supply_snapshot、china_us_supply、china_us_publishers、china_supply_geography、supply_growth、monthly_release、publisher_portfolio、supply_scenarios）仅作历史归档；最后一份为完全模拟，不进入当前三图或核心发现。原报告三个CSV保持不变。

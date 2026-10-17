@@ -22,7 +22,9 @@ for key,rows in S.build().items():
     assert (out/'data'/name).read_text()==S.text_csv(rows)[0],name
 assert d['supply51']['meta']['containsSimulatedData'] is False
 assert json.loads((out/'supply-scenarios.json').read_text())['dataStatus']=='simulated'
-assert '7幅实测图 · 1幅模拟情景' in page
+assert G.TOPICS[0]['figures']==['world','cnus','china']
+assert '四个角度' not in page and 'gm-explore' not in page
+assert all('data-gm-chart="'+key+'"' not in page for key in ['publishers','supply','release','portfolio','scenarios'])
 assert sum(r['models'] for r in d['quadrants'])==870
 assert sum(r['n'] for r in d['openRegions'])==870
 assert sum(r['models'] for r in d['openPublishers'])==870
@@ -71,4 +73,4 @@ for name in ['gosm.js','gosm.css','gosm-network.mjs','gosm-supply.js','gosm-supp
     assert (a.output/name).read_bytes()==(G.ROOT/'web'/name).read_bytes()
 appendix=(a.output/'2026/zh/appendices/dpg/index.html').read_text()
 assert '本报告不授予认证' in appendix and '8.5 分' not in appendix
-print('PASS GOSM: 16 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')
+print('PASS GOSM: 11 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')

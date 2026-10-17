@@ -1,4 +1,4 @@
-"""Reproduce the eight 5.1 CSVs from frozen, explicitly scoped observations."""
+"""Reproduce three current 5.1 CSVs and preserve eight prior review CSVs from frozen, explicitly scoped observations."""
 import argparse
 import csv
 import hashlib
@@ -10,6 +10,9 @@ ROOT = Path(__file__).resolve().parents[2]
 CONTENT = Path(__file__).resolve().parents[1] / 'content/gosm'
 OUT = ROOT / 'data/processed/chapter5'
 NAMES = {
+    'panorama': 'fig-5-1-01_supply_panorama',
+    'comparison': 'fig-5-1-02_china_us_comparison',
+    'geography': 'fig-5-1-03_china_supply_map',
     'world': 'fig-5-1-01_global_supply_snapshot',
     'cnus': 'fig-5-1-02_china_us_supply',
     'publishers': 'fig-5-1-03_china_us_publishers',
@@ -103,6 +106,9 @@ def build():
                 rows['scenario'].append({'data_status': 'simulated', 'experiment': 'independent_participation',
                     'retention_pct': rate, 'newcomers': newcomers, 'month': month, 'active': active,
                     'formula': scenarios['formula'], 'scope': scenarios['scope']})
+    rows['panorama'] = [dict(record_type='country', **r) for r in rows['world']] + [dict(record_type='global_trend', **r) for r in rows['growth']]
+    rows['comparison'] = [dict(record_type='indicator', **r) for r in rows['cnus']] + [dict(record_type='publisher', **r) for r in rows['publishers']]
+    rows['geography'] = rows['china']
     return rows
 
 
@@ -127,7 +133,7 @@ if __name__ == '__main__':
         else:
             path.write_text(text)
         inventory.append(dict(dataset_id=name, path=str(path.relative_to(ROOT)), row_count=len(records),
-            fields=';'.join(fields), chapter='5', use_scope='5.1交互评审；独立注明日期与样本范围',
+            fields=';'.join(fields), chapter='5', use_scope='5.1当前三图；独立注明日期与样本范围' if key in ('panorama','comparison','geography') else '5.1旧版八图归档；非当前正文',
             related_indicators='OpenModelRelease;ModelSupplierDiv;OpenDatasetRelease' if key != 'scenario' else '',
             status='完全模拟；独立情景' if key == 'scenario' else '实测快照；固定数据可复现',
             review_note='preview/web/build_gosm_supply_data.py；preview/content/gosm/supply-methods.md',
@@ -137,4 +143,4 @@ if __name__ == '__main__':
         writer = csv.DictWriter(f, columns, lineterminator='\n')
         writer.writerows(inventory)
         inventory_path.write_bytes(retained + f.getvalue().encode())
-    print('PASS: eight 5.1 datasets reproduced; country / organization / China residual sums verified.')
+    print('PASS: three current + eight archived 5.1 datasets reproduced; country / organization / China residual sums verified.')
