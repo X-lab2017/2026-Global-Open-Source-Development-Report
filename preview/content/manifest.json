@@ -545,16 +545,16 @@
             "en": "Foundation models"
           },
           "question": {
-            "zh": "模型技术栈如何连接训练、推理与应用？",
-            "en": "How does the model stack connect training, inference and applications?"
+            "zh": "模型能力如何按任务分化，公开模型样本覆盖了哪些能力？",
+            "en": "How do model capabilities differ across six task domains?"
           },
           "presentation": {
-            "zh": "模型技术栈、工具与项目关联",
-            "en": "Model stack, tools and project relationships"
+            "zh": "六任务领域、模型样本与来源",
+            "en": "Six task domains, model samples and sources"
           },
           "source_path": "chapters/chapter4/4.2-AI-大模型全景洞察.md",
-          "status": "outline",
-          "data_status": "pending-review",
+          "status": "draft",
+          "data_status": "landscape-review",
           "related": [
             "ch05-s01",
             "ch03-s06",
@@ -562,7 +562,7 @@
           ],
           "anchor": "ch04-s02",
           "source_heading": null,
-          "next_action": "提供本节发现、材料与来源"
+          "next_action": "首张全景已上线；核心发现、演变、贡献与建议待共建"
         },
         {
           "id": "ch04-s03",
@@ -572,7 +572,7 @@
             "en": "Cloud infrastructure"
           },
           "question": {
-            "zh": "云基础设施的协作分工怎样演变？",
+            "zh": "应用构建、编排运行与基础支撑，如何组成云技术生态？",
             "en": "How is collaboration across cloud infrastructure evolving?"
           },
           "presentation": {
@@ -581,10 +581,10 @@
           },
           "source_path": "chapters/chapter4/4.3-云基础设施全景洞察-C-Landscape.md",
           "status": "draft",
-          "data_status": "pending-review",
+          "data_status": "landscape-review",
           "anchor": "ch04-s03",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "首张全景已上线；核心发现、演变、贡献与建议待共建"
         },
         {
           "id": "ch04-s04",
@@ -594,7 +594,7 @@
             "en": "Database systems"
           },
           "question": {
-            "zh": "数据库生态的技术类别和项目关系如何变化？",
+            "zh": "不同数据模型与工作负载，如何形成数据库的技术分工？",
             "en": "How are database categories and project relationships changing?"
           },
           "presentation": {
@@ -603,10 +603,10 @@
           },
           "source_path": "chapters/chapter4/4.4-数据库系统全景洞察-D-Landscape.md",
           "status": "draft",
-          "data_status": "pending-review",
+          "data_status": "landscape-review",
           "anchor": "ch04-s04",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "首张全景已上线；核心发现、演变、贡献与建议待共建"
         },
         {
           "id": "ch04-s05",
@@ -616,7 +616,7 @@
             "en": "RISC-V"
           },
           "question": {
-            "zh": "开放指令集生态怎样连接软硬件？",
+            "zh": "开放指令集如何通过规范、实现与工具连接到软件应用？",
             "en": "How does an open instruction-set ecosystem connect hardware and software?"
           },
           "presentation": {
@@ -625,10 +625,10 @@
           },
           "source_path": "chapters/chapter4/4.5-RISC-V-全景洞察-V-Landscape.md",
           "status": "draft",
-          "data_status": "pending-review",
+          "data_status": "landscape-review",
           "anchor": "ch04-s05",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "首张全景已上线；核心发现、演变、贡献与建议待共建"
         },
         {
           "id": "ch04-s06",
@@ -638,7 +638,7 @@
             "en": "PyTorch Foundation"
           },
           "question": {
-            "zh": "训练与推理工具链怎样形成协作生态？",
+            "zh": "围绕核心框架，模型任务、训练系统与工程协作如何分工？",
             "en": "How do training and inference tools form a collaborative ecosystem?"
           },
           "presentation": {
@@ -647,10 +647,10 @@
           },
           "source_path": "chapters/chapter4/4.6-PyTorch-基金会全景洞察-P-Landscape.md",
           "status": "draft",
-          "data_status": "pending-review",
+          "data_status": "landscape-review",
           "anchor": "ch04-s06",
           "source_heading": null,
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "首张全景已上线；核心发现、演变、贡献与建议待共建"
         }
       ],
       "status": "draft",

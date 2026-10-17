@@ -109,7 +109,9 @@ def chapter_v1(lang):
  out.append('<script id="landscape-data" type="application/json">'+json.dumps(PAYLOAD,ensure_ascii=False).replace('<','\\u003c')+'</script></div>')
  return ''.join(out)
 def chapter(lang):
- if lang!='zh':return chapter_v1(lang)
+ if lang!='zh':
+  import gosl_landscapes
+  return gosl_landscapes.english_framework()
  import landscape_v2
  return landscape_v2.chapter()
 

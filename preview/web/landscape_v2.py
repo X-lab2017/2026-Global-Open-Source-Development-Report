@@ -1,4 +1,5 @@
 """4.1 reviewed landscape: one pinned cohort, monthly evidence, explicit simulation."""
+import gosl_landscapes as G
 from pathlib import Path
 import csv, json, math, random, textwrap
 import landscape_content as L
@@ -109,13 +110,14 @@ def chapter():
     out.append(panel('al-country-trend','E4','国家贡献份额的变化','在本图选择领域、类别、国家和时间窗口；只显示关注的曲线，所有国家、其他与未知仍保留在份额分母中。',sim=True))
     out.append('''</section><section class="al-section" id="land-action"><span class="eyebrow">05 / POLICY IMPLICATIONS</span><h3>从观测走向行动</h3><div class="al-policy"><article><span>01 / 技术结构</span><h4>按技术结构配置持续支持</h4><p>结合分类覆盖、头部集中度与维护需求，支持公共基础设施的长期维护、互操作与替代实现。份额低本身不能证明存在能力缺口；需补充采用情况、供给质量与维护者证据。</p><a href="#al-concentration">依据：全景、覆盖与集中度 →</a></article><article><span>02 / 实质贡献</span><h4>提升关键子领域的实质贡献</h4><p>把支持落实到上游维护、评测、文档与人才培养，并用贡献完成情况检验成效。真实国家贡献数据补齐后再判断地域差异；本版模拟国家图不支持国家优劣或治理主导权结论。</p><a href="#al-country-rank">依据：国家贡献与技术分布 →</a></article><article><span>03 / 持续观测</span><h4>用月度观测校准支持方向</h4><p>按月固定分类、样本与数据版本，记录项目进入退出、观测缺口和地域覆盖。趋势突变先核查数据、事件与样本，再调整支持方向，避免仅凭单月位次配置资源。</p><a href="#al-category-heat">依据：月度位次与共同样本变化 →</a></article></div></section>''')
     out.append(f'''<section class="al-section" id="land-evidence"><span class="eyebrow">METHODS & SOURCES</span><h3>来源与口径</h3><details><summary>样本、月份与缺失值如何处理</summary><p>固定主表中 keep / add 项目，按 repo_id 去重，得到 145 项目（Agent Infra 86、Model Infra 59），每个项目属于一个主要类别。18 个月为 2025-03—2026-08。2025-03—2025-08 取自本次固定的 OpenDigger 历史快照（如缺失，2025-08 可回退至主表已有值）；已经评审的 2025-09—2026-08 保留原固定值。两次提取可能有少量历史修订，新增历史来源逐项保留，不静默改写既有观测。主表提交：{L.REF}。分类为该版本的回溯分类，不推断历史分类或存活项目全貌。</p><p>子类别 OpenRank 是该月有值项目之和；份额分母是当前范围的全部有值项目之和。无观测与尚未创建均不当作零，覆盖率分母为当前固定样本。项目月度位次仅在有值项目中排序；子类别位次含覆盖变化，位次变化仅作描述。项目数值环比要求两月都有值且前月非零；类别环比只在两月共同有值项目中计算，同时报告共同样本数。</p></details><details><summary>国家贡献：本版模拟方法与真实数据接入规则</summary><p>本版使用固定随机种子 341 生成类别 × 国家 × 月份贡献，并建立 SIM 前缀的模拟开发者标识。同一开发者可跨类别出现，人数按当前范围与统计期的标识集合去重；不把类别人数直接相加。模拟贡献量与真实项目 OpenRank 独立，二者不可相加。本版不接入原有口径待核的国家 Top 3 表。</p><p>真实接入时：对每个项目及月份，将项目 OpenRank 按完整项目社区中开发者 Community OpenRank 比例分配到个人，再按有时间戳的公开所在地快照汇总国家。必须使用完整贡献者集合，不能以 Top 12 替代分母。机器人单独识别并披露；国家未知者保留为未知，人数跨项目去重。公开所在地不等于国籍或雇主所在地。</p><p>地图复用报告已采用的世界边界；没有单列数据的地理单元不分配“其他”总值。其他与未知仅在榜单中显示，不作为虚构地图区域着色。地图使用品牌六档色带，具名国家份额的 P95 为色阶上限，高值封顶；选择国家以金色强调。地图为示意，具体数值以榜单为准。</p></details><details><summary>导出、复核与原始记录</summary><p>各图 CSV 导出当前范围、月份、指标、覆盖与真实／模拟标识；SVG 导出保留标题、来源和筛选条件。项目榜每页 8 行；精确数据表每页 8 行，打印展开所有记录；搜索只高亮全景，不改变统计分母。</p><p><a href="/assets/landscape/data/agentic-ai-projects.csv" download>固定版本原始 CSV ↓</a> · <a href="{L.source('canonical')}">上游数据 ↗</a> · <a href="/assets/landscape/v3-data.json" download>全部视图数据 JSON ↓</a> · <a href="/assets/landscape/v3-observations.csv" download>145 × 18 月观测 CSV ↓</a> · <a href="/assets/landscape/v3-simulation.csv" download>模拟国家贡献 CSV ↓</a> · <a href="/assets/landscape/provenance.json">主表来源指纹</a> · <a href="/assets/landscape/opendigger-20261017/manifest.json">历史快照来源与指纹</a></p></details></section></section>''')
-    ch=json.loads((L.ROOT/'content/manifest.json').read_text())['chapters'][3]
-    for s in ch['sections'][1:]:out.append(f'<section class="chapter-section al-pending" id="{s["id"]}"><h2>{E(s["number"]+" "+s["title"]["zh"])}</h2><p>{E(s["question"]["zh"])}</p>{L.link(L.REPORT+s["source_path"],"阅读仓库初稿 ↗")}</section>')
+    out.append(G.section_fragments())
     out.append('<dialog id="al-project-dialog" aria-labelledby="al-dialog-title"><button type="button" class="al-close">关闭 ×</button><div id="al-project-detail"></div></dialog><dialog id="al-fullscreen" aria-label="图表全屏查看"><div class="al-fullscreen-bar"><strong>图表全屏</strong><div class="al-presentation-tools"><button type="button" data-al-theme aria-pressed="false">切换深色</button><button type="button" class="al-close">退出全屏 ×</button></div></div><div id="al-fullscreen-body"></div></dialog><script type="application/json" id="landscape-data">'+json.dumps(payload(),ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></div>')
+    out[0]=out[0].replace('<section id="ch04-s01"',G.chapter_overview()+'<section id="ch04-s01"',1)
     return ''.join(out)
 
 def export(out):
     THEME.export(out)
+    G.export(out)
     dest=out/'assets/landscape';d=payload()
     (dest/'v3-data.json').write_text(json.dumps(d,ensure_ascii=False,separators=(',',':')))
     with (dest/'v3-observations.csv').open('w',newline='',encoding='utf-8-sig') as f:
