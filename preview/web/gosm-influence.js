@@ -77,7 +77,8 @@ window.createGOSM52 = function(D,H) {
     for(const [x,y,w,title,sub,c] of [[48,206,190,'基座 A','已有的模型能力',palette()[0]],[48,314,190,'基座 B','可作为另一上游',palette()[1]],[338,233,235,'派生模型','调整、适配或合并',palette()[2]],[683,233,190,'后续派生','继续成为创新起点',palette()[0]]]){
       b+=box(x,y,w,74,C.paper,C.line,7)+txt(x+w/2,y+29,title,21,c,'middle')+txt(x+w/2,y+55,sub,15,C.muted,'middle');
     }
-    b+=`<path d="M238 243 C285 243 285 250 338 250 M238 350 C290 350 290 290 338 290 M573 270 H683" fill="none" stroke="${C.brand}" stroke-width="2.5" marker-end="url(#s52-concept-arrow)"/>`;
+    b+=`<path d="M238 243 C285 243 285 250 338 250" fill="none" stroke="${C.brand}" stroke-width="2.5" marker-end="url(#s52-concept-arrow)"/>`;
+    b+=`<path d="M238 350 C290 350 290 290 338 290" fill="none" stroke="${C.brand}" stroke-width="2.5" marker-end="url(#s52-concept-arrow)"/><path d="M573 270 H683" fill="none" stroke="${C.brand}" stroke-width="2.5" marker-end="url(#s52-concept-arrow)"/>`;
     b+=`<defs><marker id="s52-concept-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10Z" fill="${C.brand}"/></marker></defs>`;return b;
   }
   function networkSide(s){
@@ -146,7 +147,7 @@ window.createGOSM52 = function(D,H) {
     const nodes=(ids,lay,x,isLeft)=>{
       const ys=[];let last=112;for(const c of ids){const q=lay.get(c);last=Math.max(last+21,q.y+q.h/2);ys.push(last);}
       if(ys.at(-1)>449){ys[ys.length-1]=449;for(let i=ys.length-2;i>=0;i--)ys[i]=Math.min(ys[i],ys[i+1]-21);}
-      ids.forEach((c,i)=>{const q=lay.get(c),y=ys[i];out+=flowAction('flowNode',c,nm(c)+'：'+fmt(q.value)+' 对',box(x,q.y,bar,Math.max(.6,q.h),col(c),'none',0)+line(isLeft?x:x+bar,q.y+q.h/2,isLeft?x-7:x+bar+7,y,col(c),.8)+txt(isLeft?x-9:x+bar+9,y+5,trim(nm(c),6),14,C.ink,isLeft?'end':'start'),`data-s52-country="${c}"`);});
+      ids.forEach((c,i)=>{const q=lay.get(c),y=ys[i];out+=flowAction('flowNode',c,nm(c)+'：'+fmt(q.value)+' 对',box(x,q.y,bar,Math.max(.6,q.h),col(c),'none',0)+line(isLeft?x:x+bar,q.y+q.h/2,isLeft?x-7:x+bar+7,y,col(c),.8)+txt(isLeft?x-9:x+bar+9,y+5,trim(nm(c),4),14,C.ink,isLeft?'end':'start'),`data-s52-country="${c}"`);});
     };nodes(src,a,left,true);nodes(dst,b,right,false);return out;
   }
   function chord(edges,ids){
@@ -169,7 +170,7 @@ window.createGOSM52 = function(D,H) {
       [...partners].sort((a,b)=>b[1]-a[1]).slice(0,4).forEach(([c,n],i)=>b+=action('focus',c,'聚焦'+nm(c),txt(x,290+i*32,nm(c),16,col(c))+txt(1247,290+i*32,fmt(n),17,C.ink,'end')));return b;
     }
     edge=edge||agg.edges[0];if(!edge)return b+txt(x,123,'暂无匹配关系',20,C.muted);
-    b+=txt(x,111,s.pin?'所选流向':'当前最大流向',13,C.muted)+txt(x,143,nm(edge.source)+' → '+nm(edge.target),21,C.ink)+txt(x,188,fmt(edge.weight),34,col(edge.source))+txt(x,214,'对基座—派生关系',15,C.muted);
+    b+=txt(x,111,s.pin?'所选流向':'当前最大流向',13,C.muted)+txt(x,143,trim(nm(edge.source)+' → '+nm(edge.target),14),(nm(edge.source)+' → '+nm(edge.target)).length>10?15:21,C.ink)+txt(x,188,fmt(edge.weight),34,col(edge.source))+txt(x,214,'对基座—派生关系',15,C.muted);
     b+=line(x,235,1247,235)+txt(x,263,'占全部跨国样本',14,C.muted)+txt(1247,289,fmt(edge.weight/totalFlows*100,1)+'%',26,C.ink,'end')+txt(x,322,'占当前筛选关系',14,C.muted)+txt(1247,348,fmt(edge.weight/(sum(rows,'weight')||1)*100,1)+'%',26,C.ink,'end');
     b+=txt(x,389,edge.members.length>1?`合并 ${edge.members.length} 条国家流向`:'点击连线可固定查看',14,C.muted)+txt(x,419,'悬停：两图同步高亮',14,C.muted)+txt(x,446,'点击外弧：查看国家角色',14,C.muted);return b;
   }
