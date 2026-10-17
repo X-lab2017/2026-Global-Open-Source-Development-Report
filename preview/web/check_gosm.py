@@ -22,8 +22,15 @@ for key,rows in S.build().items():
     assert (out/'data'/name).read_text()==S.text_csv(rows)[0],name
 assert d['supply51']['meta']['containsSimulatedData'] is False
 assert '.s51-panel {' in (a.output/'gosm-supply.css').read_text(), 'Supply layout selector must match the 5.1 article class'
+assert '.s52-panel {' in (a.output/'gosm-influence.css').read_text(), 'Influence layout selector must match the 5.2 article class'
+assert all('s52-panel gm-compact-panel' in page.split('data-gm-chart="'+k+'"')[0][-80:] for k in ['network','flows','head'])
 assert json.loads((out/'supply-scenarios.json').read_text())['dataStatus']=='simulated'
 assert G.TOPICS[0]['figures']==['world','cnus','china']
+assert G.TOPICS[1]['figures']==['network','flows','head']
+assert '基座来源→派生发布' in page
+assert sum(r['weight'] for r in d['flows'] if r['source']=='CN')==5888
+assert sum(r['weight'] for r in d['flows'] if r['target']=='US')==7513
+assert next(r['weight'] for r in d['flows'] if r['source']=='CN' and r['target']=='US')==4639
 assert '四个角度' not in page and 'gm-explore' not in page
 assert all('data-gm-chart="'+key+'"' not in page for key in ['publishers','supply','release','portfolio','scenarios'])
 assert sum(r['models'] for r in d['quadrants'])==870
@@ -70,8 +77,8 @@ for m in d['cases']['models']:
 for f in G.DIR.glob('*.gz'):
     assert gzip.decompress(f.read_bytes())==(out/f.stem).read_bytes(),f.name
 assert (out/'methods.md').exists() and (out/'openness-evidence-884.json').exists()
-for name in ['gosm.js','gosm.css','gosm-network.mjs','gosm-supply.js','gosm-supply.css']:
+for name in ['gosm.js','gosm.css','gosm-network.mjs','gosm-supply.js','gosm-supply.css','gosm-influence.js','gosm-influence.css']:
     assert (a.output/name).read_bytes()==(G.ROOT/'web'/name).read_bytes()
 appendix=(a.output/'2026/zh/appendices/dpg/index.html').read_text()
 assert '本报告不授予认证' in appendix and '8.5 分' not in appendix
-print('PASS GOSM: 11 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')
+print('PASS GOSM: 10 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')

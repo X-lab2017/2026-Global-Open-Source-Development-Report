@@ -4,7 +4,7 @@ import { OrbitControls } from "./assets/cmap/vendor/OrbitControls.js";
 // The third coordinate aids navigation only. No metric is encoded by depth.
 export function mount(
   host,
-  { nodes, edges, positions, orbit, selected, colors, onSelect },
+  { nodes, edges, positions, orbit, selected, colors, onSelect, onContextLost },
 ) {
   let disposed = false,
     frame = 0;
@@ -196,10 +196,11 @@ export function mount(
   );
   renderer.domElement.addEventListener("webglcontextlost", (e) => {
     e.preventDefault();
-    host.closest(".gm-network-stage").classList.remove("gm-three-ready");
-    host.closest(".gm-network-stage").classList.add("gm-three-failed");
+    host.closest(".gm-network-stage")?.classList.remove("gm-three-ready");
+    host.closest(".gm-network-stage")?.classList.add("gm-three-failed");
     tip.hidden = false;
     tip.textContent = "3D 上下文已中断，已保留 2D 网络。";
+    onContextLost?.();
   });
   return {
     snapshot() {

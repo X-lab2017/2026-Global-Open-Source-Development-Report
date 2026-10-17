@@ -1,0 +1,122 @@
+/* 5.2 compact frame follows the reviewed 5.1 frame. */
+.s52-panel {
+  box-sizing:border-box;
+  height:min(920px,calc(100dvh - 88px));
+  min-height:700px;
+  display:grid;
+  grid-template-rows:auto auto minmax(0,1fr) auto;
+  gap:12px;
+  padding:20px 22px 14px;
+  border-radius:10px;
+  overflow:hidden;
+}
+.s52-panel .gm-chart-head { gap:16px; align-items:center; }
+.s52-panel .gm-chart-head .eyebrow { font-size:10px; }
+.s52-panel .gm-chart-head h3 { font-size:20px!important; margin:5px 0 0!important; line-height:1.4; }
+.s52-panel .gm-chart-deck { display:none; }
+.s52-panel .gm-tools { max-width:none; gap:6px; }
+.s52-panel .gm-tools button { min-height:32px; padding:6px 9px; }
+.s52-panel .gm-controls { gap:12px 24px; padding:10px 0; margin:0; border-block:1px solid var(--gm-line); }
+.s52-panel .gm-control-group { gap:9px; }
+.s52-panel .gm-controls button { min-height:34px; padding:7px 12px; line-height:1.4; }
+.s52-panel .gm-controls input[type=search] { box-sizing:border-box; width:220px; min-height:34px; font-size:12px; padding:7px 11px; }
+.s52-panel .gm-view { min-height:0; height:100%; overflow:hidden; display:flex; align-items:center; justify-content:center; background:var(--gm-bg); }
+.s52-panel .gm-svg { display:block; width:100%; height:100%; max-height:100%; min-width:0; }
+.s52-panel .gm-readout { padding:5px 0 0; border-top:1px solid var(--gm-line); }
+.s52-panel .gm-readout p { margin:0!important; font-size:12px!important; line-height:1.65; color:var(--gm-muted); }
+.s52-panel .s51-close-hint { display:inline; float:right; color:var(--gm-brand); }
+.s52-panel > :is(.gm-source,.gm-table):not([open]) { display:none; }
+.s52-panel > :is(.gm-source,.gm-table)[open] { position:absolute; inset:64px 14px 14px; z-index:8; margin:0; padding:16px; border:1px solid var(--gm-line); border-radius:8px; box-shadow:0 8px 28px #0003; background:var(--gm-bg); overflow:auto; }
+.s52-panel > :is(.gm-source,.gm-table)[open] > summary { position:sticky; top:-16px; z-index:1; padding:12px 0; background:var(--gm-bg); }
+.s52-panel .gm-source-body { max-width:100%; }
+.s52-panel .gm-table-host { max-height:none; overflow-x:auto; }
+.s52-panel .s51-table-pager { display:flex; justify-content:space-between; align-items:center; gap:10px; margin:10px 0; }
+.s52-panel .gm-svg a { text-decoration:underline; }
+/* Fit the complete SVG into the actual remaining height, including short laptops.
+   This deliberately replaces the shared dialog's scrolling document layout. */
+.gm-chapter #gm-fullscreen:has(.s52-panel) { display:grid; grid-template-rows:auto minmax(0,1fr); overflow:hidden; width:calc(100vw - 16px); height:calc(100dvh - 16px); max-width:none; }
+.gm-chapter #gm-fullscreen:not([open]) { display:none; }
+#gm-fullscreen:has(.s52-panel) .gm-fullscreen-bar { position:static; padding:8px 14px; min-height:0; }
+#gm-fullscreen:has(.s52-panel) #gm-fullscreen-body { box-sizing:border-box; min-height:0; height:100%; padding:6px 12px; overflow:hidden; }
+#gm-fullscreen-body .s52-panel { height:100%; min-height:0; max-width:1800px; box-sizing:border-box; padding:0; margin:0 auto; gap:10px; }
+#gm-fullscreen-body .s52-panel .gm-chart-head > div:first-child { display:none; }
+#gm-fullscreen-body .s52-panel .gm-chart-head { justify-content:flex-end; }
+#gm-fullscreen-body .s52-panel .gm-svg { min-width:0; width:100%; height:100%; max-height:100%; }
+#gm-fullscreen-body .s52-panel > :is(.gm-source,.gm-table)[open] { inset:36px 0 0; }
+@media (max-width:1100px) {
+  .s52-panel .gm-chart-head { flex-wrap:wrap; gap:6px; }
+  .s52-panel .gm-tools { justify-content:flex-start; }
+  .s52-panel .gm-control-group > span { font-size:11px; }
+  .s52-panel .gm-controls { gap:9px 16px; }
+  .s52-panel .gm-controls button { font-size:12px; padding:6px 9px; }
+  .s52-panel .s51-status { display:none; }
+}
+/* On narrow or short screens preserve a readable canvas and allow local scrolling. */
+@media (max-width:760px) {
+  .s52-panel { height:auto; min-height:0; grid-template-rows:auto auto auto auto; padding:16px 12px; overflow:visible; }
+  .s52-panel .gm-chart-head h3 { font-size:18px!important; }
+  .s52-panel .gm-controls input[type=search] { width:200px; }
+  .s52-panel .gm-view { display:block; height:auto; overflow:auto; border-radius:6px; }
+  .s52-panel .gm-svg { width:100%; min-width:1080px; height:auto; max-height:none; touch-action:pan-x pan-y; }
+  .s52-panel .gm-readout p { font-size:12px!important; }
+  .s51-evidence-strip span { margin-left:0; }
+  .gm-chapter #gm-fullscreen:has(.s52-panel) { width:100vw; height:100dvh; }
+  #gm-fullscreen:has(.s52-panel) #gm-fullscreen-body { overflow:auto; padding:10px; }
+  #gm-fullscreen-body .s52-panel { height:auto; }
+  #gm-fullscreen-body .s52-panel .gm-svg { min-width:1080px; height:auto; }
+  #gm-fullscreen:has(.s52-panel) .gm-fullscreen-bar { padding:10px; gap:8px; }
+}
+@media (max-height:680px) and (min-width:761px) {
+  #gm-fullscreen:has(.s52-panel) #gm-fullscreen-body { overflow:auto; }
+  #gm-fullscreen-body .s52-panel { height:auto; min-height:650px; grid-template-rows:auto auto minmax(440px,1fr) auto; }
+}
+.s52-panel button:focus-visible,.s52-panel input:focus-visible { outline:2px solid var(--gm-gold); outline-offset:3px; }
+.s52-panel .gm-svg-action:hover > rect:first-child { stroke:var(--gm-brand); stroke-width:1.2px; }
+.s52-panel .gm-svg-action[aria-pressed=true] { cursor:pointer; }
+@media print {
+  .s52-panel { display:block; height:auto; min-height:0; break-inside:avoid; }
+  .s52-panel .gm-view { height:auto; overflow:visible; }
+  .s52-panel .gm-svg { height:auto; max-height:none; }
+  .s52-panel .gm-controls input,.s52-panel .s51-table-pager { display:none; }
+}
+
+/* Compact section 5.2 inherits the reviewed one-screen frame from 5.1. */
+.s52-panel .gm-controls { position:relative; z-index:3; }
+.s52-panel .gm-view { position:relative; }
+.s52-panel .gm-tools { flex-wrap:nowrap; }
+.s52-panel .s52-caption { font-size:11px; color:var(--gm-muted); }
+.s52-panel .s51-control-line { gap:5px 10px; }
+.s52-panel :is(input[type=search],select) { border:1px solid var(--gm-line); border-radius:4px; background:var(--gm-bg); color:var(--gm-ink); font:inherit; font-size:12px; padding:5px 8px; }
+.s52-panel .s52-select-label { font-size:12px; color:var(--gm-muted); }
+.s52-panel .s52-search { position:relative; min-width:0; margin-left:auto; }
+.s52-panel .s52-search-results { position:absolute; top:100%; right:0; width:min(400px,80vw); padding:6px; display:grid; gap:3px; border:1px solid var(--gm-line); border-radius:5px; background:var(--gm-bg); box-shadow:0 6px 20px #0002; z-index:12; }
+.s52-panel .s52-search-results[hidden] { display:none; }
+.s52-panel .s52-search-results button { white-space:normal; overflow-wrap:anywhere; text-align:left; font-size:12px; padding:7px; }
+.s52-panel .s52-search-results span { font-size:12px; padding:7px; }
+.s52-panel input[type=range] { width:clamp(150px,26vw,400px); accent-color:var(--gm-brand); }
+.s52-panel .s52-month-label { font-size:12px; min-width:60px; font-variant-numeric:tabular-nums; }
+.s52-panel [data-s52-pan] { cursor:grab; touch-action:none; }
+.s52-panel [data-s52-pan]:active { cursor:grabbing; }
+.s52-panel .s52-three-host { width:100%; height:100%; position:relative; overflow:hidden; background:var(--gm-bg); color:var(--gm-muted); font:14px sans-serif; }
+.s52-panel .s52-three-host canvas { display:block; width:100%; height:100%; }
+.s52-panel .s52-three-ready .s52-net-2d { opacity:0; pointer-events:none; }
+.s52-panel .gm-three-tooltip { max-width:270px; }
+@media(max-width:900px) {
+ .s52-panel .s52-caption { font-size:10px; }
+ .s52-panel .s52-search { margin-left:0; }
+ .s52-panel .gm-tools { flex-wrap:wrap; }
+}
+@media print {
+ .s52-panel foreignObject { display:none; }
+ .s52-panel .s52-three-ready .s52-net-2d { opacity:1; }
+}
+/* Keep 5.2 in one viewport, including common 1366×768 laptop screens. */
+@media(min-width:761px) {
+ .s52-panel { height:min(880px,calc(100dvh - 88px)); min-height:540px; padding:16px 18px 12px; gap:7px; }
+ .s52-panel .gm-controls { gap:7px 14px; padding:6px 0; }
+ .s52-panel .gm-control-group { gap:6px; }
+ .s52-panel .gm-controls button { min-height:30px; padding:5px 9px; }
+ .s52-panel .gm-readout p { font-size:11px!important; line-height:1.5; }
+ #gm-fullscreen:has(.s52-panel) #gm-fullscreen-body { overflow:hidden; }
+ #gm-fullscreen-body .s52-panel { height:100%; min-height:0; grid-template-rows:auto auto minmax(0,1fr) auto; gap:6px; }
+}

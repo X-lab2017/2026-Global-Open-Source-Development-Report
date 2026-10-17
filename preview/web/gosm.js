@@ -219,7 +219,7 @@
   }
   function fillTable(p) {
     const rows=p.gmRows||[],keys=Object.keys(rows[0]||{}),s=states.get(p);
-    const isSupply=Boolean(window.createGOSM51&&["world","cnus","publishers","china","supply","release","portfolio","scenarios"].includes(p.dataset.gmChart));
+    const isSupply=p.classList.contains("gm-compact-panel");
     const size=isSupply?8:100;
     const pages=Math.max(1,Math.ceil(rows.length/size));s.tablePage=Math.min(s.tablePage||0,pages-1);
     const start=isSupply?s.tablePage*size:0;
@@ -1738,6 +1738,8 @@
   }
   const supply51 = window.createGOSM51(D, {asset,esc,fmt,compact,txt,line,box,action,svg,btn,seg,chips,note,link,set,source,colors:()=>({C,palette})});
   panels.forEach(p=>{if(supply51.defaults[p.dataset.gmChart])states.set(p,JSON.parse(JSON.stringify(supply51.defaults[p.dataset.gmChart])));});
+  const influence52 = window.createGOSM52(D, {base:BASE,asset,esc,fmt,compact,txt,line,box,action,svg,btn,seg,note,link,set,source,draw:p=>draw(p),colors:()=>({C,palette})});
+  panels.forEach(p=>{if(influence52.defaults[p.dataset.gmChart])states.set(p,JSON.parse(JSON.stringify(influence52.defaults[p.dataset.gmChart])));});
   const renderers = {
     framework,
     supply,
@@ -1752,7 +1754,7 @@
     "open-groups": openGroups,
     dossiers,
   };
-  Object.assign(renderers, supply51.renderers);
+  Object.assign(renderers, supply51.renderers, influence52.renderers);
   function draw(p) {
     renderers[p.dataset.gmChart](p, states.get(p));
     if (p.dataset.gmChart === "network")
@@ -1763,7 +1765,7 @@
   function selectAction(p, key, v) {
     const s = states.get(p),
       id = p.dataset.gmChart;
-    if (supply51.handle(p,s,key,v)) {
+    if (supply51.handle(p,s,key,v) || influence52.handle(p,s,key,v)) {
       const preserveFocus=p.contains(document.activeElement);
       draw(p);
       if(preserveFocus)Array.from(p.querySelectorAll('[data-gm-action]')).find(el=>el.dataset.gmAction===key&&el.dataset.value===String(v))?.focus();
@@ -1883,6 +1885,7 @@
     clone.setAttribute("width", w);
     clone.setAttribute("height", h + 108);
     clone.removeAttribute("class");
+    clone.querySelectorAll("foreignObject").forEach(n=>n.remove());
     const add = document.createElementNS("http://www.w3.org/2000/svg", "g");
     add.innerHTML =
       box(0, h, w, 108, C.paper, "none", 0) +
@@ -1906,6 +1909,7 @@
     const id = p.dataset.gmChart,
       s = states.get(p);
     if (supply51.own(p)) return supply51.stamp(p,s);
+    if (influence52.own(p)) return influence52.stamp(p,s);
     if (id === "network")
       return "参考项目 / hub-stats · 2026-10-16 · 非随机声明关系样本";
     if (id === "openness")
@@ -1949,7 +1953,7 @@
   function openFull(p) {
     if (current === p) return;
     const originalFocus = document.activeElement;
-    if (p.classList.contains("s51-panel")) {
+    if (p.classList.contains("gm-compact-panel")) {
       $(".gm-source",p).open=false; $(".gm-table",p).open=false;
     }
     if (current) {
@@ -2000,7 +2004,7 @@
       openFull(p);
       return;
     }
-    if (el.hasAttribute("data-gm-table") && p.classList.contains("s51-panel")) {
+    if (el.hasAttribute("data-gm-table") && p.classList.contains("gm-compact-panel")) {
       const d = $(".gm-table", p);
       $(".gm-source", p).open = false;
       d.open = !d.open;
@@ -2010,7 +2014,7 @@
     if (el.hasAttribute("data-gm-source")) {
       const d = $(".gm-source", p);
       d.open = !d.open;
-      if (p.classList.contains("s51-panel")) {
+      if (p.classList.contains("gm-compact-panel")) {
         $(".gm-table", p).open = false;
         if (d.open) d.querySelector("summary").focus();
       } else if (d.open) d.scrollIntoView({ block: "nearest", behavior: "smooth" });
@@ -2026,10 +2030,10 @@
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      const overlay = document.querySelector(".s51-panel .gm-source[open],.s51-panel .gm-table[open]");
+      const overlay = document.querySelector(".gm-compact-panel .gm-source[open],.gm-compact-panel .gm-table[open]");
       if (overlay) {
         e.preventDefault(); e.stopPropagation(); overlay.open=false;
-        overlay.closest(".s51-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source]":"[data-gm-table]").focus();
+        overlay.closest(".gm-compact-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source]":"[data-gm-table]").focus();
         return;
       }
     }
@@ -2046,6 +2050,7 @@
     if (!p) return;
     const s = states.get(p),
       q = e.target.value;
+    if(influence52.input(p,s,e))return;
     if(supply51.input(p,s,e)){const type=e.target.dataset.s51Search; const cursor=e.target.selectionStart;draw(p);const next=p.querySelector(`[data-s51-search="${type}"]`);next?.focus();try{next?.setSelectionRange(cursor,cursor);}catch{}return;}
     if (e.target.dataset.gmSearch === "network") {
       $("#gm-model-results", p).innerHTML = q.trim()
@@ -2083,6 +2088,7 @@
       $(`[data-gm-range="${focus}"]`, p).focus();
     }
   });
+  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(p&&influence52.change(p,states.get(p),e))draw(p);});
   panels.forEach((p) =>
     $(".gm-table", p).addEventListener("toggle", () => {
       if ($(".gm-table", p).open && p.gmTableDirty) fillTable(p);
@@ -2121,6 +2127,7 @@
     states,
     draw,
     networkSlice,
+    influence52,
     csvText,
     exportStamp,
   };

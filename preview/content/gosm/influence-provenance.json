@@ -1,0 +1,29 @@
+{
+  "version": "gosm-influence-v1",
+  "reviewedAt": "2026-10-17",
+  "draft": {
+    "filename": "5.2 开源大模型生态洞察：网络与影响力(2).pdf",
+    "sha256": "547e75d12b468592f36abd767cf1d7d9c08c02d80acc4ad0592b9f828bcc1eda",
+    "evidence": "Page 1 defines base and derived roles; page 2 labels base origin and derived publisher countries. Direction and totals match original CSV."
+  },
+  "flowDirection": {
+    "source": "base model origin country",
+    "target": "derived model publisher country"
+  },
+  "checks": {
+    "totalCrossBorderPairs": 10943,
+    "directedCountryRows": 186,
+    "chinaBaseOut": 5888,
+    "usDerivedIn": 7513,
+    "chinaToUS": 4639,
+    "usToChina": 143
+  },
+  "network": {
+    "source": "https://yaoyao-pig.github.io/OG-And-HG-2026/data/huggingface.json",
+    "checkedAt": "2026-10-17",
+    "sha256": "f80759a0fad18de131259467ee3fd1e2164129aa592309e949a991e3a993a396",
+    "sameAsRetainedSnapshot": true
+  },
+  "simulation": false,
+  "conceptDiagram": "Explicitly labeled schematic; no fabricated model records or historical edges."
+}
