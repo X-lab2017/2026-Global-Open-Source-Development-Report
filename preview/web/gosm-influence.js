@@ -193,7 +193,7 @@ window.createGOSM52 = function(D,H) {
     p.querySelectorAll('[data-s52-edge]').forEach(g=>{const pair=g.dataset.s52Edge,match=!key||(key.startsWith('node:')?pair.split('|').includes(key.slice(5)):pair===key);g.setAttribute('opacity',!key?'.58':match?'.95':'.08');});
     p.querySelectorAll('[data-s52-country]').forEach(g=>{const c=g.dataset.s52Country,match=!key||(key.startsWith('node:')?c===key.slice(5):key.split('|').includes(c));g.setAttribute('opacity',match?'1':'.25');});
   }
-  function bindFlowHover(p,s){highlightFlow(p,s.pin);for(const type of ['pointerover','focusin'])p.querySelector('.gm-view').addEventListener(type,e=>{const el=e.target.closest?.('[data-s52-edge],[data-s52-country]');if(el)highlightFlow(p,el.dataset.s52Edge||'node:'+el.dataset.s52Country);});for(const type of ['pointerout','focusout'])p.querySelector('.gm-view').addEventListener(type,()=>highlightFlow(p,s.pin));}
+  function bindFlowHover(p,s){highlightFlow(p,s.pin);for(const type of ['pointerover','focusin'])p.querySelector('.gm-view svg').addEventListener(type,e=>{const el=e.target.closest?.('[data-s52-edge],[data-s52-country]');if(el)highlightFlow(p,el.dataset.s52Edge||'node:'+el.dataset.s52Country);});for(const type of ['pointerout','focusout'])p.querySelector('.gm-view svg').addEventListener(type,()=>highlightFlow(p,s.pin));}
   function headRows(s){return D.head.filter(r=>r.k===s.k).slice(-s.months);}
   function head(p,s){
     const C=theme(),rows=headRows(s);if(!rows.some(r=>r.month===s.month))s.month=rows.at(-1).month;
