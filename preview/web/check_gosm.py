@@ -21,6 +21,7 @@ for key,rows in S.build().items():
     name=S.NAMES[key]+'.csv'
     assert (out/'data'/name).read_text()==S.text_csv(rows)[0],name
 assert d['supply51']['meta']['containsSimulatedData'] is False
+assert '.s51-panel {' in (a.output/'gosm-supply.css').read_text(), 'Supply layout selector must match the 5.1 article class'
 assert json.loads((out/'supply-scenarios.json').read_text())['dataStatus']=='simulated'
 assert G.TOPICS[0]['figures']==['world','cnus','china']
 assert '四个角度' not in page and 'gm-explore' not in page
