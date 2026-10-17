@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17",
+  "title": "版本化模型开放档案",
+  "sample_size": 4,
+  "sample_policy": "目的性案例，用于演示证据查阅；不组成统计代表样本，不与870报告汇总或884源站补充快照合并。",
+  "status_labels": {
+    "observed": "已观察",
+    "unknown": "待核实",
+    "not-applicable": "不适用"
+  },
+  "field_labels": {
+    "weights": "模型权重",
+    "inference_code": "推理实现",
+    "pretraining_code": "完整预训练代码",
+    "data_information": "训练数据信息",
+    "license": "许可与使用条件",
+    "maintenance": "维护与反馈入口"
+  },
+  "status_note": "observed只表示已看到具体材料或声明，完整程度写在详情；unknown表示本次未取得充分证据，不等于不存在。各字段不加权、不合成分数，不给出OSI或DPGA认证结论。",
+  "models": [
+    {
+      "model_id": "Qwen/Qwen2.5-7B",
+      "title": "Qwen2.5-7B",
+      "publisher": "Qwen",
+      "revision": "d149729398750b98c0af14eb82c78cfe92750796",
+      "checked_at": "2026-10-17",
+      "official_url": "https://huggingface.co/Qwen/Qwen2.5-7B",
+      "fixed_card_url": "https://huggingface.co/Qwen/Qwen2.5-7B/blob/d149729398750b98c0af14eb82c78cfe92750796/README.md",
+      "summary": "可直接获取权重与推理实现；完整预训练交付仍需逐项查证。",
+      "sample_relation": "2026-10-17补充核验案例；不代表原870模型集合，也不替代源站等级",
+      "fields": {
+        "weights": {
+          "status": "observed",
+          "label": "公开权重",
+          "detail": "文件清单含 Safetensors 分片、配置与分词器；公开接口未标访问门槛。",
+          "sources": [
+            "https://huggingface.co/Qwen/Qwen2.5-7B/tree/d149729398750b98c0af14eb82c78cfe92750796"
+          ]
+        },
+        "inference_code": {
+          "status": "observed",
+          "label": "推理实现可用",
+          "detail": "官方卡指定 Transformers 中的 Qwen2 实现，并提供运行要求。",
+          "sources": [
+            "https://huggingface.co/Qwen/Qwen2.5-7B/blob/d149729398750b98c0af14eb82c78cfe92750796/README.md"
+          ]
+        },
+        "pretraining_code": {
+          "status": "unknown",
+          "label": "完整预训练代码待核",
+          "detail": "本次核验未取得该版本完整预训练运行链；微调教程不能代替原始预训练代码。",
+          "sources": [
+            "https://huggingface.co/Qwen/Qwen2.5-7B/blob/d149729398750b98c0af14eb82c78cfe92750796/README.md",
+            "https://qwenlm.github.io/blog/qwen2.5/"
+          ]
+        },
+        "data_information": {
+          "status": "observed",
+          "label": "概要说明",
+          "detail": "官方发布说明介绍训练数据规模与范围；本次未核验完整来源清单和数据处理链。",
+          "sources": [
+            "https://qwenlm.github.io/blog/qwen2.5/"
+          ]
+        },
+        "license": {
+          "status": "observed",
+          "label": "Apache-2.0",
+          "detail": "模型仓库 LICENSE 为 Apache-2.0；许可文件本身不等于整个训练系统达到 OSAID。",
+          "sources": [
+            "https://huggingface.co/Qwen/Qwen2.5-7B/blob/d149729398750b98c0af14eb82c78cfe92750796/LICENSE"
+          ]
+        },
+        "maintenance": {
+          "status": "observed",
+          "label": "公开反馈入口",
+          "detail": "模型讨论区可查；本字段记录反馈入口，不评定维护活跃度。",
+          "sources": [
+            "https://huggingface.co/Qwen/Qwen2.5-7B/discussions"
+          ]
+        }
+      },
+      "retrieval": {
+        "api_url": "https://huggingface.co/api/models/Qwen/Qwen2.5-7B",
+        "api_sha256": "aa23ddd400cc090104389539d89d9f3aa62d458c433419dca3a936e2241fca15",
+        "gated": false,
+        "revision_note": "模型仓库读取时的提交；条款和维护页面另标日期"
+      }
+    },
+    {
+      "model_id": "allenai/OLMo-2-1124-7B",
+      "title": "OLMo-2-1124-7B",
+      "publisher": "Ai2",
+      "revision": "7df9a82518afdecae4e8c026b27adccc8c1f0032",
+      "checked_at": "2026-10-17",
+      "official_url": "https://huggingface.co/allenai/OLMo-2-1124-7B",
+      "fixed_card_url": "https://huggingface.co/allenai/OLMo-2-1124-7B/blob/7df9a82518afdecae4e8c026b27adccc8c1f0032/README.md",
+      "summary": "权重、分阶段训练代码和数据入口形成较完整的复现材料链。",
+      "sample_relation": "2026-10-17补充核验案例；不代表原870模型集合，也不替代源站等级",
+      "fields": {
+        "weights": {
+          "status": "observed",
+          "label": "公开权重与中间检查点",
+          "detail": "模型卡链接最终及中间训练检查点；本次核验文件清单与发布说明。",
+          "sources": [
+            "https://huggingface.co/allenai/OLMo-2-1124-7B/tree/7df9a82518afdecae4e8c026b27adccc8c1f0032",
+            "https://huggingface.co/allenai/OLMo-2-1124-7B/blob/7df9a82518afdecae4e8c026b27adccc8c1f0032/README.md"
+          ]
+        },
+        "inference_code": {
+          "status": "observed",
+          "label": "推理实现可用",
+          "detail": "提供 Transformers 推理示例，并链接官方 OLMo 实现。",
+          "sources": [
+            "https://huggingface.co/allenai/OLMo-2-1124-7B/blob/7df9a82518afdecae4e8c026b27adccc8c1f0032/README.md",
+            "https://github.com/allenai/OLMo/blob/090253dac6688f2532509daa7aa2eb5fae50e956/README.md"
+          ]
+        },
+        "pretraining_code": {
+          "status": "observed",
+          "label": "训练代码与配置可用",
+          "detail": "官方仓库列出 7B 两阶段训练配置、运行命令与检查点。",
+          "sources": [
+            "https://github.com/allenai/OLMo/blob/090253dac6688f2532509daa7aa2eb5fae50e956/README.md"
+          ]
+        },
+        "data_information": {
+          "status": "observed",
+          "label": "具名数据与处理说明",
+          "detail": "模型卡及仓库链接 OLMo-mix-1124、Dolmino-mix-1124；未在本报告重新运行完整训练。",
+          "sources": [
+            "https://huggingface.co/allenai/OLMo-2-1124-7B/blob/7df9a82518afdecae4e8c026b27adccc8c1f0032/README.md",
+            "https://huggingface.co/datasets/allenai/olmo-mix-1124",
+            "https://huggingface.co/datasets/allenai/dolmino-mix-1124"
+          ]
+        },
+        "license": {
+          "status": "observed",
+          "label": "Apache-2.0",
+          "detail": "模型卡声明代码及模型采用 Apache-2.0；数据组件仍需分别检查其许可。",
+          "sources": [
+            "https://huggingface.co/allenai/OLMo-2-1124-7B/blob/7df9a82518afdecae4e8c026b27adccc8c1f0032/README.md",
+            "https://github.com/allenai/OLMo/blob/090253dac6688f2532509daa7aa2eb5fae50e956/LICENSE"
+          ]
+        },
+        "maintenance": {
+          "status": "observed",
+          "label": "维护入口已迁移",
+          "detail": "原 OLMo 仓库说明已停止活跃维护，后续开发转到 OLMo-core；旧版本证据保留。",
+          "sources": [
+            "https://github.com/allenai/OLMo/blob/090253dac6688f2532509daa7aa2eb5fae50e956/README.md",
+            "https://github.com/allenai/OLMo-core"
+          ]
+        }
+      },
+      "retrieval": {
+        "api_url": "https://huggingface.co/api/models/allenai/OLMo-2-1124-7B",
+        "api_sha256": "841bb7ebdc04feef6bb8dc9727132779d3012288cc08a26ab588865af1aa7938",
+        "gated": false,
+        "revision_note": "模型仓库读取时的提交；条款和维护页面另标日期"
+      }
+    },
+    {
+      "model_id": "meta-llama/Llama-3.1-8B",
+      "title": "Llama-3.1-8B",
+      "publisher": "Meta",
+      "revision": "d04e592bb4f6aa9cfee91e2e20afa771667e1d4b",
+      "checked_at": "2026-10-17",
+      "official_url": "https://huggingface.co/meta-llama/Llama-3.1-8B",
+      "fixed_card_url": "https://huggingface.co/meta-llama/Llama-3.1-8B/blob/d04e592bb4f6aa9cfee91e2e20afa771667e1d4b/README.md",
+      "summary": "权重与推理使用有明确入口；使用和再分发须结合本版本社区条款。",
+      "sample_relation": "2026-10-17补充核验案例；不代表原870模型集合，也不替代源站等级",
+      "fields": {
+        "weights": {
+          "status": "observed",
+          "label": "接受条款后访问",
+          "detail": "公开文件清单列出权重分片；Hugging Face 页面要求登录、分享联系信息并接受条款。",
+          "sources": [
+            "https://huggingface.co/meta-llama/Llama-3.1-8B",
+            "https://huggingface.co/meta-llama/Llama-3.1-8B/tree/d04e592bb4f6aa9cfee91e2e20afa771667e1d4b"
+          ]
+        },
+        "inference_code": {
+          "status": "observed",
+          "label": "推理使用示例可用",
+          "detail": "官方模型卡提供 Transformers 与 Llama 运行入口。",
+          "sources": [
+            "https://huggingface.co/meta-llama/Llama-3.1-8B"
+          ]
+        },
+        "pretraining_code": {
+          "status": "unknown",
+          "label": "完整预训练代码待核",
+          "detail": "本次已核验模型卡与官方仓库入口，未取得该版本完整预训练运行链。",
+          "sources": [
+            "https://huggingface.co/meta-llama/Llama-3.1-8B",
+            "https://github.com/meta-llama/llama-models"
+          ]
+        },
+        "data_information": {
+          "status": "observed",
+          "label": "来源范围与截止期",
+          "detail": "模型卡给出预训练数据规模、公开来源范围及截止期；不是逐项训练语料清单。",
+          "sources": [
+            "https://huggingface.co/meta-llama/Llama-3.1-8B"
+          ]
+        },
+        "license": {
+          "status": "observed",
+          "label": "Llama 3.1 Community",
+          "detail": "条款包含归属与再分发要求、可接受使用政策及特定用户规模下的额外商业授权条件。",
+          "sources": [
+            "https://github.com/meta-llama/llama-models/blob/0e0b8c519242d5833d8c11bffc1232b77ad7f301/models/llama3_1/LICENSE"
+          ]
+        },
+        "maintenance": {
+          "status": "observed",
+          "label": "公开反馈入口",
+          "detail": "官方模型库提供问题反馈渠道；具体版本为静态训练模型。",
+          "sources": [
+            "https://huggingface.co/meta-llama/Llama-3.1-8B",
+            "https://github.com/meta-llama/llama-models/issues"
+          ]
+        }
+      },
+      "retrieval": {
+        "api_url": "https://huggingface.co/api/models/meta-llama/Llama-3.1-8B",
+        "api_sha256": "8b937b9387aba42e36413ba728210663f8da252ad16023cee94776bc3e210c7c",
+        "gated": "manual",
+        "revision_note": "模型仓库读取时的提交；条款和维护页面另标日期"
+      }
+    },
+    {
+      "model_id": "google/gemma-2-9b",
+      "title": "Gemma-2-9B",
+      "publisher": "Google",
+      "revision": "33c193028431c2fde6c6e51f29e6f17b60cbfac6",
+      "checked_at": "2026-10-17",
+      "official_url": "https://huggingface.co/google/gemma-2-9b",
+      "fixed_card_url": "https://huggingface.co/google/gemma-2-9b/blob/33c193028431c2fde6c6e51f29e6f17b60cbfac6/README.md",
+      "summary": "权重可申请访问，数据处理有概要说明；许可采用 Gemma 专有条款。",
+      "sample_relation": "2026-10-17补充核验案例；不代表原870模型集合，也不替代源站等级",
+      "fields": {
+        "weights": {
+          "status": "observed",
+          "label": "接受条款后访问",
+          "detail": "公开文件清单列出权重；页面要求登录并接受 Gemma 使用条款。",
+          "sources": [
+            "https://huggingface.co/google/gemma-2-9b",
+            "https://huggingface.co/google/gemma-2-9b/tree/33c193028431c2fde6c6e51f29e6f17b60cbfac6"
+          ]
+        },
+        "inference_code": {
+          "status": "observed",
+          "label": "推理使用示例可用",
+          "detail": "官方模型卡给出 Transformers 的运行示例。",
+          "sources": [
+            "https://huggingface.co/google/gemma-2-9b"
+          ]
+        },
+        "pretraining_code": {
+          "status": "unknown",
+          "label": "完整预训练代码待核",
+          "detail": "未在此次核验资料中取得该版本完整预训练运行链；推理示例不能替代。",
+          "sources": [
+            "https://huggingface.co/google/gemma-2-9b"
+          ]
+        },
+        "data_information": {
+          "status": "observed",
+          "label": "数据类型与处理概要",
+          "detail": "模型卡说明网页、代码、数学语料及清洗过滤方式；未提供逐项完整来源清单。",
+          "sources": [
+            "https://huggingface.co/google/gemma-2-9b"
+          ]
+        },
+        "license": {
+          "status": "observed",
+          "label": "Gemma Terms",
+          "detail": "核验条款标注 2026-04-01，适用列表含 Gemma 2；包含用途限制及再分发传递要求。",
+          "sources": [
+            "https://ai.google.dev/gemma/terms"
+          ]
+        },
+        "maintenance": {
+          "status": "observed",
+          "label": "公开反馈入口",
+          "detail": "官方模型讨论区与技术文档可查；不据此推断维护响应速度。",
+          "sources": [
+            "https://huggingface.co/google/gemma-2-9b/discussions",
+            "https://ai.google.dev/gemma/docs"
+          ]
+        }
+      },
+      "retrieval": {
+        "api_url": "https://huggingface.co/api/models/google/gemma-2-9b",
+        "api_sha256": "6b7b3aaf5dd8a79d6c5bbc7259294e38462ac28c4155ca5c538999a1df5a17c0",
+        "gated": "manual",
+        "revision_note": "模型仓库读取时的提交；条款和维护页面另标日期"
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": "2.0",
   "edition": 2026,
   "structure_version": "0.6-chapter1-interactive-preview",
-  "updated_at": "2026-10-12",
+  "updated_at": "2026-10-17",
   "status": "content-preview",
   "title": {
     "zh": "2026 全球开源发展报告",
@@ -691,15 +691,15 @@
             "en": "Who supplies models, and how is the supply structure changing?"
           },
           "presentation": {
-            "zh": "供给趋势、家族与发布者分布",
+            "zh": "供给趋势、全球分布、发布节奏与中美专题",
             "en": "Supply trends, families and publishers"
           },
           "source_path": "chapters/chapter5/5.1-供给与贡献.md",
-          "status": "outline",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked-review",
           "anchor": "ch05-s01",
           "source_heading": null,
-          "next_action": "提供本节发现、材料与来源"
+          "next_action": "整章评审：核对发现、交互与行动建议"
         },
         {
           "id": "ch05-s02",
@@ -713,18 +713,18 @@
             "en": "How do models spread through derivation and reuse?"
           },
           "presentation": {
-            "zh": "复用关系图、ModelRank 方法",
+            "zh": "派生趋势、二维与三维关系网络、跨地区关联与头部结构",
             "en": "Reuse network and ModelRank methodology"
           },
           "source_path": "chapters/chapter5/5.2-网络与影响力.md",
-          "status": "outline",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked-review",
           "related": [
             "ch03-s06"
           ],
           "anchor": "ch05-s02",
           "source_heading": null,
-          "next_action": "提供本节发现、材料与来源"
+          "next_action": "整章评审：核对发现、交互与行动建议"
         },
         {
           "id": "ch05-s03",
@@ -738,25 +738,25 @@
             "en": "How do code, weights, data and governance describe openness?"
           },
           "presentation": {
-            "zh": "开放属性矩阵、可复核案例",
+            "zh": "开放分类、分组结构与版本化证据档案",
             "en": "Openness attribute matrix and verifiable cases"
           },
           "source_path": "chapters/chapter5/5.3-开源开放与分级体系.md",
-          "status": "outline",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "source-linked-review",
           "related": [
             "appendix-c"
           ],
           "anchor": "ch05-s03",
           "source_heading": null,
-          "next_action": "提供本节发现、材料与来源"
+          "next_action": "整章评审：核对发现、交互与行动建议"
         }
       ],
-      "status": "outline",
+      "status": "preview",
       "template": "chapter",
       "introduction_source": null,
       "section_pattern": "model-research",
-      "research_status": "pending-review",
+      "research_status": "source-linked-review",
       "label": "GOSM",
       "core_chapter": true
     },
@@ -938,8 +938,8 @@
       "id": "appendix-c",
       "route": "appendices/dpg/",
       "title": {
-        "zh": "附录 C：开源人工智能数字公共产品评估框架",
-        "en": "Appendix C: open source AI digital public goods assessment"
+        "zh": "附录 C：模型开放条件与数字公共品研究参照",
+        "en": "Appendix C: Model openness and digital public goods"
       },
       "question": {
         "zh": "如何组织公共价值的评估与证据？",
@@ -947,7 +947,7 @@
       },
       "kind": "dpg",
       "source_path": "appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md",
-      "status": "draft",
+      "status": "preview",
       "template": "methodology",
       "research_status": "pending-review"
     },

@@ -1,0 +1,81 @@
+{
+  "title": "模型声明的基座—派生关系样本",
+  "snapshotAtDeclared": "2026-10-16T13:35:14.000Z",
+  "snapshotDateStatus": "Live artifact revision/date matches official upstream Dataset API on 2026-10-17; full sampling not independently reconstructed.",
+  "collectedAt": "2026-10-17",
+  "sourceRepository": "https://github.com/yaoyao-pig/OG-And-HG-2026",
+  "sourceCommit": "7f69f2fbd27860f1f207be197dfe0597216d7b0d",
+  "sourceFile": "https://yaoyao-pig.github.io/OG-And-HG-2026/data/huggingface.json",
+  "sourceFileSHA256": "f80759a0fad18de131259467ee3fd1e2164129aa592309e949a991e3a993a396",
+  "sourceBuildDefinition": "https://github.com/yaoyao-pig/OG-And-HG-2026/blob/7f69f2fbd27860f1f207be197dfe0597216d7b0d/visualization/scripts/build_hf_graph.py#L564-L570",
+  "upstreamDataset": "https://huggingface.co/datasets/cfahlgren1/hub-stats",
+  "upstreamRevisionDeclared": "8d339bcff8f994637cd55e9efbd9dcd9c3b0ae20",
+  "upstreamLicenseDeclared": "apache-2.0",
+  "sourceRepositoryLicense": "No LICENSE file found at pinned commit. Presentation code not copied; metadata/relations extracted with provenance.",
+  "edgeDirection": "source = base model; target = derived model. Original s=derived,t=base has been reversed.",
+  "edgeType": "model-card-declared-base-model",
+  "relationSubtypes": "Original export collapses finetune/adapter/other into base-model; no subtype inferred.",
+  "countryCoverage": "No publisher-country field in source graph; do not infer from account names.",
+  "nodeSizeSuggestion": "Within-sample direct downstream model count; not ModelRank.",
+  "layoutSemantics": "x/y preserve the reference graph coordinates. Original layout used observed and inferred relations; positions are navigational, not quantitative.",
+  "selection": "All endpoints of base-model edges with inferred=0 from the fixed 24,000-artifact reference graph.",
+  "sampling": {
+    "models": {
+      "config": "models",
+      "split": "train",
+      "offset": 0,
+      "endOffsetExclusive": 12000,
+      "count": 12000,
+      "pageSize": 100,
+      "pageCount": 120,
+      "sampling": "contiguous-dataset-order",
+      "totalRows": 3158809,
+      "truncatedCells": 0
+    },
+    "datasets": {
+      "config": "datasets",
+      "split": "train",
+      "offset": 0,
+      "endOffsetExclusive": 7000,
+      "count": 7000,
+      "pageSize": 100,
+      "pageCount": 70,
+      "sampling": "contiguous-dataset-order",
+      "totalRows": 1093040,
+      "truncatedCells": 0
+    },
+    "spaces": {
+      "config": "spaces",
+      "split": "train",
+      "offset": 0,
+      "endOffsetExclusive": 5000,
+      "count": 5000,
+      "pageSize": 100,
+      "pageCount": 50,
+      "sampling": "contiguous-dataset-order",
+      "totalRows": 1500955,
+      "truncatedCells": 0
+    }
+  },
+  "excluded": {
+    "uses-model": 595,
+    "uses-dataset": 51,
+    "declared-dataset": 1318,
+    "same-author": 13272,
+    "inferred-task": 23958,
+    "inferred-taxonomy": 8
+  },
+  "limitations": [
+    "Non-random contiguous 12,000-model input sample, not all Hugging Face models.",
+    "Only relationships whose two endpoints are present were retained by upstream.",
+    "One edge per unordered node pair was retained by upstream priority rules; parallel relationship types are not preserved.",
+    "Descriptions/downloads/likes are source snapshot metadata; neither capability scores nor ModelRank.",
+    "Separate from report country-flow snapshot dated 2026-09-13."
+  ],
+  "nodeCount": 5777,
+  "edgeCount": 5111,
+  "componentCount": 727,
+  "largestComponent": 490,
+  "sourceCommitMeaning": "Pinned reference-site implementation commit; the live graph is built daily and is pinned here by downloaded-file SHA-256 plus upstream dataset revision.",
+  "upstreamLicenseEvidence": "https://huggingface.co/datasets/cfahlgren1/hub-stats/blob/8d339bcff8f994637cd55e9efbd9dcd9c3b0ae20/README.md"
+}

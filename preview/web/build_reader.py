@@ -6,6 +6,7 @@ import report_content as report
 import goso_content as goso
 import gosr_content as gosr
 import landscape_content as landscape
+import gosm_content as gosm
 from urllib.parse import quote
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -38,6 +39,8 @@ def body(u,lang):
     if u['id']=='ch02':return goso.chapter(lang)
     if u['id']=='ch03':return gosr.chapter(lang)
     if u['id']=='ch04':return landscape.chapter(lang)
+    if u['id']=='ch05':return gosm.chapter(lang)
+    if u['kind']=='dpg':return gosm.appendix(lang)
     if u['kind']=='methods':return report.methods(lang)
     out=[]
     if 'sections' in u:

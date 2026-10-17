@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-17",
+  "original_report": {
+    "size": 870,
+    "extraction_date": "2026-09-14",
+    "reassessed": false,
+    "high_completeness": [
+      "L3",
+      "L4",
+      "L5"
+    ],
+    "low_completeness": [
+      "L1",
+      "L2"
+    ],
+    "high_openness": [
+      "O2",
+      "O3",
+      "O4"
+    ],
+    "low_openness": [
+      "O1"
+    ],
+    "identity_list_status": "原870身份列表未取得，不从当前884倒减或推定"
+  },
+  "supplement": {
+    "size": 884,
+    "date": "2026-10-17",
+    "reassessed": false,
+    "mode": "strict",
+    "levels_present": {
+      "L1": 72,
+      "L2": 637,
+      "L3": 157,
+      "L4": 8,
+      "L5": 10,
+      "O1": 270,
+      "O2": 10,
+      "O3": 604,
+      "O4": 0
+    },
+    "license_grade_evidence_mismatches": 22,
+    "method_status": "当前前端与API可核对等级名称、19项完整性材料及3项许可字段，未找到可冻结的完整规则/评分代码版本；不能据此重现原870判级。"
+  },
+  "completeness_levels": [
+    {
+      "id": "L1",
+      "label": "开放部署级",
+      "indicators": [
+        {
+          "id": "L1_weights",
+          "label": "模型权重"
+        },
+        {
+          "id": "L1_config",
+          "label": "模型配置文件"
+        },
+        {
+          "id": "L1_tokenizer",
+          "label": "分词器文件"
+        },
+        {
+          "id": "L1_infer_code",
+          "label": "推理脚本"
+        },
+        {
+          "id": "L1_infer_env",
+          "label": "推理环境说明"
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "label": "模型理解级",
+      "indicators": [
+        {
+          "id": "L2_principle",
+          "label": "模型实现原理说明"
+        },
+        {
+          "id": "L2_training",
+          "label": "训练过程说明"
+        },
+        {
+          "id": "L2_test_results",
+          "label": "测试结果"
+        }
+      ]
+    },
+    {
+      "id": "L3",
+      "label": "训练公开级",
+      "indicators": [
+        {
+          "id": "L3_train_code",
+          "label": "训练代码"
+        },
+        {
+          "id": "L3_train_data",
+          "label": "训练数据"
+        },
+        {
+          "id": "L3_train_env",
+          "label": "训练环境说明"
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "label": "模型验证级",
+      "indicators": [
+        {
+          "id": "L4_eval_code",
+          "label": "测试代码"
+        },
+        {
+          "id": "L4_eval_data",
+          "label": "测试数据"
+        },
+        {
+          "id": "L4_eval_env",
+          "label": "测试环境说明"
+        },
+        {
+          "id": "L4_no_overlap",
+          "label": "无重叠声明"
+        }
+      ]
+    },
+    {
+      "id": "L5",
+      "label": "全链开源级",
+      "indicators": [
+        {
+          "id": "L5_data_prep",
+          "label": "数据预处理脚本"
+        },
+        {
+          "id": "L5_data_clean",
+          "label": "数据清洗脚本"
+        },
+        {
+          "id": "L5_raw_data",
+          "label": "原始数据说明"
+        },
+        {
+          "id": "L5_reproduce",
+          "label": "复现指导"
+        }
+      ]
+    }
+  ],
+  "license_fields": [
+    {
+      "id": "model_license_grade",
+      "label": "模型许可证等级"
+    },
+    {
+      "id": "code_license_qualification",
+      "label": "代码许可证资质"
+    },
+    {
+      "id": "data_license_qualification",
+      "label": "数据许可证资质"
+    }
+  ],
+  "openness_rule_note": "API证据解释提到取已披露模型/代码/数据许可桶中的限制较强值，但部分行最终openness_level与model_license_grade.raw_value不同。O1—O4的完整判断表及人工复核流程未取得。只报告源站等级，不自行解释为OSI/DPGA资格或重算。",
+  "evidence_status_note": "完整性材料的complete/partial/missing为源站评估记录；许可字段相同词用于资质判断，并不表示许可文件存在与否。data_license_qualification=complete有时表示未披露独立许可但没有阻断资格，不能据此标记数据许可已开放。",
+  "primary_standards": [
+    {
+      "name": "OSI OSAID 1.0",
+      "url": "https://opensource.org/ai/open-source-ai-definition",
+      "version": "1.0",
+      "focus": "使用、研究、修改、分享四项自由；修改所需的数据说明、训练与运行代码、参数及相应开放条款。数据说明不等于必须公开所有原始训练数据。"
+    },
+    {
+      "name": "DPGA Standard",
+      "url": "https://www.digitalpublicgoods.net/standard",
+      "version": "官网现行九项指标；读取2026-10-17",
+      "focus": "以正式评审和DPG Registry记录确认认可；报告研究分级不能授予DPG资格。"
+    }
+  ]
+}
