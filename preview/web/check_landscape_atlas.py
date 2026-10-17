@@ -29,7 +29,7 @@ for layer,layout in A.LAYOUTS.items():
         boxes.append((x,y,w,h))
         rects=[]
         for tile in [n for n in g.iter() if 'data-atlas-project' in n.attrib]:
-            r=next(n for n in tile if n.attrib.get('class')=='atlas-project-bg')
+            r=next(n for n in tile if n.attrib.get('class')=='al-atlas-project-bg')
             px,py,pw,ph=[float(r.attrib[k]) for k in ['x','y','width','height']]
             assert x<=px and y<=py and px+pw<=x+w and py+ph<=y+h
             for ox,oy,ow,oh in rects:
@@ -42,7 +42,7 @@ for layer,layout in A.LAYOUTS.items():
 assert len(seen)==145 and len(set(seen))==145
 page=(args.output/'2026/zh/chapters/04/index.html').read_text()
 assert 'data-atlas-version="4.1-atlas-v1"' in page
-assert 'landscape-atlas.js?v=4.1-atlas-v1' in page
+assert 'landscape-atlas.js?v=4.1-polish-v1' in page
 assert page.count('data-atlas-month')==2 and page.count('data-atlas-search')==2
 assert 'data-search=' not in page and 'id="al-month"' not in page
 print('PASS structural atlas: 145 unique projects, 25 exact categories, two 1600×900 plates, non-overlapping module/project bounds, complete names, keyboard controls and independent local selectors.')

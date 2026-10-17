@@ -61,36 +61,36 @@ def category(key, x, y, w, h, cols):
     cw=(w-left-10)/cols
     rows=math.ceil(len(pp)/cols)
     ch=(h-top-6)/rows
-    parts=[f'<g class="atlas-category" data-atlas-section="{E(key)}" data-box="{x} {y} {w} {h}">',
-        f'<rect class="atlas-category-bg" x="{x}" y="{y}" width="{w}" height="{h}" rx="7" fill="var(--gv-surface)" stroke="var(--atlas-line)" stroke-width="1.2"/>',
-        f'<g role="button" tabindex="0" class="atlas-category-title" data-atlas-category="{E(key)}" aria-label="查看{E(title)}模块" aria-pressed="false"><title>{E(key)} · {E(L.SECMAP[key]["description"])}</title>',
+    parts=[f'<g class="al-atlas-category" data-atlas-section="{E(key)}" data-box="{x} {y} {w} {h}">',
+        f'<rect class="al-atlas-category-bg" x="{x}" y="{y}" width="{w}" height="{h}" rx="7" fill="var(--gv-surface)" stroke="var(--atlas-line)" stroke-width="1.2"/>',
+        f'<g role="button" tabindex="0" class="al-atlas-category-title" data-atlas-category="{E(key)}" aria-label="查看{E(title)}模块" aria-pressed="false"><title>{E(key)} · {E(L.SECMAP[key]["description"])}</title>',
         f'<rect x="{x+1}" y="{y+1}" width="{174 if compact else w-2}" height="{h-2 if compact else 27}" rx="6" fill="var(--atlas-soft)"/>',
         tx(x+12,y+26 if compact else y+20,title,16,'font-weight="650"'),
         '</g>',
-        tx(x+w-10,y+19,'',12,'class="atlas-category-stat" text-anchor="end" fill="var(--gv-muted)"')]
+        tx(x+w-10,y+19,'',12,'class="al-atlas-category-stat" text-anchor="end" fill="var(--gv-muted)"')]
     for i,p in enumerate(pp):
         px=x+left+(i%cols)*cw;py=y+top+(i//cols)*ch
         logo=min(25,ch-6);avail=cw-logo-18
         font=min(17,max(11.5,avail/max(1,len(p['name'])*.66)))
         yy=py+ch/2
-        parts += [f'<g role="button" tabindex="0" class="atlas-project" data-atlas-project="{p["id"]}" data-atlas-category-key="{E(key)}" aria-pressed="false" aria-label="{E(p["name"])}，查看项目详情"><title>{E(p["name"])} · {E(p["repo"])}</title>',
-            f'<rect class="atlas-project-bg" x="{px}" y="{py+1}" width="{cw-5}" height="{ch-2}" rx="4" fill="var(--atlas-accent)" fill-opacity="0" stroke="none"/>']
+        parts += [f'<g role="button" tabindex="0" class="al-atlas-project" data-atlas-project="{p["id"]}" data-atlas-category-key="{E(key)}" aria-pressed="false" aria-label="{E(p["name"])}，查看项目详情"><title>{E(p["name"])} · {E(p["repo"])}</title>',
+            f'<rect class="al-atlas-project-bg" x="{px}" y="{py+1}" width="{cw-5}" height="{ch-2}" rx="4" fill="var(--atlas-accent)" fill-opacity="0" stroke="none"/>']
         if p['logo']:
             parts += [f'<rect x="{px+3}" y="{yy-logo/2}" width="{logo}" height="{logo}" rx="4" fill="#fff"/>',f'<image href="/assets/landscape/logos/{E(p["logo"])}" x="{px+3}" y="{yy-logo/2}" width="{logo}" height="{logo}" preserveAspectRatio="xMidYMid meet"/>']
         else: parts += [tx(px+7,yy+5,p['name'][0].upper(),16,'fill="var(--atlas-accent)" font-weight="700"')]
         parts += [tx(px+logo+9,yy+5,p['name'],round(font,2),'font-weight="550"'),
-            f'<rect class="atlas-value-bar" x="{px+logo+9}" y="{py+ch-3}" width="0" height="2" fill="var(--atlas-accent)" data-max-width="{avail}"/>','</g>']
+            f'<rect class="al-atlas-value-bar" x="{px+logo+9}" y="{py+ch-3}" width="0" height="2" fill="var(--atlas-accent)" data-max-width="{avail}"/>','</g>']
     parts += ['</g>']
     return ''.join(parts)
 
 def map_svg(layer):
     agent=layer=='Agent Infra'
     count=86 if agent else 59
-    parts=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="group" aria-label="{layer} 交互式结构全景" class="atlas-svg"><rect width="{W}" height="{H}" fill="var(--gv-surface)"/>',
+    parts=[f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" role="group" aria-label="{layer} 交互式结构全景" class="al-atlas-svg"><rect width="{W}" height="{H}" fill="var(--gv-surface)"/>',
         tx(64,35,layer+' Landscape',31,'font-weight="750" letter-spacing="-0.6"'),
         tx(1584,29,f'{count} 个项目 · {12 if agent else 13} 个类别',18,'text-anchor="end" fill="var(--atlas-accent)" font-weight="650"'),
-        tx(1584,52,'',14,'class="atlas-period" text-anchor="end" fill="var(--gv-muted)"'),
-        f'<defs><clipPath id="{"agent" if agent else "model"}-board-clip"><rect x="0" y="58" width="1600" height="716"/></clipPath></defs><g clip-path="url(#{"agent" if agent else "model"}-board-clip)"><g class="atlas-board">',
+        tx(1584,52,'',14,'class="al-atlas-period" text-anchor="end" fill="var(--gv-muted)"'),
+        f'<defs><clipPath id="{"agent" if agent else "model"}-board-clip"><rect x="0" y="58" width="1600" height="716"/></clipPath></defs><g clip-path="url(#{"agent" if agent else "model"}-board-clip)"><g class="al-atlas-board">',
         '<rect x="14" y="83" width="30" height="683" rx="11" fill="var(--atlas-soft)" stroke="var(--atlas-line)"/>',
         f'<text transform="translate(34 430) rotate(-90)" text-anchor="middle" font-size="16" font-weight="700" fill="var(--atlas-accent)">{"任务入口 ← 编排构建 ← 运行支撑" if agent else "模型服务 ← 模型能力 ← 数据与算力"}</text>']
     if agent:
@@ -100,8 +100,8 @@ def map_svg(layer):
     for args in LAYOUTS[layer]: parts.append(category(*args))
     if agent:
         parts += ['<rect x="1070" y="702" width="514" height="64" rx="7" fill="var(--atlas-soft)" stroke="var(--atlas-line)" stroke-dasharray="5 4"/>',tx(1084,728,'↓ 连接 Model Infra 的模型服务',18,'font-weight="650"'),tx(1084,751,'模型 API 网关 / 部署 / 推理，为 Agent 提供模型能力',14,'fill="var(--gv-muted)"')]
-    parts += ['</g></g>', '<g class="atlas-inspector" aria-live="polite"></g>',tx(64,892,'功能关系示意 · 非项目依赖图。标识为仓库所有者图标；分类与样本沿用固定主表。',12,'fill="var(--gv-muted)"'),'</svg>']
+    parts += ['</g></g>', '<g class="al-atlas-inspector" aria-live="polite"></g>',tx(64,892,'功能关系示意 · 非项目依赖图。标识为仓库所有者图标；分类与样本沿用固定主表。',12,'fill="var(--gv-muted)"'),'</svg>']
     return ''.join(parts)
 
 def controls(id, months):
-    return f'''<div class="atlas-controls" aria-label="全景操作"><div class="atlas-control-row"><div class="atlas-lenses" role="group" aria-label="观察方式"><button type="button" data-atlas-lens="structure" aria-pressed="true">技术结构</button><button type="button" data-atlas-lens="influence" aria-pressed="false">影响力</button><button type="button" data-atlas-lens="change" aria-pressed="false">月度变化</button></div><label class="atlas-search">查找项目<input type="search" data-atlas-search placeholder="名称 / 仓库 / 类别" aria-label="查找{id}中的项目"></label><label>月份<select data-atlas-month>{''.join(f'<option value="{i}">{m}</option>' for i,m in reversed(list(enumerate(months))))}</select></label><button type="button" data-atlas-reset>恢复全景</button></div><div class="atlas-control-row atlas-routes" role="group" aria-label="从场景理解技术结构"></div><p class="atlas-hint">点模块标题看作用与代表项目，点项目看指标与轨迹。双击模块可放大；全屏可一页查看。</p></div>'''
+    return f'''<div class="al-atlas-controls" aria-label="全景操作"><div class="al-atlas-control-row"><div class="al-atlas-lenses" role="group" aria-label="观察方式"><button type="button" data-atlas-lens="structure" aria-pressed="true">技术结构</button><button type="button" data-atlas-lens="influence" aria-pressed="false">影响力</button><button type="button" data-atlas-lens="change" aria-pressed="false">月度变化</button></div><label class="al-atlas-search">查找项目<input type="search" data-atlas-search placeholder="名称 / 仓库 / 类别" aria-label="查找{id}中的项目"></label><label>月份<select data-atlas-month>{''.join(f'<option value="{i}">{m}</option>' for i,m in reversed(list(enumerate(months))))}</select></label><button type="button" data-atlas-reset>恢复全景</button></div><div class="al-atlas-control-row al-atlas-routes" role="group" aria-label="从场景理解技术结构"></div><p class="al-atlas-hint">点模块标题看作用与代表项目，点项目看指标与轨迹。双击模块可放大；全屏可一页查看。</p></div>'''

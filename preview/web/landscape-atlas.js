@@ -134,9 +134,9 @@
       const panel = document.getElementById(id);
       if (!panel || panel.dataset.atlasReady) continue;
       panel.dataset.atlasReady = "true";
-      const svg = panel.querySelector(".atlas-svg"),
-        board = svg.querySelector(".atlas-board"),
-        inspector = svg.querySelector(".atlas-inspector");
+      const svg = panel.querySelector(".al-atlas-svg"),
+        board = svg.querySelector(".al-atlas-board"),
+        inspector = svg.querySelector(".al-atlas-inspector");
       const pp = M.projects(layer),
         LAST = D.months.length - 1;
       const c = {
@@ -153,7 +153,7 @@
         tiles = [...svg.querySelectorAll("[data-atlas-project]")];
       const input = panel.querySelector("[data-atlas-search]"),
         month = panel.querySelector("[data-atlas-month]");
-      const routeHost = panel.querySelector(".atlas-routes");
+      const routeHost = panel.querySelector(".al-atlas-routes");
       routeHost.innerHTML =
         "<span>场景聚焦</span>" +
         routes
@@ -401,8 +401,9 @@
             const action = n.dataset.atlasCommand;
             command(action, n.dataset.value);
             if (action !== "more") {
-              const next = inspector.querySelector(`[data-atlas-command="${action}"]`) ||
-                tiles.find(tile => tile.dataset.atlasProject === c.project) ||
+              const next =
+                inspector.querySelector(`[data-atlas-command="${action}"]`) ||
+                tiles.find((tile) => tile.dataset.atlasProject === c.project) ||
                 inspector.querySelector('[data-atlas-command="reset"]');
               next?.focus({ preventScroll: true });
             }
@@ -424,11 +425,11 @@
             (!route.keys.length || route.keys.includes(key)) &&
             (!c.section || c.section === key);
           g.setAttribute("opacity", relevant ? "1" : "0.22");
-          g.querySelector(".atlas-category-bg").setAttribute(
+          g.querySelector(".al-atlas-category-bg").setAttribute(
             "stroke",
             c.section === key ? "var(--atlas-accent)" : "var(--atlas-line)",
           );
-          g.querySelector(".atlas-category-bg").setAttribute(
+          g.querySelector(".al-atlas-category-bg").setAttribute(
             "stroke-width",
             c.section === key ? "2.5" : "1.2",
           );
@@ -445,7 +446,7 @@
                   ? "环比 —"
                   : `${r.change > 0 ? "↑" : r.change < 0 ? "↓" : "→"} ${F(Math.abs(r.change) * 100)}%`;
           if (key === "Compute & scheduling") label = "";
-          g.querySelector(".atlas-category-stat").textContent = label;
+          g.querySelector(".al-atlas-category-stat").textContent = label;
         }
         for (const g of tiles) {
           const p = pp.find((x) => x.id === g.dataset.atlasProject),
@@ -464,7 +465,7 @@
           const selected = c.project === p.id;
           g.setAttribute("aria-pressed", String(selected));
           g.setAttribute("opacity", hit ? "1" : "0.14");
-          const bg = g.querySelector(".atlas-project-bg");
+          const bg = g.querySelector(".al-atlas-project-bg");
           let strength = 0,
             tint = "var(--atlas-accent)";
           if (c.lens === "influence" && value !== null)
@@ -489,7 +490,7 @@
             "stroke-dasharray",
             !selected && value === null ? "3 3" : "none",
           );
-          const bar = g.querySelector(".atlas-value-bar");
+          const bar = g.querySelector(".al-atlas-value-bar");
           bar.setAttribute("fill", tint);
           bar.setAttribute(
             "width",
@@ -508,7 +509,7 @@
           g.querySelector("title").textContent =
             `${p.name} · ${p.repo}\n${D.months[c.month]} OpenRank ${F(value)} · ${M.status(p, c.month)}\n月环比 ${change === null ? "不可计算" : (change > 0 ? "+" : "") + F(change * 100) + "%"}\n点击查看图内详情`;
         }
-        svg.querySelector(".atlas-period").textContent =
+        svg.querySelector(".al-atlas-period").textContent =
           `${D.months[c.month]} · ${c.lens === "structure" ? "固定分类 / 空间位置不随排名变化" : c.lens === "influence" ? "色带强度 = OpenRank（对数刻度）" : "青绿 = 上升 / 橙色 = 下降 / 无色 = 不可比或不变"}`;
         panel
           .querySelectorAll("[data-atlas-lens]")

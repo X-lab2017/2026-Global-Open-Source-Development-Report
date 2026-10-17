@@ -277,23 +277,13 @@
       countries: ["US", "CN", "GB"],
     },
   };
-  const palette = [
-    "#287dac",
-    "#bf7f2d",
-    "#28998d",
-    "#8065a4",
-    "#c4637f",
-    "#687dbd",
-    "#658e3c",
-    "#b25d40",
-    "#358eae",
-    "#a562ad",
-    "#87943f",
-    "#4866a2",
-    "#bc7586",
-  ];
-  const color = (k) =>
-    palette[Object.keys(D.sections).indexOf(k) % palette.length];
+  const palette = Array.from({ length: 8 }, (_, i) => `var(--gv-s${i})`);
+  const countryColor = (code) => {
+    const index = { US: 0, CN: 5, DE: 3, IN: 1, GB: 6, JP: 4, CA: 2, OTHER: 7 }[
+      code
+    ];
+    return index === undefined ? "var(--gv-muted)" : palette[index];
+  };
   const E = (s) =>
     String(s ?? "").replace(
       /[&<>"']/g,
@@ -327,7 +317,10 @@
     `${D.months[start(c)]}—${D.months[LAST]} · ${c.window} 个月`;
   const countryScope = (c) =>
     c.section && c.section !== "all" ? catName(c.section) : scopeName(c.scope);
-  const cc = (code) => D.countries.find((c) => c.code === code);
+  const cc = (code) => ({
+    ...D.countries.find((c) => c.code === code),
+    color: countryColor(code),
+  });
   const text = (x, y, s, attrs = "") =>
     `<text x="${x}" y="${y}" ${attrs}>${E(s)}</text>`;
   const svg = (w, h, b, label) =>
@@ -335,6 +328,11 @@
   const mark = (action, value, label, b, selected = false) =>
     `<g role="button" tabindex="0" data-action="${action}" data-value="${E(value)}" aria-pressed="${selected}" aria-label="${E(label)}"><title>${E(label)}</title>${b}</g>`;
   function contrastInk(hex) {
+    hex = hex.replace(/var\((--[\w-]+)\)/g, (_, key) =>
+      getComputedStyle(document.querySelector(".al-chapter"))
+        .getPropertyValue(key)
+        .trim(),
+    );
     let rgb = hex
       .slice(1)
       .match(/../g)
@@ -395,14 +393,14 @@
           )
             .map(
               (k) =>
-                `<button type="button" data-action="${multi ? "compare-category" : "project-category"}" data-value="${E(k)}" aria-pressed="${selected.includes(k)}" style="--al-choice-color:${color(k)}">${E(catName(k))}</button>`,
+                `<button type="button" data-action="${multi ? "compare-category" : "project-category"}" data-value="${E(k)}" aria-pressed="${selected.includes(k)}" style="--al-choice-color:${multi ? palette[Math.max(0, selected.indexOf(k))] : "var(--gv-brand)"}">${E(catName(k))}</button>`,
             )
             .join("")}</div></div>`,
       )
       .join("")}</div>`;
   }
   function countryPicker(c, max = 9) {
-    return `<fieldset class="al-country-picker"><legend>关注国家${max < 9 ? " · 最多 " + max + " 个" : ""}</legend><div>${D.countries.map((x) => `<label style="--al-choice-color:${x.color}"><input type="checkbox" data-country-check="${x.code}" ${c.countries.includes(x.code) ? "checked" : ""}>${x.name}</label>`).join("")}<button type="button" data-action="countries-reset">${max < 9 ? "默认三个" : "恢复默认"}</button>${max === 9 ? '<button type="button" data-action="countries-all">全部</button><button type="button" data-action="countries-none">清空</button>' : ""}</div></fieldset>`;
+    return `<fieldset class="al-country-picker"><legend>关注国家${max < 9 ? " · 最多 " + max + " 个" : ""}</legend><div>${D.countries.map((x) => `<label style="--al-choice-color:${countryColor(x.code)}"><input type="checkbox" data-country-check="${x.code}" ${c.countries.includes(x.code) ? "checked" : ""}>${x.name}</label>`).join("")}<button type="button" data-action="countries-reset">${max < 9 ? "默认三个" : "恢复默认"}</button>${max === 9 ? '<button type="button" data-action="countries-all">全部</button><button type="button" data-action="countries-none">清空</button>' : ""}</div></fieldset>`;
   }
   function categoryScopeSelect(id, c) {
     return optionSelect(
@@ -754,7 +752,7 @@
           R + 35,
           l.target + 5,
           l.name + "  " + val,
-          `font-size="14" fill="${l.ink}" font-weight="600"`,
+          'font-size="14" fill="var(--gv-ink)" font-weight="600"',
         );
       b += `<g opacity="${l.opacity}">${seriesAction ? mark(seriesAction, l.key, l.name, label, focus === l.key) : label}</g>`;
     });
@@ -827,7 +825,7 @@
           (r.rank ? r.rank + ". " : "") + r.name,
           `font-size="${width < 850 ? 15 : 18}"`,
         ) +
-        `<rect x="${bx}" y="${yy - 15}" width="${w}" height="18" rx="3" fill="${signedValues && r.value < 0 ? "#c58452" : "var(--gv-cyan)"}"/>` +
+        `<rect x="${bx}" y="${yy - 15}" width="${w}" height="18" rx="3" fill="${signedValues && r.value < 0 ? "var(--al-down)" : "var(--gv-cyan)"}"/>` +
         text(right + 9, yy, display, 'font-size="15"') +
         (rightCoverage
           ? text(
@@ -860,8 +858,12 @@
   }
   function renderMaps() {
     globalThis.LandscapeAtlas.boot({
-      D, M,
-      register: (id, data) => { chartData[id] = data; renderTable(id); },
+      D,
+      M,
+      register: (id, data) => {
+        chartData[id] = data;
+        renderTable(id);
+      },
       openProject: projectDialog,
     });
   }
@@ -910,17 +912,22 @@
       c = configs[id],
       ss = M.sections(c.scope),
       history = D.months.map((_, i) => M.categories(c.scope, i));
+    const overviewColor = (key) => {
+      if (c.focus) return key === c.focus ? "var(--gv-brand)" : "var(--gv-s7)";
+      const rank = history[LAST].find((r) => r.key === key).rank;
+      return rank && rank <= 3 ? palette[rank - 1] : "var(--gv-s7)";
+    };
     controls(
       id,
       scopeControls(c, false) +
         windowControls(c) +
         metricControls(c) +
-        `<div class="al-focus-chips" aria-label="聚焦类别">${ss.map((k) => `<button type="button" data-action="focus" data-value="${E(k)}" aria-pressed="${c.focus === k}" style="--al-choice-color:${color(k)}">${E(catName(k))}</button>`).join("")}</div>`,
+        `<div class="al-focus-chips" aria-label="聚焦类别">${ss.map((k) => `<button type="button" data-action="focus" data-value="${E(k)}" aria-pressed="${c.focus === k}" style="--al-choice-color:${overviewColor(k)}">${E(catName(k))}</button>`).join("")}</div>`,
     );
     const series = ss.map((k) => ({
       key: k,
       name: catName(k),
-      color: color(k),
+      color: overviewColor(k),
       values: history.map((rr) => rr.find((r) => r.key === k)[c.metric]),
       coverage: history.map((rr) => {
         let r = rr.find((r) => r.key === k);
@@ -942,20 +949,18 @@
         }),
         "分类月度位次轨迹",
       ),
-      history
-        .slice(start(c))
-        .flatMap((rr, j) =>
-          rr.map((r) => ({
-            月份: D.months[start(c) + j],
-            子类别: r.name,
-            大类内位次: r.rank,
-            OpenRank: r.value,
-            大类内份额: pct(r.share),
-            覆盖: `${r.coverage}/${r.count}`,
-            关注: c.focus === r.key ? "是" : "否",
-          })),
-        ),
-      `${c.scope} · ${period(c)} · 位次和份额仅在本大类内计算；点击名称或曲线可聚焦，再次点击恢复全部。`,
+      history.slice(start(c)).flatMap((rr, j) =>
+        rr.map((r) => ({
+          月份: D.months[start(c) + j],
+          子类别: r.name,
+          大类内位次: r.rank,
+          OpenRank: r.value,
+          大类内份额: pct(r.share),
+          覆盖: `${r.coverage}/${r.count}`,
+          关注: c.focus === r.key ? "是" : "否",
+        })),
+      ),
+      `${c.scope} · ${period(c)} · 位次和份额仅在本大类内计算；默认标注当前前三，其余保留灰色轨迹；点击名称或曲线可聚焦，再次点击恢复全部。`,
       false,
       c.scope,
       period(c),
@@ -971,10 +976,10 @@
         `<div class="al-control-row">${windowControls(c)}${metricControls(c)}<span class="al-control-note">已选 ${c.categories.length} / 3 · 全领域 25 类统一比较</span></div>`,
     );
     const history = D.months.map((_, i) => M.categories("all", i)),
-      series = c.categories.map((k) => ({
+      series = c.categories.map((k, i) => ({
         key: k,
         name: catName(k),
-        color: color(k),
+        color: palette[i],
         values: history.map((rr) => rr.find((r) => r.key === k)[c.metric]),
         coverage: history.map((rr) => {
           const r = rr.find((x) => x.key === k);
@@ -982,11 +987,11 @@
         }),
       }));
     let cards = c.categories
-      .map((k) => {
+      .map((k, i) => {
         let now = history[LAST].find((r) => r.key === k),
           before = history[start(c)].find((r) => r.key === k),
           move = now.rank && before.rank ? before.rank - now.rank : null;
-        return `<div style="--al-choice-color:${color(k)}"><b>${E(catName(k))}</b><span>当前 #${now.rank ?? "—"} · ${move === null ? "位次待补" : move > 0 ? "↑ " + move + " 位" : move < 0 ? "↓ " + -move + " 位" : "位次不变"}</span><small>OR ${F(now.value)} · ${now.coverage}/${now.count} 有值</small></div>`;
+        return `<div style="--al-choice-color:${palette[i]}"><b>${E(catName(k))}</b><span>当前 #${now.rank ?? "—"} · ${move === null ? "位次待补" : move > 0 ? "↑ " + move + " 位" : move < 0 ? "↓ " + -move + " 位" : "位次不变"}</span><small>OR ${F(now.value)} · ${now.coverage}/${now.count} 有值</small></div>`;
       })
       .join("");
     setChart(
@@ -1003,20 +1008,18 @@
           }),
           "所选子类别排名与变化",
         ),
-      history
-        .slice(start(c))
-        .flatMap((rr, j) =>
-          rr
-            .filter((r) => c.categories.includes(r.key))
-            .map((r) => ({
-              月份: D.months[start(c) + j],
-              子类别: r.name,
-              全领域位次: r.rank,
-              OpenRank: r.value,
-              全领域份额: pct(r.share),
-              覆盖: `${r.coverage}/${r.count}`,
-            })),
-        ),
+      history.slice(start(c)).flatMap((rr, j) =>
+        rr
+          .filter((r) => c.categories.includes(r.key))
+          .map((r) => ({
+            月份: D.months[start(c) + j],
+            子类别: r.name,
+            全领域位次: r.rank,
+            OpenRank: r.value,
+            全领域份额: pct(r.share),
+            覆盖: `${r.coverage}/${r.count}`,
+          })),
+      ),
       `可跨 Agent / Model 选择 1—3 类。位次与份额分母始终为整个领域；最近选择的类别也会带入项目图。`,
       false,
       "整个领域",
@@ -1114,19 +1117,17 @@
     setChart(
       id,
       svg(1280, 560, b, "项目榜与历史曲线同图联动"),
-      histories
-        .slice(start(c))
-        .flatMap((rr, j) =>
-          rr.map((r) => ({
-            月份: D.months[start(c) + j],
-            项目: r.name,
-            类内位次: r.rank,
-            OpenRank: r.value,
-            类内份额: pct(r.share),
-            状态: r.state,
-            曲线已选: c.picks.includes(r.key) ? "是" : "否",
-          })),
-        ),
+      histories.slice(start(c)).flatMap((rr, j) =>
+        rr.map((r) => ({
+          月份: D.months[start(c) + j],
+          项目: r.name,
+          类内位次: r.rank,
+          OpenRank: r.value,
+          类内份额: pct(r.share),
+          状态: r.state,
+          曲线已选: c.picks.includes(r.key) ? "是" : "否",
+        })),
+      ),
       `${catName(c.section)} · 点击曲线上的月份节点，左侧切换到该月排行。当前比较 ${c.picks.length} 项；缺失月份留空，不计为零。`,
       false,
       catName(c.section),
@@ -1166,7 +1167,17 @@
       countryControls(id, c, { category: true, periodSelect: true }) +
         `<button type="button" data-action="clear-country" ${c.country === null ? "disabled" : ""}>清除选择</button>`,
     );
-    const max = Math.max(...rows.map((r) => r.share), 0.01);
+    const mapped = rows
+      .filter((r) => D.world.some((f) => f.code === r.code))
+      .map((r) => r.share)
+      .sort((a, b) => a - b);
+    const p95Index = (mapped.length - 1) * 0.95;
+    const cap = Math.max(
+      0.0001,
+      mapped[Math.floor(p95Index)] +
+        (mapped[Math.ceil(p95Index)] - mapped[Math.floor(p95Index)]) *
+          (p95Index % 1),
+    );
     let b =
       text(16, 30, "贡献份额 · 模拟", 'font-size="22" font-weight="650"') +
       text(
@@ -1178,9 +1189,9 @@
       '<g transform="translate(12,65)">';
     D.world.forEach((f) => {
       let r = rows.find((c) => c.code === f.code),
-        q = r ? r.share / max : 0,
+        q = r ? Math.min(1, r.share / cap) : 0,
         chosen = r && r.code === c.country,
-        path = `<path d="${f.d}" fill="${r ? "#3987b0" : "var(--gv-empty)"}" fill-opacity="${r ? 0.2 + 0.8 * q : 1}" stroke="${chosen ? "var(--gv-goldDisplay)" : "var(--gv-line)"}" stroke-width="${chosen ? 2 : 0.5}"/>`;
+        path = `<path d="${f.d}" fill="${chosen ? "var(--gv-goldDisplay)" : r ? `var(--gv-m${Math.min(5, Math.floor(q * 6))})` : "var(--gv-empty)"}" stroke="${chosen ? "var(--gv-ink)" : "var(--gv-line)"}" stroke-width="${chosen ? 2.5 : 0.5}"/>`;
       b += r
         ? mark(
             "country",
@@ -1218,11 +1229,23 @@
           : "未选择国家 · 地图保留完整分布",
         'font-size="19"',
       ) +
+      text(20, 574, "份额 0", 'font-size="16" fill="var(--gv-muted)"') +
+      Array.from(
+        { length: 6 },
+        (_, i) =>
+          `<rect x="${90 + i * 32}" y="559" width="32" height="18" fill="var(--gv-m${i})"/>`,
+      ).join("") +
       text(
-        20,
-        572,
-        "浅 → 深表示份额由低到高；灰色地理单元未单列数值。",
-        'font-size="17" fill="var(--gv-muted)"',
+        294,
+        574,
+        `${pct(cap)}+ · P95 封顶`,
+        'font-size="16" fill="var(--gv-muted)"',
+      ) +
+      text(
+        530,
+        574,
+        "灰色：未单列数值；金色：当前选择",
+        'font-size="16" fill="var(--gv-muted)"',
       ) +
       text(
         20,
@@ -1386,7 +1409,7 @@
           ink = cc(code).color;
         if (v === null || v === undefined) return;
         const xx = px(v);
-        b += `<g tabindex="0"><title>${E(catName(k) + " / " + cc(code).name)} · ${lq ? "LQ " + F(v) : pct(v)}</title><circle cx="${xx}" cy="${yy}" r="${countries.length > 3 ? 3.5 : 4.5}" fill="${ink}"/>${countries.length <= 3 ? text(xx + 9, yy + 4, lq ? F(v) : pct(v), `font-size="12" fill="${ink}"`) : ""}</g>`;
+        b += `<g tabindex="0"><title>${E(catName(k) + " / " + cc(code).name)} · ${lq ? "LQ " + F(v) : pct(v)}</title><circle cx="${xx}" cy="${yy}" r="${countries.length > 3 ? 3.5 : 4.5}" fill="${ink}"/>${countries.length <= 3 ? text(xx + 9, yy + 4, lq ? F(v) : pct(v), 'font-size="12" fill="var(--gv-ink)"') : ""}</g>`;
       });
     });
     if (!countries.length)
@@ -1446,7 +1469,7 @@
         for (const code of c.countries) {
           let r = rr.find((x) => x.code === code),
             w = r.share * bw;
-          b += `<g tabindex="0"><title>${E(catName(key) + " / " + r.name)} · ${pct(r.share)}</title><rect x="${x}" y="${y}" width="${w}" height="25" fill="${r.color}"/>${w > 70 ? text(x + w / 2, y + 17, pct(r.share), `font-size="13" text-anchor="middle" fill="${contrastInk(r.color)}"`) : ""}</g>`;
+          b += `<g tabindex="0"><title>${E(catName(key) + " / " + r.name)} · ${pct(r.share)}</title><rect x="${x}" y="${y}" width="${w}" height="25" fill="${countryColor(r.code)}"/>${w > 70 ? text(x + w / 2, y + 17, pct(r.share), `font-size="13" text-anchor="middle" fill="${contrastInk(countryColor(r.code))}"`) : ""}</g>`;
           x += w;
         }
         remaining = rr
@@ -1568,7 +1591,7 @@
       series: M.sections(c.scope).map((k) => ({
         key: k,
         name: catName(k),
-        color: color(k),
+        color: "var(--gv-brand)",
         values: D.months.map((_, m) => {
           if (m < start(c)) return null;
           let total = pp.reduce((s, p) => s + p.trend[m], 0),
@@ -1643,15 +1666,13 @@
       id,
       svg(1280, 580, b, "共同样本份额迁移与类别轨迹"),
       common.series.flatMap((r) =>
-        r.values
-          .slice(start(c))
-          .map((v, j) => ({
-            月份: D.months[start(c) + j],
-            子类别: r.name,
-            共同样本份额: pct(v),
-            整个范围共同项目数: common.count,
-            该类共同项目数: rows.find((x) => x.key === r.key).count,
-          })),
+        r.values.slice(start(c)).map((v, j) => ({
+          月份: D.months[start(c) + j],
+          子类别: r.name,
+          共同样本份额: pct(v),
+          整个范围共同项目数: common.count,
+          该类共同项目数: rows.find((x) => x.key === r.key).count,
+        })),
       ),
       `${c.scope} · ${period(c)} · ${common.count} 个项目在窗口每个月都有观测，全部变化使用同一组项目。点击类别查看右侧轨迹。`,
       false,
@@ -1722,17 +1743,15 @@
         trajectory(series, { height: 540, metric: "share", window: c.window }),
         "关注国家的月度贡献份额",
       ),
-      history
-        .slice(start(c))
-        .flatMap((rr, j) =>
-          rr.map((r) => ({
-            月份: D.months[start(c) + j],
-            国家: r.name,
-            模拟贡献量: r.value,
-            贡献份额: pct(r.share),
-            关注: c.countries.includes(r.code) ? "是" : "否",
-          })),
-        ),
+      history.slice(start(c)).flatMap((rr, j) =>
+        rr.map((r) => ({
+          月份: D.months[start(c) + j],
+          国家: r.name,
+          模拟贡献量: r.value,
+          贡献份额: pct(r.share),
+          关注: c.countries.includes(r.code) ? "是" : "否",
+        })),
+      ),
       `${countryScope(c)} · ${period(c)} · 当前显示 ${c.countries.length} 条曲线；未显示国家的贡献仍保留在各月分母中。`,
       true,
       countryScope(c),
@@ -1760,11 +1779,7 @@
     const p = P.find((x) => x.id === id);
     if (!p) return;
     const d = $("al-project-dialog"),
-      r = M.projectRows(
-        "all",
-        p.section,
-        month,
-      ).find((x) => x.key === id);
+      r = M.projectRows("all", p.section, month).find((x) => x.key === id);
     $("al-project-detail").innerHTML =
       `<span class="eyebrow">${E(catName(p.section))} / ${E(p.layer)}</span><h3 id="al-dialog-title">${E(p.name)}</h3><p><a href="https://github.com/${E(p.repo)}" target="_blank" rel="noopener">${E(p.repo)} ↗</a></p><p>${E(p.description)}</p><div class="al-dialog-metrics"><div><b>${F(r.value)}</b><span>${E(D.months[month])} · OpenRank</span></div><div><b>${r.rank ?? "—"}</b><span>类内位次 · ${E(r.state)}</span></div><div><b>${pct(r.share)}</b><span>类内份额</span></div></div><div class="al-view">${svg(1280, 490, trajectory([{ key: id, name: p.name, values: p.trend }], { height: 490, window: 18 }), "项目 18 个月观测")}</div><p>创建于 ${E(p.created.slice(0, 10))} · 许可证元数据 ${E(p.license || "未标注")} · ${E(p.language)}</p><details><summary>选入理由与来源</summary><p>${E(p.reason)}</p><p>${E(p.caveat)}</p><a href="${E(D.source)}">固定版本主表 ↗</a><p>前 6 个月来自固定 OpenDigger 快照；既有 12 个月保留原报告观测。</p></details>${tableHTML(
         ["月份", "OpenRank", "状态"],
@@ -1939,6 +1954,67 @@
     printDetails.splice(0).forEach(([d, open]) => (d.open = open));
     Object.keys(chartData).forEach((id) => renderTable(id));
   });
+  // The same site preference is used in reading mode, dialogs and exported SVGs.
+  function syncThemeControls() {
+    const dark = document.documentElement.dataset.theme === "dark";
+    document.querySelectorAll("[data-al-theme]").forEach((button) => {
+      button.textContent = dark ? "切换明亮" : "切换深色";
+      button.setAttribute("aria-pressed", String(dark));
+      button.setAttribute(
+        "aria-label",
+        dark ? "切换为明亮主题" : "切换为深色主题",
+      );
+    });
+  }
+  document.querySelectorAll("[data-al-theme]").forEach((button) => {
+    button.onclick = () => {
+      const toggle = $("theme-toggle");
+      if (toggle) {
+        toggle.click();
+        return;
+      }
+      const next =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      try {
+        window.localStorage.setItem("osdg-theme", next);
+      } catch (_) {
+        /* Private browsing can disable storage. */
+      }
+      document.dispatchEvent(new window.Event("gosdthemechange"));
+    };
+  });
+  document.addEventListener("gosdthemechange", () => {
+    syncThemeControls();
+    renderCountryStack(); // Percentage labels need a newly computed ink contrast.
+  });
+  syncThemeControls();
+  const readingLinks = [...document.querySelectorAll(".al-jump a")];
+  const activateReading = (href) =>
+    readingLinks.forEach((a) => {
+      if (a.getAttribute("href") === href)
+        a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  readingLinks.forEach((a) =>
+    a.addEventListener("click", () => activateReading(a.getAttribute("href"))),
+  );
+  if (window.IntersectionObserver) {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        const entry = entries
+          .filter((e) => e.isIntersecting)
+          .sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+          )[0];
+        if (entry) activateReading("#" + entry.target.id);
+      },
+      { rootMargin: "-15% 0px -65% 0px", threshold: 0 },
+    );
+    readingLinks.forEach((a) =>
+      observer.observe(document.querySelector(a.getAttribute("href"))),
+    );
+  }
   resetProjects();
   renderMaps();
   Object.keys(configs).forEach(render);
