@@ -47,6 +47,7 @@ jobs:
           python3 preview/web/check_gosr.py --output _site
           python3 preview/web/check_landscape.py --output _site
           node preview/web/check_landscape_v3.cjs _site/assets/landscape/v3-data.json
+          python3 preview/web/check_landscape_atlas.py --output _site
           for file in _site/*.js _site/*.mjs; do node --input-type=module --check < "$file"; done
           node --check _site/chapter-visuals.js
           node --check _site/report.js

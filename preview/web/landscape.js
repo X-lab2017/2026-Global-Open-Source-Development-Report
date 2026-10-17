@@ -859,46 +859,11 @@
     c.page = 0;
   }
   function renderMaps() {
-    let total = 0,
-      coverage = 0;
-    for (const [id, layer] of [
-      ["al-agent", "Agent Infra"],
-      ["al-model", "Model Infra"],
-    ]) {
-      const el = $(id),
-        rows = M.categories(layer, state.month);
-      rows.forEach((r) => {
-        total += r.value || 0;
-        coverage += r.coverage;
-      });
-      el.querySelectorAll(".al-map-card").forEach((g) => {
-        let r = rows.find((x) => x.key === g.dataset.section);
-        g.querySelector(".al-map-stat").textContent =
-          `${r.count} 项目 · OR ${F(r.value)} · ${r.coverage}/${r.count} 有值`;
-      });
-      el.querySelector(".al-map-period").textContent =
-        `${D.months[state.month]} · 真实观测 · ${M.projects(layer).length} 项目`;
-      chartData[id] = {
-        rows: M.projects(layer).map((p) => ({
-          类别: catName(p.section),
-          项目: p.name,
-          仓库: p.repo,
-          OpenRank: M.value(p, state.month),
-          状态: M.status(p, state.month),
-          数据来源: p.observationSources[state.month],
-        })),
-        sim: false,
-        scope: layer,
-        period: D.months[state.month],
-        attention: "全部项目",
-      };
-      renderTable(id);
-      el.querySelector(".al-readout").textContent =
-        `${layer} · ${rows.reduce((s, r) => s + r.coverage, 0)} / ${M.projects(layer).length} 项目有值。搜索仅高亮，不改变统计范围。`;
-      bindPanel(el);
-    }
-    $("al-global-status").textContent =
-      `${coverage} / 145 项目有值 · OpenRank ${F(total)}`;
+    globalThis.LandscapeAtlas.boot({
+      D, M,
+      register: (id, data) => { chartData[id] = data; renderTable(id); },
+      openProject: projectDialog,
+    });
   }
   function renderRank() {
     const id = "al-category-rank",
@@ -1962,35 +1927,6 @@
       if (activePanel) closeFull();
     }),
   );
-  document.querySelectorAll("[data-zoom]").forEach(
-    (s) =>
-      (s.onchange = () => {
-        const v = $(s.dataset.zoom).querySelector(".al-view svg");
-        v.style.width = Number(s.value) * 100 + "%";
-        v.style.maxWidth = "none";
-      }),
-  );
-  document.querySelectorAll("[data-search]").forEach(
-    (input) =>
-      (input.oninput = () => {
-        const el = $(input.dataset.search),
-          q = input.value.trim().toLowerCase();
-        let count = 0;
-        el.querySelectorAll("[data-project]").forEach((n) => {
-          const p = P.find((x) => x.id === n.dataset.project),
-            hit = !q || (p.name + " " + p.repo).toLowerCase().includes(q);
-          n.classList.toggle("al-dim", !hit);
-          if (hit) count++;
-        });
-        el.querySelector(".al-readout").textContent = q
-          ? `找到 ${count} 个匹配项目；全景结构与统计分母保持不变。`
-          : "已显示全部项目。";
-      }),
-  );
-  $("al-month").onchange = (e) => {
-    state.month = Number(e.target.value);
-    renderMaps();
-  };
   const printDetails = [];
   window.addEventListener("beforeprint", () => {
     document.querySelectorAll(".al-data").forEach((d) => {
