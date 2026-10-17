@@ -1944,6 +1944,9 @@
   function openFull(p) {
     if (current === p) return;
     const originalFocus = document.activeElement;
+    if (p.classList.contains("s51-panel")) {
+      $(".gm-source",p).open=false; $(".gm-table",p).open=false;
+    }
     if (current) {
       const old = current;
       placeholder.replaceWith(old);
@@ -1992,10 +1995,20 @@
       openFull(p);
       return;
     }
+    if (el.hasAttribute("data-gm-table") && p.classList.contains("s51-panel")) {
+      const d = $(".gm-table", p);
+      $(".gm-source", p).open = false;
+      d.open = !d.open;
+      if (d.open) { fillTable(p); d.querySelector("summary").focus(); }
+      return;
+    }
     if (el.hasAttribute("data-gm-source")) {
       const d = $(".gm-source", p);
       d.open = !d.open;
-      if (d.open) d.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      if (p.classList.contains("s51-panel")) {
+        $(".gm-table", p).open = false;
+        if (d.open) d.querySelector("summary").focus();
+      } else if (d.open) d.scrollIntoView({ block: "nearest", behavior: "smooth" });
       return;
     }
     if (el.hasAttribute("data-gm-csv"))
@@ -2007,6 +2020,14 @@
     if (el.hasAttribute("data-gm-svg")) exportSvg(p);
   });
   document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const overlay = document.querySelector(".s51-panel .gm-source[open],.s51-panel .gm-table[open]");
+      if (overlay) {
+        e.preventDefault(); e.stopPropagation(); overlay.open=false;
+        overlay.closest(".s51-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source]":"[data-gm-table]").focus();
+        return;
+      }
+    }
     if (
       (e.key === "Enter" || e.key === " ") &&
       e.target.matches("g[data-gm-action]")

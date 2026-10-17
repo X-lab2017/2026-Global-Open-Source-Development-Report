@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='gosm-supply-v3'
+VERSION='gosm-supply-v4-compact'
 FIGS={
  'world':('5.1-01','全球模型与数据供给全景','上看国家分布与发布组织，下看模型、数据集的增长轨迹。','supply51'),
  'cnus':('5.1-02','中美供给比较：规模与发布主体','从组织、模型和配套数据的规模，进入发布账号与头部集中度。','supply51'),
