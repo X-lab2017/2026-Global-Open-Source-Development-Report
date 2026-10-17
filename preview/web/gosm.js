@@ -1763,7 +1763,12 @@
   function selectAction(p, key, v) {
     const s = states.get(p),
       id = p.dataset.gmChart;
-    if (supply51.handle(p,s,key,v)) {draw(p);return;}
+    if (supply51.handle(p,s,key,v)) {
+      const preserveFocus=p.contains(document.activeElement);
+      draw(p);
+      if(preserveFocus)Array.from(p.querySelectorAll('[data-gm-action]')).find(el=>el.dataset.gmAction===key&&el.dataset.value===String(v))?.focus();
+      return;
+    }
     if (key === "clear") {
       if (id === "world") s.countries = [];
       if (id === "flows") s.country = "";
