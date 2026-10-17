@@ -1,0 +1,48 @@
+{
+  "dataStatus": "simulated",
+  "title": "供给角色与持续参与情景",
+  "roleTotal": 1000,
+  "roles": [
+    "基础训练",
+    "微调改进",
+    "量化转换",
+    "部署适配"
+  ],
+  "presets": {
+    "balanced": [
+      20,
+      35,
+      25,
+      20
+    ],
+    "base": [
+      40,
+      30,
+      15,
+      15
+    ],
+    "adapt": [
+      10,
+      25,
+      30,
+      35
+    ]
+  },
+  "newcomers": [
+    100,
+    200,
+    300
+  ],
+  "retentionPercent": [
+    60,
+    75,
+    90
+  ],
+  "months": [
+    6,
+    12,
+    18
+  ],
+  "formula": "active[0]=0; active[t]=newcomers+active[t-1]*retention/100",
+  "scope": "教学情景；两组假设独立，不用于实际国家、组织排名或政策成效判断"
+}

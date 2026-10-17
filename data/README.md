@@ -153,3 +153,23 @@ figures/chapterX/…           报告用图（可由脚本随时重建）
 | 表 3.6-1 | processed/chapter3/table-3-6-1_model_series_versions.csv | ModelRank Top 20中 Qwen、Llama 入榜系列与版本 | OpenGauge ModelRank v1，2026-08 |
 
 尚未接入统一原始数据构建管线的文件，在索引中标记为“待接入统一构建脚本”，后续应补齐对应查询或转换脚本，避免将人工整理结果误标为全流程自动生成。
+
+
+## 5.1 供给专题交互版（2026-10-17）
+
+本次新增独立的补充快照，原报告三个CSV保留。地域范围是826个已关联国家的模型发布组织；数据集为这些组织的配套资产。发布组织所在地不代表用户所在地。全球总量、月度表、报告回溯和地域补充快照分别标注时间，不能跨窗口直接合并。
+
+| 图编号 | CSV（data/processed/chapter5/） | 内容与范围 |
+|---|---|---|
+| 5.1-01 | fig-5-1-01_global_supply_snapshot.csv | 模型／配套数据集的国家分布、账号、下载与点赞 |
+| 5.1-02 | fig-5-1-02_china_us_supply.csv | 中美拥有所选资产的账号、数量、下载、点赞及样本份额 |
+| 5.1-03 | fig-5-1-03_china_us_publishers.csv | 中美全部关联组织账号的两类资产；排名与集中度底表 |
+| 5.1-04 | fig-5-1-04_china_supply_geography.csv | 中国省级与组织数据、归属待补残差 |
+| 5.1-05 | fig-5-1-05_supply_growth.csv | 截至2026-07的平台月表；2026-09-13报告年度回溯分别记录 |
+| 5.1-06 | fig-5-1-06_monthly_release.csv | 原报告四国月表，2025-09至2026-08 |
+| 5.1-07 | fig-5-1-07_publisher_portfolio.csv | 826个关联组织的模型与配套数据集资产组合 |
+| 5.1-08 | fig-5-1-08_supply_scenarios.csv | **完全模拟**：角色预设与独立参与递推实验，无国家映射 |
+
+原始补充数据与来源指纹：`preview/content/gosm/supply-original.json.gz`；界面精简数据：`supply-observation.json`；详细范围与模拟公式：`supply-methods.md`和`supply-scenarios.json`（均在同目录）。
+
+复现：`python preview/web/build_gosm_supply_data.py`；核验：`python preview/web/build_gosm_supply_data.py --check`。转换过程校验国家与组织合计、中国省级残差、有资产的发布账号数。数据清单同步登记上述8份CSV。

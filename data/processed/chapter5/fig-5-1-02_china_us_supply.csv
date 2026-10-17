@@ -1,0 +1,17 @@
+data_status,retrieved_at,scope,geography_as_of,asset,country_code,metric,value,cohort_total,cohort_share_pct
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,US,activeProviders,348,820,42.4390243902439
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,US,models,46314,73088,63.36744746059545
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,US,downloads,45029316719,61047162170,73.76152325247389
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,US,likes,825938,1773643,46.56731935344373
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,CN,activeProviders,147,820,17.926829268292682
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,CN,models,6093,73088,8.336525831873905
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,CN,downloads,7831721004,61047162170,12.828968170855763
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,models,CN,likes,579038,1773643,32.64681787710379
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,US,activeProviders,230,570,40.35087719298246
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,US,datasets,5938,12502,47.496400575907856
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,US,downloads,682366703,828031338,82.40831858467656
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,US,likes,110200,174030,63.32241567545825
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,CN,activeProviders,112,570,19.649122807017545
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,CN,datasets,1354,12502,10.83026715725484
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,CN,downloads,39802908,828031338,4.80693256080605
+observed,2026-10-17T14:46:56.679563+00:00,country-linked model-publisher organization cohort,not_documented,datasets,CN,likes,32234,174030,18.522093891857725

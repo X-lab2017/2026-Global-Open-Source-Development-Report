@@ -218,21 +218,14 @@
     return `<p>${explanation}</p><p>${keys.map((k) => link(asset("data/" + D.files[k]), "原表 " + D.files[k])).join(" · ")}</p><p>${link(asset("provenance.json"), "来源与文件指纹")} · ${link(asset("methods.md"), "完整方法")}</p>`;
   }
   function fillTable(p) {
-    let rows = p.gmRows || [];
-    const keys = Object.keys(rows[0] || {});
-    $(".gm-table-host", p).innerHTML = rows.length
-      ? note(
-          `当前视角 ${fmt(rows.length)} 条；此处展示前 100 条，完整记录可用图顶“数据 CSV”导出。`,
-        ) +
-        `<table><thead><tr>${keys.map((k) => `<th scope="col">${esc(k)}</th>`).join("")}</tr></thead><tbody>${rows
-          .slice(0, 100)
-          .map(
-            (r) =>
-              `<tr>${keys.map((k) => `<td>${esc(typeof r[k] === "object" ? JSON.stringify(r[k]) : r[k])}</td>`).join("")}</tr>`,
-          )
-          .join("")}</tbody></table>`
-      : note("此视角没有匹配记录。");
-    p.gmTableDirty = false;
+    const rows=p.gmRows||[],keys=Object.keys(rows[0]||{}),s=states.get(p);
+    const isSupply=Boolean(window.createGOSM51&&["world","cnus","publishers","china","supply","release","portfolio","scenarios"].includes(p.dataset.gmChart));
+    const size=isSupply?8:100;
+    const pages=Math.max(1,Math.ceil(rows.length/size));s.tablePage=Math.min(s.tablePage||0,pages-1);
+    const start=isSupply?s.tablePage*size:0;
+    const pager=isSupply?`<div class="s51-table-pager">${btn("table-page","prev","← 上一页",false,start===0?"disabled":"")}<span>${rows.length?start+1:0}—${Math.min(start+size,rows.length)} / ${rows.length} 条</span>${btn("table-page","next","下一页 →",false,s.tablePage===pages-1?"disabled":"")}</div>`:"";
+    $(".gm-table-host",p).innerHTML=rows.length?pager+`<table><thead><tr>${keys.map(k=>`<th scope="col">${esc(k)}</th>`).join("")}</tr></thead><tbody>${rows.slice(start,start+size).map(r=>`<tr>${keys.map(k=>`<td>${esc(typeof r[k]==="object"?JSON.stringify(r[k]):r[k])}</td>`).join("")}</tr>`).join("")}</tbody></table>`+note("完整记录保留在图顶“数据 CSV”导出中。") : note("此视角没有匹配记录。");
+    p.gmTableDirty=false;
   }
   function plot(
     rows,
@@ -1743,6 +1736,8 @@
       `<p>四个案例固定具体模型版本，权重、代码、数据说明、许可与维护入口逐项查阅一手来源；核验日期2026-10-17。正文表中的每项判断都有对应来源。仓库提交与官方材料记录：${link(asset("cases.json"), "完整版本档案 JSON")}。</p><p>${link("https://opensource.org/ai/open-source-ai-definition", "OSI OSAID 1.0")} · ${link("https://www.digitalpublicgoods.net/standard", "DPG Standard")}。研究分级、定义与正式认可分别适用。</p>`,
     );
   }
+  const supply51 = window.createGOSM51(D, {asset,esc,fmt,compact,txt,line,box,action,svg,btn,seg,chips,note,link,set,source,colors:()=>({C,palette})});
+  panels.forEach(p=>{if(supply51.defaults[p.dataset.gmChart])states.set(p,JSON.parse(JSON.stringify(supply51.defaults[p.dataset.gmChart])));});
   const renderers = {
     framework,
     supply,
@@ -1757,6 +1752,7 @@
     "open-groups": openGroups,
     dossiers,
   };
+  Object.assign(renderers, supply51.renderers);
   function draw(p) {
     renderers[p.dataset.gmChart](p, states.get(p));
     if (p.dataset.gmChart === "network")
@@ -1767,6 +1763,7 @@
   function selectAction(p, key, v) {
     const s = states.get(p),
       id = p.dataset.gmChart;
+    if (supply51.handle(p,s,key,v)) {draw(p);return;}
     if (key === "clear") {
       if (id === "world") s.countries = [];
       if (id === "flows") s.country = "";
@@ -1903,6 +1900,7 @@
   function exportStamp(p) {
     const id = p.dataset.gmChart,
       s = states.get(p);
+    if (supply51.own(p)) return supply51.stamp(p,s);
     if (id === "network")
       return "参考项目 / hub-stats · 2026-10-16 · 非随机声明关系样本";
     if (id === "openness")
@@ -2022,6 +2020,7 @@
     if (!p) return;
     const s = states.get(p),
       q = e.target.value;
+    if(supply51.input(p,s,e)){const type=e.target.dataset.s51Search; const cursor=e.target.selectionStart;draw(p);const next=p.querySelector(`[data-s51-search="${type}"]`);next?.focus();try{next?.setSelectionRange(cursor,cursor);}catch{}return;}
     if (e.target.dataset.gmSearch === "network") {
       $("#gm-model-results", p).innerHTML = q.trim()
         ? D.network.nodes

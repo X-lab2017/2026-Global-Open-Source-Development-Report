@@ -3,11 +3,12 @@
 import argparse,collections,csv,gzip,hashlib,json
 from pathlib import Path
 import gosm_content as G
+import build_gosm_supply_data as S
 
 p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args()
 d=G.payload();out=a.output/'assets/gosm'
 page=(a.output/'2026/zh/chapters/05/index.html').read_text()
-assert page.count('data-gm-chart=')==12
+assert page.count('data-gm-chart=')==1+sum(len(t['figures']) for t in G.TOPICS)
 assert 'gosm.js?v='+G.VERSION in page and 'gosm.css?v='+G.VERSION in page
 assert all(f'id="{t["id"]}"' in page for t in G.TOPICS)
 assert len(G.TOPICS)==3 and sum(len(t['actions']) for t in G.TOPICS)==9
@@ -16,6 +17,12 @@ assert all(len(t['figures'])==len(t['narratives']) for t in G.TOPICS)
 for k,name in G.FILES.items():
     assert (out/'data'/name).read_bytes()==(G.REPO/'data/processed/chapter5'/name).read_bytes(),name
 assert json.loads((out/'data.json').read_text())==d
+for key,rows in S.build().items():
+    name=S.NAMES[key]+'.csv'
+    assert (out/'data'/name).read_text()==S.text_csv(rows)[0],name
+assert d['supply51']['meta']['containsSimulatedData'] is False
+assert json.loads((out/'supply-scenarios.json').read_text())['dataStatus']=='simulated'
+assert '7幅实测图 · 1幅模拟情景' in page
 assert sum(r['models'] for r in d['quadrants'])==870
 assert sum(r['n'] for r in d['openRegions'])==870
 assert sum(r['models'] for r in d['openPublishers'])==870
@@ -60,8 +67,8 @@ for m in d['cases']['models']:
 for f in G.DIR.glob('*.gz'):
     assert gzip.decompress(f.read_bytes())==(out/f.stem).read_bytes(),f.name
 assert (out/'methods.md').exists() and (out/'openness-evidence-884.json').exists()
-for name in ['gosm.js','gosm.css','gosm-network.mjs']:
+for name in ['gosm.js','gosm.css','gosm-network.mjs','gosm-supply.js','gosm-supply.css']:
     assert (a.output/name).read_bytes()==(G.ROOT/'web'/name).read_bytes()
 appendix=(a.output/'2026/zh/appendices/dpg/index.html').read_text()
 assert '本报告不授予认证' in appendix and '8.5 分' not in appendix
-print('PASS GOSM: 12 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')
+print('PASS GOSM: 16 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')
