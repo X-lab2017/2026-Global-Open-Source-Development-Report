@@ -5,14 +5,14 @@ const fs = require("node:fs");
 const makeModel = require("./landscape.js");
 const D = JSON.parse(
   fs.readFileSync(
-    process.argv[2] || "preview/dist/assets/landscape/v2-data.json",
+    process.argv[2] || "preview/dist/assets/landscape/v3-data.json",
     "utf8",
   ),
 );
 const M = makeModel(D),
   near = (a, b, epsilon = 1e-8) =>
     assert(Math.abs(a - b) < epsilon, `${a} != ${b}`);
-assert.equal(D.version, "4.1-v2");
+assert.equal(D.version, "4.1-v3");
 assert.equal(D.projects.length, 145);
 assert.equal(new Set(D.projects.map((p) => p.id)).size, 145);
 assert.equal(M.projects("Agent Infra").length, 86);
@@ -20,8 +20,11 @@ assert.equal(M.projects("Model Infra").length, 59);
 assert.equal(M.sections("all").length, 25);
 assert.equal(M.sections("Agent Infra").length, 12);
 assert.equal(M.sections("Model Infra").length, 13);
-const coverage = [116, 118, 122, 125, 130, 135, 140, 141, 142, 140, 135, 140];
-for (let m = 0; m < 12; m++) {
+const coverage = [
+  93, 99, 107, 107, 108, 111, 116, 118, 122, 125, 130, 135, 140, 141, 142, 140,
+  135, 140,
+];
+for (let m = 0; m < 18; m++) {
   const rr = M.categories("all", m);
   assert.equal(
     rr.reduce((s, r) => s + r.coverage, 0),
@@ -60,18 +63,18 @@ for (let m = 0; m < 12; m++) {
   }
 }
 near(
-  M.categories("all", 11).reduce((s, r) => s + r.value, 0),
+  M.categories("all", 17).reduce((s, r) => s + r.value, 0),
   5706.38,
 );
 near(
-  M.categories("Agent Infra", 11).reduce((s, r) => s + r.value, 0),
+  M.categories("Agent Infra", 17).reduce((s, r) => s + r.value, 0),
   3306.63,
 );
 near(
-  M.categories("Model Infra", 11).reduce((s, r) => s + r.value, 0),
+  M.categories("Model Infra", 17).reduce((s, r) => s + r.value, 0),
   2399.75,
 );
-const assistants = M.projectRows("all", "Personal AI assistants", 11);
+const assistants = M.projectRows("all", "Personal AI assistants", 17);
 near(
   assistants.reduce((s, r) => s + r.value, 0),
   752.76,
@@ -85,51 +88,53 @@ const claw = D.projects.find(
   (p) => p.repo.toLowerCase() === "openclaw/openclaw",
 );
 assert(claw);
-assert.equal(M.status(claw, 0), "尚未创建");
+assert.equal(M.status(claw, 6), "尚未创建");
 assert.equal(
-  M.projectRows("all", "Personal AI assistants", 0).find(
+  M.projectRows("all", "Personal AI assistants", 6).find(
     (p) => p.key === claw.id,
   ).rank,
   null,
 );
 const missing = D.projects.find(
-  (p) => p.trend[11] === null && p.created.slice(0, 7) <= "2026-08",
+  (p) => p.trend[17] === null && p.created.slice(0, 7) <= "2026-08",
 );
-assert.equal(M.status(missing, 11), "无观测");
-const shifts = M.shift("all", 8, 11);
+assert.equal(M.status(missing, 17), "无观测");
+const shifts = M.shift("all", 14, 17);
 near(
   shifts.reduce((s, r) => s + (r.value || 0), 0),
   0,
 );
 const common = D.projects.filter((p) =>
-  p.trend.slice(8, 12).every((v) => v !== null),
+  p.trend.slice(14, 18).every((v) => v !== null),
 );
 assert.equal(shifts[0].cohort, common.length);
-const a = common.reduce((s, p) => s + p.trend[8], 0),
-  b = common.reduce((s, p) => s + p.trend[11], 0);
+const a = common.reduce((s, p) => s + p.trend[14], 0),
+  b = common.reduce((s, p) => s + p.trend[17], 0);
 for (const r of shifts) {
   const pp = common.filter((p) => p.section === r.key);
   near(
     r.value,
-    pp.reduce((s, p) => s + p.trend[11], 0) / b -
-      pp.reduce((s, p) => s + p.trend[8], 0) / a,
+    pp.reduce((s, p) => s + p.trend[17], 0) / b -
+      pp.reduce((s, p) => s + p.trend[14], 0) / a,
   );
 }
 assert(
-  M.concentration("all", 11).every(
+  M.concentration("all", 17).every(
     (r) => r.value === null || (r.value > 0 && r.value <= 1.000000001),
   ),
 );
-const country = M.country("all", "all", "rolling", 11);
+const country = M.country("all", "all", "rolling", 17);
 near(
   country.reduce((s, r) => s + r.value, 0),
   100000,
 );
 for (const r of country) {
-  const entries = D.simulation.filter((x) => x.country === r.code);
+  const entries = D.simulation.filter(
+    (x) => x.country === r.code && x.month >= 6,
+  );
   assert.equal(r.developers, new Set(entries.flatMap((x) => x.actors)).size);
   assert(entries.every((x) => x.actors.every((a) => a.startsWith("SIM-"))));
-  const cc = M.countryCategories("all", r.code, "rolling", 11);
+  const cc = M.countryCategories("all", r.code, "rolling", 17);
   near(
     cc.reduce((s, c) => s + c.share, 0),
     1,
@@ -145,7 +150,7 @@ assert(
       M.sections("all").reduce(
         (s, k) =>
           s +
-          M.country("all", k, "rolling", 11).find((c) => c.code === r.code)
+          M.country("all", k, "rolling", 17).find((c) => c.code === r.code)
             .developers,
         0,
       ) > r.developers,
@@ -158,5 +163,59 @@ const Z = makeModel(zeros);
 assert.equal(Z.status(zeros.projects[0], 0), "有观测");
 assert.notEqual(Z.status(zeros.projects[0], 1), "有观测");
 console.log(
-  "PASS 4.1 v2: 145 projects; 25 categories; 12 monthly coverage checks; 5706.38 latest total; dynamic project rankings; zero/missing/creation distinctions; common-cohort shifts; synthetic shares conserved; actor unions deduplicated.",
+  "PASS 4.1 v3: 145 projects; 25 categories; 18 monthly coverage checks; 5706.38 latest total; dynamic project rankings; zero/missing/creation distinctions; common-cohort shifts; synthetic shares conserved; actor unions deduplicated.",
+);
+
+for (const win of [6, 12, 18]) {
+  const countries = M.country("all", "all", win, 17);
+  near(
+    countries.reduce((s, r) => s + r.value, 0),
+    (100000 * win) / 12,
+  );
+  near(
+    countries.reduce((s, r) => s + r.share, 0),
+    1,
+  );
+  for (const r of countries) {
+    const actors = new Set(
+      D.simulation
+        .filter((x) => x.country === r.code && x.month >= 18 - win)
+        .flatMap((x) => x.actors),
+    );
+    assert.equal(r.developers, actors.size);
+  }
+}
+assert.equal(D.months[0], "2025-03");
+assert.equal(D.months.at(-1), "2026-08");
+assert(
+  D.projects.every(
+    (p) => p.trend.length === 18 && p.observationSources.length === 18,
+  ),
+);
+const path = require("node:path"),
+  crypto = require("node:crypto");
+const assets = path.dirname(
+  process.argv[2] || "preview/dist/assets/landscape/v3-data.json",
+);
+const manifest = JSON.parse(
+  fs.readFileSync(path.join(assets, D.historySnapshot), "utf8"),
+);
+assert.equal(manifest.files.filter((x) => x.file).length, 144);
+for (const item of manifest.files.filter((x) => x.file)) {
+  const bytes = fs.readFileSync(
+    path.join(assets, "opendigger-20261017", item.file),
+  );
+  assert.equal(
+    crypto.createHash("sha256").update(bytes).digest("hex"),
+    item.sha256,
+  );
+  const history = JSON.parse(bytes),
+    p = D.projects.find((x) => x.id === item.repo_id);
+  for (let m = 0; m < 6; m++) {
+    if (p.observationSources[m] === item.url)
+      assert.equal(p.trend[m], history[D.months[m]]);
+  }
+}
+console.log(
+  "PASS v3 windows: 6/12/18 month country denominators and actor unions; 144 hashed historical snapshots; real values traceable to source.",
 );

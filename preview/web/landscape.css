@@ -665,3 +665,266 @@ body.al-modal-open {
     display: none !important;
   }
 }
+/* v3: every analytical figure owns its selectors and its detail view. */
+.al-local-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 12px 0 18px;
+  font: 13px/1.5 var(--sans, system-ui, sans-serif);
+}
+.al-local-controls > label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  font-size: 11px;
+  font-weight: 600;
+}
+.al-local-controls select {
+  max-width: 100%;
+  padding: 8px 10px;
+  min-height: 36px;
+  background: var(--gv-surface);
+  color: var(--gv-ink);
+  border: 1px solid var(--gv-line);
+  border-radius: 5px;
+  font: 13px/1.4 var(--sans, system-ui, sans-serif);
+}
+.al-segment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 1px solid var(--gv-line);
+  border-radius: 6px;
+  padding: 2px;
+  background: var(--gv-raised);
+}
+.al-local-controls .al-segment button {
+  font-size: 12px;
+  min-height: 32px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  padding: 6px 11px;
+  white-space: nowrap;
+}
+.al-local-controls .al-segment button[aria-pressed="true"] {
+  background: var(--gv-brand);
+  color: var(--gv-surface);
+  font-weight: 600;
+}
+.al-control-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  flex-basis: 100%;
+}
+.al-control-row > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+.al-control-note {
+  font-size: 11px;
+  color: var(--gv-muted);
+}
+.al-family-picker {
+  width: 100%;
+  display: grid;
+  gap: 9px;
+  padding: 12px;
+  background: var(--gv-raised);
+  border-radius: 7px;
+}
+.al-family-group {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.al-family-group > strong {
+  padding: 7px 0;
+  font-size: 12px;
+  color: var(--gv-brand);
+  font-weight: 650;
+}
+.al-family-group > div,
+.al-focus-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.al-local-controls .al-family-picker button,
+.al-local-controls .al-focus-chips button {
+  font-size: 12px;
+  min-height: 30px;
+  padding: 5px 9px;
+  border-color: var(--gv-line);
+  background: var(--gv-surface);
+  line-height: 1.4;
+}
+.al-local-controls
+  :is(.al-family-picker, .al-focus-chips)
+  button[aria-pressed="true"] {
+  border-color: var(--al-choice-color);
+  box-shadow: inset 0 -3px var(--al-choice-color);
+  font-weight: 650;
+  color: var(--gv-ink);
+}
+.al-focus-chips {
+  flex-basis: 100%;
+}
+.al-country-picker {
+  border: 0;
+  margin: 0;
+  padding: 6px 0;
+  flex-basis: 100%;
+  min-width: 0;
+}
+.al-country-picker legend {
+  font: 500 11px/1.5 var(--sans, system-ui, sans-serif);
+  color: var(--gv-muted);
+  margin-bottom: 7px;
+}
+.al-country-picker > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.al-country-picker label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  padding: 5px 8px;
+  background: var(--gv-raised);
+  border-radius: 4px;
+  border-bottom: 2px solid var(--al-choice-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.al-country-picker input {
+  accent-color: var(--al-choice-color);
+}
+.al-local-controls .al-country-picker button {
+  font-size: 11px;
+  min-height: 30px;
+  padding: 5px 9px;
+}
+.al-compare-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+.al-compare-summary > div {
+  display: grid;
+  gap: 7px;
+  border-left: 3px solid var(--al-choice-color);
+  padding: 9px 13px;
+  background: var(--gv-raised);
+  font-family: var(--sans, system-ui, sans-serif);
+}
+.al-compare-summary b {
+  font-size: 13px;
+}
+.al-compare-summary span {
+  font-size: 12px;
+}
+.al-compare-summary small {
+  font-size: 11px;
+  color: var(--gv-muted);
+}
+.al-project-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-basis: 100%;
+  font-size: 12px;
+  color: var(--gv-muted);
+  padding-top: 5px;
+}
+.al-project-toolbar > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.al-project-toolbar button {
+  font-size: 11px;
+  min-height: 30px;
+}
+.al-global-hint {
+  font-size: 11px;
+  color: var(--gv-muted);
+}
+#al-fullscreen .al-local-controls {
+  margin: 8px 0 12px;
+  gap: 8px 12px;
+}
+#al-fullscreen .al-family-picker {
+  padding: 8px 10px;
+}
+#al-fullscreen .al-view svg {
+  max-height: calc(100dvh - 340px);
+}
+#al-fullscreen #al-category-trend .al-view svg,
+#al-fullscreen #al-project-rank .al-view svg {
+  max-height: calc(100dvh - 460px);
+}
+@media (max-width: 640px) {
+  .al-family-group {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .al-family-group > strong {
+    padding: 3px 0;
+  }
+  .al-local-controls {
+    gap: 10px;
+  }
+  .al-segment {
+    max-width: 100%;
+  }
+  .al-local-controls .al-segment button {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+  .al-compare-summary {
+    grid-template-columns: 1fr;
+  }
+  .al-compare-summary > div {
+    grid-template-columns: 1fr 1fr;
+  }
+  .al-compare-summary small {
+    grid-column: 1 / -1;
+  }
+  .al-project-toolbar {
+    flex-wrap: wrap;
+  }
+  .al-family-picker {
+    padding: 9px;
+  }
+  .al-local-controls .al-family-picker button {
+    font-size: 11px;
+  }
+  .al-country-picker label {
+    font-size: 11px;
+  }
+  #al-fullscreen .al-view svg,
+  #al-fullscreen #al-category-trend .al-view svg,
+  #al-fullscreen #al-project-rank .al-view svg {
+    max-height: none;
+  }
+}
+@media print {
+  .al-local-controls {
+    display: none !important;
+  }
+  .al-compare-summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

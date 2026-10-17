@@ -1,0 +1,1308 @@
+{
+  "retrieved_at_utc": "2026-10-16T23:51:36.227149+00:00",
+  "source_documentation": "https://open-digger.cn/en/docs/user-docs/intro",
+  "files": [
+    {
+      "repo_id": "975734319",
+      "repo": "anomalyco/opencode",
+      "url": "https://oss.open-digger.cn/github/anomalyco/opencode/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:31:36 GMT",
+      "file": "975734319.json",
+      "sha256": "7538f10ada199a13f22e2d4598ff960c32670cfc9003b773d23a730d595db374"
+    },
+    {
+      "repo_id": "965415649",
+      "repo": "openai/codex",
+      "url": "https://oss.open-digger.cn/github/openai/codex/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:14:49 GMT",
+      "file": "965415649.json",
+      "sha256": "8ee299db2b5decb261b30b4ce836648e714c52cf63cd3e530ca89de495f2a6f5"
+    },
+    {
+      "repo_id": "937253475",
+      "repo": "anthropics/claude-code",
+      "url": "https://oss.open-digger.cn/github/anthropics/claude-code/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:31:53 GMT",
+      "file": "937253475.json",
+      "sha256": "cab2675e840df90cfa64ed4f6c5738bbc5757148f0ae1fa4d52a26ece459d4bf"
+    },
+    {
+      "repo_id": "1008713177",
+      "repo": "QwenLM/qwen-code",
+      "url": "https://oss.open-digger.cn/github/QwenLM/qwen-code/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:06:20 GMT",
+      "file": "1008713177.json",
+      "sha256": "595c2510c7b7ca0bbbf6ee28f71e699afff4b9059e8a6db49bde2a6daa826adb"
+    },
+    {
+      "repo_id": "1035029907",
+      "repo": "earendil-works/pi",
+      "url": "https://oss.open-digger.cn/github/earendil-works/pi/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:10:02 GMT",
+      "file": "1035029907.json",
+      "sha256": "e97d72dd3e568d4dcab4051468ff0078a6ae9462b902b79327f1b5e16a90c803"
+    },
+    {
+      "repo_id": "824874689",
+      "repo": "cline/cline",
+      "url": "https://oss.open-digger.cn/github/cline/cline/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:49:06 GMT",
+      "file": "824874689.json",
+      "sha256": "d703ccefdcfe79e5903388bde610c887a852191418ce639067fa05ce8b8e8f82"
+    },
+    {
+      "repo_id": "946087422",
+      "repo": "Kilo-Org/kilocode",
+      "url": "https://oss.open-digger.cn/github/Kilo-Org/kilocode/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:46:24 GMT",
+      "file": "946087422.json",
+      "sha256": "da878e8e6f1cad4de57b5a94fc8ee725f841d6d3139de43f9c6dd9fe68053537"
+    },
+    {
+      "repo_id": "846698999",
+      "repo": "aaif-goose/goose",
+      "url": "https://oss.open-digger.cn/github/aaif-goose/goose/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:24:30 GMT",
+      "file": "846698999.json",
+      "sha256": "2c35000fea416c99e205a3fa2bb2cc0fab2e9f36a2f913dd8730a88345194814"
+    },
+    {
+      "repo_id": "1246459259",
+      "repo": "MoonshotAI/kimi-code",
+      "url": "https://oss.open-digger.cn/github/MoonshotAI/kimi-code/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:56:07 GMT",
+      "file": "1246459259.json",
+      "sha256": "7b3b5ba51a5ebf8f0bf8b0dddc336a74c1b19033c6c5d20e16824f382b98ca38"
+    },
+    {
+      "repo_id": "968197216",
+      "repo": "google-gemini/gemini-cli",
+      "url": "https://oss.open-digger.cn/github/google-gemini/gemini-cli/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:24:40 GMT",
+      "file": "968197216.json",
+      "sha256": "f9854929400be0e1f624d60a3abbfe6b51ea1b6b594a854439f52015a3723cb6"
+    },
+    {
+      "repo_id": "1216785679",
+      "repo": "esengine/DeepSeek-Reasonix",
+      "url": "https://oss.open-digger.cn/github/esengine/DeepSeek-Reasonix/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:13:43 GMT",
+      "file": "1216785679.json",
+      "sha256": "84cd2ead3857ace40c1b6189eeb2ec4a2fb29b9c8e261e8aa04178e681164da0"
+    },
+    {
+      "repo_id": "771302083",
+      "repo": "OpenHands/OpenHands",
+      "url": "https://oss.open-digger.cn/github/OpenHands/OpenHands/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:01:36 GMT",
+      "file": "771302083.json",
+      "sha256": "a875eb99cddbdd8a42ad75ed7bd8733c745b408a29a61bbb5c56262cd5b59aa5"
+    },
+    {
+      "repo_id": "585860664",
+      "repo": "github/copilot-cli",
+      "url": "https://oss.open-digger.cn/github/github/copilot-cli/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:22:48 GMT",
+      "file": "585860664.json",
+      "sha256": "fb58633b98832426f9235fdc4ce6523cd254d043ccf1fd9f37273eae9d7b5aea"
+    },
+    {
+      "repo_id": "1256070689",
+      "repo": "MiniMax-AI/minimax-code",
+      "url": "https://oss.open-digger.cn/github/MiniMax-AI/minimax-code/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:55:19 GMT",
+      "file": "1256070689.json",
+      "sha256": "6a83537006b96eb494d8999693cb4cc834c3885263675d56a8296334e7342e11"
+    },
+    {
+      "repo_id": "1333065091",
+      "repo": "deepseek-ai/deepseek-harness",
+      "url": "https://oss.open-digger.cn/github/deepseek-ai/deepseek-harness/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:05:14 GMT",
+      "file": "1333065091.json",
+      "sha256": "37f6fd785ce38d7b5a6fb318ec55c67b85e5ceacd5eefa1717230aae2339c2c0"
+    },
+    {
+      "repo_id": "1378288598",
+      "repo": "zai-org/ZCode",
+      "url": "https://oss.open-digger.cn/github/zai-org/ZCode/openrank.json",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "repo_id": "1153130349",
+      "repo": "pingdotgg/t3code",
+      "url": "https://oss.open-digger.cn/github/pingdotgg/t3code/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:20:19 GMT",
+      "file": "1153130349.json",
+      "sha256": "039de46f8cee37200b54e34d65a2c7ac83750c677c63db909002a9469e1ce4e3"
+    },
+    {
+      "repo_id": "1031912724",
+      "repo": "farion1231/cc-switch",
+      "url": "https://oss.open-digger.cn/github/farion1231/cc-switch/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:15:47 GMT",
+      "file": "1031912724.json",
+      "sha256": "371912f7458e394a05810b967b662e68d548f9f66032daee402a363599850659"
+    },
+    {
+      "repo_id": "1108837393",
+      "repo": "code-yeongyu/oh-my-openagent",
+      "url": "https://oss.open-digger.cn/github/code-yeongyu/oh-my-openagent/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:50:37 GMT",
+      "file": "1108837393.json",
+      "sha256": "a00772498ccf8ecb3f8148a7fe9d94d28b44fbee350d8c594170deadf1bb56be"
+    },
+    {
+      "repo_id": "1136590548",
+      "repo": "affaan-m/ECC",
+      "url": "https://oss.open-digger.cn/github/affaan-m/ECC/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:26:48 GMT",
+      "file": "1136590548.json",
+      "sha256": "f2e0605359109cc93e19d556b020775b0cb17b4f1c8e47e70ec131cd6c9bd018"
+    },
+    {
+      "repo_id": "1193909050",
+      "repo": "herdrdev/herdr",
+      "url": "https://oss.open-digger.cn/github/herdrdev/herdr/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:28:48 GMT",
+      "file": "1193909050.json",
+      "sha256": "3226721ce89dde0e27536d6c28a4ad5ec3fb9d4c22d58adc28f1fa2c0c32827f"
+    },
+    {
+      "repo_id": "1073224795",
+      "repo": "obra/superpowers",
+      "url": "https://oss.open-digger.cn/github/obra/superpowers/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:13:14 GMT",
+      "file": "1073224795.json",
+      "sha256": "15e12dd1c4f0f6fb03d1ed6e675f2a3d212e061b45e45d2a5bd307dbd0df5a2a"
+    },
+    {
+      "repo_id": "1042367133",
+      "repo": "github/spec-kit",
+      "url": "https://oss.open-digger.cn/github/github/spec-kit/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:22:50 GMT",
+      "file": "1042367133.json",
+      "sha256": "1fc3957c2a668e24dfebc5ca6d7069e7153f225eaa94df705c6935116af4c836"
+    },
+    {
+      "repo_id": "1103012935",
+      "repo": "openclaw/openclaw",
+      "url": "https://oss.open-digger.cn/github/openclaw/openclaw/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:14:58 GMT",
+      "file": "1103012935.json",
+      "sha256": "a4a83dcbe117900f969193383e88f6c8d3fc74bf968da4ba068ab3ca51f12dff"
+    },
+    {
+      "repo_id": "1024554267",
+      "repo": "NousResearch/hermes-agent",
+      "url": "https://oss.open-digger.cn/github/NousResearch/hermes-agent/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:00:09 GMT",
+      "file": "1024554267.json",
+      "sha256": "1bf0c2f9b4b58941feab97881dbf324f1da4573ba90b13c2d7412a0d82ed2da1"
+    },
+    {
+      "repo_id": "1165324947",
+      "repo": "agentscope-ai/QwenPaw",
+      "url": "https://oss.open-digger.cn/github/agentscope-ai/QwenPaw/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:26:54 GMT",
+      "file": "1165324947.json",
+      "sha256": "1a51119a05eef30579566d0ebd463c958b0ffbe75e1ace3c2e9d4a9cdbe01193"
+    },
+    {
+      "repo_id": "643445235",
+      "repo": "lobehub/lobehub",
+      "url": "https://oss.open-digger.cn/github/lobehub/lobehub/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:50:59 GMT",
+      "file": "643445235.json",
+      "sha256": "db712a6a77456e301557161c9ab44050440deac2526943e6af69543cbd2d5144"
+    },
+    {
+      "repo_id": "575865240",
+      "repo": "AstrBotDevs/AstrBot",
+      "url": "https://oss.open-digger.cn/github/AstrBotDevs/AstrBot/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:13:42 GMT",
+      "file": "575865240.json",
+      "sha256": "096946895bdbefe23005e96f06b13be3c0e590a89e044d6becabd36953f50e0c"
+    },
+    {
+      "repo_id": "1156956890",
+      "repo": "zeroclaw-labs/zeroclaw",
+      "url": "https://oss.open-digger.cn/github/zeroclaw-labs/zeroclaw/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 19:03:49 GMT",
+      "file": "1156956890.json",
+      "sha256": "a05d953f0560aff6d83509eaaea27d4cdf4fe1a23d63cc9b0363f312a823ea41"
+    },
+    {
+      "repo_id": "1147094660",
+      "repo": "HKUDS/nanobot",
+      "url": "https://oss.open-digger.cn/github/HKUDS/nanobot/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:36:22 GMT",
+      "file": "1147094660.json",
+      "sha256": "17eb711ec2a8135fc7f46e4622474292d2a3cd0f0620721b9b8c13d9c4665013"
+    },
+    {
+      "repo_id": "805155266",
+      "repo": "CherryHQ/cherry-studio",
+      "url": "https://oss.open-digger.cn/github/CherryHQ/cherry-studio/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:19:51 GMT",
+      "file": "805155266.json",
+      "sha256": "ded912a50bcb1581fc74b5507c49aa45365af5d83ad4217d45faa6147579a439"
+    },
+    {
+      "repo_id": "701547123",
+      "repo": "open-webui/open-webui",
+      "url": "https://oss.open-digger.cn/github/open-webui/open-webui/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:14:42 GMT",
+      "file": "701547123.json",
+      "sha256": "e7a8b37148abd5f8e7b11cec111b4057820a86150d191d8ef2dded497e77c2e0"
+    },
+    {
+      "repo_id": "600596928",
+      "repo": "danny-avila/LibreChat",
+      "url": "https://oss.open-digger.cn/github/danny-avila/LibreChat/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:01:52 GMT",
+      "file": "600596928.json",
+      "sha256": "ec85ea624beeeeef4ca49a41a2c28eb4ed092a64c573e2d886bb44f9638f5d9c"
+    },
+    {
+      "repo_id": "979115477",
+      "repo": "bytedance/deer-flow",
+      "url": "https://oss.open-digger.cn/github/bytedance/deer-flow/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:44:46 GMT",
+      "file": "979115477.json",
+      "sha256": "39921c0b26f495d00139f658149b9808bb2a79a29e89b5d6c82fd3a023051a31"
+    },
+    {
+      "repo_id": "839037098",
+      "repo": "mastra-ai/mastra",
+      "url": "https://oss.open-digger.cn/github/mastra-ai/mastra/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:55:40 GMT",
+      "file": "839037098.json",
+      "sha256": "3217261ad9509bfbaae283e56cfce7c4ea60b354764f725f467044f391e88d8c"
+    },
+    {
+      "repo_id": "1170821064",
+      "repo": "paperclipai/paperclip",
+      "url": "https://oss.open-digger.cn/github/paperclipai/paperclip/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:18:23 GMT",
+      "file": "1170821064.json",
+      "sha256": "96c94dbe80edbba7a847f277ed120a1681fe9cca7b67d496869bb6b48922d17d"
+    },
+    {
+      "repo_id": "1133707766",
+      "repo": "multica-ai/multica",
+      "url": "https://oss.open-digger.cn/github/multica-ai/multica/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:06:56 GMT",
+      "file": "1133707766.json",
+      "sha256": "ee770c7eb12663e29e38cc3c294f427a27af9a4a6d4f0d8de727ce2177456d45"
+    },
+    {
+      "repo_id": "1183888342",
+      "repo": "stablyai/orca",
+      "url": "https://oss.open-digger.cn/github/stablyai/orca/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:41:18 GMT",
+      "file": "1183888342.json",
+      "sha256": "2525ca43582741af6b79b9b319500d708969be55a9c15a17d92e573106f10af1"
+    },
+    {
+      "repo_id": "193215554",
+      "repo": "n8n-io/n8n",
+      "url": "https://oss.open-digger.cn/github/n8n-io/n8n/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:07:33 GMT",
+      "file": "193215554.json",
+      "sha256": "14aefeaccc3fe44bc66fc2fb815e19f565d2992e2192265f3d92b3c062d4322e"
+    },
+    {
+      "repo_id": "626805178",
+      "repo": "langgenius/dify",
+      "url": "https://oss.open-digger.cn/github/langgenius/dify/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:47:39 GMT",
+      "file": "626805178.json",
+      "sha256": "727cc36503c56c82a3427418d0f56a8b3837f37b790d1de0b5d4f7b68134abc5"
+    },
+    {
+      "repo_id": "573661753",
+      "repo": "activepieces/activepieces",
+      "url": "https://oss.open-digger.cn/github/activepieces/activepieces/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:25:30 GMT",
+      "file": "573661753.json",
+      "sha256": "ba1f4c599a016d48952b6e2aa817eef4bcee682e29c34e2702386ca5216ce429"
+    },
+    {
+      "repo_id": "599320067",
+      "repo": "langflow-ai/langflow",
+      "url": "https://oss.open-digger.cn/github/langflow-ai/langflow/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:47:38 GMT",
+      "file": "599320067.json",
+      "sha256": "40cf582fcae20578d0c156386c4c7d76b3150c43ad4b3164f9af1542861d53ef"
+    },
+    {
+      "repo_id": "621803253",
+      "repo": "FlowiseAI/Flowise",
+      "url": "https://oss.open-digger.cn/github/FlowiseAI/Flowise/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:33:36 GMT",
+      "file": "621803253.json",
+      "sha256": "69dc710217ed08915fa7e8ceecac8ac7cb34aee1600dd2bda4cddec8de285306"
+    },
+    {
+      "repo_id": "644461337",
+      "repo": "vercel/ai",
+      "url": "https://oss.open-digger.cn/github/vercel/ai/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:55:41 GMT",
+      "file": "644461337.json",
+      "sha256": "157b32ceeba2ed4753f19adb5e3b13f9910f79999ad7bb3af469fc9308fc0a2c"
+    },
+    {
+      "repo_id": "488641606",
+      "repo": "agno-agi/agno",
+      "url": "https://oss.open-digger.cn/github/agno-agi/agno/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:26:58 GMT",
+      "file": "488641606.json",
+      "sha256": "6edf1a27a7c68de8ade3cca7587c372ab2761d09e94191f4332abd41f1a5a67f"
+    },
+    {
+      "repo_id": "655515393",
+      "repo": "CopilotKit/CopilotKit",
+      "url": "https://oss.open-digger.cn/github/CopilotKit/CopilotKit/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:22:26 GMT",
+      "file": "655515393.json",
+      "sha256": "e77eb494247aa7e1ce0dd18d903b144a5491a6b1268d52adca2875de6daffbd8"
+    },
+    {
+      "repo_id": "552661142",
+      "repo": "langchain-ai/langchain",
+      "url": "https://oss.open-digger.cn/github/langchain-ai/langchain/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:47:36 GMT",
+      "file": "552661142.json",
+      "sha256": "1e2797465e04a4c694b1c60fa4ae5d4cbaa9122b022783012ad768d0d1ff7d9e"
+    },
+    {
+      "repo_id": "974445592",
+      "repo": "microsoft/agent-framework",
+      "url": "https://oss.open-digger.cn/github/microsoft/agent-framework/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:00:13 GMT",
+      "file": "974445592.json",
+      "sha256": "f4dde1607b2f666f813cad0073660c9707fc8d793ecdae696ee035762f9a1b75"
+    },
+    {
+      "repo_id": "818331198",
+      "repo": "pydantic/pydantic-ai",
+      "url": "https://oss.open-digger.cn/github/pydantic/pydantic-ai/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:24:10 GMT",
+      "file": "818331198.json",
+      "sha256": "a6f661bf03ab1b525df96c484d91624b619c1bc8b386312784ed9dd4347fdec3"
+    },
+    {
+      "repo_id": "707441527",
+      "repo": "livekit/agents",
+      "url": "https://oss.open-digger.cn/github/livekit/agents/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:50:38 GMT",
+      "file": "707441527.json",
+      "sha256": "90a67614f43e143979dfb71b4e16195d3e156cb590ee54acaac526b6be201e96"
+    },
+    {
+      "repo_id": "976095156",
+      "repo": "JetBrains/koog",
+      "url": "https://oss.open-digger.cn/github/JetBrains/koog/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:41:33 GMT",
+      "file": "976095156.json",
+      "sha256": "dddab8403829702fade7be1e84807df7baaf189764ab6935f7bb6b1adbabd612"
+    },
+    {
+      "repo_id": "958830659",
+      "repo": "google/adk-python",
+      "url": "https://oss.open-digger.cn/github/google/adk-python/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:23:48 GMT",
+      "file": "958830659.json",
+      "sha256": "c97ec0549b42e4154e369e5615eb8d50bafd3a4e1b7cd4da900a17e9fca29f56"
+    },
+    {
+      "repo_id": "736272311",
+      "repo": "pipecat-ai/pipecat",
+      "url": "https://oss.open-digger.cn/github/pipecat-ai/pipecat/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:20:24 GMT",
+      "file": "736272311.json",
+      "sha256": "c527670a70b49169ec14e5f79fc3b1a6d5d2a5395db36371c18f240baf0c45bb"
+    },
+    {
+      "repo_id": "710601088",
+      "repo": "crewAIInc/crewAI",
+      "url": "https://oss.open-digger.cn/github/crewAIInc/crewAI/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:59:45 GMT",
+      "file": "710601088.json",
+      "sha256": "f20de67c7318e3c55a2f4ee2f47535598b28aea635e6e3640a1902fb87ce4792"
+    },
+    {
+      "repo_id": "1128123594",
+      "repo": "volcengine/OpenViking",
+      "url": "https://oss.open-digger.cn/github/volcengine/OpenViking/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:56:54 GMT",
+      "file": "1128123594.json",
+      "sha256": "a32089a7d7b9be856282a1d638989097b89f3c59c429f714e236ef9a94c1ebbc"
+    },
+    {
+      "repo_id": "730534580",
+      "repo": "infiniflow/ragflow",
+      "url": "https://oss.open-digger.cn/github/infiniflow/ragflow/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:33:34 GMT",
+      "file": "730534580.json",
+      "sha256": "b4f739234089b205d2f7eb46d261b2228de30ee1f085b8dd0b82ec596eeb9eee"
+    },
+    {
+      "repo_id": "208728772",
+      "repo": "milvus-io/milvus",
+      "url": "https://oss.open-digger.cn/github/milvus-io/milvus/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:01:50 GMT",
+      "file": "208728772.json",
+      "sha256": "1ea4e4af123200e744ac4a99cea1a053f675c7589af57ad2aef605d6dd9fc144"
+    },
+    {
+      "repo_id": "1086419061",
+      "repo": "vectorize-io/hindsight",
+      "url": "https://oss.open-digger.cn/github/vectorize-io/hindsight/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:55:32 GMT",
+      "file": "1086419061.json",
+      "sha256": "aa01b465294169da7566b7252c2b064f208ec6ee5aa8d6d753a13891ba9b9f04"
+    },
+    {
+      "repo_id": "679343504",
+      "repo": "topoteretes/cognee",
+      "url": "https://oss.open-digger.cn/github/topoteretes/cognee/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:50:07 GMT",
+      "file": "679343504.json",
+      "sha256": "56068dcae6a1f0020519e8616a4a65bc177f637df53aa8945352078329ecf72b"
+    },
+    {
+      "repo_id": "656099147",
+      "repo": "mem0ai/mem0",
+      "url": "https://oss.open-digger.cn/github/mem0ai/mem0/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:57:58 GMT",
+      "file": "656099147.json",
+      "sha256": "38179200100d147765036c0961947858a8f546b42ece1d8508d575934cfaa04f"
+    },
+    {
+      "repo_id": "1080442728",
+      "repo": "oceanbase/seekdb",
+      "url": "https://oss.open-digger.cn/github/oceanbase/seekdb/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:13:21 GMT",
+      "file": "1080442728.json",
+      "sha256": "90db3e107450bdf398a3efe96c1e931b3902276f2732363f3e0cb95332c21148"
+    },
+    {
+      "repo_id": "1129940957",
+      "repo": "headroomlabs-ai/headroom",
+      "url": "https://oss.open-digger.cn/github/headroomlabs-ai/headroom/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:28:31 GMT",
+      "file": "1129940957.json",
+      "sha256": "eca7c44bd8f0e96fb4793025e1353543e4020d2e414e230aede2cf246702db88"
+    },
+    {
+      "repo_id": "764287615",
+      "repo": "supermemoryai/supermemory",
+      "url": "https://oss.open-digger.cn/github/supermemoryai/supermemory/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:43:18 GMT",
+      "file": "764287615.json",
+      "sha256": "82cfe7faf5507fdfba800babc10c0b847c5843c59c84d1de8161937f66482fbf"
+    },
+    {
+      "repo_id": "1063641074",
+      "repo": "a2ui-project/a2ui",
+      "url": "https://oss.open-digger.cn/github/a2ui-project/a2ui/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:24:27 GMT",
+      "file": "1063641074.json",
+      "sha256": "079e89f5d3ee514c08fd970724925d4d484d40cce3f2686ba95a48e0e8912ee4"
+    },
+    {
+      "repo_id": "979886407",
+      "repo": "IBM/mcp-context-forge",
+      "url": "https://oss.open-digger.cn/github/IBM/mcp-context-forge/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:38:28 GMT",
+      "file": "979886407.json",
+      "sha256": "b537a4cbd6ab97662cb3e2daad9c62fa426c821d3b9e28b6f29b025682a86de5"
+    },
+    {
+      "repo_id": "950891299",
+      "repo": "agentgateway/agentgateway",
+      "url": "https://oss.open-digger.cn/github/agentgateway/agentgateway/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:26:54 GMT",
+      "file": "950891299.json",
+      "sha256": "0833a2e48c1e98cc3e2a381c4ec456ae4ee6058ee5828a594e867239e9b78341"
+    },
+    {
+      "repo_id": "947349598",
+      "repo": "stacklok/toolhive",
+      "url": "https://oss.open-digger.cn/github/stacklok/toolhive/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:41:21 GMT",
+      "file": "947349598.json",
+      "sha256": "6a04c18f3083d89744169c1e2b70f17ea2665fc412708cf20c78f784e962b28f"
+    },
+    {
+      "repo_id": "954873280",
+      "repo": "a2aproject/A2A",
+      "url": "https://oss.open-digger.cn/github/a2aproject/A2A/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:24:26 GMT",
+      "file": "954873280.json",
+      "sha256": "530d21f619a2e0cd21a3ae67bc5733d446bf48efd124b3cff39c699eaeba8cb5"
+    },
+    {
+      "repo_id": "1061953414",
+      "repo": "anthropics/skills",
+      "url": "https://oss.open-digger.cn/github/anthropics/skills/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:31:53 GMT",
+      "file": "1061953414.json",
+      "sha256": "1a84f514a4cd263b01ed07b772a819dcc8b2014f70c780ba45268e4cf4c0191f"
+    },
+    {
+      "repo_id": "890668799",
+      "repo": "modelcontextprotocol/servers",
+      "url": "https://oss.open-digger.cn/github/modelcontextprotocol/servers/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:03:57 GMT",
+      "file": "890668799.json",
+      "sha256": "9365491a136e14752291cf559e8e619a348ed34b5aa7ee3b5297f95a5e3535f7"
+    },
+    {
+      "repo_id": "979392131",
+      "repo": "ag-ui-protocol/ag-ui",
+      "url": "https://oss.open-digger.cn/github/ag-ui-protocol/ag-ui/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:26:52 GMT",
+      "file": "979392131.json",
+      "sha256": "e2d6b47f9eb9b1828e46ba3a4297cf2dc8e9c5aec2ab63bfcbc07c0da250e459"
+    },
+    {
+      "repo_id": "1191372811",
+      "repo": "larksuite/cli",
+      "url": "https://oss.open-digger.cn/github/larksuite/cli/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:47:47 GMT",
+      "file": "1191372811.json",
+      "sha256": "483b277349019612f3a437c56eed54b1dfefcc8544b257b5c4542e60e143c324"
+    },
+    {
+      "repo_id": "881458615",
+      "repo": "browser-use/browser-use",
+      "url": "https://oss.open-digger.cn/github/browser-use/browser-use/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:43:49 GMT",
+      "file": "881458615.json",
+      "sha256": "04dace7a3e412d709287b32a04f0fccaa4f60e7bb73e6d3321e6cb5222560011"
+    },
+    {
+      "repo_id": "1132001614",
+      "repo": "vercel-labs/agent-browser",
+      "url": "https://oss.open-digger.cn/github/vercel-labs/agent-browser/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:55:44 GMT",
+      "file": "1132001614.json",
+      "sha256": "819773d0d9fab95b21b38914f888d0bcc34f3e86073aa5ccb265fa8013eee526"
+    },
+    {
+      "repo_id": "787076358",
+      "repo": "firecrawl/firecrawl",
+      "url": "https://oss.open-digger.cn/github/firecrawl/firecrawl/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:17:30 GMT",
+      "file": "787076358.json",
+      "sha256": "9544bc477576e65ec86fe2da4c1577b374b4d0af4585030e3b86b972ddbc5525"
+    },
+    {
+      "repo_id": "925270205",
+      "repo": "trycua/cua",
+      "url": "https://oss.open-digger.cn/github/trycua/cua/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:51:29 GMT",
+      "file": "925270205.json",
+      "sha256": "283327876d940d262eb7395d43ba6f4e47ac563e28e126c94a84460eb7cc3d6f"
+    },
+    {
+      "repo_id": "1062458369",
+      "repo": "alibaba/page-agent",
+      "url": "https://oss.open-digger.cn/github/alibaba/page-agent/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:29:06 GMT",
+      "file": "1062458369.json",
+      "sha256": "cacda5f94753154a15892c7d191d4a07b8544ea40bcfc412b4d9b6640d3c9afe"
+    },
+    {
+      "repo_id": "440752086",
+      "repo": "coder/coder",
+      "url": "https://oss.open-digger.cn/github/coder/coder/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:51:12 GMT",
+      "file": "440752086.json",
+      "sha256": "f75127ce8c7272d81f5800f90a72fc35f7f0c8a58e7d9b72ba8506286b63f4fe"
+    },
+    {
+      "repo_id": "384219990",
+      "repo": "warpdotdev/warp",
+      "url": "https://oss.open-digger.cn/github/warpdotdev/warp/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:57:59 GMT",
+      "file": "384219990.json",
+      "sha256": "de2393f0deb171125eb6ccfb5a38f3720afc5ffca91ee9ec421e60949b7fcfea"
+    },
+    {
+      "repo_id": "753490180",
+      "repo": "daytonaio/daytona",
+      "url": "https://oss.open-digger.cn/github/daytonaio/daytona/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:03:17 GMT",
+      "file": "753490180.json",
+      "sha256": "9b4e9379385701cb1a00c53a1930fb4304602016214fda7a2e8699ea6a1d4969"
+    },
+    {
+      "repo_id": "1036441713",
+      "repo": "kubernetes-sigs/agent-sandbox",
+      "url": "https://oss.open-digger.cn/github/kubernetes-sigs/agent-sandbox/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:46:38 GMT",
+      "file": "1036441713.json",
+      "sha256": "3e457b6b49877ca99af626fa4e2eda1698bab7952a5abe9ab8a000727372851c"
+    },
+    {
+      "repo_id": "1118085970",
+      "repo": "opensandbox-group/OpenSandbox",
+      "url": "https://oss.open-digger.cn/github/opensandbox-group/OpenSandbox/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:15:41 GMT",
+      "file": "1118085970.json",
+      "sha256": "1f91f83fab7811a59f287fc57649a32b2d8acab98fdd4e0827b68dc1202c0feb"
+    },
+    {
+      "repo_id": "642497346",
+      "repo": "langfuse/langfuse",
+      "url": "https://oss.open-digger.cn/github/langfuse/langfuse/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:47:38 GMT",
+      "file": "642497346.json",
+      "sha256": "07586a3ca0373faa2fae25a1d04cfd2f6d16ed1182b39ebed2de7b73428f1dc8"
+    },
+    {
+      "repo_id": "638951438",
+      "repo": "comet-ml/opik",
+      "url": "https://oss.open-digger.cn/github/comet-ml/opik/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:51:36 GMT",
+      "file": "638951438.json",
+      "sha256": "16ccf69ad49924981ed2b70d4fb922e4fb3451ac63068ec2406e234ca987ef6f"
+    },
+    {
+      "repo_id": "564072810",
+      "repo": "Arize-ai/phoenix",
+      "url": "https://oss.open-digger.cn/github/Arize-ai/phoenix/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:13:22 GMT",
+      "file": "564072810.json",
+      "sha256": "a523f28113d03fd9447346e1568de9f67d1e4625fbc773fb318f3ad895abeb79"
+    },
+    {
+      "repo_id": "633927609",
+      "repo": "promptfoo/promptfoo",
+      "url": "https://oss.open-digger.cn/github/promptfoo/promptfoo/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:23:09 GMT",
+      "file": "633927609.json",
+      "sha256": "90d41e05f6f34140581b1ab9d0459aeac1ce5c12ed726371d649270d115f3359"
+    },
+    {
+      "repo_id": "671269505",
+      "repo": "BerriAI/litellm",
+      "url": "https://oss.open-digger.cn/github/BerriAI/litellm/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:16:16 GMT",
+      "file": "671269505.json",
+      "sha256": "d41b9cf69bf4d45cf2d3423d37baf67775239dd78fcbed9db2439502326272dd"
+    },
+    {
+      "repo_id": "1157102282",
+      "repo": "diegosouzapw/OmniRoute",
+      "url": "https://oss.open-digger.cn/github/diegosouzapw/OmniRoute/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:06:40 GMT",
+      "file": "1157102282.json",
+      "sha256": "e4934504320af55daee429d63b2d65a878a6f215210b005d20d3424d24a9514c"
+    },
+    {
+      "repo_id": "717197250",
+      "repo": "QuantumNous/new-api",
+      "url": "https://oss.open-digger.cn/github/QuantumNous/new-api/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:06:14 GMT",
+      "file": "717197250.json",
+      "sha256": "7f203e32ed6ffe095070badf34b87b24c9d82635c30a57dbcddd008a6a3220bf"
+    },
+    {
+      "repo_id": "558188628",
+      "repo": "higress-group/higress",
+      "url": "https://oss.open-digger.cn/github/higress-group/higress/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:29:06 GMT",
+      "file": "558188628.json",
+      "sha256": "dda88c4083c0e9219b4fb97fbc455b996bcb5d62801599fdb442f6653ff1a79f"
+    },
+    {
+      "repo_id": "942206898",
+      "repo": "ai-dynamo/dynamo",
+      "url": "https://oss.open-digger.cn/github/ai-dynamo/dynamo/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:27:07 GMT",
+      "file": "942206898.json",
+      "sha256": "65a7fd6f3ad31d2fd86c6cb04d384e7de2329ff369257f6cdd2e616a2902ed9f"
+    },
+    {
+      "repo_id": "658928958",
+      "repo": "ollama/ollama",
+      "url": "https://oss.open-digger.cn/github/ollama/ollama/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:13:59 GMT",
+      "file": "658928958.json",
+      "sha256": "ea7e8c8cae624e603b8bc80344aa29b75dae47a157818a9018a9b248b7a093de"
+    },
+    {
+      "repo_id": "975070903",
+      "repo": "llm-d/llm-d",
+      "url": "https://oss.open-digger.cn/github/llm-d/llm-d/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:50:50 GMT",
+      "file": "975070903.json",
+      "sha256": "28e41b5114a1e9be3ffe5ba06760c7bc299792f5ae5ba6b67fd4438b4e67cb32"
+    },
+    {
+      "repo_id": "740303686",
+      "repo": "sgl-project/sglang",
+      "url": "https://oss.open-digger.cn/github/sgl-project/sglang/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:35:39 GMT",
+      "file": "740303686.json",
+      "sha256": "6efd541e018f33e8a3cf4b39df498a655748d289c30836219692eed7c33acd4d"
+    },
+    {
+      "repo_id": "599547518",
+      "repo": "vllm-project/vllm",
+      "url": "https://oss.open-digger.cn/github/vllm-project/vllm/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:56:40 GMT",
+      "file": "599547518.json",
+      "sha256": "703bef3ab451f56ef8625e9f09c79a70dfaef0214d26595d7db9503789b67faf"
+    },
+    {
+      "repo_id": "679366051",
+      "repo": "NVIDIA/TensorRT-LLM",
+      "url": "https://oss.open-digger.cn/github/NVIDIA/TensorRT-LLM/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:57:09 GMT",
+      "file": "679366051.json",
+      "sha256": "04b2d8c41cad9de562be10ef9b48405b6780647f828a728b60b798a2dfadfbb2"
+    },
+    {
+      "repo_id": "612354784",
+      "repo": "ggml-org/llama.cpp",
+      "url": "https://oss.open-digger.cn/github/ggml-org/llama.cpp/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:22:27 GMT",
+      "file": "612354784.json",
+      "sha256": "4dde37762ff8220101beb1e165c0805d476bfa40f6ba6a0e95d34637f8b500d4"
+    },
+    {
+      "repo_id": "1054512829",
+      "repo": "vllm-project/vllm-omni",
+      "url": "https://oss.open-digger.cn/github/vllm-project/vllm-omni/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:56:40 GMT",
+      "file": "1054512829.json",
+      "sha256": "93860de58aefa3350b3512b9fe1d336555d436a36b391e14a087c69b234abfb9"
+    },
+    {
+      "repo_id": "156939672",
+      "repo": "microsoft/onnxruntime",
+      "url": "https://oss.open-digger.cn/github/microsoft/onnxruntime/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:00:57 GMT",
+      "file": "156939672.json",
+      "sha256": "38605c2898f792cee00211d8f21a7308fd4ae49559f8653bc24e10233c971548"
+    },
+    {
+      "repo_id": "153097643",
+      "repo": "openvinotoolkit/openvino",
+      "url": "https://oss.open-digger.cn/github/openvinotoolkit/openvino/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:16:30 GMT",
+      "file": "153097643.json",
+      "sha256": "2f53029d80bd2bb484cfc97bce1929a43460070471c17bdfe62ea900641b814f"
+    },
+    {
+      "repo_id": "807305060",
+      "repo": "LMCache/LMCache",
+      "url": "https://oss.open-digger.cn/github/LMCache/LMCache/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:47:19 GMT",
+      "file": "807305060.json",
+      "sha256": "3e507974353f10cd0a08ebe39d2fe019f10f3870166e3794e0025e0cc01b5401"
+    },
+    {
+      "repo_id": "949546994",
+      "repo": "NVIDIA-NeMo/RL",
+      "url": "https://oss.open-digger.cn/github/NVIDIA-NeMo/RL/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:58:12 GMT",
+      "file": "949546994.json",
+      "sha256": "3f1445abaebb908d4f7fcb397e657bd5adb8de9bb4cfe4a97ef429c513dfa9bc"
+    },
+    {
+      "repo_id": "881221486",
+      "repo": "verl-project/verl",
+      "url": "https://oss.open-digger.cn/github/verl-project/verl/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:55:46 GMT",
+      "file": "881221486.json",
+      "sha256": "6b86be149d0f80d56c4fd17fbbcba39598e877fd38bf63937c067921cc6fd10f"
+    },
+    {
+      "repo_id": "1037741738",
+      "repo": "RLinf/RLinf",
+      "url": "https://oss.open-digger.cn/github/RLinf/RLinf/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:06:29 GMT",
+      "file": "1037741738.json",
+      "sha256": "756071eb5262c6af6cd284f556eb3b084a946515ac79d963ea03637ddc5860f5"
+    },
+    {
+      "repo_id": "250510075",
+      "repo": "huggingface/trl",
+      "url": "https://oss.open-digger.cn/github/huggingface/trl/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:30:57 GMT",
+      "file": "250510075.json",
+      "sha256": "f582a844a835aeadae8050d52f53fc544cf97b4dc8b5524d13a7496b3b776a61"
+    },
+    {
+      "repo_id": "1067949357",
+      "repo": "huggingface/OpenEnv",
+      "url": "https://oss.open-digger.cn/github/huggingface/OpenEnv/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:30:50 GMT",
+      "file": "1067949357.json",
+      "sha256": "33a6842e9a772c529aa6e0d6524a1319fbd6cbe98bae724a63b6beb3410f49d7"
+    },
+    {
+      "repo_id": "937952934",
+      "repo": "areal-project/AReaL",
+      "url": "https://oss.open-digger.cn/github/areal-project/AReaL/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:33:56 GMT",
+      "file": "937952934.json",
+      "sha256": "abbcf419cccefa31651aa6f12a09cb10d0b287eb6f3b64a6100f8ab722b50294"
+    },
+    {
+      "repo_id": "725205304",
+      "repo": "unslothai/unsloth",
+      "url": "https://oss.open-digger.cn/github/unslothai/unsloth/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:54:14 GMT",
+      "file": "725205304.json",
+      "sha256": "6878f8a0d0a0f95eaba06ebeccdaf6ec19e778525b063324cb12c3ecef686ded"
+    },
+    {
+      "repo_id": "673412924",
+      "repo": "modelscope/ms-swift",
+      "url": "https://oss.open-digger.cn/github/modelscope/ms-swift/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:03:59 GMT",
+      "file": "673412924.json",
+      "sha256": "a242ad074081f31db75d45555fa663170789745838afcc44be9f91906607b7dd"
+    },
+    {
+      "repo_id": "646410686",
+      "repo": "hiyouga/LlamaFactory",
+      "url": "https://oss.open-digger.cn/github/hiyouga/LlamaFactory/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:29:32 GMT",
+      "file": "646410686.json",
+      "sha256": "afdf115b60ee987225d02ca92627b173280ad6808da7f80b084cd1292c688730"
+    },
+    {
+      "repo_id": "65600975",
+      "repo": "pytorch/pytorch",
+      "url": "https://oss.open-digger.cn/github/pytorch/pytorch/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:24:39 GMT",
+      "file": "65600975.json",
+      "sha256": "f8ace05a819c5bf3e4efffc9ef225852ab1ad55ac09bbd6ca307e23994da6996"
+    },
+    {
+      "repo_id": "154739597",
+      "repo": "jax-ml/jax",
+      "url": "https://oss.open-digger.cn/github/jax-ml/jax/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:36:59 GMT",
+      "file": "154739597.json",
+      "sha256": "ac88e1e143458d5d5aeada8bbed9608e7e97e3f92dfe7d23acc686a23cc02ff7"
+    },
+    {
+      "repo_id": "176982014",
+      "repo": "NVIDIA/Megatron-LM",
+      "url": "https://oss.open-digger.cn/github/NVIDIA/Megatron-LM/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:57:07 GMT",
+      "file": "176982014.json",
+      "sha256": "50a714ce2b4538ad97cea5dfa72ce34f5296c6f152e9e0de8b1d40656bf780ba"
+    },
+    {
+      "repo_id": "65711522",
+      "repo": "PaddlePaddle/Paddle",
+      "url": "https://oss.open-digger.cn/github/PaddlePaddle/Paddle/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:02:57 GMT",
+      "file": "65711522.json",
+      "sha256": "0f57c7013888477a1ce0f0e2bfcbf9c5bc56bdb95f69d40e0369d819a51c1c83"
+    },
+    {
+      "repo_id": "235860204",
+      "repo": "deepspeedai/DeepSpeed",
+      "url": "https://oss.open-digger.cn/github/deepspeedai/DeepSpeed/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:05:15 GMT",
+      "file": "235860204.json",
+      "sha256": "8ee34524c0d94cef19f12a80ece503fea6d867be4795eb58934d787f05c7f6db"
+    },
+    {
+      "repo_id": "45717250",
+      "repo": "tensorflow/tensorflow",
+      "url": "https://oss.open-digger.cn/github/tensorflow/tensorflow/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:46:13 GMT",
+      "file": "45717250.json",
+      "sha256": "d93444ce16e9ec591cca39655944b370d954a793d88c0a7761796ac58dc5dfc1"
+    },
+    {
+      "repo_id": "86031674",
+      "repo": "wandb/wandb",
+      "url": "https://oss.open-digger.cn/github/wandb/wandb/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:57:50 GMT",
+      "file": "86031674.json",
+      "sha256": "59ffea12ab4d5ba0b88712a50802a0148a7b5f613b6571d83fe5f13fc4a831c3"
+    },
+    {
+      "repo_id": "136202695",
+      "repo": "mlflow/mlflow",
+      "url": "https://oss.open-digger.cn/github/mlflow/mlflow/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:03:39 GMT",
+      "file": "136202695.json",
+      "sha256": "57ed6a768609174391f4544a0cdcab5aaaefe48fc60ad075d5d639a49199f14e"
+    },
+    {
+      "repo_id": "748713144",
+      "repo": "huggingface/lerobot",
+      "url": "https://oss.open-digger.cn/github/huggingface/lerobot/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:30:53 GMT",
+      "file": "748713144.json",
+      "sha256": "8bb9c587e4c3dd70fd27e6a68bd4847a215afd54981db50b1da21b1a7efd5722"
+    },
+    {
+      "repo_id": "914053359",
+      "repo": "OpenMind/OM1",
+      "url": "https://oss.open-digger.cn/github/OpenMind/OM1/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:01:44 GMT",
+      "file": "914053359.json",
+      "sha256": "8ad75a7ef3d9afeae9c1c9168b5ea2f5ac5ae04169cb5a5ec1c5d203b2cb5b4a"
+    },
+    {
+      "repo_id": "669331976",
+      "repo": "flashinfer-ai/flashinfer",
+      "url": "https://oss.open-digger.cn/github/flashinfer-ai/flashinfer/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:18:09 GMT",
+      "file": "669331976.json",
+      "sha256": "f1c78f12abf753b3773f9860bd03a07d728f37fad58498d34714b3f4688ec180"
+    },
+    {
+      "repo_id": "23496542",
+      "repo": "triton-lang/triton",
+      "url": "https://oss.open-digger.cn/github/triton-lang/triton/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:51:04 GMT",
+      "file": "23496542.json",
+      "sha256": "054d7fc2933edb910bb018849b88ca9695c4e8dc2d430bcb7b4127a4ed4bb45a"
+    },
+    {
+      "repo_id": "790916393",
+      "repo": "NVIDIA/Model-Optimizer",
+      "url": "https://oss.open-digger.cn/github/NVIDIA/Model-Optimizer/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:57:07 GMT",
+      "file": "790916393.json",
+      "sha256": "6c238b0cb815110a11cb9ad0eff2c56b53bbf5671af1cf0735e56dedc1a3c9b7"
+    },
+    {
+      "repo_id": "539057023",
+      "repo": "NVIDIA/TransformerEngine",
+      "url": "https://oss.open-digger.cn/github/NVIDIA/TransformerEngine/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:57:09 GMT",
+      "file": "539057023.json",
+      "sha256": "c9a1cab5ce51ccf8b66cfbb9982d456f65e1cb66d42377f1a9f305d7f371027c"
+    },
+    {
+      "repo_id": "523007292",
+      "repo": "openxla/xla",
+      "url": "https://oss.open-digger.cn/github/openxla/xla/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:16:35 GMT",
+      "file": "523007292.json",
+      "sha256": "3bc6a5c2d1f9d7b5daca6be91314b334f8512d7e662c6487f8729973a843b065"
+    },
+    {
+      "repo_id": "112542515",
+      "repo": "NVIDIA/cutlass",
+      "url": "https://oss.open-digger.cn/github/NVIDIA/cutlass/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:57:10 GMT",
+      "file": "112542515.json",
+      "sha256": "ce7402d994325adc13c6f65fdbb98d02100b867432e8b275849a4598bbc6baff"
+    },
+    {
+      "repo_id": "494232964",
+      "repo": "Dao-AILab/flash-attention",
+      "url": "https://oss.open-digger.cn/github/Dao-AILab/flash-attention/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:24:11 GMT",
+      "file": "494232964.json",
+      "sha256": "e5a0481e9b31714a283eb837c7100e83188cc8cb37fd7d5ea23ec3d51f8f392c"
+    },
+    {
+      "repo_id": "933928679",
+      "repo": "deepseek-ai/DeepEP",
+      "url": "https://oss.open-digger.cn/github/deepseek-ai/DeepEP/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:05:13 GMT",
+      "file": "933928679.json",
+      "sha256": "dad96fa57231866b17c75255ee4e042ce9ab2f770407568c0421ee889441532c"
+    },
+    {
+      "repo_id": "139156354",
+      "repo": "cvat-ai/cvat",
+      "url": "https://oss.open-digger.cn/github/cvat-ai/cvat/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:00:56 GMT",
+      "file": "139156354.json",
+      "sha256": "f9865a2049d8fe244ce8122dc7e59336e2619da9968e5184fe2665503031387c"
+    },
+    {
+      "repo_id": "192640529",
+      "repo": "HumanSignal/label-studio",
+      "url": "https://oss.open-digger.cn/github/HumanSignal/label-studio/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 15:37:44 GMT",
+      "file": "192640529.json",
+      "sha256": "61ffccdd15a0712d4f6a22c0c74b5a05bf47ea9de04ee0462d1537688eed4de4"
+    },
+    {
+      "repo_id": "33884891",
+      "repo": "apache/airflow",
+      "url": "https://oss.open-digger.cn/github/apache/airflow/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:32:19 GMT",
+      "file": "33884891.json",
+      "sha256": "872828701add368186b34fa034902d5bf17a877f5ab40f2badc8aa8515d72f83"
+    },
+    {
+      "repo_id": "826168160",
+      "repo": "docling-project/docling",
+      "url": "https://oss.open-digger.cn/github/docling-project/docling/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:07:52 GMT",
+      "file": "826168160.json",
+      "sha256": "8b657e566d8dafa9ebbe197f37ef6b92b7e6f3adcd33378e073e842a14b29a31"
+    },
+    {
+      "repo_id": "283046497",
+      "repo": "airbytehq/airbyte",
+      "url": "https://oss.open-digger.cn/github/airbytehq/airbyte/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:27:23 GMT",
+      "file": "283046497.json",
+      "sha256": "1fbc964813795dc1d666f6927c9d3e2bc56f0bc1de62dc259cd70a33cdb4493d"
+    },
+    {
+      "repo_id": "888092115",
+      "repo": "microsoft/markitdown",
+      "url": "https://oss.open-digger.cn/github/microsoft/markitdown/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:00:51 GMT",
+      "file": "888092115.json",
+      "sha256": "415209fcf2230b1172f883771cd6c4e489e149beb0c67030c821ef0582efde3c"
+    },
+    {
+      "repo_id": "391740664",
+      "repo": "open-metadata/OpenMetadata",
+      "url": "https://oss.open-digger.cn/github/open-metadata/OpenMetadata/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:14:30 GMT",
+      "file": "391740664.json",
+      "sha256": "b9803d6aac922c2272ec8b57da5b303be3dfc12f86f222c0406ebee88fa804a1"
+    },
+    {
+      "repo_id": "46398090",
+      "repo": "datahub-project/datahub",
+      "url": "https://oss.open-digger.cn/github/datahub-project/datahub/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:02:35 GMT",
+      "file": "46398090.json",
+      "sha256": "c4f541187e2db4cba07337bf048e6067cb6967720c74486ed29ed161bddc3895"
+    },
+    {
+      "repo_id": "158256479",
+      "repo": "apache/iceberg",
+      "url": "https://oss.open-digger.cn/github/apache/iceberg/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:32:38 GMT",
+      "file": "158256479.json",
+      "sha256": "00c4661aecf1841a80689c04e83bf2796a3d4c6fd3d9998f68687d8ff6a7a40e"
+    },
+    {
+      "repo_id": "182849188",
+      "repo": "delta-io/delta",
+      "url": "https://oss.open-digger.cn/github/delta-io/delta/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:05:33 GMT",
+      "file": "182849188.json",
+      "sha256": "ff67c8dae10db2f723f9b82ece3d052963a9a926f6382dc79dfbb3baa117ba06"
+    },
+    {
+      "repo_id": "76474200",
+      "repo": "apache/hudi",
+      "url": "https://oss.open-digger.cn/github/apache/hudi/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:32:38 GMT",
+      "file": "76474200.json",
+      "sha256": "d72a3677bfe84be0b2c16698f00caeb9e4138c0d1b533da4681fa95f88955023"
+    },
+    {
+      "repo_id": "447060287",
+      "repo": "apache/paimon",
+      "url": "https://oss.open-digger.cn/github/apache/paimon/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:32:55 GMT",
+      "file": "447060287.json",
+      "sha256": "6ad1e9bd28b14b8d21716487ef8ce5fad1b712438e0bd863cd0f0886be581ae0"
+    },
+    {
+      "repo_id": "631431061",
+      "repo": "apache/gravitino",
+      "url": "https://oss.open-digger.cn/github/apache/gravitino/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:32:37 GMT",
+      "file": "631431061.json",
+      "sha256": "6aae96a1f5b70230e5ee10ac5aa482cabbd9ae2cdb16a14e094483c35c6fe4f1"
+    },
+    {
+      "repo_id": "71932349",
+      "repo": "ray-project/ray",
+      "url": "https://oss.open-digger.cn/github/ray-project/ray/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:26:46 GMT",
+      "file": "71932349.json",
+      "sha256": "acaff879955cff39555a4cea7bf297129fcac9392ccebf90b6a59836454a93c3"
+    },
+    {
+      "repo_id": "17165658",
+      "repo": "apache/spark",
+      "url": "https://oss.open-digger.cn/github/apache/spark/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 16:33:04 GMT",
+      "file": "17165658.json",
+      "sha256": "f194ee44f096ee144b8906fbfd93148530f7a58f683c5b08370757c607f880cc"
+    },
+    {
+      "repo_id": "178075572",
+      "repo": "kserve/kserve",
+      "url": "https://oss.open-digger.cn/github/kserve/kserve/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 17:46:22 GMT",
+      "file": "178075572.json",
+      "sha256": "f4196aec9efdfda200da18346bdc4adb35281ea9c266bf928226998fd16980c1"
+    },
+    {
+      "repo_id": "175592968",
+      "repo": "volcano-sh/volcano",
+      "url": "https://oss.open-digger.cn/github/volcano-sh/volcano/openrank.json",
+      "http_status": 200,
+      "last_modified": "Wed, 07 Oct 2026 18:56:54 GMT",
+      "file": "175592968.json",
+      "sha256": "45f9f925fd448f105b0ead87abdb8538d9ab2b24e057ec76980ad6706f5de844"
+    }
+  ]
+}

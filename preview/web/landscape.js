@@ -132,13 +132,23 @@
         })
         .sort((x, y) => (y.value ?? -Infinity) - (x.value ?? -Infinity));
     }
+    const countryCache = new Map();
     function country(scope, section, period, m) {
+      const cacheKey = JSON.stringify([scope, section, period, m]);
+      if (countryCache.has(cacheKey)) return countryCache.get(cacheKey);
       let ss = sections(scope),
         rr = D.simulation.filter(
           (r) =>
             ss.includes(r.section) &&
             (section === "all" || r.section === section) &&
-            (period === "rolling" || r.month === m),
+            (period === "month"
+              ? r.month === m
+              : r.month <= m &&
+                r.month >=
+                  Math.max(
+                    0,
+                    m - (period === "rolling" ? 12 : Number(period)) + 1,
+                  )),
         ),
         rows = D.countries.map((c) => {
           let subset = rr.filter((r) => r.country === c.code),
@@ -151,9 +161,11 @@
           };
         }),
         total = sum(rows.map((r) => r.value));
-      return rank(
+      const result = rank(
         rows.map((r) => ({ ...r, share: total ? r.value / total : 0 })),
       );
+      countryCache.set(cacheKey, result);
+      return result;
     }
     function countryCategories(scope, code, period, m) {
       let rows = sections(scope).map((key) => {
@@ -196,39 +208,92 @@
   const dataNode = document.getElementById("landscape-data");
   if (!dataNode) return;
   const D = JSON.parse(dataNode.textContent);
-  if (D.version !== "4.1-v2") return;
+  if (D.version !== "4.1-v3") return;
   const M = globalThis.LandscapeModel(D),
-    $ = (id) => document.getElementById(id),
-    base = document.querySelector('meta[name="gosd-base"]')?.content || "",
-    P = D.projects;
-  const state = {
-    scope: "all",
-    month: 11,
-    category: "Personal AI assistants",
-    countryScope: "all",
-    country: "US",
-    period: "rolling",
-    heat: "rank",
-    categoryMode: "value",
-    projectView: "line",
-    limit: 10,
-    start: 8,
-    end: 11,
-    picks: [],
-  };
+    P = D.projects,
+    LAST = D.months.length - 1,
+    $ = (id) => document.getElementById(id);
+  const state = { month: LAST };
   const chartData = {},
-    pages = {},
-    colours = [
-      "#3c84b5",
-      "#d18739",
-      "#42a597",
-      "#b76d96",
-      "#8771ae",
-      "#8f984a",
-      "#6483cc",
-      "#8998a4",
-      "#b6bcc2",
-    ];
+    pages = {};
+  const configs = {
+    "al-category-rank": { scope: "all", month: LAST, focus: null },
+    "al-category-heat": {
+      scope: "Agent Infra",
+      window: 12,
+      metric: "rank",
+      focus: null,
+    },
+    "al-category-trend": {
+      categories: ["Personal AI assistants", "Agentic coding"],
+      window: 12,
+      metric: "rank",
+    },
+    "al-project-rank": {
+      section: "Personal AI assistants",
+      window: 12,
+      metric: "rank",
+      month: LAST,
+      picks: [],
+      page: 0,
+    },
+    "al-country-rank": {
+      scope: "all",
+      section: "all",
+      window: 12,
+      country: null,
+    },
+    "al-country-detail": {
+      scope: "all",
+      window: 12,
+      country: "US",
+      metric: "share",
+    },
+    "al-country-stack": {
+      scope: "Agent Infra",
+      window: 12,
+      countries: ["US", "CN", "DE"],
+      mode: "compare",
+    },
+    "al-concentration": {
+      scope: "Agent Infra",
+      month: LAST,
+      section: "Personal AI assistants",
+    },
+    "al-shift": {
+      scope: "Agent Infra",
+      window: 12,
+      section: "Personal AI assistants",
+    },
+    "al-specialization": {
+      scope: "Agent Infra",
+      window: 12,
+      countries: ["US", "CN", "DE"],
+    },
+    "al-country-trend": {
+      scope: "all",
+      section: "all",
+      window: 12,
+      countries: ["US", "CN", "GB"],
+    },
+  };
+  const palette = [
+    "#287dac",
+    "#bf7f2d",
+    "#28998d",
+    "#8065a4",
+    "#c4637f",
+    "#687dbd",
+    "#658e3c",
+    "#b25d40",
+    "#358eae",
+    "#a562ad",
+    "#87943f",
+    "#4866a2",
+    "#bc7586",
+  ];
+  const color = (k) =>
+    palette[Object.keys(D.sections).indexOf(k) % palette.length];
   const E = (s) =>
     String(s ?? "").replace(
       /[&<>"']/g,
@@ -250,67 +315,249 @@
         });
   const pct = (v) =>
     v === null || v === undefined ? "—" : F(v * 100, 1) + "%";
-  const signed = (v, unit = "") =>
-    v === null ? "—" : (v > 0 ? "+" : "") + F(v, 1) + unit;
-  const scopeName = () => (state.scope === "all" ? "整个领域" : state.scope);
-  const countryScopeName = () =>
-    state.countryScope === "all"
-      ? scopeName()
-      : D.sections[state.countryScope].name;
-  const periodName = () =>
-    state.period === "rolling"
-      ? "2025-09—2026-08（12 个月）"
-      : D.months[state.month];
-  function shade(q, base = [0, 125, 135]) {
-    q = Math.max(0, Math.min(1, q));
-    const rgb = base.map((v) => Math.round(242 + (v - 242) * q));
-    return "#" + rgb.map((v) => v.toString(16).padStart(2, "0")).join("");
-  }
+  const signed = (v, unit = "") => {
+    if (v === null) return "—";
+    const rounded = Math.abs(v) < 0.05 ? 0 : v;
+    return (rounded > 0 ? "+" : "") + F(rounded, 1) + unit;
+  };
+  const scopeName = (s) => (s === "all" ? "整个领域" : s);
+  const catName = (k) => D.sections[k]?.name || "全部类别";
+  const start = (c) => Math.max(0, LAST - c.window + 1);
+  const period = (c) =>
+    `${D.months[start(c)]}—${D.months[LAST]} · ${c.window} 个月`;
+  const countryScope = (c) =>
+    c.section && c.section !== "all" ? catName(c.section) : scopeName(c.scope);
+  const cc = (code) => D.countries.find((c) => c.code === code);
+  const text = (x, y, s, attrs = "") =>
+    `<text x="${x}" y="${y}" ${attrs}>${E(s)}</text>`;
+  const svg = (w, h, b, label) =>
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" role="group" aria-label="${E(label)}"><rect width="${w}" height="${h}" fill="var(--gv-surface)"/>${b}</svg>`;
+  const mark = (action, value, label, b, selected = false) =>
+    `<g role="button" tabindex="0" data-action="${action}" data-value="${E(value)}" aria-pressed="${selected}" aria-label="${E(label)}"><title>${E(label)}</title>${b}</g>`;
   function contrastInk(hex) {
-    const rgb = hex
+    let rgb = hex
       .slice(1)
       .match(/../g)
       .map((x) => parseInt(x, 16) / 255)
       .map((v) => (v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
-    const lum = 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
-    return lum > 0.179 ? "#091b29" : "#ffffff";
+    return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2] > 0.179
+      ? "#091b29"
+      : "#fff";
   }
-  function text(x, y, s, attrs = "") {
-    return `<text x="${x}" y="${y}" ${attrs}>${E(s)}</text>`;
+  function optionSelect(id, field, label, options, value) {
+    return `<label>${label}<select data-field="${field}" id="${id}-${field}">${options.map(([v, t]) => `<option value="${E(v)}" ${String(v) === String(value) ? "selected" : ""}>${E(t)}</option>`).join("")}</select></label>`;
   }
-  function svg(w, h, body, label) {
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" role="group" aria-label="${E(label)}"><rect width="${w}" height="${h}" fill="var(--gv-surface)"/>${body}</svg>`;
+  function segment(field, options, value, label) {
+    return `<div class="al-segment" role="group" aria-label="${label}">${options.map(([v, t]) => `<button type="button" data-action="${field}" data-value="${E(v)}" aria-pressed="${String(v) === String(value)}">${E(t)}</button>`).join("")}</div>`;
   }
-  function mark(attr, label, body) {
-    return `<g role="button" tabindex="0" ${attr} aria-label="${E(label)}"><title>${E(label)}</title>${body}</g>`;
-  }
-  function bindMarks(el) {
-    el.querySelectorAll("[data-category]").forEach(
-      (n) => (n.onclick = () => chooseCategory(n.dataset.category)),
+  const windowControls = (c) =>
+    segment(
+      "window",
+      [
+        [6, "6 个月"],
+        [12, "12 个月"],
+        [18, "18 个月"],
+      ],
+      c.window,
+      "时间窗口",
     );
-    el.querySelectorAll("[data-project]").forEach(
+  const scopeControls = (c, all = true) =>
+    segment(
+      "scope",
+      [
+        ...(all ? [["all", "整个领域"]] : []),
+        ["Agent Infra", "Agent Infra"],
+        ["Model Infra", "Model Infra"],
+      ],
+      c.scope,
+      "观测范围",
+    );
+  const metricControls = (c) =>
+    segment(
+      "metric",
+      [
+        ["rank", "位次"],
+        ["value", "OpenRank"],
+        ["share", "份额"],
+      ],
+      c.metric,
+      "比较指标",
+    );
+  function familyPicker(selected, multi = false) {
+    return `<div class="al-family-picker" aria-label="${multi ? "比较子类别，最多三项" : "选择子类别"}">${[
+      "Agent Infra",
+      "Model Infra",
+    ]
+      .map(
+        (layer) =>
+          `<div class="al-family-group" role="group" aria-label="${layer}"><strong>${layer}</strong><div>${M.sections(
+            layer,
+          )
+            .map(
+              (k) =>
+                `<button type="button" data-action="${multi ? "compare-category" : "project-category"}" data-value="${E(k)}" aria-pressed="${selected.includes(k)}" style="--al-choice-color:${color(k)}">${E(catName(k))}</button>`,
+            )
+            .join("")}</div></div>`,
+      )
+      .join("")}</div>`;
+  }
+  function countryPicker(c, max = 9) {
+    return `<fieldset class="al-country-picker"><legend>关注国家${max < 9 ? " · 最多 " + max + " 个" : ""}</legend><div>${D.countries.map((x) => `<label style="--al-choice-color:${x.color}"><input type="checkbox" data-country-check="${x.code}" ${c.countries.includes(x.code) ? "checked" : ""}>${x.name}</label>`).join("")}<button type="button" data-action="countries-reset">${max < 9 ? "默认三个" : "恢复默认"}</button>${max === 9 ? '<button type="button" data-action="countries-all">全部</button><button type="button" data-action="countries-none">清空</button>' : ""}</div></fieldset>`;
+  }
+  function categoryScopeSelect(id, c) {
+    return optionSelect(
+      id,
+      "section",
+      "子类别",
+      [["all", "全部类别"], ...M.sections(c.scope).map((k) => [k, catName(k)])],
+      c.section,
+    );
+  }
+  function controls(id, html) {
+    let panel = $(id),
+      host = panel.querySelector(".al-local-controls");
+    if (!host) {
+      host = document.createElement("div");
+      host.className = "al-local-controls";
+      panel.querySelector(".al-view").before(host);
+    }
+    host.innerHTML = html;
+    bindPanel(panel);
+  }
+  function bindPanel(panel) {
+    panel.querySelectorAll("[data-action]").forEach((n) => {
+      n.onclick = () => act(panel.id, n.dataset.action, n.dataset.value, n);
+      if (n.getAttribute("role") === "button")
+        n.onkeydown = (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            n.onclick();
+          }
+        };
+    });
+    panel
+      .querySelectorAll("[data-field]")
+      .forEach(
+        (n) => (n.onchange = () => act(panel.id, n.dataset.field, n.value, n)),
+      );
+    panel
+      .querySelectorAll("[data-country-check]")
+      .forEach(
+        (n) =>
+          (n.onchange = () =>
+            act(panel.id, "country-check", n.dataset.countryCheck, n)),
+      );
+    panel.querySelectorAll("[data-project]").forEach(
       (n) =>
         (n.onclick = (e) => {
           e.preventDefault();
-          projectDialog(n.dataset.project);
+          projectDialog(n.dataset.project, state.month);
         }),
     );
-    el.querySelectorAll("[data-country]").forEach(
-      (n) =>
-        (n.onclick = () => {
-          state.country = n.dataset.country;
-          renderCountry();
-        }),
-    );
-    el.querySelectorAll('[role="button"]').forEach(
-      (n) =>
-        (n.onkeydown = (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            n.click();
-          }
-        }),
-    );
+  }
+  function feedback(id, message) {
+    $(id).querySelector(".al-readout").textContent = message;
+  }
+  function act(id, action, value, trigger) {
+    const c = configs[id];
+    if (!c) return;
+    if (action === "open-project") {
+      projectDialog(value, c.month ?? LAST);
+      return;
+    }
+    if (action === "compare-category") {
+      const list = c.categories;
+      if (list.includes(value)) {
+        if (list.length === 1) {
+          feedback(id, "至少保留一个子类别。");
+          return;
+        }
+        list.splice(list.indexOf(value), 1);
+      } else {
+        if (list.length >= 3) {
+          feedback(id, "最多比较 3 个子类别，请先取消一个已选项。");
+          return;
+        }
+        list.push(value);
+        configs["al-project-rank"].section = value;
+        resetProjects();
+        renderProject();
+      }
+    } else if (action === "project-category") {
+      c.section = value;
+      c.page = 0;
+      resetProjects();
+      const other = configs["al-category-trend"];
+      if (!other.categories.includes(value))
+        other.categories = [...other.categories.slice(-2), value];
+      renderCompare();
+    } else if (action === "country-check") {
+      const max = id === "al-specialization" ? 3 : 9;
+      if (trigger.checked) {
+        if (c.countries.length >= max) {
+          trigger.checked = false;
+          feedback(id, `最多关注 ${max} 个国家，请先取消一个。`);
+          return;
+        }
+        c.countries.push(value);
+      } else c.countries = c.countries.filter((x) => x !== value);
+    } else if (action === "countries-reset") {
+      c.countries = ["US", "CN", id === "al-country-trend" ? "GB" : "DE"];
+    } else if (action === "countries-all")
+      c.countries = D.countries.map((x) => x.code);
+    else if (action === "countries-none") c.countries = [];
+    else if (action === "pick-project") {
+      if (c.picks.includes(value)) c.picks = c.picks.filter((x) => x !== value);
+      else {
+        if (c.picks.length >= 3) {
+          feedback(id, "最多比较 3 个项目，请先取消一个已选项目。");
+          return;
+        }
+        c.picks.push(value);
+      }
+    } else if (action === "page") {
+      c.page += Number(value);
+    } else if (action === "focus") {
+      c.focus = c.focus === value ? null : value;
+    } else if (action === "category-focus") {
+      c.section = value;
+    } else if (action === "country") {
+      c.country =
+        id === "al-country-rank" && c.country === value ? null : value;
+    } else if (action === "clear-country") c.country = null;
+    else if (action === "window") {
+      c.window = Number(value);
+      if (id === "al-project-rank") {
+        c.month = Math.max(start(c), c.month);
+        c.page = 0;
+      }
+    } else if (action === "month" || action === "project-month") {
+      c.month = Number(value);
+      if (c.page !== undefined) c.page = 0;
+    } else if (action === "scope") {
+      c.scope = value;
+      if (
+        c.section &&
+        c.section !== "all" &&
+        !M.sections(c.scope).includes(c.section)
+      )
+        c.section =
+          id === "al-concentration" || id === "al-shift"
+            ? M.sections(c.scope)[0]
+            : "all";
+      if (c.focus && !M.sections(c.scope).includes(c.focus)) c.focus = null;
+    } else c[action] = value;
+    render(id);
+    const sel = trigger.dataset.action
+      ? `[data-action="${trigger.dataset.action}"][data-value="${E(trigger.dataset.value || "")}"]`
+      : trigger.id
+        ? "#" + trigger.id
+        : null;
+    if (sel) {
+      try {
+        $(id).querySelector(sel)?.focus({ preventScroll: true });
+      } catch {}
+    }
   }
   function setChart(
     id,
@@ -318,43 +565,39 @@
     rows,
     readout,
     sim = false,
-    scopeOverride = null,
-    periodOverride = null,
+    scope = "整个领域",
+    time = D.months[LAST],
+    attention = "",
   ) {
     const el = $(id);
     el.querySelector(".al-view").innerHTML = markup;
     el.querySelector(".al-readout").textContent = readout;
-    chartData[id] = {
-      rows,
-      sim,
-      scope: scopeOverride || (sim ? countryScopeName() : scopeName()),
-      period: periodOverride || (sim ? periodName() : D.months[state.month]),
-    };
+    chartData[id] = { rows, sim, scope, period: time, attention };
     pages[id] = Math.min(
       pages[id] || 0,
       Math.max(0, Math.ceil(rows.length / 8) - 1),
     );
     renderTable(id);
-    bindMarks(el);
+    bindPanel(el);
   }
   function renderTable(id, print = false) {
-    const host = $(id).querySelector(".al-data-body"),
+    let host = $(id).querySelector(".al-data-body"),
       rows = chartData[id].rows,
       keys = rows.length ? Object.keys(rows[0]) : [],
       page = pages[id] || 0,
-      start = print ? 0 : page * 8,
-      end = print ? rows.length : Math.min(start + 8, rows.length);
+      first = print ? 0 : page * 8,
+      last = print ? rows.length : Math.min(first + 8, rows.length);
     host.innerHTML = rows.length
       ? `<div class="al-table-wrap"><table><thead><tr>${keys.map((k) => `<th scope="col">${E(k)}</th>`).join("")}</tr></thead><tbody>${rows
-          .slice(start, end)
+          .slice(first, last)
           .map(
             (r) =>
               `<tr>${keys.map((k) => `<td>${E(r[k] === null ? "—" : typeof r[k] === "number" ? F(r[k], Number.isInteger(r[k]) ? 0 : 2) : r[k])}</td>`).join("")}</tr>`,
           )
           .join(
             "",
-          )}</tbody></table></div><div class="al-pager"><button type="button" data-page="-1" ${start === 0 ? "disabled" : ""}>上一页</button><span>${start + 1}—${end} / ${rows.length} 行</span><button type="button" data-page="1" ${end === rows.length ? "disabled" : ""}>下一页</button></div>`
-      : "<p>该范围没有可用记录。</p>";
+          )}</tbody></table></div><div class="al-pager"><button type="button" data-page="-1" ${first === 0 ? "disabled" : ""}>上一页</button><span>${first + 1}—${last} / ${rows.length} 行</span><button type="button" data-page="1" ${last === rows.length ? "disabled" : ""}>下一页</button></div>`
+      : "<p>当前没有记录。</p>";
     host.querySelectorAll("[data-page]").forEach(
       (b) =>
         (b.onclick = () => {
@@ -363,231 +606,273 @@
         }),
     );
   }
-  function bars(
-    rows,
-    {
-      kind = "value",
-      attr = "data-category",
-      label = "OpenRank",
-      max = null,
-      diverging = false,
-      rightLabel = "观测 / 项目",
-      heightRows = 25,
-    } = {},
-  ) {
-    const W = 1280,
-      rowH = 30,
-      H = 90 + Math.max(rows.length, heightRows) * rowH,
-      left = 290,
-      right = 1120,
-      zero = diverging ? 705 : left,
-      maxv =
-        max ?? Math.max(...rows.map((r) => Math.abs(r.value || 0)), 0.0001),
-      scale = (diverging ? 390 : right - left) / maxv;
-    let b =
-      text(left, 27, label, 'font-size="17" fill="var(--gv-muted)"') +
-      text(
-        1252,
-        27,
-        rightLabel,
-        'font-size="16" text-anchor="end" fill="var(--gv-muted)"',
-      );
-    rows.forEach((r, i) => {
-      let y = 61 + i * rowH,
-        v = r.value,
-        w = Math.abs(v || 0) * scale,
-        x = diverging ? (v < 0 ? zero - w : zero) : left,
-        display =
-          kind === "share"
-            ? pct(v)
-            : kind === "pp"
-              ? signed(v === null ? null : v * 100, " pp")
-              : F(v);
-      let inner =
-        `<rect x="5" y="${y - 20}" width="1265" height="29" fill="${i % 2 === 0 ? "var(--gv-raised)" : "transparent"}"/>` +
-        text(15, y, (r.rank ? r.rank + ". " : "") + r.name, 'font-size="18"') +
-        `<rect x="${x}" y="${y - 16}" width="${w}" height="20" rx="3" fill="${diverging && v < 0 ? "#c58452" : "var(--gv-cyan)"}"/>` +
-        text(
-          diverging ? 1140 : Math.min(left + w + 10, 1130),
-          y,
-          display,
-          'font-size="17"',
-        ) +
-        text(
-          1252,
-          y,
-          r.coverage !== undefined
-            ? `${r.coverage}/${r.count}`
-            : r.count !== undefined
-              ? String(r.count)
-              : "",
-          'font-size="15" text-anchor="end" fill="var(--gv-muted)"',
-        );
-      b += attr
-        ? mark(`${attr}="${E(r.key)}"`, `${r.name}：${display}`, inner)
-        : inner;
-    });
-    if (diverging)
-      b += `<path d="M${zero} 37V${H - 22}" stroke="var(--gv-muted)"/>`;
-    return svg(W, H, b, label);
-  }
-  function lines(
+  function trajectory(
     series,
     {
-      percent = false,
-      label = "OpenRank",
-      start = 0,
-      end = 11,
-      height = 490,
+      x = 0,
+      y = 0,
+      width = 1280,
+      height = 520,
+      metric = "value",
+      window = 12,
+      rankMax = 25,
+      focus = null,
+      cursor = null,
+      pointAction = null,
+      seriesAction = null,
     } = {},
   ) {
-    const W = 1280,
-      H = height,
-      L = 86,
-      R = 1210,
-      T = 40,
-      B = 350,
-      vals = series
-        .flatMap((s) => s.values.slice(start, end + 1))
+    const first = LAST - window + 1,
+      L = x + 70,
+      R = x + width - 250,
+      T = y + 40,
+      B = y + height - 68,
+      all = series
+        .flatMap((s) => s.values.slice(first, LAST + 1))
         .filter(M.num),
-      max = Math.max(...vals, percent ? 0.1 : 1) * 1.1;
+      max =
+        metric === "rank"
+          ? rankMax
+          : Math.max(...all, metric === "share" ? 0.01 : 1) * 1.1;
+    const px = (i) => L + ((R - L) * (i - first)) / Math.max(window - 1, 1),
+      py = (v) =>
+        metric === "rank"
+          ? T + ((B - T) * (v - 1)) / Math.max(max - 1, 1)
+          : B - ((B - T) * v) / max;
     let b = "";
-    for (let i = 0; i <= 4; i++) {
-      let y = B - ((B - T) * i) / 4;
+    const ticks =
+      metric === "rank"
+        ? [
+            1,
+            ...Array.from(
+              { length: Math.floor(max / 5) },
+              (_, i) => (i + 1) * 5,
+            ),
+          ].filter((v, i, a) => v <= max && a.indexOf(v) === i)
+        : [0, 1, 2, 3, 4].map((v) => (max * v) / 4);
+    if (metric === "rank" && !ticks.includes(max)) ticks.push(max);
+    ticks.forEach((v) => {
+      let yy = py(v);
       b +=
-        `<path d="M${L} ${y}H${R}" stroke="var(--gv-line)"/>` +
+        `<path d="M${L} ${yy}H${R}" stroke="var(--gv-line)"/>` +
         text(
           L - 12,
-          y + 6,
-          percent ? pct((max * i) / 4) : F((max * i) / 4, 0),
-          'text-anchor="end" font-size="17"',
+          yy + 5,
+          metric === "share" ? pct(v) : F(v, 0),
+          'text-anchor="end" font-size="15"',
         );
-    }
-    for (let i = start; i <= end; i++) {
-      let x = L + ((R - L) * (i - start)) / Math.max(end - start, 1);
+    });
+    for (let i = first; i <= LAST; i++) {
+      if (window === 18 && (i - first) % 2 !== 0 && i !== LAST) continue;
       b += text(
-        x,
+        px(i),
         B + 29,
         D.months[i].slice(2),
-        'text-anchor="middle" font-size="16"',
+        'font-size="14" text-anchor="middle"',
       );
     }
-    series.forEach((s, j) => {
-      let path = "",
-        colour = s.color || colours[j % colours.length],
-        connected = false;
-      s.values.forEach((v, i) => {
-        if (i < start || i > end) return;
-        if (v === null) {
-          connected = false;
-          return;
-        }
-        let x = L + ((R - L) * (i - start)) / Math.max(end - start, 1),
-          y = B - ((B - T) * v) / max;
-        path += (connected ? "L" : "M") + x.toFixed(2) + "," + y.toFixed(2);
-        connected = true;
-        b += `<circle cx="${x}" cy="${y}" r="4" fill="${colour}" tabindex="0"><title>${E(s.name)} · ${D.months[i]} · ${percent ? pct(v) : F(v)}</title></circle>`;
-      });
-      b += `<path d="${path}" fill="none" stroke="${colour}" stroke-width="3"/>`;
-      let x = 85 + (j % 3) * 390,
-        y = 420 + Math.floor(j / 3) * 25;
+    if (cursor !== null && cursor >= first)
       b +=
-        `<path d="M${x} ${y - 5}h22" stroke="${colour}" stroke-width="4"/>` +
-        text(x + 30, y, s.name, 'font-size="17"');
-    });
-    return svg(W, H, b, label);
-  }
-  function heat(
-    rows,
-    months,
-    { mode = "rank", label = "月度矩阵", project = false } = {},
-  ) {
-    const W = 1280,
-      L = 286,
-      col = 78,
-      rowH = 29,
-      H = 95 + Math.max(rows.length, project ? 16 : 25) * rowH;
-    let b = "";
-    months.forEach(
-      (m, j) =>
-        (b += text(
-          L + j * col + col / 2,
-          29,
-          m.slice(2),
-          'text-anchor="middle" font-size="16"',
-        )),
-    );
-    let all = rows.flatMap((r) => r.values).filter(M.num),
-      max = Math.max(...all, 1),
-      rankmax = Math.max(...all, 2);
-    rows.forEach((r, i) => {
-      let y = 43 + i * rowH;
-      b += mark(
-        `${project ? "data-project" : "data-category"}="${E(r.key)}"`,
-        r.name,
-        text(12, y + 20, r.name, 'font-size="18"'),
-      );
-      r.values.forEach((v, j) => {
-        let q =
-            v === null ? 0 : mode === "rank" ? 1 - (v - 1) / rankmax : v / max,
-          alpha = v === null ? 0 : 0.08 + 0.8 * q,
-          cell = shade(q),
-          display =
-            v === null
-              ? "—"
-              : mode === "rank"
-                ? String(v)
-                : mode === "share"
-                  ? F(v * 100, 1)
-                  : F(v, 0);
-        b += `<g tabindex="0"><title>${E(r.name)} · ${months[j]} · ${v === null ? "无观测" : mode === "share" ? pct(v) : F(v, mode === "rank" ? 0 : 2)}${r.coverages ? " · 覆盖 " + r.coverages[j] : ""}</title><rect x="${L + j * col}" y="${y}" width="${col - 3}" height="${rowH - 3}" rx="3" fill="${v === null ? "var(--gv-raised)" : cell}" stroke="var(--gv-line)" stroke-width=".4"/>${text(L + j * col + col / 2 - 1, y + 19, display, `font-size="15" text-anchor="middle" fill="${v === null ? "var(--gv-ink)" : contrastInk(cell)}"`)}</g>`;
-      });
-    });
-    return svg(W, H, b, label);
-  }
-  function categoryOptions() {
-    const ss = M.sections(state.scope);
-    for (const id of ["al-category", "al-country-scope"]) {
-      const el = $(id),
-        old = el.value;
-      el.innerHTML =
-        (id === "al-country-scope"
-          ? '<option value="all">当前观测范围 · 全部类别</option>'
-          : "") +
-        ss
-          .map(
-            (k) => `<option value="${E(k)}">${E(D.sections[k].name)}</option>`,
-          )
-          .join("");
-      el.value = id === "al-category" ? state.category : state.countryScope;
-      if (!el.value) el.value = old;
+        `<path d="M${px(cursor)} ${T - 10}V${B}" stroke="var(--gv-goldDisplay)" stroke-width="2" stroke-dasharray="5 5"/>` +
+        text(
+          px(cursor),
+          T - 20,
+          D.months[cursor],
+          'font-size="13" text-anchor="middle" fill="var(--gv-muted)"',
+        );
+    const labels = [];
+    for (const [j, s] of series.entries()) {
+      const ink = s.color || palette[j % palette.length],
+        dim = focus && s.key !== focus,
+        opacity = dim ? 0.17 : 1;
+      let path = "",
+        connected = false,
+        body = "";
+      for (let i = first; i <= LAST; i++) {
+        const v = s.values[i];
+        if (!M.num(v)) {
+          connected = false;
+          continue;
+        }
+        const xx = px(i),
+          yy = py(v);
+        path += (connected ? "L" : "M") + xx.toFixed(1) + "," + yy.toFixed(1);
+        connected = true;
+        const title = `${s.name} · ${D.months[i]} · ${metric === "rank" ? "第 " + v + " 位" : metric === "share" ? pct(v) : F(v)}${s.coverage ? " · 覆盖 " + s.coverage[i] : ""}`;
+        body += pointAction
+          ? mark(
+              pointAction,
+              String(i),
+              title,
+              `<circle cx="${xx}" cy="${yy}" r="5" fill="${ink}"/>`,
+            )
+          : `<circle cx="${xx}" cy="${yy}" r="${series.length > 5 ? 3.5 : 4.5}" fill="${ink}" tabindex="0"><title>${E(title)}</title></circle>`;
+      }
+      body =
+        `<path d="${path}" fill="none" stroke="${ink}" stroke-width="${dim ? 1.7 : 3}"/>` +
+        body;
+      b += `<g opacity="${opacity}" data-series="${E(s.key || s.name)}">${seriesAction ? mark(seriesAction, s.key, s.name, body, focus === s.key) : body}</g>`;
+      const end = s.values[LAST];
+      if (M.num(end))
+        labels.push({
+          key: s.key,
+          name: s.name,
+          value: end,
+          actual: py(end),
+          target: py(end),
+          ink,
+          opacity,
+        });
     }
+    labels.sort((a, b) => a.actual - b.actual);
+    const gap = series.length > 5 ? 25 : 34;
+    labels.forEach((l, i) => {
+      l.target = Math.max(
+        l.target,
+        T + (i ? 0 : 0),
+        i ? labels[i - 1].target + gap : T,
+      );
+    });
+    if (labels.length && labels.at(-1).target > B) {
+      labels.at(-1).target = B;
+      for (let i = labels.length - 2; i >= 0; i--)
+        labels[i].target = Math.min(
+          labels[i].target,
+          labels[i + 1].target - gap,
+        );
+    }
+    labels.forEach((l) => {
+      const val =
+        metric === "rank"
+          ? "#" + l.value
+          : metric === "share"
+            ? pct(l.value)
+            : F(l.value);
+      let label =
+        `<path d="M${R + 5} ${l.actual}L${R + 22} ${l.target}H${R + 29}" stroke="${l.ink}" fill="none"/>` +
+        text(
+          R + 35,
+          l.target + 5,
+          l.name + "  " + val,
+          `font-size="14" fill="${l.ink}" font-weight="600"`,
+        );
+      b += `<g opacity="${l.opacity}">${seriesAction ? mark(seriesAction, l.key, l.name, label, focus === l.key) : label}</g>`;
+    });
+    if (!series.length)
+      b += text(
+        (L + R) / 2,
+        (T + B) / 2,
+        "请选择关注对象",
+        'font-size="20" text-anchor="middle" fill="var(--gv-muted)"',
+      );
+    if (series.length && !all.length)
+      b += text(
+        (L + R) / 2,
+        (T + B) / 2,
+        "该窗口没有可用观测",
+        'font-size="20" text-anchor="middle" fill="var(--gv-muted)"',
+      );
+    b += text(
+      L,
+      y + height - 12,
+      metric === "rank"
+        ? "位次越靠上越领先；空值断开。"
+        : metric === "share"
+          ? "份额分母保持完整；空值断开。"
+          : "OpenRank 原值；空值断开。",
+      'font-size="13" fill="var(--gv-muted)"',
+    );
+    return b;
   }
-  function resetPicks() {
-    state.picks = M.projectRows(state.scope, state.category, state.month)
+  function barArea(
+    rows,
+    {
+      x = 0,
+      y = 0,
+      width = 1280,
+      height = 650,
+      action = null,
+      selected = null,
+      percent = false,
+      signedValues = false,
+      label = "OpenRank",
+      rightCoverage = false,
+    } = {},
+  ) {
+    const rowH = Math.min(38, (height - 60) / Math.max(rows.length, 1)),
+      left = x + Math.min(265, width * 0.36),
+      right = x + width - 100,
+      zero = signedValues ? (left + right) / 2 : left,
+      max = Math.max(...rows.map((r) => Math.abs(r.value || 0)), 0.0001),
+      scale = (signedValues ? (right - left) / 2 : right - left) / max;
+    let b = text(left, y + 25, label, 'font-size="15" fill="var(--gv-muted)"');
+    rows.forEach((r, i) => {
+      let yy = y + 54 + i * rowH,
+        w = Math.abs(r.value || 0) * scale,
+        bx = signedValues && r.value < 0 ? zero - w : zero,
+        display =
+          r.value === null
+            ? "—"
+            : signedValues
+              ? signed(r.value * 100, " pp")
+              : percent
+                ? pct(r.value)
+                : F(r.value),
+        chosen = selected === r.key;
+      let row =
+        `<rect x="${x + 5}" y="${yy - 21}" width="${width - 10}" height="${rowH - 2}" rx="4" fill="${chosen ? "var(--gv-raised)" : i % 2 ? "transparent" : "var(--gv-raised)"}" stroke="${chosen ? "var(--gv-goldDisplay)" : "transparent"}"/>` +
+        text(
+          x + 15,
+          yy,
+          (r.rank ? r.rank + ". " : "") + r.name,
+          `font-size="${width < 850 ? 15 : 18}"`,
+        ) +
+        `<rect x="${bx}" y="${yy - 15}" width="${w}" height="18" rx="3" fill="${signedValues && r.value < 0 ? "#c58452" : "var(--gv-cyan)"}"/>` +
+        text(right + 9, yy, display, 'font-size="15"') +
+        (rightCoverage
+          ? text(
+              x + width - 12,
+              yy,
+              `${r.coverage}/${r.count}`,
+              'font-size="12" text-anchor="end"',
+            )
+          : "");
+      b += action
+        ? mark(action, r.key, r.name + " " + display, row, chosen)
+        : row;
+    });
+    if (signedValues)
+      b += `<path d="M${zero} ${y + 35}V${y + height - 5}" stroke="var(--gv-muted)"/>`;
+    return b;
+  }
+  function categoryHistory(scope, key, metric) {
+    return D.months.map(
+      (_, i) => M.categories(scope, i).find((r) => r.key === key)[metric],
+    );
+  }
+  function resetProjects() {
+    let c = configs["al-project-rank"];
+    c.picks = M.projectRows("all", c.section, c.month)
       .filter((r) => r.value !== null)
       .slice(0, 3)
       .map((r) => r.key);
-  }
-  function chooseCategory(key) {
-    if (!M.sections(state.scope).includes(key)) return;
-    state.category = key;
-    state.countryScope = key;
-    $("al-category").value = key;
-    $("al-country-scope").value = key;
-    resetPicks();
-    renderProjects();
-    renderCountry();
+    c.page = 0;
   }
   function renderMaps() {
+    let total = 0,
+      coverage = 0;
     for (const [id, layer] of [
       ["al-agent", "Agent Infra"],
       ["al-model", "Model Infra"],
     ]) {
       const el = $(id),
         rows = M.categories(layer, state.month);
+      rows.forEach((r) => {
+        total += r.value || 0;
+        coverage += r.coverage;
+      });
       el.querySelectorAll(".al-map-card").forEach((g) => {
-        const r = rows.find((x) => x.key === g.dataset.section);
+        let r = rows.find((x) => x.key === g.dataset.section);
         g.querySelector(".al-map-stat").textContent =
           `${r.count} 项目 · OR ${F(r.value)} · ${r.coverage}/${r.count} 有值`;
       });
@@ -595,29 +880,49 @@
         `${D.months[state.month]} · 真实观测 · ${M.projects(layer).length} 项目`;
       chartData[id] = {
         rows: M.projects(layer).map((p) => ({
-          类别: D.sections[p.section].name,
+          类别: catName(p.section),
           项目: p.name,
           仓库: p.repo,
           OpenRank: M.value(p, state.month),
-          观测状态: M.status(p, state.month),
+          状态: M.status(p, state.month),
+          数据来源: p.observationSources[state.month],
         })),
         sim: false,
         scope: layer,
         period: D.months[state.month],
+        attention: "全部项目",
       };
       renderTable(id);
       el.querySelector(".al-readout").textContent =
-        `${layer} 全量项目始终保留；当前月份 ${rows.reduce((a, r) => a + r.coverage, 0)} / ${M.projects(layer).length} 有观测。`;
-      bindMarks(el);
+        `${layer} · ${rows.reduce((s, r) => s + r.coverage, 0)} / ${M.projects(layer).length} 项目有值。搜索仅高亮，不改变统计范围。`;
+      bindPanel(el);
     }
-  }
-  function renderCategories() {
-    let rows = M.categories(state.scope, state.month);
     $("al-global-status").textContent =
-      `${rows.reduce((s, r) => s + r.coverage, 0)} / ${M.projects(state.scope).length} 项目有值 · OpenRank ${F(rows.reduce((s, r) => s + (r.value || 0), 0))}`;
+      `${coverage} / 145 项目有值 · OpenRank ${F(total)}`;
+  }
+  function renderRank() {
+    const id = "al-category-rank",
+      c = configs[id],
+      rows = M.categories(c.scope, c.month);
+    controls(
+      id,
+      scopeControls(c) +
+        optionSelect(
+          id,
+          "month",
+          "观测月份",
+          D.months.map((m, i) => [i, m]).reverse(),
+          c.month,
+        ),
+    );
     setChart(
-      "al-category-rank",
-      bars(rows),
+      id,
+      svg(
+        1280,
+        840,
+        barArea(rows, { height: 820, action: "focus", selected: c.focus }),
+        "子类别月度 OpenRank 排行",
+      ),
       rows.map((r) => ({
         位次: r.rank,
         子类别: r.name,
@@ -629,477 +934,874 @@
         环比共同样本: r.common,
         位次变化: r.rankChange,
       })),
-      `${scopeName()} · ${D.months[state.month]} · 位次变化以相邻月为参照，受观测覆盖影响；环比只使用两月共同有值项目。`,
+      `${scopeName(c.scope)} · ${D.months[c.month]}${c.focus ? " · " + catName(c.focus) + " 已聚焦" : ""} · 全部观测覆盖见精确数据；环比只计算相邻月共同有值项目。`,
+      false,
+      scopeName(c.scope),
+      D.months[c.month],
     );
-    let history = D.months.map((_, i) => M.categories(state.scope, i)),
-      hr = rows.map((r) => ({
-        key: r.key,
-        name: r.name,
-        values: history.map((h) => {
-          let a = h.find((x) => x.key === r.key);
-          return a[
-            state.heat === "rank"
-              ? "rank"
-              : state.heat === "share"
-                ? "share"
-                : "value"
-          ];
+  }
+  function renderOverview() {
+    const id = "al-category-heat",
+      c = configs[id],
+      ss = M.sections(c.scope),
+      history = D.months.map((_, i) => M.categories(c.scope, i));
+    controls(
+      id,
+      scopeControls(c, false) +
+        windowControls(c) +
+        metricControls(c) +
+        `<div class="al-focus-chips" aria-label="聚焦类别">${ss.map((k) => `<button type="button" data-action="focus" data-value="${E(k)}" aria-pressed="${c.focus === k}" style="--al-choice-color:${color(k)}">${E(catName(k))}</button>`).join("")}</div>`,
+    );
+    const series = ss.map((k) => ({
+      key: k,
+      name: catName(k),
+      color: color(k),
+      values: history.map((rr) => rr.find((r) => r.key === k)[c.metric]),
+      coverage: history.map((rr) => {
+        let r = rr.find((r) => r.key === k);
+        return `${r.coverage}/${r.count}`;
+      }),
+    }));
+    setChart(
+      id,
+      svg(
+        1280,
+        570,
+        trajectory(series, {
+          height: 570,
+          metric: c.metric,
+          window: c.window,
+          rankMax: ss.length,
+          focus: c.focus,
+          seriesAction: "focus",
         }),
-        coverages: history.map((h) => {
-          let a = h.find((x) => x.key === r.key);
-          return `${a.coverage}/${a.count}`;
+        "分类月度位次轨迹",
+      ),
+      history
+        .slice(start(c))
+        .flatMap((rr, j) =>
+          rr.map((r) => ({
+            月份: D.months[start(c) + j],
+            子类别: r.name,
+            大类内位次: r.rank,
+            OpenRank: r.value,
+            大类内份额: pct(r.share),
+            覆盖: `${r.coverage}/${r.count}`,
+            关注: c.focus === r.key ? "是" : "否",
+          })),
+        ),
+      `${c.scope} · ${period(c)} · 位次和份额仅在本大类内计算；点击名称或曲线可聚焦，再次点击恢复全部。`,
+      false,
+      c.scope,
+      period(c),
+      c.focus ? catName(c.focus) : "全部类别",
+    );
+  }
+  function renderCompare() {
+    const id = "al-category-trend",
+      c = configs[id];
+    controls(
+      id,
+      familyPicker(c.categories, true) +
+        `<div class="al-control-row">${windowControls(c)}${metricControls(c)}<span class="al-control-note">已选 ${c.categories.length} / 3 · 全领域 25 类统一比较</span></div>`,
+    );
+    const history = D.months.map((_, i) => M.categories("all", i)),
+      series = c.categories.map((k) => ({
+        key: k,
+        name: catName(k),
+        color: color(k),
+        values: history.map((rr) => rr.find((r) => r.key === k)[c.metric]),
+        coverage: history.map((rr) => {
+          const r = rr.find((x) => x.key === k);
+          return `${r.coverage}/${r.count}`;
         }),
       }));
-    setChart(
-      "al-category-heat",
-      heat(hr, D.months, { mode: state.heat }),
-      history.flatMap((hh, i) =>
-        hh.map((r) => ({
-          月份: D.months[i],
-          子类别: r.name,
-          位次: r.rank,
-          OpenRank: r.value,
-          份额: pct(r.share),
-          观测覆盖: `${r.coverage}/${r.count}`,
-        })),
-      ),
-      `${scopeName()} · 2025-09—2026-08 · 行顺序按当前月份排列，单元格位次每月独立计算；悬停或聚焦查看精确值与覆盖。`,
-      false,
-      null,
-      "2025-09—2026-08",
-    );
-  }
-  function renderProjects() {
-    const name = D.sections[state.category].name,
-      history = D.months.map((_, i) =>
-        M.categories(state.scope, i).find((r) => r.key === state.category),
-      );
-    setChart(
-      "al-category-trend",
-      lines(
-        [
-          {
-            name,
-            values: history.map((r) =>
-              state.categoryMode === "share" ? r.share : r.value,
-            ),
-          },
-        ],
-        { percent: state.categoryMode === "share" },
-      ),
-      history.map((r, i) => ({
-        月份: D.months[i],
-        子类别: name,
-        OpenRank: r.value,
-        领域份额: pct(r.share),
-        有观测: r.coverage,
-        项目数: r.count,
-      })),
-      `${name} · 份额分母：${scopeName()}当月全部有值项目。`,
-      false,
-      name,
-      "2025-09—2026-08",
-    );
-    const rows = M.projectRows(state.scope, state.category, state.month),
-      show = state.limit === "all" ? rows : rows.slice(0, 10);
-    setChart(
-      "al-project-rank",
-      bars(show, { attr: "data-project", rightLabel: "", heightRows: 16 }),
-      rows.map((r) => ({
-        位次: r.rank,
-        项目: r.name,
-        仓库: r.repo,
-        OpenRank: r.value,
-        类内份额: pct(r.share),
-        环比: pct(r.change),
-        状态: r.state,
-      })),
-      `${name} · ${D.months[state.month]} · ${rows.filter((r) => r.value !== null).length}/${rows.length} 有值 · 当前显示 ${show.length} 项；完整记录保留全部项目。`,
-      false,
-      name,
-    );
-    $("al-project-picks").innerHTML = rows
-      .map(
-        (r) =>
-          `<label><input type="checkbox" value="${E(r.key)}" ${state.picks.includes(r.key) ? "checked" : ""}>${E(r.name)}</label>`,
-      )
+    let cards = c.categories
+      .map((k) => {
+        let now = history[LAST].find((r) => r.key === k),
+          before = history[start(c)].find((r) => r.key === k),
+          move = now.rank && before.rank ? before.rank - now.rank : null;
+        return `<div style="--al-choice-color:${color(k)}"><b>${E(catName(k))}</b><span>当前 #${now.rank ?? "—"} · ${move === null ? "位次待补" : move > 0 ? "↑ " + move + " 位" : move < 0 ? "↓ " + -move + " 位" : "位次不变"}</span><small>OR ${F(now.value)} · ${now.coverage}/${now.count} 有值</small></div>`;
+      })
       .join("");
-    $("al-project-picks").hidden = state.projectView === "rank";
-    $("al-project-picks")
-      .querySelectorAll("input")
-      .forEach(
-        (n) =>
-          (n.onchange = () => {
-            if (n.checked) {
-              if (state.picks.length >= 5) {
-                n.checked = false;
-                $("al-project-trend").querySelector(".al-readout").textContent =
-                  "最多同时比较 5 个项目，请先取消一个项目。";
-                return;
-              }
-              state.picks.push(n.value);
-            } else state.picks = state.picks.filter((x) => x !== n.value);
-            renderProjectTrend();
-          }),
-      );
-    renderProjectTrend();
-  }
-  function renderProjectTrend() {
-    const pp = M.projects(state.scope).filter(
-        (p) => p.section === state.category,
-      ),
-      name = D.sections[state.category].name,
-      rows = pp.flatMap((p) =>
-        D.months.map((m, i) => ({
-          月份: m,
-          项目: p.name,
-          OpenRank: M.value(p, i),
-          位次: M.projectRows(state.scope, state.category, i).find(
-            (r) => r.key === p.id,
-          ).rank,
-          状态: M.status(p, i),
-          曲线已选: state.picks.includes(p.id) ? "是" : "否",
-        })),
-      );
-    let graph;
-    if (state.projectView === "rank") {
-      const rr = M.projectRows(state.scope, state.category, state.month).map(
-        (p) => ({
-          key: p.key,
-          name: p.name,
-          values: D.months.map(
-            (_, i) =>
-              M.projectRows(state.scope, state.category, i).find(
-                (r) => r.key === p.key,
-              ).rank,
-          ),
-        }),
-      );
-      graph = heat(rr, D.months, { project: true });
-    } else {
-      let ss = state.picks
-        .map((id) => P.find((p) => p.id === id))
-        .map((p) => ({ name: p.name, values: p.trend }));
-      graph = ss.length
-        ? lines(ss, { height: 559 })
-        : '<p class="al-empty">请选择 1—5 个项目查看趋势。</p>';
-    }
     setChart(
-      "al-project-trend",
-      graph,
-      rows,
-      `${name} · 2025-09—2026-08 · ${state.projectView === "rank" ? "每个月在全部有观测的类内项目中重新计算位次。" : "已选 " + state.picks.length + " 个项目；对比选择保留，切换类别时重置。"} 空值状态见完整记录。`,
+      id,
+      `<div class="al-compare-summary">${cards}</div>` +
+        svg(
+          1280,
+          490,
+          trajectory(series, {
+            height: 490,
+            metric: c.metric,
+            window: c.window,
+            rankMax: 25,
+          }),
+          "所选子类别排名与变化",
+        ),
+      history
+        .slice(start(c))
+        .flatMap((rr, j) =>
+          rr
+            .filter((r) => c.categories.includes(r.key))
+            .map((r) => ({
+              月份: D.months[start(c) + j],
+              子类别: r.name,
+              全领域位次: r.rank,
+              OpenRank: r.value,
+              全领域份额: pct(r.share),
+              覆盖: `${r.coverage}/${r.count}`,
+            })),
+        ),
+      `可跨 Agent / Model 选择 1—3 类。位次与份额分母始终为整个领域；最近选择的类别也会带入项目图。`,
       false,
-      name,
-      "2025-09—2026-08",
+      "整个领域",
+      period(c),
+      c.categories.map(catName).join(" / "),
     );
   }
-  function countryMap(rows) {
-    const W = 1400,
-      H = 620,
-      max = Math.max(...rows.map((r) => r.share), 0.01);
+  function renderProject() {
+    const id = "al-project-rank",
+      c = configs[id],
+      rows = M.projectRows("all", c.section, c.month),
+      numPages = Math.ceil(rows.length / 8);
+    c.page = Math.max(0, Math.min(c.page, numPages - 1));
+    const shown = rows.slice(c.page * 8, c.page * 8 + 8);
+    controls(
+      id,
+      familyPicker([c.section]) +
+        `<div class="al-control-row">${windowControls(c)}${metricControls(c)}${optionSelect(
+          id,
+          "month",
+          "榜单月份",
+          D.months
+            .map((m, i) => [i, m])
+            .slice(start(c))
+            .reverse(),
+          c.month,
+        )}</div><div class="al-project-toolbar"><span>${E(catName(c.section))} · ${rows.length} 项目 · 勾选最多 3 项比较</span><div><button type="button" data-action="page" data-value="-1" ${c.page === 0 ? "disabled" : ""}>上一页</button><span>${c.page + 1} / ${numPages}</span><button type="button" data-action="page" data-value="1" ${c.page + 1 === numPages ? "disabled" : ""}>下一页</button></div></div>`,
+    );
+    let b =
+      text(
+        15,
+        30,
+        `${D.months[c.month]} 项目榜`,
+        'font-size="21" font-weight="650"',
+      ) +
+      text(
+        320,
+        30,
+        "OpenRank",
+        'font-size="15" text-anchor="end" fill="var(--gv-muted)"',
+      );
+    shown.forEach((r, i) => {
+      let y = 65 + i * 55,
+        checked = c.picks.includes(r.key),
+        ink = palette[c.picks.indexOf(r.key)] || "var(--gv-muted)",
+        body =
+          `<rect x="8" y="${y - 22}" width="365" height="48" rx="6" fill="var(--gv-raised)" stroke="${checked ? ink : "var(--gv-line)"}"/><rect x="18" y="${y - 6}" width="14" height="14" rx="2" fill="${checked ? ink : "var(--gv-surface)"}" stroke="${ink}"/>` +
+          text(43, y + 4, `${r.rank ?? "—"} ${r.name}`, 'font-size="15"') +
+          text(326, y + 4, F(r.value), 'font-size="14" text-anchor="end"');
+      b += mark(
+        "pick-project",
+        r.key,
+        `${r.name}，${checked ? "取消" : "加入"}比较，${F(r.value)}`,
+        body,
+        checked,
+      );
+      b += mark(
+        "open-project",
+        r.key,
+        `查看 ${r.name} 详情`,
+        `<circle cx="352" cy="${y}" r="12" fill="var(--gv-surface)" stroke="var(--gv-line)"/>` +
+          text(352, y + 5, "i", 'font-size="16" text-anchor="middle"'),
+      );
+    });
+    const histories = D.months.map((_, i) =>
+        M.projectRows("all", c.section, i),
+      ),
+      series = c.picks.map((key, j) => {
+        let p = P.find((p) => p.id === key);
+        return {
+          key,
+          name: p.name,
+          color: palette[j],
+          values: histories.map(
+            (rr) => rr.find((r) => r.key === key)[c.metric],
+          ),
+        };
+      });
+    b += trajectory(series, {
+      x: 390,
+      width: 890,
+      height: 550,
+      metric: c.metric,
+      window: c.window,
+      rankMax: rows.length,
+      cursor: c.month,
+      pointAction: "project-month",
+    });
+    b += text(
+      15,
+      535,
+      `${c.page * 8 + 1}—${Math.min((c.page + 1) * 8, rows.length)} / ${rows.length} · 有值 ${rows.filter((r) => r.value !== null).length}/${rows.length}`,
+      'font-size="13" fill="var(--gv-muted)"',
+    );
+    setChart(
+      id,
+      svg(1280, 560, b, "项目榜与历史曲线同图联动"),
+      histories
+        .slice(start(c))
+        .flatMap((rr, j) =>
+          rr.map((r) => ({
+            月份: D.months[start(c) + j],
+            项目: r.name,
+            类内位次: r.rank,
+            OpenRank: r.value,
+            类内份额: pct(r.share),
+            状态: r.state,
+            曲线已选: c.picks.includes(r.key) ? "是" : "否",
+          })),
+        ),
+      `${catName(c.section)} · 点击曲线上的月份节点，左侧切换到该月排行。当前比较 ${c.picks.length} 项；缺失月份留空，不计为零。`,
+      false,
+      catName(c.section),
+      period(c),
+      c.picks.map((k) => P.find((p) => p.id === k).name).join(" / "),
+    );
+  }
+  function countryControls(
+    id,
+    c,
+    { category = false, periodSelect = false } = {},
+  ) {
+    return (
+      scopeControls(c) +
+      (category ? categoryScopeSelect(id, c) : "") +
+      (periodSelect
+        ? optionSelect(
+            id,
+            "window",
+            "统计期",
+            [
+              [6, "最近 6 个月"],
+              [12, "最近 12 个月"],
+              [18, "最近 18 个月"],
+            ],
+            c.window,
+          )
+        : windowControls(c))
+    );
+  }
+  function renderCountryMap() {
+    const id = "al-country-rank",
+      c = configs[id],
+      rows = M.country(c.scope, c.section, c.window, LAST);
+    controls(
+      id,
+      countryControls(id, c, { category: true, periodSelect: true }) +
+        `<button type="button" data-action="clear-country" ${c.country === null ? "disabled" : ""}>清除选择</button>`,
+    );
+    const max = Math.max(...rows.map((r) => r.share), 0.01);
     let b =
       text(16, 30, "贡献份额 · 模拟", 'font-size="22" font-weight="650"') +
       text(
         920,
         30,
-        "国家 / 去重开发者 / 贡献量 / 份额",
+        "国家 / 开发者 / 贡献量 / 份额",
         'font-size="18" fill="var(--gv-muted)"',
-      );
-    b += '<g transform="translate(12,65)">';
+      ) +
+      '<g transform="translate(12,65)">';
     D.world.forEach((f) => {
       let r = rows.find((c) => c.code === f.code),
         q = r ? r.share / max : 0,
-        selected = r && r.code === state.country,
-        fill = r ? "#3987b0" : "var(--gv-empty)",
-        alpha = r ? 0.2 + 0.8 * q : 1;
-      let path = `<path d="${f.d}" fill="${fill}" fill-opacity="${alpha}" stroke="${selected ? "var(--gv-goldDisplay)" : "var(--gv-line)"}" stroke-width="${selected ? 2 : 0.5}"/>`;
+        chosen = r && r.code === c.country,
+        path = `<path d="${f.d}" fill="${r ? "#3987b0" : "var(--gv-empty)"}" fill-opacity="${r ? 0.2 + 0.8 * q : 1}" stroke="${chosen ? "var(--gv-goldDisplay)" : "var(--gv-line)"}" stroke-width="${chosen ? 2 : 0.5}"/>`;
       b += r
         ? mark(
-            `data-country="${r.code}"`,
+            "country",
+            r.code,
             `${r.name} · 模拟贡献份额 ${pct(r.share)}`,
             path,
+            chosen,
           )
         : path;
     });
     b += "</g>";
     rows.forEach((r, i) => {
       let y = 72 + i * 48,
-        sel = r.code === state.country;
-      let row =
-        `<rect x="910" y="${y - 24}" width="478" height="44" rx="5" fill="${sel ? "var(--gv-raised)" : "transparent"}" stroke="${sel ? "var(--gv-goldDisplay)" : "transparent"}"/>` +
-        text(925, y + 3, `${i + 1} ${r.name}`, 'font-size="20"') +
-        text(
-          1125,
-          y + 3,
-          F(r.developers, 0),
-          'font-size="19" text-anchor="end"',
-        ) +
-        text(1250, y + 3, F(r.value, 0), 'font-size="19" text-anchor="end"') +
-        text(1370, y + 3, pct(r.share), 'font-size="19" text-anchor="end"');
-      b += mark(`data-country="${r.code}"`, r.name + " " + pct(r.share), row);
+        chosen = r.code === c.country,
+        row =
+          `<rect x="910" y="${y - 24}" width="478" height="44" rx="5" fill="${chosen ? "var(--gv-raised)" : "transparent"}" stroke="${chosen ? "var(--gv-goldDisplay)" : "transparent"}"/>` +
+          text(925, y + 3, `${i + 1} ${r.name}`, 'font-size="20"') +
+          text(
+            1125,
+            y + 3,
+            F(r.developers, 0),
+            'font-size="19" text-anchor="end"',
+          ) +
+          text(1250, y + 3, F(r.value, 0), 'font-size="19" text-anchor="end"') +
+          text(1370, y + 3, pct(r.share), 'font-size="19" text-anchor="end"');
+      b += mark("country", r.code, r.name + " " + pct(r.share), row, chosen);
     });
+    const chosen = rows.find((r) => r.code === c.country);
     b +=
       text(
         20,
         540,
-        "浅 → 深：贡献份额由低到高；金色边界为所选国家。",
-        'font-size="18"',
+        chosen
+          ? `已选择 ${chosen.name} · 贡献份额 ${pct(chosen.share)} · 去重开发者 ${F(chosen.developers, 0)}`
+          : "未选择国家 · 地图保留完整分布",
+        'font-size="19"',
       ) +
       text(
         20,
-        570,
-        "灰色：未单列数值；其他与未知仅在榜单中列出。",
+        572,
+        "浅 → 深表示份额由低到高；灰色地理单元未单列数值。",
         'font-size="17" fill="var(--gv-muted)"',
       ) +
       text(
         20,
         604,
-        "SIM-341 · 独立模拟数据，不表示真实国家格局。",
+        "其他与未知保留在榜单和分母中。SIM-341 · 模拟数据。",
         'font-size="17" fill="var(--gv-muted)"',
       );
-    return svg(W, H, b, "模拟国家贡献地图与排行");
-  }
-  function countryStacks() {
-    const ss = M.sections(state.scope),
-      H = 130 + 25 * 31,
-      L = 290,
-      W = 1280,
-      bw = 930;
-    let b = "";
-    D.countries.forEach((c, i) => {
-      let x = 15 + (i % 5) * 245,
-        y = 22 + Math.floor(i / 5) * 28;
-      b +=
-        `<rect x="${x}" y="${y - 12}" width="15" height="15" fill="${c.color}"/>` +
-        text(x + 22, y + 1, c.name, 'font-size="17"');
-    });
-    let records = [];
-    ss.forEach((key, i) => {
-      const rr = M.country(state.scope, key, state.period, state.month);
-      let x = L,
-        y = 94 + i * 31,
-        body = text(12, y + 18, D.sections[key].name, 'font-size="18"');
-      D.countries.forEach((c) => {
-        const r = rr.find((a) => a.code === c.code),
-          w = r.share * bw;
-        body += `<rect x="${x}" y="${y}" width="${w}" height="24" fill="${c.color}"><title>${E(r.name)} ${pct(r.share)}</title></rect>`;
-        if (w > 70)
-          body += text(
-            x + w / 2,
-            y + 17,
-            F(r.share * 100, 0) + "%",
-            `font-size="14" text-anchor="middle" fill="${contrastInk(c.color)}"`,
-          );
-        x += w;
-        records.push({
-          子类别: D.sections[key].name,
-          国家: r.name,
-          贡献量: r.value,
-          类内份额: pct(r.share),
-          类内开发者: r.developers,
-        });
-      });
-      b += mark(
-        `data-category="${E(key)}"`,
-        D.sections[key].name + "，查看国家排行",
-        body,
-      );
-    });
-    return { graph: svg(W, H, b, "各子类别模拟国家贡献结构"), rows: records };
-  }
-  function renderCountry() {
-    const rows = M.country(
-        state.scope,
-        state.countryScope,
-        state.period,
-        state.month,
-      ),
-      whole = M.country(state.scope, "all", state.period, state.month);
     setChart(
-      "al-country-rank",
-      countryMap(rows),
+      id,
+      svg(1400, 620, b, "国家贡献地图与排行"),
       rows.map((r) => ({
         国家: r.name,
         去重开发者: r.developers,
         模拟贡献量: r.value,
-        当前范围份额: pct(r.share),
-        当前领域总份额: pct(whole.find((c) => c.code === r.code).share),
+        贡献份额: pct(r.share),
+        选中: r.code === c.country ? "是" : "否",
       })),
-      `${countryScopeName()} · ${periodName()} · 模拟贡献量与真实 OpenRank 独立；人数在当前范围与统计期内去重。`,
+      `${countryScope(c)} · ${period(c)} · 地图与本图榜单互选，不改变下方国家技术分布图的选择。`,
       true,
+      countryScope(c),
+      period(c),
+      chosen?.name || "未选择国家",
     );
-    let cc = M.countryCategories(
-        state.scope,
-        state.country,
-        state.period,
-        state.month,
-      ),
-      cn = D.countries.find((c) => c.code === state.country).name;
+  }
+  function renderCountryDetail() {
+    const id = "al-country-detail",
+      c = configs[id],
+      rows = M.country(c.scope, "all", c.window, LAST),
+      details = M.countryCategories(c.scope, c.country, c.window, LAST),
+      name = cc(c.country).name;
+    controls(
+      id,
+      countryControls(id, c) +
+        segment(
+          "metric",
+          [
+            ["share", "贡献去向"],
+            ["categoryShare", "类内份额"],
+          ],
+          c.metric,
+          "分布口径",
+        ),
+    );
+    let b =
+      text(16, 30, "国家贡献排行", 'font-size="20" font-weight="650"') +
+      text(
+        395,
+        30,
+        `${name} · ${c.metric === "share" ? "贡献去向" : "各子类别中的贡献份额"}`,
+        'font-size="21" font-weight="650"',
+      );
+    rows.forEach((r, i) => {
+      let y = 72 + i * 49,
+        chosen = r.code === c.country;
+      let body =
+        `<rect x="8" y="${y - 25}" width="350" height="44" rx="5" fill="${chosen ? "var(--gv-raised)" : "transparent"}" stroke="${chosen ? "var(--gv-goldDisplay)" : "var(--gv-line)"}"/>` +
+        text(22, y + 3, `${i + 1} ${r.name}`, 'font-size="19"') +
+        text(340, y + 3, pct(r.share), 'font-size="19" text-anchor="end"');
+      b += mark("country", r.code, "选择 " + r.name, body, chosen);
+    });
+    const rr = details
+      .map((r) => ({ ...r, value: r[c.metric] }))
+      .sort((a, b) => b.value - a.value);
+    b += barArea(rr, {
+      x: 380,
+      y: 36,
+      width: 900,
+      height: 590,
+      percent: true,
+      label:
+        c.metric === "share"
+          ? "占该国在当前领域全部贡献的比例"
+          : "该国 / 该类别全部国家贡献",
+    });
+    b +=
+      text(
+        18,
+        548,
+        `${scopeName(c.scope)} · ${c.window} 个月`,
+        'font-size="15" fill="var(--gv-muted)"',
+      ) +
+      text(
+        18,
+        575,
+        "7 个具名国家 + 其他 / 未知",
+        'font-size="14" fill="var(--gv-muted)"',
+      ) +
+      text(
+        18,
+        603,
+        "点击左侧，右侧原位更新。",
+        'font-size="14" fill="var(--gv-muted)"',
+      );
     setChart(
-      "al-country-detail",
-      bars(
-        cc.map((r) => ({ ...r, value: r.share })),
-        {
-          kind: "share",
-          label: "占该国在当前领域全部贡献的份额",
-          rightLabel: "",
-        },
-      ),
-      cc.map((r) => ({
+      id,
+      svg(1280, 650, b, "国家排名与技术贡献分布"),
+      details.map((r) => ({
+        国家: name,
         子类别: r.name,
         模拟贡献量: r.value,
-        该国贡献分布: pct(r.share),
-        该类中国家份额: pct(r.categoryShare),
+        该国贡献去向: pct(r.share),
+        类内国家份额: pct(r.categoryShare),
         类内去重开发者: r.developers,
       })),
-      `${cn} · ${scopeName()}全部类别 · ${periodName()} · 类别人数不可直接相加。`,
+      `${name} · ${scopeName(c.scope)} · ${period(c)} · “贡献去向”在该国的类别间合计 100%；“类内份额”的分母是各类别的全部国家贡献。`,
       true,
-      `${cn} / ${scopeName()}`,
+      `${scopeName(c.scope)} / ${name}`,
+      period(c),
+      name,
     );
-    const stack = countryStacks();
+  }
+  function comparisonPlot(scope, countries, values, { lq = false } = {}) {
+    const ss = M.sections(scope),
+      W = 1280,
+      H = 100 + Math.max(ss.length, 13) * 40,
+      L = 285,
+      R = 1190,
+      T = 78,
+      max =
+        Math.max(
+          ...values.flatMap((r) => countries.map((code) => r[code] ?? 0)),
+          lq ? 1 : 0.01,
+        ) * (lq ? 1.1 : 1.15),
+      px = (v) => L + ((R - L) * v) / max;
+    let b = "";
+    countries.forEach((code, j) => {
+      const c = cc(code),
+        x = 15 + (j % 5) * 245,
+        y = 23 + Math.floor(j / 5) * 25;
+      b +=
+        `<circle cx="${x + 7}" cy="${y - 5}" r="5" fill="${c.color}"/>` +
+        text(x + 20, y, c.name, 'font-size="16"');
+    });
+    for (let j = 0; j <= 4; j++) {
+      let val = (max * j) / 4,
+        x = px(val);
+      b +=
+        `<path d="M${x} ${T - 7}V${H - 32}" stroke="var(--gv-line)"/>` +
+        text(
+          x,
+          H - 9,
+          lq ? F(val, 1) : pct(val),
+          'font-size="14" text-anchor="middle"',
+        );
+    }
+    if (lq)
+      b +=
+        `<path d="M${px(1)} ${T - 9}V${H - 32}" stroke="var(--gv-goldDisplay)" stroke-width="2" stroke-dasharray="6 5"/>` +
+        text(px(1), T - 17, "LQ = 1", 'font-size="14" text-anchor="middle"');
+    ss.forEach((k, i) => {
+      let y = T + i * 40;
+      b += text(15, y + 12, catName(k), 'font-size="17"');
+      b += `<path d="M${L} ${y + 10}H${R}" stroke="var(--gv-line)" stroke-opacity=".5"/>`;
+      countries.forEach((code, j) => {
+        let v = values[i][code],
+          yy =
+            y +
+            10 +
+            (j - (countries.length - 1) / 2) *
+              (countries.length > 3 ? 3.2 : 10),
+          ink = cc(code).color;
+        if (v === null || v === undefined) return;
+        const xx = px(v);
+        b += `<g tabindex="0"><title>${E(catName(k) + " / " + cc(code).name)} · ${lq ? "LQ " + F(v) : pct(v)}</title><circle cx="${xx}" cy="${yy}" r="${countries.length > 3 ? 3.5 : 4.5}" fill="${ink}"/>${countries.length <= 3 ? text(xx + 9, yy + 4, lq ? F(v) : pct(v), `font-size="12" fill="${ink}"`) : ""}</g>`;
+      });
+    });
+    if (!countries.length)
+      b += text(
+        760,
+        H / 2,
+        "请勾选至少一个国家",
+        'font-size="21" text-anchor="middle" fill="var(--gv-muted)"',
+      );
+    return svg(W, H, b, lq ? "国家技术专长比较" : "国家贡献份额比较");
+  }
+  function renderCountryStack() {
+    const id = "al-country-stack",
+      c = configs[id],
+      ss = M.sections(c.scope),
+      tables = ss.map((k) => M.country(c.scope, k, c.window, LAST));
+    controls(
+      id,
+      scopeControls(c, false) +
+        windowControls(c) +
+        segment(
+          "mode",
+          [
+            ["compare", "国家份额对比"],
+            ["structure", "100% 结构"],
+          ],
+          c.mode,
+          "呈现方式",
+        ) +
+        countryPicker(c),
+    );
+    let graph;
+    if (c.mode === "compare") {
+      const vals = tables.map((rr) =>
+        Object.fromEntries(rr.map((r) => [r.code, r.share])),
+      );
+      graph = comparisonPlot(c.scope, c.countries, vals);
+    } else {
+      const H = 130 + 13 * 37,
+        L = 285,
+        bw = 930;
+      let b = "";
+      c.countries.forEach((code, i) => {
+        const r = cc(code),
+          x = 15 + (i % 5) * 245,
+          y = 24 + Math.floor(i / 5) * 25;
+        b +=
+          `<rect x="${x}" y="${y - 12}" width="14" height="14" fill="${r.color}"/>` +
+          text(x + 21, y, r.name, 'font-size="16"');
+      });
+      ss.forEach((key, i) => {
+        let x = L,
+          y = 95 + i * 37,
+          rr = tables[i],
+          remaining = 0;
+        b += text(15, y + 19, catName(key), 'font-size="17"');
+        for (const code of c.countries) {
+          let r = rr.find((x) => x.code === code),
+            w = r.share * bw;
+          b += `<g tabindex="0"><title>${E(catName(key) + " / " + r.name)} · ${pct(r.share)}</title><rect x="${x}" y="${y}" width="${w}" height="25" fill="${r.color}"/>${w > 70 ? text(x + w / 2, y + 17, pct(r.share), `font-size="13" text-anchor="middle" fill="${contrastInk(r.color)}"`) : ""}</g>`;
+          x += w;
+        }
+        remaining = rr
+          .filter((r) => !c.countries.includes(r.code))
+          .reduce((s, r) => s + r.share, 0);
+        if (remaining > 1e-10)
+          b += `<g tabindex="0"><title>未关注国家合计 ${pct(remaining)}</title><rect x="${x}" y="${y}" width="${remaining * bw}" height="25" fill="var(--gv-line)"/>${remaining * bw > 155 ? text(x + (remaining * bw) / 2, y + 17, "未关注 " + pct(remaining), 'font-size="13" text-anchor="middle"') : ""}</g>`;
+      });
+      graph = svg(1280, H, b, "关注国家与未关注国家的完整贡献结构");
+    }
     setChart(
-      "al-country-stack",
-      stack.graph,
-      stack.rows,
-      `${scopeName()} · ${periodName()} · 固定国家颜色；每个类别的全部贡献（包括其他与未知）合计 100%。`,
+      id,
+      graph,
+      tables.flatMap((rr, i) =>
+        rr.map((r) => ({
+          子类别: catName(ss[i]),
+          国家: r.name,
+          模拟贡献量: r.value,
+          类内份额: pct(r.share),
+          关注: c.countries.includes(r.code) ? "是" : "否",
+        })),
+      ),
+      `${c.scope} · ${period(c)} · 关注 ${c.countries.length} 个国家。份额分母始终包含全部国家、其他与未知；100% 视图将未勾选部分合并为“未关注国家”。`,
       true,
-      scopeName(),
+      c.scope,
+      period(c),
+      c.countries.map((k) => cc(k).name).join(" / ") || "未选择国家",
     );
-    renderSpecialization();
-    renderCountryTrend();
   }
   function renderConcentration() {
-    const rr = M.concentration(state.scope, state.month);
-    setChart(
-      "al-concentration",
-      bars(rr, {
-        kind: "share",
-        max: 1,
-        label: "Top 3 / 该类有观测项目 OpenRank",
-      }),
-      rr.map((r) => ({
+    const id = "al-concentration",
+      c = configs[id],
+      rows = M.concentration(c.scope, c.month),
+      rr = M.projectRows(c.scope, c.section, c.month).filter(
+        (r) => r.value !== null,
+      ),
+      top = rr.slice(0, 3),
+      sum = rr.reduce((s, r) => s + r.value, 0),
+      selected = rows.find((r) => r.key === c.section);
+    controls(
+      id,
+      scopeControls(c, false) +
+        optionSelect(
+          id,
+          "month",
+          "观测月份",
+          D.months.map((m, i) => [i, m]).reverse(),
+          c.month,
+        ),
+    );
+    let b = barArea(rows, {
+      width: 790,
+      height: 560,
+      action: "category-focus",
+      selected: c.section,
+      percent: true,
+      label: "Top 3 占本类别有观测项目 OpenRank",
+    });
+    b +=
+      text(835, 40, catName(c.section), 'font-size="24" font-weight="650"') +
+      text(
+        835,
+        78,
+        `Top 3 ${pct(selected?.value)} · ${selected?.coverage}/${selected?.count} 有值`,
+        'font-size="18" fill="var(--gv-muted)"',
+      );
+    top.forEach((r, i) => {
+      let y = 145 + i * 100,
+        share = sum ? r.value / sum : null;
+      b +=
+        text(835, y, `${i + 1}. ${r.name}`, 'font-size="17"') +
+        `<rect x="835" y="${y + 15}" width="${(share || 0) * 330}" height="16" rx="3" fill="${palette[i]}"/>` +
+        text(1238, y + 29, pct(share), 'font-size="17" text-anchor="end"');
+    });
+    b +=
+      text(
+        835,
+        490,
+        `其余 ${Math.max(0, rr.length - 3)} 项目：${pct(sum ? 1 - top.reduce((s, r) => s + r.value, 0) / sum : null)}`,
+        'font-size="17"',
+      ) +
+      text(
+        835,
+        525,
+        "点击左侧类别，在此展开。",
+        'font-size="15" fill="var(--gv-muted)"',
+      );
+    const exportRows = rows.map((r) => {
+      let pp = M.projectRows(c.scope, r.key, c.month)
+        .filter((x) => x.value !== null)
+        .slice(0, 3);
+      return {
         子类别: r.name,
         Top3占比: pct(r.value),
         项目数: r.count,
         有观测: r.coverage,
         OpenRank合计: r.openrank,
-      })),
-      `${scopeName()} · ${D.months[state.month]} · 仅在有观测项目中计算。项目少于 3 个的类别，集中度为 100% 并不等于异常。`,
+        Top3项目: pp.map((p) => p.name).join(" / "),
+        Top3各自OpenRank: pp.map((p) => p.value).join(" / "),
+      };
+    });
+    setChart(
+      id,
+      svg(1280, 580, b, "类别集中度与头部项目"),
+      exportRows,
+      `${c.scope} · ${D.months[c.month]} · 小样本类别更容易达到 100%；集中度只在有观测项目中计算。`,
+      false,
+      c.scope,
+      D.months[c.month],
+      catName(c.section),
     );
   }
-  function renderShift() {
-    const rr = M.shift(state.scope, state.start, state.end);
-    setChart(
-      "al-shift",
-      bars(rr, {
-        kind: "pp",
-        diverging: true,
-        label: "领域份额变化（百分点）",
-        rightLabel: "共同样本项目数",
-      }),
-      rr.map((r) => ({
-        子类别: r.name,
-        共同样本项目数: r.count,
-        起点份额: pct(r.before),
-        终点份额: pct(r.after),
-        变化百分点: r.value === null ? null : r.value * 100,
-        整个领域共同样本: r.cohort,
+  function commonSeries(c) {
+    const pp = M.projects(c.scope).filter((p) =>
+      p.trend.slice(start(c), LAST + 1).every(M.num),
+    );
+    return {
+      count: pp.length,
+      series: M.sections(c.scope).map((k) => ({
+        key: k,
+        name: catName(k),
+        color: color(k),
+        values: D.months.map((_, m) => {
+          if (m < start(c)) return null;
+          let total = pp.reduce((s, p) => s + p.trend[m], 0),
+            value = pp
+              .filter((p) => p.section === k)
+              .reduce((s, p) => s + p.trend[m], 0);
+          return total ? value / total : null;
+        }),
       })),
-      `${scopeName()} · ${D.months[state.start]} → ${D.months[state.end]} · ${rr[0]?.cohort || 0} 个项目在区间每个月都有观测；分母仅为这组共同样本。`,
+    };
+  }
+  function renderShift() {
+    const id = "al-shift",
+      c = configs[id],
+      rows = M.shift(c.scope, start(c), LAST),
+      common = commonSeries(c);
+    controls(id, scopeControls(c, false) + windowControls(c));
+    const row = rows.find((r) => r.key === c.section);
+    let b = barArea(rows, {
+      width: 730,
+      height: 540,
+      action: "category-focus",
+      selected: c.section,
+      signedValues: true,
+      label: "份额变化（百分点）",
+    });
+    b +=
+      text(780, 32, catName(c.section), 'font-size="22" font-weight="650"') +
+      text(
+        780,
+        65,
+        `${pct(row.before)} → ${pct(row.after)} · ${signed(row.value * 100, " pp")}`,
+        'font-size="18" fill="var(--gv-muted)"',
+      );
+    // This compact inset omits endpoint labels to give the whole interval room.
+    const s = common.series.find((r) => r.key === c.section),
+      L = 800,
+      R = 1230,
+      T = 125,
+      B = 440,
+      max = Math.max(...s.values.filter(M.num), 0.01) * 1.15;
+    let path = "";
+    s.values.forEach((v, i) => {
+      if (i < start(c) || v === null) return;
+      let x = L + ((R - L) * (i - start(c))) / (c.window - 1),
+        y = B - ((B - T) * v) / max;
+      path += (path ? "L" : "M") + x + "," + y;
+      b += `<circle cx="${x}" cy="${y}" r="4" fill="${s.color}" tabindex="0"><title>${D.months[i]} · ${pct(v)}</title></circle>`;
+    });
+    b += `<path d="${path}" fill="none" stroke="${s.color}" stroke-width="3"/>`;
+    [0, 1, 2].forEach((i) => {
+      let yy = B - ((B - T) * i) / 2;
+      b +=
+        `<path d="M${L} ${yy}H${R}" stroke="var(--gv-line)"/>` +
+        text(
+          L - 10,
+          yy + 5,
+          pct((max * i) / 2),
+          'font-size="13" text-anchor="end"',
+        );
+    });
+    b +=
+      text(L, B + 28, D.months[start(c)], 'font-size="15"') +
+      text(R, B + 28, D.months[LAST], 'font-size="15" text-anchor="end"') +
+      text(
+        780,
+        520,
+        `共同样本 ${common.count} 项目 · 该类 ${row.count} 项目`,
+        'font-size="16" fill="var(--gv-muted)"',
+      );
+    setChart(
+      id,
+      svg(1280, 580, b, "共同样本份额迁移与类别轨迹"),
+      common.series.flatMap((r) =>
+        r.values
+          .slice(start(c))
+          .map((v, j) => ({
+            月份: D.months[start(c) + j],
+            子类别: r.name,
+            共同样本份额: pct(v),
+            整个范围共同项目数: common.count,
+            该类共同项目数: rows.find((x) => x.key === r.key).count,
+          })),
+      ),
+      `${c.scope} · ${period(c)} · ${common.count} 个项目在窗口每个月都有观测，全部变化使用同一组项目。点击类别查看右侧轨迹。`,
       false,
-      scopeName(),
-      `${D.months[state.start]}—${D.months[state.end]}`,
+      c.scope,
+      period(c),
+      catName(c.section),
     );
   }
   function renderSpecialization() {
-    const ss = M.sections(state.scope),
-      whole = M.country(state.scope, "all", state.period, state.month),
-      W = 1280,
-      L = 290,
-      cw = 102,
-      H = 95 + 25 * 29;
-    let b = "";
-    D.countries.forEach(
-      (c, j) =>
-        (b += text(
-          L + j * cw + cw / 2,
-          30,
-          c.name,
-          'font-size="17" text-anchor="middle"',
-        )),
+    const id = "al-specialization",
+      c = configs[id],
+      ss = M.sections(c.scope),
+      whole = M.country(c.scope, "all", c.window, LAST),
+      tables = ss.map((k) => M.country(c.scope, k, c.window, LAST));
+    controls(
+      id,
+      scopeControls(c, false) + windowControls(c) + countryPicker(c, 3),
     );
-    let records = [];
-    ss.forEach((key, i) => {
-      let y = 46 + i * 29,
-        rr = M.country(state.scope, key, state.period, state.month);
-      b += mark(
-        `data-category="${E(key)}"`,
-        D.sections[key].name,
-        text(12, y + 19, D.sections[key].name, 'font-size="18"'),
-      );
-      D.countries.forEach((c, j) => {
-        let r = rr.find((x) => x.code === c.code),
-          den = whole.find((x) => x.code === c.code).share,
-          lq = den ? r.share / den : null,
-          alpha =
-            lq === null ? 0 : Math.min(0.85, 0.12 + Math.abs(lq - 1) * 0.5),
-          cell = shade(alpha, lq >= 1 ? [0, 125, 135] : [197, 132, 82]);
-        b += `<g tabindex="0"><title>${E(r.name + " / " + D.sections[key].name)}：LQ ${F(lq)}</title><rect x="${L + j * cw}" y="${y}" width="${cw - 3}" height="26" rx="3" fill="${cell}"/>${text(L + j * cw + cw / 2, y + 19, F(lq), `text-anchor="middle" font-size="16" fill="${contrastInk(cell)}"`)}</g>`;
-        records.push({
-          子类别: D.sections[key].name,
-          国家: c.name,
-          类内贡献份额: pct(r.share),
-          领域贡献份额: pct(den),
-          LQ: lq,
-        });
-      });
-    });
+    const values = tables.map((rr) =>
+      Object.fromEntries(
+        rr.map((r) => [
+          r.code,
+          whole.find((a) => a.code === r.code).share
+            ? r.share / whole.find((a) => a.code === r.code).share
+            : null,
+        ]),
+      ),
+    );
     setChart(
-      "al-specialization",
-      svg(W, H, b, "模拟国家技术专长 LQ"),
-      records,
-      `${scopeName()} · ${periodName()} · 蓝色 ≥ 1、橙色 < 1；其他和未知仍纳入分母，其 LQ 不解释为国家专长。`,
+      id,
+      comparisonPlot(c.scope, c.countries, values, { lq: true }),
+      tables.flatMap((rr, i) =>
+        rr
+          .filter((r) => c.countries.includes(r.code))
+          .map((r) => ({
+            子类别: catName(ss[i]),
+            国家: r.name,
+            类内贡献份额: pct(r.share),
+            大类总贡献份额: pct(whole.find((x) => x.code === r.code).share),
+            LQ: values[i][r.code],
+          })),
+      ),
+      `${c.scope} · ${period(c)} · LQ = 类内贡献份额 ÷ 该国在本大类的总体份额；大于 1 表示相对专长。“其他／未知”不解释为国家专长。`,
       true,
-      scopeName(),
+      c.scope,
+      period(c),
+      c.countries.map((k) => cc(k).name).join(" / ") || "未选择国家",
     );
   }
   function renderCountryTrend() {
-    const all = D.months.map((_, i) =>
-        M.country(state.scope, state.countryScope, "month", i),
+    const id = "al-country-trend",
+      c = configs[id],
+      history = D.months.map((_, i) =>
+        M.country(c.scope, c.section, "month", i),
       ),
-      ss = D.countries.map((c) => ({
-        name: c.name,
-        color: c.color,
-        values: all.map((rr) => rr.find((x) => x.code === c.code).share),
+      series = c.countries.map((code) => ({
+        key: code,
+        name: cc(code).name,
+        color: cc(code).color,
+        values: history.map((rr) => rr.find((r) => r.code === code).share),
       }));
+    controls(id, countryControls(id, c, { category: true }) + countryPicker(c));
     setChart(
-      "al-country-trend",
-      lines(ss, { percent: true, label: "模拟月度国家贡献份额" }),
-      all.flatMap((rr, i) =>
-        rr.map((r) => ({
-          月份: D.months[i],
-          国家: r.name,
-          贡献份额: pct(r.share),
-          模拟贡献量: r.value,
-          月内去重开发者: r.developers,
-        })),
+      id,
+      svg(
+        1280,
+        540,
+        trajectory(series, { height: 540, metric: "share", window: c.window }),
+        "关注国家的月度贡献份额",
       ),
-      `${countryScopeName()} · 2025-09—2026-08 · 每月分母包含所有国家、其他与未知。`,
+      history
+        .slice(start(c))
+        .flatMap((rr, j) =>
+          rr.map((r) => ({
+            月份: D.months[start(c) + j],
+            国家: r.name,
+            模拟贡献量: r.value,
+            贡献份额: pct(r.share),
+            关注: c.countries.includes(r.code) ? "是" : "否",
+          })),
+        ),
+      `${countryScope(c)} · ${period(c)} · 当前显示 ${c.countries.length} 条曲线；未显示国家的贡献仍保留在各月分母中。`,
       true,
-      countryScopeName(),
-      "2025-09—2026-08",
+      countryScope(c),
+      period(c),
+      c.countries.map((k) => cc(k).name).join(" / ") || "未选择国家",
     );
   }
-  function projectDialog(id) {
+  function render(id) {
+    const f = {
+      "al-category-rank": renderRank,
+      "al-category-heat": renderOverview,
+      "al-category-trend": renderCompare,
+      "al-project-rank": renderProject,
+      "al-country-rank": renderCountryMap,
+      "al-country-detail": renderCountryDetail,
+      "al-country-stack": renderCountryStack,
+      "al-concentration": renderConcentration,
+      "al-shift": renderShift,
+      "al-specialization": renderSpecialization,
+      "al-country-trend": renderCountryTrend,
+    }[id];
+    if (f) f();
+  }
+  function projectDialog(id, month = LAST) {
     const p = P.find((x) => x.id === id);
     if (!p) return;
     const d = $("al-project-dialog"),
-      r = M.projectRows(p.layer, p.section, state.month).find(
-        (x) => x.key === id,
-      );
+      r = M.projectRows(
+        "all",
+        p.section,
+        month,
+      ).find((x) => x.key === id);
     $("al-project-detail").innerHTML =
-      `<span class="eyebrow">${E(D.sections[p.section].name)} / ${E(p.layer)}</span><h3 id="al-dialog-title">${E(p.name)}</h3><p><a href="https://github.com/${E(p.repo)}" target="_blank" rel="noopener">${E(p.repo)} ↗</a></p><p>${E(p.description)}</p><div class="al-dialog-metrics"><div><b>${F(r.value)}</b><span>${D.months[state.month]} OpenRank</span></div><div><b>${r.rank ?? "—"}</b><span>类别内位次 · ${E(r.state)}</span></div><div><b>${pct(r.share)}</b><span>类别内份额</span></div></div><div class="al-view">${lines([{ name: p.name, values: p.trend }])}</div><p>创建于 ${E(p.created.slice(0, 10))} · 许可证元数据 ${E(p.license || "未标注")} · ${E(p.language)}</p><details><summary>选入理由与来源</summary><p>${E(p.reason)}</p><p>${E(p.caveat)}</p><a href="${E(D.source)}">固定版本主表 ↗</a><p>NOASSERTION 表示元数据未给出明确标识，不是许可结论。创建前与无观测月份均留空。</p></details>${tableHTML(
+      `<span class="eyebrow">${E(catName(p.section))} / ${E(p.layer)}</span><h3 id="al-dialog-title">${E(p.name)}</h3><p><a href="https://github.com/${E(p.repo)}" target="_blank" rel="noopener">${E(p.repo)} ↗</a></p><p>${E(p.description)}</p><div class="al-dialog-metrics"><div><b>${F(r.value)}</b><span>${E(D.months[month])} · OpenRank</span></div><div><b>${r.rank ?? "—"}</b><span>类内位次 · ${E(r.state)}</span></div><div><b>${pct(r.share)}</b><span>类内份额</span></div></div><div class="al-view">${svg(1280, 490, trajectory([{ key: id, name: p.name, values: p.trend }], { height: 490, window: 18 }), "项目 18 个月观测")}</div><p>创建于 ${E(p.created.slice(0, 10))} · 许可证元数据 ${E(p.license || "未标注")} · ${E(p.language)}</p><details><summary>选入理由与来源</summary><p>${E(p.reason)}</p><p>${E(p.caveat)}</p><a href="${E(D.source)}">固定版本主表 ↗</a><p>前 6 个月来自固定 OpenDigger 快照；既有 12 个月保留原报告观测。</p></details>${tableHTML(
         ["月份", "OpenRank", "状态"],
         D.months.map((m, i) => [m, F(p.trend[i]), M.status(p, i)]),
       )}`;
@@ -1125,7 +1827,7 @@
   function exportCSV(id) {
     const d = chartData[id],
       headers = d.rows.length ? Object.keys(d.rows[0]) : [],
-      meta = ["数据性质", "范围", "统计期", "来源或生成规则"];
+      meta = ["数据性质", "范围", "统计期", "来源或生成规则", "关注对象"];
     let rows = [
       headers.concat(meta),
       ...d.rows.map((r) =>
@@ -1135,7 +1837,10 @@
             d.sim ? "模拟数据" : "真实观测",
             d.scope,
             d.period,
-            d.sim ? "SIM-341 / independent synthetic contributions" : D.source,
+            d.sim
+              ? "SIM-341 / independent synthetic contributions"
+              : D.source + " + OpenDigger snapshot 2026-10-17",
+            d.attention || "",
           ]),
       ),
     ];
@@ -1187,8 +1892,8 @@
         /var\((--[\w-]+)\)/g,
         (_, k) => style.getPropertyValue(k).trim() || "#567",
       );
-    let note = `${d.sim ? "模拟数据 · 不用于事实判断" : "真实观测"} | ${d.scope} | ${d.period}`;
-    let result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${w} ${h + 130}" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="${style.getPropertyValue("--gv-ink").trim() || "#173b50"}"><rect width="${w}" height="${h + 130}" fill="${style.getPropertyValue("--gv-surface").trim() || "#fff"}"/>${text(16, 32, title, 'font-size="24" font-weight="700"')}${text(16, 62, note, 'font-size="17"')}<g transform="translate(0,80)">${content}</g>${text(16, h + 110, d.sim ? "SIM-341 · 固定种子模拟，人数按模拟身份去重。" : "来源：antgroup/agentic-ai-landscape @ " + D.commit.slice(0, 7) + " · 空值不补零", 'font-size="14"')}</svg>`;
+    let note = `${d.sim ? "模拟数据 · 不用于事实判断" : "真实观测"} | ${d.scope} | ${d.period} | ${d.attention || ""}`;
+    let result = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${w} ${h + 130}" font-family="Noto Sans CJK SC,Microsoft YaHei,sans-serif" fill="${style.getPropertyValue("--gv-ink").trim() || "#173b50"}"><rect width="${w}" height="${h + 130}" fill="${style.getPropertyValue("--gv-surface").trim() || "#fff"}"/>${text(16, 32, title, 'font-size="24" font-weight="700"')}${text(16, 62, note, 'font-size="17"')}<g transform="translate(0,80)">${content}</g>${text(16, h + 110, d.sim ? "SIM-341 · 固定种子模拟，人数按模拟身份去重。" : "来源：antgroup/agentic-ai-landscape @ " + D.commit.slice(0, 7) + " + OpenDigger 历史快照 · 空值不补零", 'font-size="14"')}</svg>`;
     download(
       `${id}-${d.sim ? "SIMULATED" : "REAL"}.svg`,
       result,
@@ -1282,78 +1987,10 @@
           : "已显示全部项目。";
       }),
   );
-  $("al-scope").onchange = (e) => {
-    state.scope = e.target.value;
-    const ss = M.sections(state.scope);
-    if (!ss.includes(state.category)) state.category = ss[0];
-    state.countryScope = "all";
-    categoryOptions();
-    resetPicks();
-    renderAll();
-  };
   $("al-month").onchange = (e) => {
     state.month = Number(e.target.value);
-    renderAll();
-  };
-  $("al-category").onchange = (e) => chooseCategory(e.target.value);
-  $("al-country-scope").onchange = (e) => {
-    state.countryScope = e.target.value;
-    if (state.countryScope !== "all") {
-      state.category = state.countryScope;
-      $("al-category").value = state.category;
-      resetPicks();
-      renderProjects();
-    }
-    renderCountry();
-  };
-  $("al-country-period").onchange = (e) => {
-    state.period = e.target.value;
-    renderCountry();
-  };
-  $("al-heat-mode").onchange = (e) => {
-    state.heat = e.target.value;
-    renderCategories();
-  };
-  $("al-category-mode").onchange = (e) => {
-    state.categoryMode = e.target.value;
-    renderProjects();
-  };
-  $("al-project-limit").onchange = (e) => {
-    state.limit = e.target.value;
-    renderProjects();
-  };
-  $("al-project-view").onchange = (e) => {
-    state.projectView = e.target.value;
-    renderProjects();
-  };
-  $("al-shift-start").value = "8";
-  $("al-shift-end").value = "11";
-  function changeWindow() {
-    state.start = Number($("al-shift-start").value);
-    state.end = Number($("al-shift-end").value);
-    if (state.end <= state.start) {
-      state.end = state.start + 1;
-      $("al-shift-end").value = String(state.end);
-    }
-    renderShift();
-  }
-  $("al-shift-start").onchange = changeWindow;
-  $("al-shift-end").onchange = () => {
-    state.end = Number($("al-shift-end").value);
-    if (state.end <= state.start) {
-      state.start = state.end - 1;
-      $("al-shift-start").value = String(state.start);
-    }
-    renderShift();
-  };
-  function renderAll() {
     renderMaps();
-    renderCategories();
-    renderProjects();
-    renderCountry();
-    renderConcentration();
-    renderShift();
-  }
+  };
   const printDetails = [];
   window.addEventListener("beforeprint", () => {
     document.querySelectorAll(".al-data").forEach((d) => {
@@ -1366,7 +2003,7 @@
     printDetails.splice(0).forEach(([d, open]) => (d.open = open));
     Object.keys(chartData).forEach((id) => renderTable(id));
   });
-  categoryOptions();
-  resetPicks();
-  renderAll();
+  resetProjects();
+  renderMaps();
+  Object.keys(configs).forEach(render);
 })();
