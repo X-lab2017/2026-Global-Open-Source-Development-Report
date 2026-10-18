@@ -35,8 +35,11 @@ def run(repo,ref):
     snapshot={'source_ref':ref,'updated_at':datetime.now(timezone.utc).date().isoformat(),'documents':documents,'indicators':rows('osdi_indicator_dictionary.csv'),'datasets':inventory,'sources':rows('source_register.csv'),'chapter_map':rows('chapter_indicator_map.csv'),'content_sha256':hashes,'repository_paths':[p.relative_to(repo).as_posix() for folder in ['chapters','appendices','data','figures','editorial','outline','planning'] for p in (repo/folder).rglob('*') if p.is_file()]}
     (root/'content/report.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2)+'\n')
     assets=root/'content/report-assets';assets.mkdir(exist_ok=True)
-    for filename in ['fig-1-0-1_report_logic.svg','fig-1-2-1_osdg_framework.svg','fig-1-1-1_linux_collaboration.svg','fig-1-1-2_model_derivatives.svg','fig-1-1-3_sdgs_dpga.svg','fig-1-3-1_osdi_explorer.svg']:
+    for filename in ['fig-1-0-1_report_logic.svg','fig-1-2-1_osdg_framework.svg','fig-1-1-1_linux_collaboration.svg','fig-1-1-2_model_derivatives.svg','fig-1-1-3_sdgs_dpga.svg','fig-1-3-1_osdi_explorer.svg','fig-1-1-2_qwen_case.svg','fig-1-3-2_theme_maps.svg']:
         shutil.copy2(repo/'figures/chapter1'/filename,assets/filename)
+    (assets/'chapter1').mkdir(exist_ok=True)
+    chapter_files=['本章介绍.md','1.1-开源-数字公共品与可持续发展引擎.md','1.2-OSDGs-开源发展目标框架.md','1.3-OSDI-开源发展度量体系.md']
+    for i,name in enumerate(chapter_files):shutil.copy2(repo/'chapters/chapter1'/name,assets/'chapter1'/('section-'+str(i)+'.md'))
     for filename in ['osdi_indicator_dictionary.csv','chapter_indicator_map.csv','source_register.csv','osdg-framework.json']:
         shutil.copy2(repo/'data/meta'/filename,assets/filename)
     with (assets/'dataset_inventory.csv').open('w',newline='') as f:

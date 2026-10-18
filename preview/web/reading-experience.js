@@ -3,19 +3,11 @@
 const root=document.querySelector('.foundation-reading');if(!root)return;
 const zh=document.documentElement.lang.startsWith('zh'),t=(z,e)=>zh?z:e;
 const figures=[...root.querySelectorAll('.foundation-figure,.chapter-table-figure')],presentations=[];
-const sourceDialog=document.createElement('dialog');sourceDialog.className='reading-source-dialog';sourceDialog.setAttribute('aria-labelledby','reading-source-title');
-sourceDialog.innerHTML='<button type="button">'+t('关闭 ×','Close ×')+'</button><h2 id="reading-source-title"></h2><div></div>';document.body.append(sourceDialog);
-let sourceTrigger=null;
-function showSource(figure,trigger){sourceTrigger=trigger;sourceDialog.querySelector('h2').textContent=(figure.dataset.readingNumber||figure.querySelector('h4')?.textContent||'')+' · '+t('口径与来源','Sources and scope');const content=sourceDialog.querySelector('div');content.replaceChildren();const caption=figure.querySelector('figcaption');if(caption){const copy=document.createElement('div');copy.className='reading-figure-scope';copy.innerHTML=caption.innerHTML;content.append(copy);}
- for(const block of figure.querySelectorAll('.viz-boundary,.osdi-foot-tools'))content.append(block.cloneNode(true));
- sourceDialog.showModal();sourceDialog.querySelector('button').focus();}
-sourceDialog.querySelector('button').addEventListener('click',()=>sourceDialog.close());sourceDialog.addEventListener('close',()=>sourceTrigger?.focus({preventScroll:true}));
 for(const figure of figures){
  const frame=figure.parentElement,launcher=frame.previousElementSibling;if(!launcher?.classList.contains('slide-launcher'))continue;
  const launch=launcher.querySelector('button'),title=figure.dataset.readingTitle||figure.querySelector('h3,h4')?.textContent||t('对照表','Reference table');
  launcher.querySelector('span').textContent=figure.dataset.readingNumber||t('对照表 · 点击探索','Reference · explore');
- const controls=document.createElement('div');controls.className='reading-chart-tools';const source=document.createElement('button');source.type='button';source.textContent=t('口径与来源','Sources and scope');source.setAttribute('aria-haspopup','dialog');source.addEventListener('click',()=>showSource(figure,source));launch.classList.add('reading-present');launch.textContent=t('⛶ 全屏演示','⛶ Present');launch.setAttribute('aria-label',(figure.dataset.readingNumber||title)+' '+t('全屏演示','Present'));controls.append(source,launch);launcher.append(controls);
- if(figure.classList.contains('foundation-figure')){const header=figure.querySelector('.viz-heading,.explorer-heading');const inside=source.cloneNode(true);inside.className='reading-inline-source';inside.addEventListener('click',()=>showSource(figure,inside));header?.append(inside);}
+ const controls=document.createElement('div');controls.className='reading-chart-tools';launch.classList.add('reading-present');launch.textContent=t('⛶ 全屏演示','⛶ Present');launch.setAttribute('aria-label',(figure.dataset.readingNumber||title)+' '+t('全屏演示','Present'));controls.append(launch);launcher.append(controls);
  const dialog=[...document.querySelectorAll('dialog.explorer-presentation')].find(d=>d.getAttribute('aria-label')===(figure.querySelector('h3,h4')?.textContent||t('报告交互图全屏演示','Interactive report presentation'))&&!presentations.some(x=>x.dialog===d));if(!dialog)continue;
  dialog.classList.add('foundation-presentation');const bar=dialog.querySelector('.slide-presentation-bar'),close=bar.querySelector('button');const label=document.createElement('span');label.className='reading-present-title';label.textContent=(figure.dataset.readingNumber||'')+' · '+title;bar.insertBefore(label,close);
  presentations.push({figure,launch,dialog,close});
@@ -24,7 +16,7 @@ const core=presentations.filter(p=>p.figure.classList.contains('foundation-figur
 for(const [i,p]of core.entries()){
  const nav=document.createElement('div');nav.className='reading-slide-nav';const prev=document.createElement('button'),next=document.createElement('button');prev.type=next.type='button';prev.textContent=t('← 上一图','← Previous');next.textContent=t('下一图 →','Next →');prev.disabled=i===0;next.disabled=i===core.length-1;nav.append(prev,next);p.close.before(nav);
  const move=n=>{const target=core[i+n];if(target){p.close.click();target.launch.click()}};prev.onclick=()=>move(-1);next.onclick=()=>move(1);
- p.dialog.addEventListener('keydown',e=>{if(sourceDialog.open||e.target.matches('input,textarea,select'))return;if(e.key==='PageDown'||e.key==='PageUp'){e.preventDefault();move(e.key==='PageDown'?1:-1)}});
+ p.dialog.addEventListener('keydown',e=>{if(e.target.matches('input,textarea,select'))return;if(e.key==='PageDown'||e.key==='PageUp'){e.preventDefault();move(e.key==='PageDown'?1:-1)}});
 }
 // Hidden references get a fresh fit when opened, including direct incoming anchors.
 for(const disclosure of root.querySelectorAll('details.reading-reference'))disclosure.addEventListener('toggle',()=>{if(disclosure.open)window.dispatchEvent(new Event('resize'))});

@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 M=json.loads((ROOT/'content/manifest.json').read_text())
 UNITS=M['front_matter']+M['chapters']+M['back_matter']
 REPO='https://github.com/'+M['repository']+'/blob/'+M['source_ref']+'/'
-STATES={'preview':('正文已上线','Manuscript available'),'draft':('初稿入口','Draft available'),'outline':('结构已建立','Outline ready'),'source-confirmed':('来源已确定','Source selected')}
+STATES={'published':('正式发布','Published'),'preview':('正文已上线','Manuscript available'),'draft':('初稿入口','Draft available'),'outline':('结构已建立','Outline ready'),'source-confirmed':('来源已确定','Source selected')}
 E=lambda s:html.escape(str(s),quote=True)
 def source(path):return report.source(path)
 def url(u,lang):return '/2026/'+lang+'/'+u['route']

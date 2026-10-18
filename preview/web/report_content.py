@@ -20,12 +20,14 @@ def path(lang,route):return '/2026/'+lang+'/'+route
 def a(url,label,cls='inline-link',extra=''):return f'<a href="{E(url)}" class="{cls}" {extra}>{label}</a>'
 def p(s,cls=''):return f'<p class="{cls}">{E(s)}</p>'
 def source(name):
+    if name in [INTRO,*PARTS]:return '/assets/report/chapter1/section-'+str([INTRO,*PARTS].index(name))+'.md'
     ref=R['source_ref'] if name in R['repository_paths'] else 'docs/osdg-report-publication-plan-20261011'
     return REPO+ref+'/'+quote(name,safe='/')
 def anchor(title,prefix):
     title=re.sub(r'[*`\[\]]','',title)
     return prefix+'-'+re.sub(r'[^\w\u3400-\u9fff-]+','-',title).strip('-').lower()
 def mapped_url(href,src,lang):
+    if href.startswith('/2026/'):return href.replace('/2026/zh/','/2026/'+lang+'/')
     u=urlsplit(href)
     if u.scheme or u.netloc:return href if u.scheme in ['http','https','mailto'] else '#'
     name=posixpath.normpath(posixpath.join(posixpath.dirname(src),unquote(u.path)))
@@ -81,7 +83,7 @@ def render(src,lang,prefix,skip_title=True):
             if src==PARTS[2] and rows[0][0]=='层级':continue
             if src.startswith(CH1):
                 fid=prefix+'-table-'+str(i)
-                out.append(chapter1_tables.render(rows,lang,fid,lambda c:inline(c,src,lang),source(src)))
+                # Publication chapter omits auxiliary comparison tables.
                 continue
             folded=src==PARTS[2] and rows[0][0]=='支柱／维度'
             if folded:out.append('<details class="osdi-reference-table"><summary>'+T(lang,'完整指标清单（29项，查证用）','Full indicator table (29 measures)')+'</summary>')

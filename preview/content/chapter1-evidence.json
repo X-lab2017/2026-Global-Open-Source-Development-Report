@@ -1,0 +1,364 @@
+{
+  "DevScale": {
+    "method": "基本口径已定义",
+    "data": "关联资料已入库",
+    "application": "参与规模已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.1",
+      "2.4"
+    ],
+    "note": "身份去重、机器人过滤与完整对象覆盖仍须逐项核验。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "TalentDensity": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "人才结构观察",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.4"
+    ],
+    "note": "区域密度的分母与跨地区可比性尚需统一，相关展示不等于指标全部测算。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "NewcomerGrowth": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "相关观察入口",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.4"
+    ],
+    "note": "新增、首次观测与真实首次参与需要区分；完整时间序列待补。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "GlobalCollabShare": {
+    "method": "工作定义待完善",
+    "data": "关联资料已入库",
+    "application": "协作结构已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.6"
+    ],
+    "note": "跨地域映射、未知归属及所用演示资料须按图说明。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "AcademicShare": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "相关观察入口",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.6"
+    ],
+    "note": "机构身份识别与完整贡献分母仍需补齐。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "ActiveRepo": {
+    "method": "行为口径已定义",
+    "data": "关联资料已入库",
+    "application": "活跃资产已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.1",
+      "2.5"
+    ],
+    "note": "活动阈值、仓库与项目层级、归档和镜像处理需保持一致。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "OpenRankContrib": {
+    "method": "官方方法；聚合待核",
+    "data": "关联资料已入库",
+    "application": "贡献观察已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.2",
+      "3.2",
+      "4.1"
+    ],
+    "note": "贡献来源与项目归属分开；第四章国家贡献展示含模拟资料，不作为实测贡献结论。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "ReviewedPR": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "指标尚未完整测算",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.2"
+    ],
+    "note": "高质量判定阈值、PR 合入与审查证据需补齐。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "OpenModelRelease": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "供给样本已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1"
+    ],
+    "note": "供给记录可见性不等于符合开放分级；快照回溯不代表历史全量存量。",
+    "source": "/2026/zh/chapters/05/#ch05-s01",
+    "reviewedAt": "2026-10-18"
+  },
+  "ModelSupplierDiv": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "供给方结构已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1"
+    ],
+    "note": "发布账号与法人机构分别处理；未识别地域单列。",
+    "source": "/2026/zh/chapters/05/#ch05-s01",
+    "reviewedAt": "2026-10-18"
+  },
+  "OpenDatasetRelease": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "数据供给已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1"
+    ],
+    "note": "数据集记录与独立数据家族不同，许可与材料条件另行检查。",
+    "source": "/2026/zh/chapters/05/#ch05-s01",
+    "reviewedAt": "2026-10-18"
+  },
+  "DataSupplierDiv": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "供给方结构已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1"
+    ],
+    "note": "供给方样本、账号合并与归属覆盖需与指标定义逐项对照。",
+    "source": "/2026/zh/chapters/05/#ch05-s01",
+    "reviewedAt": "2026-10-18"
+  },
+  "OpenRankInflu": {
+    "method": "官方方法；聚合待核",
+    "data": "关联资料已入库",
+    "application": "影响观察已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.3",
+      "3.4",
+      "4.1"
+    ],
+    "note": "保留全域与社区网络范围、统计期及项目聚合规则。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "HighImpactRegion": {
+    "method": "规则与阈值待核",
+    "data": "关联资料已入库",
+    "application": "区域榜单已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.3",
+      "3.1"
+    ],
+    "note": "现有榜单是相关证据，高影响力区域数量仍需完整比较集合及阈值。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "HighImpactOrg": {
+    "method": "规则与阈值待核",
+    "data": "关联资料已入库",
+    "application": "组织榜单已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "3.2",
+      "3.3"
+    ],
+    "note": "榜单资料不替代高影响力组织阈值与全量计数。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "HighImpactProj": {
+    "method": "规则与阈值待核",
+    "data": "关联资料已入库",
+    "application": "项目榜单已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "3.4",
+      "3.5"
+    ],
+    "note": "高影响力阈值、项目合并与完整项目集合仍待核验。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "HighImpactTalent": {
+    "method": "规则与阈值待核",
+    "data": "关联资料已入库",
+    "application": "人才观察已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.4"
+    ],
+    "note": "前 5% 规则须说明总体、排序窗口和归属证据。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "ModelAdoption": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "相关采用信号已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1",
+      "5.2"
+    ],
+    "note": "下载量是采用信号，不等同于去重用户或实际部署量。",
+    "source": "/2026/zh/chapters/05/#ch05-s02",
+    "reviewedAt": "2026-10-18"
+  },
+  "ModelCommunityHeat": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "相关热度信号已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.2"
+    ],
+    "note": "社区信号与观察窗口须逐项说明，不能直接作为独立用户数。",
+    "source": "/2026/zh/chapters/05/#ch05-s02",
+    "reviewedAt": "2026-10-18"
+  },
+  "ModelRank": {
+    "method": "来源算法待核验",
+    "data": "26 个月资料已入库",
+    "application": "26 个月资料已应用",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "3.6",
+      "5.2"
+    ],
+    "note": "2024-07—2026-08 月度结果已入库并用于排行与网络观察；算法版本、输入范围与独立复算链仍待核验。",
+    "source": "/assets/gosm/influence-methods.md",
+    "reviewedAt": "2026-10-18"
+  },
+  "DataAdoption": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "相关采用信号已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1"
+    ],
+    "note": "数据下载等信号不直接等同于真实使用人数；正式指标计算待核验。",
+    "source": "/2026/zh/chapters/05/#ch05-s01",
+    "reviewedAt": "2026-10-18"
+  },
+  "DataCommunityHeat": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "供给相关资料入口",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.1"
+    ],
+    "note": "现有数据资产观察不代表该热度指标已完整计算，完整信号与窗口仍需补齐。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "DataEcoReuseRate": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "指标尚未完整测算",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.2"
+    ],
+    "note": "模型衍生网络不能填补数据集复用率；需要数据采用关系和完整分母。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "NeutralityRatio": {
+    "method": "工作定义待完善",
+    "data": "关联资料已入库",
+    "application": "托管结构已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.7",
+      "3.3"
+    ],
+    "note": "基金会托管记录不单独证明治理中立性或实际成效；比例分母须核验。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "GovBalance": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "治理观察入口",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.7"
+    ],
+    "note": "治理席位、投票权与持续决策记录待补，贡献均衡不能替代治理均衡。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "ComplianceLicenseCov": {
+    "method": "工作定义待完善",
+    "data": "关联资料已入库",
+    "application": "许可观察已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.7",
+      "5.3"
+    ],
+    "note": "许可元数据覆盖不替代法律合规审计，样本条件与模拟资料逐图标识。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "DPGCoCreation": {
+    "method": "工作定义待完善",
+    "data": "匹配资料待补",
+    "application": "公共价值观察入口",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.7"
+    ],
+    "note": "正式认可状态、共建对象清单及地方实施成效需要分别核验。",
+    "source": "/assets/report/osdi_indicator_dictionary.csv",
+    "reviewedAt": "2026-10-18"
+  },
+  "LicenseOpenness": {
+    "method": "工作定义待完善",
+    "data": "模型相关资料已入库",
+    "application": "开放条件已呈现",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "2.7",
+      "5.3"
+    ],
+    "note": "第五章已有样本标签尚不等同于按发布版标准逐项重新评估。",
+    "source": "/2026/zh/chapters/05/#ch05-s03",
+    "reviewedAt": "2026-10-18"
+  },
+  "AIAssetTransparency": {
+    "method": "工作定义待完善",
+    "data": "标准与样本已入库",
+    "application": "标准要求已解释",
+    "reproduction": "独立复现待核验",
+    "links": [
+      "5.3"
+    ],
+    "note": "已呈现标准要求与平台样本；资产透明度指标仍需对象清单和逐项材料证据。",
+    "source": "/2026/zh/chapters/05/#ch05-s03",
+    "reviewedAt": "2026-10-18"
+  }
+}

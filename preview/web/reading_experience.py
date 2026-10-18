@@ -2,6 +2,7 @@
 Preserves source figures, tables, stable anchors and canonical definitions.
 """
 import html,json,re
+import chapter1_theme_map
 from pathlib import Path
 from goso_reading import Tree,Node,fragment,remove
 ROOT=Path(__file__).resolve().parents[1]
@@ -12,7 +13,7 @@ def link(url,label,cls=''):return f'<a href="{E(url)}" class="{cls}">{label}</a>
 def url(lang,route):return '/2026/'+lang+'/'+route
 SHORT=[('公共价值','Public value'),('OSDGs 目标框架','OSDGs goals'),('OSDI 指标体系','OSDI indicators')]
 QUESTIONS=[('为什么研究开源？','Why study open source?'),('开源朝哪里发展？','Where should it develop?'),('如何用证据观察？','How can evidence reveal change?')]
-FIGURES={'fig-report-logic':('图 1-0-1','全书结构与研究路径','Report structure'), 'fig-linux':('图 1-1-1','Linux：长期协作','Linux collaboration'), 'fig-models':('图 1-1-2','开放模型：持续衍生','Open model derivatives'), 'fig-public-goods':('图 1-1-3','SDGs 与数字公共品','SDGs and digital public goods'), 'fig-osdg-goals':('图 1-2-1','OSDGs 目标框架','OSDGs goals framework'), 'fig-osdi-map':('图 1-3-1 / 表 1.3.1','OSDI 三级结构与指标探索','OSDI structure and indicators')}
+FIGURES={'fig-report-logic':('图 1-0-1','全书结构与研究路径','Report structure'), 'fig-linux':('图 1-1-1','Linux：长期协作','Linux collaboration'), 'fig-models':('图 1-1-2','开放模型：宏观趋势与衍生实例','Open model derivatives'), 'fig-public-goods':('图 1-1-3','SDGs × DPGA','SDGs and digital public goods'), 'fig-osdg-goals':('图 1-2-1','OSDGs 目标框架','OSDGs goals framework'), 'fig-osdi-map':('图 1-3-1','OSDI 三级结构与指标探索','OSDI structure and indicators')}
 
 def plain_heading(n):
     for a in list(n.walk()):
@@ -25,35 +26,27 @@ def prepare_manuscript(markup,lang,prefix,src,source):
     for x in list(root.children):
         if isinstance(x,Node) and x.tag=='blockquote':
             if '本节问题' in x.text() or 'Preview v0.6' in x.text():root.children.remove(x)
-    # Source citations are retained in one local disclosure instead of repeated exits.
-    sources=[]
-    cut=next((i for i,x in enumerate(root.children) if isinstance(x,Node) and x.tag=='h3' and '资料与口径' in x.text()),None)
-    if cut is not None:sources=root.children[cut:];root.children=root.children[:cut]
+    # Publication prose has no reference tables or repeated source controls.
+    for n in list(root.walk()):
+        if any(n.has(c) for c in ('chapter-table-reference','chapter-table-figure','viz-source','reading-source-note')):
+            remove(root,n)
     for n in root.walk():
-        if n.tag in ('h3','h4') and not any(p.has('chapter-table-figure') or p.has('chapter-explorer') or p.has('chapter-one-visual') for p in root.walk() if n in list(p.walk())):
-            plain_heading(n)
-            if n.children and isinstance(n.children[0],str):n.children[0]=re.sub(r'^\d+\.\s*','',n.children[0])
-    # Compact every source table without discarding it. Long tables keep paging.
+        if n.tag in ('h3','h4'):plain_heading(n)
     for fig in [n for n in root.walk() if n.tag=='figure']:
-        if fig.has('chapter-table-figure'):
-            parent=next(p for p in [root,*root.walk()] if fig in p.children)
-            title=next(n.text() for n in fig.walk() if n.tag=='h4')
-            if parent.tag=='details':parent.add('reading-reference');summary=next(n for n in parent.children if isinstance(n,Node) and n.tag=='summary');summary.children=[t(lang,'对照表 · ','Reference · ')+E(title)]
-            else:
-                wrapper=fragment('<details class="reading-reference chapter-table-reference"><summary>'+t(lang,'对照表 · ','Reference · ')+E(title)+'</summary></details>')[0]
-                parent.children[parent.children.index(fig)]=wrapper;wrapper.children.append(fig)
-        elif fig.attrs.get('id') in FIGURES:
-            meta=FIGURES[fig.attrs['id']];fig.add('foundation-figure');fig.set('data-reading-number',meta[0]);fig.set('data-reading-title',meta[1 if lang=='zh' else 2]);fig.set('data-slide-key',fig.attrs.get('data-slide-key') or fig.attrs['id'])
-    # Adjacent source captions repeat what is already in the chart. Move them to
-    # the chart's source notes, retaining limitations and attribution verbatim.
-    latest=None
-    for x in list(root.children):
-        if not isinstance(x,Node):continue
-        if x.tag=='figure' or x.tag=='details' and x.has('chapter-table-reference'):latest=x
-        if x.tag=='p' and re.match(r'\s*(图|表)\s*1[-.]',re.sub('<[^>]+>','',x.html())):
-            if latest:
-                cap=next((a for a in latest.walk() if a.tag=='figcaption'),None)
-                if cap:cap.children+=fragment('<div class="reading-source-note">'+x.html()+'</div>');root.children.remove(x)
+        fid=fig.attrs.get('id')
+        if fid not in FIGURES:continue
+        meta=FIGURES[fid];fig.add('foundation-figure');fig.set('data-reading-number',meta[0]);fig.set('data-reading-title',meta[1 if lang=='zh' else 2]);fig.set('data-slide-key',fig.attrs.get('data-slide-key') or fid)
+        for cap in [n for n in fig.walk() if n.tag=='figcaption']:
+            for n in list(cap.walk()):
+                if n.tag=='a':remove(cap,n)
+        for n in list(fig.walk()):
+            if n.has('osdi-foot-tools'):
+                for a in list(n.walk()):
+                    if a.tag=='a':remove(n,a)
+        # A static companion makes later print/PDF independent of interaction state.
+        svg={'fig-report-logic':'fig-1-0-1_report_logic.svg','fig-linux':'fig-1-1-1_linux_collaboration.svg','fig-models':'fig-1-1-2_model_derivatives.svg','fig-public-goods':'fig-1-1-3_sdgs_dpga.svg','fig-osdg-goals':'fig-1-2-1_osdg_framework.svg','fig-osdi-map':'fig-1-3-1_osdi_explorer.svg'}[fid]
+        parent=next(n for n in [root,*root.walk()] if fig in n.children)
+        parent.children.insert(parent.children.index(fig)+1,fragment('<img class="chapter-print-figure" src="/assets/report/'+svg+'" alt="'+E(meta[1 if lang=='zh' else 2])+'">')[0])
     # Group narrative modules, keeping all legacy heading IDs.
     grouped=[];current=None
     for x in root.children:
@@ -62,11 +55,6 @@ def prepare_manuscript(markup,lang,prefix,src,source):
         if current:current.children.append(x)
         else:grouped.append(x)
     root.children=grouped
-    if sources:
-        sources[0].children=[t(lang,'来源与口径','Sources and scope')]
-        detail=fragment('<details class="reading-reference reading-sources"><summary>'+t(lang,'来源与方法说明','Sources and methodology')+'</summary></details>')[0];detail.children+=sources
-        detail.children+=fragment('<p class="reading-source-actions">'+link(source(src),t(lang,'GitHub 原稿 ↗','Source manuscript ↗'))+' · '+link(url(lang,'data/sources/'),t(lang,'数据目录 →','Data catalogue →'))+'</p>')
-        root.children.append(detail)
     return tree.root.html()
 
 def chapter(lang,report):
@@ -76,7 +64,7 @@ def chapter(lang,report):
     intro=prepare_manuscript(report.render(report.INTRO,lang,'intro'),lang,'intro',report.INTRO,report.source)
     # The introduction's table of contents is retained as reference; the route above
     # and the interactive architecture provide the primary navigation.
-    out.append('<section class="foundation-intro" id="chapter-intro"><div class="section-topline">GOSD / RESEARCH PATH</div><h2>'+t_('从公共价值，到证据与行动','From public value to evidence and action')+'</h2>'+intro+'</section>')
+    out.append('<section class="foundation-intro" id="chapter-intro"><div class="section-topline">GOSD / RESEARCH PATH</div><h2>'+t_('从开放协作到公共价值','From public value to evidence and action')+'</h2>'+intro+'</section>')
     for i,src in enumerate(report.PARTS):
         s=M['chapters'][0]['sections'][i];sid=s['id']
         body=prepare_manuscript(report.render(src,lang,sid),lang,sid,src,report.source)
@@ -87,7 +75,7 @@ def chapter(lang,report):
         prev=('#chapter-intro',t_('全书结构','Report structure')) if i==0 else ('#ch01-s0'+str(i),t_(*SHORT[i-1]))
         nex=('#ch01-s0'+str(i+2),t_(*SHORT[i+1])) if i<2 else (url(lang,'chapters/02/'),t_('第二章 · GOSO','Chapter 2 · GOSO'))
         out.append('<nav class="foundation-section-nav" aria-label="'+t_('继续阅读','Continue reading')+'">'+link(prev[0],'← '+prev[1])+link(nex[0],nex[1]+' →')+'</nav></section>')
-    out.append('<section class="reading-bridge"><span class="section-topline">FROM FRAMEWORK TO OBSERVATION</span><h2>'+t_('带着目标与指标，进入七个主题地图','Follow goals and measures into seven thematic maps')+'</h2><p>'+t_('第二章沿活跃、贡献、项目影响力、人才、资产、多样性、治理与社会公益展开；每节说明指标定位，并把证据连接到行动建议。','Chapter 2 connects activity, contribution, influence, talent, assets, diversity, governance and public value to measures and actions.')+'</p>'+link(url(lang,'chapters/02/'),t_('开始阅读第二章 →','Read Chapter 2 →'),'reading-next')+'</section></div>')
+    out.append('<section class="reading-bridge" id="theme-maps"><span class="section-topline">FROM FRAMEWORK TO OBSERVATION</span><h2>'+t_('带着目标与指标，进入七个主题地图','Follow goals and measures into seven thematic maps')+'</h2><p>'+t_('从关心的发展目标出发，找到相应的观察主题，再进入第二章查看具体的格局与变化。','Start with a development goal, find a theme, then explore its patterns and changes in Chapter 2.')+'</p>'+chapter1_theme_map.render(lang)+'<img class="chapter-print-figure" src="/assets/report/fig-1-3-2_theme_maps.svg" alt="'+t_('四大支柱与七个主题地图的阅读导览','Four pillars and seven thematic maps')+'"></section></div>')
     return ''.join(out)
 
 def sidebar(lang,report):

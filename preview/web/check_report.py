@@ -26,7 +26,7 @@ for entry in r['datasets']:
     assert not entry['path'].startswith('data/raw/')
 for lang in ['zh','en']:
     chapter=Page((out/f'2026/{lang}/chapters/01/index.html').read_text())
-    assert len(chapter.figures)==0 and all(x.get('alt') for x in chapter.figures)
+    assert len(chapter.figures)==7 and all(x.get('alt') and x.get('class')=='chapter-print-figure' for x in chapter.figures)
     for section in m['chapters'][0]['sections']:assert section['id'] in chapter.ids
     body=' '.join(chapter.text)
     for term in ['45,855','5,686','70%','OpenDigger','ModelRank']:assert term in body,term

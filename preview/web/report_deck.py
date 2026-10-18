@@ -69,7 +69,7 @@ def data(out):
         if s.get('topic'):s['notes'].append(sections['ch02-s0'+str(s['topic'])]['position'])
     # Explicit mentions only: no invented indicator-to-chapter coverage or completion claim.
     coverage={str(i):[r['indicator_code'] for r in indicators if re.search(r'(?<![A-Za-z])'+re.escape(r['indicator_code'])+r'(?![A-Za-z])',sections['ch02-s0'+str(i)]['position'])] for i in range(1,8)}
-    assert len(slides)==21 and len(figures)==32 and len(indicators)==29
+    assert len(slides)==21 and len(figures)==33 and len(indicators)==29
     return dict(version=VERSION,revision=REVISION,date=DATE,slides=slides,figures=figures,topics=[dict(code=t[0],title=t[1],question=t[2],action=t[3],slide=10+i) for i,t in enumerate(TOPICS)],sections=sections,indicators=indicators,coverage=coverage,chapters=manifest['chapters'])
 
 def presentation(lang,out):
