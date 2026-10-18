@@ -135,6 +135,11 @@ def reading_start_visual(kind):
             drawing+=f'<g class="reading-art-topic" style="--cue-delay:-{i*2.4}s"><rect class="reading-art-sheet" x="184" y="{y}" width="120" height="18" rx="4"/><circle class="reading-art-stop" cx="195" cy="{y+9}" r="2"/><path class="reading-art-quiet" d="M206 {y+9}h{[73,50,62][i]}"/></g>'
     return icon,'<svg class="reading-start-art" viewBox="0 0 320 80" width="320" height="80" aria-hidden="true" focusable="false">'+drawing+'</svg>'
 
+def chapter_entry_title(chapter,lang):
+    title=chapter['title'][lang].split('（')[0].split(' (')[0]
+    number=t(lang,'第'+chapter['number']+'章','Chapter '+chapter['number'])
+    return '<span class="overview-chapter-number">'+E(number)+'</span> · '+E(title)
+
 def home_sections(lang,chain,wheel):
     t_=lambda z,e:t(lang,z,e)
     stops=[('framework','overview','阅读起点','Start'),('contents','gosl','研究视角','Research'),('explore','data','查证复用','Resources'),('about','together','共同建设','Co-create')]
@@ -142,7 +147,8 @@ def home_sections(lang,chain,wheel):
     out+='<section class="portal-section home-reading-start" id="framework" data-home-motion><span class="eyebrow">01 / START READING</span><h2>'+t_('找到你的阅读起点','Find your starting point')+'</h2><p>'+t_('先用摘要把握全貌，再从第一章建立共同语言，或按问题进入研究。','Start with the summary, build a shared foundation in Chapter 1, or follow a question into the research.')+'</p><nav aria-label="'+t_('选择阅读方式','Choose a reading path')+'">'
     for kind,route,z,e,detail,ed,anchor in [('overview','summary/','快速了解','Get the overview','执行摘要 · 把握主要发现与行动方向','Executive summary · Findings and actions',''),('sequence','chapters/01/','系统阅读','Read in sequence','第一章 · 价值、目标与观察方法','Chapter 1 · Values, goals and methods','chapter-1'),('topic','','按需查阅','Find a topic','全书目录 · 直接选择章节与小节','Contents · Choose a chapter or section','')]:
         icon,art=reading_start_visual(kind)
-        out+='<a class="reading-start-card reading-start-'+kind+'" href="'+url(lang,route)+'"'+(' id="'+anchor+'"' if anchor else '')+'><strong>'+icon+'<span>'+t_(z,e)+'</span><i aria-hidden="true">↗</i></strong><span class="reading-start-description">'+t_(detail,ed)+'</span>'+art+'</a>'
+        description='<h3 class="overview-chapter-title overview-foundation-title">'+chapter_entry_title(M['chapters'][0],lang)+'</h3>' if kind=='sequence' else '<span class="reading-start-description">'+t_(detail,ed)+'</span>'
+        out+='<a class="reading-start-card reading-start-'+kind+'" href="'+url(lang,route)+'"'+(' id="'+anchor+'"' if anchor else '')+'><strong>'+icon+'<span>'+t_(z,e)+'</span><i aria-hidden="true">↗</i></strong>'+description+art+'</a>'
     out+='</nav></section><section class="portal-section reading-home-section" id="contents"><span id="questions" class="reading-anchor"></span><span class="eyebrow">02 / FOUR RESEARCH PERSPECTIVES</span><h2>'+t_('从你关心的问题进入研究','Follow the question that matters to you')+'</h2><div class="reading-chapter-grid">'
     topics={
         'GOSO':('参与 · 贡献 · 影响力','Participation · Contribution · Influence'),
@@ -150,9 +156,9 @@ def home_sections(lang,chain,wheel):
         'GOSL':('技术分类 · 生态结构 · 演进','Categories · Structure · Evolution'),
         'GOSM':('模型供给 · 复用衍生 · 开放程度','Supply · Reuse · Openness')}
     for c in M['chapters'][1:5]:
-        key=c['label'].lower();title=c['title'][lang].split('（')[0].split(' (')[0]
-        out+='<a href="'+url(lang,c['route'])+'" id="chapter-'+c['number']+'" class="question-link overview-card overview-'+key+'" data-home-motion><small>'+t_('第'+c['number']+'章','CHAPTER '+c['number'])+' · '+c['label']+'</small><h3>'+overview.icon(key)+'<span>'+E(title)+'</span></h3><div class="overview-card-body"><p>'+E(c['question'][lang])+'</p>'+overview.art(key)+'</div><span class="overview-card-footer"><span>'+t_(*topics[c['label']])+'</span><b>'+t_('进入本章','Explore chapter')+' <i aria-hidden="true">↗</i></b></span></a>'
-    out+='</div><div class="home-action-next" id="chapter-6"><a class="home-action-link overview-action-card overview-card" data-home-motion href="'+url(lang,'chapters/06/')+'"><div><small>'+t_('第六章 · 未来展望与行动建议','CHAPTER 6 · OUTLOOK AND ACTION')+'</small><h3>'+overview.icon('action')+'<span>'+t_('把研究带回行动','Bring the research into action')+'</span></h3><p>'+t_('三项共同任务，九条面向政府、企业与社区的建议。','Three shared tasks and nine recommendations for institutions, companies and communities.')+'</p></div>'+overview.art('action')+'<span class="overview-cta">'+t_('阅读行动建议','Read the recommendations')+' <i aria-hidden="true">→</i></span></a></div></section>'
+        key=c['label'].lower()
+        out+='<a href="'+url(lang,c['route'])+'" id="chapter-'+c['number']+'" class="question-link overview-card overview-'+key+'" data-home-motion><h3 class="overview-chapter-title">'+overview.icon(key)+'<span>'+chapter_entry_title(c,lang)+'</span></h3><div class="overview-card-body"><p>'+E(c['question'][lang])+'</p>'+overview.art(key)+'</div><span class="overview-card-footer"><span>'+t_(*topics[c['label']])+'</span><b>'+t_('进入本章','Explore chapter')+' <i aria-hidden="true">↗</i></b></span></a>'
+    out+='</div><div class="home-action-next" id="chapter-6"><a class="home-action-link overview-action-card overview-card" data-home-motion href="'+url(lang,'chapters/06/')+'"><div><h3 class="overview-chapter-title">'+overview.icon('action')+'<span>'+chapter_entry_title(M['chapters'][5],lang)+'</span></h3><p>'+t_('把研究带回行动：三项共同任务，九条面向政府、企业与社区的建议。','Bring research into action: three shared tasks and nine recommendations for institutions, companies and communities.')+'</p></div>'+overview.art('action')+'<span class="overview-cta">'+t_('阅读行动建议','Read the recommendations')+' <i aria-hidden="true">→</i></span></a></div></section>'
     out+='<section class="portal-section reading-home-section" id="explore"><span class="eyebrow">03 / VERIFY & REUSE</span><h2>'+t_('阅读之后，就近查证与复用','Read, verify and reuse')+'</h2><div class="reading-resource-grid">'
     for kind,r,z,e,zd,ed,cta,ctae in [('data','data/','指标与数据','Indicators and data','查看定义、来源与统计边界。','Definitions, sources and scope.','查阅证据','Inspect evidence'),('presentation','presentation/','互动演示','Interactive presentation','进入单屏探索与讲解。','Explore the report one screen at a time.','开始探索','Start exploring'),('release','release/','发布资料','Release materials','获取可用资料、引用与版本记录。','Find materials, citations and versions.','查看资料','Find materials')]:
         out+='<a class="overview-card overview-resource overview-'+kind+'" data-home-motion href="'+url(lang,r)+'"><h3>'+overview.icon(kind)+'<span>'+t_(z,e)+'</span></h3><p>'+t_(zd,ed)+'</p>'+overview.art(kind)+'<span class="overview-resource-cta">'+t_(cta,ctae)+' <i aria-hidden="true">↗</i></span></a>'

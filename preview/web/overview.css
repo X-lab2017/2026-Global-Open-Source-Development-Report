@@ -11,8 +11,8 @@
 .overview-page-nav a[aria-current=location]:after,.overview-page-nav a:focus-visible:after{transform:scaleX(1)}
 .overview-home>.portal-section{padding-block:44px;scroll-margin-top:58px}
 .overview-card{--entry-accent:#007d87;min-width:0;transition:border-color .25s}
-.overview-gosr,.overview-presentation{--entry-accent:#326a9d}.overview-gosl,.overview-release{--entry-accent:#77538f}.overview-gosm{--entry-accent:#486e2d}
-[data-theme=dark] .overview-card{--entry-accent:#68c8cc}[data-theme=dark] :is(.overview-gosr,.overview-presentation){--entry-accent:#81afe4}[data-theme=dark] :is(.overview-gosl,.overview-release){--entry-accent:#bf9ad6}[data-theme=dark] .overview-gosm{--entry-accent:#b0d27e}
+.overview-gosl,.overview-presentation{--entry-accent:#326a9d}.overview-gosr,.overview-release{--entry-accent:#77538f}.overview-gosm{--entry-accent:#486e2d}
+[data-theme=dark] .overview-card{--entry-accent:#68c8cc}[data-theme=dark] :is(.overview-gosl,.overview-presentation){--entry-accent:#81afe4}[data-theme=dark] :is(.overview-gosr,.overview-release){--entry-accent:#bf9ad6}[data-theme=dark] .overview-gosm{--entry-accent:#b0d27e}
 .overview-home .overview-card h3{display:flex;align-items:flex-start;gap:11px;font-size:21px;line-height:1.55;transition:color .25s}
 .overview-card h3>.overview-icon{margin-top:4px;color:var(--entry-accent)}
 .overview-card h3>span{min-width:0}
@@ -23,7 +23,6 @@
 .overview-card:is(:hover,:focus-visible) i,.overview-about-links a:is(:hover,:focus-visible) i{transform:translate(3px,-2px)}
 .overview-home .reading-chapter-grid{margin-top:22px;gap:0 32px}
 .overview-home .reading-chapter-grid>a{padding:23px 0 20px}
-.overview-home .reading-chapter-grid>a>small{color:var(--entry-accent)}
 .overview-home .reading-chapter-grid h3{margin:10px 0 4px}
 .overview-card-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,32%);align-items:center;gap:16px;flex:1;min-height:108px}
 .overview-home .overview-card-body p{font:14px/1.85 var(--sans);margin:0;max-width:320px}
@@ -38,7 +37,7 @@
 .overview-card:is(:hover,:focus-visible) .ov-panel{stroke:var(--entry-accent)}
 .overview-home .home-action-next{display:block;margin-top:24px;padding:0;border:1px solid var(--line);border-radius:7px;background:color-mix(in srgb,var(--cyan) 3%,var(--paper))}
 .overview-home .home-action-next>a{display:grid;grid-template-columns:minmax(0,1fr) 160px auto;align-items:center;gap:24px;padding:22px 24px;white-space:normal;font:inherit;color:var(--ink);border-radius:7px}
-.overview-home .home-action-next small{font-size:11px}.overview-home .home-action-next h3{margin:8px 0}
+.overview-home .home-action-next h3{margin:0 0 10px}
 .overview-home .home-action-next p{font-size:14px;line-height:1.8}
 .overview-cta{font:500 13px/1.7 var(--sans);color:var(--entry-accent)}
 .overview-home .reading-resource-grid{gap:28px;margin-top:22px}
@@ -66,5 +65,13 @@ body[data-reading-page=overview] .site-footer .footer-links a:is(:hover,:focus-v
 @media(max-width:900px){.overview-home{--overview-header:74px}.overview-page-nav>span{display:none}.overview-page-nav>div{width:100%;margin:0;max-width:none}.overview-about-layout{gap:26px;grid-template-columns:minmax(0,1fr) 160px}}
 @media(max-width:800px){.overview-home{--overview-header:66px}.overview-home>.portal-section{padding-block:34px;scroll-margin-top:40px}.overview-home .reading-chapter-grid{gap:0}.overview-home .reading-chapter-grid>a{padding-block:22px}.overview-home .reading-resource-grid{gap:14px}.overview-page-nav a{font-size:11px;gap:6px}.overview-home .overview-card-footer{align-items:center}.overview-home .home-action-next>a{padding:20px}.overview-home .reading-resource-grid>a{padding-block:20px}.overview-home .overview-card h3{font-size:20px}.overview-about-layout{grid-template-columns:minmax(0,1fr) 120px;gap:20px}}
 @media(max-width:540px){.overview-page-nav a{padding:9px 2px;gap:5px;font-size:10px;min-height:44px}.overview-page-nav .overview-icon{width:15px;height:15px}.overview-page-nav{min-height:46px}.overview-card-body{grid-template-columns:minmax(0,1fr) 112px;gap:12px}.overview-home .overview-card-body p{font-size:13px}.overview-home .home-action-next>a{grid-template-columns:minmax(0,1fr) 86px;gap:10px}.overview-home .home-action-next h3{font-size:18px}.overview-home .home-action-next p{font-size:13px}.overview-about-layout{grid-template-columns:1fr}.overview-about .overview-art{width:150px;height:80px;justify-self:end}.overview-about-links{gap:10px 22px}.overview-about h2 .overview-icon{width:24px;height:24px;margin-top:7px}}
+/* Chapter number and full title form one prominent, consistently coloured label. */
+.overview-home h3.overview-chapter-title{font:650 26px/1.5 var(--sans);letter-spacing:-.015em;color:var(--entry-accent);margin:0 0 10px}
+.overview-home h3.overview-chapter-title .overview-chapter-number{white-space:nowrap;font:inherit;color:inherit}
+.overview-home h3.overview-chapter-title>.overview-icon{width:26px;height:26px;margin-top:6px}
+.overview-home h3.overview-foundation-title{font-size:24px;margin:0;letter-spacing:-.01em}
+.overview-home .reading-chapter-grid .overview-card-footer{color:var(--entry-accent)}
+@media(max-width:800px){.overview-home h3.overview-chapter-title{font-size:24px}.overview-home h3.overview-foundation-title{font-size:23px}}
+@media(max-width:540px){.overview-home h3.overview-chapter-title{font-size:22px;line-height:1.55}.overview-home h3.overview-chapter-title>.overview-icon{width:23px;height:23px;margin-top:5px}.overview-home .home-action-next>a{grid-template-columns:86px minmax(0,1fr);gap:12px 18px}.overview-action-card>div{grid-column:1/-1}.overview-action-card>.overview-art{grid-column:1;grid-row:2}.overview-action-card>.overview-cta{grid-column:2;grid-row:2}}
 @media(prefers-reduced-motion:reduce){.overview-home *,.overview-home *:after,body[data-reading-page=overview] .hero-actions *{animation:none!important;transition:none!important}.overview-art .ov-flow{display:none}.overview-home :is(a:hover,a:focus-visible) :is(i,.overview-icon),body[data-reading-page=overview] .hero-actions a:hover>span:last-child{transform:none}}
 @media print{.overview-page-nav,.overview-art,.overview-about-links{display:none!important}.overview-home>.portal-section{padding-block:20px}.overview-home .home-action-next>a{display:block}.overview-card-body,.overview-about-layout{display:block}.overview-home .reading-resource-grid{display:block}.overview-home *{animation:none!important}}
