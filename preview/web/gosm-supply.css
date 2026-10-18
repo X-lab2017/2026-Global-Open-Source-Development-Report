@@ -111,3 +111,48 @@
   .s51-panel .s51-world-search { margin-left:0; }
 }
 @media print { .s51-export-menu { display:none; } }
+
+/* 5.1 reading baseline: visible positioning, prose after evidence, numbered actions.
+   Scoped to the section so the approved chart canvases and 5.2 stay unchanged. */
+.s51-topic .gm-topic-header { max-width:none; }
+.s51-topic .gm-topic-header > p { max-width:1000px; }
+.s51-topic .gm-topic-header .gm-question { color:var(--gm-brand); font-weight:500; }
+.s51-position { margin:28px 0 32px; padding:23px 28px; border-left:3px solid var(--gm-brand); background:var(--gm-paper); }
+.s51-position > strong { display:block; font-size:15px; color:var(--gm-brand); }
+.s51-position > p { margin:12px 0 17px; font-size:15px; line-height:1.95; color:var(--gm-muted); }
+.s51-position .gm-related { gap:8px 24px; font-size:13px; line-height:1.8; }
+.s51-findings { max-width:1000px; margin:32px 0 18px; }
+.s51-findings h3 { margin:0 0 17px!important; font-size:23px!important; }
+.s51-findings p { font-size:17px; line-height:1.95; color:var(--gm-ink); }
+.s51-window-note { max-width:1000px; margin:18px 0 10px; font-size:13px!important; line-height:1.85; color:var(--gm-muted); }
+.s51-perspective { scroll-margin-top:100px; }
+.s51-perspective .gm-narrative { max-width:1000px; margin-top:48px; }
+.s51-reading { max-width:1000px; margin:26px 0 46px; }
+.s51-reading p { margin:0 0 21px; font-size:16px; line-height:2; color:var(--gm-muted); overflow-wrap:anywhere; }
+.s51-reading p:last-child { margin-bottom:0; }
+.s51-actions { margin-top:42px; padding-top:27px; }
+.s51-actions > h3 { margin:10px 0 16px!important; }
+.s51-action-lead { margin:0 0 20px; font-size:17px; line-height:1.8; color:var(--gm-brand); }
+.s51-action-intro { max-width:1000px; margin:0 0 28px; font-size:16px; line-height:1.95; color:var(--gm-muted); }
+.s51-actions > .s51-action-list { display:block; }
+.s51-actions .s51-action { display:grid; grid-template-columns:52px minmax(0,1fr); gap:22px; padding:29px 0 32px; border-top:1px solid var(--gm-line); }
+.s51-actions .s51-action > .s51-action-number { font-size:28px; line-height:1.4; font-weight:400; color:var(--gm-brand); }
+.s51-action > div { max-width:1000px; }
+.s51-actions .s51-action h4 { margin:0 0 9px; font-size:21px; line-height:1.6; }
+.s51-actions .s51-action p { margin:0 0 17px; font-size:16px!important; line-height:1.95; }
+.s51-actions .s51-action .s51-action-who { margin-bottom:17px; font-size:13px!important; color:var(--gm-brand); }
+.s51-actions .s51-action a { display:inline-block; font-size:13px; line-height:1.8; }
+.s51-topic a:focus-visible { outline:2px solid var(--gm-gold); outline-offset:4px; }
+@media (max-width:760px) {
+  .s51-position { padding:18px 20px; }
+  .s51-position > p { font-size:14px; }
+  .s51-findings p,.s51-reading p,.s51-action-intro { font-size:15px; }
+  .s51-actions .s51-action { grid-template-columns:32px minmax(0,1fr); gap:12px; padding:24px 0; }
+  .s51-actions .s51-action > .s51-action-number { font-size:24px; }
+  .s51-actions .s51-action h4 { font-size:19px; }
+  .s51-actions .s51-action p { font-size:15px!important; }
+}
+@media print {
+  .s51-actions .s51-action { break-inside:avoid; }
+  .s51-perspective .gm-narrative { break-after:avoid; }
+}

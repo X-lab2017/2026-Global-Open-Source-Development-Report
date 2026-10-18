@@ -130,6 +130,9 @@ def export(out):
 if __name__=='__main__':
     dest=REPO/'chapters/chapter5';dest.mkdir(exist_ok=True)
     for t in TOPICS:
+        if t['n']=='5.1':
+            (dest/(t['n']+'-'+t['title']+'.md')).write_text(S51.manuscript())
+            continue
         s=f'# {t["n"]} {t["title"]}\n\n> {t["question"]}\n\n{t["lede"]}\n\n## 指标定位\n\n{t["metric"]}\n\n## 核心发现\n\n'+ '\n\n'.join('**'+a+'。** '+b for a,b,_ in t['findings'])
         for key,(title,body) in zip(t['figures'],t['narratives']):s+='\n\n## '+title+'\n\n'+body+f'\n\n[图 {FIGS[key][0]}：{FIGS[key][1]}](https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/05/#gm-{key})'
         s+='\n\n## 行动建议\n\n'+'\n\n'.join(f'**{who}：{title}。** {body}' for who,title,body,_ in t['actions'])+'\n\n## 来源与口径\n\n[原始数据与统计范围](../../data/README.md)；[本章方法说明](../../preview/content/gosm/methods.md)。正文与交互版使用同一证据，供整章评审。\n'
