@@ -7,6 +7,7 @@ import goso_content as goso
 import gosr_content as gosr
 import landscape_content as landscape
 import gosm_content as gosm
+import frontmatter_content as frontmatter
 from urllib.parse import quote
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -35,6 +36,8 @@ def validate():
 
 def body(u,lang):
     zh=lang=='zh';t=lambda z,e:z if zh else e
+    if u['kind']=='summary':return frontmatter.summary(lang)
+    if u['kind']=='introduction':return frontmatter.introduction(lang)
     if u['id']=='ch01':return report.chapter(lang)
     if u['id']=='ch02':return goso.chapter(lang)
     if u['id']=='ch03':return gosr.chapter(lang)
@@ -62,14 +65,6 @@ def body(u,lang):
             if s['number']=='2.1':out.append(link('/?lang='+lang+'#chapter-2',t('查看现有图表试读 ↗','View the existing chart preview ↗'),''))
             out.append('</div></section>')
         out.append('<details class="chapter-section"><summary>'+t('章节组织原则','Chapter structure principles')+'</summary><div class="pattern">'+''.join(f'<span><b>{i+1:02d}</b>{E(x)}</span>' for i,x in enumerate(M['content_pattern'][lang]))+'</div>'+para(t('各章依研究问题组织叙事，不强制复用同一套小标题；证据、来源、边界与方法保持一致的可查证要求。','Narrative structure follows each chapter’s research question. Evidence, sources, limitations and methods remain consistently traceable.'))+'</details>')
-    elif u['kind']=='summary':
-        out.append('<div class="reader-note">'+t('执行摘要的版式与证据位置先建立。年度核心结论在相关章节核验后集中定稿。','The summary structure is ready. Annual findings will be finalized after their supporting chapters are verified.')+'</div>')
-        out.append('<h2>'+t('用五个问题串起年度发现','Five questions connect the annual findings')+'</h2>')
-        for ch in M['chapters'][1:]:out.append('<section class="chapter-section"><h3>'+link(url(ch,lang),ch['question'][lang])+'</h3>'+para(t('在此形成一句核心发现，并连接对应章节的证据与行动。','A concise finding here will link to chapter evidence and the resulting action.'))+'</section>')
-        out.append('<h2>'+t('行动建议','Action priorities')+'</h2>'+para(t('面向政府与国际组织、企业与基金会、开发者社区组织建议；每条建议说明依据、适用范围与可跟踪的变化。','Recommendations will address governments and international organizations, companies and foundations, and developer communities, with supporting evidence and observable progress.')))
-    elif u['kind']=='introduction':
-        import reading_experience
-        out.append(reading_experience.introduction(lang,u))
     elif u['kind']=='methods':
         out.append('<h2>'+t('已经明确的研究边界','Established research scope')+'</h2>')
         rows=[(t('2026 主统计期','2026 period'),'2025-07-01 — 2026-06-30'),(t('历史年度','Historical periods'),t('2022—2026；上年 7 月至当年 6 月','2022–2026; previous July through report-year June')),(t('代码生态主范围','Primary code platform'),'GitHub'),(t('补充平台','Supplementary platforms'),'Gitee · AtomGit · GitLab'),(t('地区归属','Location'),t('公开位置标准化；各年度历史快照；未知单列','Standardized public profiles, annual historical snapshots, unknowns retained')),(t('项目榜单','Project rankings'),t('已核验项目样本，逐步扩充','Verified project sample, expanded in subsequent versions'))]
@@ -96,16 +91,7 @@ def body(u,lang):
     return ''.join(out)
 
 def index_body(lang):
-    zh=lang=='zh';t=lambda z,e:z if zh else e
-    out=['<div class="reader-index-top"><div class="reading-paths">']
-    for title,desc,route in [(t('快速掌握','Quick overview'),t('执行摘要 → 展望与行动','Executive summary → Outlook and action'),'summary/'),(t('深入阅读','Read in depth'),t('生态观测 → 榜单 → 技术与模型','Observatory → Rankings → Technology and models'),'chapters/02/'),(t('查证与复用','Verify and reuse'),t('指标体系 → 方法 → 数据与引用','Framework → Methods → Data and citation'),'methodology/')]:
-        out.append(f'<a href="/2026/{lang}/{route}"><h3>{title} ↗</h3><p>{desc}</p></a>')
-    out.append('</div><div class="front-links">'+''.join(link(url(u,lang),u['title'][lang]+' ↗') for u in M['front_matter'])+'</div><h2>'+t('六章，共同回答一个发展问题。','Six chapters. A shared development question.')+'</h2><p>'+t('谁能够参与，什么得以开放，贡献如何形成影响，又怎样转化为公共价值。','Who can participate, what becomes open, how contributions create influence, and how that translates into public value.')+'</p></div><div class="chapter-directory">')
-    for ch in M['chapters']:
-        out.append(f'<article class="directory-card"><a href="{url(ch,lang)}"><div class="directory-no"><span>{int(ch["number"]):02d} / {E(ch["phase"][lang])}</span><span>↗</span></div><h2>{E(ch["title"][lang])}</h2><p>{E(ch["question"][lang])}</p><span class="small">'+t(f'{len(ch["sections"])} 个小节 · 查看本章结构',f'{len(ch["sections"])} sections · Explore the chapter')+'</span></a></article>')
-    out.append('</div><section class="chapter-section"><h2>'+t('方法、价值与复用','Methods, values and reuse')+'</h2><div class="front-links">'+''.join(link(url(u,lang),u['title'][lang]+' ↗') for u in M['back_matter'])+'</div></section>')
-    out.append('<section class="chapter-section"><h2>'+t('一套持续完善的阅读模式','A consistent reading pattern')+'</h2><div class="pattern">'+''.join(f'<span><b>{i+1:02d}</b>{E(x)}</span>' for i,x in enumerate(M['content_pattern'][lang]))+'</div>'+para(t('先建立完整结构，再逐章补齐正文与证据。研究初稿、已核验内容与正式发布版本分别标记。','The full structure comes first, followed by chapter text and evidence. Drafts, verified content and published editions are distinguished throughout.'))+'</section>')
-    return ''.join(out)
+    return frontmatter.contents(lang)
 
 def page(u,lang):
     zh=lang=='zh';t=lambda z,e:z if zh else e;other='en' if zh else 'zh'

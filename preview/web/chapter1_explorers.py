@@ -7,25 +7,8 @@ E=lambda x:html.escape(str(x),quote=True)
 def tr(lang,z,e):return z if lang=='zh' else e
 def href(lang,c):return '/2026/'+lang+'/'+c['route']
 def logic(lang,r,source):
- t=lambda z,e:tr(lang,z,e)
- short=[('价值与方法','Values & methods'),('生态观测地图','Ecological observatory'),('影响力排行榜','Influence rankings'),('技术全景洞察','Technology landscapes'),('大模型发展洞察','Open model development'),('未来展望与行动建议','Outlook & action')]
- labels=['FOUNDATION','GOSO','GOSR','GOSL','GOSM','ACTION'];notes=[('建立全书的研究坐标','Set the research coordinates'),('规模与结构','Scale & structure'),('贡献与影响','Contribution & influence'),('组织与演进','Organization & evolution'),('供给与复用','Supply & reuse'),('从研究证据形成行动建议','Turn research evidence into action')]
- def node(i):
-  c=M['chapters'][i];return '<button type="button" class="logic-chapter logic-c'+str(i+1)+'" data-logic-chapter="'+str(i+1)+'" aria-controls="logic-detail-'+str(i+1)+'" aria-expanded="'+str(i==0).lower()+'"><span class="logic-node-top"><small>'+t('第'+str(i+1)+'章','CHAPTER '+str(i+1))+'</small><b>'+labels[i]+'</b></span><strong>'+t(*short[i])+'</strong><span>'+t(*notes[i])+'</span><em>'+str(len(c['sections']))+t(' 个小节 · 点击查看',' sections · explore')+' <i aria-hidden="true">＋</i></em></button>'
- out='<figure class="chapter-explorer logic-explorer" id="fig-report-logic" data-lang="'+lang+'"><div class="explorer-heading"><div><span class="eyebrow">GOSD / REPORT ARCHITECTURE</span><h3>'+t('从共同目标，到可验证的证据与行动','From shared goals to evidence and action')+'</h3><p>'+t('六章、一条研究主线。左侧选择章节，右侧查看小节。','Six chapters, one research logic. Select on the left; explore on the right.')+'</p></div></div><div class="logic-canvas"><section class="logic-foundation" aria-label="'+t('第一章：价值与方法','Chapter 1: values and methods')+'">' +node(0)
- out+='<div class="logic-chain" aria-label="SDGs → OSDGs → OSDI">'
- for key,title,desc,count in [('sdg','UN SDGs',t('价值参照与研究启发','Shared values & inspiration'),t('17项可持续发展目标','17 sustainable development goals')),('osdg','OSDGs',t('开源发展目标框架','Open source development goals'),t('4大支柱 · 10个维度','4 pillars · 10 dimensions')),('osdi','OSDI',t('开源发展目标指标体系','The OSDGs Indicator System'),t('29项指标 · 分项观测','29 indicators · distinct observations'))]:
-  out+='<button class="logic-framework" type="button" data-logic-framework="'+key+'" aria-controls="logic-framework-detail" aria-expanded="false"><b>'+title+'</b><strong>'+desc+'</strong><span>'+count+'</span></button>'
- out+='</div></section><div class="logic-stage-label">'+t('共同的目标与指标，支撑四个研究板块','Shared goals and measures support four research chapters')+'</div><div class="logic-core">'+''.join(node(i) for i in range(1,5))+'</div><div class="logic-converge-label">'+t('综合研究发现 → 明确行动对象与合作方向','Synthesize findings → identify action and cooperation')+'</div>'+node(5)+'</div>'
- out+='<div class="logic-inspector">'
- for i,c in enumerate(M['chapters']):
-  out+='<section class="logic-detail" id="logic-detail-'+str(i+1)+'"'+(' hidden' if i else '')+' aria-label="'+E(c['title'][lang])+'"><div class="logic-detail-heading"><div><small>'+t('第'+str(i+1)+'章','CHAPTER '+str(i+1))+'</small><h4>'+E(c['title'][lang])+'</h4></div><a href="'+href(lang,c)+'">'+t('阅读本章 ↗','Read chapter ↗')+'</a></div><p>'+E(c['question'][lang])+'</p><div class="logic-section-list">'
-  for sec in c['sections']:out+='<a href="'+href(lang,c)+'#'+sec['id']+'"><b>'+sec['number']+'</b><span><strong>'+E(sec['title'][lang])+'</strong><small>'+E(sec['question'][lang])+'</small></span><i aria-hidden="true">↗</i></a>'
-  out+='</div>'
-  if i==5:out+='<div class="logic-shared-tasks"><small>'+t('三项共同任务 · 九条主体建议','Three shared tasks · nine actor recommendations')+'</small><p>'+t('持续参与与人才成长','Sustained participation and talent development')+'</p><p>'+t('可维护、可复用的开放技术基础','Maintainable, reusable open foundations')+'</p><p>'+t('透明治理与可验证的公共价值','Transparent governance and verifiable public value')+'</p></div>'
-  out+='</section>'
- out+='<section id="logic-framework-detail" hidden aria-live="polite"></section></div><figcaption>'+t('图1-0-1 · 六章共同指向持续共同创造及其公共价值。四支柱与各章交叉关联；实践反馈支持持续更新。','Figure 1-0-1 · Six chapters connect sustained co-creation and public value. Pillars cut across chapters; practice informs continued observation.')+' <a href="/assets/report/fig-1-0-1_report_logic.svg" download>'+t('原静态图 ↓','Static original ↓')+'</a></figcaption><noscript><style>.logic-explorer .logic-detail[hidden]{display:block!important}</style><p>'+t('以下保留全书小节链接；启用JavaScript可点选展开。','All section links are available below. Enable JavaScript for selective exploration.')+'</p></noscript></figure>'
- return out
+ from report_architecture import render
+ return render(lang)
 
 def indicators(lang,r,source):
  t=lambda z,e:tr(lang,z,e);rows=r['indicators']

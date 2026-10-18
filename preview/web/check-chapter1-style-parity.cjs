@@ -2,7 +2,7 @@
    This does not compute browser geometry or replace viewport QA. */
 const fs=require('fs'),path=require('path'),assert=require('assert'),{parseHTML}=require('linkedom');
 const root=path.resolve(__dirname,'../..'),out=path.resolve(process.argv[2]||root+'/_site');
-const files=['style.css','reader.css','portal.css','report.css','chapter-visuals.css','chapter1-explorers.css','chapter1-slides.css','reading-experience.css','chapter1-restored.css','chapter1-release.css'];
+const files=['style.css','reader.css','portal.css','report.css','chapter-visuals.css','chapter1-explorers.css','chapter1-slides.css','reading-experience.css','chapter1-restored.css','chapter1-release.css','report-architecture.css'];
 function split(s){let level=0,start=0,arr=[];for(let i=0;i<s.length;i++){if('(['.includes(s[i]))level++;if(')]'.includes(s[i]))level--;if(s[i]===','&&level===0){arr.push(s.slice(start,i));start=i+1;}}arr.push(s.slice(start));return arr;}
 function mediaOK(m,w,h){if(/print|prefers-reduced-motion/.test(m))return false;const checks=[...m.matchAll(/(min|max)-(width|height)\s*:\s*([\d.]+)px/g)];return checks.every(([,mode,axis,v])=>mode==='min'?(axis==='width'?w:h)>=+v:(axis==='width'?w:h)<=+v);}
 function rules(css,w,h,result=[]){css=css.replace(/\/\*[\s\S]*?\*\//g,'');let i=0;while(i<css.length){let open=css.indexOf('{',i);if(open<0)break;const sel=css.slice(i,open).trim();let depth=1,j=open+1;for(;j<css.length&&depth;j++){if(css[j]==='{')depth++;if(css[j]==='}')depth--;}const body=css.slice(open+1,j-1);i=j;if(sel.startsWith('@media')){if(mediaOK(sel,w,h))rules(body,w,h,result);continue;}if(sel.startsWith('@'))continue;

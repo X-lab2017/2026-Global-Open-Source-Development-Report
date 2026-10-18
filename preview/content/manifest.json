@@ -39,9 +39,10 @@
       },
       "kind": "summary",
       "source_path": "outline/执行摘要.md",
-      "status": "draft",
+      "status": "published",
       "template": "chapter",
-      "research_status": "pending-review"
+      "research_status": "published-overview",
+      "publication_date": "2026-10-18"
     },
     {
       "id": "introduction",
@@ -56,10 +57,11 @@
       },
       "kind": "introduction",
       "source_path": "chapters/引言-人工智能时代的开源发展.md",
-      "status": "draft",
+      "status": "published",
       "template": "chapter",
       "brief_source": "planning/INTRODUCTION_BRIEF.md",
-      "research_status": "pending-review"
+      "research_status": "published-overview",
+      "publication_date": "2026-10-18"
     }
   ],
   "chapters": [

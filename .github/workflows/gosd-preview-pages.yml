@@ -6,6 +6,8 @@ on:
     paths:
       - 'preview/**'
       - 'chapters/chapter1/**'
+      - 'chapters/引言-人工智能时代的开源发展.md'
+      - 'outline/**'
       - 'appendices/附录A-指标体系与数据来源.md'
       - 'data/meta/**'
       - 'data/processed/**'
