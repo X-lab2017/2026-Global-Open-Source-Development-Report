@@ -32,6 +32,12 @@ for lang in ['zh','en']:
     for term in ['45,855','5,686','70%','OpenDigger','ModelRank']:assert term in body,term
     assert not any(x in body for x in ['\x00','$$','**'])
     if lang=='en':assert 'translation is in preparation' in body
+    # The complete chapter map belongs to Chapter 1; entry pages provide contextual navigation.
+    for route in ['', 'summary/', 'introduction/']:
+        entry=(out/f'2026/{lang}'/route/'index.html').read_text()
+        assert 'id="fig-report-logic"' not in entry
+    entry=(out/('index.html' if lang=='zh' else 'en/index.html')).read_text()
+    assert 'id="fig-report-logic"' not in entry and 'home-reading-start' in entry
     methods=Page((out/f'2026/{lang}/methodology/index.html').read_text())
     assert '2.2235' in ' '.join(methods.text) and '34' in ' '.join(methods.text)
     data=Page((out/f'2026/{lang}/data/sources/index.html').read_text())

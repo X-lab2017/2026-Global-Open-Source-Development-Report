@@ -52,7 +52,9 @@ for file,page in pages.items():
         if link:check_url(link,file)
     if file in [root/'index.html',root/'en/index.html']:
         questions=[d['href'] for tag,d in page.tags if d.get('class')=='question-link']
-        assert questions==[base+f'/2026/{lang}/chapters/{n:02d}/' for n in range(2,7)],questions
+        assert questions==[base+f'/2026/{lang}/chapters/{n:02d}/' for n in range(2,6)],questions
+        actions=[d['href'] for tag,d in page.tags if d.get('class')=='home-action-link']
+        assert actions==[base+f'/2026/{lang}/chapters/06/'],actions
 m=json.loads((source/'content/manifest.json').read_text())
 assert [c.get('label') for c in m['chapters'][1:5]]==['GOSO','GOSR','GOSL','GOSM']
 assert len(m['research_questions'])==5
