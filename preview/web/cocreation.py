@@ -37,9 +37,8 @@ def render(lang):
     for i in range(14):
         y=112+i*16;end=170+i*9;d=f'M {220+i%3*10} {y} C 340 {y-35} 405 {end+35} 555 {end}'
         v=f'M {250+(i-7)*9} 330 C {160+i*12} 440 {340-i*8} 490 {250+(i-7)*7} 600'
-        for target,path in [(flows,d),(vertical,v)]: target.append(f'<path d="{path}"/><path class="star-bridge-pulse" style="--flow-delay:-{i*.63}s;--flow-duration:{6+i%5}s" d="{path}"/>')
+        for target,path in [(flows,d),(vertical,v)]: target.append(f'<path d="{path}"/><path class="star-bridge-pulse" style="--flow-delay:-{i*.63}s;--flow-duration:{6+i%5}s" d="{path}"/><path class="star-bridge-hit" d="{path}"/>')
     return f'''<section class="cocreation" aria-label="{t('共创星图','Co-creation constellation')}" data-lang="{lang}" data-labels="{e(json.dumps(labels,ensure_ascii=False),quote=True)}">
-      <div class="star-heading"><span>OPEN ECOSYSTEM → GOSD</span><button type="button" class="star-motion" aria-pressed="false">{t('暂停动态','Pause motion')}</button></div>
       <div class="star-scene"><svg class="star-bridge" viewBox="0 0 700 460" preserveAspectRatio="none" aria-hidden="true">{''.join(flows)}</svg><svg class="star-bridge-mobile" viewBox="0 0 500 900" preserveAspectRatio="none" aria-hidden="true">{''.join(vertical)}</svg>
        <div class="star-side star-ecosystem"><div class="star-stage"><canvas class="star-cosmos" tabindex="0" role="button" aria-expanded="false" aria-controls="star-eco-labels" aria-label="{t('共创星云；点击探索生态对象，拖动或使用方向键旋转','Co-creation galaxy; activate to explore ecosystem objects, drag or use arrow keys to rotate')}"></canvas><svg class="star-network" viewBox="0 0 500 500" aria-hidden="true">{''.join(groups)}</svg>
         <button type="button" class="star-core" aria-expanded="false" aria-controls="star-eco-labels" aria-label="{t('OpenDigger 数据内核，展开生态对象','OpenDigger data core; explore ecosystem objects')}"><img src="/assets/opendigger-core.png" width="320" height="320" alt=""><strong>OpenDigger</strong></button>
