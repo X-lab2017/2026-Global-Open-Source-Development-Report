@@ -47,13 +47,9 @@ window.createGOSM51 = function (D, H) {
     set(p,controls,svg(body,1280,height,p.querySelector("h3").textContent),note(readout),rows,sourceText||sources(s,extra));
     const inp=p.querySelector("[data-s51-search]");if(inp)inp.value=s.query||"";
     p.dataset.evidence="observed";
-    if(p.dataset.gmChart==="world"){
-      const orgSwitch=p.querySelector('.gm-controls [data-gm-action="list"][data-value="organizations"]');
-      if(orgSwitch){orgSwitch.disabled=!s.country;orgSwitch.title=s.country?"查看所选国家的发布组织":"先选择地图中的国家或右侧排名";}
-    }
     p.querySelectorAll('[data-gm-action]').forEach(el=>{
       const k=el.dataset.gmAction,v=el.dataset.value;
-      if(['asset','metric','list','trendMode','months','trendPoint','detail','mode'].includes(k))el.setAttribute('aria-pressed',String(s[k])===v?'true':'false');
+      if(['asset','metric','list','trendMode','months','trendPoint','detail','mode'].includes(k))el.setAttribute('aria-pressed',(String(s[k])===v&&(k!=='months'||s.trendMode!=='annual'))?'true':'false');
     });
   }
   function heading(x,y,title,subtitle="",w=0) {
@@ -114,15 +110,17 @@ window.createGOSM51 = function (D, H) {
     return b;
   }
   function worldSelection(row,s,org) {
-    const C=theme().C,base=org?org[s.asset]:row,title=org?org.name:row?row.name_zh:"全球 · 未选国家";
-    let b=box(18,278,742,78,C.paper,C.line,7)+txt(36,305,fitText(title,480,19),19,C.ink,"start",'font-weight="600"');
-    if(org)b+=`<a href="https://huggingface.co/${encodeURIComponent(org.name)}" target="_blank" rel="noopener">${txt(738,305,"账号原页 ↗",14,C.brand,"end")}</a>`;
-    else if(row?.organizations>0)b+=svgButton("list",s.list==="organizations"?"countries":"organizations",s.list==="organizations"?"返回国家排名 ←":"查看发布组织 →",562,288,180);
-    if(base)[[names[s.asset]+"数",base[s.asset]],["累计下载",base.downloads],["社区关注",base.likes]].forEach(([l,v],i)=>{
-      const x=36+i*240;b+=txt(x,339,l,14,C.muted)+txt(x+212,339,v==null?"—":compact(v),21,C.ink,"end");
+    const C=theme().C,base=org?org[s.asset]:row||A(s).summary;
+    const title=org?org.name:row?row.name_zh:"全球 · 地域组织样本";
+    const hint=org?`${countryName(org.countryCode)} · 所选发布账号`:row?row.organizations==null?"暂无已识别组织记录":`关联发布组织 ${fmt(row.organizations)} 个`:"点击地图或右侧排名，查看国家供给。";
+    let b=box(834,408,428,144,C.paper,C.line,7)+txt(852,436,fitText(title,390,20),20,C.ink,"start",'font-weight="600"')+txt(852,461,hint,14,C.muted);
+    [[names[s.asset]+"数",base?.[s.asset]],["累计下载",base?.downloads],["社区关注",base?.likes]].forEach(([l,v],i)=>{
+      const x=852+i*132;b+=txt(x,482,l,13,C.muted)+txt(x,508,v==null?"—":compact(v),22,C.ink);
     });
-    else b+=txt(36,339,"点击地图或右侧国家排名，查看供给与发布者。",16,C.muted);
-    return b;
+    if(org)b+=`<a href="https://huggingface.co/${encodeURIComponent(org.name)}" target="_blank" rel="noopener">${txt(1244,541,"账号原页 ↗",14,C.brand,"end")}</a>`;
+    else if(row?.organizations>0)b+=svgButton("list",s.list==="organizations"?"countries":"organizations",s.list==="organizations"?"返回国家排名 ←":"查看发布组织 →",1066,518,178,false,false,28);
+    else b+=txt(852,541,row?"未覆盖不解释为零供给。":"可继续进入各国发布组织。",13,C.muted);
+    return `<g data-s51-selection>${b}</g>`;
   }
   function world(p,s) {
     const C=theme().C,a=A(s),k=key(s),global=O.global[s.asset].summary;
@@ -130,42 +128,46 @@ window.createGOSM51 = function (D, H) {
     const organizationMode=s.list==="organizations"&&!!selected;
     let rr=organizationMode?orgs(s.country).map(r=>({...r[s.asset],id:r.name,name:r.name})):a.countries.filter(r=>r.organizations>0).map(r=>({...r,id:r.code,name:r.name_zh}));
     rr=rr.filter(r=>!s.query||`${r.name} ${r.id}`.toLowerCase().includes(s.query.toLowerCase())).sort((a,b)=>value(b,k)-value(a,k)||a.name.localeCompare(b.name));
-    let controls=assetControls(s)+metricControls(s)+btn("clear","","清除选择")+badge();
-    controls+=`<div class="s51-control-line">${seg("list",[["countries","国家排名"],["organizations","所选国家组织"]],organizationMode?"organizations":"countries","右侧列表")}${search("world",organizationMode?"搜索所选国家的组织":"搜索国家或地区")}${pageControls(s,rr.length)}</div>`;
-    let body=metricCard(18,4,390,compact(global.total),`全平台公开${s.asset==="datasets"?"数据集":"模型"}`,"仓库")+metricCard(426,4,390,compact(a.summary[s.asset]),"地域组织样本","仓库")+metricCard(834,4,428,fmt(a.summary.organizations),"已识别国家的发布组织","账号");
-    body+=geography(s,"world",90,70,.50,s.country)+txt(546,244,"对数色阶",14,C.muted)+txt(546,265,"浅色：样本未覆盖",14,C.muted);
-    body+=heading(800,94,organizationMode?`${countryName(s.country)} · 发布组织`:"国家与地区",`${label(s)} · ${unit(s)} · 点击查看`,442);
-    body+=rankRows(rr,k,794,144,468,organizationMode?s.organization:s.country,organizationMode?"organization":"country",r=>r.id,r=>r.name,s.page*PAGE_SIZE,PAGE_SIZE,35);
-    if(!rr.length)body+=txt(1028,264,"没有匹配结果，请调整搜索词",17,C.muted,"middle");
+    const last=Math.max(0,Math.ceil(rr.length/PAGE_SIZE)-1);s.page=Math.min(Math.max(0,s.page),last);
+    const controls=seg("asset",[["models","模型"],["datasets","配套数据集"]],s.asset)+`<label class="s51-metric-select">观察指标 <select data-s51-metric-select aria-label="全球地图观察指标">${[["count","数量"],["downloads","累计下载"],["likes","社区关注"]].map(([v,l])=>`<option value="${v}" ${s.metric===v?"selected":""}>${l}</option>`).join("")}</select></label><div class="s51-world-search">${search("world",organizationMode?"搜索所选国家的组织":"搜索国家或地区")}</div>`;
+    let body=box(18,6,902,390,C.paper,C.line,6);
+    body+=txt(34,29,`全平台公开${s.asset==="datasets"?"数据集":"模型"} ${compact(global.total)} · 地域样本 ${compact(a.summary[s.asset])} · ${fmt(a.summary.organizations)} 个组织`,15,C.muted);
+    body+=`<g data-s51-map>${geography(s,"world",74,20,.90,s.country)}</g>`;
+    body+=txt(36,381,"对数色阶 · 浅色为样本未覆盖",13,C.muted);
+    if(s.country)body+=svgButton("clear","","全球视野",790,40,112,false,false,28);
+    body+=txt(944,29,organizationMode?fitText(countryName(s.country)+" · 发布组织",305,21):"国家与地区",21,C.ink,"start",'font-weight="600"');
+    body+=txt(944,55,`${label(s)} · ${unit(s)}`,14,C.muted)+line(944,68,1262,68,C.line);
+    body+=rankRows(rr,k,940,82,322,organizationMode?s.organization:s.country,organizationMode?"organization":"country",r=>r.id,r=>r.name,s.page*PAGE_SIZE,PAGE_SIZE,44);
+    if(!rr.length)body+=txt(1100,202,"没有匹配结果",17,C.muted,"middle")+txt(1100,229,"请调整上方搜索词",14,C.muted,"middle");
+    body+=svgButton("page","prev","←",944,359,38,false,s.page===0,28)+txt(1101,380,`${s.page+1} / ${last+1} · ${rr.length} 项`,14,C.muted,"middle")+svgButton("page","next","→",1224,359,38,false,s.page===last,28);
+    if(organizationMode)body+=svgButton("list","countries","国家排名 ←",790,78,112,false,false,28);
     body+=worldSelection(selected,s,org);
     const trend=growthPanel(s);body+=trend.body;
     const exported=[...rowsExport(rr.map(r=>({对象:r.name,编码:r.id,[label(s)]:value(r,k)})),organizationMode?"组织":"国家",s),...trend.rows];
-    paint(p,s,controls,body,"地域：已识别组织样本 · 2026-10-17读取；曲线：全平台独立序列。未覆盖不代表零，点击曲线查看当期值。",exported,"",560,sources(s)+H.source(["supply"],"全球月度新增截至2026-07，提供6／12／18个月；年度积累来自2026-09-13仍可见模型的创建时间回溯，包含模型与发布账号。两类序列不与10月总量拼接。"));
+    paint(p,s,controls,body,"地域：已识别组织样本 · 2026-10-17读取；趋势：全平台独立序列。点击地图联动榜单与详情，点击趋势点查看当期值。",exported,"",560,sources(s)+H.source(["supply"],"全球月度新增截至2026-07，提供6／12／18个月；年度积累来自2026-09-13仍可见模型的创建时间回溯，包含模型与发布账号。两类序列不与10月总量拼接。"));
   }
-  function svgButton(k,v,label,x,y,w,active=false,disabled=false) {
-    const C=theme().C,body=box(x,y,w,34,active?C.raised:C.bg,active?C.brand:C.line,5)+txt(x+w/2,y+23,label,14,disabled?C.line:active?C.brand:C.ink,"middle");
+  function svgButton(k,v,label,x,y,w,active=false,disabled=false,h=34) {
+    const C=theme().C,body=box(x,y,w,h,active?C.raised:C.bg,active?C.brand:C.line,5)+txt(x+w/2,y+h/2+6,label,14,disabled?C.line:active?C.brand:C.ink,"middle");
     return disabled?`<g aria-disabled="true">${body}</g>`:action(k,v,label,body);
   }
   function growthPanel(s) {
     const C=theme().C,annual=s.trendMode==="annual";
     const pairs=annual?[{id:"models",name:"累计模型",rows:D.supply.map(r=>({date:r.date,value:r.models})),color:colors()[0]},{id:"publishers",name:"累计发布账号",rows:D.supply.map(r=>({date:r.date,value:r.publishers})),color:colors()[1]}]:["models","datasets"].map((id,i)=>({id,name:i?"数据集月度新增":"模型月度新增",rows:O.global[id].monthlyNew.slice(-s.months).map(r=>({date:r.month,value:r.count})),color:colors()[i]}));
     if(!pairs[0].rows.some(r=>r.date===s.trendPoint))s.trendPoint=pairs[0].rows.at(-1).date;
-    let b=box(18,370,1244,182,C.paper,C.line,7)+txt(38,398,"全球增长",20,C.ink,"start",'font-weight="600"');
-    b+=svgButton("trendMode","monthly","月度新增",154,378,104,!annual)+svgButton("trendMode","annual","年度积累",270,378,104,annual);
-    b+=txt(394,400,annual?"2022—2026-09-13 · 同一快照回溯":"截至2026-07 · 全平台月表",14,C.muted);
-    if(!annual)[6,12,18].forEach((n,i)=>b+=svgButton("months",n,n+"个月",1000+i*80,378,70,s.months===n));
+    let b=txt(20,430,"全球增长",18,C.ink,"start",'font-weight="600"')+txt(125,430,annual?"2022—2026 · 同一快照回溯":"截至2026-07 · 月度新增",13,C.muted);
+    [6,12,18].forEach((n,i)=>b+=svgButton("months",n,n+"个月",480+i*80,408,72,!annual&&s.months===n,false,28));
+    b+=svgButton("trendMode","annual","年度积累",720,408,96,annual,false,28);
     const exports=[];
     pairs.forEach((se,j)=>{
-      const left=38+j*625,px=left+64,py=448,w=505,h=76,rows=se.rows,chosen=rows.find(r=>r.date===s.trendPoint),max=Math.max(1,...rows.map(r=>r.value))*1.12;
+      const left=18+j*408,px=left+162,py=470,w=212,h=58,rows=se.rows,chosen=rows.find(r=>r.date===s.trendPoint),max=Math.max(1,...rows.map(r=>r.value))*1.12;
       const xx=i=>px+i*w/Math.max(1,rows.length-1),yy=v=>py+h-v*h/max;
-      b+=txt(left,435,se.name,17,se.color)+txt(left+190,435,compact(chosen.value),23,C.ink)+txt(left+575,435,annual?chosen.date:chosen.date+" 新增",14,C.muted,"end");
-      for(let t=0;t<=2;t++){const val=max*t/2,y=yy(val);b+=line(px,y,px+w,y,C.line)+txt(px-9,y+4,compact(val),13,C.muted,"end");}
-      b+=`<path d="${rows.map((r,i)=>(i?'L':'M')+xx(i)+','+yy(r.value)).join(' ')}" fill="none" stroke="${se.color}" stroke-width="2.8"/>`;
-      const step=Math.max(1,Math.ceil((rows.length-1)/4));
+      b+=box(left,444,390,108,C.paper,C.line,7)+txt(left+16,468,se.name,15,se.color)+txt(left+16,499,compact(chosen.value),26,C.ink)+txt(left+16,528,chosen.date,13,C.muted);
+      b+=line(px,py+h,px+w,py+h,C.line);
+      b+=`<path d="${rows.map((r,i)=>(i?'L':'M')+xx(i)+','+yy(r.value)).join(' ')}" fill="none" stroke="${se.color}" stroke-width="2.5"/>`;
       rows.forEach((r,i)=>{const selected=r.date===s.trendPoint;
         if(selected)b+=line(xx(i),py,xx(i),py+h,C.gold,1,'stroke-dasharray="3 4"');
-        b+=action("trendPoint",r.date,`${se.name} ${r.date}：${fmt(r.value)}`,`<circle cx="${xx(i)}" cy="${yy(r.value)}" r="12" fill="${C.paper}" fill-opacity="0"/><circle cx="${xx(i)}" cy="${yy(r.value)}" r="${selected?5.5:3.3}" fill="${se.color}" stroke="${C.paper}" stroke-width="1.2"/>`);
-        if(i===0||i===rows.length-1||(i%step===0&&rows.length-1-i>=step))b+=txt(xx(i),544,annual?r.date.slice(0,4):r.date.slice(2),13,C.muted,"middle");
+        b+=action("trendPoint",r.date,`${se.name} ${r.date}：${fmt(r.value)}`,`<circle cx="${xx(i)}" cy="${yy(r.value)}" r="${Math.max(5,Math.min(10,w/rows.length/2))}" fill="${C.paper}" fill-opacity="0"/><circle cx="${xx(i)}" cy="${yy(r.value)}" r="${selected?4.5:2.5}" fill="${se.color}" stroke="${C.paper}" stroke-width="1"/>`);
+        if(i===0||i===rows.length-1)b+=txt(xx(i),544,annual?r.date.slice(0,4):r.date.slice(2),12,C.muted,i===0?"start":"end");
         exports.push({数据类型:"实测",读取日期:annual?"2026-09-13":"2026-10-17",观察范围:annual?"报告快照的创建时间回溯":"全平台月度新增；截至2026-07",对象类型:"全球趋势",对象:se.name,日期:r.date,数值:r.value,单位:se.id==="publishers"?"账号":"仓库"});
       });
     });
@@ -250,12 +252,18 @@ window.createGOSM51 = function (D, H) {
     else if(k==="page")s.page=Math.max(0,s.page+(v==="next"?1:-1));
     else if(k==="country"&&p.dataset.gmChart==="world"){s.country=v;s.organization="";s.page=0;s.query="";}
     else if(k==="province"){s.province=v;s.organization="";s.page=0;s.query="";}
+    else if(k==="list"&&p.dataset.gmChart==="world"){s.list=v;s.query="";s.page=0;}
+    else if(k==="months"){s.months=Number(v);s.trendMode="monthly";}
     else if(k==="organization")s.organization=v;
     else if(k==="selectCN")s.selectedCN=v;
     else if(k==="selectUS")s.selectedUS=v;
     else {s[k]=k==="months"?Number(v):v;if(["asset","metric","mode","list","country"].includes(k)){s.page=0;s.pageCN=0;s.pageUS=0;if(["metric","asset"].includes(k)){s.selectedCN="";s.selectedUS="";}}}
     if(p.dataset.gmChart==="world"&&s.list==="organizations"&&!s.country)s.list="countries";
     return true;
+  }
+  function change(p,s,e) {
+    if(!own(p)||!e.target.hasAttribute("data-s51-metric-select"))return false;
+    return handle(p,s,"metric",e.target.value);
   }
   function input(p,s,e) {
     if(!own(p)||!e.target.hasAttribute("data-s51-search"))return false;
@@ -265,5 +273,5 @@ window.createGOSM51 = function (D, H) {
     if(p.dataset.gmChart==="world")return "OpenGauge 2026-10-17地域读取 · 趋势："+(s.trendMode==="annual"?"2026-09-13年度回溯":"截至2026-07月表，"+s.months+"个月")+" · 两者独立";
     return "OpenGauge · 2026-10-17读取 · 已识别组织及其配套数据 · 地理统计日未注明";
   }
-  return {defaults,renderers,handle,input,stamp,own};
+  return {defaults,renderers,handle,input,change,stamp,own};
 };

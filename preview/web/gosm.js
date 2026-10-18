@@ -1972,6 +1972,8 @@
     $("[data-gm-close]", dialog).focus();
   }
   document.addEventListener("click", (e) => {
+    const menu=document.querySelector('[data-s51-menu][open]');
+    if(menu&&!menu.contains(e.target))menu.open=false;
     const el = e.target.closest("button,[data-gm-action]");
     if (!el) return;
     if (el.hasAttribute("data-gm-close")) {
@@ -1996,6 +1998,8 @@
     }
     const p = el.closest("[data-gm-chart]");
     if (!p) return;
+    const exportMenu=el.closest('[data-s51-menu]');
+    if(exportMenu){exportMenu.open=false;exportMenu.querySelector('summary').focus();}
     if (el.hasAttribute("data-gm-action")) {
       selectAction(p, el.dataset.gmAction, el.dataset.value);
       return;
@@ -2030,10 +2034,13 @@
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
+      const menu=document.querySelector('[data-s51-menu][open]');
+      if(menu){e.preventDefault();e.stopPropagation();menu.open=false;menu.querySelector('summary').focus();return;}
       const overlay = document.querySelector(".gm-compact-panel .gm-source[open],.gm-compact-panel .gm-table[open]");
       if (overlay) {
         e.preventDefault(); e.stopPropagation(); overlay.open=false;
-        overlay.closest(".gm-compact-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source]":"[data-gm-table]").focus();
+        const trigger=overlay.closest(".gm-compact-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source]":"[data-gm-table]");
+        (trigger.closest("[data-s51-menu]")?.querySelector("summary")||trigger).focus();
         return;
       }
     }
@@ -2088,7 +2095,7 @@
       $(`[data-gm-range="${focus}"]`, p).focus();
     }
   });
-  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(p&&influence52.change(p,states.get(p),e))draw(p);});
+  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(!p)return;if(supply51.change(p,states.get(p),e)){draw(p);p.querySelector("[data-s51-metric-select]")?.focus();return;}if(influence52.change(p,states.get(p),e))draw(p);});
   panels.forEach((p) =>
     $(".gm-table", p).addEventListener("toggle", () => {
       if ($(".gm-table", p).open && p.gmTableDirty) fillTable(p);
