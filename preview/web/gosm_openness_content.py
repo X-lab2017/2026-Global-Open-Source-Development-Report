@@ -1,0 +1,62 @@
+"""5.3: cumulative material requirements, license conditions and traceable evidence."""
+import json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+VERSION='gosm-openness-v2-atlas'
+FIGS={
+ 'openness':('5.3-01','模型开放分级：全貌、规则与样本','L 看材料，O 看权利与条件；从规范进入实际样本。','quadrants'),
+ 'open-groups':('5.3-02','地域比较：开放权利与资源完整性','同时看数量和比例，识别各地域样本的开放结构。','openRegions'),
+ 'dossiers':('5.3-03','发布主体：供给规模与开放实践','从发布者结构进入模型，联读材料证据与影响力位置。','openPublishers,cases'),
+}
+TOPIC=dict(id='ch05-s03',n='5.3',en='OPENNESS & SHARED INNOVATION',title='开源开放与分级体系',
+ question='模型开放到了哪一步，哪些材料与许可条件能够支持更多人理解、改进和共同建设？',
+ lede='5.1 观察谁在供给，5.2 追踪模型如何被继续创造。本节进一步回到这些实践所依赖的开放条件：先读懂材料与许可，再比较地域和发布主体，最后进入具体模型的证据。',
+ metric='本节对应 OSDGs 的 X4“开源善治与公共价值”，以 AIAssetTransparency 和 LicenseOpenness 观察材料透明度与许可条件，并衔接 X2 的开放供给。延续 2.1 从分布进入主体、3.2 将规模与影响分开阅读的方式；ModelRank 仅作为模型生态位置的补充。分级、复用影响与公共价值分别观察，不合成为一个总分。',
+ core_finding='开放的许可条件与完整的技术交付并不同步。在 870 个报告样本中，600 个归入高开放，但同时达到高完整的只有 117 个。地域间的高开放比例差异明显，同时高完整、高开放的比例则较为接近；企业既是主要供给者，也贡献了最多的双高模型。支持共同创新，需要把开放条件落实到具体版本、材料和可重复的验证过程。',
+ window_note='读图口径｜统计主线沿用 870 个报告样本，2026-09-14 提取；884 个平台记录与 4 个固定版本案例为 2026-10-17 补充证据。ModelRank 使用截至 2026-08 的月榜。三组开放证据独立保留，规范释义不等于按新文本重新评估所有模型。',
+ figures=list(FIGS),
+ narratives=[
+ ('视角一｜读懂开放：材料与许可，分别回答什么？','先用五层交付金字塔建立直观认识，再以开放坐标解释 L1—L5 与 O1—O4，回到样本分布，观察“允许使用”与“能够再创造”之间的距离。'),
+ ('视角二｜地域比较：许可差异之外，材料交付还有多远？','从世界地图进入具体国家，再用报告样本比较地域的数量与比例；两套样本分别标注，未知归属保留。'),
+ ('视角三｜发布主体：谁提供开放基础，证据落在哪里？','先在地图中寻找发布主体，再比较各类主体的供给规模与组内比例，进入具体模型查阅材料与影响力记录。')],
+ insights={
+ 'openness':[
+  '本节依据已发布的行业标准 SJ/T 12304-2026《人工智能 关键基础技术 大模型技术体系开源开放分级评估规范》，自2026年12月1日起实施。分级的对象是具体版本的模型发布单元（MRU）。完整性 L 从基础部署、模型理解逐步延伸到训练公开、模型验证和全链复现，较高等级包含较低等级的全部要求；开放性 O 描述相应材料的许可权利与义务。先判断材料满足哪个 L，再判断这一范围内的 O。因此，L2O3 表示材料满足部署与理解层要求、许可较宽松，并不表示完整训练链已经公开。',
+  '870 个报告样本中，低完整、高开放有 483 个，占 55.5%；高完整、高开放有 117 个，占 13.4%。合计 600 个高开放模型中，双高占 19.5%。这里的“高完整”指 L3—L5，“高开放”指 O2—O4，是报告用于结构比较的分组，不能替代逐项材料核验，也不表示 O2 的互惠义务不重要。',
+  '这组差异提示，开放支持需要同时覆盖许可清晰度与技术交付能力。下载到权重、看到材料入口和成功运行验证是不同事实；仅公开训练数据规模概要，也不能替代完整来源与处理规则。图中的教学示例帮助理解两个维度如何独立变化，具体模型仍应查阅版本、材料来源和验证记录。'],
+ 'open-groups':[
+  '地图使用884条平台记录，820条可定位到25个国家和地区，64条归属未知；点选国家可查看其开放结构。切换比例、数量后，回到870个报告样本：中国样本共 404 个，其中高开放 343 个，占 84.9%；美国样本 258 个，高开放 123 个，占 47.7%；欧洲样本 81 个，高开放 53 个，占 65.4%。切换数量后，可以看到各组所支撑的实际模型规模。62 个归属未知模型保留在全体样本中，避免识别覆盖影响总量与分母。',
+  '如果进一步要求高完整，中、美、欧的双高比例分别为 13.9%、13.2% 和 13.6%，明显比高开放比例更接近。许可条件上的差异，没有直接转化为相同幅度的材料完整性差异。这个结果仅描述已评估样本，不能据此给国家的全部模型能力或开放水平排名。',
+  '地域比较的价值，在于识别可以共同解决的问题。跨机构合作可围绕训练代码、完整数据来源与处理规则、评测配置和最小验证任务组织共同交付。既有样本并非随机抽样，报告统计年窗与欧洲成员范围仍需补齐；在这些口径明确前，不外推全国或区域总体，也不从当前快照推断历史升级。'],
+ 'dossiers':[
+  '主体地图支持按类型、国家查找发布者，位置为国家示意中心。切换主体比较后，按870个报告样本统计：企业发布了 711 个模型，占报告样本的 81.7%。企业组内双高模型为 69 个、占 9.7%；从全体双高模型看，企业贡献了 69/117，即 59.0%。非营利组织和高校的组内双高比例为 42.6%，社区为 30.0%，个人账号为 18.2%。数量说明谁承担主要供给，比例说明各组内部的开放结构，两者需要一起阅读。',
+  '“模型与证据”将平台的 884 条开放记录与 2026 年 8 月 ModelRank Top 100 按完整模型 ID 关联，得到 38 条交集。位次曲线保留各月 Top 100 的覆盖边界，缺失月份不补成零或第 101 名。两组快照的时间不同、版本提交未完全对齐，因此用于寻找需要进一步核验的对象，不能据此判断开放程度导致影响力变化。',
+  '四个独立案例提供固定提交的材料入口，补充平台记录的查证路径。平台材料状态与来源逐项保留；其中 22 条记录存在许可字段与最终等级不一致的线索，图中显示待复核，不代替源站重新判级。让材料、许可与验证记录保持可追溯，有助于把开放发布进一步转化为持续维护与共同改进。']},
+ actions=[
+ ('公共部门、标准机构与平台','将双维分级用于透明的开放交付','围绕具体用途明确所需材料与许可条件，按模型发布单元记录版本、资源清单、授权范围、评估依据和验证日期。把 L 与 O 分别呈现，让使用者可以判断能否部署、再训练或独立验证。','openness'),
+ ('资助方、企业与研究机构','支持从材料公开走向有效验证','将可运行训练环境、完整数据来源与处理规则、评测配置和复现指南纳入支持范围。为第三方开展最小训练、评测与端到端验证提供必要的计算资源和维护时间。','open-groups'),
+ ('企业、高校、基金会与开源社区','共建跨机构的复现与评测基础','结合企业的供给规模与高校、社区的开放实践，建设共享参考流程、公开任务和版本化证据档案。围绕真实需求组织导师支持、共同评审与长期维护，让更多团队能够进入后续创造。','dossiers')],
+ action_followups={
+ 'openness':'建立可纠错的证据入口，记录规则版本和未知项。目标等级应与使用场景相匹配；核心材料缺少可验证许可时单独标示，不能归入 O1。开放分级不替代模型安全、法律合规或正式公共品认可。',
+ 'open-groups':'先固定材料版本，再记录运行条件、输出和差异；对子集或关键阶段验证说明覆盖范围。用独立验证能否重复、缺失材料是否补齐来跟踪支持效果，保留失败记录和待解决问题。',
+ 'dossiers':'对高影响力模型和具有公共需求的长尾模型分别识别维护任务，不以单一榜单分配全部资源。以共同维护、下游复用和新参与者留存观察合作效果，并持续补充地域与主体覆盖不足的证据。'},
+ related=[('1.3 OSDI · 材料透明与许可','/2026/zh/data/indicators/#indicator-AIAssetTransparency'),('2.7 G-Map · 治理与公益','/2026/zh/chapters/02/#ch02-s07'),('3.6 M-Ranking · 模型影响力','/2026/zh/chapters/03/#ch03-s06'),('附录 C · 公共品参照','/2026/zh/appendices/dpg/')])
+
+def payload():return json.loads((ROOT/'content/gosm/openness53.json').read_text())
+
+def section(t,panel,E):
+ paras=lambda xs:''.join('<p>'+E(x)+'</p>' for x in xs)
+ out=[f'<section id="ch05-s03" class="chapter-section gm-topic s53-topic s51-topic"><header class="gm-topic-header"><span class="eyebrow">5.3 / {t["en"]}</span><h2>{t["title"]}</h2><p class="gm-question">{t["question"]}</p><p>{t["lede"]}</p><div class="s51-position"><strong>目标与指标定位</strong><p>{t["metric"]}</p><div class="gm-related">'+''.join(f'<a href="{u}">{E(l)} →</a>' for l,u in t['related'])+'</div></div></header><div class="s51-findings"><h3>核心发现</h3><p>'+E(t['core_finding'])+'</p></div><p class="s51-window-note">'+E(t['window_note'])+'</p><nav class="gm-section-nav" aria-label="5.3 阅读路径"><a href="#s53-openness">01 读懂开放</a><a href="#s53-open-groups">02 地域比较</a><a href="#s53-dossiers">03 主体与证据</a><a href="#gm-actions-3">行动建议</a></nav>']
+ for key,(title,body) in zip(t['figures'],t['narratives']):out.append(f'<section class="s51-perspective" id="s53-{key}"><div class="gm-narrative"><h3>{E(title)}</h3><p>{E(body)}</p></div>'+panel(key)+'<div class="s51-reading">'+paras(t['insights'][key])+'</div></section>')
+ out.append('<section class="gm-actions s51-actions" id="gm-actions-3"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h3>行动建议</h3><p class="s51-action-lead">让开放条件成为可以共同验证、持续改进的基础</p><p class="s51-action-intro">三条建议分别回应交付透明度、验证能力与共同维护，将分级从标签转化为可执行的协作任务。</p><div class="s51-action-list">')
+ for i,(who,title,body,key) in enumerate(t['actions'],1):out.append(f'<article class="s51-action"><span class="s51-action-number">{i:02d}</span><div><h4>{E(title)}</h4><p class="s51-action-who">{E(who)}</p>'+paras([body,t['action_followups'][key]])+f'<a href="#gm-{key}">查看对应证据 →</a></div></article>')
+ out.append('</div></section><nav class="gm-topic-end"><a href="#gm-framework">返回模型生态观察框架 ↑</a><a href="/2026/zh/chapters/06/">第六章 · 展望与行动 →</a></nav></section>')
+ return ''.join(out)
+
+def manuscript():
+ t=TOPIC;out=['# 5.3 '+t['title'],'> '+t['question'],t['lede'],'## 目标与指标定位',t['metric'],'## 核心发现',t['core_finding'],t['window_note']]
+ for key,(title,body) in zip(t['figures'],t['narratives']):out+=['## '+title,body,f'[图 {FIGS[key][0]}：{FIGS[key][1]}](https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/05/#gm-{key})',*t['insights'][key]]
+ out+=['## 行动建议']
+ for i,(who,title,body,key) in enumerate(t['actions'],1):out+=['### '+str(i)+' '+title,who,body,t['action_followups'][key]]
+ out+=['## 证据与方法','分级依据SJ/T 12304-2026；正式发布信息已经工信部2026年第22号公告及附件第465项核实，2026-12-01实施。条文解释沿用用户提供文本。870份报告汇总、884条平台证据与4个独立案例分别维护；教学示例明确标注模拟，不生成模拟统计。详见 preview/content/gosm/openness53-methods.md。']
+ return '\n\n'.join(out)+'\n'

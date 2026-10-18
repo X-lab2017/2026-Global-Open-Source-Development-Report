@@ -1740,6 +1740,8 @@
   panels.forEach(p=>{if(supply51.defaults[p.dataset.gmChart])states.set(p,JSON.parse(JSON.stringify(supply51.defaults[p.dataset.gmChart])));});
   const influence52 = window.createGOSM52(D, {base:BASE,asset,esc,fmt,compact,txt,line,box,action,svg,btn,seg,note,link,set,source,draw:p=>draw(p),colors:()=>({C,palette})});
   panels.forEach(p=>{if(influence52.defaults[p.dataset.gmChart])states.set(p,JSON.parse(JSON.stringify(influence52.defaults[p.dataset.gmChart])));});
+  const openness53 = window.createGOSM53(D, {asset,esc,fmt,compact,txt,line,box,action,svg,btn,seg,note,link,set,source,draw:p=>draw(p),state:p=>states.get(p),colors:()=>({C,palette})});
+  panels.forEach(p=>{if(openness53.defaults[p.dataset.gmChart])states.set(p,JSON.parse(JSON.stringify(openness53.defaults[p.dataset.gmChart])));});
   const renderers = {
     framework,
     supply,
@@ -1754,7 +1756,7 @@
     "open-groups": openGroups,
     dossiers,
   };
-  Object.assign(renderers, supply51.renderers, influence52.renderers);
+  Object.assign(renderers, supply51.renderers, influence52.renderers, openness53.renderers);
   function draw(p) {
     renderers[p.dataset.gmChart](p, states.get(p));
     if (p.dataset.gmChart === "network")
@@ -1765,10 +1767,12 @@
   function selectAction(p, key, v) {
     const s = states.get(p),
       id = p.dataset.gmChart;
-    if (supply51.handle(p,s,key,v) || influence52.handle(p,s,key,v)) {
+    if (supply51.handle(p,s,key,v) || influence52.handle(p,s,key,v) || openness53.handle(p,s,key,v)) {
       const preserveFocus=p.contains(document.activeElement);
       draw(p);
-      if(preserveFocus)Array.from(p.querySelectorAll('[data-gm-action]')).find(el=>el.dataset.gmAction===key&&el.dataset.value===String(v))?.focus();
+      if(openness53.own(p)&&key==="evidence")p.querySelector('[data-gm-action="closeEvidence"]')?.focus();
+      else if(openness53.own(p)&&key==="closeEvidence")p.querySelector('[data-gm-action="evidence"][data-value="'+s.field+'"]')?.focus();
+      else if(preserveFocus)Array.from(p.querySelectorAll('[data-gm-action]')).find(el=>el.dataset.gmAction===key&&el.dataset.value===String(v))?.focus();
       return;
     }
     if (key === "clear") {
@@ -1910,6 +1914,7 @@
       s = states.get(p);
     if (supply51.own(p)) return supply51.stamp(p,s);
     if (influence52.own(p)) return influence52.stamp(p,s);
+    if (openness53.own(p)) return openness53.stamp(p,s);
     if (id === "network")
       return "参考项目 / hub-stats · 2026-10-16 · 非随机声明关系样本";
     if (id === "openness")
@@ -2052,12 +2057,13 @@
       e.target.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     }
   });
+  document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;const p=e.target.closest?.(".s53-panel");if(p&&states.get(p)?.detail){e.preventDefault();e.stopPropagation();states.get(p).detail=false;draw(p);p.querySelector('[data-gm-action="evidence"]')?.focus();}});
   document.addEventListener("input", (e) => {
     const p = e.target.closest("[data-gm-chart]");
     if (!p) return;
     const s = states.get(p),
       q = e.target.value;
-    if(influence52.input(p,s,e))return;
+    if(influence52.input(p,s,e) || openness53.input(p,s,e))return;
     if(supply51.input(p,s,e)){const type=e.target.dataset.s51Search; const cursor=e.target.selectionStart;draw(p);const next=p.querySelector(`[data-s51-search="${type}"]`);next?.focus();try{next?.setSelectionRange(cursor,cursor);}catch{}return;}
     if (e.target.dataset.gmSearch === "network") {
       $("#gm-model-results", p).innerHTML = q.trim()
@@ -2095,7 +2101,7 @@
       $(`[data-gm-range="${focus}"]`, p).focus();
     }
   });
-  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(!p)return;if(supply51.change(p,states.get(p),e)){const k=e.target.dataset.s51Select;draw(p);p.querySelector(k?`[data-s51-select="${k}"]`:"[data-s51-metric-select]")?.focus();return;}if(influence52.change(p,states.get(p),e))draw(p);});
+  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(!p)return;if(supply51.change(p,states.get(p),e)){const k=e.target.dataset.s51Select;draw(p);p.querySelector(k?`[data-s51-select="${k}"]`:"[data-s51-metric-select]")?.focus();return;}if(influence52.change(p,states.get(p),e) || openness53.change(p,states.get(p),e))draw(p);});
   panels.forEach((p) =>
     $(".gm-table", p).addEventListener("toggle", () => {
       if ($(".gm-table", p).open && p.gmTableDirty) fillTable(p);
@@ -2135,6 +2141,7 @@
     draw,
     networkSlice,
     influence52,
+    openness53,
     csvText,
     exportStamp,
   };

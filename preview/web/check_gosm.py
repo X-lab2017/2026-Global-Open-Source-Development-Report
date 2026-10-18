@@ -9,7 +9,7 @@ p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a
 d=G.payload();out=a.output/'assets/gosm'
 page=(a.output/'2026/zh/chapters/05/index.html').read_text()
 assert page.count('data-gm-chart=')==1+sum(len(t['figures']) for t in G.TOPICS)
-assert 'gosm.js?v='+G.S51.VERSION in page and 'gosm.css?v='+G.VERSION in page
+assert 'gosm.js?v='+G.VERSION in page and 'gosm.css?v='+G.VERSION in page
 assert all(f'id="{t["id"]}"' in page for t in G.TOPICS)
 assert len(G.TOPICS)==3 and sum(len(t['actions']) for t in G.TOPICS)==9
 assert '各图按来源标注统计期与快照' in page
@@ -77,8 +77,32 @@ for m in d['cases']['models']:
 for f in G.DIR.glob('*.gz'):
     assert gzip.decompress(f.read_bytes())==(out/f.stem).read_bytes(),f.name
 assert (out/'methods.md').exists() and (out/'openness-evidence-884.json').exists()
-for name in ['gosm.js','gosm.css','gosm-network.mjs','gosm-supply.js','gosm-supply.css','gosm-influence.js','gosm-influence.css']:
+for name in ['gosm.js','gosm.css','gosm-network.mjs','gosm-supply.js','gosm-supply.css','gosm-influence.js','gosm-influence.css','gosm-openness.js','gosm-openness.css']:
     assert (a.output/name).read_bytes()==(G.ROOT/'web'/name).read_bytes()
 appendix=(a.output/'2026/zh/appendices/dpg/index.html').read_text()
 assert '本报告不授予认证' in appendix and '8.5 分' not in appendix
 print('PASS GOSM: 10 figures and 9 actions; 9 source-identical CSVs; explicit denominators; 5,777 models / 5,111 declared relationships; 677-node overview; separate 870 / 884 openness cohorts; four pinned official cases; lossless exports.')
+
+# 5.3 preserves source cohorts and only joins exact model IDs.
+r=d['openness53'];rank=r['modelrank'];ids={m['model_id'] for m in current['models']}
+assert len(ids & rank['rows'].keys())==rank['matched_count']==38
+assert len(rank['months'])==12 and rank['period']=='2026-08'
+assert len(r['indicators'])==884 and r['containsSimulatedStatistics'] is False
+assert [x['id'] for x in r['standard']['levels']]==['L1','L2','L3','L4','L5']
+assert [x['id'] for x in r['standard']['openness']]==['O1','O2','O3','O4']
+assert all(len(v)==22 for v in r['indicators'].values())
+assert sum(x['models'] for x in d['quadrants'] if x['openness']=='高开放')==600
+assert all('s53-panel gm-compact-panel' in page.split('data-gm-chart="'+k+'"')[0][-80:] for k in ['openness','open-groups','dossiers'])
+assert (out/'grading-specification-reference.pdf').read_bytes()==(G.DIR/'grading-specification-reference.pdf').read_bytes()
+assert 'SJ/T 12304-2026' in page
+print('PASS 5.3: exact 38-ID join, separate 870/884/4 cohorts, 12 monthly Top100 files, all 22 source fields, supplied standard retained, no simulated statistics.')
+
+# Formal publication metadata and complete cumulative material checklist.
+standard=r['standard'];publication=standard['publication']
+assert publication['number']=='SJ/T 12304-2026'
+assert publication['effective_on']=='2026-12-01' and publication['annex_row']==465
+assert [len(standard['requirements'][f'L{i}']) for i in range(1,6)]==[5,3,3,4,4]
+country_counts=collections.Counter(m['country'] for m in current['models'])
+assert sum(country_counts.values())==884 and country_counts['Unknown']==64
+assert len(country_counts)-1==25
+print('PASS 5.3 atlas: official standard metadata, 19 material requirements, 25 known countries / 820 models, 64 unknown records retained.')

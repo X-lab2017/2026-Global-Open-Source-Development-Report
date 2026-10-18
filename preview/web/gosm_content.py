@@ -3,10 +3,11 @@ from pathlib import Path
 import csv,gzip,hashlib,html,json,shutil
 import gosm_supply_content as S51
 import gosm_influence_content as S52
+import gosm_openness_content as S53
 ROOT=Path(__file__).resolve().parents[1]
 REPO=ROOT.parent
 DIR=ROOT/'content/gosm'
-VERSION=S52.VERSION
+VERSION=S53.VERSION
 REF='c397b97c273803c6828396d422164909bfeb383c'
 BASE='https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/'+REF+'/'
 E=lambda x:html.escape(str(x),quote=True)
@@ -54,6 +55,7 @@ def payload():
                 if coords:parts.append('M'+'L'.join(f'{x},{y}' for x,y in coords)+'Z')
         world.append({'name':name,'code':en.get(name),'d':''.join(parts)})
     d['supply51']=S51.payload()
+    d['openness53']=S53.payload()
     d['world']=world
     d['geography']=[{'id':r['id'],'name':r['name'],'en':r['en'],'coordinates':r.get('coordinates')} for r in cd['countries']]
     return d
@@ -79,20 +81,24 @@ TOPICS=[
 
 FIGS.update(S51.FIGS)
 FIGS.update(S52.FIGS)
+FIGS.update(S53.FIGS)
 TOPICS[0]=S51.TOPIC
 TOPICS[1]=S52.TOPIC
+TOPICS[2]=S53.TOPIC
 
 def panel(key):
     num,title,desc,sources=FIGS[key]
-    extra_tools='<button data-gm-table>数据表</button>' if key in S51.FIGS or key in S52.FIGS else ''
-    close_hint='<span class="s51-close-hint"> · 关闭 ×</span>' if key in S51.FIGS or key in S52.FIGS else ''
+    extra_tools='<button data-gm-table>数据表</button>' if key in S51.FIGS or key in S52.FIGS or key in S53.FIGS else ''
+    close_hint='<span class="s51-close-hint"> · 关闭 ×</span>' if key in S51.FIGS or key in S52.FIGS or key in S53.FIGS else ''
     tools=f'<button data-gm-full>全屏</button><button data-gm-source>口径与来源</button>{extra_tools}<button data-gm-svg>SVG ↓</button><button data-gm-csv>数据 CSV ↓</button>'
-    if key in S51.FIGS:
+    if key in S51.FIGS or key in S52.FIGS or key in S53.FIGS:
         tools='<button data-gm-full>全屏</button><button data-gm-source>口径与来源</button><details class="s51-export-menu" data-s51-menu><summary>数据与导出 ▾</summary><div><button data-gm-table>查看数据表</button><button data-gm-svg>下载 SVG</button><button data-gm-csv>下载 CSV</button></div></details>'
-    return f'''<article id="gm-{key}" class="gm-panel{' s51-panel gm-compact-panel' if key in S51.FIGS else ' s52-panel gm-compact-panel' if key in S52.FIGS else ''}" data-gm-chart="{key}"><header class="gm-chart-head"><div><span class="eyebrow">图 {num} / {'OBSERVATION FRAMEWORK' if key=='framework' else 'MODEL ECOSYSTEM'}</span><h3>{title}</h3></div><div class="gm-tools">{tools}</div></header><p class="gm-chart-deck">{desc}</p><div class="gm-controls"></div><div class="gm-view"></div><div class="gm-readout" aria-live="polite"></div><details class="gm-source"><summary>口径与来源{close_hint}</summary><div class="gm-source-body"></div></details><details class="gm-table"><summary>查看本图数据{close_hint}</summary><div class="gm-table-host"></div></details><noscript><p>交互需要启用 JavaScript。可从章末下载原始数据，并阅读正文。</p></noscript></article>'''
+    return f'''<article id="gm-{key}" class="gm-panel{' s51-panel gm-compact-panel' if key in S51.FIGS else ' s52-panel gm-compact-panel' if key in S52.FIGS else ' s53-panel gm-compact-panel' if key in S53.FIGS else ''}" data-gm-chart="{key}"><header class="gm-chart-head"><div><span class="eyebrow">图 {num} / {'OBSERVATION FRAMEWORK' if key=='framework' else 'MODEL ECOSYSTEM'}</span><h3>{title}</h3></div><div class="gm-tools">{tools}</div></header><p class="gm-chart-deck">{desc}</p><div class="gm-controls"></div><div class="gm-view"></div><div class="gm-readout" aria-live="polite"></div><details class="gm-source"><summary>口径与来源{close_hint}</summary><div class="gm-source-body"></div></details><details class="gm-table"><summary>查看本图数据{close_hint}</summary><div class="gm-table-host"></div></details><noscript><p>交互需要启用 JavaScript。可从章末下载原始数据，并阅读正文。</p></noscript></article>'''
 
 def topic(t):
     if t['n']=='5.1':return S51.section(t,panel,E)
+    if t['n']=='5.2':return S52.section(t,panel,E)
+    if t['n']=='5.3':return S53.section(t,panel,E)
     k=int(t['n'][-1]);out=[f'''<section id="{t['id']}" class="chapter-section gm-topic"><header class="gm-topic-header"><span class="eyebrow">{t['n']} / {t['en']}</span><h2>{t['title']}</h2><p class="gm-question">{t['question']}</p><p>{t['lede']}</p><details class="gm-metric"><summary>指标定位与前文衔接</summary><p>{t['metric']}</p><div class="gm-related">'''+''.join(f'<a href="{url}">{label} ↗</a>' for label,url in t['related'])+'''</div></details></header><nav class="gm-section-nav" aria-label="本节阅读路径">'''+''.join(f'<a href="#gm-{key}">{i+1:02d} {FIGS[key][1].split("：")[0]}</a>' for i,key in enumerate(t['figures']))+f'<a href="#gm-actions-{k}">行动建议</a></nav><div class="gm-findings">'+''.join(f'<a href="#gm-{fig}"><span>{i+1:02d} / 核心发现</span><h3>{title}</h3><p>{body}</p></a>' for i,(title,body,fig) in enumerate(t['findings']))+'</div>']
     for i,(key,(title,body)) in enumerate(zip(t['figures'],t['narratives'])):
         out.append(f'<div class="gm-narrative"><h3>{title}</h3><p>{body}</p></div>'+panel(key))
@@ -104,7 +110,7 @@ def topic(t):
 
 def chapter(lang):
     if lang!='zh':return '<div class="reader-note">The complete Chinese Chapter 5 review is available: model supply, China–US comparison, reuse networks and openness. Full English text will follow the Chinese review.</div>'+''.join(f'<section class="chapter-section" id="{t["id"]}"><h2>{t["n"]} {t["en"].title()}</h2><a href="/2026/zh/chapters/05/#{t["id"]}">Read and explore the Chinese chapter →</a></section>' for t in TOPICS)
-    out=['''<div class="goso-chapter gm-chapter" data-gosm-version="gosm-influence-v1"><header class="gm-opening"><div class="gm-topline"><span>CHAPTER 05 / GOSM</span><span>2026.10 · 模型生态评审版</span></div><h2>从模型供给，<br>走向可持续的共同创新。</h2><p class="gm-lead">谁在构建模型？哪些模型成为再创造的起点？开放条件又如何支撑后续使用？沿同一个模型，连接供给、复用与公共价值。</p><div class="gm-opening-links"><a href="#ch05-s01">01 供给与贡献</a><a href="#ch05-s02">02 网络与影响力</a><a href="#ch05-s03">03 开放与公共价值</a></div><p class="gm-opening-note">承接 OSDGs / OSDI 的目标与指标，联读第二章的生态地图、第三章的模型榜单和第四章的技术全景。</p></header>''',panel('framework')]
+    out=['''<div class="goso-chapter gm-chapter" data-gosm-version="gosm-openness-v2-atlas"><header class="gm-opening"><div class="gm-topline"><span>CHAPTER 05 / GOSM</span><span>2026.10 · 模型生态评审版</span></div><h2>从模型供给，<br>走向可持续的共同创新。</h2><p class="gm-lead">谁在构建模型？哪些模型成为再创造的起点？开放条件又如何支撑后续使用？沿同一个模型，连接供给、复用与公共价值。</p><div class="gm-opening-links"><a href="#ch05-s01">01 供给与贡献</a><a href="#ch05-s02">02 网络与影响力</a><a href="#ch05-s03">03 开放与公共价值</a></div><p class="gm-opening-note">承接 OSDGs / OSDI 的目标与指标，联读第二章的生态地图、第三章的模型榜单和第四章的技术全景。</p></header>''',panel('framework')]
     out.extend(topic(t) for t in TOPICS)
     out.append('''<section id="gm-methods" class="gm-methods"><span class="eyebrow">METHODS & SOURCES</span><h3>把范围、时间与证据留在一起</h3><details><summary>供给、国家归属与年度回溯</summary><p>5.1 地域补充快照于2026-10-17读取，覆盖826个组织、73,088个模型和这些组织的12,502个配套数据集；地理接口未声明统一统计日。全平台总览标注2026-10-16，月表截至2026-07，分开显示。年度累计沿用2026-09-13报告快照，按当时仍可见模型的创建时间回溯，不是各年独立历史存档。个人账户不纳入组织国家比较，未识别部分单列。下载是获取活动、点赞是关注信号，均不等于用户数、模型能力或开发者实质贡献。</p></details><details><summary>ModelRank、谱系与国家关系</summary><p>ModelRank 国家席位使用 2024-07—2026-08 原始汇总，Top 20／100／1000 各有独立分母。模型网络使用单独标注的参考项目快照，仅连接明确的基座关系；任务相似和人工组织连线不进入派生证据。跨国关系底表仅含双端国家已识别的样本；修订稿已明确方向为基座来源→派生发布，并与原表汇总交叉核对。不同日期和覆盖的三类数据不直接合并计算。</p></details><details><summary>开放分类、补充核验与公共品</summary><p>三份原始开放统计来自既有 870 模型评估，2026-09-14 提取；高完整为 L3—L5，高开放为 O2—O4。分级是原评估方法，不能直接当作 OSI 开源 AI 资格或 DPGA 认可。当前补充记录与官方模型案例另标采集日期，不回填原样本。没有证据的检查项显示“待核”，不自动按否或零处理。</p><p>参照：<a href="https://opensource.org/ai/open-source-ai-definition" target="_blank" rel="noopener">OSI OSAID 1.0</a> · <a href="https://www.digitalpublicgoods.net/standard" target="_blank" rel="noopener">DPG Standard</a>。</p></details><details><summary>原始数据、复核与复用</summary><p><a href="/assets/gosm/provenance.json">数据来源与指纹 ↗</a> · <a href="/assets/gosm/data.json" download>本章完整数据 JSON ↓</a> · <a href="/assets/gosm/methods.md" download>本章方法说明 ↓</a>。各图 CSV 保留对象、日期和指标范围；SVG 导出保留当前视角、来源和时间。原始数据与可核验派生值分别记录。</p><ul>''')
     out.extend(f'<li><a href="/assets/gosm/data/{name}" download>{name} ↓</a></li>' for name in FILES.values())
@@ -120,7 +126,7 @@ def export(out):
     for key,name in FILES.items():shutil.copy2(REPO/'data/processed/chapter5'/name,dest/'data'/name)
     for f in (REPO/'data/processed/chapter5').glob('fig-5-1-0*.csv'):shutil.copy2(f,dest/'data'/f.name)
     d=payload();(dest/'data.json').write_text(json.dumps(d,ensure_ascii=False,separators=(',',':')))
-    p={'version':VERSION,'report_commit':REF,'sources':[{'key':key,'path':'data/processed/chapter5/'+name,'url':BASE+'data/processed/chapter5/'+name,'sha256':hashlib.sha256((dest/'data'/name).read_bytes()).hexdigest(),'rows':len(d[key])} for key,name in FILES.items()],'supply51':{'meta':d['supply51']['meta'],'sources':d['supply51']['sources'],'views':['global distribution and growth','China–US supply and publishers','China geography']},'influence52':{'figures':['network','flows','head'],'flow_direction':'base origin country -> derived publisher country','direction_evidence':'User-supplied 5.2 revision; totals reconciled with original CSV','simulation':False},'network':d['network'].get('meta',{}),'openness':{k:v for k,v in d['opennessCurrent'].items() if k!='models'},'policy':'Original report CSV unchanged. Supply, network, current openness and official cases are separate dated evidence sets. Current 5.1 has three observed-data views; legacy exploratory datasets remain archived.'}
+    p={'version':VERSION,'report_commit':REF,'sources':[{'key':key,'path':'data/processed/chapter5/'+name,'url':BASE+'data/processed/chapter5/'+name,'sha256':hashlib.sha256((dest/'data'/name).read_bytes()).hexdigest(),'rows':len(d[key])} for key,name in FILES.items()],'supply51':{'meta':d['supply51']['meta'],'sources':d['supply51']['sources'],'views':['global distribution and growth','China–US supply and publishers','China geography']},'openness53':{'version':S53.VERSION,'data':'openness53.json','methods':'openness53-methods.md','modelrank_exact_id_matches':38,'simulated_statistics':False,'teaching_example':'Atlas-Demo v1.0 (simulated, excluded from statistics)','reference_standard_status':'SJ/T 12304-2026; MIIT announcement 2026 No.22, annex item 465; effective 2026-12-01'},'influence52':{'figures':['network','flows','head'],'flow_direction':'base origin country -> derived publisher country','direction_evidence':'User-supplied 5.2 revision; totals reconciled with original CSV','simulation':False},'network':d['network'].get('meta',{}),'openness':{k:v for k,v in d['opennessCurrent'].items() if k!='models'},'policy':'Original report CSV unchanged. Supply, network, current openness and official cases are separate dated evidence sets. Current 5.1 has three observed-data views; legacy exploratory datasets remain archived.'}
     (dest/'provenance.json').write_text(json.dumps(p,ensure_ascii=False,indent=2))
     for f in DIR.iterdir():
         if f.is_file():
@@ -130,8 +136,14 @@ def export(out):
 if __name__=='__main__':
     dest=REPO/'chapters/chapter5';dest.mkdir(exist_ok=True)
     for t in TOPICS:
+        if t['n']=='5.3':
+            (dest/(t['n']+'-'+t['title']+'.md')).write_text(S53.manuscript())
+            continue
         if t['n']=='5.1':
             (dest/(t['n']+'-'+t['title']+'.md')).write_text(S51.manuscript())
+            continue
+        if t['n']=='5.2':
+            (dest/(t['n']+'-'+t['title']+'.md')).write_text(S52.manuscript())
             continue
         s=f'# {t["n"]} {t["title"]}\n\n> {t["question"]}\n\n{t["lede"]}\n\n## 指标定位\n\n{t["metric"]}\n\n## 核心发现\n\n'+ '\n\n'.join('**'+a+'。** '+b for a,b,_ in t['findings'])
         for key,(title,body) in zip(t['figures'],t['narratives']):s+='\n\n## '+title+'\n\n'+body+f'\n\n[图 {FIGS[key][0]}：{FIGS[key][1]}](https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/05/#gm-{key})'
