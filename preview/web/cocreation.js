@@ -17,7 +17,7 @@
    b.addEventListener('click',()=>{selected=selected===i?null:i;show(selected)});
   });
   function clear(){selected=null;show(null)}reset.addEventListener('click',clear);
-  root.querySelector('.star-stage').addEventListener('click',e=>{if(!e.target.closest('button'))clear()});
+  root.querySelector('.star-stage').addEventListener('click',e=>{if(!e.target.closest('button,canvas'))clear()});
   root.addEventListener('keydown',e=>{if(e.key==='Escape')clear()});
   function sync(){root.classList.toggle('is-paused',paused||!visible||document.hidden);motion.setAttribute('aria-pressed',String(paused));motion.textContent=paused?(en?'Resume motion':'播放动态'):(en?'Pause motion':'暂停动态')}
   motion.addEventListener('click',()=>{paused=!paused;sync()});document.addEventListener('visibilitychange',sync);
