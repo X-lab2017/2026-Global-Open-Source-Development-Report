@@ -1,6 +1,6 @@
 /* One artboard, shared by the embedded view, presentation view and SVG export. */
-.declaration-introduction .declaration-flow{--df-teal:#007d87;--df-purple:#77538f;--df-green:#4d7029;--df-card:#f8fbfc;--df-border:#aec7d2;margin:30px 0 44px;padding:12px 14px 10px;border:1px solid var(--df-border);border-radius:10px;background:var(--paper);color:var(--ink);container-type:inline-size;isolation:isolate;scroll-margin-top:100px}
-[data-theme=dark] .declaration-introduction .declaration-flow{--df-teal:#79c4ce;--df-purple:#bc9bd7;--df-green:#b0cd77;--df-card:#10324d;--df-border:#456279}
+.declaration-introduction .declaration-flow{--df-teal:#007d87;--df-purple:#77538f;--df-green:#4d7029;--df-card:#f8fbfc;--df-border:#698c9f;margin:30px 0 44px;padding:12px 14px 10px;border:1px solid var(--df-border);border-radius:10px;background:var(--paper);color:var(--ink);container-type:inline-size;isolation:isolate;scroll-margin-top:100px}
+[data-theme=dark] .declaration-introduction .declaration-flow{--df-teal:#79c4ce;--df-purple:#bc9bd7;--df-green:#b0cd77;--df-card:#10324d;--df-border:#7193a8}
 .declaration-flow *{box-sizing:border-box}.declaration-flow [hidden]{display:none!important}
 .declaration-flow .df-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 3px;margin:0 0 8px;background:none;color:var(--ink)}
 .declaration-introduction .declaration-flow .df-toolbar h2{font:600 16px/1.5 var(--sans);margin:0;color:var(--ink);scroll-margin-top:100px}
@@ -12,7 +12,7 @@
 .declaration-flow .df-canvas{display:grid;place-items:center;min-width:0}
 .declaration-flow .df-svg{display:block;width:min(100%,calc((100svh - 162px)*1.6666667));height:auto;max-width:100%;overflow:visible}
 .declaration-flow .df-compact{display:none;width:min(100%,calc((100svh - 138px)*.7384615))}
-.declaration-flow .df-paper{fill:var(--paper)}.declaration-flow .df-card-shape{fill:var(--df-card);stroke:var(--df-border)}
+.declaration-flow .df-paper{fill:var(--paper)}.declaration-flow .df-card-shape{fill:var(--df-card);stroke:var(--df-border);stroke-width:1.8;vector-effect:non-scaling-stroke}
 .declaration-flow .df-text{letter-spacing:normal}.declaration-flow .df-ink{fill:var(--ink)}.declaration-flow .df-muted{fill:var(--muted)}.declaration-flow .df-accent{fill:var(--df-accent,var(--df-teal))}
 .declaration-flow .df-layer{--df-accent:var(--df-teal)}.declaration-flow .df-layer-2{--df-accent:var(--df-purple)}.declaration-flow .df-layer-3{--df-accent:var(--df-green)}
 .declaration-flow .df-layer-cap{stroke:var(--df-accent)}.declaration-flow .df-divider{stroke:var(--df-border)}.declaration-flow .df-small-arrow{stroke:var(--df-teal)}

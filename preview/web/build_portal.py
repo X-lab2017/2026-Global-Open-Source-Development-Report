@@ -131,7 +131,7 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
         architecture_assets+='<link rel="stylesheet" href="/executive-summary.css?v=20261018-summary"><script src="/executive-summary.js?v=20261018-summary" defer></script>'
         main=main.replace('2025.07 — 2026.06',t('主统计期 2025.07—2026.06 · 其余按图标注','Main period: July 2025–June 2026 · Other dates labelled per figure'))
     if route=='introduction/':
-        architecture_assets+='<link rel="stylesheet" href="/declaration-introduction.css?v=20261018-declaration"><link rel="stylesheet" href="/declaration-flow.css?v=20261019-poster"><script src="/declaration-flow.js?v=20261019-poster" defer></script>'
+        architecture_assets+='<link rel="stylesheet" href="/declaration-introduction.css?v=20261018-declaration"><link rel="stylesheet" href="/declaration-flow.css?v=20261019-centered"><script src="/declaration-flow.js?v=20261019-centered" defer></script>'
         main=main.replace('2025.07 — 2026.06',t('价值起点 · 七项原则','A value foundation · Seven principles'))
     if route=='appendices/declaration/':
         main=main.replace('评审预览 · 2026.10.16','在线版 · 更新 2026.10.18').replace('Review preview · 2026.10.16','Online edition · Updated 2026.10.18').replace('2025.07 — 2026.06',t('宣言全文收录于引言','Full declaration in the introduction'))

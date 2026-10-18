@@ -62,7 +62,7 @@ def poster(lang, *, compact=False, interactive=False, theme='light'):
     dark = theme == 'dark'
     palette = dict(paper='#0a2c49' if dark else '#f3f8fa', card='#10324d' if dark else '#f8fbfc',
                    ink='#f6fbff' if dark else '#10334d', muted='#bad2de' if dark else '#4c697b',
-                   border='#456279' if dark else '#aec7d2')
+                   border='#7193a8' if dark else '#698c9f')
     accents = ['#79c4ce', '#bc9bd7', '#b0cd77'] if dark else ['#007d87', '#77538f', '#4d7029']
     width, height = (480, 650) if compact else (1280, 768)
     prefix = 'df-' + lang + ('-compact' if compact else '-wide')
@@ -70,10 +70,11 @@ def poster(lang, *, compact=False, interactive=False, theme='light'):
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" class="{cls}" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="group" aria-labelledby="{prefix}-title {prefix}-desc"><title id="{prefix}-title">{E(c["title"])}</title><desc id="{prefix}-desc">{E(t("时代呼唤与共同愿景，引出三层七项原则，汇聚为行动共识。选择原则可阅读正文。", "Context and vision lead to three layers of principles and a consensus for action. Select a principle to read the text."))}</desc>']
     s.append(f'<rect class="df-paper" width="{width}" height="{height}" fill="{palette["paper"]}"/>')
 
-    def rect(x, y, w, h, kind='card', radius=8, extra=''):
+    def rect(x, y, w, h, kind='card', radius=8):
         fill = palette['card'] if kind == 'card' else 'transparent'
         stroke = palette['border'] if kind == 'card' else 'none'
-        s.append(f'<rect class="df-{kind}-shape" x="{x}" y="{y}" width="{w}" height="{h}" rx="{radius}" fill="{fill}" stroke="{stroke}" {extra}/>')
+        line_width = 1.8 if kind == 'card' else 1
+        s.append(f'<rect class="df-{kind}-shape" x="{x}" y="{y}" width="{w}" height="{h}" rx="{radius}" fill="{fill}" stroke="{stroke}" stroke-width="{line_width}" vector-effect="non-scaling-stroke"/>')
 
     def txt(x, y, value, size=20, kind='ink', weight=400, limit=None, leading=1.28, anchor='start', accent=0):
         color = accents[accent-1] if accent else palette[kind]
@@ -137,23 +138,24 @@ def poster(lang, *, compact=False, interactive=False, theme='light'):
     tag = node('title', '#declaration-text', c['title'], 'df-title-link',
                18 if compact else 38, 18 if compact else 20, 444 if compact else 1204, 48 if compact else 89)
     if compact:
-        txt(24, 37, c['title'], 20 if lang == 'zh' else 17, weight=650, limit=430)
+        txt(240, 37, c['title'], 20 if lang == 'zh' else 17, weight=650, limit=430, anchor='middle')
         if lang == 'zh':
-            txt(24, 62, '开源共创智能未来', 14, 'muted')
+            txt(240, 62, '开源共创智能未来', 14, 'muted', anchor='middle')
     else:
-        txt(48, 57 if lang == 'zh' else 45, c['title'], 32 if lang == 'zh' else 27, weight=650, limit=1175)
-        txt(48, 89 if lang == 'zh' else 103, c['subtitle'], 20 if lang == 'zh' else 17, 'muted')
+        txt(640, 57 if lang == 'zh' else 45, c['title'], 32 if lang == 'zh' else 27, weight=650, limit=1175, anchor='middle')
+        txt(640, 89 if lang == 'zh' else 103, c['subtitle'], 20 if lang == 'zh' else 17, 'muted', anchor='middle')
     close(tag)
     for i, key in enumerate(['context', 'vision']):
-        x = (24 if i == 0 else 256) if compact else (48 if i == 0 else 710)
-        tag = node(key, f'#introduction-{i+1}', t(*STAGES[i][:2]) + ' · ' + t(*STAGES[i][2:]), '', x-6, 77 if compact else 112, 206 if compact else 525, 52 if compact else 55)
-        txt(x, 96 if compact else 131, f'0{i+1} / ' + t(*STAGES[i][:2]), 13 if compact else 16, 'accent', 600, accent=1)
+        center = ([127, 353] if compact else [330, 950])[i]
+        node_width = 206 if compact else 550
+        tag = node(key, f'#introduction-{i+1}', t(*STAGES[i][:2]) + ' · ' + t(*STAGES[i][2:]), '', center-node_width/2, 77 if compact else 112, node_width, 52 if compact else 55)
+        txt(center, 96 if compact else 131, f'0{i+1} / ' + t(*STAGES[i][:2]), 13 if compact else 16, 'accent', 600, accent=1, anchor='middle')
         short = t(STAGES[i][2], ['Towards intelligent collaboration', 'Shared governance for a digital civilization'][i])
         if compact:
             short = t(['迈向智能协作', '构建智能共治'][i], ['Intelligent collaboration', 'Shared governance'][i])
-        txt(x, 120 if compact else 158, short, (16 if lang == 'zh' else 13) if compact else 20, weight=500, limit=206 if compact else 525)
+        txt(center, 120 if compact else 158, short, (16 if lang == 'zh' else 13) if compact else 20, weight=500, limit=node_width, anchor='middle')
         close(tag)
-    arrow = 'M224 109H244m-5-5 5 5-5 5' if compact else 'M624 147H666m-6-6 6 6-6 6'
+    arrow = 'M224 109H256m-5-5 5 5-5 5' if compact else 'M618 147H662m-6-6 6 6-6 6'
     s.append(f'<path class="df-small-arrow" d="{arrow}" fill="none" stroke="{accents[0]}" stroke-width="1.5"/>')
 
     tag = node('core', '#introduction-3', t('核心原则：三层框架，七项原则', 'Core principles: three layers, seven principles'), '', 10 if compact else 20, 151 if compact else 181, 300 if compact else 470, 29)
@@ -163,37 +165,34 @@ def poster(lang, *, compact=False, interactive=False, theme='light'):
     for i, (zh, en, indices) in enumerate(LAYERS, 1):
         x, y, w, h = (10+(i-1)*157, 212, 146, 288) if compact else (20+(i-1)*424, 252, 392, 316)
         s.append(f'<g class="df-layer df-layer-{i}" data-df-group="{i}">')
-        rect(x, y, w, h, extra='stroke-width="1.2"')
+        rect(x, y, w, h)
         s.append(f'<path class="df-layer-cap" d="M{x+8} {y}H{x+w-8}" stroke="{accents[i-1]}" stroke-width="3" stroke-linecap="round"/>')
         tag = node(f'layer-{i}', '#introduction-3', t(zh, en), 'df-layer-heading', x+5, y+8, w-10, 80 if compact else 91)
-        txt(x+(12 if compact else 24), y+(26 if compact else 31), t('第'+'一二三'[i-1]+'层', f'LAYER 0{i}'), 12 if compact else 16, 'accent', 600, accent=i)
-        txt(x+(12 if compact else 24), y+(52 if compact else (68 if lang == 'zh' else 58)), t(zh, en), (18 if lang == 'zh' else 14) if compact else (26 if lang == 'zh' else 23), weight=650, limit=w-(24 if compact else 48))
+        txt(x+w/2, y+(26 if compact else 31), t('第'+'一二三'[i-1]+'层', f'LAYER 0{i}'), 12 if compact else 16, 'accent', 600, accent=i, anchor='middle')
+        txt(x+w/2, y+(52 if compact else (68 if lang == 'zh' else 58)), t(zh, en), (18 if lang == 'zh' else 14) if compact else (26 if lang == 'zh' else 23), weight=650, limit=w-(24 if compact else 48), anchor='middle')
         close(tag)
         if not compact:
-            s.append(f'<path class="df-divider" d="M{x+24} 348H{x+w-24}" stroke="{palette["border"]}" stroke-opacity=".45"/>')
+            s.append(f'<path class="df-divider" d="M{x+24} 348H{x+w-24}" stroke="{palette["border"]}" stroke-width="1.1" stroke-opacity=".65" vector-effect="non-scaling-stroke"/>')
         rows = ([346, 438] if len(indices) == 2 else [328, 390, 452]) if compact else ([394, 498] if len(indices) == 2 else ([374, 446, 518] if lang == 'zh' else [374, 445, 516]))
         for n, baseline in zip(indices, rows):
             p = PRINCIPLES[n-1]
-            left = x + (12 if compact else 24)
             top = baseline - (25 if compact else 26)
             tag = node(f'principle-{n}', f'#declaration-principle-{n}', t(*p[:2]) + '：' + t(*p[2:]), 'df-principle', x+7, top, w-14, 56 if compact else 68)
-            txt(left, baseline, f'{n:02d}', 11 if compact else 14, 'accent', 600, accent=i)
             name = t(p[0][2:] if compact else p[0], p[1])
-            txt(left+(22 if compact else 32), baseline, name, (19 if lang == 'zh' else 12) if compact else (23 if lang == 'zh' else 20), weight=600, limit=w-(49 if compact else 78))
+            txt(x+w/2, baseline, f'{n:02d}  {name}', (19 if lang == 'zh' else 12) if compact else (23 if lang == 'zh' else 20), weight=600, limit=w-(24 if compact else 48), anchor='middle')
             if not compact:
-                txt(left+32, baseline+25, t(*p[2:]), 19 if lang == 'zh' else 15, 'muted', limit=w-78, leading=1.2)
+                txt(x+w/2, baseline+25, t(*p[2:]), 19 if lang == 'zh' else 15, 'muted', limit=w-48, leading=1.2, anchor='middle')
             close(tag)
         s.append('</g>')
 
     # All three principle layers converge into the same action, without a return loop.
     tag = node('action', '#introduction-4', t(*STAGES[3][:2]) + '：' + c['action'], 'df-action')
     rect(10 if compact else 20, 544 if compact else 626, 460 if compact else 1240, 70 if compact else 100)
-    txt(24 if compact else 48, 567 if compact else 654, t('04 / 行动共识', '04 / A CONSENSUS FOR ACTION'), 13 if compact else 16, 'accent', 600, accent=1)
+    txt(240 if compact else 640, 567 if compact else 650, t('04 / 行动共识', '04 / A CONSENSUS FOR ACTION'), 13 if compact else 16, 'accent', 600, accent=1, anchor='middle')
     action_title = t(STAGES[3][2], 'Cooperation for global AI governance')
-    txt(24 if compact else 48, 595 if compact else 690, action_title, (22 if lang == 'zh' else 17) if compact else (28 if lang == 'zh' else 25), weight=650, limit=430 if compact else 670)
+    txt(240 if compact else 640, 595 if compact else 683, action_title, (22 if lang == 'zh' else 17) if compact else (28 if lang == 'zh' else 25), weight=650, limit=430 if compact else 1175, anchor='middle')
     if not compact:
-        txt(770, 660, t('政府 · 企业 · 学界 · 公民社会', 'Governments · Business · Academia · Civil society'), 19 if lang == 'zh' else 16, 'muted', limit=455)
-        txt(770, 691, t('AI 治理 · 算力共享 · 人才培育', 'AI governance · Shared compute · Talent'), 19 if lang == 'zh' else 16, 'muted', limit=455)
+        txt(640, 712, t('政府 · 企业 · 学界 · 公民社会  ｜  AI 治理 · 算力共享 · 人才培育', 'Governments · Business · Academia · Civil society  |  AI governance · Shared compute · Talent'), 17 if lang == 'zh' else 15, 'muted', limit=1175, anchor='middle')
     close(tag)
     txt(240 if compact else 640, 639 if compact else 755, (t(c['closing'], 'Open source for humanity. An intelligent future, created together.') if compact else c['closing']), (13 if lang == 'zh' else 10) if compact else (18 if lang == 'zh' else 16), 'muted', 500, anchor='middle', limit=450 if compact else 1210)
     return ''.join(s) + '</svg>'
