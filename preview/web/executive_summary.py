@@ -81,7 +81,7 @@ def render(lang):
         out += '</ol></div>'
     out += '</div></section>'
     out += '<section class="es-section es-reading" id="summary-4" aria-labelledby="es-reading-title"><span class="es-kicker">04 / ' + t('继续阅读', 'CONTINUE READING') + '</span><h2 id="es-reading-title">' + t('带着问题，进入正文', 'Take your questions into the report') + '</h2><nav class="es-reading-links" aria-label="' + t('从摘要继续阅读', 'Continue from the summary') + '">'
-    for route, icon, title, desc in [('chapters/01/', 'sequence', t('从第一章开始', 'Start with Chapter 1'), t('先建立价值、目标与指标的共同语言。', 'Establish shared values, goals and measures.')), ('', 'topic', t('按问题选择小节', 'Find a section by question'), t('从全书目录直接进入关心的主题。', 'Use the contents to go straight to your topic.'))]:
+    for route, icon, title, desc in [('introduction/', 'sequence', t('下一篇 · 引言', 'Next · Introduction'), t('从共同愿景与七项原则，进入全书研究。', 'Begin with the shared vision and seven principles.')), ('', 'topic', t('按问题选择小节', 'Find a section by question'), t('从全书目录直接进入关心的主题。', 'Use the contents to go straight to your topic.'))]:
         out += '<a href="/2026/' + lang + '/' + route + '">' + overview_visuals.icon(icon, 'es-icon') + '<span><strong>' + title + '</strong><small>' + desc + '</small></span><i aria-hidden="true">↗</i></a>'
     out += '</nav><div class="es-scope"><strong>' + t('阅读范围', 'Reading scope') + '</strong><p>' + text(DATA['scope'], lang) + '</p></div><p class="es-closing">' + text(DATA['closing'], lang) + '</p></section></article>'
     return out

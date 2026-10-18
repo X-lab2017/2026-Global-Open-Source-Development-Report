@@ -6,6 +6,15 @@ for(const lang of ['zh','en'])for(const route of ['home','contents','summary','i
  const file=route==='home'?(lang==='zh'?'index.html':'en/index.html'):`2026/${lang}/${route==='contents'?'':route+'/'}index.html`;
  const {document:d}=parseHTML(fs.readFileSync(path.join(out,file),'utf8')),q=s=>d.querySelector(s),qa=s=>[...d.querySelectorAll(s)];
  assert.equal(qa('.architecture-flow').length,0);assert(!q('script[src*="report-architecture.js"]'));assert(q('link[href*="frontmatter.css"]'));
+ assert.equal(d.body.dataset.frontmatter,'true');
+ for(const unused of ['chapter1-explorers.js','atlas-core.js','goso.js','landscape.js','assets/imap/data.js'])assert(!q(`script[src*="${unused}"]`));
+ if(route!=='home'){
+  const entries=qa('.front-entry-links a');assert.equal(entries.length,3);assert.equal(entries.filter(a=>a.getAttribute('aria-current')==='page').length,1);
+  for(const a of qa('#section-nav .local-section'))assert(d.getElementById(a.getAttribute('href').slice(1)));
+ }
+ if(route==='summary'||route==='introduction')assert(!q('.reader-page-nav'),'Only one contextual onward-reading area');
+ if(route==='summary')assert(q('.es-reading-links a').getAttribute('href').endsWith('/introduction/'));
+ if(route==='contents')assert.equal(qa('.front-contents-entry a').length,2);
  if(route==='home'){assert.equal(qa('.home-reading-start nav a').length,3);assert.equal(qa('.reading-chapter-grid>a').length,4);assert(q('#chapter-6>a').getAttribute('href').endsWith('/chapters/06/'));for(let i=1;i<=6;i++)assert(q('#chapter-'+i));}
  if(route==='contents'){assert.equal(qa('.front-contents-group').length,3);const cards=qa('.front-chapter-card');assert.equal(cards.length,6);assert.equal(qa('.front-chapter-card nav a').length,30);manifest.chapters.forEach((c,i)=>c.sections.forEach((s,j)=>assert(cards[i].querySelectorAll('nav a')[j].getAttribute('href').endsWith(c.route+'#'+s.id))));}
  if(route==='introduction'){const prose=q('.declaration-introduction');assert(prose);assert.equal(qa('.declaration-principle').length,7);assert.equal(qa('.df-wide .df-layer').length,3);assert.equal(qa('.df-wide .df-principle').length,7);assert.equal(qa('.declaration-section').length,6);for(const a of qa('.df-principle'))assert(q(a.getAttribute('href')));assert(q('.front-next-primary').getAttribute('href').endsWith('/chapters/01/'));assert(!q('.declaration-document .declaration-bridge'));}
