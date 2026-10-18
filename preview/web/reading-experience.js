@@ -1,5 +1,14 @@
 /* Focused reading, disclosures and consistent chart affordances. */
 (()=>{'use strict';
+// Run the small homepage cues only while the entry section is visible.
+const readingStart=document.querySelector('.home-reading-start');
+if(readingStart){
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ let inView=!('IntersectionObserver' in window);
+ const sync=()=>readingStart.classList.toggle('is-motion-active',inView&&!document.hidden&&!motion.matches);
+ if('IntersectionObserver' in window)new IntersectionObserver(entries=>{inView=entries.some(e=>e.isIntersecting);sync()},{threshold:0}).observe(readingStart);
+ motion.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);sync();
+}
 const root=document.querySelector('.foundation-reading');if(!root)return;
 const zh=document.documentElement.lang.startsWith('zh'),t=(z,e)=>zh?z:e;
 const figures=[...root.querySelectorAll('.foundation-figure,.chapter-table-figure')],presentations=[];

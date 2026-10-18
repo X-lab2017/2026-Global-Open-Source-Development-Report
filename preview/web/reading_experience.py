@@ -107,11 +107,39 @@ def introduction(lang,unit):
     out+='</div>'
     return out
 
+def reading_start_visual(kind):
+    """Small illustrative reading cues, not charts or additional controls."""
+    icons={
+        'overview':'<circle cx="12" cy="12" r="8.5"/><path d="m15.6 8.4-2.2 5-5 2.2 2.2-5Z"/>',
+        'sequence':'<path d="M12 6C9 3.5 5.5 3.5 2.5 4.5v14C6 17.5 9 18 12 20c3-2 6-2.5 9.5-1.5v-14C18.5 3.5 15 3.5 12 6Zm0 0v14M6 8l3 1m-3 3 3 1m6-4 3-1m-3 5 3-1"/>',
+        'topic':'<circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6M7 8h6m-6 4h4"/>'}
+    icon='<svg class="reading-start-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">'+icons[kind]+'</svg>'
+    if kind=='overview':
+        paths=['M64 18H84C119 18 111 40 145 40H194','M78 40H194','M64 62H84C119 62 111 40 145 40H194']
+        drawing='<g class="reading-art-quiet"><path d="M18 18h34M18 40h48M18 62h34"/><circle cx="7" cy="18" r="2"/><circle cx="7" cy="40" r="2"/><circle cx="7" cy="62" r="2"/></g>'
+        drawing+=''.join('<path class="reading-art-track" d="'+p+'"/><path class="reading-art-flow" pathLength="100" style="--cue-delay:-'+str(i*2.4)+'s" d="'+p+'"/>' for i,p in enumerate(paths))
+        drawing+='<rect class="reading-art-sheet reading-art-focus" x="194" y="12" width="110" height="56" rx="6"/><path class="reading-art-ink" d="M209 26h49M209 39h78M209 52h61"/><path class="reading-art-check" d="m277 24 4 4 8-8"/>'
+    elif kind=='sequence':
+        drawing='<path class="reading-art-track" d="M34 64H284"/>'
+        for i in range(6):
+            x=15+i*50
+            drawing+=f'<g class="reading-art-page" style="--cue-delay:-{(6-i)*1.2}s"><rect class="reading-art-sheet" x="{x}" y="10" width="38" height="42" rx="4"/><path class="reading-art-quiet" d="M{x+10} 20h18"/><text x="{x+19}" y="39">{i+1:02}</text><circle class="reading-art-stop" cx="{x+19}" cy="64" r="2.5"/></g>'
+        drawing+='<circle class="reading-art-traveller" cx="34" cy="64" r="3"/>'
+    else:
+        paths=['M56 40H88C115 40 108 15 136 15H184','M56 40H184','M56 40H88C115 40 108 65 136 65H184']
+        drawing='<circle class="reading-art-sheet" cx="29" cy="34" r="15"/><path class="reading-art-ink" d="m40 45 11 11M23 31h12m-12 6h8"/>'
+        for i,p in enumerate(paths):
+            y=6+i*25
+            drawing+='<path class="reading-art-track" d="'+p+'"/><path class="reading-art-flow" pathLength="100" style="--cue-delay:-'+str(i*2.4)+'s" d="'+p+'"/>'
+            drawing+=f'<g class="reading-art-topic" style="--cue-delay:-{i*2.4}s"><rect class="reading-art-sheet" x="184" y="{y}" width="120" height="18" rx="4"/><circle class="reading-art-stop" cx="195" cy="{y+9}" r="2"/><path class="reading-art-quiet" d="M206 {y+9}h{[73,50,62][i]}"/></g>'
+    return icon,'<svg class="reading-start-art" viewBox="0 0 320 80" width="320" height="80" aria-hidden="true" focusable="false">'+drawing+'</svg>'
+
 def home_sections(lang,chain,wheel):
     t_=lambda z,e:t(lang,z,e)
     out='<section class="portal-section home-reading-start" id="framework"><span class="eyebrow">01 / START READING</span><h2>'+t_('找到你的阅读起点','Find your starting point')+'</h2><p>'+t_('先用摘要把握全貌，再从第一章建立共同语言，或按问题进入研究。','Start with the summary, build a shared foundation in Chapter 1, or follow a question into the research.')+'</p><nav aria-label="'+t_('选择阅读方式','Choose a reading path')+'">'
-    for route,z,e,detail,ed,anchor in [('summary/','快速了解','Get the overview','执行摘要 · 把握主要发现与行动方向','Executive summary · Findings and actions',''),('chapters/01/','系统阅读','Read in sequence','第一章 · 价值、目标与观察方法','Chapter 1 · Values, goals and methods','chapter-1'),('','按需查阅','Find a topic','全书目录 · 直接选择章节与小节','Contents · Choose a chapter or section','')]:
-        out+='<a href="'+url(lang,route)+'"'+(' id="'+anchor+'"' if anchor else '')+'><strong>'+t_(z,e)+' <i aria-hidden="true">↗</i></strong><span>'+t_(detail,ed)+'</span></a>'
+    for kind,route,z,e,detail,ed,anchor in [('overview','summary/','快速了解','Get the overview','执行摘要 · 把握主要发现与行动方向','Executive summary · Findings and actions',''),('sequence','chapters/01/','系统阅读','Read in sequence','第一章 · 价值、目标与观察方法','Chapter 1 · Values, goals and methods','chapter-1'),('topic','','按需查阅','Find a topic','全书目录 · 直接选择章节与小节','Contents · Choose a chapter or section','')]:
+        icon,art=reading_start_visual(kind)
+        out+='<a class="reading-start-card reading-start-'+kind+'" href="'+url(lang,route)+'"'+(' id="'+anchor+'"' if anchor else '')+'><strong>'+icon+'<span>'+t_(z,e)+'</span><i aria-hidden="true">↗</i></strong><span class="reading-start-description">'+t_(detail,ed)+'</span>'+art+'</a>'
     out+='</nav></section><section class="portal-section reading-home-section" id="contents"><span id="questions" class="reading-anchor"></span><span class="eyebrow">02 / FOUR RESEARCH PERSPECTIVES</span><h2>'+t_('从你关心的问题进入研究','Follow the question that matters to you')+'</h2><div class="reading-chapter-grid">'
     for c in M['chapters'][1:5]:
         out+='<a href="'+url(lang,c['route'])+'" id="chapter-'+c['number']+'" class="question-link"><small>'+t_('第'+c['number']+'章','CHAPTER '+c['number'])+' · '+c['label']+'</small><h3>'+E(c['title'][lang].split('（')[0])+'</h3><p>'+E(c['question'][lang])+'</p><span>'+t_('进入本章','Explore this chapter')+' <b aria-hidden="true">↗</b></span></a>'
