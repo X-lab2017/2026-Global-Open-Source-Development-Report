@@ -2095,7 +2095,7 @@
       $(`[data-gm-range="${focus}"]`, p).focus();
     }
   });
-  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(!p)return;if(supply51.change(p,states.get(p),e)){draw(p);p.querySelector("[data-s51-metric-select]")?.focus();return;}if(influence52.change(p,states.get(p),e))draw(p);});
+  document.addEventListener("change",e=>{const p=e.target.closest("[data-gm-chart]");if(!p)return;if(supply51.change(p,states.get(p),e)){const k=e.target.dataset.s51Select;draw(p);p.querySelector(k?`[data-s51-select="${k}"]`:"[data-s51-metric-select]")?.focus();return;}if(influence52.change(p,states.get(p),e))draw(p);});
   panels.forEach((p) =>
     $(".gm-table", p).addEventListener("toggle", () => {
       if ($(".gm-table", p).open && p.gmTableDirty) fillTable(p);

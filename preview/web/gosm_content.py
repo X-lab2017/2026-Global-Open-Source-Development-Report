@@ -87,7 +87,7 @@ def panel(key):
     extra_tools='<button data-gm-table>数据表</button>' if key in S51.FIGS or key in S52.FIGS else ''
     close_hint='<span class="s51-close-hint"> · 关闭 ×</span>' if key in S51.FIGS or key in S52.FIGS else ''
     tools=f'<button data-gm-full>全屏</button><button data-gm-source>口径与来源</button>{extra_tools}<button data-gm-svg>SVG ↓</button><button data-gm-csv>数据 CSV ↓</button>'
-    if key=='world':
+    if key in S51.FIGS:
         tools='<button data-gm-full>全屏</button><button data-gm-source>口径与来源</button><details class="s51-export-menu" data-s51-menu><summary>数据与导出 ▾</summary><div><button data-gm-table>查看数据表</button><button data-gm-svg>下载 SVG</button><button data-gm-csv>下载 CSV</button></div></details>'
     return f'''<article id="gm-{key}" class="gm-panel{' s51-panel gm-compact-panel' if key in S51.FIGS else ' s52-panel gm-compact-panel' if key in S52.FIGS else ''}" data-gm-chart="{key}"><header class="gm-chart-head"><div><span class="eyebrow">图 {num} / {'OBSERVATION FRAMEWORK' if key=='framework' else 'MODEL ECOSYSTEM'}</span><h3>{title}</h3></div><div class="gm-tools">{tools}</div></header><p class="gm-chart-deck">{desc}</p><div class="gm-controls"></div><div class="gm-view"></div><div class="gm-readout" aria-live="polite"></div><details class="gm-source"><summary>口径与来源{close_hint}</summary><div class="gm-source-body"></div></details><details class="gm-table"><summary>查看本图数据{close_hint}</summary><div class="gm-table-host"></div></details><noscript><p>交互需要启用 JavaScript。可从章末下载原始数据，并阅读正文。</p></noscript></article>'''
 
