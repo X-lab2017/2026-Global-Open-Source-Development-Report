@@ -87,7 +87,7 @@ def sidebar(lang,active,route,unit=None):
     if unit and unit.get('id')=='ch02':out.append(a('#goso-review',t('评审与待补材料','Review and evidence gaps'),'review-section-link'))
     if route=='chapters/01/':out=[reading_experience.sidebar(lang,report)]
     if route=='summary/':out=['<div class="nav-label">'+t('摘要导览','IN THIS SUMMARY')+'</div>']+[a('#summary-'+str(i),label,'local-section') for i,label in enumerate([t('年度主张','The central idea'),t('关键观察','Key observations'),t('共同行动','Shared action'),t('继续阅读','Continue reading')],1)]
-    if route=='introduction/':out=['<div class="nav-label">'+t('引言导览','IN THIS INTRODUCTION')+'</div>',a('#declaration-map-title',t('宣言全景','Declaration overview'),'local-section')]+[a('#introduction-'+str(i),label,'local-section') for i,label in enumerate([t('时代呼唤','The call of our time'),t('共同愿景','Our shared vision'),t('核心原则','Core principles'),t('行动共识','A consensus for action'),t('宣言结语','Declaration closing'),t('从愿景到行动','From vision to action')],1)]
+    if route=='introduction/':out=['<div class="nav-label">'+t('引言导览','IN THIS INTRODUCTION')+'</div>',a('#declaration-overview',t('宣言全景','Declaration overview'),'local-section')]+[a('#introduction-'+str(i),label,'local-section') for i,label in enumerate([t('时代呼唤','The call of our time'),t('共同愿景','Our shared vision'),t('核心原则','Core principles'),t('行动共识','A consensus for action'),t('宣言结语','Declaration closing'),t('从愿景到行动','From vision to action')],1)]
     return '<aside class="sidebar-wrap"><button class="side-toggle" type="button" aria-expanded="false" aria-controls="section-nav">'+t('栏目目录','Section contents')+' <span>＋</span></button><nav class="book-nav" id="section-nav" aria-label="'+t('栏目目录','Section contents')+'">'+''.join(out)+'</nav></aside>'
 
 def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False):
@@ -131,7 +131,7 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
         architecture_assets+='<link rel="stylesheet" href="/executive-summary.css?v=20261018-summary"><script src="/executive-summary.js?v=20261018-summary" defer></script>'
         main=main.replace('2025.07 — 2026.06',t('主统计期 2025.07—2026.06 · 其余按图标注','Main period: July 2025–June 2026 · Other dates labelled per figure'))
     if route=='introduction/':
-        architecture_assets+='<link rel="stylesheet" href="/declaration-introduction.css?v=20261018-declaration"><link rel="stylesheet" href="/declaration-flow.css?v=20261018-flow"><script src="/declaration-flow.js?v=20261018-flow" defer></script>'
+        architecture_assets+='<link rel="stylesheet" href="/declaration-introduction.css?v=20261018-declaration"><link rel="stylesheet" href="/declaration-flow.css?v=20261019-poster"><script src="/declaration-flow.js?v=20261019-poster" defer></script>'
         main=main.replace('2025.07 — 2026.06',t('价值起点 · 七项原则','A value foundation · Seven principles'))
     if route=='appendices/declaration/':
         main=main.replace('评审预览 · 2026.10.16','在线版 · 更新 2026.10.18').replace('Review preview · 2026.10.16','Online edition · Updated 2026.10.18').replace('2025.07 — 2026.06',t('宣言全文收录于引言','Full declaration in the introduction'))
