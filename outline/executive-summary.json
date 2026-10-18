@@ -1,0 +1,75 @@
+{
+  "version": "20261018-summary",
+  "headline": {"zh": "让每一次开放，成为下一次创造的起点。", "en": "Make every open release a starting point for what comes next."},
+  "lead": {"zh": "开源的发展，既要看有多少人参与、多少成果发布，也要看贡献能否形成影响，成果能否被持续维护和复用。本报告以“从普惠到质量，从参与到影响”为主线，关注代码、模型与数据如何支撑持续共同创造及其公共价值。", "en": "Open source development is visible in participation and releases, but also in the influence of contributions and the continued maintenance and reuse of shared assets. Under the theme “From inclusion to quality, from participation to impact,” this report examines how code, models and data support sustained co-creation and its public value."},
+  "framework": {"zh": "借鉴联合国可持续发展目标，以 OSDGs 明确发展方向，以 OSDI 组织观察：四大支柱、十个维度、二十九项指标。各项指标分别解释，不合成一个总分。", "en": "Drawing on the UN Sustainable Development Goals, OSDGs set the direction and OSDI organizes the evidence: four pillars, ten dimensions and twenty-nine indicators. Indicators are interpreted separately, without a single composite score."},
+  "findings": [
+    {
+      "id": "participation", "code": "GOSO · GOSR", "color": "teal",
+      "tab": {"zh": "参与与影响", "en": "Participation"},
+      "title": {"zh": "参与规模与协作影响，需要一起看。", "en": "Read participation scale alongside collaborative influence."},
+      "body": {"zh": "地图说明参与发生在哪里，榜单揭示主体在协作网络中的位置。两者并不总是同向：本期行政区榜中，卡纳塔克邦的开发者更多，英格兰的影响力位次更靠前。理解发展质量，需要把人数、贡献与长期协作联系起来。", "en": "Maps locate participation; rankings describe actors’ positions in collaboration networks. The two do not always align: Karnataka has more developers in this regional sample, while England ranks higher in influence. Assessing development calls for participation, contributions and sustained collaboration to be read together."},
+      "implication": {"zh": "让人才支持落到真实项目、持续贡献与维护者成长。", "en": "Connect talent support to real projects, sustained contributions and maintainer development."},
+      "visual_title": {"zh": "更多开发者，不一定有更高位次", "en": "More developers need not mean a higher rank"},
+      "scope": {"zh": "2025.07—2026.06 · 全球行政区榜；柱长表示开发者数量，徽标表示 OpenRank 位次。", "en": "July 2025–June 2026 · Regional ranking. Bars show developer counts; badges show OpenRank positions."},
+      "rows": [
+        {"name": {"zh": "英格兰", "en": "England"}, "country": {"zh": "英国", "en": "United Kingdom"}, "developers": 487.08, "rank": 2},
+        {"name": {"zh": "卡纳塔克邦", "en": "Karnataka"}, "country": {"zh": "印度", "en": "India"}, "developers": 570.53, "rank": 8}
+      ],
+      "links": [{"route": "chapters/02/#ch02-s01", "label": {"zh": "2.1 参与地图", "en": "2.1 Participation maps"}}, {"route": "chapters/03/#ch03-s01", "label": {"zh": "3.1 地区影响力", "en": "3.1 Regional influence"}}]
+    },
+    {
+      "id": "technology", "code": "GOSR · GOSL", "color": "blue",
+      "tab": {"zh": "技术与协作", "en": "Technology"},
+      "title": {"zh": "AI 的开放供给，建立在多层技术协作之上。", "en": "Open AI supply depends on work across the technology stack."},
+      "body": {"zh": "本期项目原榜中，PyTorch、vLLM、CANN 分列第 4、7、13 位。技术全景进一步把项目放回各自的功能位置：应用入口之外，框架、运行、评估与基础工具同样需要持续建设。4.1 从 Agent Infra 与 Model Infra 两类展开这种观察。", "en": "PyTorch, vLLM and CANN rank 4th, 7th and 13th in this edition’s source project ranking. Landscapes place projects in their functional context: frameworks, runtime, evaluation and foundational tools require continued work alongside applications. Section 4.1 develops this view through Agent Infra and Model Infra."},
+      "implication": {"zh": "沿真实依赖寻找共同维护对象，把投入延伸到基础工具。", "en": "Use verified dependencies to identify shared maintenance needs, including foundational tools."},
+      "visual_title": {"zh": "从具体项目，看到技术基础", "en": "From projects to shared technical foundations"},
+      "scope": {"zh": "位次来自 3.4 的 2025.07—2026.06 原榜；下方分类为 4.1 的观察框架，不表示项目依赖关系。", "en": "Positions use the July 2025–June 2026 source ranking in 3.4. The categories below are the observation framework in 4.1, not project dependency links."},
+      "projects": [{"name": "PyTorch", "rank": 4}, {"name": "vLLM", "rank": 7}, {"name": "CANN", "rank": 13}],
+      "links": [{"route": "chapters/03/#ch03-s04", "label": {"zh": "3.4 项目影响力", "en": "3.4 Project influence"}}, {"route": "chapters/04/#ch04-s01", "label": {"zh": "4.1 Agentic AI 全景", "en": "4.1 Agentic AI landscape"}}]
+    },
+    {
+      "id": "models", "code": "GOSM", "color": "green",
+      "tab": {"zh": "供给与复用", "en": "Supply & reuse"},
+      "title": {"zh": "模型与发布账号同步扩张，价值延伸到后续创造。", "en": "Models and publishing accounts are growing; reuse extends their value."},
+      "body": {"zh": "同一快照的年度回溯中，模型数增长 58.3%，发布账号数增长 48.4%。中美是地域组织样本中的主要供给力量，模型与配套数据的集中度却不相同。继续沿派生声明观察，可以看到一次发布如何成为后续开发的起点。", "en": "A one-year retrospective within the same snapshot shows 58.3% growth in models and 48.4% in publishing accounts. China and the US are major suppliers in the geographic organization sample, but models and companion datasets have different concentration patterns. Declared derivation relationships show how a release can support subsequent development."},
+      "implication": {"zh": "同时支持关键资产的维护与多元发布者参与，跟踪真实复用。", "en": "Support both key assets and a diverse publisher base, and follow verified reuse."},
+      "visual_title": {"zh": "同一快照中的一年增长", "en": "One year of growth within one snapshot"},
+      "scope": {"zh": "2026-09-13 快照，按创建时间回溯上年同日；仅含快照时仍可见的资产与发布账号，非历年独立存档。", "en": "Snapshot of 13 September 2026, reconstructed by creation date for the same day a year earlier. Counts cover assets and publishers still visible at the snapshot, not independent annual archives."},
+      "metrics": [
+        {"name": {"zh": "模型", "en": "Models"}, "before": 193.48, "after": 306.22, "growth": "58.3%"},
+        {"name": {"zh": "发布账号", "en": "Publishing accounts"}, "before": 41.32, "after": 61.33, "growth": "48.4%"}
+      ],
+      "links": [{"route": "chapters/05/#ch05-s01", "label": {"zh": "5.1 供给与贡献", "en": "5.1 Supply & contribution"}}, {"route": "chapters/05/#ch05-s02", "label": {"zh": "5.2 网络与影响力", "en": "5.2 Networks & influence"}}]
+    },
+    {
+      "id": "openness", "code": "GOSM · PUBLIC VALUE", "color": "purple",
+      "tab": {"zh": "开放与价值", "en": "Openness & value"},
+      "title": {"zh": "开放条件与公共价值，需要分别验证。", "en": "Verify openness conditions and public value separately."},
+      "body": {"zh": "材料开放回答“能够获得什么”，许可开放回答“允许怎样使用”。模型开放等级不能代替能力、安全性或社会效益判断。公共价值还要回到具体场景，查看谁在使用、谁能受益，以及成果能否被持续维护。", "en": "Available materials answer “what can be accessed”; licenses answer “what use is permitted.” An openness level does not establish capability, safety or social benefit. Public value requires evidence from real settings: who uses an asset, who benefits and whether it can be maintained."},
+      "implication": {"zh": "按版本记录开放条件，把公共结果交给使用与受益证据。", "en": "Record openness by version and assess public outcomes through evidence of use and benefit."},
+      "visual_title": {"zh": "三个问题，各自寻找证据", "en": "Three questions, three kinds of evidence"},
+      "scope": {"zh": "解释框架，非等级或得分；完整分级说明见 5.3，公共应用与治理见 2.7。", "en": "An explanatory framework, not levels or scores. See 5.3 for classification and 2.7 for governance and public applications."},
+      "questions": [
+        {"title": {"zh": "获得什么", "en": "What is available?"}, "body": {"zh": "权重、代码、数据说明等材料", "en": "Weights, code and data documentation"}},
+        {"title": {"zh": "允许什么", "en": "What is permitted?"}, "body": {"zh": "具体版本的许可与使用条件", "en": "Licenses and conditions for a specific version"}},
+        {"title": {"zh": "带来什么", "en": "What changes?"}, "body": {"zh": "实际采用、受益人群与维护记录", "en": "Adoption, beneficiaries and maintenance records"}}
+      ],
+      "links": [{"route": "chapters/05/#ch05-s03", "label": {"zh": "5.3 开放与分级", "en": "5.3 Openness & classification"}}, {"route": "chapters/02/#ch02-s07", "label": {"zh": "2.7 治理与公益", "en": "2.7 Governance & public value"}}]
+    }
+  ],
+  "action_briefs": {
+    "public-maintain": {"zh": "支持维护、文档、测试和适配，明确责任人与接续安排。", "en": "Fund maintenance, documentation, testing and adaptation, with named owners and succession plans."},
+    "public-people": {"zh": "围绕真实项目提供导师、资源和远程参与机会，持续跟踪成长。", "en": "Provide mentoring, resources and remote participation in real projects, and follow contributor development."},
+    "public-evidence": {"zh": "分别核验开放材料、维护责任与公共使用结果。", "en": "Review open materials, maintenance responsibilities and public-use outcomes separately."},
+    "enterprise-upstream": {"zh": "识别关键依赖，为上游维护安排人员、时间与回馈机制。", "en": "Identify critical dependencies and allocate people, time and upstream contributions."},
+    "enterprise-release": {"zh": "随版本提供材料、许可、运行说明与维护入口。", "en": "Publish versioned materials, licenses, operating guidance and maintenance contacts."},
+    "enterprise-people": {"zh": "为持续贡献预留时间，认可评审、文档、测试等多种角色。", "en": "Make time for sustained contributions and recognize review, documentation and testing roles."},
+    "community-entry": {"zh": "让新人从首个任务逐步参与评审、决策与共同维护。", "en": "Help newcomers progress from a first task to review, decisions and shared maintenance."},
+    "community-partners": {"zh": "围绕共同依赖组织适配、评测与多语言文档协作。", "en": "Coordinate adaptation, evaluation and multilingual documentation around shared dependencies."},
+    "community-value": {"zh": "让本地伙伴和使用者参与设计、试用与评价，把经验带回项目。", "en": "Involve local partners and users in design, trials and evaluation, and return experience to the project."}
+  },
+  "scope": {"zh": "主统计期为 2025.07—2026.06。自然年、月度与平台快照按各图标注分别阅读；不同平台、样本和时间窗口不直接合并。模拟图用于说明观察方式，不据此得出事实结论。第四章深入展开 4.1，其他小节目前提供全景与研究框架。", "en": "The main reporting period is July 2025–June 2026. Calendar-year, monthly and platform snapshots retain their labelled periods; different platforms, samples and windows are not combined directly. Simulated views illustrate methods rather than establish findings. Chapter 4 develops 4.1 in depth; other sections currently provide landscapes and research frameworks."},
+  "closing": {"zh": "让开放成果能够被继续使用，让更多人能够参与维护，让公共价值能够被解释、验证和延续。", "en": "Enable open assets to be reused, more people to share their maintenance, and public value to be explained, verified and sustained."}
+}

@@ -1,6 +1,7 @@
 """Context-specific entry pages backed by the canonical front-matter manuscripts."""
 from pathlib import Path
 import html,json,re
+import executive_summary
 ROOT=Path(__file__).resolve().parents[1]
 E=lambda s:html.escape(str(s),quote=True)
 M=json.loads((ROOT/'content/manifest.json').read_text())
@@ -17,12 +18,7 @@ def render_text(text,prefix):
  return '<div class="front-publication-prose" lang="zh-CN">'+''.join(out)+'</div>'
 def translation(lang):return '' if lang=='zh' else '<p class="reader-note">The Chinese text is shown below; the English translation is in preparation. Navigation is available in English.</p>'
 def summary(lang):
- t=lambda z,e:tr(lang,z,e)
- out='<article class="front-publication">'+translation(lang)+render_text(manuscript('outline/执行摘要.md'),'summary')
- out+='<nav class="front-summary-next" aria-label="'+t('从摘要继续阅读','Continue from the summary')+'"><span>'+t('查看支撑这些发现的研究','Explore the research behind these findings')+'</span><div>'
- for c in M['chapters'][1:5]:out+=link(lang,c['route'],t('第'+c['number']+'章 · ','Chapter '+c['number']+' · ')+{'2':t('生态地图','Maps'),'3':t('影响力榜单','Rankings'),'4':t('技术全景','Landscapes'),'5':t('模型生态','Models')}[c['number']])
- out+='</div>'+link(lang,'chapters/06/',t('阅读第六章：行动建议 →','Read Chapter 6: recommended actions →'),'front-summary-action')+'</nav></article>'
- return out
+ return executive_summary.render(lang)
 
 def introduction(lang):
  t=lambda z,e:tr(lang,z,e)

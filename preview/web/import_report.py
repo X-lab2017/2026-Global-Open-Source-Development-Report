@@ -12,6 +12,7 @@ def run(repo,ref):
     front_paths=['outline/执行摘要.md','chapters/引言-人工智能时代的开源发展.md','outline/目录.md']
     front={'source_ref':ref,'documents':{p:(repo/p).read_text() for p in front_paths},'content_sha256':{p:hashlib.sha256((repo/p).read_bytes()).hexdigest() for p in front_paths}}
     (root/'content/frontmatter.json').write_text(json.dumps(front,ensure_ascii=False,indent=2)+'\n')
+    shutil.copy2(repo/'outline/executive-summary.json',root/'content/executive-summary.json')
     def rows(name):
         with (repo/'data/meta'/name).open(newline='') as f:return list(csv.DictReader(f))
     inventory=rows('dataset_inventory.csv')
