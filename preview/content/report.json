@@ -2616,6 +2616,17 @@
     "editorial/章节写作与内容复用规范.md",
     "outline/执行摘要.md",
     "outline/目录.md",
-    "outline/正式大纲.md"
+    "outline/正式大纲.md",
+    "chapters/chapter6/action-framework.json",
+    "figures/chapter6/fig-6-1-1_evidence_to_action-en.svg",
+    "figures/chapter6/fig-6-1-1_evidence_to_action.svg",
+    "figures/chapter6/fig-6-2-1_public_support-en.svg",
+    "figures/chapter6/fig-6-2-1_public_support.svg",
+    "figures/chapter6/fig-6-3-1_organization_responsibility-en.svg",
+    "figures/chapter6/fig-6-3-1_organization_responsibility.svg",
+    "figures/chapter6/fig-6-4-1_global_cocreation-en.svg",
+    "figures/chapter6/fig-6-4-1_global_cocreation.svg",
+    "figures/chapter6/fig-6-5-1_sustained_cocreation-en.svg",
+    "figures/chapter6/fig-6-5-1_sustained_cocreation.svg"
   ]
 }

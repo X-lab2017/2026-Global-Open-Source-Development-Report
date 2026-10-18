@@ -790,19 +790,19 @@
             "en": "Findings and outlook"
           },
           "question": {
-            "zh": "哪些变化已被观察，哪些仍是展望？",
-            "en": "Which changes are observed, and which remain projections?"
+            "zh": "前四个研究板块，共同指向什么下一步？",
+            "en": "What shared next steps emerge from the four research perspectives?"
           },
           "presentation": {
-            "zh": "发现与趋势对照",
-            "en": "Findings and projections comparison"
+            "zh": "四类观察—三项任务—九条建议",
+            "en": "Four perspectives, three tasks and nine recommendations"
           },
           "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "editorial-synthesis",
           "anchor": "ch06-s01",
-          "source_heading": "6.1 核心洞察与趋势预测",
-          "next_action": "按统一小节模式整理现有初稿"
+          "source_heading": "6.1 核心洞察与趋势展望",
+          "next_action": "审阅图文叙事、主体分工与后续观察，结合意见修订"
         },
         {
           "id": "ch06-s02",
@@ -816,15 +816,15 @@
             "en": "How can public policy respond to identified development issues?"
           },
           "presentation": {
-            "zh": "证据—行动—跟踪指标",
-            "en": "Evidence, action and tracking indicators"
+            "zh": "公共支持的实施步骤、分工与后续观察",
+            "en": "Public support: steps, responsibilities and follow-up"
           },
           "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "editorial-synthesis",
           "anchor": "ch06-s02",
           "source_heading": "6.2 面向政府与国际组织的建议",
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "审阅图文叙事、主体分工与后续观察，结合意见修订"
         },
         {
           "id": "ch06-s03",
@@ -838,15 +838,15 @@
             "en": "How can companies incorporate sustained contribution into strategy?"
           },
           "presentation": {
-            "zh": "行动表、实践案例",
-            "en": "Action table and practice cases"
+            "zh": "企业行动的实施步骤、分工与后续观察",
+            "en": "Company action: steps, responsibilities and follow-up"
           },
           "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "editorial-synthesis",
           "anchor": "ch06-s03",
           "source_heading": "6.3 面向企业与组织的建议",
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "审阅图文叙事、主体分工与后续观察，结合意见修订"
         },
         {
           "id": "ch06-s04",
@@ -860,15 +860,15 @@
             "en": "How can communities support inclusion, maintenance and cooperation?"
           },
           "presentation": {
-            "zh": "合作行动与参与路径",
-            "en": "Cooperation actions and participation paths"
+            "zh": "全球共建的实施步骤、分工与后续观察",
+            "en": "Global co-creation: steps, responsibilities and follow-up"
           },
           "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "editorial-synthesis",
           "anchor": "ch06-s04",
           "source_heading": "6.4 面向社区与全球合作的倡议",
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "审阅图文叙事、主体分工与后续观察，结合意见修订"
         },
         {
           "id": "ch06-s05",
@@ -882,22 +882,23 @@
             "en": "How can research and action become a continuing cycle?"
           },
           "presentation": {
-            "zh": "全书收束与下一年度观察方向",
-            "en": "Closing narrative and next-year observation priorities"
+            "zh": "持续共同创造与公共价值的循环",
+            "en": "The cycle of sustained co-creation and public value"
           },
           "source_path": "chapters/chapter6/第六章-未来展望与政策建议.md",
-          "status": "draft",
-          "data_status": "pending-review",
+          "status": "preview",
+          "data_status": "editorial-synthesis",
           "anchor": "ch06-s05",
           "source_heading": "6.5 结语：迈向可持续的数字未来",
-          "next_action": "按统一小节模式整理现有初稿"
+          "next_action": "审阅图文叙事、主体分工与后续观察，结合意见修订"
         }
       ],
-      "status": "draft",
+      "status": "preview",
       "template": "chapter",
       "introduction_source": null,
       "section_pattern": "action",
-      "research_status": "pending-review"
+      "research_status": "review-ready",
+      "publication_date": "2026-10-18"
     }
   ],
   "back_matter": [

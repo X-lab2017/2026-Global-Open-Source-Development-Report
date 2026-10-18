@@ -6,12 +6,14 @@ on:
     paths:
       - 'preview/**'
       - 'chapters/chapter1/**'
+      - 'chapters/chapter6/**'
       - 'chapters/引言-人工智能时代的开源发展.md'
       - 'outline/**'
       - 'appendices/附录A-指标体系与数据来源.md'
       - 'data/meta/**'
       - 'data/processed/**'
       - 'figures/chapter1/**'
+      - 'figures/chapter6/**'
       - '.github/workflows/gosd-preview-pages.yml'
   workflow_dispatch:
 
@@ -41,6 +43,7 @@ jobs:
           python3 preview/web/build_portal.py --output _site --base-path "$BASE_PATH"
           python3 preview/web/check_portal.py --output _site --base-path "$BASE_PATH"
           python3 preview/web/check_report.py --output _site
+          python3 preview/web/check_chapter6.py --output _site
           python3 preview/web/check_chapter_visuals.py --output _site --repo-root .
           python3 preview/web/check_goso.py --output _site
           python3 preview/web/check_vmap.py --output _site

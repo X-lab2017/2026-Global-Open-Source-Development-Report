@@ -8,6 +8,7 @@ import gosr_content as gosr
 import landscape_content as landscape
 import gosm_content as gosm
 import frontmatter_content as frontmatter
+import chapter6_content as action
 from urllib.parse import quote
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -43,6 +44,7 @@ def body(u,lang):
     if u['id']=='ch03':return gosr.chapter(lang)
     if u['id']=='ch04':return landscape.chapter(lang)
     if u['id']=='ch05':return gosm.chapter(lang)
+    if u['id']=='ch06':return action.chapter(lang)
     if u['kind']=='dpg':return gosm.appendix(lang)
     if u['kind']=='methods':return report.methods(lang)
     out=[]
