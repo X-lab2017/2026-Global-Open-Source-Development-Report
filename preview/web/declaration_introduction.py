@@ -3,35 +3,13 @@ import html
 import json
 import re
 from pathlib import Path
+import declaration_diagram
 
 ROOT = Path(__file__).resolve().parents[1]
 E = lambda value: html.escape(str(value), quote=True)
-PRINCIPLES = [
-    ('开放互联', 'Open interconnection'), ('安全可信', 'Security & trust'),
-    ('数据伦理', 'Data ethics'), ('多元包容', 'Diversity & inclusion'),
-    ('全球协作', 'Global collaboration'), ('绿色智能', 'Green intelligence'),
-    ('开源普惠', 'Inclusive open source')
-]
-LAYERS = [
-    ('筑牢智能时代基石', 'Foundations for the age of intelligence', [1, 2]),
-    ('夯实伦理治理支柱', 'Pillars of ethical governance', [3, 4, 5]),
-    ('共创社会价值未来', 'Co-creating a future of social value', [6, 7])
-]
-
 
 def inline(value):
     return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', E(value))
-
-
-def principles_map(lang):
-    t = lambda z, e: z if lang == 'zh' else e
-    out = '<nav class="declaration-principles-map" aria-labelledby="declaration-map-title"><div class="declaration-map-heading"><h2 id="declaration-map-title">' + t('三层框架，七项原则', 'Three layers, seven principles') + '</h2><p>' + t('选择原则，直达宣言正文。', 'Choose a principle to read its full text.') + '</p></div><div class="declaration-map-layers">'
-    for i, (zh, en, indices) in enumerate(LAYERS, 1):
-        out += '<div class="declaration-map-layer declaration-layer-' + str(i) + '"><div class="declaration-layer-heading"><span>0' + str(i) + '</span><h3>' + t(zh, en) + '</h3></div><div class="declaration-principle-links">'
-        for n in indices:
-            out += '<a href="#declaration-principle-' + str(n) + '"><small>0' + str(n) + '</small><strong>' + t(*PRINCIPLES[n - 1]) + '</strong><i aria-hidden="true">↓</i></a>'
-        out += '</div></div>'
-    return out + '</div></nav>'
 
 
 def render(lang):
@@ -44,7 +22,7 @@ def render(lang):
     title = blocks[first_heading][4:]
     subtitle = blocks[first_heading + 1].strip('*').strip()
     out = '<article class="declaration-introduction" lang="' + ('zh-CN' if lang == 'zh' else 'en') + '"><div class="declaration-opening">' + ''.join('<p>' + inline(p) + '</p>' for p in preamble) + '</div>'
-    out += principles_map(lang)
+    out += declaration_diagram.render(lang)
     out += '<div class="declaration-document" id="declaration-text"><header class="declaration-title"><span>DECLARATION / ' + t('宣言收录文本', 'TEXT INCLUDED IN THIS REPORT') + '</span><h2>' + E(title) + '</h2><p>' + E(subtitle) + '</p></header>'
     if lang == 'en':
         out += '<p class="declaration-translation-note">English translation prepared for this report.</p>'
