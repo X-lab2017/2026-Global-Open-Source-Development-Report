@@ -1,13 +1,22 @@
 /* Focused reading, disclosures and consistent chart affordances. */
 (()=>{'use strict';
-// Run the small homepage cues only while the entry section is visible.
-const readingStart=document.querySelector('.home-reading-start');
-if(readingStart){
+// Run each overview cue only while its own card or section is visible.
+const motionRoots=[...document.querySelectorAll('[data-home-motion]')];
+if(motionRoots.length){
  const motion=matchMedia('(prefers-reduced-motion: reduce)');
- let inView=!('IntersectionObserver' in window);
- const sync=()=>readingStart.classList.toggle('is-motion-active',inView&&!document.hidden&&!motion.matches);
- if('IntersectionObserver' in window)new IntersectionObserver(entries=>{inView=entries.some(e=>e.isIntersecting);sync()},{threshold:0}).observe(readingStart);
+ const visibility=new Map(motionRoots.map(el=>[el,!('IntersectionObserver' in window)]));
+ const sync=()=>motionRoots.forEach(el=>el.classList.toggle('is-motion-active',visibility.get(el)&&!document.hidden&&!motion.matches));
+ if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(e=>visibility.set(e.target,e.isIntersecting));sync()},{threshold:0});motionRoots.forEach(el=>observer.observe(el))}
  motion.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);sync();
+}
+// Native anchors keep browser history and keyboard navigation intact.
+const overviewNav=document.querySelector('.overview-page-nav');
+if(overviewNav){
+ const stops=[...overviewNav.querySelectorAll('a[href^="#"]')].map(a=>({a,section:document.getElementById(a.getAttribute('href').slice(1))})).filter(s=>s.section);
+ let frame=0;
+ function updatePosition(){frame=0;const edge=overviewNav.getBoundingClientRect().bottom+20;let active=stops[0];for(const stop of stops)if(stop.section.getBoundingClientRect().top<=edge)active=stop;for(const stop of stops){if(stop===active)stop.a.setAttribute('aria-current','location');else stop.a.removeAttribute('aria-current')}}
+ function queuePosition(){if(!frame)frame=requestAnimationFrame(updatePosition)}
+ window.addEventListener('scroll',queuePosition,{passive:true});window.addEventListener('resize',queuePosition);window.addEventListener('hashchange',queuePosition);window.addEventListener('load',queuePosition);queuePosition();
 }
 const root=document.querySelector('.foundation-reading');if(!root)return;
 const zh=document.documentElement.lang.startsWith('zh'),t=(z,e)=>zh?z:e;
@@ -35,7 +44,7 @@ window.addEventListener('hashchange',revealHash);if(location.hash)revealHash();
 const sections=[...root.querySelectorAll('.foundation-section')],groups=[...document.querySelectorAll('.focus-group')];
 function activate(id){for(const g of groups){const active=g.dataset.readingSection===id;g.querySelector('.focus-subsections').hidden=!active;const a=g.querySelector('.local-section');if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')}}
 if('IntersectionObserver'in window){const visible=new Map();const observer=new IntersectionObserver(entries=>{entries.forEach(e=>visible.set(e.target.id,e.isIntersecting));const current=sections.find(s=>visible.get(s.id));if(current)activate(current.id)},{rootMargin:'-100px 0px -60% 0px',threshold:0});sections.forEach(s=>observer.observe(s));}
-document.querySelectorAll('.focus-group>.local-section,.foundation-route a').forEach(a=>a.addEventListener('click',()=>activate(a.hash.slice(1))));
+document.querySelectorAll('.focus-group>.local-section,.foundation-route a').forEach(a=>a.addEventListener('click',()=>activate(a.getAttribute('href').slice(1))));
 let hashTarget=null;try{hashTarget=document.getElementById(decodeURIComponent(location.hash.slice(1)))}catch{}activate(hashTarget?.closest('.foundation-section')?.id||'ch01-s01');
 // References are available to print; restore the reader's disclosures afterwards.
 let printState=[];window.addEventListener('beforeprint',()=>{printState=[...root.querySelectorAll('details.reading-reference:not(.chapter-table-reference)')].map(d=>[d,d.open]);printState.forEach(([d])=>d.open=true)});window.addEventListener('afterprint',()=>printState.forEach(([d,open])=>d.open=open));
