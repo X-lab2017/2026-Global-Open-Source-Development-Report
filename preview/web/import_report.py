@@ -9,7 +9,7 @@ def run(repo,ref):
     root=Path(__file__).resolve().parents[1]
     selected=sorted((repo/'chapters/chapter1').glob('*.md'))+[repo/'appendices/附录A-指标体系与数据来源.md',repo/'data/meta/数据可用性清单.md']
     documents={p.relative_to(repo).as_posix():p.read_text() for p in selected}
-    front_paths=['outline/执行摘要.md','chapters/引言-人工智能时代的开源发展.md','outline/目录.md']
+    front_paths=['outline/执行摘要.md','chapters/引言-人工智能时代的开源发展.md','chapters/introduction.en.md','outline/目录.md']
     front={'source_ref':ref,'documents':{p:(repo/p).read_text() for p in front_paths},'content_sha256':{p:hashlib.sha256((repo/p).read_bytes()).hexdigest() for p in front_paths}}
     (root/'content/frontmatter.json').write_text(json.dumps(front,ensure_ascii=False,indent=2)+'\n')
     shutil.copy2(repo/'outline/executive-summary.json',root/'content/executive-summary.json')

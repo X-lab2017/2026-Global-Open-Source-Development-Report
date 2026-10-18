@@ -48,12 +48,12 @@
       "id": "introduction",
       "route": "introduction/",
       "title": {
-        "zh": "引言：人工智能时代的开源发展",
-        "en": "Introduction: open source in the age of AI"
+        "zh": "引言：开源共创智能未来",
+        "en": "Introduction: co-creating an intelligent future"
       },
       "question": {
-        "zh": "为什么做这份报告，读者如何使用？",
-        "en": "Why this report, and how should readers use it?"
+        "zh": "以共同愿景为起点，让开放协作走向持续创造与公共价值。",
+        "en": "A shared vision for open collaboration, sustained co-creation and public value."
       },
       "kind": "introduction",
       "source_path": "chapters/引言-人工智能时代的开源发展.md",
@@ -61,7 +61,11 @@
       "template": "chapter",
       "brief_source": "planning/INTRODUCTION_BRIEF.md",
       "research_status": "published-overview",
-      "publication_date": "2026-10-18"
+      "publication_date": "2026-10-18",
+      "declaration_source_path": "chapters/引言-宣言.md",
+      "translation_source_path": "chapters/introduction.en.md",
+      "declaration_source_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
+      "source_verification": "Repository text; opening checked against editor-provided screenshot. Live Feishu document requires sign-in."
     }
   ],
   "chapters": [
@@ -923,21 +927,21 @@
       "id": "appendix-b",
       "route": "appendices/declaration/",
       "title": {
-        "zh": "附录 B：宣言",
-        "en": "Appendix B: declaration"
+        "zh": "附录 B：宣言来源与收录说明",
+        "en": "Appendix B: declaration source and editorial note"
       },
       "question": {
-        "zh": "报告采用怎样的共同价值表达？",
-        "en": "Which declaration accompanies the report?"
+        "zh": "宣言全文收录于引言，本页说明来源与收录方式。",
+        "en": "The declaration appears in the introduction; this page records its source and inclusion."
       },
       "kind": "declaration",
       "source_path": "appendices/附录B-宣言.md",
       "source_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
-      "status": "source-confirmed",
+      "status": "published",
       "template": "declaration",
       "reference_snapshot": "chapters/引言-宣言.md",
       "authoritative_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
-      "research_status": "pending-review"
+      "research_status": "incorporated-in-introduction"
     },
     {
       "id": "appendix-c",

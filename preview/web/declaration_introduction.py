@@ -1,0 +1,86 @@
+"""Declaration-led introduction. Preserve the source text with native reading anchors."""
+import html
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+E = lambda value: html.escape(str(value), quote=True)
+PRINCIPLES = [
+    ('开放互联', 'Open interconnection'), ('安全可信', 'Security & trust'),
+    ('数据伦理', 'Data ethics'), ('多元包容', 'Diversity & inclusion'),
+    ('全球协作', 'Global collaboration'), ('绿色智能', 'Green intelligence'),
+    ('开源普惠', 'Inclusive open source')
+]
+LAYERS = [
+    ('筑牢智能时代基石', 'Foundations for the age of intelligence', [1, 2]),
+    ('夯实伦理治理支柱', 'Pillars of ethical governance', [3, 4, 5]),
+    ('共创社会价值未来', 'Co-creating a future of social value', [6, 7])
+]
+
+
+def inline(value):
+    return re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', E(value))
+
+
+def principles_map(lang):
+    t = lambda z, e: z if lang == 'zh' else e
+    out = '<nav class="declaration-principles-map" aria-labelledby="declaration-map-title"><div class="declaration-map-heading"><h2 id="declaration-map-title">' + t('三层框架，七项原则', 'Three layers, seven principles') + '</h2><p>' + t('选择原则，直达宣言正文。', 'Choose a principle to read its full text.') + '</p></div><div class="declaration-map-layers">'
+    for i, (zh, en, indices) in enumerate(LAYERS, 1):
+        out += '<div class="declaration-map-layer declaration-layer-' + str(i) + '"><div class="declaration-layer-heading"><span>0' + str(i) + '</span><h3>' + t(zh, en) + '</h3></div><div class="declaration-principle-links">'
+        for n in indices:
+            out += '<a href="#declaration-principle-' + str(n) + '"><small>0' + str(n) + '</small><strong>' + t(*PRINCIPLES[n - 1]) + '</strong><i aria-hidden="true">↓</i></a>'
+        out += '</div></div>'
+    return out + '</div></nav>'
+
+
+def render(lang):
+    t = lambda z, e: z if lang == 'zh' else e
+    documents = json.loads((ROOT / 'content/frontmatter.json').read_text())['documents']
+    key = 'chapters/引言-人工智能时代的开源发展.md' if lang == 'zh' else 'chapters/introduction.en.md'
+    blocks = documents[key].strip().split('\n\n')
+    first_heading = next(i for i, b in enumerate(blocks) if b.startswith('### '))
+    preamble = [b for b in blocks[:first_heading] if not b.startswith('# ')]
+    title = blocks[first_heading][4:]
+    subtitle = blocks[first_heading + 1].strip('*').strip()
+    out = '<article class="declaration-introduction" lang="' + ('zh-CN' if lang == 'zh' else 'en') + '"><div class="declaration-opening">' + ''.join('<p>' + inline(p) + '</p>' for p in preamble) + '</div>'
+    out += principles_map(lang)
+    out += '<div class="declaration-document" id="declaration-text"><header class="declaration-title"><span>DECLARATION / ' + t('宣言收录文本', 'TEXT INCLUDED IN THIS REPORT') + '</span><h2>' + E(title) + '</h2><p>' + E(subtitle) + '</p></header>'
+    if lang == 'en':
+        out += '<p class="declaration-translation-note">English translation prepared for this report.</p>'
+    section = 0
+    principle = 0
+    in_principle = False
+    in_section = False
+    for block in blocks[first_heading + 2:]:
+        if block.startswith('### ') or block.startswith('#### '):
+            if in_principle:
+                out += '</div></article>'
+                in_principle = False
+            if block.startswith('### '):
+                if in_section:
+                    out += '</section>'
+                section += 1
+                in_section = True
+                if section == 6:
+                    out += '</div>'  # End the declaration before the editorial bridge.
+                out += '<section class="declaration-section' + (' declaration-bridge' if section == 6 else '') + '" id="introduction-' + str(section) + '"><h2>' + E(block[4:]) + '</h2>'
+            else:
+                out += '<h3 class="declaration-layer-title">' + E(block[5:]) + '</h3>'
+        elif block.startswith('**原则') or block.startswith('**Principle '):
+            if in_principle:
+                out += '</div></article>'
+            principle += 1
+            in_principle = True
+            out += '<article class="declaration-principle" id="declaration-principle-' + str(principle) + '"><h4><span>0' + str(principle) + '</span><strong>' + E(block.strip('*')) + '</strong></h4><div>'
+        elif block.startswith('**') and block.endswith('**'):
+            out += '<p class="' + ('declaration-motto' if in_principle else 'declaration-final-line') + '">' + E(block[2:-2]) + '</p>'
+        else:
+            out += '<p>' + inline(block) + '</p>'
+    if in_principle:
+        out += '</div></article>'
+    if in_section:
+        out += '</section>'
+    assert section == 6 and principle == 7, 'The declaration must retain all sections and seven principles'
+    out += '<nav class="front-next-reading" aria-label="' + t('开始正文阅读', 'Begin the report') + '"><div><small>' + t('下一步 · 从愿景进入研究', 'NEXT · FROM VISION TO RESEARCH') + '</small><strong>' + t('第一章：从开放协作到公共价值', 'Chapter 1: from collaboration to public value') + '</strong><span>' + t('从开源故事出发，理解发展目标与观察方法。', 'Start with open source stories, then explore goals and methods.') + '</span></div><a class="front-next-primary" href="/2026/' + lang + '/chapters/01/">' + t('开始阅读 →', 'Start reading →') + '</a></nav><p class="declaration-source-note"><a href="/2026/' + lang + '/appendices/declaration/">' + t('宣言来源与收录说明', 'Declaration source and editorial note') + ' ↗</a></p></article>'
+    return out

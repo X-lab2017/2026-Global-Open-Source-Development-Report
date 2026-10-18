@@ -2,6 +2,7 @@
 from pathlib import Path
 import html,json,re
 import executive_summary
+import declaration_introduction
 ROOT=Path(__file__).resolve().parents[1]
 E=lambda s:html.escape(str(s),quote=True)
 M=json.loads((ROOT/'content/manifest.json').read_text())
@@ -21,8 +22,7 @@ def summary(lang):
  return executive_summary.render(lang)
 
 def introduction(lang):
- t=lambda z,e:tr(lang,z,e)
- return '<article class="front-publication">'+translation(lang)+render_text(manuscript('chapters/引言-人工智能时代的开源发展.md'),'introduction')+'<nav class="front-next-reading" aria-label="'+t('开始正文阅读','Begin the report')+'"><div><small>'+t('下一步 · 建立共同理解','NEXT · ESTABLISH A SHARED FOUNDATION')+'</small><strong>'+t('第一章：从开放协作到公共价值','Chapter 1: from collaboration to public value')+'</strong><span>'+t('从两个开源故事出发，理解发展目标与观察方法。','Start with two open source stories, then explore goals and methods.')+'</span></div>'+link(lang,'chapters/01/',t('开始阅读 →','Start reading →'),'front-next-primary')+'</nav><p class="front-alternative">'+t('已有明确问题？','Have a specific question?')+' '+link(lang,'',t('从目录直接进入小节 →','Choose a section from the contents →'))+'</p></article>'
+ return declaration_introduction.render(lang)
 
 def contents(lang):
  t=lambda z,e:tr(lang,z,e)
