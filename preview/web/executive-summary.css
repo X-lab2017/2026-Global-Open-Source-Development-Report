@@ -53,3 +53,21 @@
 @media(prefers-reduced-motion:reduce){.executive-summary *{transition:none!important;animation:none!important}}
 @media print{[data-theme] .executive-summary .es-color-teal{--es-accent:#007d87}[data-theme] .executive-summary .es-color-blue{--es-accent:#326a9d}[data-theme] .executive-summary .es-color-green{--es-accent:#486e2d}[data-theme] .executive-summary .es-color-purple{--es-accent:#77538f}}
 @media print{.executive-summary{--ink:#10334d;--muted:#4c697b;--paper:#fff;--line:#d0dbe2;--brand:#007d87}.executive-summary [data-es-panel][hidden]{display:block!important}.es-tabs,.es-framework-caption>a,.es-implication nav,.es-reading-links,.es-actor-heading>a{display:none!important}.es-observation{break-inside:avoid;margin:18px 0}.es-observation-body{min-height:0;grid-template-columns:1fr 1fr;padding:16px;gap:20px}.executive-summary h2{font-size:17pt}.executive-summary .es-opening h2{font-size:20pt}.executive-summary .es-observation h3{font-size:15pt}.executive-summary p,.executive-summary .es-observation-copy p{font-size:10pt;line-height:1.7}.executive-summary .es-section{margin-top:22px;padding-top:20px}.es-action-panel{break-inside:avoid;margin-bottom:22px}.es-action-list>li{padding:12px 0}.es-framework>div{padding-inline:16px}.executive-summary .es-actor-heading h3{font-size:14pt}.es-actor-heading h3:before{content:attr(data-actor-label);display:block;font-size:10pt;color:var(--muted)}.es-growth-value.es-before .es-bar-track i{background:#9bb384}.es-bar-track i{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+/* Publication baseline: the four findings remain visible and can be reached directly. */
+.es-observation-links a{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 10px;border:1px solid var(--line);border-radius:5px;font:500 14px/1.6 var(--sans);color:var(--ink);text-decoration:none}
+.es-observation-links a span{font-size:11px;color:var(--es-accent)}
+.es-observation-links a:hover{border-color:var(--es-accent);background:color-mix(in srgb,var(--es-accent) 7%,var(--paper))}
+.es-observation{scroll-margin-top:105px}.es-observation:target{border-color:var(--es-accent)}
+.executive-summary .es-evidence-scope{font:12px/1.75 var(--sans);color:var(--muted);margin-top:18px}
+.es-evidence figcaption{font:12px/1.7 var(--sans);text-align:center;color:var(--ink);border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+.es-shared-tasks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:0 0 28px}
+.es-shared-tasks article{padding:17px 0;border-top:2px solid var(--line)}
+.es-shared-tasks strong{font:600 16px/1.7 var(--sans);color:var(--ink)}
+.executive-summary .es-shared-tasks p{font:14px/1.85 var(--sans);margin-top:8px}
+.executive-summary .es-reading-route{margin:18px 0;font:15px/1.85 var(--sans)}
+.es-print-figure{display:none}
+/* The downloadable edition is Chinese; browser printing preserves the page language. */
+@media(max-width:640px){.es-shared-tasks{grid-template-columns:1fr;gap:0}.es-observation-links{grid-template-columns:repeat(2,minmax(0,1fr))}.es-observation-body{padding:20px;gap:22px}.executive-summary .es-observation h3{font-size:22px}}
+@media print{.es-observation-links,.es-actor-tabs,.es-implication nav,.es-actor-heading>a{display:none!important}.es-action-panel[hidden]{display:block!important}.es-shared-tasks{display:block}.es-shared-tasks article{break-inside:avoid}.es-observation-body{display:block;min-height:0;padding:12px}.es-screen-figure,.es-evidence>figcaption{display:none!important}.es-print-figure{display:block;width:100%;height:auto}.es-observation{break-inside:avoid}.es-evidence{padding:0;background:white}.executive-summary p,.executive-summary .es-observation-copy p{font-size:11.2pt;line-height:1.65}}
+
+@media print{.executive-summary[lang=en] .es-screen-figure,.executive-summary[lang=en] .es-evidence>figcaption{display:block!important}.executive-summary[lang=en] .es-print-figure{display:none}.executive-summary[lang=en] .es-screen-figure :is(strong,b){font-size:11.2pt}.executive-summary[lang=en] .es-screen-figure{padding:14px 0}.executive-summary[lang=en] .es-evidence figcaption{font-size:10pt}}

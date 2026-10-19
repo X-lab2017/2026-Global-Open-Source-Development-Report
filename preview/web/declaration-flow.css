@@ -10,8 +10,8 @@
 .declaration-flow .df-tools>button:hover,.declaration-flow .df-tools>a:hover{color:var(--ink);border-color:var(--df-border)}
 .declaration-flow .df-tools>button:disabled{opacity:.65;cursor:default}
 .declaration-flow .df-canvas{display:grid;place-items:center;min-width:0}
-.declaration-flow .df-svg{display:block;width:min(100%,calc((100svh - 162px)*1.6666667));height:auto;max-width:100%;overflow:visible}
-.declaration-flow .df-compact{display:none;width:min(100%,calc((100svh - 138px)*.7384615))}
+.declaration-flow .df-svg{display:block;width:min(100%,calc((100svh - 206px)*1.6666667));height:auto;max-width:100%;overflow:visible}
+.declaration-flow .df-compact{display:none;width:min(100%,calc((100svh - 200px)*.7384615))}
 .declaration-flow .df-paper{fill:var(--paper)}.declaration-flow .df-card-shape{fill:var(--df-card);stroke:var(--df-border);stroke-width:1.8;vector-effect:non-scaling-stroke}
 .declaration-flow .df-text{letter-spacing:normal}.declaration-flow .df-ink{fill:var(--ink)}.declaration-flow .df-muted{fill:var(--muted)}.declaration-flow .df-accent{fill:var(--df-accent,var(--df-teal))}
 .declaration-flow .df-layer{--df-accent:var(--df-teal)}.declaration-flow .df-layer-2{--df-accent:var(--df-purple)}.declaration-flow .df-layer-3{--df-accent:var(--df-green)}
@@ -31,10 +31,15 @@
 .declaration-flow .df-tools :focus-visible{outline:2px solid var(--df-teal);outline-offset:2px}
 .declaration-flow .df-print{display:none}
 .declaration-introduction .declaration-flow:fullscreen{width:100%;height:100%;max-width:none;margin:0;padding:12px max(18px,calc((100vw - 1360px)/2));border:0;border-radius:0;overflow:auto;background:var(--paper);color:var(--ink)}
-.declaration-flow:fullscreen .df-svg{width:min(100%,calc((100svh - 76px)*1.6666667))}.declaration-flow:fullscreen .df-compact{width:min(100%,calc((100svh - 76px)*.7384615))}
+.declaration-flow:fullscreen .df-svg{width:min(100%,calc((100svh - 144px)*1.6666667))}.declaration-flow:fullscreen .df-compact{width:min(100%,calc((100svh - 144px)*.7384615))}
 .declaration-flow:fullscreen .df-toolbar{max-width:1330px;margin-inline:auto}
 @keyframes df-stream{to{stroke-dashoffset:-100}}
 @container(max-width:600px){.declaration-flow .df-wide{display:none}.declaration-flow .df-compact{display:block}.declaration-flow .df-toolbar h2>span{display:none}.declaration-introduction .declaration-flow .df-toolbar h2{font-size:15px}.declaration-flow .df-tools>button,.declaration-flow .df-tools>a{padding-inline:5px;font-size:10px}}
 @media(max-width:600px){.declaration-introduction .declaration-flow{padding:10px 8px;margin-inline:0}}
 @media(prefers-reduced-motion:reduce){.declaration-flow .df-edge-pulse,.declaration-flow .df-edge-glow{display:none;animation:none!important}.declaration-flow *{transition:none!important}}
 @media print{.declaration-introduction .declaration-flow{padding:0;margin:20px 0;border:0;break-inside:avoid;background:white}.declaration-flow .df-toolbar,.declaration-flow .df-canvas{display:none}.declaration-flow .df-print{display:block;width:100%;height:auto}}
+.declaration-flow .df-caption{margin:8px 0 0;padding:12px 0 0;border-top:1px solid var(--line);font:13px/1.7 var(--sans);text-align:center;color:var(--muted)}
+.declaration-flow:fullscreen .df-caption{max-width:1330px;margin-inline:auto}
+@media print{.declaration-flow .df-caption{display:none}.declaration-flow .df-print{max-height:225mm;object-fit:contain}}
+
+@media print{.declaration-flow[data-lang=en] .df-caption{display:block}}

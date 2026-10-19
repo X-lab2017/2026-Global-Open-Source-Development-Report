@@ -200,10 +200,10 @@ def poster(lang, *, compact=False, interactive=False, theme='light'):
 
 def render(lang):
     t = lambda z, e: z if lang == 'zh' else e
-    svg = '/assets/declaration/overview-' + lang + '.svg'
+    svg = '/assets/report/frontmatter/fig-intro-1.svg' if lang=='zh' else '/assets/declaration/overview-' + lang + '.svg'
     return f'''<figure class="declaration-flow" id="declaration-overview" data-declaration-flow data-lang="{lang}" aria-labelledby="declaration-map-title">
-<figcaption class="df-toolbar"><h2 id="declaration-map-title">{t('宣言全景', 'Declaration overview')}<span> / {t('从共识到行动', 'From vision to action')}</span></h2><div class="df-tools"><button type="button" data-df-motion hidden aria-pressed="false">{t('暂停流线', 'Pause flow')}</button><button type="button" data-df-fullscreen hidden aria-pressed="false">{t('全屏', 'Full screen')}</button><a href="{svg}" download>{t('下载图', 'Download')} <span aria-hidden="true">↓</span></a></div></figcaption>
-<div class="df-canvas">{poster(lang, interactive=True)}{poster(lang, compact=True, interactive=True)}</div><img class="df-print" src="{svg}" alt="{E(t('宣言全景：时代呼唤、共同愿景、三层七项原则与行动共识', 'Declaration overview: context, vision, three layers of principles and action'))}" loading="lazy"></figure>'''
+<div class="df-toolbar"><h2 id="declaration-map-title">{t('宣言全景', 'Declaration overview')}<span> / {t('从共识到行动', 'From vision to action')}</span></h2><div class="df-tools"><button type="button" data-df-motion hidden aria-pressed="false">{t('暂停流线', 'Pause flow')}</button><button type="button" data-df-fullscreen hidden aria-pressed="false">{t('全屏', 'Full screen')}</button><a href="{svg}" download>{t('下载图', 'Download')} <span aria-hidden="true">↓</span></a></div></div>
+<div class="df-canvas">{poster(lang, interactive=True)}{poster(lang, compact=True, interactive=True)}</div><img class="df-print" src="{svg}" alt="{E(t('宣言全景：时代呼唤、共同愿景、三层七项原则与行动共识', 'Declaration overview: context, vision, three layers of principles and action'))}" loading="lazy"><figcaption class="df-caption">{t("图 引-1 宣言的共同愿景、七项原则与行动方向", "Figure Intro-1 Shared vision, seven principles and action")}</figcaption></figure>'''
 
 
 def static_svg(lang, theme='light'):

@@ -46,3 +46,14 @@ python3 preview/web/check_chapter1_sample.py --output _site --inspect-pdf
 数据沿用仓库固定快照。新增派生数值、样本期或正文结论变更时，应重新生成两种编排并核对清单。完整来源登记保留在仓库数据目录与报告数据说明中。
 
 SDGs 与 DPG Standard 的简述分别参考联合国 SDGs 和 DPGA 官方资料；DPG 条件改编注明 CC BY-SA 4.0。出版图不替代完整标准，不表示认证。
+
+## 前置内容的延伸
+
+统一基线见 [BASELINE.md](BASELINE.md)。首页、目录、执行摘要与引言使用 `outline/frontmatter-editorial.json`、`outline/executive-summary.json`、章节清单及引言原稿作为共同来源。执行摘要 Markdown 从同一内容生成；宣言正文保持原文。
+
+```bash
+python3 preview/web/frontmatter_print.py --font /path/to/NotoSansCJKsc-Regular.otf
+python3 preview/web/import_report.py --repo-root . --source-ref YOUR_COMMIT
+```
+
+`GOSD-2026-opening-and-chapter1.pdf` 合订前置篇目与已核验的第一章 PDF。前置页采用罗马页码，第一章沿用 1–12 页及原有书签。首页的动态视觉保留在网页，打印封面使用既有品牌资产；摘要的四幅证据视图和宣言全景使用同源出版图。

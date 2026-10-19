@@ -49,6 +49,7 @@ jobs:
           python3 preview/web/check_chapter6.py --output _site
           python3 preview/web/check_chapter_visuals.py --output _site --repo-root .
           python3 preview/web/check_chapter1_sample.py --output _site
+          python3 preview/web/check_frontmatter_publication.py --output _site
           python3 preview/web/check_goso.py --output _site
           python3 preview/web/check_vmap.py --output _site
           python3 preview/web/check_cmap.py --output _site

@@ -6,7 +6,7 @@ for(const lang of ['zh','en'])for(const route of ['home','contents','summary','i
  const file=route==='home'?(lang==='zh'?'index.html':'en/index.html'):`2026/${lang}/${route==='contents'?'':route+'/'}index.html`;
  const {document:d}=parseHTML(fs.readFileSync(path.join(out,file),'utf8')),q=s=>d.querySelector(s),qa=s=>[...d.querySelectorAll(s)];
  assert.equal(qa('.architecture-flow').length,0);assert(!q('script[src*="report-architecture.js"]'));assert(q('link[href*="frontmatter.css"]'));
- assert.equal(d.body.dataset.frontmatter,'true');
+ assert.equal(d.body.dataset.frontmatter,'true');assert.equal(qa('.front-print-edition').length,1);assert(q('.front-print-edition a').getAttribute('href').includes('GOSD-2026-opening-and-chapter1.pdf'));
  for(const unused of ['chapter1-explorers.js','atlas-core.js','goso.js','landscape.js','assets/imap/data.js'])assert(!q(`script[src*="${unused}"]`));
  if(route!=='home'){
   const entries=qa('.front-entry-links a');assert.equal(entries.length,3);assert.equal(entries.filter(a=>a.getAttribute('aria-current')==='page').length,1);
@@ -25,7 +25,9 @@ for(const lang of ['zh','en'])for(const route of ['home','contents','summary','i
 for(const lang of ['zh','en']){
  const {window:w}=parseHTML(fs.readFileSync(path.join(out,`2026/${lang}/summary/index.html`),'utf8')),d=w.document;
  assert([...d.querySelectorAll('[data-es-panel]')].every(p=>!p.hidden));
+ assert.equal(d.querySelectorAll('.es-observation-links a').length,4);assert.equal(d.querySelectorAll('.es-shared-tasks article').length,3);
  vm.runInContext(fs.readFileSync(path.join(out,'executive-summary.js'),'utf8'),vm.createContext(w));
+ assert([...d.querySelectorAll('.es-observation')].every(p=>!p.hidden&&!p.hasAttribute('data-es-panel')));
  for(const group of d.querySelectorAll('[data-es-switcher]')){
   const tabs=[...group.querySelectorAll('[role=tab]')],panels=[...group.querySelectorAll('[role=tabpanel]')];
   assert.equal(panels.filter(p=>!p.hidden).length,1);

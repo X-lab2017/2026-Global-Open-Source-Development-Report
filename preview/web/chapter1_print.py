@@ -35,7 +35,7 @@ def plain(text):
     return text.replace('**', '')
 
 
-def font_setup(path, work):
+def font_setup(path, work, extra_text=""):
     """Convert a small OFL font subset to TrueType for reliable PDF embedding."""
     from fontTools.ttLib import TTFont as FTFont
     from fontTools import subset
@@ -43,7 +43,7 @@ def font_setup(path, work):
     from fontTools.pens.ttGlyphPen import TTGlyphPen
     from fontTools.pens.cu2quPen import Cu2QuPen
     font = FTFont(path)
-    source = Path(__file__).read_text() + ''.join((ROOT/p).read_text() for p in SOURCES)
+    source = extra_text + Path(__file__).read_text() + ''.join((ROOT/p).read_text() for p in SOURCES)
     source += json.dumps([SDGS, DPG], ensure_ascii=False)
     source += (ROOT / 'preview/content/story-data.json').read_text()
     source += (ROOT / 'preview/content/manifest.json').read_text()

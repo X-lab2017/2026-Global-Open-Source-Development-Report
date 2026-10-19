@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 import declaration_diagram
+import frontmatter_publication as publication
 
 ROOT = Path(__file__).resolve().parents[1]
 E = lambda value: html.escape(str(value), quote=True)
@@ -61,4 +62,4 @@ def render(lang):
         out += '</section>'
     assert section == 6 and principle == 7, 'The declaration must retain all sections and seven principles'
     out += '<nav class="front-next-reading" aria-label="' + t('开始正文阅读', 'Begin the report') + '"><div><small>' + t('下一步 · 从愿景进入研究', 'NEXT · FROM VISION TO RESEARCH') + '</small><strong>' + t('第一章：从开放协作到公共价值', 'Chapter 1: from collaboration to public value') + '</strong><span>' + t('从开源故事出发，理解发展目标与观察方法。', 'Start with open source stories, then explore goals and methods.') + '</span></div><a class="front-next-primary" href="/2026/' + lang + '/chapters/01/">' + t('开始阅读 →', 'Start reading →') + '</a></nav><p class="declaration-source-note"><a href="/2026/' + lang + '/appendices/declaration/">' + t('宣言来源与收录说明', 'Declaration source and editorial note') + ' ↗</a></p></article>'
-    return out
+    return out+publication.download(lang)
