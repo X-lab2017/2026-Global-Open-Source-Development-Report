@@ -2,6 +2,7 @@
 """Check the figure integration against source snapshots and canonical definitions."""
 from pathlib import Path
 from html.parser import HTMLParser
+from urllib.parse import urlsplit
 import argparse,hashlib,json,csv
 class FigurePage(HTMLParser):
     def __init__(self,text):
@@ -51,6 +52,6 @@ for lang in ['zh','en']:
     assert len([a for tag,a in page.tags if tag=='nav' and a.get('class')=='table-pagination'])==0
     assert len(decoded['goals-viz-data'])==14
     assert {x for v in decoded['goals-viz-data'].values() for x in v['indicators']}=={r['indicator_code'] for r in report['indicators']}
-    assert any(a.get('src','').endswith('/chapter-visuals.js') for _,a in page.tags)
-    assert any(a.get('href','').endswith('/chapter-visuals.css') for _,a in page.tags)
+    assert any(tag=='script' and urlsplit(a.get('src','')).path.endswith('/chapter-visuals.js') for tag,a in page.tags)
+    assert any(tag=='link' and urlsplit(a.get('href','')).path.endswith('/chapter-visuals.css') for tag,a in page.tags)
 print('PASS: seven bilingual interactive figures, no reference tables; 28 exact monthly observations, 14 framework hotspots, 17 SDGs, 9 DPG criteria, 29 canonical indicators; raw data unchanged.')
