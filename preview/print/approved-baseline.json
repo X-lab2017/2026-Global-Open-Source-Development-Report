@@ -1,0 +1,24 @@
+{
+  "baseline_id": "GOSD-PUB-20261019",
+  "status": "user-approved",
+  "approved_at": "2026-10-19T21:26:41+08:00",
+  "source_commit": "103c98dd92174cbb9c4ae0428a18822c1fa635a0",
+  "source_edition": "2026-10-19-policy-summary",
+  "reference_pages": {
+    "combined": 21,
+    "summary": 2,
+    "chapter1": 12
+  },
+  "principle": "一份完整研究底稿，网页与 PDF 两种编排；两种版本独立读懂，交互提供进一步探索。",
+  "reference_sha256": {
+    "preview/content/report-assets/frontmatter/GOSD-2026-opening-and-chapter1.pdf": "6331d5704c4d1c5f46d9623356e1f96e3916d4e13f761f672db9e0c961825563",
+    "preview/content/report-assets/chapter1/GOSD-2026-chapter1.pdf": "682d8a5c8ffbbaf45acc93c983c509e7d7e31feb820daccfbc3817f27c8fa24b",
+    "outline/executive-summary.json": "ca0cb26683abb86249242c85a9427998a3a7feb322245273312e3bb7e72c7216",
+    "outline/frontmatter-editorial.json": "9cf79c91a813c9081579b4e6c93ff1a7093d9bcb96da3b4402ac53ce3d4b5d25",
+    "preview/web/frontmatter_print.py": "729c5201c6a64e96a4f746ab45699b6c767f856e781649b5002bf99bc97c957d",
+    "preview/web/executive_summary.py": "39fc00f664a972db117451da294d571b23caffd85506a3ee52f07912f0a75a6b",
+    "preview/web/executive-summary.css": "4df26e93cdc3a15c34eb6d7b0ef20b43c3428f711e3d467d176c22323dc360bb",
+    "preview/content/assets/cocreation-disc-dark.svg": "d490c1f070768c11f0e9284b106143878a4ea47f50dbdf124add796ac2a8a69e",
+    "preview/content/assets/ccosi-cn-white.svg": "406c9860180be9f57cb20267f6bbeced3bd2db060795c0f92482895e30b9f5d5"
+  }
+}
