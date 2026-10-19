@@ -1,11 +1,50 @@
 {
   "scope": "章首＋1.1",
-  "edition": "2026-10-19",
-  "pages": 8,
+  "edition": "2026-10-19-v2",
+  "pages": 6,
   "paper": "A4 portrait",
+  "figure_pages": {
+    "1-0-1": 1,
+    "1-1-1": 2,
+    "1-1-2": 4,
+    "1-1-3": 5
+  },
+  "headings": [
+    {
+      "level": 0,
+      "text": "第一章 从开放协作到公共价值",
+      "page": 1
+    },
+    {
+      "level": 1,
+      "text": "1.1 开源：共同创新与公共价值",
+      "page": 2
+    },
+    {
+      "level": 2,
+      "text": "1.1.1 从一次发布到持续创造",
+      "page": 2
+    },
+    {
+      "level": 2,
+      "text": "1.1.2 从代码协作到模型与数据的再创造",
+      "page": 3
+    },
+    {
+      "level": 2,
+      "text": "1.1.3 SDGs 与数字公共品：连接发展目标与实践条件",
+      "page": 5
+    },
+    {
+      "level": 2,
+      "text": "1.1.4 将持续共同创造作为观察重点",
+      "page": 6
+    }
+  ],
+  "body_font_pt": 11.2,
   "manuscript_sha256": {
-    "chapters/chapter1/本章介绍.md": "947f7e6bb6fb5eb8102284ba44974fc5262a4ff0cccf98eca26d9cb707049775",
-    "chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md": "bc8177a2e11497f37290d464d3d8fea447d3072ac159a47e6838a52253e71213"
+    "chapters/chapter1/本章介绍.md": "2fa2a7e8aeacf936ac4fb09abe4e82b9107b910c7ae82bbd0402f09a70c5c502",
+    "chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md": "f160f5c5f7b75f638e1d8c404b2bbe196a33dcf8e715f37a61d864e8009b9fbb"
   },
   "figure_ids": [
     "1-0-1",
@@ -13,7 +52,7 @@
     "1-1-2",
     "1-1-3"
   ],
-  "pdf_sha256": "a1104ff3662a0008d71294e6f6a145a6668bfc4465fc36cc806eca258e2b489e",
+  "pdf_sha256": "36e0fac07a00dc9225476438524330f89d6396cee7b9629c513bcd3ef4f4ca6e",
   "source_files": {
     "contributors": {
       "path": "data/raw/2026/external/lfx-korg/contributor-leaderboard.json",

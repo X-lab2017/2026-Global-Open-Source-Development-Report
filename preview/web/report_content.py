@@ -25,6 +25,7 @@ def source(name):
     return REPO+ref+'/'+quote(name,safe='/')
 def anchor(title,prefix):
     title=re.sub(r'[*`\[\]]','',title)
+    if prefix in ['ch01-s01','ch01-s02','ch01-s03']:title=re.sub(r'^1\.[123]\.\d+\s+','',title)  # Keep published section anchors stable.
     return prefix+'-'+re.sub(r'[^\w\u3400-\u9fff-]+','-',title).strip('-').lower()
 def mapped_url(href,src,lang):
     if href.startswith('/2026/'):return href.replace('/2026/zh/','/2026/'+lang+'/')

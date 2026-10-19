@@ -64,7 +64,8 @@ def prepare_manuscript(markup,lang,prefix,src,source):
 def chapter(lang,report):
     t_=lambda z,e:t(lang,z,e)
     out=['<div class="foundation-reading">',report.translation_note(lang),'<div class="reading-tools"><span>'+t_('第一章 · 价值、目标与指标','Chapter 1 · Values, goals and indicators')+'</span><button data-print>'+t_('打印本章','Print chapter')+'</button></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="'+t_('本章阅读进度','Chapter reading progress')+'"></progress>']
-    out.append('<aside class="chapter-sample-edition" aria-label="'+t_('章首与 1.1 双版本样章','Opening and section 1.1 sample editions')+'"><div><strong>'+t_('章首＋1.1 · 双版本样章','Opening + 1.1 · two editions')+'</strong><span>'+t_('同一份完整正文；网页交互探索，PDF 独立阅读。','One complete manuscript; explore online or read the self-contained Chinese PDF.')+'</span></div>'+link('/assets/report/chapter1/GOSD-2026-chapter1-sample.pdf',t_('阅读 PDF · 8 页 ↗','Read PDF · 8 pages ↗'),'chapter-sample-pdf')+'</aside>')
+    sample=json.loads((ROOT/'content/report-assets/chapter1/sample-manifest.json').read_text())
+    out.append('<aside class="chapter-sample-edition" aria-label="'+t_('章首与 1.1 双版本样章','Opening and section 1.1 sample editions')+'"><strong>'+t_('章首＋1.1 · 双版本样章','Opening + 1.1 · two editions')+'</strong>'+link('/assets/report/chapter1/GOSD-2026-chapter1-sample.pdf?v='+sample['edition'],t_('阅读 PDF · '+str(sample['pages'])+' 页 ↗','Read PDF · '+str(sample['pages'])+' pages ↗'),'chapter-sample-pdf')+'</aside>')
     route='<nav class="foundation-route" aria-label="'+t_('本章阅读路径','Chapter reading path')+'">'+''.join(link('#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+t_(*SHORT[i])+'</strong><span>'+t_(*QUESTIONS[i])+'</span>') for i in range(3))+'</nav>'
     intro=prepare_manuscript(report.render(report.INTRO,lang,'intro'),lang,'intro',report.INTRO,report.source)
     # Introduce the chapter's purpose before asking the reader to choose a path.
@@ -75,8 +76,8 @@ def chapter(lang,report):
         body=prepare_manuscript(report.render(src,lang,sid),lang,sid,src,report.source)
         # Update publication status without inventing a formula or changing a score.
         body=body.replace('具体关系识别、模型去重、算法版本及结果将在 GOSM 资料补齐后更新。','仓库已收录 ModelRank v1 月度结果与模型复用资料；关系识别、模型去重、算法版本及结果复现仍需核验，月度榜单不等于年度汇总。')
-        modules=[(hid,re.sub(r'^\d+\.\s*','',label)) for hid,label,level in report.headings(src,sid) if level==2 and '资料与口径' not in label]
-        out.append('<section class="chapter-section foundation-section" id="'+sid+'" aria-labelledby="'+sid+'-title"><div class="section-topline">1.'+str(i+1)+' / '+['VALUE','GOALS','INDICATORS'][i]+'</div><h2 id="'+sid+'-title">'+E(s['title'][lang])+'</h2><p class="foundation-question">'+E(s['question'][lang])+'</p><nav class="foundation-modules" aria-label="'+t_('本节模块','Section modules')+'">'+''.join(link('#'+hid,'<small>'+str(k+1).zfill(2)+'</small>'+E(label)) for k,(hid,label) in enumerate(modules))+'</nav>'+body)
+        modules=[(hid,re.sub(r'^\d+\.\s+','',label)) for hid,label,level in report.headings(src,sid) if level==2 and '资料与口径' not in label]
+        out.append('<section class="chapter-section foundation-section" id="'+sid+'" aria-labelledby="'+sid+'-title"><div class="section-topline">1.'+str(i+1)+' / '+['VALUE','GOALS','INDICATORS'][i]+'</div><h2 id="'+sid+'-title">'+E(s['number']+' '+s['title'][lang])+'</h2><p class="foundation-question">'+E(s['question'][lang])+'</p><nav class="foundation-modules" aria-label="'+t_('本节模块','Section modules')+'">'+''.join(link('#'+hid,('<small>'+re.match(r'^(1\.[123]\.\d+) ',label)[1]+'</small>'+E(re.sub(r'^1\.[123]\.\d+ ','',label)) if re.match(r'^1\.[123]\.\d+ ',label) else '<small>'+str(k+1).zfill(2)+'</small>'+E(label))) for k,(hid,label) in enumerate(modules))+'</nav>'+body)
         prev=('#chapter-intro',t_('全书结构','Report structure')) if i==0 else ('#ch01-s0'+str(i),t_(*SHORT[i-1]))
         nex=('#ch01-s0'+str(i+2),t_(*SHORT[i+1])) if i<2 else (url(lang,'chapters/02/'),t_('第二章 · GOSO','Chapter 2 · GOSO'))
         out.append('<nav class="foundation-section-nav" aria-label="'+t_('继续阅读','Continue reading')+'">'+link(prev[0],'← '+prev[1])+link(nex[0],nex[1]+' →')+'</nav></section>')
@@ -88,7 +89,7 @@ def sidebar(lang,report):
     out='<div class="nav-label">'+t_('第一章 · 阅读路径','CHAPTER 1 · READING PATH')+'</div>'+link(url(lang,''),t_('← 全书目录','← Contents'))+link(url(lang,'introduction/'),t_('引言','Introduction'))+link('#chapter-intro',t_('全书结构','Report structure'))
     for i,src in enumerate(report.PARTS):
         sec=M['chapters'][0]['sections'][i];out+='<div class="focus-group" data-reading-section="'+sec['id']+'">'+link('#'+sec['id'],E(sec['number']+' '+sec['title'][lang]),'local-section')+'<div class="focus-subsections" hidden>'
-        out+=''.join(link('#'+hid,E(re.sub(r'^\d+\.\s*','',label))) for hid,label,level in report.headings(src,sec['id']) if level==2 and '资料与口径' not in label)
+        out+=''.join(link('#'+hid,E(re.sub(r'^\d+\.\s+','',label))) for hid,label,level in report.headings(src,sec['id']) if level==2 and '资料与口径' not in label)
         out+='</div></div>'
     out+='<div class="focus-next">'+link(url(lang,'chapters/02/'),t_('第二章 · GOSO →','Chapter 2 · GOSO →'))+'</div>'
     return out

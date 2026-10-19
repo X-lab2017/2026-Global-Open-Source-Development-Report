@@ -4,18 +4,18 @@ Usage: python3 preview/web/chapter1_print.py --font /path/NotoSansCJKsc-Regular.
 Requires reportlab and fontTools. No browser, network, or screenshot dependency.
 """
 from pathlib import Path
-import argparse, gzip, hashlib, html, json, os, re, shutil, sys
+import argparse, gzip, hashlib, html, json, math, os, re, shutil, sys
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import Paragraph
+from reportlab.platypus import Paragraph, BaseDocTemplate, PageTemplate, Frame, Flowable, PageBreak
 from reportlab.lib.styles import ParagraphStyle
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'preview/web'))
-from chapter_visuals import SDGS, SDG_COLORS, DPG
+from chapter_visuals import SDGS, SDG_COLORS, DPG, sdg_text_color
 
 INTRO = 'chapters/chapter1/本章介绍.md'
 SECTION = 'chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md'
@@ -24,7 +24,8 @@ LINE, WASH = '#a9bbc4', '#f2f6f7'
 FONT = 'GOSD'
 WEB = 'https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/01/'
 FIG_NAMES = ['fig-1-0-1_report_logic', 'fig-1-1-1_linux_collaboration', 'fig-1-1-2_model_derivatives', 'fig-1-1-3_sdgs_dpga']
-PAGE_NAMES = ['章首', '全书结构', '1.1 / 共同维护', '图 1-1-1 / Linux', '1.1 / 后续创造', '图 1-1-2 / 开放模型', '1.1 / 公共价值', '图 1-1-3 / SDGs × DPGA']
+BODY_SIZE = 11.2
+PRINT_WIDTH = A4[0] - 92
 
 
 def canonical():
@@ -78,7 +79,7 @@ def font_setup(path, work):
 def wrap(text, width, size):
     lines = []; line = ''
     for ch in text:
-        if ch == '\n' or (line and pdfmetrics.stringWidth(line + ch, FONT, size) > width):
+        if ch == '\n' or (line and ch not in '，。；：、！？）》”' and pdfmetrics.stringWidth(line + ch, FONT, size) > width):
             lines.append(line); line = ''
             if ch == '\n': continue
         line += ch
@@ -87,14 +88,13 @@ def wrap(text, width, size):
 
 
 class Figure:
-    def __init__(self, title, label, subtitle, height=840):
+    def __init__(self, title, label, subtitle='', height=600):
         self.ops = []; self.width = 640; self.height = height
         self.title = title
-        self.text(0, 18, label, 14, TEAL)
-        self.text(0, 61, title, 28)
-        self.text(0, 91, subtitle, 15, MUTED)
+        self.text(0, 17, label.split(' / ')[0]+'  '+title, 13.5, INK)
 
     def text(self, x, y, value, size=15, color=INK, align='left'):
+        if len(color)==4:color='#'+''.join(ch*2 for ch in color[1:])
         self.ops.append(('text', (x, y, str(value), size, color, align)))
 
     def lines(self, x, y, value, width, size=15, leading=23, color=INK):
@@ -111,6 +111,9 @@ class Figure:
     def dot(self, x, y, r=3, color=TEAL):
         self.ops.append(('dot', (x,y,r,color)))
 
+    def polygon(self, points, color):
+        self.ops.append(('polygon', (points,color)))
+
     def svg(self):
         o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="640" height="{self.height}" viewBox="0 0 640 {self.height}" role="img"><title>{html.escape(self.title)}</title><rect width="640" height="{self.height}" fill="white"/><g font-family="Noto Sans CJK SC,Noto Sans SC,sans-serif">']
         for kind, a in self.ops:
@@ -125,6 +128,8 @@ class Figure:
                 o.append(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}"{extra}/>')
             elif kind == 'dot':
                 x,y,r,color=a;o.append(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{color}"/>')
+            elif kind == 'polygon':
+                points,color=a;o.append('<polygon points="'+' '.join(f'{x:.3f},{y:.3f}' for x,y in points)+f'" fill="{color}"/>')
         return ''.join(o)+'</g></svg>'
 
     def paint(self, c, x, top, width):
@@ -144,159 +149,183 @@ class Figure:
                 c.drawPath(p);c.setDash([])
             elif kind == 'dot':
                 px,py,r,color=a;c.setFillColor(HexColor(color));c.circle(px,-py,r,stroke=0,fill=1)
+            elif kind == 'polygon':
+                points,color=a;c.setFillColor(HexColor(color));p=c.beginPath();p.moveTo(points[0][0],-points[0][1])
+                for px,py in points[1:]:p.lineTo(px,-py)
+                p.close();c.drawPath(p,stroke=0,fill=1)
         c.restoreState()
 
 
 def report_figure():
-    f=Figure('六章，一条清晰的阅读路径','图 1-0-1 / READING THE REPORT','共同目标组织观察，研究证据连接行动。')
-    f.rect(0,120,640,130,WASH)
-    f.text(22,149,'第一章 / 建立共同基础',15,TEAL)
-    f.text(22,185,'从开放协作到公共价值',24)
-    f.text(22,218,'1.1 共同创新与公共价值 · 1.2 OSDGs · 1.3 OSDI',16,MUTED)
-    f.line([(320,250),(320,281)],TEAL,2);f.line([(315,274),(320,281),(325,274)],TEAL,2)
-    f.text(0,307,'第二至第五章 / 四个互补观察视角',18)
-    items=[('第二章 · GOSO','全球开源生态观测地图','参与、贡献与开放资产，在哪里积累？',TEAL),
-           ('第三章 · GOSR','全球开源影响力排行榜','哪些地区、组织与项目形成关键影响？',PURPLE),
-           ('第四章 · GOSL','全球开源技术全景洞察','技术如何分类，各领域怎样演进？',BLUE),
-           ('第五章 · GOSM','全球开源大模型发展洞察','模型由谁供给，怎样复用与开放？',GREEN)]
+    f=Figure('全书结构与研究路径','图 1-0-1',height=316)
+    f.rect(0,33,640,47,WASH)
+    f.text(16,53,'第一章  从开放协作到公共价值',14,TEAL)
+    f.text(16,72,'1.1 共同创新与公共价值  ·  1.2 OSDGs 发展目标  ·  1.3 OSDI 指标与方法',12)
+    f.line([(320,80),(320,99)],TEAL,1.5);f.line([(316,94),(320,99),(324,94)],TEAL,1.5)
+    items=[('第二章 · GOSO','全球开源生态观测地图','规模、分布与联系',TEAL),
+           ('第三章 · GOSR','全球开源影响力排行榜','贡献主体与生态影响',PURPLE),
+           ('第四章 · GOSL','全球开源技术全景洞察','技术分类与演进',BLUE),
+           ('第五章 · GOSM','全球开源大模型发展洞察','模型供给、复用与开放',GREEN)]
     for i,(label,title,q,color) in enumerate(items):
-        x=(i%2)*332;y=330+(i//2)*147
-        f.rect(x,y,308,128);f.line([(x+1,y+1),(x+307,y+1)],color,3)
-        f.text(x+18,y+30,label,16,color);f.text(x+18,y+65,title,18)
-        f.lines(x+18,y+93,q,272,14,21,MUTED)
-    f.line([(320,612),(320,644)],TEAL,2);f.line([(315,637),(320,644),(325,637)],TEAL,2)
-    f.rect(0,660,640,113,WASH);f.text(22,689,'第六章 / 从研究走向行动',15,TEAL)
-    f.text(22,724,'未来展望与行动建议',24);f.text(22,754,'三项共同任务 · 九条主体建议',16,MUTED)
-    f.text(0,812,'阅读提示：四个研究视角相互补充；连线表示篇章联系，不代表评分权重。',14,MUTED)
+        x=(i%2)*332;y=107+(i//2)*74
+        f.rect(x,y,308,63);f.line([(x+1,y+1),(x+307,y+1)],color,2)
+        f.text(x+14,y+18,label,12.5,color);f.text(x+14,y+38,title,14)
+        f.text(x+14,y+55,q,12,MUTED)
+    f.line([(320,245),(320,264)],TEAL,1.5);f.line([(316,259),(320,264),(324,259)],TEAL,1.5)
+    f.rect(0,272,640,43,WASH);f.text(16,290,'第六章  未来展望与行动建议',14,TEAL)
+    f.text(16,308,'三项共同任务 · 九条主体建议',12)
     return f
 
 
 def linux_figure(s):
-    f=Figure('一个内核，连接持续的全球协作','图 1-1-1 / LINUX · COLLECTIVE MAINTENANCE','累计贡献结构：组织与个人两个观察尺度。')
+    f=Figure('Linux 组织与贡献者累计排行','图 1-1-1',height=568)
     for x,key,label,color in [(0,'organizations','组织条目',TEAL),(332,'contributors','贡献者记录',BLUE)]:
-        f.rect(x,114,308,76,WASH);f.text(x+17,146,f'{s[key]["total"]:,}',30,color);f.text(x+17,173,label+' · 累计榜单总记录数',14,MUTED)
-    for start,key,title,color in [(221,'organizations','A / 组织榜单前 10 条',TEAL),(498,'contributors','B / 贡献者榜单前 10 条',BLUE)]:
-        rows=s[key]['rows']; f.text(0,start,title,18,color)
-        f.text(490,start,'贡献记录量',13,MUTED,'right');f.text(640,start,'本类榜单占比',13,MUTED,'right')
+        f.rect(x,35,308,44,WASH);f.text(x+15,54,f'{s[key]["total"]:,}  '+label,14,color)
+        f.text(x+15,72,'累计榜单总记录数',11.8,MUTED)
+    for start,key,title,color in [(105,'organizations','A  组织榜单前 10 条',TEAL),(322,'contributors','B  贡献者榜单前 10 条',BLUE)]:
+        rows=s[key]['rows'];f.text(0,start,title,14,color)
+        f.text(503,start,'贡献记录量',12,MUTED,'right');f.text(640,start,'本类榜单占比',12,MUTED,'right')
         for i,row in enumerate(rows):
-            y=start+26+i*23;f.text(0,y,f'{i+1:02d}',12,MUTED)
-            f.text(28,y,row['name'],13)
-            f.rect(260,y-10,155,9,'#e3e9ed','#e3e9ed',0)
-            f.rect(260,y-10,155*row['contributions']/rows[0]['contributions'],9,color,color,0)
-            f.text(503,y,f'{row["contributions"]:,}',13,INK,'right');f.text(640,y,f'{row["percentage"]:.2f}%',13,INK,'right')
-    f.line([(0,767),(640,767)])
-    f.lines(0,792,'LFX Linux Kernel 累计快照 · 2026-10-11。组织与个人占比分别计算，条形按各自榜首缩放。累计记录不等于年度活跃数，也不表示 OpenRank。',635,14,22,MUTED)
+            y=start+24+i*18;f.text(0,y,f'{i+1:02d}',11.5,MUTED);f.text(28,y,row['name'],12.4)
+            f.rect(260,y-9,155,8,'#e3e9ed','#e3e9ed',0)
+            f.rect(260,y-9,155*row['contributions']/rows[0]['contributions'],8,color,color,0)
+            f.text(503,y,f'{row["contributions"]:,}',12.4,INK,'right');f.text(640,y,f'{row["percentage"]:.2f}%',12.4,INK,'right')
+    f.line([(0,527),(640,527)])
+    f.lines(0,547,'LFX Linux Kernel 累计快照 · 2026-10-11。组织与个人占比分别计算；条形按各自榜首缩放。',640,11.8,17,MUTED)
     return f
 
 
 def model_figure(s):
-    f=Figure('开放的影响，延伸到下一次创造','图 1-1-2 / OPEN MODELS · REUSE & DERIVATIVES','A 观察样本构成的变化；B 理解一次具体的后续创造。')
-    f.text(0,131,'A / 新增微调与衍生模型的基础模型发布方地区构成',17)
+    f=Figure('开放模型的宏观趋势与 Qwen 衍生实例','图 1-1-2',height=632)
+    f.text(0,51,'A  新增微调与衍生模型的基础模型发布方地区构成',14)
     colors=[BLUE,TEAL,PURPLE];keys=['china','unitedStates','europe'];names=['中国','美国','欧洲'];dashes=[None,[9,5],[2,5]]
     for i in range(3):
-        x=i*170;f.line([(x,158),(x+31,158)],colors[i],2.2,dashes[i]);f.text(x+40,163,names[i],14)
-    left,top,w,h=36,192,540,206
+        x=i*170;f.line([(x,75),(x+31,75)],colors[i],2,dashes[i]);f.text(x+40,80,names[i],12.5)
+    left,top,w,h=36,105,540,160
     for value in [0,25,50,75,100]:
-        y=top+h-h*value/100;f.line([(left,y),(left+w,y)],LINE,.65);f.text(left-9,y+4,str(value)+'%',12,MUTED,'right')
-    for i,(key,color,dash) in enumerate(zip(keys,colors,dashes)):
+        y=top+h-h*value/100;f.line([(left,y),(left+w,y)],LINE,.65);f.text(left-9,y+4,str(value)+'%',11.5,MUTED,'right')
+    for key,color,dash in zip(keys,colors,dashes):
         pts=[(left+j*w/27,top+h-h*d[key]/100) for j,d in enumerate(s['models'])]
-        f.line(pts,color,2.4,dash)
-        for px,py in pts:f.dot(px,py,2.5,color)
-        f.text(left+w+10,pts[-1][1]+4,str(s['models'][-1][key])+'%',14,color)
+        f.line(pts,color,2.2,dash)
+        for px,py in pts:f.dot(px,py,2.3,color)
+        f.text(left+w+10,pts[-1][1]+4,str(s['models'][-1][key])+'%',12.5,color)
     for j,label in [(0,'2023.11'),(2,'2024.01'),(14,'2025.01'),(27,'2026.02')]:
-        x=left+j*w/27;f.line([(x,398),(x,404)],MUTED,.8)
-        # Early ticks are labelled on separate lines to prevent collision.
-        f.text(x,423+(17 if j==2 else 0),label,12,MUTED,'center')
-    f.lines(0,466,'ATOM 跟踪的 Hugging Face 样本，2023.11-2026.02。地区按基础模型发布方归属；不是用户国籍或全球市场份额。保留来源取整百分比。',640,13.5,21,MUTED)
-    f.line([(0,506),(640,506)])
-    f.text(0,539,'B / Qwen2.5-7B 与四个选定的直接下游',17)
-    source='Qwen/Qwen2.5-7B'
-    targets=[source+'-Instruct',source+'-Instruct-1M','Qwen/Qwen2.5-Coder-7B','Qwen/Qwen2.5-Math-7B']
+        x=left+j*w/27;f.line([(x,265),(x,270)],MUTED,.8);f.text(x,286+(17 if j==2 else 0),label,11.5,MUTED,'center')
+    f.lines(0,327,'ATOM 跟踪的 Hugging Face 样本，2023.11-2026.02。地区按基础模型发布方归属；保留来源取整百分比。',640,11.8,18,MUTED)
+    f.line([(0,362),(640,362)]);f.text(0,387,'B  Qwen2.5-7B 与四个选定的直接下游',14)
+    source='Qwen/Qwen2.5-7B';targets=[source+'-Instruct',source+'-Instruct-1M','Qwen/Qwen2.5-Coder-7B','Qwen/Qwen2.5-Math-7B']
     net=json.loads(gzip.decompress((ROOT/'preview/content/gosm/network.json.gz').read_bytes()))
     edges={(e['source'],e['target']) for e in net['edges']};assert all((source,t) in edges for t in targets)
-    f.rect(0,644,219,75,WASH);f.text(109.5,672,'基础模型',14,TEAL,'center');f.text(109.5,701,'Qwen2.5-7B',20,INK,'center')
+    f.rect(0,470,219,54,WASH);f.text(109.5,491,'基础模型',12,TEAL,'center');f.text(109.5,513,'Qwen2.5-7B',14,INK,'center')
     for i,(name,use) in enumerate(zip(targets,['对话','长上下文','编程','数学'])):
-        y=561+i*54;mid=y+23
-        f.line([(219,682),(251,682),(251,mid),(283,mid)],LINE,1.3)
-        f.line([(278,mid-4),(283,mid),(278,mid+4)],LINE,1.3)
-        f.rect(284,y,356,46);f.text(298,y+17,use,12,TEAL);f.text(298,y+36,name.split('/')[1],15)
-    f.lines(0,811,'第五章快照 · 2026-10-16。所有模型 ID 均带 Qwen/ 前缀。连线为发布者声明，非训练验证；与 A 分属不同样本，不用于解释 A 的份额。',640,13.5,21,MUTED)
+        y=411+i*43;mid=y+18
+        f.line([(219,497),(251,497),(251,mid),(283,mid)],LINE,1.3);f.line([(278,mid-4),(283,mid),(278,mid+4)],LINE,1.3)
+        f.rect(284,y,356,36);f.text(298,y+14,use,11.5,TEAL);f.text(298,y+29,name.split('/')[1],13)
+    f.lines(0,603,'第五章快照 · 2026-10-16。所有模型 ID 均带 Qwen/ 前缀。连线表示发布者的基础模型声明，与 A 分属不同样本。',640,11.8,18,MUTED)
     return f
 
 
 def public_figure():
-    f=Figure('联合国 SDGs × 数字公共品联盟 DPGA','图 1-1-3 / PUBLIC VALUE · GOALS & CONDITIONS','发展方向与实践条件并列呈现，不作逐项对应。')
-    f.text(0,136,'希望改善什么？',20,TEAL);f.text(332,136,'需要具备什么？',20,TEAL)
-    f.text(0,163,'17 项发展目标',14,MUTED);f.text(332,163,'9 项实践条件',14,MUTED)
+    f=Figure('联合国 SDGs × 数字公共品联盟 DPGA','图 1-1-3',height=579)
+    f.text(153,52,'SDGs · 17 项发展目标',14,TEAL,'center');f.text(486,52,'DPGA · 9 项实践条件',14,TEAL,'center')
+    cx,cy,outer,inner=153,190,112,76
+    for i,color in enumerate(SDG_COLORS):
+        start=-90+i*360/17+1;end=-90+(i+1)*360/17-1
+        angle=lambda t:math.radians(start+(end-start)*t/24)
+        points=[(cx+outer*math.cos(angle(t)),cy+outer*math.sin(angle(t))) for t in range(25)]
+        points += [(cx+inner*math.cos(angle(t)),cy+inner*math.sin(angle(t))) for t in range(24,-1,-1)]
+        f.polygon(points,color);mid=math.radians((start+end)/2)
+        f.text(cx+94*math.cos(mid),cy+94*math.sin(mid)+4,str(i+1),12,sdg_text_color(color),'center')
+    f.text(cx,184,'UN SDGs',14,INK,'center');f.text(cx,207,'可持续发展目标',12,MUTED,'center')
+    # Numbered key preserves every goal name without hover or selection.
     for i,(z,e) in enumerate(SDGS):
-        y=181+i*32
-        f.rect(0,y,307,29,'#ffffff',LINE,2);f.rect(0,y,4,29,SDG_COLORS[i],SDG_COLORS[i],0)
-        f.text(15,y+20,f'{i+1:02d}',13,MUTED);f.text(48,y+20,z,13.5)
+        col=0 if i<9 else 1;row=i if i<9 else i-9;x=col*158;y=335+row*26
+        f.rect(x,y-9,4,13,SDG_COLORS[i],SDG_COLORS[i],0);f.text(x+11,y,f'{i+1:02d}',10.8,MUTED)
+        f.lines(x+33,y,z,122,11.2,13.5)
     for i,(z,e,zd,ed) in enumerate(DPG):
-        y=181+i*60
-        f.rect(332,y,308,56,WASH,LINE,3);f.text(344,y+19,f'{i+1:02d}',12,TEAL)
-        f.text(373,y+19,z,14)
+        x=332+(i%3)*105;y=78+(i//3)*154;w=98;h=144
+        f.rect(x,y,w,h,WASH,LINE,4);f.text(x+w/2,y+23,f'{i+1:02d}',12,TEAL,'center')
+        title=wrap(z,w-14,12.5)
+        for j,line in enumerate(title):f.text(x+w/2,y+47+j*18,line,12.5,INK,'center')
         desc='数据安全、有害内容与骚扰防护。' if i==8 else zd
-        f.lines(373,y+38,desc,254,12,15,MUTED)
-    f.rect(0,745,640,67,WASH)
-    f.text(16,770,'开放软件 · 开放数据 · 开放 AI 系统 · 开放内容',16)
-    f.text(16,795,'目标相关性、标准符合性与地方实施成效，需要分别判断。',15,MUTED)
-    f.text(0,837,'DPG 条件为简述；据 DPGA Standard 改编（CC BY-SA 4.0）。本图不表示认证。',12.5,MUTED)
+        for j,line in enumerate(wrap(desc,w-18,11.5)):f.text(x+w/2,y+86+j*16,line,11.5,MUTED,'center')
+    f.text(0,575,'DPG 条件据 DPGA Standard 简述，CC BY-SA 4.0。',11.2,MUTED)
     return f
 
 
-def draw_para(c, text, x, top, width, size=11.2, leading=19.6, color=INK):
+class ManuscriptParagraph(Paragraph):
+    def split(self, availWidth, availHeight):
+        # Sample paragraphs are short; move a whole paragraph instead of stranding two lines.
+        return []
+
+
+def paragraph(text, style):
     escaped=html.escape(text)
     escaped=re.sub(r'\*\*(.*?)\*\*',lambda m:'<font color="'+TEAL+'">'+m.group(1)+'</font>',escaped)
-    style=ParagraphStyle('body',fontName=FONT,fontSize=size,leading=leading,textColor=HexColor(color),wordWrap='CJK',splitLongWords=True)
-    p=Paragraph(escaped,style);pw,ph=p.wrap(width,1000)
-    p.drawOn(c,x,top-ph);return top-ph
+    cls=ManuscriptParagraph if style.name in ['body','opening'] else Paragraph
+    return cls(escaped,style)
 
 
-def page_frame(c, number, name):
-    w,h=A4; c.setFillColor(HexColor(TEAL));c.rect(46,h-37,30,3,fill=1,stroke=0)
-    c.setFont(FONT,9);c.setFillColor(HexColor(MUTED));c.drawString(87,h-38,'GOSD 2026 / 全球开源发展报告')
-    c.drawRightString(w-46,h-38,'第一章 · 章首与 1.1 样章')
-    c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,45,w-46,45)
-    c.setFont(FONT,8.5);c.drawString(46,29,name);c.drawRightString(w-46,29,f'{number:02d} / 08')
-    c.bookmarkPage('page-'+str(number));c.addOutlineEntry(name,'page-'+str(number),0,False)
+class PrintFigure(Flowable):
+    def __init__(self, figure, fid):
+        super().__init__();self.figure=figure;self.fid=fid
+        self.width=PRINT_WIDTH;self.height=figure.height*PRINT_WIDTH/640
+        self.spaceBefore=8;self.spaceAfter=14
+    def draw(self):
+        self.figure.paint(self.canv,0,self.height,self.width)
 
 
-def narrative_page(c, number, title, kicker, paras, second=None):
-    w,h=A4; page_frame(c,number,PAGE_NAMES[number-1]);x=46;width=w-92
-    c.setFillColor(HexColor(TEAL));c.setFont(FONT,10);c.drawString(x,h-91,kicker)
-    titlelines=wrap(title,width,23)
-    y=h-131
-    for line in titlelines:c.setFillColor(HexColor(INK));c.setFont(FONT,23);c.drawString(x,y,line);y-=33
-    y-=10
-    for p in paras:y=draw_para(c,p,x,y,width)-12
-    if second:
-        heading,more=second;y-=5;c.setFillColor(HexColor(TEAL));c.setFont(FONT,14);c.drawString(x,y,heading);y-=24
-        for p in more:y=draw_para(c,p,x,y,width)-12
-    assert y>65, f'Page {number} content overflow: {y:.1f}'
-    # A running figure reference is navigational, not part of the research prose.
-    c.setFillColor(HexColor(MUTED));c.setFont(FONT,9);c.drawString(x,62,'配图见下一页 / '+['图 1-0-1','图 1-1-1','图 1-1-2','图 1-1-3'][(number-1)//2])
-    c.showPage()
+class SampleDoc(BaseDocTemplate):
+    def __init__(self, filename):
+        super().__init__(str(filename),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=64,bottomMargin=57,
+                         title='GOSD 2026 第一章：章首与 1.1 对照样章',author='GOSD / 全球开源发展报告',
+                         subject='网页与 PDF 共用完整研究底稿',pageCompression=1,invariant=1)
+        self.section='第一章 从开放协作到公共价值';self.locations=[];self.fig_pages={};self.bookmarks=[]
+        self.addPageTemplates(PageTemplate('report',[Frame(46,57,PRINT_WIDTH,A4[1]-121,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=self.page_frame,onPageEnd=self.page_footer))
+    def page_frame(self,c,doc):
+        c.saveState();w,h=A4;c.setFillColor(HexColor(TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0)
+        c.setFont(FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告')
+        c.drawRightString(w-46,h-37,'第一章  从开放协作到公共价值')
+        c.restoreState()
+    def page_footer(self,c,doc):
+        c.saveState();w,h=A4
+        c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43)
+        c.setFillColor(HexColor(MUTED));c.setFont(FONT,8.2);c.drawString(46,28,self.section);c.drawRightString(w-46,28,str(doc.page));c.restoreState()
+    def afterFlowable(self,flowable):
+        if isinstance(flowable,PrintFigure):self.fig_pages[flowable.fid]=self.page
+        if isinstance(flowable,Paragraph):
+            text=flowable.getPlainText()
+            self.locations.append({'page':self.page,'text':text,'style':flowable.style.name})
+            if flowable.style.name in ['chapter','section','subsection']:
+                level={'chapter':0,'section':1,'subsection':2}[flowable.style.name]
+                key='heading-'+str(len(self.bookmarks));self.canv.bookmarkPage(key);self.canv.addOutlineEntry(text,key,level,False)
+                self.bookmarks.append({'level':level,'text':text,'page':self.page})
+                if level>0:self.section=text
 
 
 def build_pdf(figs, output):
-    intro,parts=canonical();output.parent.mkdir(parents=True,exist_ok=True)
-    os.environ['SOURCE_DATE_EPOCH']='1792368000'  # 2026-10-19, reproducible edition date
-    c=canvas.Canvas(str(output),pagesize=A4,pageCompression=1,invariant=1)
-    c.setTitle('GOSD 2026 第一章：章首与 1.1 · 网页与 PDF 对照样章')
-    c.setAuthor('GOSD / 全球开源发展报告');c.setSubject('一份完整研究底稿，网页与 PDF 两种编排。')
-    narratives=[('从开放协作到公共价值','01 / 价值、目标与观察方法',paragraphs(intro),None),
-                (parts[0][0],'1.1 / 开源、共同创新与公共价值',paragraphs(parts[0][1]),None),
-                (parts[1][0],'1.1 / 从共同维护到下游复用',paragraphs(parts[1][1]),None),
-                ('连接发展目标与实践条件','1.1 / SDGs 与数字公共品',paragraphs(parts[2][1]),(parts[3][0],paragraphs(parts[3][1])))]
-    for i,(title,kicker,paras,second) in enumerate(narratives):
-        narrative_page(c,2*i+1,title,kicker,paras,second)
-        page_frame(c,2*i+2,PAGE_NAMES[2*i+1]);figs[i].paint(c,46,A4[1]-75,A4[0]-92)
-        if i==0:
-            c.linkURL(WEB,(46,58,A4[0]-46,75),relative=0)
-            c.setFillColor(HexColor(MUTED));c.setFont(FONT,8.5);c.drawString(46,65,'同一份正文与图号；网页可进一步切换、点选与探索。')
-        c.showPage()
-    c.save()
+    output.parent.mkdir(parents=True,exist_ok=True);os.environ['SOURCE_DATE_EPOCH']='1792368000'
+    body=ParagraphStyle('body',fontName=FONT,fontSize=BODY_SIZE,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=8,allowWidows=0,allowOrphans=0)
+    opening=ParagraphStyle('opening',parent=body,leading=18,spaceAfter=6)
+    styles={
+        1:ParagraphStyle('chapter',parent=body,fontSize=20,leading=29,spaceAfter=16,keepWithNext=True),
+        2:ParagraphStyle('section',parent=body,fontSize=16,leading=24,spaceBefore=18,spaceAfter=12,keepWithNext=True),
+        3:ParagraphStyle('subsection',parent=body,fontSize=12.6,leading=21,spaceBefore=14,spaceAfter=10,keepWithNext=True,textColor=HexColor(TEAL))}
+    lookup={name:PrintFigure(fig,name.split('_')[0][4:]) for name,fig in zip(FIG_NAMES,figs)}
+    story=[]
+    for src in [INTRO,SECTION]:
+        if src==SECTION:story.append(PageBreak())
+        for block in (ROOT/src).read_text().split('\n\n'):
+            block=block.strip()
+            if not block:continue
+            if block.startswith('# '):
+                level=1 if src==INTRO else 2;story.append(paragraph(block[2:],styles[level]))
+            elif block.startswith('## '):story.append(paragraph(block[3:],styles[3]))
+            elif block.startswith('!['):
+                name=re.search(r'/([^/]+)\.svg\)',block)[1];story.append(lookup[name])
+            else:story.append(paragraph(block,opening if src==INTRO else body))
+    doc=SampleDoc(output);doc.build(story)
+    return {'pages':doc.page,'figure_pages':doc.fig_pages,'headings':doc.bookmarks,'paragraph_pages':doc.locations}
 
 
 def main():
@@ -310,17 +339,19 @@ def main():
     assets=ROOT/'preview/content/report-assets/print';assets.mkdir(parents=True,exist_ok=True)
     for name,fig in zip(FIG_NAMES,figs):
         p=svgdir/(name+'.svg');p.write_text(fig.svg());shutil.copy2(p,assets/p.name)
-    build_pdf(figs,args.output)
+    layout=build_pdf(figs,args.output)
     destination=ROOT/'preview/content/report-assets/chapter1/GOSD-2026-chapter1-sample.pdf'
     shutil.copy2(args.output,destination)
-    manifest={'scope':'章首＋1.1','edition':'2026-10-19','pages':8,'paper':'A4 portrait',
+    manifest={'scope':'章首＋1.1','edition':'2026-10-19-v2','pages':layout['pages'],'paper':'A4 portrait',
+              'figure_pages':layout['figure_pages'],'headings':layout['headings'],'body_font_pt':BODY_SIZE,
               'manuscript_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in [INTRO,SECTION]},
               'figure_ids':['1-0-1','1-1-1','1-1-2','1-1-3'],
               'pdf_sha256':hashlib.sha256(args.output.read_bytes()).hexdigest(),
               'source_files':story['files'],
               'qwen_sha256':hashlib.sha256((ROOT/'preview/content/gosm/network.json.gz').read_bytes()).hexdigest()}
     (ROOT/'preview/content/report-assets/chapter1/sample-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-    print(json.dumps({'pdf':str(args.output),'bytes':args.output.stat().st_size,'pages':8,'publication_figures':4},ensure_ascii=False))
+    (work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2))
+    print(json.dumps({'pdf':str(args.output),'bytes':args.output.stat().st_size,'pages':layout['pages'],'publication_figures':4},ensure_ascii=False))
 
 
 if __name__=='__main__': main()

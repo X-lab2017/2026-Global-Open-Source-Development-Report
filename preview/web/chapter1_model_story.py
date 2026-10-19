@@ -9,7 +9,7 @@ def enhance(markup,lang):
  uses=[('基础模型','Base model'),('对话','Conversation'),('长上下文','Long context'),('编程','Coding'),('数学','Mathematics')]
  data=json.loads(gzip.decompress((ROOT/'content/gosm/network.json.gz').read_bytes()));edges={(x['source'],x['target']) for x in data['edges']};assert all((source,n) in edges for n in names[1:])
  marker='<div class="model-readout">';start=markup.index(marker);bound=markup.index('<p class="viz-boundary">',start)
- tabs='<div class="model-story-tabs" role="group" aria-label="'+t('模型故事视角','Model story views')+'"><button type="button" data-model-story-view="macro" aria-controls="model-story-macro" aria-pressed="true">'+t('宏观趋势','Macro trends')+'</button><button type="button" data-model-story-view="qwen" aria-controls="model-story-qwen" aria-pressed="false">'+t('Qwen 实例','Qwen case')+'</button><span>'+t('从生态构成，走近一次具体的再创造','From ecosystem patterns to a concrete example')+'</span></div>'
+ tabs='<div class="model-story-tabs" role="group" aria-label="'+t('模型故事视角','Model story views')+'"><button type="button" data-model-story-view="macro" aria-controls="model-story-macro" aria-pressed="true">'+t('宏观趋势','Macro trends')+'</button><button type="button" data-model-story-view="qwen" aria-controls="model-story-qwen" aria-pressed="false">'+t('Qwen 实例','Qwen case')+'</button></div>'
  def node(i):
   name=names[i];display=name.split('/')[1]
   return '<button type="button" class="qwen-story-node '+('qwen-base' if i==0 else 'qwen-child')+'" data-qwen-node="'+str(i)+'" aria-controls="qwen-story-detail" aria-pressed="'+str(i==0).lower()+'"><small>'+t(*uses[i])+'</small><strong>'+E(display)+'</strong></button>'

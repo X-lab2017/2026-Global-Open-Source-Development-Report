@@ -115,4 +115,4 @@
 .chapter-sample-pdf{flex-shrink:0;font-size:14px;line-height:1.5;color:var(--brand);border:1px solid currentColor;border-radius:6px;padding:10px 14px;text-decoration:none}
 .chapter-sample-pdf:hover,.chapter-sample-pdf:focus-visible{background:var(--pale);outline:2px solid var(--brand);outline-offset:3px}
 @media(max-width:600px){.chapter-sample-edition{align-items:flex-start;flex-direction:column;gap:12px;padding:16px}.chapter-sample-pdf{align-self:flex-start}}
-@media print{.chapter-sample-edition{display:none!important}.foundation-reading .chapter-print-figure[src*="/print/"]{max-height:245mm;width:100%;object-fit:contain;break-before:page;break-after:page}}
+@media print{.chapter-sample-edition{display:none!important}.foundation-reading .chapter-print-figure[src*="/print/"]{max-height:245mm;width:100%;object-fit:contain;break-before:auto;break-after:auto;break-inside:avoid}}

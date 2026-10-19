@@ -104,6 +104,7 @@ def sidebar(lang,active,route,unit=None):
 
 def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False):
     t=lambda z,e:tr(lang,z,e)
+    if route=='chapters/01/':title=t('第一章 · ','Chapter 1 · ')+title
     address=home(lang) if is_home else path(lang,route)
     SEARCH.append({'lang':lang,'title':title,'description':deck,'url':address,'category':next(n[1 if lang=='zh' else 2] for n in NAV if n[0]==active)})
     if is_home:main='<main id="main" class="portal-main shell">'+content+'</main>'
@@ -128,7 +129,7 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
     reading_page='chapter1' if route=='chapters/01/' else 'introduction' if route=='introduction/' else 'summary' if route=='summary/' else 'overview' if is_home else 'contents' if route=='' else ''
     front_assets='<link rel="stylesheet" href="/reading-experience.css"><script src="/reading-experience.js?v=20261018-overview" defer></script>'
     if route=='presentation/':front_assets+='<link rel="stylesheet" href="/review-deck.css"><link rel="stylesheet" href="/concept-lenses.css"><script src="/concept-lenses.js" defer></script><script src="/review-deck.js" defer></script>'
-    chapter1_assets='<link rel="stylesheet" href="/chapter1-restored.css?v=20261019-ch1-dual"><link rel="stylesheet" href="/chapter1-release.css?v=20261018-release"><script src="/chapter1-restored.js?v=20261019-ch1-story" defer></script><script src="/chapter1-theme-map.js?v=20261018-release" defer></script>' if route=='chapters/01/' else ''
+    chapter1_assets='<link rel="stylesheet" href="/chapter1-restored.css?v=20261019-ch1-dual-v2"><link rel="stylesheet" href="/chapter1-release.css?v=20261018-release"><script src="/chapter1-restored.js?v=20261019-ch1-story" defer></script><script src="/chapter1-theme-map.js?v=20261018-release" defer></script>' if route=='chapters/01/' else ''
     if route=='chapters/01/':
         main=main.replace('评审预览 · 2026.10.16','正式发布 · 2026.10.18').replace('Review preview · 2026.10.16','Published · 2026.10.18').replace('2025.07 — 2026.06',t('各图标注统计期','Periods are labelled per figure'))
     action_assets='<link rel="stylesheet" href="/chapter6.css?v=20261018-review"><script src="/chapter6.js?v=20261018-review" defer></script>' if route=='chapters/06/' else ''
