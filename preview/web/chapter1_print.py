@@ -1,11 +1,10 @@
-"""Publication views of four existing figures; PDF reads the canonical manuscript.
+"""Complete Chapter 1: shared manuscript and seven publication views.
 
 Usage: python3 preview/web/chapter1_print.py --font /path/NotoSansCJKsc-Regular.otf
 Requires reportlab and fontTools. No browser, network, or screenshot dependency.
 """
 from pathlib import Path
 import argparse, gzip, hashlib, html, json, math, os, re, shutil, sys
-from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
@@ -15,28 +14,21 @@ from reportlab.lib.styles import ParagraphStyle
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'preview/web'))
-from chapter_visuals import SDGS, SDG_COLORS, DPG, sdg_text_color
+from chapter_visuals import SDGS, SDG_COLORS, DPG, DIM_NOTES, sdg_text_color
+from chapter1_publication import FIGURES,PDF_NAME,MANIFEST_NAME,EDITION
+from chapter1_theme_map import PILLARS,MAPS
 
 INTRO = 'chapters/chapter1/本章介绍.md'
 SECTION = 'chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md'
+SECTIONS=[SECTION,'chapters/chapter1/1.2-OSDGs-开源发展目标框架.md','chapters/chapter1/1.3-OSDI-开源发展度量体系.md']
+SOURCES=[INTRO,*SECTIONS]
 INK, MUTED, TEAL, BLUE, PURPLE, GREEN = '#18394c', '#4d6573', '#087984', '#2d5f9f', '#76508b', '#407a51'
 LINE, WASH = '#a9bbc4', '#f2f6f7'
 FONT = 'GOSD'
 WEB = 'https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/01/'
-FIG_NAMES = ['fig-1-0-1_report_logic', 'fig-1-1-1_linux_collaboration', 'fig-1-1-2_model_derivatives', 'fig-1-1-3_sdgs_dpga']
+FIG_NAMES = [v[3] for v in FIGURES.values()]
 BODY_SIZE = 11.2
 PRINT_WIDTH = A4[0] - 92
-
-
-def canonical():
-    intro = (ROOT / INTRO).read_text()
-    body = (ROOT / SECTION).read_text()
-    parts = re.split(r'(?m)^## ', body)[1:]
-    return intro, [(p.splitlines()[0], '\n'.join(p.splitlines()[1:]).strip()) for p in parts]
-
-
-def paragraphs(text):
-    return [p.strip() for p in text.split('\n\n') if p.strip() and not p.startswith(('#', '!['))]
 
 
 def plain(text):
@@ -51,10 +43,13 @@ def font_setup(path, work):
     from fontTools.pens.ttGlyphPen import TTGlyphPen
     from fontTools.pens.cu2quPen import Cu2QuPen
     font = FTFont(path)
-    source = Path(__file__).read_text() + (ROOT / INTRO).read_text() + (ROOT / SECTION).read_text()
+    source = Path(__file__).read_text() + ''.join((ROOT/p).read_text() for p in SOURCES)
     source += json.dumps([SDGS, DPG], ensure_ascii=False)
     source += (ROOT / 'preview/content/story-data.json').read_text()
     source += (ROOT / 'preview/content/manifest.json').read_text()
+    source += (ROOT / 'preview/content/report.json').read_text()
+    source += (ROOT / 'preview/web/chapter1_publication.py').read_text()
+    source += json.dumps([DIM_NOTES,PILLARS,MAPS],ensure_ascii=False)
     opts = subset.Options(); opts.layout_features = []
     sub = subset.Subsetter(options=opts); sub.populate(text=source + ''.join(chr(i) for i in range(32, 127))); sub.subset(font)
     output = work / 'gosd-print-subset.ttf'
@@ -90,8 +85,21 @@ def wrap(text, width, size):
 class Figure:
     def __init__(self, title, label, subtitle='', height=600):
         self.ops = []; self.width = 640; self.height = height
-        self.title = title
-        self.text(0, 17, label.split(' / ')[0]+'  '+title, 13.5, INK)
+        self.title = title;self.label=label;self.finalized=False
+
+    def finish(self):
+        """Remove the former header band; keep the centered caption beneath all content."""
+        assert not self.finalized
+        shifted=[]
+        for kind,a in self.ops:
+            a=list(a)
+            if kind in ['text','rect','dot']:a[1]-=26
+            elif kind in ['line','polygon']:a[0]=[(x,y-26) for x,y in a[0]]
+            shifted.append((kind,tuple(a)))
+        self.ops=shifted;self.caption_y=self.height-3
+        self.text(320,self.caption_y,self.label+'  '+self.title,13,INK,'center')
+        self.height+=2;self.finalized=True
+        return self
 
     def text(self, x, y, value, size=15, color=INK, align='left'):
         if len(color)==4:color='#'+''.join(ch*2 for ch in color[1:])
@@ -196,7 +204,7 @@ def linux_figure(s):
 
 
 def model_figure(s):
-    f=Figure('开放模型的宏观趋势与 Qwen 衍生实例','图 1-1-2',height=632)
+    f=Figure('开放模型的宏观趋势与 Qwen 衍生实例','图 1-1-2',height=618)
     f.text(0,51,'A  新增微调与衍生模型的基础模型发布方地区构成',14)
     colors=[BLUE,TEAL,PURPLE];keys=['china','unitedStates','europe'];names=['中国','美国','欧洲'];dashes=[None,[9,5],[2,5]]
     for i in range(3):
@@ -221,7 +229,7 @@ def model_figure(s):
         y=411+i*43;mid=y+18
         f.line([(219,497),(251,497),(251,mid),(283,mid)],LINE,1.3);f.line([(278,mid-4),(283,mid),(278,mid+4)],LINE,1.3)
         f.rect(284,y,356,36);f.text(298,y+14,use,11.5,TEAL);f.text(298,y+29,name.split('/')[1],13)
-    f.lines(0,603,'第五章快照 · 2026-10-16。所有模型 ID 均带 Qwen/ 前缀。连线表示发布者的基础模型声明，与 A 分属不同样本。',640,11.8,18,MUTED)
+    f.text(0,593,'关系快照：2026-10-16。连线为发布者声明，展示四个选定下游。',11.8,MUTED)
     return f
 
 
@@ -253,9 +261,74 @@ def public_figure():
     return f
 
 
+def goals_figure(rows):
+    f=Figure(FIGURES['fig-osdg-goals'][1],'图 1-2-1',height=575)
+    colors=[TEAL,BLUE,PURPLE,GREEN]
+    questions=['谁能参与，怎样持续成长？','有哪些可用、可复用的成果？','贡献与成果怎样形成影响？','协作如何持续，价值如何实现？']
+    for i,color in enumerate(colors):
+        group=[r for r in rows if r['pillar_id']=='X'+str(i+1)]
+        x=(i%2)*332;y=33+(i//2)*265;f.rect(x,y,308,248,WASH)
+        f.line([(x+1,y+1),(x+307,y+1)],color,2)
+        f.text(x+14,y+25,'X'+str(i+1)+'  '+group[0]['pillar_name_zh'],14,color)
+        f.text(x+14,y+49,questions[i],12,MUTED)
+        for j,dim in enumerate(dict.fromkeys(r['dimension_id'] for r in group)):
+            item=next(r for r in group if r['dimension_id']==dim);dy=y+83+j*57
+            f.text(x+14,dy,dim+'  '+item['dimension_name_zh'],13)
+            f.lines(x+14,dy+20,DIM_NOTES[dim][0],280,11.8,17,MUTED)
+    return f
+
+
+def indicators_figure(rows):
+    f=Figure(FIGURES['fig-osdi-map'][1],'图 1-3-1',height=658)
+    f.text(0,42,'北极星：核心结果     驱动：活动与投入     诊断：差异与约束',12,MUTED)
+    colors=[TEAL,BLUE,PURPLE,GREEN];y=63
+    for i,color in enumerate(colors):
+        group=[r for r in rows if r['pillar_id']=='X'+str(i+1)]
+        dims=list(dict.fromkeys(r['dimension_id'] for r in group));cols=[[r for r in group if r['dimension_id']==d] for d in dims]
+        h=65+max(map(len,cols))*21
+        f.rect(0,y,640,h,WASH);f.line([(1,y+1),(639,y+1)],color,2)
+        f.text(14,y+23,'X'+str(i+1)+'  '+group[0]['pillar_name_zh'],14,color)
+        w=640/len(dims)
+        for j,items in enumerate(cols):
+            x=j*w+14
+            if j:f.line([(j*w,y+40),(j*w,y+h-13)],LINE,.7)
+            f.text(x,y+48,dims[j]+'  '+items[0]['dimension_name_zh'],12.5,INK)
+            for k,r in enumerate(items):
+                yy=y+72+k*21
+                f.text(x,yy,r['indicator_name_zh'],11.8,INK)
+                f.text((j+1)*w-13,yy,r['role'],11.5,color,'right')
+        y+=h+12
+    f.height=y+15
+    return f
+
+
+def themes_figure():
+    f=Figure(FIGURES['fig-theme-maps'][1],'图 1-3-2',height=506)
+    colors=[TEAL,BLUE,PURPLE,GREEN]
+    f.text(0,42,'发展目标 · OSDGs',12,MUTED);f.text(274,42,'第二章 · GOSO',12,MUTED)
+    for j,m in enumerate(MAPS):
+        for code in m[3]:
+            i=int(code[1])-1;y1=112+i*102;y2=86+j*57
+            pts=[]
+            for n in range(31):
+                t=n/30;u=1-t
+                pts.append((u**3*210+3*u*u*t*238+3*u*t*t*246+t**3*274,u**3*y1+3*u*u*t*y1+3*u*t*t*y2+t**3*y2))
+            f.line(pts,colors[i],1.1)
+    for i,p in enumerate(PILLARS):
+        y=76+i*102;f.rect(0,y,210,72,WASH,colors[i])
+        f.text(12,y+22,p[0],12,colors[i]);f.text(40,y+22,p[1],13)
+        f.lines(12,y+46,p[3],187,11.5,16,MUTED)
+    for j,m in enumerate(MAPS):
+        y=61+j*57;f.rect(274,y,366,50)
+        f.text(287,y+21,'2.'+str(j+1)+'  '+m[0]+'-Map  '+m[1],13,TEAL)
+        f.text(287,y+40,m[4],11.5,MUTED)
+    f.text(0,481,'连线表示阅读与研究联系，不代表计算权重。',11.8,MUTED)
+    return f
+
+
 class ManuscriptParagraph(Paragraph):
     def split(self, availWidth, availHeight):
-        # Sample paragraphs are short; move a whole paragraph instead of stranding two lines.
+        # Move short paragraphs intact instead of stranding two lines.
         return []
 
 
@@ -275,10 +348,10 @@ class PrintFigure(Flowable):
         self.figure.paint(self.canv,0,self.height,self.width)
 
 
-class SampleDoc(BaseDocTemplate):
+class ChapterDoc(BaseDocTemplate):
     def __init__(self, filename):
         super().__init__(str(filename),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=64,bottomMargin=57,
-                         title='GOSD 2026 第一章：章首与 1.1 对照样章',author='GOSD / 全球开源发展报告',
+                         title='GOSD 2026 第一章：从开放协作到公共价值',author='GOSD / 全球开源发展报告',
                          subject='网页与 PDF 共用完整研究底稿',pageCompression=1,invariant=1)
         self.section='第一章 从开放协作到公共价值';self.locations=[];self.fig_pages={};self.bookmarks=[]
         self.addPageTemplates(PageTemplate('report',[Frame(46,57,PRINT_WIDTH,A4[1]-121,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=self.page_frame,onPageEnd=self.page_footer))
@@ -313,8 +386,8 @@ def build_pdf(figs, output):
         3:ParagraphStyle('subsection',parent=body,fontSize=12.6,leading=21,spaceBefore=14,spaceAfter=10,keepWithNext=True,textColor=HexColor(TEAL))}
     lookup={name:PrintFigure(fig,name.split('_')[0][4:]) for name,fig in zip(FIG_NAMES,figs)}
     story=[]
-    for src in [INTRO,SECTION]:
-        if src==SECTION:story.append(PageBreak())
+    for src in SOURCES:
+        if src in SECTIONS:story.append(PageBreak())
         for block in (ROOT/src).read_text().split('\n\n'):
             block=block.strip()
             if not block:continue
@@ -324,34 +397,38 @@ def build_pdf(figs, output):
             elif block.startswith('!['):
                 name=re.search(r'/([^/]+)\.svg\)',block)[1];story.append(lookup[name])
             else:story.append(paragraph(block,opening if src==INTRO else body))
-    doc=SampleDoc(output);doc.build(story)
+    doc=ChapterDoc(output);doc.build(story)
     return {'pages':doc.page,'figure_pages':doc.fig_pages,'headings':doc.bookmarks,'paragraph_pages':doc.locations}
 
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--font',type=Path,required=True)
-    parser.add_argument('--output',type=Path,default=ROOT/'output/pdf/GOSD-2026-chapter1-sample.pdf')
+    parser.add_argument('--output',type=Path,default=ROOT/'output/pdf'/PDF_NAME)
     args=parser.parse_args();work=ROOT/'tmp/pdfs/chapter1';work.mkdir(parents=True,exist_ok=True)
     font_setup(args.font,work)
     story=json.loads((ROOT/'preview/content/story-data.json').read_text())
-    figs=[report_figure(),linux_figure(story),model_figure(story),public_figure()]
+    rows=json.loads((ROOT/'preview/content/report.json').read_text())['indicators']
+    figs=[f.finish() for f in [report_figure(),linux_figure(story),model_figure(story),public_figure(),goals_figure(rows),indicators_figure(rows),themes_figure()]]
     svgdir=ROOT/'figures/chapter1/print';svgdir.mkdir(parents=True,exist_ok=True)
     assets=ROOT/'preview/content/report-assets/print';assets.mkdir(parents=True,exist_ok=True)
     for name,fig in zip(FIG_NAMES,figs):
         p=svgdir/(name+'.svg');p.write_text(fig.svg());shutil.copy2(p,assets/p.name)
     layout=build_pdf(figs,args.output)
-    destination=ROOT/'preview/content/report-assets/chapter1/GOSD-2026-chapter1-sample.pdf'
+    destination=ROOT/'preview/content/report-assets/chapter1'/PDF_NAME
     shutil.copy2(args.output,destination)
-    manifest={'scope':'章首＋1.1','edition':'2026-10-19-v2','pages':layout['pages'],'paper':'A4 portrait',
+    # Keep existing shared download links working; all visible entry points use the complete chapter name.
+    shutil.copy2(args.output,destination.with_name('GOSD-2026-chapter1-sample.pdf'))
+    manifest={'scope':'第一章完整正文：章首、1.1、1.2、1.3','edition':EDITION,'pages':layout['pages'],'paper':'A4 portrait','pdf_file':PDF_NAME,
               'figure_pages':layout['figure_pages'],'headings':layout['headings'],'body_font_pt':BODY_SIZE,
-              'manuscript_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in [INTRO,SECTION]},
-              'figure_ids':['1-0-1','1-1-1','1-1-2','1-1-3'],
+              'manuscript_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCES},
+              'figure_ids':[v[0][2:] for v in FIGURES.values()],
+              'indicator_dictionary_sha256':hashlib.sha256((ROOT/'data/meta/osdi_indicator_dictionary.csv').read_bytes()).hexdigest(),
               'pdf_sha256':hashlib.sha256(args.output.read_bytes()).hexdigest(),
               'source_files':story['files'],
               'qwen_sha256':hashlib.sha256((ROOT/'preview/content/gosm/network.json.gz').read_bytes()).hexdigest()}
-    (ROOT/'preview/content/report-assets/chapter1/sample-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+    (ROOT/'preview/content/report-assets/chapter1'/MANIFEST_NAME).write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     (work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2))
-    print(json.dumps({'pdf':str(args.output),'bytes':args.output.stat().st_size,'pages':layout['pages'],'publication_figures':4},ensure_ascii=False))
+    print(json.dumps({'pdf':str(args.output),'bytes':args.output.stat().st_size,'pages':layout['pages'],'publication_figures':7},ensure_ascii=False))
 
 
 if __name__=='__main__': main()

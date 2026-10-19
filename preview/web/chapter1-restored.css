@@ -109,10 +109,15 @@
 @media(max-width:520px){.foundation-intro .foundation-route{grid-template-columns:1fr;gap:8px}.foundation-intro .foundation-route a{display:grid;grid-template-columns:30px 1fr;gap:4px 9px}.foundation-intro .foundation-route small{grid-row:1/3;align-self:center}.foundation-intro .foundation-route span{grid-column:2}}
 @media(prefers-reduced-motion:reduce){#fig-models .qwen-story-graph path{transition:none}}
 @media print{.foundation-reading .foundation-intro .manuscript>p:first-child{font-size:12pt}.foundation-reading .foundation-intro .manuscript>p,.foundation-reading #ch01-s01 .reading-module>p{font-size:11pt;line-height:1.8}}
-.chapter-sample-edition{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;margin:0 0 28px;border:1px solid var(--line);border-left:3px solid var(--brand);background:var(--paper);border-radius:8px}
-.chapter-sample-edition strong{display:block;font-size:15px;line-height:1.5;color:var(--ink)}
-.chapter-sample-edition span{display:block;margin-top:5px;font-size:13px;line-height:1.7;color:var(--muted)}
+.chapter-download-edition{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;margin:0 0 28px;border:1px solid var(--line);border-left:3px solid var(--brand);background:var(--paper);border-radius:8px}
+.chapter-download-edition strong{display:block;font-size:15px;line-height:1.5;color:var(--ink)}
+.chapter-download-edition span{display:block;margin-top:5px;font-size:13px;line-height:1.7;color:var(--muted)}
 .chapter-sample-pdf{flex-shrink:0;font-size:14px;line-height:1.5;color:var(--brand);border:1px solid currentColor;border-radius:6px;padding:10px 14px;text-decoration:none}
 .chapter-sample-pdf:hover,.chapter-sample-pdf:focus-visible{background:var(--pale);outline:2px solid var(--brand);outline-offset:3px}
-@media(max-width:600px){.chapter-sample-edition{align-items:flex-start;flex-direction:column;gap:12px;padding:16px}.chapter-sample-pdf{align-self:flex-start}}
-@media print{.chapter-sample-edition{display:none!important}.foundation-reading .chapter-print-figure[src*="/print/"]{max-height:245mm;width:100%;object-fit:contain;break-before:auto;break-after:auto;break-inside:avoid}}
+@media(max-width:600px){.chapter-download-edition{align-items:flex-start;flex-direction:column;gap:12px;padding:16px}.chapter-sample-pdf{align-self:flex-start}}
+@media print{.chapter-download-edition{display:none!important}.foundation-reading .chapter-print-figure[src*="/print/"]{max-height:245mm;width:100%;object-fit:contain;break-before:auto;break-after:auto;break-inside:avoid}}
+
+/* Publication captions sit below the content in both embedded and full-screen views. */
+.foundation-figure.screen-slide>figcaption{display:block!important;text-align:center!important;font:13px/1.6 var(--sans)!important;color:var(--muted)!important}
+.foundation-figure.screen-slide>figcaption *{text-align:inherit}
+.foundation-reading .reading-chart-tools{margin-left:auto}

@@ -37,7 +37,7 @@ DIM_NOTES={
  '3.3':('数据如何被采用，并支持后续复用？','How are datasets adopted and reused?'),
  '4.1':('谁参与治理，哪些规则有据可查？','Who governs, and which rules can be verified?'),
  '4.2':('开放技术如何面向公共利益？','How does open technology serve public interests?')}
-FIGURES={'fig-1-0-1_report_logic.svg':'report-logic','fig-1-1-1_linux_collaboration.svg':'linux','fig-1-1-2_model_derivatives.svg':'models','fig-1-1-3_sdgs_dpga.svg':'public-goods','fig-1-2-1_osdg_framework.svg':'goals','fig-1-3-1_osdi_explorer.svg':'indicators'}
+FIGURES={'fig-1-0-1_report_logic.svg':'report-logic','fig-1-1-1_linux_collaboration.svg':'linux','fig-1-1-2_model_derivatives.svg':'models','fig-1-1-3_sdgs_dpga.svg':'public-goods','fig-1-2-1_osdg_framework.svg':'goals','fig-1-3-1_osdi_explorer.svg':'indicators','fig-1-3-2_theme_maps.svg':'themes'}
 def path(lang,route):return '/2026/'+lang+'/'+route
 def link(href,label,extra=''):return f'<a href="{E(href)}" class="inline-link" {extra}>{label}</a>'
 def dump(value):return json.dumps(value,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
@@ -159,6 +159,9 @@ def indicators(lang,r,source):
     out+='</div><div class="atlas-legend"><span><i class="availability-dot related"></i>'+t('有关联资料','Related files')+'</span><span><i class="availability-dot pending"></i>'+t('待补匹配数据','Data pending')+'</span><span id="atlas-role-count" aria-live="polite">'+t('突出显示 29 / 29 项','Highlighting 29 / 29 measures')+'</span></div><div id="indicator-selection" class="indicator-inspector" aria-live="polite">'+indicator_panel(rows[0],lang)+'</div><p class="viz-boundary">'+t('三种角色不构成评分权重；“有关联资料”不等于“指标已算完”。ModelRank 保留概念说明，外部故事数据不用于补齐指标。','Roles do not imply scoring weights. Related files do not mean completed measurements. ModelRank remains conceptual; external stories do not fill indicator gaps.')+'</p><script type="application/json" id="indicators-viz-data">'+dump({x['indicator_code']:x for x in rows})+'</script>'
     return out+fig_end(t('图 1-3-1 · OSDI 指标地图：4 个支柱、10 个维度、29 项指标。','Figure 1-3-1 · OSDI atlas: 4 pillars, 10 dimensions and 29 measures.'),link('/assets/report/osdi_indicator_dictionary.csv',t('统一指标字典 CSV ↓','Canonical indicator dictionary CSV ↓'),'download')+' · '+link(path(lang,'methodology/'),t('方法与范围 →','Methods and scope →')))
 def render(kind,lang,r,source):
+    if kind=='themes':
+        from chapter1_theme_map import render as theme_render
+        return '<span id="theme-maps"></span>'+theme_render(lang)
     if kind=='models':
         from chapter1_model_story import enhance
         return enhance(models(lang,r,source),lang)

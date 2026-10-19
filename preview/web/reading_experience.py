@@ -2,7 +2,7 @@
 Preserves source figures, tables, stable anchors and canonical definitions.
 """
 import html,json,re
-import chapter1_theme_map
+from chapter1_publication import FIGURES, PDF_NAME, MANIFEST_NAME
 import frontmatter_content as frontmatter
 import overview_visuals as overview
 from pathlib import Path
@@ -15,7 +15,7 @@ def link(url,label,cls=''):return f'<a href="{E(url)}" class="{cls}">{label}</a>
 def url(lang,route):return '/2026/'+lang+'/'+route
 SHORT=[('公共价值','Public value'),('OSDGs 目标框架','OSDGs goals'),('OSDI 指标体系','OSDI indicators')]
 QUESTIONS=[('为什么研究开源？','Why study open source?'),('开源朝哪里发展？','Where should it develop?'),('如何用证据观察？','How can evidence reveal change?')]
-FIGURES={'fig-report-logic':('图 1-0-1','全书结构与研究路径','Report structure'), 'fig-linux':('图 1-1-1','Linux：长期协作','Linux collaboration'), 'fig-models':('图 1-1-2','开放模型：宏观趋势与衍生实例','Open model derivatives'), 'fig-public-goods':('图 1-1-3','SDGs × DPGA','SDGs and digital public goods'), 'fig-osdg-goals':('图 1-2-1','OSDGs 目标框架','OSDGs goals framework'), 'fig-osdi-map':('图 1-3-1','OSDI 三级结构与指标探索','OSDI structure and indicators')}
+
 
 def plain_heading(n):
     for a in list(n.walk()):
@@ -39,16 +39,13 @@ def prepare_manuscript(markup,lang,prefix,src,source):
         if fid not in FIGURES:continue
         meta=FIGURES[fid];fig.add('foundation-figure');fig.set('data-reading-number',meta[0]);fig.set('data-reading-title',meta[1 if lang=='zh' else 2]);fig.set('data-slide-key',fig.attrs.get('data-slide-key') or fid)
         for cap in [n for n in fig.walk() if n.tag=='figcaption']:
-            for n in list(cap.walk()):
-                if n.tag=='a':remove(cap,n)
+            cap.children=[(meta[0] if lang=='zh' else meta[0].replace('图','Figure'))+' '+meta[1 if lang=='zh' else 2]]
         for n in list(fig.walk()):
             if n.has('osdi-foot-tools'):
                 for a in list(n.walk()):
                     if a.tag=='a':remove(n,a)
         # A static companion makes later print/PDF independent of interaction state.
-        svg={'fig-report-logic':'fig-1-0-1_report_logic.svg','fig-linux':'fig-1-1-1_linux_collaboration.svg','fig-models':'fig-1-1-2_model_derivatives.svg','fig-public-goods':'fig-1-1-3_sdgs_dpga.svg','fig-osdg-goals':'fig-1-2-1_osdg_framework.svg','fig-osdi-map':'fig-1-3-1_osdi_explorer.svg'}[fid]
-        if fid in ('fig-report-logic','fig-linux','fig-models','fig-public-goods'):
-            svg='print/'+svg
+        svg='print/'+meta[3]+'.svg'
         parent=next(n for n in [root,*root.walk()] if fig in n.children)
         parent.children.insert(parent.children.index(fig)+1,fragment('<img class="chapter-print-figure" src="/assets/report/'+svg+'" alt="'+E(meta[1 if lang=='zh' else 2])+'">')[0])
     # Group narrative modules, keeping all legacy heading IDs.
@@ -64,8 +61,8 @@ def prepare_manuscript(markup,lang,prefix,src,source):
 def chapter(lang,report):
     t_=lambda z,e:t(lang,z,e)
     out=['<div class="foundation-reading">',report.translation_note(lang),'<div class="reading-tools"><span>'+t_('第一章 · 价值、目标与指标','Chapter 1 · Values, goals and indicators')+'</span><button data-print>'+t_('打印本章','Print chapter')+'</button></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="'+t_('本章阅读进度','Chapter reading progress')+'"></progress>']
-    sample=json.loads((ROOT/'content/report-assets/chapter1/sample-manifest.json').read_text())
-    out.append('<aside class="chapter-sample-edition" aria-label="'+t_('章首与 1.1 双版本样章','Opening and section 1.1 sample editions')+'"><strong>'+t_('章首＋1.1 · 双版本样章','Opening + 1.1 · two editions')+'</strong>'+link('/assets/report/chapter1/GOSD-2026-chapter1-sample.pdf?v='+sample['edition'],t_('阅读 PDF · '+str(sample['pages'])+' 页 ↗','Read PDF · '+str(sample['pages'])+' pages ↗'),'chapter-sample-pdf')+'</aside>')
+    edition=json.loads((ROOT/'content/report-assets/chapter1'/MANIFEST_NAME).read_text())
+    out.append('<aside class="chapter-download-edition" aria-label="'+t_('第一章完整 PDF','Complete Chapter 1 PDF')+'"><strong>'+t_('第一章 · 完整打印版','Chapter 1 · complete print edition')+'</strong>'+link('/assets/report/chapter1/'+PDF_NAME+'?v='+edition['edition'],t_('阅读 PDF · '+str(edition['pages'])+' 页 ↗','Read PDF · '+str(edition['pages'])+' pages ↗'),'chapter-sample-pdf')+'</aside>')
     route='<nav class="foundation-route" aria-label="'+t_('本章阅读路径','Chapter reading path')+'">'+''.join(link('#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+t_(*SHORT[i])+'</strong><span>'+t_(*QUESTIONS[i])+'</span>') for i in range(3))+'</nav>'
     intro=prepare_manuscript(report.render(report.INTRO,lang,'intro'),lang,'intro',report.INTRO,report.source)
     # Introduce the chapter's purpose before asking the reader to choose a path.
@@ -74,14 +71,12 @@ def chapter(lang,report):
     for i,src in enumerate(report.PARTS):
         s=M['chapters'][0]['sections'][i];sid=s['id']
         body=prepare_manuscript(report.render(src,lang,sid),lang,sid,src,report.source)
-        # Update publication status without inventing a formula or changing a score.
-        body=body.replace('具体关系识别、模型去重、算法版本及结果将在 GOSM 资料补齐后更新。','仓库已收录 ModelRank v1 月度结果与模型复用资料；关系识别、模型去重、算法版本及结果复现仍需核验，月度榜单不等于年度汇总。')
         modules=[(hid,re.sub(r'^\d+\.\s+','',label)) for hid,label,level in report.headings(src,sid) if level==2 and '资料与口径' not in label]
         out.append('<section class="chapter-section foundation-section" id="'+sid+'" aria-labelledby="'+sid+'-title"><div class="section-topline">1.'+str(i+1)+' / '+['VALUE','GOALS','INDICATORS'][i]+'</div><h2 id="'+sid+'-title">'+E(s['number']+' '+s['title'][lang])+'</h2><p class="foundation-question">'+E(s['question'][lang])+'</p><nav class="foundation-modules" aria-label="'+t_('本节模块','Section modules')+'">'+''.join(link('#'+hid,('<small>'+re.match(r'^(1\.[123]\.\d+) ',label)[1]+'</small>'+E(re.sub(r'^1\.[123]\.\d+ ','',label)) if re.match(r'^1\.[123]\.\d+ ',label) else '<small>'+str(k+1).zfill(2)+'</small>'+E(label))) for k,(hid,label) in enumerate(modules))+'</nav>'+body)
         prev=('#chapter-intro',t_('全书结构','Report structure')) if i==0 else ('#ch01-s0'+str(i),t_(*SHORT[i-1]))
         nex=('#ch01-s0'+str(i+2),t_(*SHORT[i+1])) if i<2 else (url(lang,'chapters/02/'),t_('第二章 · GOSO','Chapter 2 · GOSO'))
         out.append('<nav class="foundation-section-nav" aria-label="'+t_('继续阅读','Continue reading')+'">'+link(prev[0],'← '+prev[1])+link(nex[0],nex[1]+' →')+'</nav></section>')
-    out.append('<section class="reading-bridge" id="theme-maps"><span class="section-topline">FROM FRAMEWORK TO OBSERVATION</span><h2>'+t_('带着目标与指标，进入七个主题地图','Follow goals and measures into seven thematic maps')+'</h2><p>'+t_('从关心的发展目标出发，找到相应的观察主题，再进入第二章查看具体的格局与变化。','Start with a development goal, find a theme, then explore its patterns and changes in Chapter 2.')+'</p>'+chapter1_theme_map.render(lang)+'<img class="chapter-print-figure" src="/assets/report/fig-1-3-2_theme_maps.svg" alt="'+t_('四大支柱与七个主题地图的阅读导览','Four pillars and seven thematic maps')+'"></section></div>')
+    out.append('</div>')
     return ''.join(out)
 
 def sidebar(lang,report):

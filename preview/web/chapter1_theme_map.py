@@ -12,7 +12,7 @@ MAPS=[
  ('A','资产','Assets',['X2'],'代码 · 模型 · 数据','Code · Models · Data','把代码、模型和数据放在一起，观察开放技术基础怎样积累与复用。','Observe how code, model and data assets accumulate and support further reuse.'),
  ('D','多样性','Diversity',['X1','X3'],'参与结构 · 跨域协作 · 开放连接','Participation · Cross-region collaboration','观察不同地区的参与结构及其协作联系，理解多样性与连接的关系。','Compare participation and cross-region collaboration to understand diversity and connectivity.'),
  ('G','治理与社会公益','Governance & public value',['X4'],'治理实践 · 开放条件 · 公共价值','Governance · Openness · Public value','从治理实践和开放条件出发，寻找持续协作与公共价值的可观察证据。','Explore governance and openness as evidence for sustained collaboration and public value.')]
-COLORS=['#237b89','#b47227','#6571ad','#4b8a67']
+COLORS=['#087984','#2d5f9f','#76508b','#407a51']
 def dataset(lang):
  zh=lang=='zh';manifest=json.loads((ROOT/'content/manifest.json').read_text())
  pillars=[dict(id=p[0],title=p[1 if zh else 2],question=p[3 if zh else 4]) for p in PILLARS]

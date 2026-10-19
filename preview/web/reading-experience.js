@@ -24,7 +24,7 @@ const figures=[...root.querySelectorAll('.foundation-figure,.chapter-table-figur
 for(const figure of figures){
  const frame=figure.parentElement,launcher=frame.previousElementSibling;if(!launcher?.classList.contains('slide-launcher'))continue;
  const launch=launcher.querySelector('button'),title=figure.dataset.readingTitle||figure.querySelector('h3,h4')?.textContent||t('对照表','Reference table');
- launcher.querySelector('span').textContent=figure.dataset.readingNumber||t('对照表 · 点击探索','Reference · explore');
+ launcher.querySelector('span').hidden=true;
  const controls=document.createElement('div');controls.className='reading-chart-tools';launch.classList.add('reading-present');launch.textContent=t('⛶ 全屏演示','⛶ Present');launch.setAttribute('aria-label',(figure.dataset.readingNumber||title)+' '+t('全屏演示','Present'));controls.append(launch);launcher.append(controls);
  const dialog=[...document.querySelectorAll('dialog.explorer-presentation')].find(d=>d.getAttribute('aria-label')===(figure.querySelector('h3,h4')?.textContent||t('报告交互图全屏演示','Interactive report presentation'))&&!presentations.some(x=>x.dialog===d));if(!dialog)continue;
  dialog.classList.add('foundation-presentation');const bar=dialog.querySelector('.slide-presentation-bar'),close=bar.querySelector('button');const label=document.createElement('span');label.className='reading-present-title';label.textContent=(figure.dataset.readingNumber||'')+' · '+title;bar.insertBefore(label,close);
