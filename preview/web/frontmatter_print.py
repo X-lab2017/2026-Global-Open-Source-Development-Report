@@ -13,7 +13,7 @@ import chapter1_print as common
 from chapter1_print import Figure,PrintFigure,paragraph,FONT,PRINT_WIDTH,INK,MUTED,TEAL,BLUE,PURPLE,GREEN,WASH,LINE
 import frontmatter_publication as pub
 import executive_summary as summary
-from declaration_diagram import PRINCIPLES,LAYERS,content as declaration_content
+from declaration_diagram import PRINCIPLES,LAYERS,STAGES,content as declaration_content
 ROOT=Path(__file__).resolve().parents[2]
 M=json.loads((ROOT/'preview/content/manifest.json').read_text())
 DATA=summary.DATA
@@ -43,16 +43,26 @@ def manuscripts():
  (ROOT/'outline/目录.md').write_text('\n\n'.join(toc)+'\n')
 
 def declaration_figure():
- f=Figure('宣言的共同愿景、七项原则与行动方向','',height=411)
- f.rect(0,32,640,70,WASH,LINE);f.text(320,56,'全球开源与人工智能国际合作宣言',14,INK,'center');f.text(320,82,'时代呼唤 → 共同愿景：开放、包容、安全、可持续',12,MUTED,'center')
+ c=declaration_content('zh');f=Figure(c['title'],'',height=461)
+ f.rect(0,12,640,98,WASH,LINE);f.text(320,35,c['title'],14,INK,'center')
+ f.text(320,55,c['subtitle'],11.5,MUTED,'center')
+ for i,stage in enumerate(STAGES[:2]):
+  x=166+i*308;f.text(x,77,stage[0],11.5,TEAL,'center');f.text(x,98,stage[2],12,INK,'center')
+ f.line([(308,90),(332,90)],TEAL,1);f.line([(328,86),(332,90),(328,94)],TEAL,1)
+ f.text(0,131,'核心原则 · 三层框架，七项原则',11.8,MUTED)
  for i,(name,_,indices) in enumerate(LAYERS):
-  x=i*220;color=[TEAL,BLUE,GREEN][i]
-  f.line([(320,102),(320,117),(x+100,117),(x+100,134)],color,1.1)
-  f.rect(x,134,200,195,WASH,color);f.text(x+100,158,name,13,color,'center')
-  for j,n in enumerate(indices):
-   y=192+j*54;p=PRINCIPLES[n-1];f.text(x+100,y,f'{n:02d}  '+p[0],13,INK,'center');f.text(x+100,y+20,p[2],11.5,MUTED,'center')
-  f.line([(x+100,329),(x+100,345),(320,345),(320,359)],color,1.1)
- f.rect(0,359,640,48,WASH,LINE);f.text(320,379,'行动共识：政府、企业、学界与公民社会携手',13,INK,'center');f.text(320,397,'深化 AI 治理、算力共享与人才培育合作',11.5,MUTED,'center')
+  x=i*220;color=[TEAL,PURPLE,GREEN][i]
+  f.line([(320,110),(320,143),(x+100,143),(x+100,156)],color,1.1)
+  f.rect(x,156,200,195,WASH,color);f.text(x+100,177,'第'+'一二三'[i]+'层',11.5,color,'center')
+  f.text(x+100,198,name,13,INK,'center');f.line([(x+12,210),(x+188,210)],LINE,.7)
+  ys=[244,309] if len(indices)==2 else [235,282,329]
+  for y,n in zip(ys,indices):
+   p=PRINCIPLES[n-1];f.text(x+100,y,f'{n:02d}  '+p[0],12.5,INK,'center');f.text(x+100,y+17,p[2],11.5,MUTED,'center')
+  f.line([(x+100,351),(x+100,366),(320,366),(320,379)],color,1.1)
+ f.rect(0,379,640,61,WASH,LINE);f.text(320,396,'行动共识',11.5,TEAL,'center')
+ f.text(320,416,STAGES[3][2],13,INK,'center')
+ f.text(320,432,'政府 · 企业 · 学界 · 公民社会  |  AI 治理 · 算力共享 · 人才培育',11.2,MUTED,'center')
+ f.text(320,459,c['closing'],11.5,MUTED,'center')
  return f
 
 class Cover(Flowable):
@@ -82,7 +92,7 @@ class Cover(Flowable):
   svg_image(ROOT/'preview/content/assets/cocreation-disc-dark.svg',295,105,244)
   svg_image(ROOT/'preview/content/assets/ccosi-cn-white.svg',54,166,145)
   text(56,134,'INCLUSION · QUALITY',10,'#bcd0db');text(56,115,'PARTICIPATION · IMPACT',10,'#bcd0db')
-  text(54,53,pub.copy('cover_note','zh')+'  |  2026.10.19',9.6,'#bcd0db')
+  text(54,53,pub.copy('cover_note','zh')+'  |  2026.10.20',9.6,'#bcd0db')
   c.restoreState()
 
 class Contents(Flowable):

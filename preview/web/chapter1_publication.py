@@ -1,7 +1,7 @@
 """Shared titles and publication paths for the complete first chapter."""
 PDF_NAME='GOSD-2026-chapter1.pdf'
 MANIFEST_NAME='chapter-manifest.json'
-EDITION='2026-10-19-chapter1'
+EDITION='2026-10-20-visual-parity'
 FIGURES={
  'fig-report-logic':('图 1-0-1','全书结构与研究路径','Report structure and research path','fig-1-0-1_report_logic'),
  'fig-linux':('图 1-1-1','Linux 组织与贡献者累计排行','Cumulative Linux organization and contributor rankings','fig-1-1-1_linux_collaboration'),

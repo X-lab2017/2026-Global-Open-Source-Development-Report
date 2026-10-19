@@ -60,4 +60,4 @@ if args.inspect_pdf:
  chapter=fitz.open(ROOT/'preview/content/report-assets/chapter1/GOSD-2026-chapter1.pdf');merged=fitz.open(pdf)
  for i in range(len(chapter)):
   assert chapter[i].get_pixmap().samples==merged[m['front_pages']+i].get_pixmap().samples,f'Chapter page changed: {i+1}'
-print(f'PASS: {m["pages"]}-page opening edition, a narrative executive summary and unnumbered declaration overview, same bilingual source prose and unchanged Chapter 1.'+(' PDF prose, contents, labels, links and all 12 appended page renderings verified.' if args.inspect_pdf else ''))
+print(f'PASS: {m["pages"]}-page opening edition, a narrative executive summary and unnumbered declaration overview, same bilingual source prose and unchanged Chapter 1.'+(f' PDF prose, contents, labels, links and all {m["chapter_pages"]} appended page renderings verified.' if args.inspect_pdf else ''))

@@ -17,6 +17,8 @@ sys.path.insert(0, str(ROOT / 'preview/web'))
 from chapter_visuals import SDGS, SDG_COLORS, DPG, DIM_NOTES, sdg_text_color
 from chapter1_publication import FIGURES,PDF_NAME,MANIFEST_NAME,EDITION
 from chapter1_theme_map import PILLARS,MAPS
+from chapter1_visual_contract import MODEL_SERIES,MODEL_TICKS,PILLAR_COLORS,VISUAL_FORMS
+from report_architecture import CORE
 
 INTRO = 'chapters/chapter1/本章介绍.md'
 SECTION = 'chapters/chapter1/1.1-开源-数字公共品与可持续发展引擎.md'
@@ -171,17 +173,17 @@ def report_figure():
     f.rect(0,33,640,47,WASH)
     f.text(16,53,'第一章  从开放协作到公共价值',14,TEAL)
     f.text(16,72,'1.1 共同创新与公共价值  ·  1.2 OSDGs 发展目标  ·  1.3 OSDI 指标与方法',12)
-    f.line([(320,80),(320,99)],TEAL,1.5);f.line([(316,94),(320,99),(324,94)],TEAL,1.5)
-    items=[('第二章 · GOSO','全球开源生态观测地图','规模、分布与联系',TEAL),
-           ('第三章 · GOSR','全球开源影响力排行榜','贡献主体与生态影响',PURPLE),
-           ('第四章 · GOSL','全球开源技术全景洞察','技术分类与演进',BLUE),
-           ('第五章 · GOSM','全球开源大模型发展洞察','模型供给、复用与开放',GREEN)]
-    for i,(label,title,q,color) in enumerate(items):
-        x=(i%2)*332;y=107+(i//2)*74
-        f.rect(x,y,308,63);f.line([(x+1,y+1),(x+307,y+1)],color,2)
-        f.text(x+14,y+18,label,12.5,color);f.text(x+14,y+38,title,14)
-        f.text(x+14,y+55,q,12,MUTED)
-    f.line([(320,245),(320,264)],TEAL,1.5);f.line([(316,259),(320,264),(324,259)],TEAL,1.5)
+    # Four peer chapters remain on the same rank, as in the interactive chapter map.
+    for i,((code,lines,_,question,_),color) in enumerate(zip(CORE,[TEAL,PURPLE,BLUE,GREEN])):
+        x=i*164;center=x+74
+        f.line([(320,80),(320,95),(center,95),(center,110)],LINE,1)
+        f.line([(center-3,106),(center,110),(center+3,106)],LINE,1)
+        f.rect(x,110,148,129);f.line([(x+1,111),(x+147,111)],color,2)
+        f.text(x+12,132,'第'+str(i+2)+'章',12,color)
+        for j,line in enumerate(lines):f.text(x+12,155+j*19,line,12.5)
+        f.text(x+12,199,code,13,color);f.text(x+12,222,question,11.5,MUTED)
+        f.line([(center,239),(center,254),(320,254),(320,272)],LINE,1)
+    f.line([(316,267),(320,272),(324,267)],LINE,1)
     f.rect(0,272,640,43,WASH);f.text(16,290,'第六章  未来展望与行动建议',14,TEAL)
     f.text(16,308,'三项共同任务 · 九条主体建议',12)
     return f
@@ -189,10 +191,10 @@ def report_figure():
 
 def linux_figure(s):
     f=Figure('Linux 组织与贡献者累计排行','图 1-1-1',height=568)
-    for x,key,label,color in [(0,'organizations','组织条目',TEAL),(332,'contributors','贡献者记录',BLUE)]:
+    for x,key,label,color in [(0,'organizations','组织条目',TEAL),(332,'contributors','贡献者记录',TEAL)]:
         f.rect(x,35,308,44,WASH);f.text(x+15,54,f'{s[key]["total"]:,}  '+label,14,color)
         f.text(x+15,72,'累计榜单总记录数',11.8,MUTED)
-    for start,key,title,color in [(105,'organizations','A  组织榜单前 10 条',TEAL),(322,'contributors','B  贡献者榜单前 10 条',BLUE)]:
+    for start,key,title,color in [(105,'organizations','A  组织榜单前 10 条',TEAL),(322,'contributors','B  贡献者榜单前 10 条',TEAL)]:
         rows=s[key]['rows'];f.text(0,start,title,14,color)
         f.text(503,start,'贡献记录量',12,MUTED,'right');f.text(640,start,'本类榜单占比',12,MUTED,'right')
         for i,row in enumerate(rows):
@@ -208,20 +210,22 @@ def linux_figure(s):
 def model_figure(s):
     f=Figure('开放模型的宏观趋势与 Qwen 衍生实例','图 1-1-2',height=618)
     f.text(0,51,'A  新增微调与衍生模型的基础模型发布方地区构成',14)
-    colors=[BLUE,TEAL,PURPLE];keys=['china','unitedStates','europe'];names=['中国','美国','欧洲'];dashes=[None,[9,5],[2,5]]
-    for i in range(3):
-        x=i*170;f.line([(x,75),(x+31,75)],colors[i],2,dashes[i]);f.text(x+40,80,names[i],12.5)
-    left,top,w,h=36,105,540,160
-    for value in [0,25,50,75,100]:
+    for i,(key,name,_,color) in enumerate(MODEL_SERIES):
+        x=i*216;f.rect(x,67,10,10,color,color,0);f.text(x+17,77,name,12.5)
+        first,last=s['models'][0][key],s['models'][-1][key]
+        f.text(x+17,98,f'{first}% → {last}%',12,MUTED)
+    left,top,w,h=36,121,596,150;step=w/len(s['models'])
+    for value in [0,50,100]:
         y=top+h-h*value/100;f.line([(left,y),(left+w,y)],LINE,.65);f.text(left-9,y+4,str(value)+'%',11.5,MUTED,'right')
-    for key,color,dash in zip(keys,colors,dashes):
-        pts=[(left+j*w/27,top+h-h*d[key]/100) for j,d in enumerate(s['models'])]
-        f.line(pts,color,2.2,dash)
-        for px,py in pts:f.dot(px,py,2.3,color)
-        f.text(left+w+10,pts[-1][1]+4,str(s['models'][-1][key])+'%',12.5,color)
-    for j,label in [(0,'2023.11'),(2,'2024.01'),(14,'2025.01'),(27,'2026.02')]:
-        x=left+j*w/27;f.line([(x,265),(x,270)],MUTED,.8);f.text(x,286+(17 if j==2 else 0),label,11.5,MUTED,'center')
-    f.lines(0,327,'ATOM 跟踪的 Hugging Face 样本，2023.11-2026.02。地区按基础模型发布方归属；保留来源取整百分比。',640,11.8,18,MUTED)
+    for j,row in enumerate(s['models']):
+        bottom=top+h
+        for key,_,__,color in MODEL_SERIES:
+            bar_h=h*row[key]/100;bottom-=bar_h
+            # Retain source rounding (some totals are 99/101), never renormalize.
+            f.rect(left+j*step+2,bottom,step-4,bar_h,color,color,0)
+    for j,label in MODEL_TICKS:
+        x=left+(j+.5)*step;f.text(x,292,label,11.5,MUTED,'center')
+    f.lines(0,325,'ATOM 跟踪的 Hugging Face 样本，2023.11-2026.02。地区按基础模型发布方归属；图例列示首月与末月占比，取整可能使合计不等于 100%。',640,11.8,18,MUTED)
     f.line([(0,362),(640,362)]);f.text(0,387,'B  Qwen2.5-7B 与四个选定的直接下游',14)
     source='Qwen/Qwen2.5-7B';targets=[source+'-Instruct',source+'-Instruct-1M','Qwen/Qwen2.5-Coder-7B','Qwen/Qwen2.5-Math-7B']
     net=json.loads(gzip.decompress((ROOT/'preview/content/gosm/network.json.gz').read_bytes()))
@@ -265,42 +269,41 @@ def public_figure():
 
 def goals_figure(rows):
     f=Figure(FIGURES['fig-osdg-goals'][1],'图 1-2-1',height=575)
-    colors=[TEAL,BLUE,PURPLE,GREEN]
-    questions=['谁能参与，怎样持续成长？','有哪些可用、可复用的成果？','贡献与成果怎样形成影响？','协作如何持续，价值如何实现？']
-    for i,color in enumerate(colors):
+    for i,color in enumerate(PILLAR_COLORS):
         group=[r for r in rows if r['pillar_id']=='X'+str(i+1)]
-        x=(i%2)*332;y=33+(i//2)*265;f.rect(x,y,308,248,WASH)
-        f.line([(x+1,y+1),(x+307,y+1)],color,2)
-        f.text(x+14,y+25,'X'+str(i+1)+'  '+group[0]['pillar_name_zh'],14,color)
-        f.text(x+14,y+49,questions[i],12,MUTED)
-        for j,dim in enumerate(dict.fromkeys(r['dimension_id'] for r in group)):
-            item=next(r for r in group if r['dimension_id']==dim);dy=y+83+j*57
-            f.text(x+14,dy,dim+'  '+item['dimension_name_zh'],13)
-            f.lines(x+14,dy+20,DIM_NOTES[dim][0],280,11.8,17,MUTED)
+        y=33+i*130;f.rect(0,y,640,118,WASH);f.line([(1,y+1),(639,y+1)],color,2)
+        f.text(13,y+23,'X'+str(i+1),12,color)
+        f.lines(13,y+45,group[0]['pillar_name_zh'],157,13,18,color)
+        f.lines(13,y+88,PILLARS[i][3],157,11.5,16,MUTED)
+        dims=list(dict.fromkeys(r['dimension_id'] for r in group));w=452/len(dims)
+        for j,dim in enumerate(dims):
+            item=next(r for r in group if r['dimension_id']==dim);x=180+j*w
+            f.rect(x,y+12,w-10,94)
+            f.text(x+11,y+32,dim,11.5,color)
+            f.text(x+11,y+53,item['dimension_name_zh'],12.5)
+            f.lines(x+11,y+76,DIM_NOTES[dim][0],w-30,11.5,16,MUTED)
     return f
 
 
 def indicators_figure(rows):
-    f=Figure(FIGURES['fig-osdi-map'][1],'图 1-3-1',height=658)
+    f=Figure(FIGURES['fig-osdi-map'][1],'图 1-3-1',height=680)
     f.text(0,42,'北极星：核心结果     驱动：活动与投入     诊断：差异与约束',12,MUTED)
-    colors=[TEAL,BLUE,PURPLE,GREEN];y=63
-    for i,color in enumerate(colors):
+    # Same 2×2 pillar positions as the web overview; reveal every indicator on paper.
+    for i,color in enumerate(PILLAR_COLORS):
         group=[r for r in rows if r['pillar_id']=='X'+str(i+1)]
-        dims=list(dict.fromkeys(r['dimension_id'] for r in group));cols=[[r for r in group if r['dimension_id']==d] for d in dims]
-        h=65+max(map(len,cols))*21
-        f.rect(0,y,640,h,WASH);f.line([(1,y+1),(639,y+1)],color,2)
-        f.text(14,y+23,'X'+str(i+1)+'  '+group[0]['pillar_name_zh'],14,color)
-        w=640/len(dims)
-        for j,items in enumerate(cols):
-            x=j*w+14
-            if j:f.line([(j*w,y+40),(j*w,y+h-13)],LINE,.7)
-            f.text(x,y+48,dims[j]+'  '+items[0]['dimension_name_zh'],12.5,INK)
-            for k,r in enumerate(items):
-                yy=y+72+k*21
-                f.text(x,yy,r['indicator_name_zh'],11.8,INK)
-                f.text((j+1)*w-13,yy,r['role'],11.5,color,'right')
-        y+=h+12
-    f.height=y+15
+        x=(i%2)*332;y=64 if i<2 else 331;h=251 if i<2 else 340
+        dims=list(dict.fromkeys(r['dimension_id'] for r in group))
+        f.rect(x,y,308,h,WASH);f.line([(x+1,y+1),(x+307,y+1)],color,2)
+        f.text(x+12,y+23,'X'+str(i+1)+'  '+group[0]['pillar_name_zh'],14,color)
+        f.text(x+12,y+43,f'{len(dims)} 个维度 · {len(group)} 项指标',11.5,MUTED)
+        cursor=y+65
+        for dim in dims:
+            items=[r for r in group if r['dimension_id']==dim]
+            f.text(x+12,cursor,dim+'  '+items[0]['dimension_name_zh'],12.2,color);cursor+=19
+            for r in items:
+                f.text(x+18,cursor,r['indicator_name_zh'],11.8,INK)
+                f.text(x+294,cursor,r['role'],11.3,MUTED,'right');cursor+=18
+            cursor+=7
     return f
 
 
@@ -415,6 +418,20 @@ def main():
     assets=ROOT/'preview/content/report-assets/print';assets.mkdir(parents=True,exist_ok=True)
     for name,fig in zip(FIG_NAMES,figs):
         p=svgdir/(name+'.svg');p.write_text(fig.svg());shutil.copy2(p,assets/p.name)
+        # Legacy per-figure links now resolve to the same canonical publication view.
+        shutil.copy2(p,ROOT/'figures/chapter1'/p.name)
+        shutil.copy2(p,ROOT/'preview/content/report-assets'/p.name)
+    shutil.copy2(svgdir/(FIG_NAMES[0]+'.svg'),ROOT/'figures/chapter1/fig-1-0-1_report_logic.editable.svg')
+    # Standalone Qwen case uses the identical node order, labels and geometry of panel B.
+    model=model_figure(story);case=Figure('Qwen2.5-7B 与四个选定的直接下游','图 1-1-2 B',height=290)
+    for kind,values in model.ops:
+        a=list(values);ys=[p[1] for p in a[0]] if kind in ['line','polygon'] else [a[1]]
+        if min(ys)<387:continue
+        if kind in ['line','polygon']:a[0]=[(x,y-336) for x,y in a[0]]
+        else:a[1]-=336
+        case.ops.append((kind,tuple(a)))
+    case.finish();casepath=ROOT/'figures/chapter1/fig-1-1-2_qwen_case.svg';casepath.write_text(case.svg())
+    shutil.copy2(casepath,ROOT/'preview/content/report-assets'/casepath.name)
     layout=build_pdf(figs,args.output)
     destination=ROOT/'preview/content/report-assets/chapter1'/PDF_NAME
     shutil.copy2(args.output,destination)
@@ -426,7 +443,7 @@ def main():
               'figure_ids':[v[0][2:] for v in FIGURES.values()],
               'indicator_dictionary_sha256':hashlib.sha256((ROOT/'data/meta/osdi_indicator_dictionary.csv').read_bytes()).hexdigest(),
               'pdf_sha256':hashlib.sha256(args.output.read_bytes()).hexdigest(),
-              'source_files':story['files'],
+              'source_files':story['files'],'visual_forms':VISUAL_FORMS,
               'qwen_sha256':hashlib.sha256((ROOT/'preview/content/gosm/network.json.gz').read_bytes()).hexdigest()}
     (ROOT/'preview/content/report-assets/chapter1'/MANIFEST_NAME).write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     (work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2))

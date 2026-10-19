@@ -1,11 +1,11 @@
 {
-  "edition": "2026-10-19-policy-summary",
+  "edition": "2026-10-20-visual-parity",
   "pages": 21,
   "front_pages": 9,
   "chapter_pages": 12,
   "pdf_file": "GOSD-2026-opening-and-chapter1.pdf",
-  "pdf_sha256": "6331d5704c4d1c5f46d9623356e1f96e3916d4e13f761f672db9e0c961825563",
-  "chapter1_sha256": "682d8a5c8ffbbaf45acc93c983c509e7d7e31feb820daccfbc3817f27c8fa24b",
+  "pdf_sha256": "18de6d3560ea5060d73e0eceef952cfc3039d8e83b1181094e773e35c7a85dc7",
+  "chapter1_sha256": "e192784c2eacda9699b5a4d6d6a974bf079a533d0e52312e77c80d7a47e91b64",
   "manuscript_sha256": {
     "outline/frontmatter-editorial.json": "9cf79c91a813c9081579b4e6c93ff1a7093d9bcb96da3b4402ac53ce3d4b5d25",
     "outline/executive-summary.json": "ca0cb26683abb86249242c85a9427998a3a7feb322245273312e3bb7e72c7216",

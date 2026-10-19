@@ -3,11 +3,12 @@ from pathlib import Path
 import csv,hashlib,html,json,math,shutil
 import chapter1_explorers
 import chapter1_tables
+from chapter1_visual_contract import MODEL_SERIES, MODEL_TICKS, PILLAR_COLORS
 
 ROOT=Path(__file__).resolve().parents[1]
 E=lambda s:html.escape(str(s),quote=True)
 T=lambda lang,z,e:z if lang=='zh' else e
-COLORS=['#087984','#2d5f9f','#76508b','#407a51']
+COLORS=PILLAR_COLORS
 SDG_COLORS=['#e5243b','#dda63a','#4c9f38','#c5192d','#ff3a21','#26bde2','#fcc30b','#a21942','#fd6925','#dd1367','#fd9d24','#bf8b2e','#3f7e44','#0a97d9','#56c02b','#00689d','#19486a']
 SDGS=[('无贫穷','No poverty'),('零饥饿','Zero hunger'),('良好健康与福祉','Good health and well-being'),('优质教育','Quality education'),('性别平等','Gender equality'),('清洁饮水和卫生设施','Clean water and sanitation'),('经济适用的清洁能源','Affordable and clean energy'),('体面工作和经济增长','Decent work and economic growth'),('产业、创新和基础设施','Industry, innovation and infrastructure'),('减少不平等','Reduced inequalities'),('可持续城市和社区','Sustainable cities and communities'),('负责任消费和生产','Responsible consumption and production'),('气候行动','Climate action'),('水下生物','Life below water'),('陆地生物','Life on land'),('和平、正义与强大机构','Peace, justice and strong institutions'),('促进目标实现的伙伴关系','Partnerships for the goals')]
 # Short translations and summaries of the DPGA's nine standard requirements.
@@ -81,13 +82,13 @@ def linux(lang,r,source):
 def models(lang,r,source):
     t=lambda z,e:T(lang,z,e);s=story();data=s['models'];last=data[-1]
     out=fig_open('fig-models','02 / OPEN MODELS · REUSE & DERIVATIVES',t('开放的影响，延伸到下一次创造','Open impact extends into the next creation'),t('查看 28 个月的新增微调与衍生模型构成；归属按基础模型发布方记录。','Explore 28 months of new fine-tunes and derivatives, attributed to base-model publishers.'),lang)
-    out+='<div class="model-readout"><div><span id="model-current-month">2026.02</span><strong><span id="model-china-share">70</span><small>%</small></strong><p>'+t('当月新增衍生基于中国发布方的基础模型','Of new derivatives used base models from Chinese publishers')+'</p></div><div class="model-measures" id="model-measures">'
-    for key,name,color in [('china',t('中国','China'),'#4E87C5'),('unitedStates',t('美国','United States'),'#279FA9'),('europe',t('欧洲','Europe'),'#9973B7')]:out+=f'<div style="--region:{color}"><i></i><span>{name}</span><b data-model-value="{key}">{last[key]}%</b></div>'
+    out+='<div class="model-readout"><div><span id="model-current-month">2026.02</span><strong style="color:#4E87C5"><span id="model-china-share">70</span><small>%</small></strong><p>'+t('当月新增衍生基于中国发布方的基础模型','Of new derivatives used base models from Chinese publishers')+'</p></div><div class="model-measures" id="model-measures">'
+    for key,zh,en,color in MODEL_SERIES:out+=f'<div style="--region:{color}"><i></i><span>{t(zh,en)}</span><b data-model-value="{key}">{last[key]}%</b></div>'
     out+='</div></div><div class="stack-chart"><div class="stack-axis"><span>100%</span><span>50%</span><span>0%</span></div><div class="month-bars" role="group" aria-label="'+t('按月选择模型衍生占比','Select monthly model derivative shares')+'">'
     for i,d in enumerate(data):
         label=d['date']+f' · China {d["china"]}% · US {d["unitedStates"]}% · Europe {d["europe"]}%'
-        out+=f'<button type="button" class="month-bar" data-month="{i}" aria-pressed="{str(i==len(data)-1).lower()}" aria-label="{E(label)}">'+''.join(f'<span class="stack-segment region-{key}" style="height:{d[key]}%"></span>' for key in ['china','unitedStates','europe'])+'</button>'
-    out+='</div></div><div class="month-endpoints">'+''.join(f'<span data-month-tick="{i}" style="--tick:{(i+.5)/len(data)*100:.4f}%">{label}</span>' for i,label in [(0,'2023.11'),(2,'2024.01'),(14,'2025.01'),(27,'2026.02')])+'</div><div class="month-control"><label for="model-month">'+t('月份','Month')+f'</label><button type="button" data-month-step="-1" aria-label="'+t('上一个月','Previous month')+f'">‹</button><input id="model-month" type="range" min="0" max="{len(data)-1}" value="{len(data)-1}" step="1"><button type="button" data-month-step="1" aria-label="'+t('下一个月','Next month')+'">›</button><output id="model-month-label" for="model-month">2026.02</output></div><p id="model-announcement" class="sr-only" aria-live="polite"></p>'
+        out+=f'<button type="button" class="month-bar" data-month="{i}" aria-pressed="{str(i==len(data)-1).lower()}" aria-label="{E(label)}">'+''.join(f'<span class="stack-segment region-{key}" style="height:{d[key]}%;background:{color}"></span>' for key,zh,en,color in MODEL_SERIES)+'</button>'
+    out+='</div></div><div class="month-endpoints">'+''.join(f'<span data-month-tick="{i}" style="--tick:{(i+.5)/len(data)*100:.4f}%">{label}</span>' for i,label in MODEL_TICKS)+'</div><div class="month-control"><label for="model-month">'+t('月份','Month')+f'</label><button type="button" data-month-step="-1" aria-label="'+t('上一个月','Previous month')+f'">‹</button><input id="model-month" type="range" min="0" max="{len(data)-1}" value="{len(data)-1}" step="1"><button type="button" data-month-step="1" aria-label="'+t('下一个月','Next month')+'">›</button><output id="model-month-label" for="model-month">2026.02</output></div><p id="model-announcement" class="sr-only" aria-live="polite"></p>'
     out+='<p class="viz-boundary">'+t('ATOM 跟踪的 Hugging Face 样本；地区指基础模型发布方归属，不是下游用户国籍。原始百分比保留，取整可能使分项之和不等于 100%。本图是外部背景案例，不进入 OSDI 或正式榜单。','ATOM’s tracked Hugging Face sample. Regions refer to base-model publishers, not downstream users. Original percentages are preserved; rounding can leave totals different from 100%. External background only, excluded from OSDI and formal rankings.')+'</p><script type="application/json" id="model-viz-data">'+dump(data)+'</script>'
     return out+fig_end(t('图 1-1-2 · 从模型供给到生态衍生：月度构成变化。','Figure 1-1-2 · From model supply to derivatives: monthly composition.'),link(source(s['files']['models']['path']),t('仓库固定快照 ↗','Fixed repository snapshot ↗'))+' · '+link('/assets/report/model-derivatives-story.csv',t('下载案例 CSV ↓','Download story CSV ↓'),'download')+' · '+link('https://www.atomproject.ai/','ATOM ↗'))+chapter1_tables.render([[t('月份','Month'),t('中国','China'),t('美国','US'),t('欧洲','Europe')]]+[[d['date']]+[str(d[k])+'%' for k in ['china','unitedStates','europe']] for d in data],lang,'table-model-months',E,'/assets/report/model-derivatives-story.csv')
 

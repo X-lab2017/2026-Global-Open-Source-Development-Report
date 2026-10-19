@@ -36,22 +36,8 @@ def render(lang):
  return out
 
 def static_svg():
- o=['<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800"><rect width="1280" height="800" fill="#f4f8fa"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="#6c8793"/></marker></defs><g font-family="Noto Sans CJK SC,sans-serif" fill="#18394c">']
- def text(x,y,s,size=18,fill='#18394c',weight=400):o.append(f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" font-weight="{weight}">{E(s)}</text>')
- def box(x,y,w,h,fill='#fff'):o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="7" fill="{fill}" stroke="#cadce5"/>')
- text(28,44,'GOSD / READING THE REPORT',13,'#267386',600);text(28,88,'六章，一条清晰的阅读路径',32,weight=600);text(28,119,'第一章建立基础；第二至第五章提供互补观察；第六章汇聚行动。',16,'#587382')
- for a,b,d in EDGES:o.append(f'<path d="{d}" fill="none" stroke="#6c8793" stroke-width="1.5" marker-end="url(#arrow)"/>')
- for y,label in [(147,'01 / 建立共同基础'),(302,'02 / 四个互补视角，可按问题选择阅读'),(594,'03 / 从研究走向行动')]:text(28,y,label,13,'#587382',500)
- box(28,164,868,100);text(48,190,'第一章',13,'#267386',600);text(48,220,'从开放协作到公共价值',25,weight=600);text(48,246,'价值参照 → 发展目标 → 观察指标',16,'#587382');text(630,246,'SDGs · OSDGs · OSDI',13,'#587382')
- for i,(code,z,e,nz,ne) in enumerate(CORE):
-  x=28+i*222;box(x,350,202,176);o.append(f'<path d="M{x+6} 350H{x+196}" stroke="{COLORS[i]}" stroke-width="3"/>');text(x+16,378,'第'+str(i+2)+'章',13,'#267386',600)
-  for j,line in enumerate(z):text(x+16,411+j*29,line,21,weight=600)
-  text(x+16,475,code,17,COLORS[i],600);text(x+16,505,nz,13,'#587382')
- box(28,612,868,112);text(48,640,'第六章',13,'#267386',600);text(48,672,'未来展望与行动建议',25,weight=600);text(48,701,'三项共同任务 · 九条主体建议',16,'#587382')
- box(930,164,322,560,'#edf3f6');text(950,194,'阅读导引',13,'#267386',600);text(950,236,'从全貌到具体问题',22,weight=600)
- for y,head,lines in [(292,'顺序阅读',['第一章建立价值与方法基础，','再进入各章的研究与行动。']),(414,'按需查阅',['第二至第五章是互补视角，','可按关心的问题选择阅读。']),(536,'关注行动',['第六章连接三项共同任务','与九条主体建议。'])]:
-  text(950,y,head,19,weight=600)
-  for j,line in enumerate(lines):text(950,y+31+j*27,line,16,'#587382')
- text(28,777,'图 1-0-1 · 共同目标组织观察，研究证据连接行动。连线表示篇章联系，不代表评分权重。',13,'#587382');o.append('</g></svg>');return ''.join(o)
+ """Use the canonical publication view for every standalone export."""
+ return (ROOT.parent/'figures/chapter1/print/fig-1-0-1_report_logic.svg').read_text()
+
 if __name__=='__main__':
  p=ROOT.parent/'figures/chapter1/fig-1-0-1_report_logic.svg';p.write_text(static_svg());p.with_name('fig-1-0-1_report_logic.editable.svg').write_text(static_svg());print(p)

@@ -38,22 +38,8 @@ def render(lang):
  return out
 
 def static_svg():
- """Print companion with the same authored positions; static and self-contained."""
- o=['<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800"><rect width="1280" height="800" fill="#f8fbfc"/><g font-family="Noto Sans CJK SC, sans-serif" fill="#183a4b">']
- def txt(x,y,s,size=18,fill='#183a4b',weight=400):o.append(f'<text x="{x}" y="{y}" font-size="{size}" fill="{fill}" font-weight="{weight}">{E(s)}</text>')
- def box(x,y,w,h,c='#d5e2e8'):o.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="#fff" stroke="{c}"/>')
- txt(28,46,'GOSO / SEVEN THEMATIC MAPS',14,'#237b89',600);txt(28,94,'从发展目标，走进七个主题地图',32,weight=600);txt(28,127,'四大支柱交叉连接七个观察主题，共同理解开放协作与公共价值。',17,'#56717d')
- txt(28,178,'发展目标 · OSDGs',13,'#56717d');txt(468,153,'观察问题 · GOSO',13,'#56717d');txt(888,153,'阅读路径',13,'#56717d')
- for p,m,d in curves():o.append(f'<path d="{d}" fill="none" stroke="{COLORS[int(p[1])-1]}" stroke-width="2" opacity=".55"/>')
- for i,p in enumerate(PILLARS):
-  y=204+i*110;box(28,y,260,88,COLORS[i]);txt(44,y+27,p[0],13,COLORS[i],600);txt(80,y+27,p[1],19,weight=600);txt(44,y+62,p[3],15,'#56717d')
- for j,m in enumerate(MAPS):
-  y=167+j*72;box(468,y,352,64);txt(484,y+38,m[0],24,'#237b89',600);txt(528,y+26,m[1],19,weight=600);txt(528,y+48,m[4],12,'#56717d');txt(784,y+27,'2.'+str(j+1),13,'#56717d')
- box(864,167,388,496);txt(888,208,'七个角度 · 一幅生态全貌',14,'#237b89',600)
- txt(888,252,'先看参与，',27,weight=600);txt(888,292,'再看创造与价值',27,weight=600)
- for i,line in enumerate(['从谁在参与，看到贡献与影响；','再进入人才、资产、多样性和治理。','七个主题相互补充，','帮助理解同一生态的不同方面。']):txt(888,341+i*32,line,18)
- for i,line in enumerate(['01   选择关心的发展目标','02   寻找关联的观察主题','03   阅读第二章对应小节']):txt(888,510+i*42,line,17,'#237b89')
- txt(28,706,'连线表示阅读与研究联系，不代表计算权重；一个主题可以回应多个发展目标。',14,'#56717d')
- o.append('<path d="M28 746H1252" stroke="#d5e2e8"/>');txt(28,776,'图 1-3-2 · 从共同目标到生态观察，连接持续共同创造及其公共价值。',14,'#56717d');o.append('</g></svg>');return ''.join(o)
+ """Use the canonical publication view for every standalone export."""
+ return (ROOT.parent/'figures/chapter1/print/fig-1-3-2_theme_maps.svg').read_text()
+
 if __name__=='__main__':
  target=ROOT.parent/'figures/chapter1/fig-1-3-2_theme_maps.svg';target.write_text(static_svg());print(target)
