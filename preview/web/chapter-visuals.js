@@ -28,13 +28,15 @@
   const linux=data('linux-viz-data');
   if(linux){
     let kind=initial.get('linux')==='contributors'?'contributors':'organizations';
+    const selectedRows={organizations:0,contributors:0};
     const buttons=$$('[data-linux-kind]');
     function showRow(i){
       const row=linux[kind].rows[i];if(!row)return;
       const panel=$('#linux-selection');panel.replaceChildren();
       const name=document.createElement('strong'),value=document.createElement('span');name.textContent=row.name;
-      value.textContent=row.contributions.toLocaleString('en-US')+' · '+t('接口记录占比 ','Reported share ')+row.percentage+'%';panel.append(name,value);
-      $$('.linux-bar').forEach((b,j)=>b.classList.toggle('is-selected',i===j));
+      value.textContent=row.contributions.toLocaleString('en-US')+' · '+t('本类榜单占比 ','Share in this leaderboard ')+row.percentage+'%';panel.append(name,value);
+      selectedRows[kind]=i;
+      $$('.linux-bar').forEach((b,j)=>{b.classList.toggle('is-selected',i===j);b.setAttribute('aria-pressed',String(i===j));});
     }
     function showKind(value,save){
       if(!linux[value])return;kind=value;
@@ -48,7 +50,7 @@
         const track=document.createElement('span');track.className='bar-track';const fill=document.createElement('span');fill.style.width=(row.contributions/max*100)+'%';track.append(fill);
         const value=document.createElement('b');value.textContent=row.contributions.toLocaleString('en-US');b.append(name,track,value);container.append(b);
       });
-      inspect($$('.linux-bar'),node=>showRow(Number(node.dataset.row)));showRow(0);if(save)remember('linux',kind);
+      inspect($$('.linux-bar'),node=>showRow(Number(node.dataset.row)));showRow(selectedRows[kind]);if(save)remember('linux',kind);
     }
     buttons.forEach(b=>b.addEventListener('click',()=>showKind(b.dataset.linuxKind,true)));showKind(kind,false);
   }
@@ -63,9 +65,11 @@
       $('#model-current-month').textContent=date;$('#model-month-label').textContent=date;slider.value=String(index);slider.setAttribute('aria-valuetext',date);
       $('#model-china-share').textContent=String(row.china);$$('[data-model-value]').forEach(n=>n.textContent=row[n.dataset.modelValue]+'%');
       pressed(buttons,buttons[index]);$('#model-announcement').textContent=date+' · '+t('中国','China')+' '+row.china+'% · '+t('美国','US')+' '+row.unitedStates+'% · '+t('欧洲','Europe')+' '+row.europe+'%';
+      $$('[data-month-step]').forEach(b=>b.disabled=Number(b.dataset.monthStep)<0?index===0:index===models.length-1);
       if(save)remember('modelMonth',index);
     }
     inspect(buttons,(node,save)=>select(Number(node.dataset.month),save));slider.addEventListener('input',()=>select(Number(slider.value),true));
+    $$('[data-month-step]').forEach(b=>b.addEventListener('click',()=>select(Number(slider.value)+Number(b.dataset.monthStep),true)));
     const raw=initial.get('modelMonth'),index=raw===null?models.length-1:Number(raw);select(Number.isInteger(index)&&index>=0&&index<models.length?index:models.length-1,false);
   }
 

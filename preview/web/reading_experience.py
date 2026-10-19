@@ -62,11 +62,11 @@ def prepare_manuscript(markup,lang,prefix,src,source):
 def chapter(lang,report):
     t_=lambda z,e:t(lang,z,e)
     out=['<div class="foundation-reading">',report.translation_note(lang),'<div class="reading-tools"><span>'+t_('第一章 · 价值、目标与指标','Chapter 1 · Values, goals and indicators')+'</span><button data-print>'+t_('打印本章','Print chapter')+'</button></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="'+t_('本章阅读进度','Chapter reading progress')+'"></progress>']
-    out.append('<nav class="foundation-route" aria-label="'+t_('本章阅读路径','Chapter reading path')+'">'+''.join(link('#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+t_(*SHORT[i])+'</strong><span>'+t_(*QUESTIONS[i])+'</span>') for i in range(3))+'</nav>')
+    route='<nav class="foundation-route" aria-label="'+t_('本章阅读路径','Chapter reading path')+'">'+''.join(link('#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+t_(*SHORT[i])+'</strong><span>'+t_(*QUESTIONS[i])+'</span>') for i in range(3))+'</nav>'
     intro=prepare_manuscript(report.render(report.INTRO,lang,'intro'),lang,'intro',report.INTRO,report.source)
-    # The introduction's table of contents is retained as reference; the route above
-    # and the interactive architecture provide the primary navigation.
-    out.append('<section class="foundation-intro" id="chapter-intro"><div class="section-topline">GOSD / RESEARCH PATH</div><h2>'+t_('从开放协作到公共价值','From public value to evidence and action')+'</h2>'+intro+'</section>')
+    # Introduce the chapter's purpose before asking the reader to choose a path.
+    intro=intro.replace('<figure ',route+'<figure ',1)
+    out.append('<section class="foundation-intro" id="chapter-intro" aria-label="'+t_('本章导读与全书结构','Chapter introduction and report structure')+'">'+intro+'</section>')
     for i,src in enumerate(report.PARTS):
         s=M['chapters'][0]['sections'][i];sid=s['id']
         body=prepare_manuscript(report.render(src,lang,sid),lang,sid,src,report.source)

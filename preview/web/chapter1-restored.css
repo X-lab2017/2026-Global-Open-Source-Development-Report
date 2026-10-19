@@ -68,3 +68,44 @@
 
 #fig-linux.screen-slide .linux-bar{padding-top:0;padding-bottom:0}
 #fig-linux.screen-slide .bar-name{line-height:1.25}
+
+/* Chapter opening and 1.1: a clearer reading hierarchy inside the approved canvases. */
+[data-reading-page=chapter1] .reader-head h1{font-family:var(--sans);font-weight:650;line-height:1.45;letter-spacing:-.02em}
+[data-reading-page=chapter1] .reader-head .deck{font-size:17px;line-height:1.85}
+.foundation-reading .foundation-intro .manuscript>p,.foundation-reading #ch01-s01 .reading-module>p{font-family:var(--sans);line-height:1.9}
+.foundation-reading .foundation-intro .manuscript>p:first-child{font-size:19px;margin-top:0}
+.foundation-reading #ch01-s01 .reading-module>p>strong{font-weight:650;color:var(--brand)}
+.foundation-intro .foundation-route{margin:26px 0 30px}
+.foundation-intro .foundation-route a{padding:16px 18px;gap:7px}
+.foundation-intro .foundation-route span{font-size:13px}
+#ch01-s01 .foundation-modules{margin-bottom:26px}
+#fig-linux,#fig-models,#fig-public-goods{--line:#9bb0bb}
+[data-theme=dark] :is(#fig-linux,#fig-models,#fig-public-goods){--line:#597684}
+#fig-linux.screen-slide .bar-name{font-size:18px;line-height:1.2}
+#fig-linux.screen-slide .linux-kpis button{border-width:1.5px}
+#fig-linux.screen-slide .linux-kpis button[aria-pressed=true]{box-shadow:inset 3px 0 var(--brand)}
+#fig-linux.screen-slide .viz-selection{border:1.5px solid var(--line);border-left:3px solid var(--brand);border-radius:6px}
+#fig-linux.screen-slide .viz-boundary{font-size:15px!important;line-height:1.8!important;top:562px}
+#fig-models.screen-slide .model-story-tabs{height:40px;top:136px}
+#fig-models.screen-slide .model-story-tabs button{font-size:17px;min-height:40px;padding:6px 18px}
+#fig-models.screen-slide .month-endpoints{display:block;height:34px}
+#fig-models.screen-slide .month-endpoints span{position:absolute;left:var(--tick);transform:translateX(-50%);font-size:14px;white-space:nowrap}
+#fig-models.screen-slide .month-endpoints span:before{content:"";position:absolute;left:50%;top:-11px;height:6px;width:1px;background:var(--muted)}
+#fig-models.screen-slide .month-control{padding:8px 14px;gap:14px}
+#fig-models .month-control button{width:36px;height:36px;flex:none;padding:0;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--ink);font-size:25px;line-height:1}
+#fig-models .month-control button:disabled{opacity:.35;cursor:default}
+#fig-models .month-control input{min-width:0}
+#fig-models .qwen-story-node{text-align:center;border-width:1.5px}
+#fig-models .qwen-story-node small{font-size:14px;color:var(--brand)}
+#fig-models .qwen-story-graph path{transition:stroke-width .18s,opacity .18s}
+#fig-models.has-qwen-selection .qwen-story-graph path{opacity:.16}
+#fig-models .qwen-story-graph path.is-selected{opacity:1;stroke-width:3.5}
+#fig-public-goods.screen-slide .public-goods-layout .viz-label{font-size:15px;color:var(--ink);font-weight:600;text-align:center}
+#fig-public-goods.screen-slide .dpg-grid button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;border-width:1.5px}
+#fig-public-goods.screen-slide .dpg-grid button[aria-pressed=true]{box-shadow:inset 0 -3px var(--brand);border-color:var(--brand)}
+#fig-public-goods.screen-slide .dpg-grid b{margin:0}
+#fig-public-goods.screen-slide .dpg-selection{border:1.5px solid var(--line);border-left:3px solid var(--brand);border-radius:5px}
+@media(max-width:800px){[data-reading-page=chapter1] .reader-head .deck{font-size:16px}.foundation-reading .foundation-intro .manuscript>p:first-child{font-size:18px}.foundation-intro .foundation-route a{padding:13px 10px}}
+@media(max-width:520px){.foundation-intro .foundation-route{grid-template-columns:1fr;gap:8px}.foundation-intro .foundation-route a{display:grid;grid-template-columns:30px 1fr;gap:4px 9px}.foundation-intro .foundation-route small{grid-row:1/3;align-self:center}.foundation-intro .foundation-route span{grid-column:2}}
+@media(prefers-reduced-motion:reduce){#fig-models .qwen-story-graph path{transition:none}}
+@media print{.foundation-reading .foundation-intro .manuscript>p:first-child{font-size:12pt}.foundation-reading .foundation-intro .manuscript>p,.foundation-reading #ch01-s01 .reading-module>p{font-size:11pt;line-height:1.8}}
