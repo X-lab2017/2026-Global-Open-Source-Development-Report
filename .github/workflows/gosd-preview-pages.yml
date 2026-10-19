@@ -52,6 +52,7 @@ jobs:
           python3 preview/web/check_frontmatter_publication.py --output _site
           python3 preview/web/check_goso.py --output _site
           python3 preview/web/check_vmap.py --output _site
+          python3 preview/web/check_vmap_publication.py --output _site
           python3 preview/web/check_cmap.py --output _site
           python3 preview/web/check_goso_maps.py --output _site
           python3 preview/web/check_gosr.py --output _site

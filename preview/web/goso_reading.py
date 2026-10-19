@@ -93,7 +93,7 @@ def normalize(text,n,lang):
             normalized.append(f'<article class="goso-action"><span class="goso-action-number">0{i}</span><div class="goso-action-body">{content}</div></article>')
         intros=[x.html() for x in action.children if isinstance(x,Node) and x.tag=='p']
         # The former descriptive title remains a short lead above the three actions.
-        action.children=fragment((f'<span id="{aid}" class="goso-anchor" aria-hidden="true"></span>' if action.attrs.get('id')!=aid else '')+'<span class="goso-kicker">FROM OBSERVATION TO ACTION</span><h3>行动建议</h3><p class="goso-action-lead">'+lead+'</p>'+''.join(intros)+'<div class="goso-action-list">'+''.join(normalized)+'</div>')
+        action.children=fragment((f'<span id="{aid}" class="goso-anchor" aria-hidden="true"></span>' if action.attrs.get('id')!=aid else '')+'<span class="goso-kicker">FROM OBSERVATION TO ACTION</span><h3>'+('2.1.4 行动建议' if n==1 else '行动建议')+'</h3>'+('' if n==1 else '<p class="goso-action-lead">'+lead+'</p>')+''.join(intros)+'<div class="goso-action-list">'+''.join(normalized)+'</div>')
     # Uniform local itinerary points to figures and actions.
     route=next((x for x in root.walk() if x.tag=='nav'),None)
     if route:

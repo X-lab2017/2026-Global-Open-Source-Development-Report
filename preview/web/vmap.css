@@ -182,3 +182,48 @@
 .vmap-figure .vm-with-sparks{gap:24px}
 .vmap-figure .vm-with-sparks .vm-sparkline{width:145px;height:28px}
 .vmap-section .vmap-window-note{font:13px/1.85 var(--sans)!important;color:var(--muted)!important;border-left:2px solid var(--line);padding:8px 16px;margin:20px 0 26px!important}
+/* Publication pilot: identical evidence, clean captions and media-specific layout. */
+.vmap-publication-download{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:18px 0 24px;font:13px/1.7 var(--sans)}
+.vmap-publication-download a{padding:9px 15px;border:1px solid var(--cyan);border-radius:5px;color:var(--cyan)}
+.vmap-publication-download span{color:var(--muted)}
+.vmap-publication-views{display:none}
+.vmap-figure>figcaption{text-align:center}
+.vmap-figure>figcaption strong{display:block;font-weight:500;color:var(--ink)}
+.vmap-figure>figcaption span{display:block;font-size:.9em;margin-top:3px}
+.vmap-figure[data-evidence-kind="pending"] .vmap-status,.vmap-figure[data-evidence-kind="scenario"] .vmap-status{background:color-mix(in srgb,var(--gv-goldDisplay) 18%,var(--paper));border-left:3px solid var(--gv-gold);padding:6px 12px;font-size:18px;line-height:1.45;height:auto}
+.vmap-figure.screen-slide.vmap-reflow{position:relative!important;height:auto!important;min-height:0!important;padding:16px!important;box-sizing:border-box}
+.vmap-figure.screen-slide.vmap-reflow>*{position:static!important;height:auto!important;min-height:0!important;max-width:100%!important;margin:12px 0!important}
+.vmap-figure.screen-slide.vmap-reflow .viz-heading{height:auto!important;padding:0!important}
+.vmap-figure.screen-slide.vmap-reflow .viz-heading h4{font-size:20px!important}
+.vmap-figure.screen-slide.vmap-reflow .viz-heading p{font-size:13px!important}
+.vmap-figure.screen-slide.vmap-reflow .vmap-controls{flex-wrap:wrap;gap:8px}
+.vmap-figure.screen-slide.vmap-reflow .vmap-controls>div{flex-wrap:wrap}
+.vmap-figure.screen-slide.vmap-reflow .vmap-controls button{font-size:13px!important;padding:8px!important}
+.vmap-figure.screen-slide.vmap-reflow .vm-map-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vmap-figure.screen-slide.vmap-reflow .vm-map-center{grid-column:1/-1;grid-row:1;height:250px}
+.vmap-figure.screen-slide.vmap-reflow .vm-rank h5{font-size:15px!important}
+.vmap-figure.screen-slide.vmap-reflow .vm-rank button{grid-template-columns:18px minmax(0,1fr) 57px;height:34px}
+.vmap-figure.screen-slide.vmap-reflow .vm-rank button strong,.vmap-figure.screen-slide.vmap-reflow .vm-rank button b{font-size:12px}
+.vmap-figure.screen-slide.vmap-reflow .vm-map-cards{grid-template-columns:1fr;gap:10px}
+.vmap-figure.screen-slide.vmap-reflow .vm-map-meta,.vmap-figure.screen-slide.vmap-reflow .vm-map-legend{display:flex;flex-wrap:wrap;font-size:12px}
+.vmap-figure.screen-slide.vmap-reflow .vmap-comparison,.vmap-figure.screen-slide.vmap-reflow .vmap-trend{grid-template-columns:1fr;gap:20px}
+.vmap-figure.screen-slide.vmap-reflow .vmap-status{font-size:15px!important}
+.vmap-figure.screen-slide.vmap-reflow .vmap-plot h5{font-size:17px!important}
+.vmap-figure.screen-slide.vmap-reflow .vmap-bar-row{grid-template-columns:90px minmax(0,1fr) 66px;font-size:13px;gap:8px}
+.vmap-figure.screen-slide.vmap-reflow .vmap-value{font-size:14px}
+.vmap-figure.screen-slide.vmap-reflow .vmap-scope-note,.vmap-figure.screen-slide.vmap-reflow>figcaption{font-size:12px!important}
+@media print{
+ @page vmap-wide{size:A4 landscape;margin:20mm 16mm}
+ .vmap-publication-download,.vmap-section .goso-gap{display:none!important}
+ .vmap-section .explorer-slide-frame,.vmap-section .slide-launcher,.vmap-section .vmap-figure{display:none!important}
+ .vmap-publication-views{display:block!important}
+ .vmap-print-panel{break-inside:avoid;margin:7mm 0}
+ .vmap-print-panel img{display:block;width:100%;height:auto;max-width:none}
+ .vmap-print-landscape{page:vmap-wide;break-before:page;break-after:page}
+ .vmap-print-portrait+.vmap-print-portrait{break-before:page}
+}
+/* Reserve space for the two-line publication caption at the bottom of each canvas. */
+.vmap-figure.screen-slide:not(.vmap-reflow) .vm-map-cards{height:135px}
+.vmap-figure.screen-slide:not(.vmap-reflow) .vmap-legend{top:632px}
+.vmap-figure.screen-slide:not(.vmap-reflow) .vmap-scope-note{top:672px;font-size:14px!important;line-height:1.5!important}
+.vmap-figure.screen-slide.vmap-trend-mode:not(.vmap-reflow) .vmap-scope-note{top:652px;font-size:14px!important;line-height:1.5!important}

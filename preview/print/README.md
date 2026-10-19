@@ -60,3 +60,15 @@ python3 preview/web/import_report.py --repo-root . --source-ref YOUR_COMMIT
 ```
 
 `GOSD-2026-opening-and-chapter1.pdf` 合订前置篇目与已核验的第一章 PDF。前置页采用罗马页码，第一章沿用 1–12 页及原有书签。打印封面将网页悬浮报告的深蓝书封转为平面构图，沿用标题、横线、OSDG 圆盘与 CCOSI 标识，并说明阶段合订范围。执行摘要采用同源专业正文，不含图表或交互切换；宣言全景保留三层七原则，去掉重复图题与编号。封面可使用 Noto Serif CJK SC（OFL）匹配网页衬线标题；未指定时使用正文字体。
+
+## 2.1 复杂图件样章
+
+当前出版规则以 [BASELINE.md](BASELINE.md) 为准，支持少量横向页与续图，以及醒目的模拟数据待替换标签。
+
+```sh
+python3 preview/web/vmap_print.py --font /path/to/NotoSansCJKsc-Regular.otf
+python3 preview/web/build_portal.py --output _site --base-path /2026-Global-Open-Source-Development-Report
+python3 preview/web/check_vmap_publication.py --output _site --pdf
+```
+
+输出为 `output/pdf/GOSD-2026-section-2-1.pdf`，同步到 `preview/content/vmap/print/`；该目录含五个静态分面和逐图出版说明。仅收录 2.1，不替换前置与第一章合订版。真实浏览器视觉与纸面打印核验另行记录。

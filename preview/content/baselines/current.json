@@ -1,9 +1,18 @@
 {
-  "id": "gosd-presentation-baseline-1.1",
-  "title": "GOSD 当前呈现基线 1.1",
-  "updated": "2026-10-15",
-  "status": "user_accepted",
+  "id": "GOSD-PUB-20261020",
+  "title": "GOSD 当前出版基线 1.1",
+  "updated": "2026-10-20",
+  "status": "user_accepted_rules",
   "components": [
+    {
+      "id": "GOSD-PUB-20261020",
+      "specification": "print/BASELINE.md",
+      "role": "Current web/PDF publication rules; supersedes conflicting fixed-canvas rules",
+      "accepted_decisions": [
+        "Occasional landscape pages and continued figures",
+        "Simulated quantitative figures may publish with prominent replacement labels"
+      ]
+    },
     {
       "id": "gosd-chapter-presentation-v1",
       "manifest": "chapter-presentation-v1.json",
@@ -37,6 +46,20 @@
       "record": "docs/goso-alignment-20261015.md",
       "status": "aligned_for_review",
       "note": "Shared Chapter 1 presentation lifecycle; source datasets unchanged; T-Map simulations isolated."
+    },
+    {
+      "date": "2026-10-20",
+      "sections": [
+        "2.1"
+      ],
+      "record": "docs/vmap-publication-pilot-20261020.md",
+      "status": "pilot_for_review"
     }
+  ],
+  "specification": "print/BASELINE.md",
+  "precedence": [
+    "publication-baseline",
+    "chapter-specialist-rules",
+    "figure-publication-specification"
   ]
 }

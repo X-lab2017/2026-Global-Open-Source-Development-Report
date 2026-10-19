@@ -1,6 +1,7 @@
 """SVG geography and linked comparison surfaces for the V-Map chapter."""
 from pathlib import Path
 import json,html,math
+from vmap_publication import SNAPSHOT_AXIS_MAX_PEOPLE
 ROOT=Path(__file__).resolve().parents[1]
 GEO=json.loads((ROOT/'content/vmap/map-geometry.json').read_text())
 E=lambda s:html.escape(str(s),quote=True)
@@ -33,22 +34,22 @@ def ranking(rows,key):
 def detail(row,national,scope="world"):
     return '<span class="vm-card-label">所选地区 · '+E(row['name'])+'</span><div class="vm-pair"><span>总量<b>'+number(row['total'])+'</b></span><span>活跃<b>'+number(row['active'])+'</b></span></div><p>活跃份额 '+f'{row["active"]/national*100:.1f}%'+(' · 占中国全国值' if scope=='china' else ' · 占全球值')+'</p>'
 
-def sparkline(values,width=150,height=35):
-    lo=min(values);hi=max(values);span=hi-lo or 1
+def sparkline(values,width=150,height=35,maximum=None):
+    lo=0;hi=maximum or max(values);span=hi-lo or 1
     pts=[(4+i*(width-8)/(len(values)-1),height-4-(v-lo)/span*(height-8)) for i,v in enumerate(values)]
     line=' '.join(('M' if i==0 else 'L')+str(round(x,2))+','+str(round(y,2)) for i,(x,y) in enumerate(pts))
     dots=''.join(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="2" fill="var(--cyan,#156993)"><title>{2021+i}：{number(v/10000)} 万人</title></circle>' for i,((x,y),v) in enumerate(zip(pts,values)))
-    return f'<svg class="vm-sparkline" viewBox="0 0 {width} {height}" role="img" aria-label="2021至2025自然年趋势"><path d="{line}" fill="none" stroke="var(--cyan,#156993)" stroke-width="2"/>{dots}</svg>'
+    return f'<svg class="vm-sparkline" data-axis-min="0" data-axis-max="{hi}" viewBox="0 0 {width} {height}" role="img" aria-label="2021至2025自然年趋势，纵轴从零起"><path d="M4,{height-4}H{width-4}" fill="none" stroke="var(--line,#B9CDD8)" stroke-width=".7"/><path d="{line}" fill="none" stroke="var(--cyan,#156993)" stroke-width="2"/>{dots}</svg>'
 
 def cards(scope,data):
     if scope=='china':
         total=next(r['active'] for r in data['countries'] if r['id']=='CN');rr=sorted(data['provinces'],key=lambda r:-r['active'])
         top=sum(r['active'] for r in rr[:3]);middle=sum(r['active'] for r in rr[3:10]);rest=sum(r['active'] for r in rr[10:])
-        first='<span class="vm-card-label">中国活跃规模 · 同源五年趋势</span><div class="vm-national-trend"><strong class="vm-big">234.46<small> 万</small></strong>'+sparkline(data['snapshot_trends'][2]['values'])+'</div><p>2021—2025自然年 · 国内约120万另列情景。</p>'
+        first='<span class="vm-card-label">中国活跃规模 · 同源五年趋势</span><div class="vm-national-trend"><strong class="vm-big">234.46<small> 万</small></strong>'+sparkline(data['snapshot_trends'][2]['values'],maximum=SNAPSHOT_AXIS_MAX_PEOPLE[2])+'</div><p>2021—2025自然年 · 纵轴从0起；国内补充另列。</p>'
         second='<span class="vm-card-label">区域参与结构 · 34个省级地区</span><div class="vm-stack">'+''.join(f'<i style="width:{v/total*100}%;background:var(--gv-s{i},#156993)"></i>' for i,v in enumerate([top,middle,rest]))+'</div><div class="vm-shares">'+''.join(f'<span>{n}<b>{v/total*100:.1f}%</b></span>' for n,v in [('京沪粤',top),('第4—10位',middle),('其余24地',rest)])+'</div><p>省级合计与全国一致；总量字段为平台估计值。</p>'
         third=detail(rr[0],total,'china')
     else:
-        first='<span class="vm-card-label">全球规模与趋势 · 2021—2025</span><div class="vm-pair vm-with-sparks"><span>开发者总量<b>约1.80亿</b>'+sparkline(data['snapshot_trends'][0]['values'],150,28)+'</span><span>活跃开发者<b>2,762.10万</b>'+sparkline(data['snapshot_trends'][1]['values'],150,28)+'</span></div>'
+        first='<span class="vm-card-label">全球规模与趋势 · 2021—2025 · 纵轴从0起</span><div class="vm-pair vm-with-sparks"><span>开发者总量<b>约1.80亿</b>'+sparkline(data['snapshot_trends'][0]['values'],150,28,maximum=SNAPSHOT_AXIS_MAX_PEOPLE[0])+'</span><span>活跃开发者<b>2,762.10万</b>'+sparkline(data['snapshot_trends'][1]['values'],150,28,maximum=SNAPSHOT_AXIS_MAX_PEOPLE[1])+'</span></div>'
         second='<span class="vm-card-label">全球南方观察样本 · 活跃万人</span><div class="vm-south">'+''.join('<button type="button" data-map-row="'+r['id']+'"><span>'+r['name']+'</span><i style="width:'+str(r['active']/273.28*100)+'%"></i><b>'+number(r['active'])+'</b></button>' for r in data['countries'] if r['id'] in ['IN','BR','ID'])+'</div>'
         third=detail(next(r for r in data['countries'] if r['id']=='CN'),data['global_active'])
     return f'<article data-map-card="overview">{first}</article><article data-map-card="structure">{second}</article><article data-map-card="detail" aria-live="polite">{third}</article>'

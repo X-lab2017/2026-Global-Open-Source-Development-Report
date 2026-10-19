@@ -50,11 +50,13 @@ for lang in ['zh','en']:
  assert len(page.ids)==len(set(page.ids))
  assert [f['id'] for f in page.figures]==['fig-vmap-global','fig-vmap-comparison','fig-vmap-china']
  part=text[text.index('id="ch02-s01"'):text.index('id="ch02-s02"')]
- assert '<img' not in part and part.count('data-map-svg=')==3
+ assert part.count('<img')==5 and part.count('data-map-svg=')==3
+ assert part.count('class="vmap-publication-views"')==3
  assert part.count('preserveAspectRatio="xMidYMid meet"')==3
  for number in ['图 2-1-1 /','图 2-1-2 /','图 2-1-3 /']:assert part.count(number)==1
  for title,_ in v.STRATEGIES:assert title in part
- assert '2025自然年' in part and '三平台' in part and '台湾省' in part and '34个省级地区' in part
+ compact=re.sub(r'\s+','',part)
+ assert '2025自然年' in compact and '国内补充' in compact and '台湾省' in compact and '34个省级地区' in compact
  assert '中国下钻保留旧版结构参考' not in text
  assert 'DevScale' in part and 'SDG 8' in part and 'SDG 9' in part
  assert 'data-vmap-view="trend"' in part and re.search(r'<script src="[^"]*/vmap\.js" defer>',text)
