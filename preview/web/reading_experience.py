@@ -47,6 +47,8 @@ def prepare_manuscript(markup,lang,prefix,src,source):
                     if a.tag=='a':remove(n,a)
         # A static companion makes later print/PDF independent of interaction state.
         svg={'fig-report-logic':'fig-1-0-1_report_logic.svg','fig-linux':'fig-1-1-1_linux_collaboration.svg','fig-models':'fig-1-1-2_model_derivatives.svg','fig-public-goods':'fig-1-1-3_sdgs_dpga.svg','fig-osdg-goals':'fig-1-2-1_osdg_framework.svg','fig-osdi-map':'fig-1-3-1_osdi_explorer.svg'}[fid]
+        if fid in ('fig-report-logic','fig-linux','fig-models','fig-public-goods'):
+            svg='print/'+svg
         parent=next(n for n in [root,*root.walk()] if fig in n.children)
         parent.children.insert(parent.children.index(fig)+1,fragment('<img class="chapter-print-figure" src="/assets/report/'+svg+'" alt="'+E(meta[1 if lang=='zh' else 2])+'">')[0])
     # Group narrative modules, keeping all legacy heading IDs.
@@ -62,6 +64,7 @@ def prepare_manuscript(markup,lang,prefix,src,source):
 def chapter(lang,report):
     t_=lambda z,e:t(lang,z,e)
     out=['<div class="foundation-reading">',report.translation_note(lang),'<div class="reading-tools"><span>'+t_('第一章 · 价值、目标与指标','Chapter 1 · Values, goals and indicators')+'</span><button data-print>'+t_('打印本章','Print chapter')+'</button></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="'+t_('本章阅读进度','Chapter reading progress')+'"></progress>']
+    out.append('<aside class="chapter-sample-edition" aria-label="'+t_('章首与 1.1 双版本样章','Opening and section 1.1 sample editions')+'"><div><strong>'+t_('章首＋1.1 · 双版本样章','Opening + 1.1 · two editions')+'</strong><span>'+t_('同一份完整正文；网页交互探索，PDF 独立阅读。','One complete manuscript; explore online or read the self-contained Chinese PDF.')+'</span></div>'+link('/assets/report/chapter1/GOSD-2026-chapter1-sample.pdf',t_('阅读 PDF · 8 页 ↗','Read PDF · 8 pages ↗'),'chapter-sample-pdf')+'</aside>')
     route='<nav class="foundation-route" aria-label="'+t_('本章阅读路径','Chapter reading path')+'">'+''.join(link('#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+t_(*SHORT[i])+'</strong><span>'+t_(*QUESTIONS[i])+'</span>') for i in range(3))+'</nav>'
     intro=prepare_manuscript(report.render(report.INTRO,lang,'intro'),lang,'intro',report.INTRO,report.source)
     # Introduce the chapter's purpose before asking the reader to choose a path.

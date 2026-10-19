@@ -3,7 +3,7 @@ from pathlib import Path
 import html,json
 ROOT=Path(__file__).resolve().parents[1]
 E=lambda s:html.escape(str(s),quote=True)
-COLORS=['#279FA9','#4E87C5','#9973B7','#82AE53']
+COLORS=['#279FA9','#9973B7','#4E87C5','#82AE53']
 CORE=[('GOSO',['全球开源生态','观测地图'],['Global open source','ecosystem maps'],'规模与结构','Scale and structure'),('GOSR',['全球开源','影响力排行榜'],['Global open source','influence rankings'],'主体与影响','Actors and influence'),('GOSL',['全球开源技术','全景洞察'],['Global open source','technology landscapes'],'分类与演进','Structure and evolution'),('GOSM',['全球开源大模型','发展洞察'],['Global open model','development'],'供给、复用与开放','Supply, reuse and openness')]
 QUESTIONS=[('为什么研究开源，如何用证据观察发展？','Why study open source, and how can evidence reveal its development?'),('参与、贡献与开放资产，在哪里积累？','Where do participation, contributions and open assets accumulate?'),('哪些地区、组织与项目形成关键影响？','Which regions, organizations and projects shape the ecosystem?'),('技术如何分类，各领域怎样演进？','How are technologies organized, and how do they evolve?'),('模型由谁供给，怎样复用与开放？','Who supplies models, and how are they reused and opened?'),('不同主体可以采取哪些共同行动？','What shared actions can different participants take?')]
 EDGES=[]
