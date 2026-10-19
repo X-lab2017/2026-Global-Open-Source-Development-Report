@@ -35,7 +35,7 @@ def plain(text):
     return text.replace('**', '')
 
 
-def font_setup(path, work, extra_text=""):
+def font_setup(path, work, extra_text="", font_name=None, subset_text=None):
     """Convert a small OFL font subset to TrueType for reliable PDF embedding."""
     from fontTools.ttLib import TTFont as FTFont
     from fontTools import subset
@@ -50,6 +50,7 @@ def font_setup(path, work, extra_text=""):
     source += (ROOT / 'preview/content/report.json').read_text()
     source += (ROOT / 'preview/web/chapter1_publication.py').read_text()
     source += json.dumps([DIM_NOTES,PILLARS,MAPS],ensure_ascii=False)
+    if subset_text is not None: source = subset_text
     opts = subset.Options(); opts.layout_features = []
     sub = subset.Subsetter(options=opts); sub.populate(text=source + ''.join(chr(i) for i in range(32, 127))); sub.subset(font)
     output = work / 'gosd-print-subset.ttf'
@@ -63,12 +64,13 @@ def font_setup(path, work, extra_text=""):
         fb = FontBuilder(upm, isTTF=True); fb.setupGlyphOrder(order); fb.setupCharacterMap(font.getBestCmap())
         fb.setupGlyf(glyphs); fb.setupHorizontalMetrics(dict(font['hmtx'].metrics))
         fb.setupHorizontalHeader(ascent=font['hhea'].ascent, descent=font['hhea'].descent)
-        fb.setupNameTable({'familyName': 'GOSD Noto Sans SC', 'styleName': 'Regular', 'uniqueFontIdentifier': 'GOSDPrintSubset', 'fullName': 'GOSD Noto Sans SC', 'psName': 'GOSD-NotoSansSC'})
+        fb.setupNameTable({'familyName': font_name or 'GOSD Noto Sans SC', 'styleName': 'Regular', 'uniqueFontIdentifier': font_name or 'GOSDPrintSubset', 'fullName': font_name or 'GOSD Noto Sans SC', 'psName': font_name or 'GOSD-NotoSansSC'})
         fb.setupOS2(sTypoAscender=font['OS/2'].sTypoAscender, sTypoDescender=font['OS/2'].sTypoDescender,
                     usWinAscent=font['OS/2'].usWinAscent, usWinDescent=font['OS/2'].usWinDescent)
         fb.setupPost(); fb.setupMaxp(); fb.save(output)
-    pdfmetrics.registerFont(TTFont(FONT, output))
-    pdfmetrics.registerFontFamily(FONT, normal=FONT, bold=FONT, italic=FONT, boldItalic=FONT)
+    name = font_name or FONT
+    pdfmetrics.registerFont(TTFont(name, output))
+    pdfmetrics.registerFontFamily(name, normal=name, bold=name, italic=name, boldItalic=name)
 
 
 def wrap(text, width, size):

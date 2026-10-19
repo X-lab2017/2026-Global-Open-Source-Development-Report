@@ -48,9 +48,9 @@ const {parseHTML}=require('linkedom'),out=path.resolve(process.argv[2]||'_site')
  // Budget: toolbar 40 + vertical chrome 24 + sticky-header clearance 100.
  for(const [width,height] of [[1366,768],[1440,900],[1920,1080],[1024,768],[390,844],[375,667]]){
   const mobile=width<=600,available=mobile?width-50:width-260;
-  const plotW=Math.min(available,(height-(mobile?200:206))*(mobile?480/650:1280/768));
+  const plotW=Math.min(available,(height-(mobile?138:162))*(mobile?480/650:1280/768));
   const plotH=plotW*(mobile?650/480:768/1280);
-  assert(plotH+40+24+(mobile?64:96)+(mobile?62:44)<=height+.1,`${width}×${height}`);
+  assert(plotH+40+24+(mobile?64:96)<=height+.1,`${width}×${height}`);
  }
  console.log('PASS: bilingual wide/compact artboards, original-text anchors, identical SVG export, motion preferences, focus paths, fullscreen restoration and viewport fit formulas. DOM harness only.');
 })().catch(error=>{console.error(error);process.exitCode=1;});

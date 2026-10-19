@@ -52,8 +52,8 @@ SDGs 与 DPG Standard 的简述分别参考联合国 SDGs 和 DPGA 官方资料�
 统一基线见 [BASELINE.md](BASELINE.md)。首页、目录、执行摘要与引言使用 `outline/frontmatter-editorial.json`、`outline/executive-summary.json`、章节清单及引言原稿作为共同来源。执行摘要 Markdown 从同一内容生成；宣言正文保持原文。
 
 ```bash
-python3 preview/web/frontmatter_print.py --font /path/to/NotoSansCJKsc-Regular.otf
+python3 preview/web/frontmatter_print.py --font /path/to/NotoSansCJKsc-Regular.otf --cover-font /path/to/NotoSerifCJKsc-Regular.otf
 python3 preview/web/import_report.py --repo-root . --source-ref YOUR_COMMIT
 ```
 
-`GOSD-2026-opening-and-chapter1.pdf` 合订前置篇目与已核验的第一章 PDF。前置页采用罗马页码，第一章沿用 1–12 页及原有书签。首页的动态视觉保留在网页，打印封面使用既有品牌资产；摘要的四幅证据视图和宣言全景使用同源出版图。
+`GOSD-2026-opening-and-chapter1.pdf` 合订前置篇目与已核验的第一章 PDF。前置页采用罗马页码，第一章沿用 1–12 页及原有书签。打印封面将网页悬浮报告的深蓝书封转为平面构图，沿用标题、横线、OSDG 圆盘与 CCOSI 标识，并说明阶段合订范围。执行摘要采用同源专业正文，不含图表或交互切换；宣言全景保留三层七原则，去掉重复图题与编号。封面可使用 Noto Serif CJK SC（OFL）匹配网页衬线标题；未指定时使用正文字体。

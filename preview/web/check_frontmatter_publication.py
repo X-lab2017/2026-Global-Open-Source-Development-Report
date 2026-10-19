@@ -14,23 +14,20 @@ for path,digest in m['manuscript_sha256'].items():assert sha(ROOT/path)==digest,
 assert sha(ROOT/'preview/content/report-assets/chapter1/GOSD-2026-chapter1.pdf')==m['chapter1_sha256']
 assert (ROOT/'outline/执行摘要.md').read_text()==summary.manuscript('zh')
 assert (ROOT/'outline/executive-summary.en.md').read_text()==summary.manuscript('en')
-figs=list(pub.MANIFEST.parent.glob('*.svg'));assert len(figs)==5
-for path in figs:
- svg=ET.fromstring(path.read_text());texts=svg.findall('.//{http://www.w3.org/2000/svg}text');caption=texts[-1]
- assert caption.get('text-anchor')=='middle' and caption.get('x')=='320'
- assert float(caption.get('y'))>float(svg.get('height'))-10
- assert max(float(x.get('font-size')) for x in texts)*503.275590551/640<=11.2
+figs=list(pub.MANIFEST.parent.glob('*.svg'));assert len(figs)==1
+svg=ET.fromstring(figs[0].read_text());texts=svg.findall('.//{http://www.w3.org/2000/svg}text')
+assert '图 引-' not in ''.join(svg.itertext())
+assert max(float(x.get('font-size')) for x in texts)*503.275590551/640<=11.2
 if args.output:
  class Text(HTMLParser):
   def __init__(self,raw):super().__init__();self.s=[];self.feed(raw)
   def handle_data(self,data):self.s.append(data)
  for lang in ['zh','en']:
   raw=(args.output/f'2026/{lang}/summary/index.html').read_text();txt=norm(''.join(Text(raw).s))
-  for f in summary.DATA['findings']:
-   for key in ['title','body','implication','scope']:assert norm(f[key][lang]) in txt,(f['id'],key)
-   assert pub.caption(f,lang) in raw
-  for t in summary.ACTION['tasks']:assert norm(t['body'][lang]) in txt
-  assert norm(pub.copy('reading_route',lang)) in txt
+  for kind,value in summary.paragraphs(lang):
+   for part in (value[1:] if isinstance(value,tuple) else [value]):assert norm(part) in txt,(kind,part[:50])
+  assert '<figure' not in raw.split('<article class="executive-summary"')[1].split('</article>')[0]
+  assert 'data-es-switcher' not in raw and 'executive-summary.js' not in raw
   intro=(args.output/f'2026/{lang}/introduction/index.html').read_text();txt=norm(''.join(Text(intro).s))
   manuscript=(ROOT/('chapters/引言-人工智能时代的开源发展.md' if lang=='zh' else 'chapters/introduction.en.md')).read_text()
   for para in manuscript.split('\n\n'):
@@ -42,13 +39,16 @@ if args.inspect_pdf:
  from pypdf import PdfReader
  import fitz
  r=PdfReader(pdf);assert len(r.pages)==m['pages'];pages=[norm(p.extract_text()) for p in r.pages];text=''.join(pages)
- for file in ['outline/执行摘要.md','outline/首页与阅读导引.md','chapters/引言-人工智能时代的开源发展.md']:
+ for file in ['outline/执行摘要.md','chapters/引言-人工智能时代的开源发展.md']:
   for para in (ROOT/file).read_text().split('\n\n'):
    if para.strip() and not para.startswith('#'):
     for line in para.splitlines():
      line=line.removeprefix('- ').removeprefix('证据范围：').removeprefix('行动启示：')
      assert norm(line) in text,(file,line[:70])
- for fig,page in m['figure_pages'].items():assert norm('图 '+fig) in pages[page-1]
+ assert m['figure_pages'].keys()=={'declaration-overview'}
+ front_text=''.join(pages[:m['front_pages']]);assert all(norm(v) not in front_text for v in ['PDF 页码 / 在线','前置篇目','图 引-1','图 摘-'])
+ assert norm(pub.copy('cover_note','zh')) in pages[0]
+ assert norm(pub.copy('cover_theme','zh')) in pages[0]
  toc=''.join(pages[1:3]);manifest=json.loads((ROOT/'preview/content/manifest.json').read_text())
  for chapter in manifest['chapters']:
   for s in chapter['sections']:assert norm(s['number']+' '+s['title']['zh']) in toc
@@ -60,4 +60,4 @@ if args.inspect_pdf:
  chapter=fitz.open(ROOT/'preview/content/report-assets/chapter1/GOSD-2026-chapter1.pdf');merged=fitz.open(pdf)
  for i in range(len(chapter)):
   assert chapter[i].get_pixmap().samples==merged[m['front_pages']+i].get_pixmap().samples,f'Chapter page changed: {i+1}'
-print(f'PASS: {m["pages"]}-page opening edition, five captioned figures, same bilingual source prose and unchanged Chapter 1.'+(' PDF prose, contents, labels, links and all 12 appended page renderings verified.' if args.inspect_pdf else ''))
+print(f'PASS: {m["pages"]}-page opening edition, a narrative executive summary and unnumbered declaration overview, same bilingual source prose and unchanged Chapter 1.'+(' PDF prose, contents, labels, links and all 12 appended page renderings verified.' if args.inspect_pdf else ''))

@@ -4,7 +4,7 @@ This report takes the Declaration on International Cooperation in Open Source an
 
 The Global Open Source Development Report 2026 connects that vision to evidence and action: who can participate, how shared assets are maintained and reused, and how collaboration can create verifiable public value. The declaration below provides the report’s value foundation; the following chapters examine goals, evidence and responsibilities.
 
-Figure Intro-1 outlines the declaration’s shared vision, seven principles and direction for action before the full text. The declaration expresses aspirations; the report’s indicators, rankings and recommendations require their own evidence. There is no one-to-one mapping between them.
+The declaration sets out a shared vision and principles for action; the report develops its judgments from specific evidence. The two are connected, with aspirations and research findings presented distinctly.
 
 ### Declaration on International Cooperation in Open Source and Artificial Intelligence
 

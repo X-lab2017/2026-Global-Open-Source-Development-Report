@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-19-frontmatter",
+  "version": "2026-10-19-policy-summary",
   "hero_description": {
     "zh": "从代码、模型与数据，观察谁在参与、成果如何复用，以及开放协作怎样产生公共价值。",
     "en": "Explore who participates, how code, models and data are reused, and how open collaboration creates public value."
@@ -27,5 +27,13 @@
   "about": {
     "zh": "本报告由中国科协联合国咨商开源创新专委会牵头，连接开源实践与可持续发展议题。研究以四大支柱组织观察，用地图、榜单、技术全景和模型生态分析理解发展质量，推动持续共同创造及其公共价值。",
     "en": "Led by the Open Source Innovation Committee of CAST’s UN Consultative Committee, the report connects open source practice with sustainability. Four development pillars guide maps, rankings, technology landscapes and model ecosystem analysis, supporting sustained co-creation and its public value."
+  },
+  "cover_note": {
+    "zh": "阶段合订版 · 前置内容与第一章",
+    "en": "Interim edition · Opening pages and Chapter 1"
+  },
+  "cover_theme": {
+    "zh": "持续共同创造及其公共价值",
+    "en": "Sustained co-creation and its public value"
   }
 }

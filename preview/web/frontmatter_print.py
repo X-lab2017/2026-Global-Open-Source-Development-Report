@@ -9,7 +9,6 @@ from reportlab.lib.utils import ImageReader
 import fitz,io,xml.etree.ElementTree as ET
 from pypdf import PdfReader,PdfWriter
 from pypdf.annotations import Link
-from pypdf.generic import ArrayObject,DictionaryObject,NameObject,NumberObject,TextStringObject
 import chapter1_print as common
 from chapter1_print import Figure,PrintFigure,paragraph,FONT,PRINT_WIDTH,INK,MUTED,TEAL,BLUE,PURPLE,GREEN,WASH,LINE
 import frontmatter_publication as pub
@@ -17,7 +16,8 @@ import executive_summary as summary
 from declaration_diagram import PRINCIPLES,LAYERS,content as declaration_content
 ROOT=Path(__file__).resolve().parents[2]
 M=json.loads((ROOT/'preview/content/manifest.json').read_text())
-DATA=summary.DATA;ACTION=summary.ACTION
+DATA=summary.DATA
+COVER_FONT=FONT
 ASSETS=ROOT/'preview/content/report-assets/frontmatter'
 INTRO='chapters/引言-人工智能时代的开源发展.md'
 CHAPTER=ROOT/'preview/content/report-assets/chapter1/GOSD-2026-chapter1.pdf'
@@ -42,36 +42,8 @@ def manuscripts():
  toc+=['## 附录','\n'.join('- '+u['title']['zh'] for u in M['back_matter'] if u['kind'] in ['methods','declaration','dpg']),pub.copy('edition_note','zh')]
  (ROOT/'outline/目录.md').write_text('\n\n'.join(toc)+'\n')
 
-def summary_figure(item):
- f=Figure(item['figure_title']['zh'],'图 '+item['figure_id'],height=210)
- kind=item['id'];color={'participation':TEAL,'technology':BLUE,'models':PURPLE,'openness':GREEN}[kind]
- if kind=='participation':
-  f.text(0,42,'地区',12,MUTED);f.text(460,42,'开发者（万人）',12,MUTED,'right');f.text(640,42,'OpenRank 位次',12,MUTED,'right')
-  maximum=max(r['developers'] for r in item['rows'])
-  for i,r in enumerate(item['rows']):
-   y=78+i*49;f.text(0,y,r['name']['zh']+' · '+r['country']['zh'],13)
-   f.rect(160,y-11,220,9,'#e1e8ec',color,0);f.rect(160,y-11,220*r['developers']/maximum,9,color,color,0)
-   f.text(460,y,f'{r["developers"]:.2f}',13,INK,'right');f.text(640,y,'#'+str(r['rank']),14,color,'right')
- elif kind=='technology':
-  for i,p in enumerate(item['projects']):
-   x=i*220;f.rect(x,33,200,54,WASH,LINE);f.text(x+12,55,p['name'],14);f.text(x+12,74,'OpenRank #'+str(p['rank']),12,color)
-  for i,(title,sub) in enumerate([('Agent Infra','智能体基础设施'),('Model Infra','模型基础设施')]):
-   x=i*330;f.rect(x,105,310,51,WASH,LINE);f.text(x+12,126,title,13,color);f.text(x+12,144,sub,12)
- elif kind=='models':
-  f.text(0,42,'当前快照内，按创建时间回溯',12,MUTED)
-  for i,m in enumerate(item['metrics']):
-   x=i*330;f.text(x,68,m['name']['zh'],14);f.text(x+310,68,'+'+m['growth'],14,color,'right')
-   for j,(key,date) in enumerate([('before','2025-09-13'),('after','2026-09-13')]):
-    y=97+j*32;f.text(x,y,date,11.5,MUTED);f.rect(x+82,y-9,140*m[key]/m['after'],8,'#b6a7c4' if j==0 else color,color,0);f.text(x+310,y,f'{m[key]:.2f} 万',12,INK,'right')
-  f.text(0,155,'每组按本期数量分别缩放。',11.5,MUTED)
- else:
-  for i,q in enumerate(item['questions']):
-   x=i*220;f.rect(x,33,200,128,WASH,LINE);f.text(x+100,61,q['title']['zh'],13,color,'center');f.lines(x+14,91,q['body']['zh'],172,12,19)
- f.lines(0,184,item['scope']['zh'],640,11.3,17,MUTED)
- return f.finish()
-
 def declaration_figure():
- f=Figure('宣言的共同愿景、七项原则与行动方向','图 引-1',height=431)
+ f=Figure('宣言的共同愿景、七项原则与行动方向','',height=411)
  f.rect(0,32,640,70,WASH,LINE);f.text(320,56,'全球开源与人工智能国际合作宣言',14,INK,'center');f.text(320,82,'时代呼唤 → 共同愿景：开放、包容、安全、可持续',12,MUTED,'center')
  for i,(name,_,indices) in enumerate(LAYERS):
   x=i*220;color=[TEAL,BLUE,GREEN][i]
@@ -81,17 +53,17 @@ def declaration_figure():
    y=192+j*54;p=PRINCIPLES[n-1];f.text(x+100,y,f'{n:02d}  '+p[0],13,INK,'center');f.text(x+100,y+20,p[2],11.5,MUTED,'center')
   f.line([(x+100,329),(x+100,345),(320,345),(320,359)],color,1.1)
  f.rect(0,359,640,48,WASH,LINE);f.text(320,379,'行动共识：政府、企业、学界与公民社会携手',13,INK,'center');f.text(320,397,'深化 AI 治理、算力共享与人才培育合作',11.5,MUTED,'center')
- return f.finish()
+ return f
 
 class Cover(Flowable):
+ """Flat print counterpart of the existing homepage book face."""
  def __init__(self):
   super().__init__();self.width=PRINT_WIDTH;self.height=690
  def draw(self):
-  c=self.canv;c.setFillColor(HexColor(TEAL));c.rect(0,671,32,3,fill=1,stroke=0)
-  def text(x,y,s,size=12,color=INK):c.setFont(FONT,size);c.setFillColor(HexColor(color));c.drawString(x,y,s)
-  text(0,638,'GOSD / 2026',16,TEAL);text(0,586,'全球开源发展报告',30);text(0,557,'GLOBAL OPEN SOURCE DEVELOPMENT REPORT',10.5,MUTED)
-  text(0,508,'从普惠到质量，从参与到影响。',17)
-  p=paragraph(pub.copy('hero_description','zh'),STYLES['body']);_,h=p.wrap(PRINT_WIDTH,100);p.drawOn(c,0,474-h)
+  c=self.canv;c.saveState();x,y=c.absolutePosition(0,0);c.translate(-x,-y)
+  w,h=A4;c.setFillColor(HexColor('#0a2c49'));c.rect(0,0,w,h,fill=1,stroke=0)
+  def text(x,y,s,size=12,color='#ffffff',font=FONT):
+   c.setFont(font,size);c.setFillColor(HexColor(color));c.drawString(x,y,s)
   def svg_image(path,x,y,width):
    raw=Path(path).read_text();xml=ET.fromstring(raw)
    fills=dict(re.findall(r'\.([\w-]+)\s*\{\s*fill:\s*(#[0-9a-fA-F]+);',raw))
@@ -99,10 +71,19 @@ class Cover(Flowable):
     if node.get('class') in fills:node.set('fill',fills[node.get('class')])
    doc=fitz.open(stream=ET.tostring(xml),filetype='svg');page=doc[0];height=width*page.rect.height/page.rect.width
    pix=page.get_pixmap(matrix=fitz.Matrix(4,4),alpha=True);c.drawImage(ImageReader(io.BytesIO(pix.tobytes('png'))),x,y,width=width,height=height,mask='auto')
-  c.setFillColor(HexColor('#082a42'));c.circle(PRINT_WIDTH/2,263,128,fill=1,stroke=0)
-  svg_image(ROOT/'preview/content/assets/cocreation-disc-dark.svg',PRINT_WIDTH/2-111,152,222)
-  svg_image(ROOT/'preview/content/assets/ccosi-cn-blue.svg',0,33,148)
-  text(PRINT_WIDTH-192,63,'2026 年 10 月 19 日',10,MUTED);text(PRINT_WIDTH-192,40,'前置内容与第一章 · 中文打印版',10,MUTED)
+  # Same dark blue, cyan rule, two-line title, wheel and issuer mark as the web book.
+  text(54,749,'GOSD',32,font='Helvetica-Bold');text(w-111,752,'2026',20,'#d1e5ed')
+  c.setStrokeColor(HexColor('#83bec7'));c.setLineWidth(2);c.line(54,714,w-54,714)
+  text(54,620,'全球开源',57,font=COVER_FONT);text(54,538,'发展报告',57,font=COVER_FONT)
+  text(57,484,'GLOBAL OPEN SOURCE',13,'#bcd0db');text(57,462,'DEVELOPMENT REPORT',13,'#bcd0db')
+  text(56,413,'从普惠到质量，从参与到影响。',15,'#ffffff')
+  text(56,383,pub.copy('cover_theme','zh'),11.2,'#bcd0db')
+  c.setStrokeColor(HexColor('#30536d'));c.setLineWidth(.8);c.circle(451,154,181,fill=0,stroke=1)
+  svg_image(ROOT/'preview/content/assets/cocreation-disc-dark.svg',295,105,244)
+  svg_image(ROOT/'preview/content/assets/ccosi-cn-white.svg',54,166,145)
+  text(56,134,'INCLUSION · QUALITY',10,'#bcd0db');text(56,115,'PARTICIPATION · IMPACT',10,'#bcd0db')
+  text(54,53,pub.copy('cover_note','zh')+'  |  2026.10.19',9.6,'#bcd0db')
+  c.restoreState()
 
 class Contents(Flowable):
  width=PRINT_WIDTH;height=650
@@ -116,19 +97,19 @@ class Contents(Flowable):
    if url:c.linkURL(url,(0,y-3,PRINT_WIDTH,y+14),relative=1,thickness=0)
    if target:self.local_links.append({'front_page':c.getPageNumber()-1,'rect':(*c.absolutePosition(0,y-3),*c.absolutePosition(PRINT_WIDTH,y+14)),'target':target})
    y-=22
-  row('全书目录'+('（续）' if self.second else ''),'PDF 页码 / 在线',18)
+  row('全书目录'+('（续）' if self.second else ''),'',18)
   if not self.second:
    intro=paragraph(pub.copy('contents_intro','zh'),STYLES['note']);_,h=intro.wrap(PRINT_WIDTH,80);intro.drawOn(c,0,y-h);y-=h+18
    row('执行摘要',roman(self.page_map.get('执行摘要',4)-1),target='summary')
    row('引言：开源共创智能未来',roman(self.page_map.get('引言：开源共创智能未来',8)-1),target='intro');y-=9
   for ch in M['chapters'][3 if self.second else 0:6 if self.second else 3]:
-   row('第'+ch['number']+'章 '+ch['title']['zh'],'1' if ch['number']=='1' else '在线',13,TEAL,target='chapter' if ch['number']=='1' else None,url=None if ch['number']=='1' else pub.WEB+'2026/zh/'+ch['route'])
+   row('第'+ch['number']+'章 '+ch['title']['zh'],'1' if ch['number']=='1' else '',13,TEAL,target='chapter' if ch['number']=='1' else None,url=None if ch['number']=='1' else pub.WEB+'2026/zh/'+ch['route'])
    for s in ch['sections']:
     p=str(CHAPTER_FOLIOS[s['number']]) if s['number'] in CHAPTER_FOLIOS else None
     row(s['number']+' '+s['title']['zh'],p or '',11.2,url=None if p else pub.WEB+'2026/zh/'+ch['route']+'#'+s['id'],target=s['number'] if p else None)
    y-=12
   if self.second:
-   row('附录与方法','在线',13,TEAL)
+   row('附录与方法','',13,TEAL)
    for u in M['back_matter']:
     if u['kind'] in ['methods','declaration','dpg']:row(u['title']['zh'],'',11.2,url=pub.WEB+'2026/zh/'+u['route'])
    y-=12
@@ -142,7 +123,7 @@ class FrontDoc(BaseDocTemplate):
   self.addPageTemplates(PageTemplate('front',[Frame(46,57,PRINT_WIDTH,A4[1]-121,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=self.header,onPageEnd=self.footer))
  def header(self,c,doc):
   if doc.page==1:return
-  c.setFont(FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(46,A4[1]-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(A4[0]-46,A4[1]-37,'前置篇目')
+  c.setFont(FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(46,A4[1]-37,'GOSD 2026 / 全球开源发展报告')
  def footer(self,c,doc):
   if doc.page==1:return
   c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,A4[0]-46,43);c.setFont(FONT,8.2);c.setFillColor(HexColor(MUTED));c.drawString(46,28,'从普惠到质量，从参与到影响');c.drawRightString(A4[0]-46,28,roman(doc.page-1))
@@ -160,19 +141,16 @@ def P(s,key='body'):return paragraph(s,STYLES[key])
 
 def build_front(path,figs,page_map=None):
  story=[Cover(),PageBreak(),Contents(page_map=page_map),PageBreak(),Contents(True,page_map),PageBreak()]
- story += [P('执行摘要','chapter'),P(DATA['headline']['zh'],'section'),P(DATA['lead']['zh']),P(DATA['framework']['zh'])]
- for item,fig in zip(DATA['findings'],figs[:4]):
-  story += [P(item['title']['zh'],'section'),P(item['body']['zh']),PrintFigure(fig,item['figure_id']),P('**行动启示：**'+item['implication']['zh'])]
- story += [P('三项共同任务，形成行动方向','section')]
- for task in ACTION['tasks']:story += [P('**'+task['title']['zh']+'。** '+task['body']['zh'])]
- for actor in ACTION['actors']:
-  group=[P(actor['title']['zh'],'section')]
-  for a in [a for a in ACTION['actions'] if a['actor']==actor['id']]:group.append(P('**'+a['title']['zh']+'：**'+DATA['action_briefs'][a['id']]['zh']))
-  story.append(KeepTogether(group))
- story += [P('怎样使用这份报告','section'),P(pub.copy('reading_route','zh')),P(DATA['scope']['zh']),P(DATA['closing']['zh']),PageBreak()]
+ story += [P('执行摘要','chapter')]
+ for kind,value in summary.paragraphs('zh'):
+  if kind in ['headline','heading']:story.append(P(value,'section'))
+  elif kind in ['finding','priority']:story += [P(value[1],'subsection'),P(value[2])]
+  elif kind=='scope':story.append(P(value,'note'))
+  else:story.append(P(value))
+ story.append(PageBreak())
  raw=(ROOT/INTRO).read_text().split('\n\n');first=next(i for i,b in enumerate(raw) if b.startswith('### '))
  for block in raw[:first]:story.append(P(block[2:],'chapter') if block.startswith('# ') else P(block))
- story += [PrintFigure(figs[4],'引-1'),PageBreak()]
+ story += [PrintFigure(figs[0],'declaration-overview'),PageBreak()]
  for i,block in enumerate(raw[first:]):
   block=block.strip()
   if not block:continue
@@ -194,12 +172,17 @@ def assemble(front,doc,output):
  return start,len(writer.pages)
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--font',type=Path,required=True);args=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--font',type=Path,required=True);p.add_argument('--cover-font',type=Path);args=p.parse_args()
  manuscripts();work=ROOT/'tmp/pdfs/frontmatter';work.mkdir(parents=True,exist_ok=True);ASSETS.mkdir(parents=True,exist_ok=True)
- extra=Path(__file__).read_text()+''.join((ROOT/x).read_text() for x in SOURCES)+json.dumps([M,ACTION,PRINCIPLES,LAYERS,declaration_content('zh')],ensure_ascii=False)
+ extra=Path(__file__).read_text()+''.join((ROOT/x).read_text() for x in SOURCES)+json.dumps([M,DATA,PRINCIPLES,LAYERS,declaration_content('zh')],ensure_ascii=False)
  common.font_setup(args.font,work,extra);styles()
- figs=[summary_figure(item) for item in DATA['findings']]+[declaration_figure()]
- for fig,name in zip(figs,['fig-summary-'+x['id'] for x in DATA['findings']]+['fig-intro-1']):(ASSETS/(name+'.svg')).write_text(fig.svg())
+ global COVER_FONT
+ if args.cover_font:
+  cover_work=work/'cover-font';cover_work.mkdir(exist_ok=True)
+  common.font_setup(args.cover_font,cover_work,font_name='GOSDCover',subset_text='全球开源发展报告');COVER_FONT='GOSDCover'
+ figs=[declaration_figure()]
+ (ASSETS/'declaration-overview.svg').write_text(figs[0].svg())
+ for old in [*ASSETS.glob('fig-summary-*.svg'),ASSETS/'fig-intro-1.svg']:old.unlink(missing_ok=True)
  front=work/'front.pdf';doc=build_front(front,figs);doc=build_front(front,figs,{h['text']:h['page'] for h in doc.headings})
  out=ROOT/'output/pdf'/pub.PDF_NAME;out.parent.mkdir(parents=True,exist_ok=True);start,pages=assemble(front,doc,out);shutil.copy2(out,ASSETS/out.name)
  manifest={'edition':pub.EDITION,'pages':pages,'front_pages':start,'chapter_pages':pages-start,'pdf_file':pub.PDF_NAME,'pdf_sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'chapter1_sha256':hashlib.sha256(CHAPTER.read_bytes()).hexdigest(),'manuscript_sha256':{x:hashlib.sha256((ROOT/x).read_bytes()).hexdigest() for x in SOURCES},'headings':doc.headings,'figure_pages':doc.figure_pages,'body_font_pt':11.2}

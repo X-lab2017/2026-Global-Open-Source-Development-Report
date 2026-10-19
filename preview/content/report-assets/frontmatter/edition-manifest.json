@@ -1,18 +1,18 @@
 {
-  "edition": "2026-10-19-frontmatter",
-  "pages": 23,
-  "front_pages": 11,
+  "edition": "2026-10-19-policy-summary",
+  "pages": 21,
+  "front_pages": 9,
   "chapter_pages": 12,
   "pdf_file": "GOSD-2026-opening-and-chapter1.pdf",
-  "pdf_sha256": "9bd2ffa65e4215dea772a76c8c95daa419ec14a4e291798d96a463612b99921d",
+  "pdf_sha256": "6331d5704c4d1c5f46d9623356e1f96e3916d4e13f761f672db9e0c961825563",
   "chapter1_sha256": "682d8a5c8ffbbaf45acc93c983c509e7d7e31feb820daccfbc3817f27c8fa24b",
   "manuscript_sha256": {
-    "outline/frontmatter-editorial.json": "daa7754548a36c1bdd1f89fbc0510022034ab662e89b6e5c8d9f38fe3c653e75",
-    "outline/executive-summary.json": "a0cc2f733d79fa8946e2dbdaa2666e8c48f43543ef3135c9ca83ea920ff21e8f",
-    "outline/执行摘要.md": "058a963212ebed764fe13bad5e772e7114b320a60be9519b6c94f0eaaf9ad108",
+    "outline/frontmatter-editorial.json": "9cf79c91a813c9081579b4e6c93ff1a7093d9bcb96da3b4402ac53ce3d4b5d25",
+    "outline/executive-summary.json": "ca0cb26683abb86249242c85a9427998a3a7feb322245273312e3bb7e72c7216",
+    "outline/执行摘要.md": "ca3a35fcf1eb26c288f6613e7495a05c4d3aa5149e11a80372afe93c0be35137",
     "outline/首页与阅读导引.md": "4512df8ec60a41796f5e49372385e4a96ae9faf03b7895f7fb2c93fba9a99472",
     "outline/目录.md": "640f5651b2536cf12dae7fc28ed11923f7c65fc7b890bc427f00e9dd9444238b",
-    "chapters/引言-人工智能时代的开源发展.md": "3ec09fc866bcf42c9d40eec03ca375eb037787c5e1d3527313087f22c0a5e55e"
+    "chapters/引言-人工智能时代的开源发展.md": "9a293bfe4348aac224b0967ab72ceb5df134d58bf31ccffd9221fd2ae76a2b63"
   },
   "headings": [
     {
@@ -21,152 +21,153 @@
       "level": 0
     },
     {
-      "text": "让每一次开放，成为下一次创造的起点。",
+      "text": "从普惠到质量，从参与到影响",
       "page": 4,
       "level": 1
     },
     {
-      "text": "参与规模与协作影响，需要一起看。",
+      "text": "主要发现与判断",
       "page": 4,
       "level": 1
     },
     {
-      "text": "AI 的开放供给，建立在多层技术协作之上。",
+      "text": "参与基础与协作影响，需要分别观察。",
       "page": 4,
-      "level": 1
+      "level": 2
     },
     {
-      "text": "模型与发布账号同步扩张，价值延伸到后续创造。",
+      "text": "开放生态的持续影响，依赖组织化协作与共同维护。",
+      "page": 4,
+      "level": 2
+    },
+    {
+      "text": "AI 开源生态的建设重点，正在扩展到完整技术体系。",
+      "page": 4,
+      "level": 2
+    },
+    {
+      "text": "模型供给迅速扩张，复用关系成为理解生态的重要线索。",
+      "page": 4,
+      "level": 2
+    },
+    {
+      "text": "开放许可、完整交付与公共价值，需要建立各自的证据。",
+      "page": 5,
+      "level": 2
+    },
+    {
+      "text": "三项共同任务，推动发展质量提升",
       "page": 5,
       "level": 1
     },
     {
-      "text": "开放条件与公共价值，需要分别验证。",
+      "text": "支持持续参与与人才成长。",
       "page": 5,
-      "level": 1
+      "level": 2
     },
     {
-      "text": "三项共同任务，形成行动方向",
-      "page": 6,
-      "level": 1
+      "text": "建设可维护、可复用的开放技术基础。",
+      "page": 5,
+      "level": 2
     },
     {
-      "text": "政府与国际组织",
-      "page": 6,
-      "level": 1
-    },
-    {
-      "text": "企业与组织",
-      "page": 6,
-      "level": 1
-    },
-    {
-      "text": "社区与全球合作",
-      "page": 7,
-      "level": 1
-    },
-    {
-      "text": "怎样使用这份报告",
-      "page": 7,
-      "level": 1
+      "text": "推进透明治理与可验证的公共价值。",
+      "page": 5,
+      "level": 2
     },
     {
       "text": "引言：开源共创智能未来",
-      "page": 8,
+      "page": 6,
       "level": 0
     },
     {
       "text": "《全球开源与人工智能国际合作宣言》",
-      "page": 9,
+      "page": 7,
       "level": 1
     },
     {
       "text": "I. 时代呼唤：迈向智能协作新纪元",
-      "page": 9,
+      "page": 7,
       "level": 1
     },
     {
       "text": "II. 共同愿景：构建智能共治的数字文明",
-      "page": 9,
+      "page": 7,
       "level": 1
     },
     {
       "text": "III. 核心原则：行动框架",
-      "page": 9,
+      "page": 7,
       "level": 1
     },
     {
       "text": "第一层：筑牢智能时代基石",
-      "page": 9,
+      "page": 7,
       "level": 2
     },
     {
       "text": "原则一：坚持开放互联",
-      "page": 9,
+      "page": 7,
       "level": 2
     },
     {
       "text": "原则二：坚持安全可信",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "第二层：夯实伦理治理支柱",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "原则三：坚持数据伦理",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "原则四：坚持多元包容",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "原则五：坚持全球协作",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "第三层：共创社会价值未来",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "原则六：坚持绿色智能",
-      "page": 10,
+      "page": 8,
       "level": 2
     },
     {
       "text": "原则七：坚持开源普惠",
-      "page": 11,
+      "page": 9,
       "level": 2
     },
     {
       "text": "IV. 行动共识：迈向全球AI治理新格局",
-      "page": 11,
+      "page": 9,
       "level": 1
     },
     {
       "text": "结语",
-      "page": 11,
+      "page": 9,
       "level": 1
     },
     {
       "text": "从共同愿景，到证据与行动",
-      "page": 11,
+      "page": 9,
       "level": 1
     }
   ],
   "figure_pages": {
-    "摘-1": 4,
-    "摘-2": 5,
-    "摘-3": 5,
-    "摘-4": 6,
-    "引-1": 8
+    "declaration-overview": 6
   },
   "body_font_pt": 11.2
 }

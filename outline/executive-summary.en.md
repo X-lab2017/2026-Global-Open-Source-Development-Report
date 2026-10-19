@@ -1,69 +1,49 @@
 # Executive summary
 
-Make every open release a starting point for what comes next.
+## From inclusion to quality, from participation to impact
 
-Open source development is visible in participation and releases, but also in the influence of contributions and the continued maintenance and reuse of shared assets. Under the theme “From inclusion to quality, from participation to impact,” this report examines how code, models and data support sustained co-creation and its public value.
+Artificial intelligence is extending open collaboration from code to models, data and agents. Shared assets continue to accumulate, alongside new participants and technical directions. The quality of this development depends on whether those assets can be understood and reused, whether foundational systems can be maintained, and whether more people can participate in innovation.
 
-## One framework connects goals and evidence
+The Global Open Source Development Report 2026 argues for connecting wider participation and open supply with sustained contribution, shared maintenance and public value. Open Source Development Goals (OSDGs) and Open Source Development Indicators (OSDI) provide a common framework for ecosystem maps, influence rankings, technology landscapes and model analysis. Development should be assessed through scale, but also through continuity of collaboration, reusable foundations and wider opportunities to benefit.
 
-Drawing on the UN Sustainable Development Goals, OSDGs set the direction and OSDI organizes the evidence: four pillars, ten dimensions and twenty-nine indicators. They are interpreted separately, without a composite score. The full framework does not imply that every indicator has been measured in this edition.
+## Key findings and judgments
 
-## Four observations on development quality
+### Participation and collaborative influence require distinct measures.
 
-**Read participation scale alongside collaborative influence.** Maps locate participation; rankings describe actors’ positions in collaboration networks. The two do not always align: Karnataka has more developers in this regional sample, while England ranks higher in influence. Assessing development calls for participation, contributions and sustained collaboration to be read together (Figure S-1).
+The maps in Chapter 2 and rankings in Chapter 3 show that participant numbers and influence within collaboration networks do not always align. A broad developer base creates opportunities; sustained contribution and project influence also require meaningful tasks, professional growth and organizational support. Regional assessment should consider participation, contributions, projects and core contributors together, rather than rely on headcounts or a single ranking.
 
-Implication: Connect talent support to real projects, sustained contributions and maintainer development.
+### Lasting influence depends on organized collaboration and shared maintenance.
 
-Scope: July 2025–June 2026 · Regional ranking. Bars show developer counts; badges show OpenRank positions.
+Rankings of regions, companies, foundations and projects reveal different positions within collaboration networks. Companies connect engineering resources with product use; foundations and communities support cooperation across organizations; maintainers keep shared assets usable. Influence assessment should therefore connect network position to responsibilities and resources: which foundations are reused, who maintains them, and how users contribute upstream. Rankings help identify candidates for attention, while sustained support requires evidence of maintenance needs.
 
-**Open AI supply depends on work across the technology stack.** PyTorch, vLLM and CANN rank 4th, 7th and 13th in this edition’s source project ranking. Landscapes place projects in their functional context: frameworks, runtime, evaluation and foundational tools require continued work alongside applications. Section 4.1 develops this view through Agent Infra and Model Infra (Figure S-2).
+### Open AI development requires investment across the technology stack.
 
-Implication: Use verified dependencies to identify shared maintenance needs, including foundational tools.
+The Agentic AI landscape in Chapter 4 places projects within agent and model infrastructure, distinguishing task interfaces, orchestration, tools, memory, evaluation and runtime foundations. The positions of projects such as PyTorch and vLLM in Chapter 3 also highlight the role of foundational technology. Public and industry support should extend to reusable tools, interoperability and open evaluation, giving application innovation dependable shared foundations.
 
-Scope: Project positions come from the original 3.4 ranking for July 2025–June 2026. Agent Infra and Model Infra are the categories used in 4.1, not project dependencies.
+### Rapid growth in model supply makes reuse an essential part of ecosystem analysis.
 
-**Models and publishing accounts are growing; reuse extends their value.** Among assets still visible on 13 September 2026, a creation-date reconstruction of the previous year shows 58.3% growth in models and 48.4% in publishing accounts. This reveals an expanding supply base within the current sample, not a complete historical inventory. Chapter 5 compares model and data supply in China and the United States and follows declared base-model relationships into subsequent creation (Figure S-3).
+A reconstruction by creation date within the September 2026 snapshot shows 58.3% growth in visible models and 52.3% growth in derivative models from the same date a year earlier. In a separate geographic sample of 826 organizational accounts in Chapter 5, China and the United States together account for 71.7% of models. Identifiable cross-border derivative records also connect base-model supply with downstream development. Model ecosystems therefore need to be understood through supply, publishers and subsequent creation. Support should address key base-model maintenance while enabling participation by more regions and teams. These snapshots and samples have distinct scopes; they are not complete global inventories or national contribution totals.
 
-Implication: Support both key assets and a diverse publisher base, and follow verified reuse.
+### Licensing, technical completeness and public value each require evidence.
 
-Scope: Snapshot of 13 September 2026, reconstructed by creation date for the same day a year earlier. Counts cover assets and publishers still visible at the snapshot, not independent annual archives.
+Among the 870 evaluated models in Chapter 5, 600 fall within the report’s higher-openness group, but only 117—13.4% of the full sample—combine higher openness with higher technical completeness. Licensing and technical materials do not necessarily advance together; publication alone does not establish reproducibility or public benefit. Policy and procurement should examine materials, licensing, validation and actual outcomes for specific versions and uses, turning openness commitments into workable conditions for sustained collaboration.
 
-**Verify openness conditions and public value separately.** Available materials answer “what can be accessed”; licenses answer “what use is permitted.” An openness level does not establish capability, safety or social benefit. Public value requires evidence from real settings: who uses an asset, who benefits and whether it can be maintained (Figure S-4).
+## Three shared priorities for better development outcomes
 
-Implication: Record openness by version and assess public outcomes through evidence of use and benefit.
+The report proposes three mutually reinforcing priorities. Chapter 6 translates them into nine recommendations for governments and international organizations, companies and organizations, and communities and global cooperation.
 
-Scope: An explanatory framework, not levels or scores. See 5.3 for classification and 2.7 for governance and public applications.
+### Support continued participation and contributor growth.
 
-## Three shared tasks guide action
+Connect talent support to real collaborative work. Provide mentoring, documentation and remote participation for newcomers, time and recognition for contributors, and succession support for maintainers. Public institutions can improve access, companies can make contribution part of engineering work, and communities can create paths from a first contribution to shared maintenance. Progress should be assessed through continued contribution and growing responsibility, alongside participation numbers.
 
-**Support sustained participation and talent development.** Create entry points, recognize contributions and support maintainer succession. Observe who can stay involved and take on shared responsibility.
+### Build open foundations that can be maintained and reused.
 
-**Build maintainable, reusable open foundations.** Extend support to documentation, evaluation, adaptation and routine maintenance. Use verified dependencies and reuse relationships to find partners who can share the work.
+Extend support beyond initial releases to documentation, testing, compatibility, issue response and ongoing maintenance. Companies should identify critical upstream dependencies and share maintenance responsibilities. Public funders and foundations can support common tools, evaluation and reproducibility, while communities organize upstream–downstream work. Resources should serve both widely used foundations and projects addressing specific languages, regions and tasks.
 
-**Advance transparent governance and verifiable public value.** Link openness conditions to specific versions and public value to actual use and outcomes. Make participation rules, decisions and maintenance responsibilities inspectable.
+### Advance transparent governance and verifiable public value.
 
-**Governments and international organizations**
+Make versions, materials, licenses and maintenance responsibilities clear, and document important collaboration rules and decisions. Translate needs in education, accessibility and public services into concrete tasks shaped with users. Assess results through actual adoption, who benefits and continued maintenance. International cooperation can organize shared tasks, evidence and two-way feedback so local experience informs upstream improvements.
 
-- Extend public support to long-term maintenance: Fund maintenance, documentation, testing and adaptation, with named owners and succession plans.
-- Connect talent support to real shared work: Provide mentoring, resources and remote participation in real projects, and follow contributor development.
-- Review open deliverables and public outcomes separately: Review open materials, maintenance responsibilities and public-use outcomes separately.
+The report’s ultimate concern is sustained co-creation and its public value: enabling more people to participate, allowing shared assets to develop through maintenance and reuse, and making the benefits of open collaboration explainable, verifiable and enduring.
 
-**Companies and organizations**
-
-- Make upstream maintenance part of product responsibility: Identify critical dependencies and allocate people, time and upstream contributions.
-- Make every release clear, usable and traceable: Publish versioned materials, licenses, operating guidance and maintenance contacts.
-- Give contributors time and recognition to grow: Make time for sustained contributions and recognize review, documentation and testing roles.
-
-**Communities and global cooperation**
-
-- Create paths from newcomers to co-maintainers: Help newcomers progress from a first task to review, decisions and shared maintenance.
-- Organize cross-region maintenance around shared dependencies: Coordinate adaptation, evaluation and multilingual documentation around shared dependencies.
-- Bring public needs into shared design and governance: Involve local partners and users in design, trials and evaluation, and return experience to the project.
-
-## How to use this report
-
-Chapter 1 establishes values and methods. Chapters 2–5 examine participation and contribution, influential actors, technology structures and model ecosystems. Chapter 6 connects shared tasks to action. Read in sequence or find a section in the contents.
-
-The main reporting period is July 2025–June 2026. Calendar-year, monthly and platform snapshots retain their labelled periods; different platforms, samples and windows are not combined directly. Simulated views illustrate methods rather than establish findings. Chapter 4 develops 4.1 in depth; other sections currently provide landscapes and research frameworks.
-
-Enable open assets to be reused, more people to share their maintenance, and public value to be explained, verified and sustained.
+The main reporting period is July 2025–June 2026. Model snapshots and other evidence retain the dates and scope stated in their sections. Simulations do not support factual conclusions, and indicators awaiting verification are not treated as completed measurements.
