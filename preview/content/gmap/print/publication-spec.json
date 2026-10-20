@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-20-gmap-publication-v2",
+  "edition": "2026-10-20-gmap-publication-v3",
   "pages": 4,
   "figure_pages": {
     "2-7-1": 1,
@@ -7,14 +7,14 @@
     "2-7-3": 3
   },
   "pdf": "GOSD-2026-section-2-7.pdf",
-  "release_pdf": "GOSD-2026-section-2-7-20261020-v2.pdf",
+  "release_pdf": "GOSD-2026-section-2-7-20261020-v3.pdf",
   "data_sha256": {
     "fig-2-6-2_active_repository_license_trend.csv": "1dcd66ec2178fe5bc30fcdffa63789cd867be4afe15df58f8503af65c36286be",
     "fig-2-6-3_mulan_permissive_license_trend.csv": "9754fe533dfeb8d09464e680e0a2c97225facbcb73cf958d45d3f21039813635",
     "fig-2-6-1_foundation_share_and_active_repositories.csv": "87daef3d6e3a2ffcb5badbe5a29d1058d7bed11f2ea2fe541353f508d61cb03b"
   },
-  "manuscript_sha256": "04cbea1f5aab816169d1e7d42b971ba1732f7ab7b7a548b0e7b21b1aff69136e",
-  "pdf_sha256": "3db5042f946169dac8b748b84d6e45f94618b2c53336e18bbd238f8e35bd5508",
+  "manuscript_sha256": "ede7a9e1ff87d8bfa613f06c1cd1372c98a9a9b2142461a0d8326d84c4b04d3b",
+  "pdf_sha256": "6f1769c9f38f8acc20140f97f731188733ef6ff9ddcb1d04d2f2f0a524438c35",
   "verification": {
     "pdf_render": "four portrait pages visually checked",
     "browser_pixels": "not_run",

@@ -60,7 +60,7 @@ def main():
   para(title,'s');para(ps[0]);story.append(vp.FigureFlow(figs[i],f'2-7-{i+1}'))
   if i:
    a,b=ps[1].split('。',1);para('**'+a+'。**'+b)
- story.append(PageBreak());para(p.ACTION_TITLE,'s')
+ story.append(PageBreak());para(p.ACTION_TITLE,'s');para(p.ACTION_INTRO)
  for title,ps in p.STRATEGIES:para(title,'s');[para(t) for t in ps]
  para('统计范围与指标说明','s');[para(t,'note') for t in p.NOTES];para(p.BRIDGE)
  doc=Doc(out);doc.build(story);shutil.copy2(out,dest/p.PDF_NAME);(p.BASE/'chapter-2-7.md').write_text(p.manuscript());(p.ROOT.parent/'chapters/chapter2/2.6-全球开源治理与社会公益地图-G-Map.md').write_text(p.manuscript())

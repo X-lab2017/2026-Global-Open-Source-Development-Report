@@ -14,7 +14,7 @@ def section(lang='zh'):
  for i,(title,ps) in enumerate(STORIES,1):
   a,b=ps[1].split('。',1)
   out.append(f'<section class="gm-section"><h3>{title}</h3><p class="gm-prose">{ps[0]}</p>'+figure(i)+f'<div class="gm-print-view"><img src="/assets/gmap/print/fig-2-7-{i}.svg" alt="图 2-7-{i} {FIGURES[i-1][2]}"></div>'+f'<p class="gm-prose"><strong>{a}。</strong>{b}</p></section>')
- out.append(f'<section class="gm-pub-actions"><h3>{ACTION_TITLE}</h3>')
+ out.append(f'<section class="gm-pub-actions"><h3>{ACTION_TITLE}</h3><p class="gm-prose">{ACTION_INTRO}</p>')
  for i,(title,ps) in enumerate(STRATEGIES,1):out.append(f'<article><h4>{i} {title}</h4>'+''.join('<p class="gm-prose">'+t+'</p>' for t in ps)+'</article>')
  out.append('</section><details class="gm-methods"><summary>统计范围与指标说明</summary>'+''.join('<p>'+t+'</p>' for t in NOTES)+'</details><p class="gm-prose goso-bridge">'+BRIDGE+'</p></section>')
  return ''.join(out)
