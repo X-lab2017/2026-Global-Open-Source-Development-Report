@@ -40,3 +40,35 @@
 @media print{.cm-globe-lenses{display:none!important}.cm-globe-stat strong{font-size:15px}.cm-globe-stat small,.cm-globe-stat em{font-size:9px}}
 /* Reserve room for long region names and five lines of evidence notes. */
 .cm-globe-panel [data-globe-data-panel] .eyebrow{line-height:15px}.cm-globe-panel [data-globe-data-panel] h5{font-size:21px;line-height:1.35;margin:6px 0 8px}.cm-globe-panel [data-globe-data-panel] .cm-globe-mini{margin:6px 0 8px}.cm-globe-panel [data-globe-data-panel] .cm-globe-mini button{font-size:13px;line-height:1.3;padding:5px 8px}.cm-globe-panel [data-globe-data-panel] label{font-size:12px;line-height:15px}.cm-globe-panel [data-globe-data-panel] select{height:30px;padding:4px 8px;margin:4px 0 7px;font-size:14px}.cm-globe-panel [data-globe-country-detail]>strong{font-size:21px;line-height:1.3;overflow-wrap:anywhere}.cm-globe-panel [data-globe-country-detail]>p{font-size:12px!important;line-height:1.4!important;margin:3px 0 6px!important}.cm-globe-panel .cm-flow-status{font-size:12px!important;line-height:1.5!important;margin:6px 0 8px!important;min-height:60px}
+/* Publication baseline: the chart owns the full width; prose owns a readable line length. */
+.cmap-section :is(.cm-introduction,.goso-question,#cmap-findings+p,.cm-story,.cm-interpretation,.goso-action-body p,.cm-actions>p,.goso-bridge){max-width:46em}
+.cmap-section .cm-introduction{font:400 18px/1.9 var(--sans);margin:18px 0 22px}
+.cmap-section .goso-question{font:500 19px/1.7 var(--sans);color:var(--cyan);margin:18px 0!important}
+.cmap-section :is(.cm-story p,.cm-interpretation p,.goso-action-body p,.cm-actions>p,#cmap-findings+p,.goso-bridge){font:400 17px/1.95 var(--sans);margin:14px 0}
+.cmap-section .cm-position{padding:14px 20px;margin:20px 0 26px}.cmap-section #cmap-findings{font-size:19px;margin:26px 0 10px}
+.cmap-section .cm-window-note{border:0;padding:0;max-width:64em}.cmap-section .cm-interpretation{margin:20px 0 42px}.cm-interpretation strong{font-weight:600;color:var(--cyan)}
+.cm-reading-route .cm-download{margin-left:auto;color:var(--cyan);border-color:var(--cyan);background:transparent}
+.cmap-figure>figcaption{text-align:center}.cmap-figure>figcaption strong,.cmap-figure>figcaption span{display:block;font-weight:400}.cmap-figure>figcaption span{font-size:.9em;margin-top:3px}
+.cmap-figure.screen-slide .cm-toolbar{top:123px}.cmap-figure.screen-slide .cm-meta{top:181px}.cmap-figure.screen-slide .cm-map-layout{top:212px;height:405px}.cmap-figure.screen-slide .cm-legend{top:628px}.cmap-figure.screen-slide .cm-cards{top:658px;height:131px}.cmap-figure.screen-slide>figcaption{bottom:12px;line-height:1.4!important}
+.cmap-figure .cm-influence-bridge{grid-template-columns:220px 1fr}.cm-scope-cards{min-height:260px}.cm-comparison-body:has(.cm-scope-cards){grid-template-columns:1fr;gap:18px;grid-template-rows:auto auto}
+.cmap-figure.screen-slide .cm-globe-layout{top:190px;height:516px;grid-template-columns:minmax(0,1fr) 320px}.cmap-figure.screen-slide .cm-globe-bottom{top:719px;min-height:76px}
+.cm-flow-list{min-height:225px}.cm-flow-list button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:45px;padding:8px 0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;font:13px/1.4 var(--sans)}
+.cm-flow-list button span{max-width:60%}.cm-flow-list button b{font-size:14px;font-weight:500;font-variant-numeric:tabular-nums}.cm-flow-list button[aria-pressed=true]{color:var(--cyan);background:var(--pale)}
+.cm-flow-detail{padding-top:14px;min-height:71px}.cm-flow-detail strong{font:500 16px/1.5 var(--sans)}.cm-flow-detail p{font-size:13px!important;margin:5px 0!important}
+.cm-globe-panel h5{font-size:23px;margin:8px 0 12px}.cm-globe-panel .cm-flow-status{font-size:12px!important;min-height:0;margin:10px 0 0!important}.cm-globe-fallback{z-index:0;background:#fff}.cm-globe-fallback[hidden]{display:none!important}.cm-earth[data-render-status=fallback] .cm-globe-legend{display:none}.cm-earth[data-render-status=fallback] .cm-globe-badge{display:none}
+.cm-publication-views,.cm-print-evidence{display:none}
+.cmap-figure.screen-slide.vmap-reflow{position:relative!important;height:auto!important;min-height:0!important;padding:16px!important;box-sizing:border-box}
+.cmap-figure.screen-slide.vmap-reflow :is(.viz-heading,.cm-toolbar,.cm-meta,.cm-map-layout,.cm-legend,.cm-cards,.cm-comparison-status,.cm-comparison-body,.cm-comparison-note,.cm-globe-layout,.cm-globe-bottom,figcaption){position:static!important;height:auto!important;min-height:0;max-width:100%;margin:12px 0!important}
+.cmap-figure.screen-slide.vmap-reflow .viz-heading h4{font-size:20px}.cmap-figure.screen-slide.vmap-reflow .viz-heading p{font-size:13px!important}
+.cmap-figure.screen-slide.vmap-reflow .cm-toolbar{flex-wrap:wrap;gap:8px}.cmap-figure.screen-slide.vmap-reflow .cm-tabs{flex-wrap:wrap}.cmap-figure.screen-slide.vmap-reflow .cm-tabs button,.cmap-figure.screen-slide.vmap-reflow .cm-globe-tools button{font-size:13px;padding:7px 9px}
+.cmap-figure.screen-slide.vmap-reflow .cm-map-layout,.cmap-figure.screen-slide.vmap-reflow .cm-comparison-body,.cmap-figure.screen-slide.vmap-reflow .cm-globe-layout{display:grid;grid-template-columns:1fr;gap:16px}
+.cmap-figure.screen-slide.vmap-reflow .cm-map-stage{height:250px}.cmap-figure.screen-slide.vmap-reflow .cm-earth{height:340px}.cmap-figure.screen-slide.vmap-reflow .cm-cards{grid-template-columns:1fr}.cmap-figure.screen-slide.vmap-reflow .cm-meta,.cmap-figure.screen-slide.vmap-reflow .cm-legend{flex-wrap:wrap;gap:8px;font-size:12px}
+.cmap-figure.screen-slide.vmap-reflow .cm-scope-cards{grid-template-columns:1fr}.cmap-figure.screen-slide.vmap-reflow .cm-influence-bridge{grid-template-columns:1fr}.cmap-figure.screen-slide.vmap-reflow .cm-current-bars>div{grid-template-columns:95px minmax(0,1fr) 70px;font-size:14px;gap:8px}.cmap-figure.screen-slide.vmap-reflow .cm-current-bars b{font-size:15px}.cmap-figure.screen-slide.vmap-reflow .cm-globe-bottom{grid-template-columns:1fr}
+@media(max-width:680px){.cm-reading-route .cm-download{margin-left:0}.cmap-section :is(.cm-story p,.cm-interpretation p,.goso-action-body p){font-size:16px}}
+@media print{
+ @page cmap-wide{size:A4 landscape;margin:20mm 16mm}
+ .cmap-section :is(.cm-reading-route,.goso-gap,.explorer-slide-frame,.slide-launcher,.cmap-figure){display:none!important}
+ .cm-publication-views{display:block!important}.cm-print-panel{break-inside:avoid;margin:7mm 0}.cm-print-panel img{width:100%;height:auto;display:block}.cm-print-landscape{page:cmap-wide;break-before:page;break-after:page}
+ .cm-print-evidence{display:block;font:9.5pt/1.6 var(--sans)}.cm-print-evidence h4{font-size:11.2pt}.cm-print-evidence p{font-size:9.5pt}
+ .cmap-section :is(.cm-introduction,.goso-question,.cm-story p,.cm-interpretation p,.goso-action-body p,.cm-actions>p,#cmap-findings+p,.goso-bridge){font-size:11.2pt;line-height:1.66}
+}

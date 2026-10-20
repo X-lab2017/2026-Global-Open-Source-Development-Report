@@ -54,6 +54,8 @@ jobs:
           python3 preview/web/check_vmap.py --output _site
           python3 preview/web/check_vmap_publication.py --output _site
           python3 preview/web/check_cmap.py --output _site
+          python3 preview/web/check_cmap_publication.py --output _site
+          node preview/web/check_cmap_network.mjs _site/assets/cmap/data.json
           python3 preview/web/check_goso_maps.py --output _site
           python3 preview/web/check_gosr.py --output _site
           python3 preview/web/check_landscape.py --output _site

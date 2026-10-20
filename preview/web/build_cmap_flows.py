@@ -1,34 +1,22 @@
-"""Observed project samples plus an explicit, reproducible residual-source scenario."""
-from pathlib import Path
-import csv, json
-
+"""Measured sample values stay immutable; only the common visual scale changes."""
+import csv,json
 def build_flows(base,countries,legacy):
-    by={r['id']:r for r in countries}
     codes={'China':'CN','United States':'US','Canada':'CA','Germany':'DE','Singapore':'SG','India':'IN','Czechia':'CZ','Sweden':'SE','Bulgaria':'BG','United Kingdom':'GB','France':'FR','Netherlands':'NL','Switzerland':'CH','Poland':'PL'}
     raw=list(csv.DictReader((base/'source/repository-project-sources.csv').open()))
-    edges=[dict(source=codes[r['developer_country']],target=codes[r['project_country']],value=float(r['openrank']),share_pct=float(r['share_pct']),kind='observed',period='2026 report table',display=True) for r in raw]
+    edges=[dict(id=f'flow-{i+1:02}',source=codes[r['developer_country']],target=codes[r['project_country']],value=float(r['openrank']),share_pct=float(r['share_pct']),kind='observed',period='2026 report year',display=True) for i,r in enumerate(raw)]
     targets={}
     for target in ['CN','US']:
-        rr=[r for r in edges if r['target']==target];total=sum(r['value'] for r in rr);share=round(sum(r['share_pct'] for r in rr),2)
-        # Shares are rounded in the original; this is an approximate inferred denominator.
-        inferred_total=total/(share/100);residual=inferred_total-total
-        excluded={r['source'] for r in rr};candidates=[r for r in countries if r['id'] not in excluded and r['value']>0]
-        weights=sum(r['value'] for r in candidates)
-        estimates=[dict(source=r['id'],target=target,value=residual*r['value']/weights,share_pct=(100-share)*r['value']/weights,kind='estimated',period='illustrative scenario: 2026 residual weighted by 2025 GitHub contribution',display=False) for r in candidates]
-        estimates.sort(key=lambda r:-r['value'])
-        geo_estimates=[r for r in estimates if by[r['source']]['coordinates']]
-        top_sources={r['source'] for r in geo_estimates[:12]}
-        visible=[r for r in geo_estimates if r['source'] in top_sources or r['source'] in ['BR','ID','VN','PH','EG','ZA']]
-        for r in visible:r['display']=True
-        edges.extend(estimates)
-        targets[target]=dict(observed_value=round(total,2),observed_share_pct=share,residual_share_pct=round(100-share,2),estimated_full_sample=inferred_total,estimated_residual=residual,displayed_estimates=len(visible),displayed_estimate_value=sum(r['value'] for r in visible))
-    report_values={'CN':float(legacy[-1]['China']),'US':float(legacy[-1]['United States']),'IN':float(legacy[-1]['India'])}
-    result=dict(observed_period='2026 report table; project sample scope pending',targets=targets,edges=edges,report_values=report_values,
-        method='对各目的地：表列前十贡献合计 ÷ 前十份额合计，近似推得样本分母；剩余份额按未列来源的 2025 GitHub 开发者贡献权重分配。该跨期权重仅是情景假设，含原表份额舍入误差；不代表实测流量、完整全球网络或未来预测。显示每个目的地最强 12 条估算边并纳入全球南方六国；选线不改变权重，其余保留下载。未另行推算其他目的地。',
-        legend='实线＝2026表列来源；金色虚线＝未列来源估算；粗细与光点方向表达样本贡献规模与开发者来源→项目归属，不表示人员迁移。',
-        scope='国家汇总点：报告2026仅有中、美、印独立国家值，其他国家留空；GitHub2025视图保留236地区原值。国家点与项目样本边的统计总体不同，不要求流量与节点总量守恒。',
-        source='source/repository-project-sources.csv')
+        rr=[r for r in edges if r['target']==target];local=next(r for r in rr if r['source']==target)
+        share=round(sum(r['share_pct'] for r in rr),2)
+        targets[target]=dict(observed_value=round(sum(r['value'] for r in rr),2),observed_share_pct=share,unlisted_share_pct=round(100-share,2),local_value=local['value'],local_share_pct=local['share_pct'],cross_border_listed_value=round(sum(r['value'] for r in rr if r['source']!=target),2))
+    result=dict(period={'reportYear':2026,'start':'2025-07-01','endExclusive':'2026-07-01'},edges=edges,targets=targets,
+        report_values={'CN':float(legacy[-1]['China']),'US':float(legacy[-1]['United States']),'IN':float(legacy[-1]['India'])},
+        enhancement={'default_multiplier':3,'allowed_multipliers':[1,3],'operation':'uniform_visual_width_scale','formula':'render_width = common_multiplier * base_width(value)','preserves':['source','target','value','share_pct','edge_count'],'adds_observations':False},
+        source='source/repository-project-sources.csv',
+        scope='2026报告年度中美项目贡献来源前十样本；20条表列关系，14个来源国家。未列来源保留为份额，不分配到任何国家。',
+        method='所有节点来自原表国家，所有连线来自原表关系。本土贡献用同国回环表示。增强模式将每条线的视觉宽度统一乘以3；数值、份额、方向和关系数不变。光点仅表示流向，不代表新增开发者或事件。',
+        legend='蓝色：中国项目；青色：美国项目。箭头从开发者所在地指向项目归属地；同国回环表示本土贡献。')
     (base/'flows.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n')
     with (base/'flows.csv').open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=['source','target','value','share_pct','kind','period','display'],lineterminator='\n');w.writeheader();w.writerows(edges)
+        w=csv.DictWriter(f,fieldnames=list(edges[0]),lineterminator='\n');w.writeheader();w.writerows(edges)
     return result
