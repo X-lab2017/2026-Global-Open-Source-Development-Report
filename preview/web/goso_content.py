@@ -227,7 +227,7 @@ def export(out):
     manuscript=['# 第二章 全球开源生态观测地图（GOSO）\n\n> 整章对齐评审版 · 2026-10-16。历史序列参考版本 '+REF+'。尚未替换仓库正式原稿。\n\n在世界地图上，读懂开源的变化。\n\n七节依次观察活跃参与、协作贡献、项目影响力、人才、资产、多样性与治理公益。地理交互图采用分别标注的 OpenShare 2026-10 页面快照、城市样本、贡献来源与模型地域底表；不将快照值并入报告年度结论。']
     for i,s in enumerate(SECTIONS):
         if s['key']=='g':
-            manuscript.append('\n## 2.7 全球开源治理与社会公益地图（G-Map）\n\n'+__import__('re').sub('<[^>]+>', ' ', __import__('gmap_content').section('zh')))
+            manuscript.append(__import__('gmap_publication').manuscript().rstrip())
             continue
         if s['key']=='d':
             manuscript.append(__import__('dmap_content').manuscript())

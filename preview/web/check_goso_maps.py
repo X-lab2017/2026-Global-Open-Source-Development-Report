@@ -14,7 +14,7 @@ for lang in ('zh','en'):
     canvases=[a for _,a in page.nodes if 'goso-unified-canvas' in a.get('class','')]
     assert len(canvases)==5
     assert {a['data-slide-key'] for a in canvases}=={f'{k}-{i}' for k,n in [('gmap',5)] for i in range(1,n+1)}
-    assert all(a['data-slide-height']=='820' for a in canvases)
+    assert all(a['data-slide-height']=='860' for a in canvases)
     amap=[a for _,a in page.nodes if 'am-figure' in a.get('class','')]
     assert len(amap)==3 and all(a['data-slide-height']=='860' for a in amap)
     dmap=[a for _,a in page.nodes if 'dm-figure' in a.get('class','')]
@@ -26,7 +26,7 @@ for lang in ('zh','en'):
     assert len(tmap)==4 and all(a['data-slide-height']=='860' for a in tmap)
     assert {a['data-slide-key'] for a in tmap}=={f'tmap-{i}' for i in range(1,5)}
     assert not any('data-tm-full' in a or 'data-fullscreen' in a for _,a in page.nodes)
-    for term in ['OpenRankInflu','OpenRankContrib','HighImpactTalent','GlobalCollabShare','模拟演示','非预测','14.02%','39.66%','442.92','423.97']:
+    for term in ['OpenRankInflu','OpenRankContrib','HighImpactTalent','GlobalCollabShare','模拟数据','14.02%','39.66%','442.92','423.97']:
         assert term in text,term
     assert f'/2026/{lang}/data/indicators/#indicator-HighImpactTalent' in text
 

@@ -44,7 +44,7 @@ for lang in ['zh','en']:
     assert page.count_sections==7 and page.charts==[]
     assert len(page.fields)==4 and len(page.ids)==len(set(page.ids))
     # I-Map no longer renders an empty project-count placeholder.
-    for term in ['AtomGit','前 5%','当前浏览器','25 个图组','指标反馈与待补证据']:assert term in text,term
+    for term in ['AtomGit','前 5%','当前浏览器','25 个图组','统计范围与指标说明']:assert term in text,term
     # Source snapshots are shared by inline and on-demand source panels.
     for key,entry in evidence['files'].items():
         assert (out/'assets/report/data'/Path(entry['path']).name).is_file(),key
