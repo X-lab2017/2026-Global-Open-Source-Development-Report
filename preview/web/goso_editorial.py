@@ -70,4 +70,4 @@ def stage(kind,primary,comparison):
     return f'<div class="chapter-evidence" data-stage="{kind}"><div class="stage-tabs" role="tablist" aria-label="本节观察方式" hidden>{buttons}</div>'+''.join(panels)+'</div>'
 
 def cover():
-    return '''<section class="goso-cover" id="goso-intro"><div><span class="eyebrow">GOSO / OBSERVATORY 2026</span><h2>开源的全球格局，<br><em>与正在发生的结构变化。</em></h2><p>用地图看分布，用时间序列看变化，用协作关系看连接。<br>从参与规模，走向贡献质量与公共价值。</p></div><aside aria-label="本章年度观察"><a href="#ch02-s01"><span>活跃参与 / 中国实例</span><strong>250.48<small>万</small></strong><p>GitHub · 2026报告年度</p></a><a href="#ch02-s02"><span>协作贡献 / 中国实例</span><strong>442.92<small>万</small></strong><p>报告 OpenRank · 2026</p></a><a href="#ch02-s03"><span>项目影响 / 中国</span><strong>约 160<small>%</small></strong><p>2022—2026 累计增长</p></a></aside></section>'''
+    return __import__('goso_intro').cover()

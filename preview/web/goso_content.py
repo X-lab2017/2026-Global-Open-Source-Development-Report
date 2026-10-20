@@ -160,13 +160,14 @@ def chapter(lang):
     vv=views();base='/2026/'+lang+'/';all_data=json.dumps(vv,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     out=['<div class="goso-chapter" lang="zh-CN">',atlas.defs()]
     if lang=='en':out.append('<div class="reader-note" lang="en">GOSO review chapter: the Chinese manuscript and charts are shown below. English translation will follow editorial review.</div>')
-    out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 整章对齐版 · 2026-10-16</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
-    out.append(editorial.cover())
+    out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 2026 报告年度</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
+    import goso_intro as intro
+    out.append(intro.cover())
     import goso_reading as reading
-    out.append(reading.overview())
+    out.append(intro.overview())
     out.append('<div data-goso-directory></div>')
-    out.append('<nav class="atlas-chapter-route" aria-label="七个地图视角">'+''.join('<a href="#ch02-s0'+str(i+1)+'"><b>'+s['code']+'</b><span>'+label+'</span></a>' for i,(s,label) in enumerate(zip(SECTIONS,['活跃参与','协作贡献','项目影响力','开源人才','开放资产','多样性共建','治理与公益'])))+'</nav>')
-    out.append('<details class="goso-scope"><summary>阅读说明 · 报告年度、地图快照与来源</summary><p>除特别标注外，2026 报告年度为 2025 年 7 月 1 日至 2026 年 6 月 30 日。2.1 按报告年度阅读，国内平台补充量为编制组依据官方平台数据与问卷调研去重得到。2.2、2.3 的地图采用 2025 自然年数据，五域与项目样本采用报告年度；2.4 的全球地图为 2026 年 7 月快照，五域与十城趋势按报告年度阅读。不同窗口与样本分别展示，不混合计算。</p><p>OpenDigger 提供主要数据与方法基础。协作机制示意、实际项目记录与人才模拟分别标注；模拟不作为实测发现。账户、人才、项目、模型和数据资产分别计量，缺失不补零，五域不构成全球的穷尽分区。具体范围与来源见各图及节末说明。</p>'+link(base+'chapters/01/#ch01-s03','回到 1.3 · OSDI 方法基础')+' · '+link(base+'methodology/','完整方法与范围')+'</details>')
+    out.append(intro.route())
+    out.append(intro.scope(lang))
     sections=[]
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)
@@ -224,7 +225,7 @@ def export(out):
     vv=views()
     for values in vv.values():
         for v in values:(dest/(v['id']+'.svg')).write_text(__import__('goso_brand').resolve(standalone_svg(v)))
-    manuscript=['# 第二章 全球开源生态观测地图（GOSO）\n\n> 整章对齐评审版 · 2026-10-16。历史序列参考版本 '+REF+'。尚未替换仓库正式原稿。\n\n在世界地图上，读懂开源的变化。\n\n七节依次观察活跃参与、协作贡献、项目影响力、人才、资产、多样性与治理公益。地理交互图采用分别标注的 OpenShare 2026-10 页面快照、城市样本、贡献来源与模型地域底表；不将快照值并入报告年度结论。']
+    manuscript=[__import__('goso_intro').manuscript().rstrip()]
     for i,s in enumerate(SECTIONS):
         if s['key']=='g':
             manuscript.append(__import__('gmap_publication').manuscript().rstrip())

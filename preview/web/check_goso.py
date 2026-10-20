@@ -54,3 +54,13 @@ for lang in ['zh','en']:
     for key in ('fig-2-3-1','fig-2-3-2','fig-2-3-3','fig-2-4-1','fig-2-4-2','fig-2-4-3','fig-2-4-4','fig-2-4-5'):assert key in page.ids,key
 assert (out/'assets/goso/GOSO-review-draft.md').exists()
 print('PASS: GOSO seven sections, 23 numbered interactive figures and 17 preserved static observation views, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, four review fields and static exports.')
+# Chapter opening follows the reviewed seven-section manuscript.
+import goso_intro
+assert (goso.ROOT.parent/'chapters/chapter2/本章介绍.md').read_text()==goso_intro.manuscript()
+for lang in ['zh','en']:
+    text=(out/f'2026/{lang}/chapters/02/index.html').read_text()
+    opening=text[text.index('id="goso-intro"'):text.index('id="ch02-s01"')]
+    for paragraph in [goso_intro.INTRO,goso_intro.QUESTION,goso_intro.READING,*goso_intro.SCOPE,*[f[1] for f in goso_intro.FINDINGS]]:assert paragraph in opening
+    assert '2025 自然年' not in opening and '2026-10-16' not in opening
+    for i in range(1,8):assert f'href="#ch02-s0{i}"' in opening
+print('PASS: chapter opening shares canonical prose and seven reading destinations')
