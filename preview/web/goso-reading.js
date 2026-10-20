@@ -4,7 +4,7 @@ const chapter=document.querySelector('.goso-chapter');if(!chapter)return;
 const screens=[...chapter.querySelectorAll('.goso-screen')],all=[];
 const sourceSelector='[data-dialog="world-source"],[data-dialog="comparison-source"],[data-dialog="china-source"],[data-tm-info],[data-am-source],[data-dm-source],[data-gm-source]';
 const safeText=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'地域地图采用 OpenDigger / OpenShare 的2025自然年快照；五域序列与项目来源样本采用报告年度统计。省级平均贡献 Top10 独立展示。协作机制为示意，实际来源网络保留20条原始记录；增强显示不改变统计值。'};
+const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'地图采用 OpenDigger 的2025自然年数据；五域与项目来源采用报告年度。平均贡献为独立样本。协作机制为示意；项目网络按实际记录绘制，增强显示不改变数值。'};
 function fallbackSource(stage,section,fig){
  const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector(stage.classList.contains('cmap-figure')?'figcaption':'.viz-heading')?.append(button);
  const dialog=document.createElement('dialog');dialog.className='goso-source-dialog goso-presentation';dialog.setAttribute('aria-label','图表口径与来源');dialog.innerHTML='<button type="button" aria-label="关闭口径与来源">关闭 ×</button><h3>口径与来源</h3><div></div>';document.body.append(dialog);

@@ -33,7 +33,7 @@ if(root&&dataNode){
   const edge=F.edges.find(e=>e.id===selected);
   q('[data-globe-detail]').innerHTML=edge?`<strong>${esc(by[edge.source].name)} → ${esc(by[edge.target].name)}项目</strong><p>${exact(edge.value)} OpenRank · 原表份额 ${edge.share_pct.toFixed(2)}%</p>`:'<p>选择来源记录，查看贡献值与份额。</p>';
   q('[data-globe-bottom]').innerHTML=mode==='mechanism'?'':'<span>中国 → 美国项目 <b>24,420.69</b></span><span>美国 → 中国项目 <b>1,980.46</b></span><small>OpenRank · 前者约为后者 12.3 倍（样本）</small>';
-  const caption=root.closest('figure').querySelector('.cm-caption-note');if(caption)caption.textContent=mode==='mechanism'?'机制示意：虚构节点与关系，不代表真实人物、项目或贡献得分。':'编制组来源前十样本 · 2026报告年度 · 增强显示不改变统计值。';
+  const caption=root.closest('figure').querySelector('.cm-caption-note');if(caption)caption.textContent=mode==='mechanism'?'机制示意 · 节点与关系为虚构':'来源：报告编制组 · 2026报告年度 · 来源前十样本';
   q('[data-globe-motion]').setAttribute('aria-pressed',String(motion));q('[data-globe-motion]').textContent=motion?'暂停流动':'播放流动';
  }
  function schedule(){if(!raf&&renderer&&visible&&!document.hidden)raf=requestAnimationFrame(draw);}

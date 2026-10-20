@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-20-cmap-narrative",
+  "edition": "2026-10-20-cmap-concise",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-2.pdf",
   "pages": 6,
@@ -15,8 +15,8 @@
     10.5
   ],
   "data_sha256": "5c7d6ded5cb704037b37d90ca5c172f7901a1905faff0e9cc2da488a6c7c589a",
-  "manuscript_sha256": "5300446afea578c7505ff2c6e1bda02cff5664cf7345918e955790f702fcac47",
-  "pdf_sha256": "2237d23a452f3bfa929baa1c895e143e292de2904dfa3a7dbd582391cf885fac",
+  "manuscript_sha256": "fca827f142c6816d6fe47b90878e1fa302dcf983c0edc1dc264ecf269fe6ca51",
+  "pdf_sha256": "c24b827dcee19a916af04c1da827e99ed3126ad3e0360b12fff0dbce3f340271",
   "figures": {
     "global": {
       "id": "2-2-1",
@@ -27,7 +27,7 @@
       "orientation": [
         "landscape"
       ],
-      "note": "OpenDigger / OpenShare · 2025自然年地域快照。"
+      "note": "来源：OpenDigger"
     },
     "comparison": {
       "id": "2-2-2",
@@ -38,7 +38,7 @@
       "orientation": [
         "portrait"
       ],
-      "note": "编制组五域综合统计 · 2022—2026报告年度。"
+      "note": "来源：报告编制组 · 五域统计"
     },
     "china": {
       "id": "2-2-3",
@@ -49,7 +49,7 @@
       "orientation": [
         "portrait"
       ],
-      "note": "地图：2025自然年地域快照；平均贡献：编制组Top10样本。"
+      "note": "地图：OpenDigger；平均贡献：报告编制组。"
     },
     "globe": {
       "id": "2-2-4",
@@ -60,7 +60,7 @@
       "orientation": [
         "portrait"
       ],
-      "note": "2026报告年度 · 中美项目来源前十样本 · 20条实际记录。"
+      "note": "来源：报告编制组 · 2026报告年度 · 来源前十样本"
     }
   },
   "verification": {
@@ -68,7 +68,6 @@
     "dom": "passed_222_operations",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "css_cascade": "passed_194_assertions",
-    "approved_figures": "unchanged_data_geometry_and_svg_files"
+    "approved_figures": "unchanged_data_and_chart_geometry; labels_simplified"
   }
 }
