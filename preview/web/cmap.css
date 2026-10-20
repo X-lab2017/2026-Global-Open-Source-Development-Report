@@ -184,7 +184,7 @@
 .cmap-section .cm-introduction{font:400 18px/1.9 var(--sans);margin:18px 0 22px}
 .cmap-section .goso-question{font:500 19px/1.7 var(--sans);color:var(--cyan);margin:18px 0!important}
 .cmap-section :is(.cm-story p,.cm-interpretation p,.goso-action-body p,.cm-actions>p,#cmap-findings+p,.goso-bridge){font:400 17px/1.95 var(--sans);margin:14px 0}
-.cmap-section .cm-position{padding:14px 20px;margin:20px 0 26px}.cmap-section #cmap-findings{font-size:19px;margin:26px 0 10px}
+.cmap-section .cm-position{padding:14px 20px;margin:20px 0 26px;border-left:3px solid var(--cyan);background:var(--pale)}.cmap-section #cmap-findings{font-size:19px;margin:26px 0 10px}
 .cmap-section .cm-window-note{border:0;padding:0;max-width:64em}.cmap-section .cm-interpretation{margin:20px 0 42px}.cm-interpretation strong{font-weight:600;color:var(--cyan)}
 .cm-reading-route .cm-download{margin-left:auto;color:var(--cyan);border-color:var(--cyan);background:transparent}
 
