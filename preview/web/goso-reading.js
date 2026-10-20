@@ -32,7 +32,7 @@ for(const stage of screens){
   panel.querySelector('.goso-source-context')?.remove();
   const extra=document.createElement('div');extra.className='goso-source-context';
   const existing=panel.textContent.replace(/\s+/g,'');
-  for(const paragraph of notes.content.querySelectorAll('p,li')){
+  for(const paragraph of [...stage.querySelectorAll('[data-goso-source-only]'),...notes.content.querySelectorAll('p,li')]){
    if(!existing.includes(paragraph.textContent.replace(/\s+/g,''))){const p=document.createElement('p');p.textContent=paragraph.textContent;extra.append(p);}
   }
   if(extra.children.length)panel.append(extra);

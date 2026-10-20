@@ -89,6 +89,17 @@ def normalize(text,n,lang):
             node.tag='template';node.dirty=True;node.set('data-goso-source-notes',str(n))
             node.children=[x for x in node.children if not (isinstance(x,Node) and x.tag=='summary')]
         if any(node.has(c) for c in ['vmap-print-evidence','cm-print-evidence','im-print-evidence','tm-print-evidence','am-print-evidence','dm-print-evidence']):remove(root,node)
+    notes=next(x for x in root.walk() if 'data-goso-source-notes' in x.attrs)
+    for node in list(root.children):
+        if isinstance(node,Node) and node.tag=='p' and node.text()==web_window(n) and web_window(n):
+            root.children.remove(node);notes.children.insert(0,node)
+    # Preserve script targets but relocate their displayed source copy on demand.
+    for fig in [x for x in root.walk() if x.tag=='figure']:
+        for node in fig.walk():
+            is_footer=bool(re.fullmatch(r'(am|dm|gm)-.+-foot',node.attrs.get('id','')))
+            source_text=node.tag in ('span','p') and node.text().strip().startswith('来源：')
+            if is_footer or source_text or 'data-vmap-note' in node.attrs:
+                node.set('data-goso-source-only','');node.set('hidden',None)
     excluded=set()
     for node in root.walk():
         if node.tag in ('figure','dialog','template'):excluded.update([node,*node.walk()])

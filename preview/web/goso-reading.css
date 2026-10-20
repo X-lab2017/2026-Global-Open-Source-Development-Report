@@ -109,3 +109,5 @@
 
 .goso-chapter-intro p{max-width:none!important;font-family:var(--sans)}
 .goso-chapter p.goso-body-width{font-family:var(--sans)!important}
+
+[data-goso-source-only]{display:none!important}
