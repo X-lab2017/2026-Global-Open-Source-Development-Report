@@ -8,21 +8,23 @@ The report's map geometry now uses the same public geographic resources as OpenS
 - Its ECharts bundle `https://open-share.com/assets/vendor-echarts-D_hXCcIe.js` specifies the GeoJSON default `aspectScale: .75`. This is reproduced by `web/build_vmap_geometry.py`: x = .75 × longitude; y = −latitude, followed by a single uniform fit and translation. No Robinson transform, independent stretching, outline simplification or manual island relocation is applied.
 - The global China feature already contains Taiwan; an automated containment check verifies this. Provincial records include Taiwan (710000), Hong Kong (810000) and Macao (820000). Source maritime/inset geometry is preserved.
 
-## Snapshot identity — do not mix the two windows
+## Current report-year source — confirmed 2026-10-20
 
-The author's latest screenshots match the public **natural-year** dataset:
+Current maps, national/provincial rankings and five-year mini-trends use the report-year window **2025-07-01 inclusive to 2026-07-01 exclusive**. Historical labels 2022–2026 use the same July–June convention.
 
-- `calendar-meta.json`: https://selfoss.open-digger.cn/openshare/overview/meta.json
-- `calendar-developers.json`: https://selfoss.open-digger.cn/openshare/overview/developers.json
-- `calendar-CN-developers.json`: https://selfoss.open-digger.cn/openshare/overview/CN/developers.json
-- Window: 2025-01-01 inclusive to 2026-01-01 exclusive. China active = 2,344,657.55, displayed by OpenShare as 234.46万. World active = 27,621,084.85 in the trend data (summary rounds to 27,621,085).
-- All 40 comparable current total/active screenshot readings were verified against the same source display rule, truncating to two decimals in 万人. Full precision is retained for calculations and CSVs.
-- World total ranking contains 224 entries; active ranking contains 241; the combined table has 244 identifiers. Only geographic features in the source map can be coloured. Data absent from the geometry remain available in the complete download.
-- The sum of the 34 Chinese provincial active values equals the national value. The world active-region table does not equal the global summary; its difference is retained as an unresolved scope/attribution difference, not attributed to a specific country.
-- The provincial total table labels its measure `Estimated Developers`; the active-allocation method still needs documentation. Do not infer observation precision from the number of decimal places.
+- `data-meta.json`: report-year metadata from `overview_half_year/meta.json`.
+- `report-developers.json`: world totals, activity rankings and trends from `overview_half_year/developers.json`.
+- `report-CN-developers.json`: provincial totals/activity and China trend from `overview_half_year/CN/developers.json`.
+- There are 242 merged country/region identifiers and 34 provincial records. China active = 2,504,824.88; world total = 193,896,100; world active = 28,903,652.45. The 34 provincial activity records sum to the national value.
+- Preserve source precision; display 万人 with the platform's two-decimal truncation. Provincial developer totals retain their platform-estimate identity.
+- `report-CN-developers-reference.json` is a byte-identical earlier capture of the current provincial file.
 
-`data-meta.json` is the separate **report-year** metadata used by `/insight/open-world/gosd`: 2025-07-01 inclusive to 2026-07-01 exclusive. Its current China active series ends at 2,504,824.88. It is retained only to explain the time-window difference. These values are not substituted into the author-confirmed 234.46万 baseline.
+The compilation team confirmed the two original five-group CSVs under `data/processed/chapter2` and supplied matching original figures. These records populate both current five-group comparisons and 2022–2026 trends. Their aggregate coverage is distinct from the GitHub map; no domestic supplement is added to those five-group totals.
 
-The old five-group 2022–2026 repository CSV remains byte-identical and explicitly provisional with respect to this natural-year baseline. The 2021–2025 mini-trends in the maps come from the matching natural-year source, not estimates. Domestic Gitee + AtomGit numbers are separate conditional coverage, never injected into these series or provinces.
+Domestic supplementary activity of approximately 1.2 million is compilation-team-confirmed data from official Gitee/AtomGit platform statistics combined with questionnaire research and deduplication, not a hypothetical scenario. It is used only for the platform-coverage panel, not allocated across provinces or added again to the five-group China record.
 
-Geographic and dataset URLs and SHA-256 hashes are recorded in `../fig-2-1-2_platform-coverage.json`; the coordinate transform is recorded in `../map-provenance.json`.
+### Historical captures
+
+The three `calendar-*.json` files and earlier screenshots remain unchanged for provenance. They describe calendar 2025, including China active 2,344,657.55, and are no longer used in current 2.1 figures. Original source arrays and global/region reconciliation fields remain in the source registry; no geographic residual is invented or assigned to a country.
+
+Rebuild current derived records with `python3 preview/web/build_vmap_data.py`. URLs and SHA-256 hashes are in `../fig-2-1-2_platform-coverage.json`; map transforms remain in `../map-provenance.json`.

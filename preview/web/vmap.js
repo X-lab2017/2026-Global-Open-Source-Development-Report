@@ -14,19 +14,19 @@ const base=document.querySelector('meta[name="gosd-base"]')?.content||'';
  let scope=initial.get('vmapScope')==='extended'?'extended':'github';
  const chart=figure.querySelector('[data-vmap-chart]');
  const controls=figure.querySelector('.vmap-controls');controls.hidden=false;
- function endpoint(row,key){return row[key]+(key==='active'&&row.id==='CN'&&scope==='extended'?data.domestic.active_approx:0);}
+ function endpoint(row,key){return row[key]+(key==='active'&&row.id==='CN'&&scope==='extended'&&mode==='countries'?data.domestic.active_approx:0);}
  function records(){
   if(mode==='countries')return data.countries.filter(r=>r.active!==null).sort((a,b)=>endpoint(b,'active')-endpoint(a,'active')).slice(0,10);
-  return [by.US,{id:'EU',name:'欧洲',total:null,active:null},by.CN,by.IN,data.groups.SOUTH6];
+  return data.five_group_records;
  }
  function plot(key,rows){
-  const limit=key==='total'?4000:500,ranked=mode==='countries';
+  const limit=key==='total'?4000:mode==='regions'?800:500,ranked=mode==='countries';
   const title=key==='total'?'开发者总量':'活跃开发者';
-  const suffix=key==='total'||scope==='github'?'万人 · GitHub':'万人 · 中国含国内净增情景';
+  const suffix=mode==='regions'?'万人 · 五域统计':scope==='github'?'万人 · GitHub':'万人 · 中国含国内平台补充';
   const body=rows.map((row,i)=>{
-   const value=row[key],extra=key==='active'&&row.id==='CN'&&scope==='extended';
+   const value=row[key],extra=key==='active'&&row.id==='CN'&&scope==='extended'&&mode==='countries';
    const label=(ranked?String(i+1).padStart(2,'0')+'  ':'')+row.name;
-   const display=value===null?'—':extra?'约354*':(Math.floor(value*100+1e-8)/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+   const display=value===null?'—':extra?'约'+Math.round(endpoint(row,key)):(Math.floor(value*100+1e-8)/100).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
    const marks=value===null?'<span class="vmap-missing">待同步</span>':'<i class="vmap-github" style="width:'+value/limit*100+'%"></i>'+(extra?'<i class="vmap-domestic" style="width:'+data.domestic.active_approx/limit*100+'%"></i>':'');
    return '<div class="vmap-bar-row" data-country="'+row.id+'"><span class="vmap-label">'+esc(label)+'</span><div class="vmap-track" aria-hidden="true">'+marks+'</div><b class="vmap-value" aria-label="'+esc(row.name+' '+(value===null?'待同步':display+'万人'))+'">'+display+'</b></div>';
   }).join('');
@@ -37,19 +37,20 @@ const base=document.querySelector('meta[name="gosd-base"]')?.content||'';
   chart.hidden=trending;
   figure.querySelector('[data-vmap-trend]').hidden=!trending;
   figure.classList.toggle('vmap-trend-mode',trending);
-  figure.querySelectorAll('[data-vmap-scope]').forEach(b=>{b.disabled=trending;});
+  figure.querySelectorAll('[data-vmap-scope]').forEach(b=>{b.disabled=mode!=='countries';b.closest('[role=group]').hidden=mode!=='countries';});
   chart.classList.toggle('vmap-country-mode',mode==='countries');
   if(!trending)chart.innerHTML=(mode==='regions'?plot('total',rows):'')+plot('active',rows);
   figure.querySelectorAll('[data-vmap-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.vmapView===mode)));
   figure.querySelectorAll('[data-vmap-scope]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.vmapScope===scope)));
-  const expanded=scope==='extended';
-  figure.dataset.evidenceKind=trending?'pending':expanded?'scenario':'snapshot';
-  figure.querySelector('.vmap-status').textContent=expanded?'条件情景｜国内净增 · 中国约354万 · 所列国家第2（有条件）':'2025自然年 · GitHub 中国活跃234.46万 · 国家榜第3';
+  const expanded=scope==='extended'&&mode==='countries';
+  figure.dataset.evidenceKind='confirmed';
+  figure.querySelector('.vmap-status').textContent=mode==='regions'?'2026报告年度 · 编制组五域规模':expanded?'2026报告年度 · 中国含国内平台补充约370万':'2026报告年度 · GitHub 中国活跃250.48万';
   figure.querySelector('[data-vmap-domestic-legend]').hidden=!expanded;
-  figure.querySelector('[data-vmap-note]').textContent=expanded?'* 假设国内约120万全部属于同窗口、同定义且剔除GitHub重复后的净增。三平台重合量待确认；其他国家仍仅覆盖GitHub。':mode==='regions'?'2025自然年；六国为巴西、印尼、越南、菲律宾、埃及、南非，合计300.79万。欧洲分组待对齐；历史序列独立标注。':'国家榜按2025自然年同版GitHub底表排序，显示前十。国内扩展仅为中国补充情景，不是全球统一的平台并集排名。';
+  figure.querySelector('[data-vmap-base-legend]').innerHTML='<i></i>'+(mode==='regions'?'编制组五域统计':'GitHub');
+  figure.querySelector('[data-vmap-note]').textContent=expanded?'国内约120万：报告编制组根据Gitee、AtomGit等官方平台数据，结合问卷调研去重得到。其他国家仅展示GitHub覆盖。':mode==='regions'?'五域按编制组原稿统计展示，不构成全球穷尽划分。国内补充量不重复叠加到五域中国值中。':'GitHub活跃规模前十；可切换国内平台补充，观察覆盖范围对中国读数的影响。';
   if(trending){
-   figure.querySelector('.vmap-status').textContent='口径待核验｜历史原表 · 2022—2026，与当前 GitHub 快照分开展示';
-   figure.querySelector('[data-vmap-note]').textContent=data.trend.warning+' 全球南方代表组的成员范围待确认。';
+   figure.querySelector('.vmap-status').textContent='2022—2026报告年度 · 五域活跃规模演变';
+   figure.querySelector('[data-vmap-note]').textContent='年份为报告年度：前一年7月1日至当年6月30日。来源：报告编制组五域历史统计。';
    figure.querySelector('.vmap-legend').hidden=true;renderTrend();
   }else figure.querySelector('.vmap-legend').hidden=false;
   if(save){const url=new URL(location.href);url.searchParams.set('vmapView',mode);url.searchParams.set('vmapScope',scope);history.replaceState(null,'',url);}
@@ -61,7 +62,7 @@ const base=document.querySelector('meta[name="gosd-base"]')?.content||'';
   const x=i=>left+i*(W-left-right)/4,y=v=>H-bottom-v/max*(H-top-bottom);
   const color=i=>'var(--gv-s'+i+','+data.publication_style.colors[i]+')';
   const dash=i=>data.publication_style.dashes[i]?.join(' ')||'';
-  let svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="五域2022至2026年活跃开发者历史序列，口径待核验"><title>仓库原始序列；非当前GitHub同口径趋势</title>';
+  let svg='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="五域2022至2026报告年度活跃开发者历史序列"><title>报告编制组五域历史统计</title>';
   [0,.25,.5,.75,1].forEach(f=>{const v=max*f;svg+='<path d="M'+left+' '+y(v)+'H'+(W-right)+'" stroke="var(--line)"/><text x="'+(left-10)+'" y="'+(y(v)+5)+'" text-anchor="end">'+v+'</text>';});
   years.forEach((yr,i)=>{svg+='<text x="'+x(i)+'" y="'+(H-12)+'" text-anchor="middle">'+yr+'</text>';});
   svg+='<path d="M'+x(trendYear)+' '+top+'V'+(H-bottom)+'" stroke="var(--muted)" stroke-dasharray="4 5"/>';
@@ -72,7 +73,7 @@ const base=document.querySelector('meta[name="gosd-base"]')?.content||'';
   });svg+='</svg>';
   const modes='<div class="vm-trend-modes" role="group" aria-label="趋势量纲"><button type="button" data-trend-mode="absolute" aria-pressed="'+!trendIndex+'">人数 · 万人</button><button type="button" data-trend-mode="index" aria-pressed="'+trendIndex+'">起点对比 · 2022=100</button></div>';
   const groups=series.map((r,i)=>'<button type="button" data-trend-group="'+r.id+'" aria-pressed="'+(trendFocus===r.id)+'"><i style="background:'+color(i)+'"></i><span>'+esc(r.name)+'</span><b>'+val(r,trendYear).toFixed(trendIndex?1:2)+'</b></button>').join('');
-  figure.querySelector('[data-vmap-trend]').innerHTML='<div class="vm-trend-chart">'+modes+svg+'<div class="vm-trend-years" role="group" aria-label="历史年份">'+years.map((yr,i)=>'<button type="button" data-trend-year="'+i+'" aria-pressed="'+(i===trendYear)+'">'+yr+'</button>').join('')+'</div></div><aside class="vm-trend-table"><h5>'+years[trendYear]+' · '+(trendIndex?'起点指数':'活跃万人')+'</h5>'+groups+'<p>点选组别突出曲线，再点恢复全部。<br>按原表绘制，不与当前快照拼接。</p><a href="'+base+'/assets/vmap/fig-2-1-2_five-year-source.csv" download>下载五年原表 CSV ↓</a></aside>';
+  figure.querySelector('[data-vmap-trend]').innerHTML='<div class="vm-trend-chart">'+modes+svg+'<div class="vm-trend-years" role="group" aria-label="历史年份">'+years.map((yr,i)=>'<button type="button" data-trend-year="'+i+'" aria-pressed="'+(i===trendYear)+'">'+yr+'</button>').join('')+'</div></div><aside class="vm-trend-table"><h5>'+years[trendYear]+' · '+(trendIndex?'起点指数':'活跃万人')+'</h5>'+groups+'<p>点选组别突出曲线，再点恢复全部。<br>前一年7月至当年6月。</p><a href="'+base+'/assets/vmap/fig-2-1-2_five-year-source.csv" download>下载五年原表 CSV ↓</a></aside>';
  }
  figure.addEventListener('click',event=>{
   const b=event.target.closest('button');if(!b)return;
@@ -132,7 +133,7 @@ const base=document.querySelector('meta[name="gosd-base"]')?.content||'';
    });
    figure.querySelectorAll('[data-map-metric]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mapMetric===metric)));
    figure.querySelectorAll('[data-map-scope]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mapScope===scope)));
-   figure.querySelector('[data-map-context]').textContent=(scope==='world'?'全球 · 同版国家／地区底表':'中国 · 34个省级地区')+' · 缺失不等于零';
+   figure.querySelector('[data-map-context]').textContent=(scope==='world'?'全球 · 同版国家／地区底表':'中国 · 34个省级地区') ;
    figure.querySelector('[data-map-scale]').textContent='线性色阶：0—'+fmt(maximum)+' 万人';
    select(selected,null,false);
   }

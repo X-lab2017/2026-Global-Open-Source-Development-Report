@@ -1,22 +1,23 @@
 {
   "unit": "万人",
-  "source": "https://open-share.com/insight/open-world",
+  "source": "https://open-share.com/insight/open-world/gosd",
   "provided_date": "2026-10-15",
   "page_update_label": "2026-10",
   "observation_period": {
-    "start": "2025-01-01",
-    "end_exclusive": "2026-01-01",
-    "time_dimension": "natural_year",
-    "label": "2025自然年"
+    "start": "2025-07-01",
+    "end_exclusive": "2026-07-01",
+    "time_dimension": "report_year",
+    "report_year": 2026,
+    "label": "2025 年 7 月 1 日至 2026 年 6 月 30 日"
   },
   "comparison_period": {
-    "start": "2024-01-01",
-    "end_exclusive": "2025-01-01",
-    "label": "2024自然年；源表字段YoY Change"
+    "start": "2024-07-01",
+    "end_exclusive": "2025-07-01",
+    "label": "2025报告年度"
   },
-  "scope": "GitHub · 2025自然年（与作者确认截图一致）",
-  "global_total": 18014.5424,
-  "global_active": 2762.108485,
+  "scope": "GitHub · 2026报告年度",
+  "global_total": 19389.61,
+  "global_active": 2890.365245,
   "domestic": {
     "active_approx": 120,
     "platforms": [
@@ -24,2015 +25,2006 @@
       "AtomGit"
     ],
     "within_domestic_deduplicated": true,
-    "cross_github_deduplicated": null,
-    "status": "净增情景，非已确认并集"
+    "cross_github_deduplicated": true,
+    "status": "编制组确认的国内平台补充统计",
+    "source": "报告编制组根据国内 Gitee、AtomGit 等官方平台数据，结合问卷调研去重得到。",
+    "confirmed_on": "2026-10-20",
+    "period": {
+      "start": "2025-07-01",
+      "end_exclusive": "2026-07-01",
+      "time_dimension": "report_year",
+      "report_year": 2026,
+      "label": "2025 年 7 月 1 日至 2026 年 6 月 30 日"
+    }
   },
   "countries": [
     {
       "id": "US",
       "name": "美国",
       "en": "United States",
-      "total": 3029.8253,
-      "active": 464.84828799999997,
-      "increase": 110.47114499999999,
-      "total_increase": 553.8896
+      "total": 3241.0529,
+      "active": 494.144812,
+      "increase": 53.135158,
+      "total_increase": 529.7462
     },
     {
       "id": "IN",
       "name": "印度",
       "en": "India",
-      "total": 2457.6236,
-      "active": 273.287676,
-      "increase": 60.700203,
-      "total_increase": 651.3475
+      "total": 2672.7004,
+      "active": 285.088485,
+      "increase": 22.166288,
+      "total_increase": 619.4972
     },
     {
       "id": "CN",
       "name": "中国",
       "en": "China",
-      "total": 1762.3414,
-      "active": 234.46575499999997,
-      "increase": 59.085936,
-      "total_increase": 240.8613
+      "total": 1838.6391,
+      "active": 250.482488,
+      "increase": 30.404658,
+      "total_increase": 203.5204
     },
     {
       "id": "BR",
       "name": "巴西",
       "en": "Brazil",
-      "total": 765.3586,
-      "active": 185.997103,
-      "increase": 41.099158,
-      "total_increase": 188.2991
+      "total": 831.796,
+      "active": 193.452526,
+      "increase": 13.379423000000001,
+      "total_increase": 178.9412
     },
     {
       "id": "DE",
       "name": "德国",
       "en": "Germany",
-      "total": 485.8805,
-      "active": 135.697592,
-      "increase": 32.279816,
-      "total_increase": 107.6609
+      "total": 525.5625,
+      "active": 141.904678,
+      "increase": 13.315138000000001,
+      "total_increase": 97.7859
     },
     {
       "id": "GB",
       "name": "英国",
       "en": "United Kingdom",
-      "total": 522.0983,
-      "active": 108.70081699999999,
-      "increase": 24.822492,
-      "total_increase": 96.2937
+      "total": 555.9767,
+      "active": 113.368045,
+      "increase": 9.531096,
+      "total_increase": 87.5527
     },
     {
       "id": "CA",
       "name": "加拿大",
       "en": "Canada",
-      "total": 374.547,
-      "active": 87.009692,
-      "increase": 19.469136,
-      "total_increase": 68.0508
+      "total": 399.1305,
+      "active": 90.620257,
+      "increase": 7.264632000000001,
+      "total_increase": 63.2801
     },
     {
       "id": "FR",
       "name": "法国",
       "en": "France",
-      "total": 375.6972,
-      "active": 83.844029,
-      "increase": 19.532536,
-      "total_increase": 77.8476
+      "total": 403.4001,
+      "active": 87.505002,
+      "increase": 7.90477,
+      "total_increase": 70.6108
     },
     {
       "id": "RU",
       "name": "俄罗斯",
       "en": "Russia",
-      "total": 449.087,
-      "active": 61.184787,
-      "increase": 11.786571,
-      "total_increase": 67.1291
-    },
-    {
-      "id": "ID",
-      "name": "印度尼西亚",
-      "en": "Indonesia",
-      "total": 489.6524,
-      "active": 45.831896,
-      "increase": 10.617398,
-      "total_increase": 110.5398
-    },
-    {
-      "id": "KR",
-      "name": "韩国",
-      "en": "Korea",
-      "total": 290.0539,
-      "active": 45.523388,
-      "increase": 9.565642,
-      "total_increase": 57.0037
+      "total": 462.7668,
+      "active": 61.805781,
+      "increase": 1.865835,
+      "total_increase": 53.0456
     },
     {
       "id": "JP",
       "name": "日本",
       "en": "Japan",
-      "total": 497.3908,
-      "active": 45.503819,
-      "increase": 11.677576,
-      "total_increase": 121.4075
+      "total": 543.3912,
+      "active": 49.026286999999996,
+      "increase": 6.418448000000001,
+      "total_increase": 115.2507
+    },
+    {
+      "id": "KR",
+      "name": "韩国",
+      "en": "Korea",
+      "total": 314.573,
+      "active": 48.69733,
+      "increase": 4.646707,
+      "total_increase": 58.3674
+    },
+    {
+      "id": "ID",
+      "name": "印度尼西亚",
+      "en": "Indonesia",
+      "total": 527.0032,
+      "active": 48.668496999999995,
+      "increase": 5.010228,
+      "total_increase": 108.5253
     },
     {
       "id": "PL",
       "name": "波兰",
       "en": "Poland",
-      "total": 193.4464,
-      "active": 44.540306,
-      "increase": 9.4933,
-      "total_increase": 40.8345
-    },
-    {
-      "id": "NL",
-      "name": "荷兰",
-      "en": "Netherlands",
-      "total": 200.4425,
-      "active": 43.275192,
-      "increase": 10.168844,
-      "total_increase": 49.7178
-    },
-    {
-      "id": "ES",
-      "name": "西班牙",
-      "en": "Spain",
-      "total": 257.4611,
-      "active": 43.25332,
-      "increase": 9.659794999999999,
-      "total_increase": 58.4744
+      "total": 207.4728,
+      "active": 45.719685999999996,
+      "increase": 3.00805,
+      "total_increase": 36.1916
     },
     {
       "id": "AU",
       "name": "澳大利亚",
       "en": "Australia",
-      "total": 221.7966,
-      "active": 42.660477,
-      "increase": 10.211216,
-      "total_increase": 43.2806
+      "total": 236.8357,
+      "active": 45.701338,
+      "increase": 5.137272,
+      "total_increase": 39.0273
+    },
+    {
+      "id": "NL",
+      "name": "荷兰",
+      "en": "Netherlands",
+      "total": 218.5318,
+      "active": 45.194142,
+      "increase": 3.9937980000000004,
+      "total_increase": 47.5975
+    },
+    {
+      "id": "ES",
+      "name": "西班牙",
+      "en": "Spain",
+      "total": 280.2085,
+      "active": 45.010659999999994,
+      "increase": 3.691987,
+      "total_increase": 56.8802
     },
     {
       "id": "IT",
       "name": "意大利",
       "en": "Italy",
-      "total": 182.9959,
-      "active": 34.642716,
-      "increase": 8.25298,
-      "total_increase": 39.8988
+      "total": 198.9642,
+      "active": 36.57837,
+      "increase": 3.702586,
+      "total_increase": 39.3696
     },
     {
       "id": "TR",
       "name": "土耳其",
       "en": "Turkey",
-      "total": 236.2908,
-      "active": 33.733307,
-      "increase": 6.876525,
-      "total_increase": 49.8689
-    },
-    {
-      "id": "UA",
-      "name": "乌克兰",
-      "en": "Ukraine",
-      "total": 165.1906,
-      "active": 31.675051,
-      "increase": 6.043863,
-      "total_increase": 27.3781
+      "total": 254.4065,
+      "active": 34.900824,
+      "increase": 2.199419,
+      "total_increase": 49.8945
     },
     {
       "id": "AR",
       "name": "阿根廷",
       "en": "Argentina",
-      "total": 148.5741,
-      "active": 29.997825,
-      "increase": 6.029483,
-      "total_increase": 31.1797
+      "total": 159.9355,
+      "active": 32.132872,
+      "increase": 2.821495,
+      "total_increase": 30.6337
+    },
+    {
+      "id": "UA",
+      "name": "乌克兰",
+      "en": "Ukraine",
+      "total": 172.9006,
+      "active": 32.111903000000005,
+      "increase": 1.131461,
+      "total_increase": 23.6598
     },
     {
       "id": "VN",
       "name": "越南",
       "en": "Vietnam",
-      "total": 276.0619,
-      "active": 29.095322999999997,
-      "increase": 6.784191000000001,
-      "total_increase": 69.1813
+      "total": 297.2715,
+      "active": 30.809184000000002,
+      "increase": 3.044389,
+      "total_increase": 65.8643
     },
     {
       "id": "SE",
       "name": "瑞典",
       "en": "Sweden",
-      "total": 96.2139,
-      "active": 27.840569,
-      "increase": 6.301674,
-      "total_increase": 17.8123
+      "total": 102.9024,
+      "active": 28.952088,
+      "increase": 2.335293,
+      "total_increase": 16.9309
     },
     {
       "id": "BD",
       "name": "孟加拉国",
       "en": "Bangladesh",
-      "total": 174.824,
-      "active": 25.951531,
-      "increase": 6.374232,
-      "total_increase": 42.7187
+      "total": 188.2249,
+      "active": 27.783047999999997,
+      "increase": 3.342887,
+      "total_increase": 40.6905
     },
     {
       "id": "PK",
       "name": "巴基斯坦",
       "en": "Pakistan",
-      "total": 228.165,
-      "active": 24.582814000000003,
-      "increase": 5.362241,
-      "total_increase": 69.5126
+      "total": 249.7496,
+      "active": 25.846006,
+      "increase": 2.104403,
+      "total_increase": 66.1171
     },
     {
       "id": "CH",
       "name": "瑞士",
       "en": "Switzerland",
-      "total": 72.0134,
-      "active": 23.669952,
-      "increase": 5.8376339999999995,
-      "total_increase": 15.2068
+      "total": 78.13,
+      "active": 25.114701,
+      "increase": 2.855326,
+      "total_increase": 14.9537
     },
     {
       "id": "MX",
       "name": "墨西哥",
       "en": "Mexico",
-      "total": 263.7576,
-      "active": 23.493826000000002,
-      "increase": 5.063206,
-      "total_increase": 62.7746
+      "total": 286.5151,
+      "active": 24.657307,
+      "increase": 2.063704,
+      "total_increase": 62.7403
     },
     {
       "id": "NG",
       "name": "尼日利亚",
       "en": "Nigeria",
-      "total": 167.5852,
-      "active": 23.012645000000003,
-      "increase": 5.805204,
-      "total_increase": 47.623
+      "total": 179.4519,
+      "active": 24.028228,
+      "increase": 2.259815,
+      "total_increase": 36.7531
     },
     {
       "id": "CO",
       "name": "哥伦比亚",
       "en": "Colombia",
-      "total": 153.6569,
-      "active": 22.462395,
-      "increase": 4.92319,
-      "total_increase": 38.6555
+      "total": 167.0892,
+      "active": 23.650779999999997,
+      "increase": 2.046367,
+      "total_increase": 37.5747
     },
     {
       "id": "PT",
       "name": "葡萄牙",
       "en": "Portugal",
-      "total": 68.0323,
-      "active": 17.817504,
-      "increase": 3.8197989999999997,
-      "total_increase": 15.4973
+      "total": 74.0488,
+      "active": 18.543438000000002,
+      "increase": 1.332773,
+      "total_increase": 14.9989
     },
     {
       "id": "EG",
       "name": "埃及",
       "en": "Egypt",
-      "total": 149.8289,
-      "active": 16.598436,
-      "increase": 3.882693,
-      "total_increase": 43.6292
-    },
-    {
-      "id": "BE",
-      "name": "比利时",
-      "en": "Belgium",
-      "total": 69.6057,
-      "active": 14.890129,
-      "increase": 3.445074,
-      "total_increase": 13.5289
+      "total": 162.6418,
+      "active": 17.40192,
+      "increase": 1.399459,
+      "total_increase": 41.6202
     },
     {
       "id": "NO",
       "name": "挪威",
       "en": "Norway",
-      "total": 47.3076,
-      "active": 14.727816,
-      "increase": 3.56138,
-      "total_increase": 9.079
+      "total": 51.0054,
+      "active": 15.616906,
+      "increase": 1.697661,
+      "total_increase": 9.181
+    },
+    {
+      "id": "BE",
+      "name": "比利时",
+      "en": "Belgium",
+      "total": 74.8934,
+      "active": 15.536960999999998,
+      "increase": 1.3094370000000002,
+      "total_increase": 13.1159
     },
     {
       "id": "SG",
       "name": "新加坡",
       "en": "Singapore",
-      "total": 194.4204,
-      "active": 14.189078,
-      "increase": 3.46553,
-      "total_increase": 54.5568
+      "total": 217.058,
+      "active": 15.164755,
+      "increase": 1.7696869999999998,
+      "total_increase": 54.0678
     },
     {
       "id": "DK",
       "name": "丹麦",
       "en": "Denmark",
-      "total": 51.0212,
-      "active": 14.131521,
-      "increase": 3.298458,
-      "total_increase": 9.2326
+      "total": 54.3334,
+      "active": 14.797792000000001,
+      "increase": 1.347711,
+      "total_increase": 8.4042
     },
     {
       "id": "CZ",
       "name": "捷克",
       "en": "Czech Rep.",
-      "total": 55.6332,
-      "active": 13.942732000000001,
-      "increase": 3.336751,
-      "total_increase": 12.4773
+      "total": 60.6127,
+      "active": 14.7493,
+      "increase": 1.556637,
+      "total_increase": 12.0462
     },
     {
       "id": "AT",
       "name": "奥地利",
       "en": "Austria",
-      "total": 55.9921,
-      "active": 13.819559,
-      "increase": 3.2216299999999998,
-      "total_increase": 13.1484
+      "total": 61.1388,
+      "active": 14.648385000000001,
+      "increase": 1.4962030000000002,
+      "total_increase": 12.7963
     },
     {
       "id": "IR",
       "name": "伊朗",
       "en": "Iran",
-      "total": 88.9642,
-      "active": 13.806896,
-      "increase": 3.144547,
-      "total_increase": 17.419
+      "total": 89.8557,
+      "active": 13.696902,
+      "increase": 0.484518,
+      "total_increase": 11.7156
     },
     {
       "id": "FI",
       "name": "芬兰",
       "en": "Finland",
-      "total": 49.2059,
-      "active": 13.060951,
-      "increase": 2.877727,
-      "total_increase": 10.824
-    },
-    {
-      "id": "KE",
-      "name": "肯尼亚",
-      "en": "Kenya",
-      "total": 61.649,
-      "active": 12.363354,
-      "increase": 2.84849,
-      "total_increase": 19.2144
+      "total": 53.8218,
+      "active": 13.679865,
+      "increase": 1.132822,
+      "total_increase": 10.7389
     },
     {
       "id": "LK",
       "name": "斯里兰卡",
       "en": "Sri Lanka",
-      "total": 50.2346,
-      "active": 12.145786,
-      "increase": 3.248551,
-      "total_increase": 11.7563
+      "total": 54.1411,
+      "active": 12.907931,
+      "increase": 1.567016,
+      "total_increase": 10.9313
+    },
+    {
+      "id": "KE",
+      "name": "肯尼亚",
+      "en": "Kenya",
+      "total": 67.8197,
+      "active": 12.827986,
+      "increase": 0.977425,
+      "total_increase": 17.4054
     },
     {
       "id": "PH",
       "name": "菲律宾",
       "en": "Philippines",
-      "total": 256.0029,
-      "active": 11.99959,
-      "increase": 2.9324470000000002,
-      "total_increase": 69.9928
+      "total": 281.5527,
+      "active": 12.74673,
+      "increase": 1.419308,
+      "total_increase": 70.1096
     },
     {
       "id": "ZA",
       "name": "南非",
       "en": "South Africa",
-      "total": 96.2146,
-      "active": 11.272063000000001,
-      "increase": 2.705787,
-      "total_increase": 26.7163
+      "total": 105.8997,
+      "active": 11.6904,
+      "increase": 0.84875,
+      "total_increase": 25.0745
     },
     {
       "id": "RO",
       "name": "罗马尼亚",
       "en": "Romania",
-      "total": 73.4669,
-      "active": 11.098239999999999,
-      "increase": 2.31374,
-      "total_increase": 14.5146
+      "total": 79.5527,
+      "active": 11.335232000000001,
+      "increase": 0.68976,
+      "total_increase": 14.5129
     },
     {
       "id": "IL",
       "name": "以色列",
       "en": "Israel",
-      "total": 86.1265,
-      "active": 10.292434,
-      "increase": 2.4404169999999996,
-      "total_increase": 17.5672
+      "total": 93.5953,
+      "active": 11.126849,
+      "increase": 1.25882,
+      "total_increase": 17.7688
     },
     {
       "id": "CL",
       "name": "智利",
       "en": "Chile",
-      "total": 74.8236,
-      "active": 9.874566999999999,
-      "increase": 2.2826459999999997,
-      "total_increase": 17.8369
+      "total": 80.9093,
+      "active": 10.599995,
+      "increase": 1.0537379999999998,
+      "total_increase": 17.1552
     },
     {
       "id": "NZ",
       "name": "新西兰",
       "en": "New Zealand",
-      "total": 41.4762,
-      "active": 9.817008999999999,
-      "increase": 2.238778,
-      "total_increase": 7.376
+      "total": 44.1201,
+      "active": 10.482042,
+      "increase": 1.072798,
+      "total_increase": 6.6993
     },
     {
       "id": "TH",
       "name": "泰国",
       "en": "Thailand",
-      "total": 143.7597,
-      "active": 9.716859,
-      "increase": 2.348799,
-      "total_increase": 34.7034
+      "total": 157.0196,
+      "active": 10.468937,
+      "increase": 1.319186,
+      "total_increase": 36.7
     },
     {
       "id": "GR",
       "name": "希腊",
       "en": "Greece",
-      "total": 36.9884,
-      "active": 8.492035000000001,
-      "increase": 2.048405,
-      "total_increase": 7.0306
-    },
-    {
-      "id": "HU",
-      "name": "匈牙利",
-      "en": "Hungary",
-      "total": 43.5919,
-      "active": 8.224969,
-      "increase": 1.8425369999999999,
-      "total_increase": 7.7344
+      "total": 39.4067,
+      "active": 8.784837,
+      "increase": 0.709391,
+      "total_increase": 6.5204
     },
     {
       "id": "PE",
       "name": "秘鲁",
       "en": "Peru",
-      "total": 84.1962,
-      "active": 8.108702000000001,
-      "increase": 1.80277,
-      "total_increase": 22.5754
+      "total": 90.7052,
+      "active": 8.593492,
+      "increase": 0.765084,
+      "total_increase": 21.0912
+    },
+    {
+      "id": "HU",
+      "name": "匈牙利",
+      "en": "Hungary",
+      "total": 46.4901,
+      "active": 8.472919000000001,
+      "increase": 0.636207,
+      "total_increase": 7.2711
     },
     {
       "id": "NP",
       "name": "尼泊尔",
       "en": "Nepal",
-      "total": 44.316,
-      "active": 7.955599,
-      "increase": 1.944389,
-      "total_increase": 12.1844
+      "total": 48.6967,
+      "active": 8.381178,
+      "increase": 0.881808,
+      "total_increase": 11.9029
     },
     {
       "id": "BG",
       "name": "保加利亚",
       "en": "Bulgaria",
-      "total": 33.7077,
-      "active": 7.226921000000001,
-      "increase": 1.3220049999999999,
-      "total_increase": 6.9348
-    },
-    {
-      "id": "IE",
-      "name": "爱尔兰",
-      "en": "Ireland",
-      "total": 45.5142,
-      "active": 6.965610000000001,
-      "increase": 1.547871,
-      "total_increase": 8.3472
+      "total": 36.2099,
+      "active": 7.408725,
+      "increase": 0.389938,
+      "total_increase": 6.6812
     },
     {
       "id": "MY",
       "name": "马来西亚",
       "en": "Malaysia",
-      "total": 105.8378,
-      "active": 6.903448,
-      "increase": 1.695075,
-      "total_increase": 24.2758
+      "total": 113.9033,
+      "active": 7.35237,
+      "increase": 0.804824,
+      "total_increase": 22.5759
     },
     {
-      "id": "BY",
-      "name": "白俄罗斯",
-      "en": "Belarus",
-      "total": 39.0305,
-      "active": 6.651346,
-      "increase": 1.006526,
-      "total_increase": 4.8971
+      "id": "IE",
+      "name": "爱尔兰",
+      "en": "Ireland",
+      "total": 48.7502,
+      "active": 7.340575,
+      "increase": 0.701687,
+      "total_increase": 7.7151
     },
     {
       "id": "RS",
       "name": "塞尔维亚",
       "en": "Serbia",
-      "total": 30.6091,
-      "active": 6.592638000000001,
-      "increase": 1.351249,
-      "total_increase": 4.9114
+      "total": 32.5368,
+      "active": 6.824205,
+      "increase": 0.447925,
+      "total_increase": 4.7971
     },
     {
-      "id": "MA",
-      "name": "摩洛哥",
-      "en": "Morocco",
-      "total": 82.2452,
-      "active": 6.190886,
-      "increase": 1.4310379999999998,
-      "total_increase": 22.9179
+      "id": "BY",
+      "name": "白俄罗斯",
+      "en": "Belarus",
+      "total": 40.7977,
+      "active": 6.5935429999999995,
+      "increase": -0.09828200000000001,
+      "total_increase": 4.9129
     },
     {
       "id": "AE",
       "name": "阿拉伯联合酋长国",
       "en": "United Arab Emirates",
-      "total": 59.1961,
-      "active": 6.160956,
-      "increase": 1.500155,
-      "total_increase": 16.9231
+      "total": 65.6185,
+      "active": 6.546362,
+      "increase": 0.680765,
+      "total_increase": 16.8707
+    },
+    {
+      "id": "MA",
+      "name": "摩洛哥",
+      "en": "Morocco",
+      "total": 90.6406,
+      "active": 6.2790029999999994,
+      "increase": 0.373963,
+      "total_increase": 23.2512
     },
     {
       "id": "UZ",
       "name": "乌兹别克斯坦",
       "en": "Uzbekistan",
-      "total": 34.9244,
-      "active": 4.77382,
-      "increase": 0.891698,
-      "total_increase": 11.106
+      "total": 39.504,
+      "active": 4.897648,
+      "increase": 0.183166,
+      "total_increase": 11.9252
     },
     {
       "id": "GH",
       "name": "加纳",
       "en": "Ghana",
-      "total": 29.7331,
-      "active": 4.604601000000001,
-      "increase": 1.155704,
-      "total_increase": 9.2225
+      "total": 32.8387,
+      "active": 4.868816000000001,
+      "increase": 0.5197,
+      "total_increase": 8.4017
     },
     {
       "id": "KZ",
       "name": "哈萨克斯坦",
       "en": "Kazakhstan",
-      "total": 41.3225,
-      "active": 4.410057,
-      "increase": 0.895935,
-      "total_increase": 11.6779
+      "total": 46.3403,
+      "active": 4.488747,
+      "increase": 0.19983399999999998,
+      "total_increase": 12.4772
     },
     {
       "id": "GE",
       "name": "格鲁吉亚",
       "en": "Georgia",
-      "total": 18.3911,
-      "active": 3.9795260000000003,
-      "increase": 0.789921,
-      "total_increase": 3.6784
+      "total": 19.8539,
+      "active": 4.179449,
+      "increase": 0.302612,
+      "total_increase": 3.7302
     },
     {
       "id": "VE",
       "name": "委内瑞拉",
       "en": "Venezuela",
-      "total": 31.311,
-      "active": 3.888586,
-      "increase": 0.93814,
-      "total_increase": 8.2014
-    },
-    {
-      "id": "HR",
-      "name": "克罗地亚",
-      "en": "Croatia",
-      "total": 17.9941,
-      "active": 3.818365,
-      "increase": 0.776927,
-      "total_increase": 3.1063
-    },
-    {
-      "id": "LT",
-      "name": "立陶宛",
-      "en": "Lithuania",
-      "total": 20.8505,
-      "active": 3.7941910000000005,
-      "increase": 0.755973,
-      "total_increase": 4.2321
+      "total": 34.5018,
+      "active": 4.112609,
+      "increase": 0.404962,
+      "total_increase": 8.7193
     },
     {
       "id": "TN",
       "name": "突尼斯",
       "en": "Tunisia",
-      "total": 38.9842,
-      "active": 3.7239709999999997,
-      "increase": 0.747758,
-      "total_increase": 9.1678
+      "total": 42.0582,
+      "active": 3.917332,
+      "increase": 0.27404,
+      "total_increase": 8.7226
     },
     {
-      "id": "SK",
-      "name": "斯洛伐克",
-      "en": "Slovakia",
-      "total": 19.605,
-      "active": 3.67332,
-      "increase": 0.827558,
-      "total_increase": 4.1836
+      "id": "HR",
+      "name": "克罗地亚",
+      "en": "Croatia",
+      "total": 19.1502,
+      "active": 3.900295,
+      "increase": 0.251812,
+      "total_increase": 2.9776
     },
     {
       "id": "ET",
       "name": "埃塞俄比亚",
       "en": "Ethiopia",
-      "total": 22.7715,
-      "active": 3.658356,
-      "increase": 0.9599540000000001,
-      "total_increase": 7.6817
+      "total": 25.1351,
+      "active": 3.8583559999999997,
+      "increase": 0.420583,
+      "total_increase": 7.2915
+    },
+    {
+      "id": "LT",
+      "name": "立陶宛",
+      "en": "Lithuania",
+      "total": 22.7028,
+      "active": 3.840008,
+      "increase": 0.13858900000000002,
+      "total_increase": 4.247
+    },
+    {
+      "id": "SK",
+      "name": "斯洛伐克",
+      "en": "Slovakia",
+      "total": 21.2894,
+      "active": 3.82166,
+      "increase": 0.296697,
+      "total_increase": 4.0893
     },
     {
       "id": "EC",
       "name": "厄瓜多尔",
       "en": "Ecuador",
-      "total": 38.3385,
-      "active": 3.593891,
-      "increase": 0.8656959999999999,
-      "total_increase": 10.6931
+      "total": 41.8829,
+      "active": 3.7692370000000004,
+      "increase": 0.340805,
+      "total_increase": 10.4342
     },
     {
       "id": "EE",
       "name": "爱沙尼亚",
       "en": "Estonia",
-      "total": 13.6016,
-      "active": 3.5328800000000005,
-      "increase": 0.8215950000000001,
-      "total_increase": 2.8367
+      "total": 14.9001,
+      "active": 3.6591480000000005,
+      "increase": 0.309602,
+      "total_increase": 2.9825
     },
     {
       "id": "SA",
       "name": "沙特阿拉伯",
       "en": "Saudi Arabia",
-      "total": 90.1427,
-      "active": 3.3406379999999998,
-      "increase": 0.763025,
-      "total_increase": 27.1117
+      "total": 98.8061,
+      "active": 3.55168,
+      "increase": 0.395198,
+      "total_increase": 26.6403
     },
     {
       "id": "UY",
       "name": "乌拉圭",
       "en": "Uruguay",
-      "total": 14.9551,
-      "active": 3.134582,
-      "increase": 0.67373,
-      "total_increase": 3.2317
+      "total": 16.0501,
+      "active": 3.34985,
+      "increase": 0.30339299999999997,
+      "total_increase": 3.0703
     },
     {
       "id": "CR",
       "name": "哥斯达黎加",
       "en": "Costa Rica",
-      "total": 21.481,
-      "active": 3.0056529999999997,
-      "increase": 0.6519,
-      "total_increase": 4.6941
+      "total": 23.1325,
+      "active": 3.242382,
+      "increase": 0.350584,
+      "total_increase": 4.4784
     },
     {
       "id": "DZ",
       "name": "阿尔及利亚",
       "en": "Algeria",
-      "total": 53.2883,
-      "active": 2.806504,
-      "increase": 0.666948,
-      "total_increase": 16.552
+      "total": 58.699,
+      "active": 2.8793509999999998,
+      "increase": 0.21694499999999997,
+      "total_increase": 16.4155
     },
     {
       "id": "SI",
       "name": "斯洛文尼亚",
       "en": "Slovenia",
-      "total": 10.9273,
-      "active": 2.516414,
-      "increase": 0.618434,
-      "total_increase": 1.9807
+      "total": 11.7306,
+      "active": 2.643446,
+      "increase": 0.268559,
+      "total_increase": 1.9151
     },
     {
       "id": "AM",
       "name": "亚美尼亚",
       "en": "Armenia",
-      "total": 13.1918,
-      "active": 2.378276,
-      "increase": 0.429565,
-      "total_increase": 2.3366
+      "total": 14.1176,
+      "active": 2.507145,
+      "increase": 0.173777,
+      "total_increase": 2.4303
     },
     {
       "id": "LV",
       "name": "拉脱维亚",
       "en": "Latvia",
-      "total": 16.4021,
-      "active": 2.374823,
-      "increase": 0.546094,
-      "total_increase": 4.1813
-    },
-    {
-      "id": "DO",
-      "name": "多米尼加",
-      "en": "Dominican Rep.",
-      "total": 19.619,
-      "active": 2.186034,
-      "increase": 0.49178299999999997,
-      "total_increase": 5.7077
+      "total": 19.0889,
+      "active": 2.441616,
+      "increase": 0.185058,
+      "total_increase": 5.1206
     },
     {
       "id": "UG",
       "name": "乌干达",
       "en": "Uganda",
-      "total": 13.0626,
-      "active": 2.180279,
-      "increase": 0.493275,
-      "total_increase": 4.672
+      "total": 14.7165,
+      "active": 2.351186,
+      "increase": 0.238907,
+      "total_increase": 4.6953
+    },
+    {
+      "id": "DO",
+      "name": "多米尼加",
+      "en": "Dominican Rep.",
+      "total": 21.7451,
+      "active": 2.3407009999999997,
+      "increase": 0.261637,
+      "total_increase": 5.8271
     },
     {
       "id": "AZ",
       "name": "阿塞拜疆",
       "en": "Azerbaijan",
-      "total": 17.6566,
-      "active": 2.143442,
-      "increase": 0.416175,
-      "total_increase": 4.9655
+      "total": 19.5331,
+      "active": 2.1808099999999997,
+      "increase": 0.103822,
+      "total_increase": 5.2262
     },
     {
       "id": "RW",
       "name": "卢旺达",
       "en": "Rwanda",
-      "total": 7.8206,
-      "active": 1.913212,
-      "increase": 0.5499189999999999,
-      "total_increase": 2.8174
+      "total": 8.7857,
+      "active": 2.064168,
+      "increase": 0.293383,
+      "total_increase": 2.6219
     },
     {
       "id": "GT",
       "name": "危地马拉",
       "en": "Guatemala",
-      "total": 17.8072,
-      "active": 1.8959439999999999,
-      "increase": 0.435216,
-      "total_increase": 4.5391
+      "total": 19.5658,
+      "active": 2.002571,
+      "increase": 0.18715199999999999,
+      "total_increase": 4.5678
     },
     {
       "id": "CY",
       "name": "塞浦路斯",
       "en": "Cyprus",
-      "total": 8.6456,
-      "active": 1.806155,
-      "increase": 0.405015,
-      "total_increase": 2.2648
+      "total": 9.6793,
+      "active": 1.8859290000000002,
+      "increase": 0.189878,
+      "total_increase": 2.2949
     },
     {
       "id": "CM",
       "name": "喀麦隆",
       "en": "Cameroon",
-      "total": 12.5062,
-      "active": 1.672621,
-      "increase": 0.40918000000000004,
-      "total_increase": 4.4256
+      "total": 13.914,
+      "active": 1.7981200000000002,
+      "increase": 0.22143600000000002,
+      "total_increase": 4.1223
     },
     {
       "id": "BO",
       "name": "玻利维亚",
       "en": "Bolivia",
-      "total": 20.4554,
-      "active": 1.605855,
-      "increase": 0.404418,
-      "total_increase": 5.9418
+      "total": 22.256,
+      "active": 1.7234169999999998,
+      "increase": 0.21939099999999997,
+      "total_increase": 5.7082
     },
     {
       "id": "SV",
       "name": "萨尔瓦多",
       "en": "El Salvador",
-      "total": 12.4177,
-      "active": 1.532181,
-      "increase": 0.30256,
-      "total_increase": 3.1809
+      "total": 13.6169,
+      "active": 1.6539560000000002,
+      "increase": 0.152006,
+      "total_increase": 3.2261
     },
     {
       "id": "MM",
       "name": "缅甸",
       "en": "Myanmar",
-      "total": 18.2911,
-      "active": 1.49074,
-      "increase": 0.29252399999999995,
-      "total_increase": 3.5111
+      "total": 19.9199,
+      "active": 1.579252,
+      "increase": 0.122973,
+      "total_increase": 4.5367
     },
     {
       "id": "BA",
       "name": "波斯尼亚和黑塞哥维那",
       "en": "Bosnia and Herz.",
-      "total": 9.3254,
-      "active": 1.455054,
-      "increase": 0.253617,
-      "total_increase": 1.5932
+      "total": 9.9259,
+      "active": 1.495375,
+      "increase": 0.06919700000000001,
+      "total_increase": 1.5288
     },
     {
       "id": "LU",
       "name": "卢森堡",
       "en": "Luxembourg",
-      "total": 5.7359,
-      "active": 1.3779270000000001,
-      "increase": 0.308552,
-      "total_increase": 1.0562
+      "total": 6.1847,
+      "active": 1.440331,
+      "increase": 0.12729200000000002,
+      "total_increase": 1.0201
     },
     {
       "id": "KH",
       "name": "柬埔寨",
       "en": "Cambodia",
-      "total": 20.8188,
-      "active": 1.323823,
-      "increase": 0.351883,
-      "total_increase": 7.4932
+      "total": 23.5476,
+      "active": 1.387907,
+      "increase": 0.141299,
+      "total_increase": 7.8259
     },
     {
       "id": "MD",
       "name": "摩尔多瓦",
       "en": "Moldova",
-      "total": 12.24,
-      "active": 1.2800790000000002,
-      "increase": 0.26224000000000003,
-      "total_increase": 2.9559
-    },
-    {
-      "id": "KG",
-      "name": "吉尔吉斯斯坦",
-      "en": "Kyrgyzstan",
-      "total": 10.9802,
-      "active": 1.2743229999999999,
-      "increase": 0.166296,
-      "total_increase": 2.8575
+      "total": 14.0751,
+      "active": 1.339416,
+      "increase": 0.09592200000000001,
+      "total_increase": 3.7444
     },
     {
       "id": "LB",
       "name": "黎巴嫩",
       "en": "Lebanon",
-      "total": 15.2902,
-      "active": 1.227126,
-      "increase": 0.278539,
-      "total_increase": 3.8069
+      "total": 16.5282,
+      "active": 1.324999,
+      "increase": 0.14793599999999998,
+      "total_increase": 3.5581
     },
     {
       "id": "IQ",
       "name": "伊拉克",
       "en": "Iraq",
-      "total": 40.1159,
-      "active": 1.225975,
-      "increase": 0.264504,
-      "total_increase": 14.2178
+      "total": 45.4373,
+      "active": 1.292235,
+      "increase": 0.11620899999999999,
+      "total_increase": 15.6968
+    },
+    {
+      "id": "KG",
+      "name": "吉尔吉斯斯坦",
+      "en": "Kyrgyzstan",
+      "total": 12.1507,
+      "active": 1.252917,
+      "increase": -0.026906,
+      "total_increase": 3.1395
     },
     {
       "id": "TZ",
       "name": "坦桑尼亚",
       "en": "Tanzania",
-      "total": 10.6127,
-      "active": 1.212161,
-      "increase": 0.29336799999999996,
-      "total_increase": 3.6083
+      "total": 12.1146,
+      "active": 1.228016,
+      "increase": 0.064446,
+      "total_increase": 3.6389
     },
     {
       "id": "JO",
       "name": "约旦",
       "en": "Jordan",
-      "total": 21.9362,
-      "active": 1.117767,
-      "increase": 0.223131,
-      "total_increase": 6.7954
+      "total": 24.2986,
+      "active": 1.1690399999999999,
+      "increase": 0.10511600000000001,
+      "total_increase": 6.8247
     },
     {
       "id": "PY",
       "name": "巴拉圭",
       "en": "Paraguay",
-      "total": 8.4731,
-      "active": 1.107407,
-      "increase": 0.274775,
-      "total_increase": 2.4949
+      "total": 9.3779,
+      "active": 1.155934,
+      "increase": 0.096162,
+      "total_increase": 2.5367
     },
     {
       "id": "IS",
       "name": "冰岛",
       "en": "Iceland",
-      "total": 3.9956,
-      "active": 1.0878370000000002,
-      "increase": 0.25279,
-      "total_increase": 0.6032
+      "total": 4.2927,
+      "active": 1.1480709999999998,
+      "increase": 0.10282999999999999,
+      "total_increase": 0.6275
     },
     {
       "id": "MK",
       "name": "北马其顿",
       "en": "Macedonia",
-      "total": 7.6972,
-      "active": 1.0728719999999998,
-      "increase": 0.222525,
-      "total_increase": 1.2766
+      "total": 8.1773,
+      "active": 1.086473,
+      "increase": 0.035005,
+      "total_increase": 1.2328
     },
     {
       "id": "AO",
       "name": "安哥拉",
       "en": "Angola",
-      "total": 7.0305,
-      "active": 0.9911399999999999,
-      "increase": 0.223735,
-      "total_increase": 2.8982
-    },
-    {
-      "id": "MG",
-      "name": "马达加斯加",
-      "en": "Madagascar",
-      "total": 7.2187,
-      "active": 0.949699,
-      "increase": 0.25798699999999997,
-      "total_increase": 2.5073
+      "total": 8.1314,
+      "active": 1.0183229999999999,
+      "increase": 0.07584199999999999,
+      "total_increase": 2.943
     },
     {
       "id": "PA",
       "name": "巴拿马",
       "en": "Panama",
-      "total": 8.8105,
-      "active": 0.8725719999999999,
-      "increase": 0.200186,
-      "total_increase": 2.3544
+      "total": 9.6375,
+      "active": 0.98949,
+      "increase": 0.132123,
+      "total_increase": 2.3591
+    },
+    {
+      "id": "MG",
+      "name": "马达加斯加",
+      "en": "Madagascar",
+      "total": 8.1275,
+      "active": 0.969831,
+      "increase": 0.085477,
+      "total_increase": 2.396
     },
     {
       "id": "CU",
       "name": "古巴",
       "en": "Cuba",
-      "total": 4.9992,
-      "active": 0.848398,
-      "increase": 0.20661100000000002,
-      "total_increase": 0.7219
+      "total": 5.2084,
+      "active": 0.909545,
+      "increase": 0.10511400000000001,
+      "total_increase": 0.6476
     },
     {
       "id": "SN",
       "name": "塞内加尔",
       "en": "Senegal",
-      "total": 8.219,
-      "active": 0.808107,
-      "increase": 0.235573,
-      "total_increase": 2.7276
+      "total": 9.1364,
+      "active": 0.8623639999999999,
+      "increase": 0.127477,
+      "total_increase": 2.4765
     },
     {
       "id": "ZW",
       "name": "津巴布韦",
       "en": "Zimbabwe",
-      "total": 7.5557,
-      "active": 0.775875,
-      "increase": 0.168715,
-      "total_increase": 2.6238
+      "total": 8.467,
+      "active": 0.8623639999999999,
+      "increase": 0.127477,
+      "total_increase": 2.5255
     },
     {
       "id": "NI",
       "name": "尼加拉瓜",
       "en": "Nicaragua",
-      "total": 6.3669,
-      "active": 0.774724,
-      "increase": 0.196553,
-      "total_increase": 1.8581
+      "total": 6.9807,
+      "active": 0.837462,
+      "increase": 0.108804,
+      "total_increase": 1.8745
     },
     {
       "id": "MT",
       "name": "马耳他",
       "en": "Malta",
-      "total": 4.0546,
-      "active": 0.765515,
-      "increase": 0.17446,
-      "total_increase": 0.7839
+      "total": 4.36,
+      "active": 0.792903,
+      "increase": 0.068396,
+      "total_increase": 0.7236
     },
     {
       "id": "PR",
       "name": "波多黎各",
       "en": "Puerto Rico",
-      "total": 7.0124,
-      "active": 0.733283,
-      "increase": 0.172022,
-      "total_increase": 1.5306
+      "total": 7.6405,
+      "active": 0.791592,
+      "increase": 0.11587,
+      "total_increase": 1.5621
     },
     {
       "id": "HN",
       "name": "洪都拉斯",
       "en": "Honduras",
-      "total": 9.3071,
-      "active": 0.694144,
-      "increase": 0.136909,
-      "total_increase": 2.6293
-    },
-    {
-      "id": "ME",
-      "name": "黑山",
-      "en": "Montenegro",
-      "total": 2.7514,
-      "active": 0.68033,
-      "increase": 0.155305,
-      "total_increase": 0.4917
+      "total": 10.3171,
+      "active": 0.769312,
+      "increase": 0.10500799999999999,
+      "total_increase": 2.765
     },
     {
       "id": "CD",
       "name": "刚果民主共和国",
       "en": "Dem. Rep. Congo",
-      "total": 5.6465,
-      "active": 0.644644,
-      "increase": 0.164714,
-      "total_increase": 2.4683
+      "total": 6.6438,
+      "active": 0.689367,
+      "increase": 0.087341,
+      "total_increase": 2.5624
     },
     {
-      "id": "AL",
-      "name": "阿尔巴尼亚",
-      "en": "Albania",
-      "total": 9.4816,
-      "active": 0.628528,
-      "increase": 0.138935,
-      "total_increase": 1.8855
+      "id": "ME",
+      "name": "黑山",
+      "en": "Montenegro",
+      "total": 2.9425,
+      "active": 0.671018,
+      "increase": 0.018132,
+      "total_increase": 0.4827
     },
     {
       "id": "ZM",
       "name": "赞比亚",
       "en": "Zambia",
-      "total": 5.7053,
-      "active": 0.6112609999999999,
-      "increase": 0.16193,
-      "total_increase": 2.1546
+      "total": 6.4531,
+      "active": 0.667087,
+      "increase": 0.10139,
+      "total_increase": 2.1793
     },
     {
-      "id": "AF",
-      "name": "阿富汗",
-      "en": "Afghanistan",
-      "total": 5.4155,
-      "active": 0.59054,
-      "increase": 0.143625,
-      "total_increase": 1.8997
+      "id": "AL",
+      "name": "阿尔巴尼亚",
+      "en": "Albania",
+      "total": 10.3489,
+      "active": 0.665776,
+      "increase": 0.07724400000000001,
+      "total_increase": 1.9588
     },
     {
       "id": "SY",
       "name": "叙利亚",
       "en": "Syria",
-      "total": 5.9799,
-      "active": 0.581331,
-      "increase": 0.14407899999999998,
-      "total_increase": 1.2319
+      "total": 6.7957,
+      "active": 0.6251479999999999,
+      "increase": 0.06879299999999999,
+      "total_increase": 1.7065
     },
     {
-      "id": "MZ",
-      "name": "莫桑比克",
-      "en": "Mozambique",
-      "total": 4.2814,
-      "active": 0.56061,
-      "increase": 0.141074,
-      "total_increase": 1.7641
+      "id": "AF",
+      "name": "阿富汗",
+      "en": "Afghanistan",
+      "total": 5.9957,
+      "active": 0.612042,
+      "increase": 0.039080000000000004,
+      "total_increase": 1.8328
     },
     {
       "id": "BJ",
       "name": "贝宁",
       "en": "Benin",
-      "total": 5.9062,
-      "active": 0.554854,
-      "increase": 0.154644,
-      "total_increase": 2.0716
+      "total": 6.6467,
+      "active": 0.589762,
+      "increase": 0.08323,
+      "total_increase": 1.9453
     },
     {
-      "id": "CI",
-      "name": "科特迪瓦",
-      "en": "Côte d'Ivoire",
-      "total": 10.104,
-      "active": 0.55025,
-      "increase": 0.13635,
-      "total_increase": 3.5254
+      "id": "MZ",
+      "name": "莫桑比克",
+      "en": "Mozambique",
+      "total": 4.8751,
+      "active": 0.587141,
+      "increase": 0.057774,
+      "total_increase": 1.7457
     },
     {
       "id": "YE",
       "name": "也门",
       "en": "Yemen",
-      "total": 13.3164,
-      "active": 0.547948,
-      "increase": 0.142906,
-      "total_increase": 5.4027
+      "total": 14.6772,
+      "active": 0.585831,
+      "increase": 0.069957,
+      "total_increase": 5.2169
+    },
+    {
+      "id": "CI",
+      "name": "科特迪瓦",
+      "en": "Côte d'Ivoire",
+      "total": 11.2935,
+      "active": 0.580588,
+      "increase": 0.066791,
+      "total_increase": 3.3491
     },
     {
       "id": "MN",
       "name": "蒙古国",
       "en": "Mongolia",
-      "total": 8.0716,
-      "active": 0.5157149999999999,
-      "increase": 0.128389,
-      "total_increase": 2.184
-    },
-    {
-      "id": "PS",
-      "name": "巴勒斯坦",
-      "en": "Palestine",
-      "total": 10.377,
-      "active": 0.483483,
-      "increase": 0.13400399999999998,
-      "total_increase": 2.2619
+      "total": 8.9495,
+      "active": 0.526854,
+      "increase": 0.056652,
+      "total_increase": 2.2832
     },
     {
       "id": "QA",
       "name": "卡塔尔",
       "en": "Qatar",
-      "total": 9.8357,
-      "active": 0.451251,
-      "increase": 0.09855,
-      "total_increase": 2.8652
+      "total": 10.9057,
+      "active": 0.503264,
+      "increase": 0.077694,
+      "total_increase": 2.8882
+    },
+    {
+      "id": "PS",
+      "name": "巴勒斯坦",
+      "en": "Palestine",
+      "total": 11.2567,
+      "active": 0.49671099999999996,
+      "increase": 0.034812,
+      "total_increase": 2.3431
     },
     {
       "id": "MU",
       "name": "毛里求斯",
       "en": "Mauritius",
-      "total": 4.5903,
-      "active": 0.440891,
-      "increase": 0.097048,
-      "total_increase": 1.2279
-    },
-    {
-      "id": "SO",
-      "name": "索马里",
-      "en": "Somalia",
-      "total": 6.4612,
-      "active": 0.384484,
-      "increase": 0.109893,
-      "total_increase": 2.3741
+      "total": 5.0296,
+      "active": 0.463946,
+      "increase": 0.048756,
+      "total_increase": 1.1113
     },
     {
       "id": "JM",
       "name": "牙买加",
       "en": "Jamaica",
-      "total": 5.3762,
-      "active": 0.382182,
-      "increase": 0.08907000000000001,
-      "total_increase": 1.3104
+      "total": 5.8587,
+      "active": 0.41152299999999997,
+      "increase": 0.039928,
+      "total_increase": 1.2559
     },
     {
       "id": "MW",
       "name": "马拉维",
       "en": "Malawi",
-      "total": 3.1019,
-      "active": 0.368368,
-      "increase": 0.090556,
-      "total_increase": 1.1065
+      "total": 3.5746,
+      "active": 0.39710700000000004,
+      "increase": 0.052499000000000004,
+      "total_increase": 1.192
     },
     {
-      "id": "TG",
-      "name": "多哥",
-      "en": "Togo",
-      "total": 3.598,
-      "active": 0.36030999999999996,
-      "increase": 0.106655,
-      "total_increase": 1.2683
-    },
-    {
-      "id": "OM",
-      "name": "阿曼",
-      "en": "Oman",
-      "total": 8.5833,
-      "active": 0.35685700000000004,
-      "increase": 0.093539,
-      "total_increase": 2.8009
-    },
-    {
-      "id": "KW",
-      "name": "科威特",
-      "en": "Kuwait",
-      "total": 10.2249,
-      "active": 0.351101,
-      "increase": 0.077315,
-      "total_increase": 2.699
+      "id": "SO",
+      "name": "索马里",
+      "en": "Somalia",
+      "total": 7.2309,
+      "active": 0.393175,
+      "increase": 0.044414999999999996,
+      "total_increase": 2.4087
     },
     {
       "id": "SD",
       "name": "苏丹",
       "en": "Sudan",
-      "total": 4.5023,
-      "active": 0.346496,
-      "increase": 0.076737,
-      "total_increase": 1.1573
+      "total": 4.9732,
+      "active": 0.391864,
+      "increase": 0.054522,
+      "total_increase": 1.3938
     },
     {
-      "id": "TJ",
-      "name": "塔吉克斯坦",
-      "en": "Tajikistan",
-      "total": 2.2663,
-      "active": 0.344194,
-      "increase": 0.080071,
-      "total_increase": 0.7971
+      "id": "OM",
+      "name": "阿曼",
+      "en": "Oman",
+      "total": 9.517,
+      "active": 0.380069,
+      "increase": 0.052069000000000004,
+      "total_increase": 2.7901
+    },
+    {
+      "id": "TG",
+      "name": "多哥",
+      "en": "Togo",
+      "total": 4.0421,
+      "active": 0.380069,
+      "increase": 0.049993,
+      "total_increase": 1.1856
+    },
+    {
+      "id": "KW",
+      "name": "科威特",
+      "en": "Kuwait",
+      "total": 11.2085,
+      "active": 0.364342,
+      "increase": 0.031152,
+      "total_increase": 2.7223
     },
     {
       "id": "AQ",
       "name": "南极洲",
       "en": "Antarctica",
       "total": null,
-      "active": 0.337287,
-      "increase": 0.078801,
+      "active": 0.35385700000000003,
+      "increase": 0.035199,
       "total_increase": null
+    },
+    {
+      "id": "TJ",
+      "name": "塔吉克斯坦",
+      "en": "Tajikistan",
+      "total": 2.6111,
+      "active": 0.351236,
+      "increase": 0.025312,
+      "total_increase": 0.8462
     },
     {
       "id": "BH",
       "name": "巴林",
       "en": "Bahrain",
-      "total": 5.7359,
-      "active": 0.310811,
-      "increase": 0.079703,
-      "total_increase": 1.6436
+      "total": 6.2656,
+      "active": 0.306676,
+      "increase": 0.00774,
+      "total_increase": 1.4934
     },
     {
       "id": "LY",
       "name": "利比亚",
       "en": "Libya",
-      "total": 6.6426,
-      "active": 0.29124099999999997,
-      "increase": 0.060939,
-      "total_increase": 2.523
+      "total": 7.3665,
+      "active": 0.304055,
+      "increase": 0.017574,
+      "total_increase": 2.4593
     },
     {
       "id": "FJ",
       "name": "斐济",
       "en": "Fiji",
-      "total": 0.9826,
-      "active": 0.24519499999999997,
-      "increase": 0.050324,
-      "total_increase": 0.2873
+      "total": 1.0906,
+      "active": 0.260806,
+      "increase": 0.019996,
+      "total_increase": 0.281
     },
     {
       "id": "RE",
       "name": "留尼汪",
       "en": "Réunion",
-      "total": 2.2269,
-      "active": 0.226777,
-      "increase": 0.058478999999999996,
-      "total_increase": 0.5152
-    },
-    {
-      "id": "TT",
-      "name": "特立尼达和多巴哥",
-      "en": "Trinidad and Tobago",
-      "total": 3.888,
-      "active": 0.22447399999999998,
-      "increase": 0.047319,
-      "total_increase": 0.8452
+      "total": 2.4175,
+      "active": 0.24114699999999997,
+      "increase": 0.035628,
+      "total_increase": 0.4913
     },
     {
       "id": "MV",
       "name": "马尔代夫",
       "en": "Maldives",
-      "total": 2.1032,
-      "active": 0.217567,
-      "increase": 0.058933000000000006,
-      "total_increase": 0.5492
+      "total": 2.2798,
+      "active": 0.231973,
+      "increase": 0.032682,
+      "total_increase": 0.481
     },
     {
       "id": "NA",
       "name": "纳米比亚",
       "en": "Namibia",
-      "total": 1.9761,
-      "active": 0.214114,
-      "increase": 0.0587,
-      "total_increase": 0.5726
+      "total": 2.2072,
+      "active": 0.228041,
+      "increase": 0.037054000000000004,
+      "total_increase": 0.5542
+    },
+    {
+      "id": "TT",
+      "name": "特立尼达和多巴哥",
+      "en": "Trinidad and Tobago",
+      "total": 4.1845,
+      "active": 0.22541999999999998,
+      "increase": 0.013673,
+      "total_increase": 0.8118
+    },
+    {
+      "id": "TM",
+      "name": "土库曼斯坦",
+      "en": "Turkmenistan",
+      "total": 0.7738,
+      "active": 0.21493600000000002,
+      "increase": 0.026024000000000002,
+      "total_increase": -0.0399
     },
     {
       "id": "CC",
       "name": "科科斯（基林）群岛",
       "en": "Cocos (Keeling) Islands",
       "total": null,
-      "active": 0.212963,
-      "increase": 0.047886,
+      "active": 0.21493600000000002,
+      "increase": 0.009417,
       "total_increase": null
-    },
-    {
-      "id": "TM",
-      "name": "土库曼斯坦",
-      "en": "Turkmenistan",
-      "total": 0.8619,
-      "active": 0.202602,
-      "increase": 0.043162,
-      "total_increase": 0.0283
-    },
-    {
-      "id": "BT",
-      "name": "不丹",
-      "en": "Bhutan",
-      "total": 1.3253,
-      "active": 0.17037,
-      "increase": 0.042335000000000005,
-      "total_increase": 0.3618
     },
     {
       "id": "LA",
       "name": "老挝",
       "en": "Lao PDR",
-      "total": 3.649,
-      "active": 0.169219,
-      "increase": 0.037158,
-      "total_increase": 1.1862
+      "total": 4.0818,
+      "active": 0.182171,
+      "increase": 0.028551,
+      "total_increase": 1.2738
     },
     {
       "id": "SZ",
       "name": "斯威士兰",
       "en": "eSwatini",
-      "total": 0.7105,
-      "active": 0.16231199999999998,
-      "increase": 0.037498000000000004,
-      "total_increase": 0.2453
+      "total": 0.7975,
+      "active": 0.182171,
+      "increase": 0.026475,
+      "total_increase": 0.2307
+    },
+    {
+      "id": "BT",
+      "name": "不丹",
+      "en": "Bhutan",
+      "total": 1.437,
+      "active": 0.17955,
+      "increase": 0.024891999999999997,
+      "total_increase": 0.3279
     },
     {
       "id": "BW",
       "name": "博茨瓦纳",
       "en": "Botswana",
-      "total": 2.6883,
-      "active": 0.156556,
-      "increase": 0.043016000000000006,
-      "total_increase": 0.9769
+      "total": 3.0651,
+      "active": 0.170376,
+      "increase": 0.028173,
+      "total_increase": 0.9415
     },
     {
       "id": "BF",
       "name": "布基纳法索",
       "en": "Burkina Faso",
-      "total": 2.9644,
-      "active": 0.14044,
-      "increase": 0.038979,
-      "total_increase": 1.2304
+      "total": 3.3834,
+      "active": 0.148096,
+      "increase": 0.010045,
+      "total_increase": 1.1846
     },
     {
       "id": "HT",
       "name": "海地",
       "en": "Haiti",
-      "total": 2.6621,
-      "active": 0.14044,
-      "increase": 0.034147000000000004,
-      "total_increase": 0.9672
-    },
-    {
-      "id": "AD",
-      "name": "安道尔",
-      "en": "Andorra",
-      "total": 0.6593,
-      "active": 0.124324,
-      "increase": 0.018836000000000002,
-      "total_increase": 0.187
+      "total": 2.9835,
+      "active": 0.138922,
+      "increase": 0.014365000000000001,
+      "total_increase": 0.9412
     },
     {
       "id": "SL",
       "name": "塞拉利昂",
       "en": "Sierra Leone",
-      "total": 1.5066,
-      "active": 0.123173,
-      "increase": 0.039427,
-      "total_increase": 0.5928
+      "total": 1.667,
+      "active": 0.13499,
+      "increase": 0.020812999999999998,
+      "total_increase": 0.5311
+    },
+    {
+      "id": "AD",
+      "name": "安道尔",
+      "en": "Andorra",
+      "total": 0.7489,
+      "active": 0.13499,
+      "increase": 0.010433,
+      "total_increase": 0.1979
     },
     {
       "id": "CV",
       "name": "佛得角",
       "en": "Cabo Verde",
-      "total": 0.6832,
-      "active": 0.123173,
-      "increase": 0.024932,
-      "total_increase": 0.0774
-    },
-    {
-      "id": "ML",
-      "name": "马里",
-      "en": "Mali",
-      "total": 2.2761,
-      "active": 0.11281300000000001,
-      "increase": 0.021818999999999998,
-      "total_increase": 1.0695
-    },
-    {
-      "id": "BS",
-      "name": "巴哈马",
-      "en": "Bahamas",
-      "total": 1.0337,
-      "active": 0.109359,
-      "increase": 0.029639,
-      "total_increase": 0.1832
+      "total": 0.7526,
+      "active": 0.129748,
+      "increase": 0.015569999999999999,
+      "total_increase": 0.1412
     },
     {
       "id": "KP",
       "name": "朝鲜",
       "en": "Dem. Rep. Korea",
       "total": null,
-      "active": 0.109359,
-      "increase": 0.03286,
+      "active": 0.11533099999999999,
+      "increase": 0.016724,
       "total_increase": null
+    },
+    {
+      "id": "ML",
+      "name": "马里",
+      "en": "Mali",
+      "total": 2.1292,
+      "active": 0.11270999999999999,
+      "increase": -0.000429,
+      "total_increase": 0.6785
+    },
+    {
+      "id": "BS",
+      "name": "巴哈马",
+      "en": "Bahamas",
+      "total": 1.1344,
+      "active": 0.11270999999999999,
+      "increase": 0.008912999999999999,
+      "total_increase": 0.2032
     },
     {
       "id": "BI",
       "name": "布隆迪",
       "en": "Burundi",
-      "total": 0.8509,
-      "active": 0.103604,
-      "increase": 0.029519999999999998,
-      "total_increase": 0.2829
+      "total": 0.9617,
+      "active": 0.098294,
+      "increase": 0.006952,
+      "total_increase": 0.2653
     },
     {
       "id": "NC",
       "name": "新喀里多尼亚",
       "en": "New Caledonia",
-      "total": 0.4966,
-      "active": 0.092092,
-      "increase": 0.012372,
-      "total_increase": 0.094
+      "total": 0.5328,
+      "active": 0.09567300000000001,
+      "increase": -0.0018969999999999998,
+      "total_increase": 0.0867
     },
     {
       "id": "GN",
       "name": "几内亚",
       "en": "Guinea",
-      "total": 1.3611,
-      "active": 0.090941,
-      "increase": 0.022494,
-      "total_increase": 0.5767
+      "total": 1.5644,
+      "active": 0.09043,
+      "increase": 0.00843,
+      "total_increase": 0.5508
     },
     {
       "id": "LR",
       "name": "利比里亚",
       "en": "Liberia",
-      "total": 1.0813,
-      "active": 0.084034,
-      "increase": 0.030887,
-      "total_increase": 0.385
-    },
-    {
-      "id": "LS",
-      "name": "莱索托",
-      "en": "Lesotho",
-      "total": 0.934,
-      "active": 0.078278,
-      "increase": 0.018690000000000002,
-      "total_increase": 0.3265
+      "total": 1.1954,
+      "active": 0.085188,
+      "increase": 0.011492,
+      "total_increase": 0.3725
     },
     {
       "id": "PF",
       "name": "法属波利尼西亚",
       "en": "Fr. Polynesia",
-      "total": 0.5623,
-      "active": 0.078278,
-      "increase": 0.019495,
-      "total_increase": 0.139
-    },
-    {
-      "id": "CG",
-      "name": "刚果共和国",
-      "en": "Congo",
-      "total": 1.5493,
-      "active": 0.077127,
-      "increase": 0.026396,
-      "total_increase": 0.7674
-    },
-    {
-      "id": "MR",
-      "name": "毛里塔尼亚",
-      "en": "Mauritania",
-      "total": 1.425,
-      "active": 0.077127,
-      "increase": 0.02398,
-      "total_increase": 0.5556
+      "total": 0.6057,
+      "active": 0.083877,
+      "increase": 0.007067,
+      "total_increase": 0.1154
     },
     {
       "id": "IM",
       "name": "马恩岛",
       "en": "Isle of Man",
-      "total": 0.518,
-      "active": 0.073674,
-      "increase": 0.014085,
-      "total_increase": 0.0783
+      "total": 0.5564,
+      "active": 0.083877,
+      "increase": 0.010181,
+      "total_increase": 0.0874
+    },
+    {
+      "id": "CG",
+      "name": "刚果共和国",
+      "en": "Congo",
+      "total": 1.8243,
+      "active": 0.082567,
+      "increase": 0.013022,
+      "total_increase": 0.7725
     },
     {
       "id": "JE",
       "name": "泽西",
       "en": "Jersey",
-      "total": 0.4776,
-      "active": 0.072522,
-      "increase": 0.008908,
-      "total_increase": 0.0934
+      "total": 0.5168,
+      "active": 0.079946,
+      "increase": 0.005211,
+      "total_increase": 0.0748
+    },
+    {
+      "id": "MR",
+      "name": "毛里塔尼亚",
+      "en": "Mauritania",
+      "total": 1.6255,
+      "active": 0.078635,
+      "increase": 0.010129,
+      "total_increase": 0.5349
     },
     {
       "id": "GM",
       "name": "冈比亚",
       "en": "Gambia",
-      "total": 0.7784,
-      "active": 0.07022,
-      "increase": 0.015463,
-      "total_increase": 0.2372
-    },
-    {
-      "id": "GA",
-      "name": "加蓬",
-      "en": "Gabon",
-      "total": 1.4202,
-      "active": 0.06791799999999999,
-      "increase": 0.017991999999999998,
-      "total_increase": 0.6331
+      "total": 0.8554,
+      "active": 0.078635,
+      "increase": 0.014281,
+      "total_increase": 0.2203
     },
     {
       "id": "BB",
       "name": "巴巴多斯",
       "en": "Barbados",
-      "total": 0.9982,
-      "active": 0.065616,
-      "increase": 0.012469,
-      "total_increase": 0.1752
+      "total": 1.066,
+      "active": 0.076014,
+      "increase": 0.013734999999999999,
+      "total_increase": 0.1492
     },
     {
-      "id": "LI",
-      "name": "列支敦士登",
-      "en": "Liechtenstein",
-      "total": 0.2688,
-      "active": 0.065616,
-      "increase": 0.016495,
-      "total_increase": 0.0574
+      "id": "LS",
+      "name": "莱索托",
+      "en": "Lesotho",
+      "total": 1.0459,
+      "active": 0.073393,
+      "increase": 0.001772,
+      "total_increase": 0.3191
     },
     {
-      "id": "MC",
-      "name": "摩纳哥",
-      "en": "Monaco",
-      "total": 0.2941,
-      "active": 0.064464,
-      "increase": 0.010512,
-      "total_increase": 0.0591
+      "id": "GA",
+      "name": "加蓬",
+      "en": "Gabon",
+      "total": 1.6223,
+      "active": 0.06815,
+      "increase": 0.002758,
+      "total_increase": 0.5948
     },
     {
       "id": "KY",
       "name": "开曼群岛",
       "en": "Cayman Is.",
-      "total": 0.402,
-      "active": 0.058709000000000004,
-      "increase": 0.007978,
-      "total_increase": 0.0847
+      "total": 0.4464,
+      "active": 0.06815,
+      "increase": 0.014176,
+      "total_increase": 0.0845
     },
     {
       "id": "NE",
       "name": "尼日尔",
       "en": "Niger",
-      "total": 0.8341,
-      "active": 0.056406,
-      "increase": 0.008896,
-      "total_increase": 0.3175
+      "total": 0.9598,
+      "active": 0.06684,
+      "increase": 0.009751000000000001,
+      "total_increase": 0.3263
     },
     {
-      "id": "BN",
-      "name": "文莱",
-      "en": "Brunei",
-      "total": 1.6465,
-      "active": 0.052953,
-      "increase": 0.01269,
-      "total_increase": 0.3716
-    },
-    {
-      "id": "BZ",
-      "name": "伯利兹",
-      "en": "Belize",
-      "total": 0.8919,
-      "active": 0.052953,
-      "increase": 0.010275,
-      "total_increase": 0.2144
+      "id": "LI",
+      "name": "列支敦士登",
+      "en": "Liechtenstein",
+      "total": 0.3056,
+      "active": 0.061597000000000006,
+      "increase": -0.001719,
+      "total_increase": 0.0738
     },
     {
       "id": "PG",
       "name": "巴布亚新几内亚",
       "en": "Papua New Guinea",
-      "total": 1.4835,
-      "active": 0.051802,
-      "increase": 0.012343999999999999,
-      "total_increase": 0.5384
+      "total": 1.6631,
+      "active": 0.060287,
+      "increase": 0.008388,
+      "total_increase": 0.5343
     },
     {
-      "id": "GY",
-      "name": "圭亚那",
-      "en": "Guyana",
-      "total": 1.0103,
-      "active": 0.050651,
-      "increase": 0.009583,
-      "total_increase": 0.3238
+      "id": "MC",
+      "name": "摩纳哥",
+      "en": "Monaco",
+      "total": 0.3256,
+      "active": 0.057665999999999995,
+      "increase": -0.005651,
+      "total_increase": 0.0682
     },
     {
       "id": "SR",
       "name": "苏里南",
       "en": "Suriname",
-      "total": 0.8082,
-      "active": 0.050651,
-      "increase": 0.004751,
-      "total_increase": 0.212
+      "total": 0.8887,
+      "active": 0.055044,
+      "increase": 0.00107,
+      "total_increase": 0.1747
+    },
+    {
+      "id": "BN",
+      "name": "文莱",
+      "en": "Brunei",
+      "total": 1.7551,
+      "active": 0.053734000000000004,
+      "increase": 0.000797,
+      "total_increase": 0.3107
+    },
+    {
+      "id": "BZ",
+      "name": "伯利兹",
+      "en": "Belize",
+      "total": 0.9715,
+      "active": 0.053734000000000004,
+      "increase": 0.002873,
+      "total_increase": 0.2019
+    },
+    {
+      "id": "MQ",
+      "name": "马提尼克",
+      "en": "Martinique",
+      "total": 0.7814,
+      "active": 0.052423000000000004,
+      "increase": 0.005714,
+      "total_increase": 0.1847
+    },
+    {
+      "id": "FO",
+      "name": "法罗群岛",
+      "en": "Faeroe Is.",
+      "total": 0.2508,
+      "active": 0.052423000000000004,
+      "increase": 0.006751999999999999,
+      "total_increase": 0.0398
+    },
+    {
+      "id": "GY",
+      "name": "圭亚那",
+      "en": "Guyana",
+      "total": 1.1193,
+      "active": 0.051113,
+      "increase": 0.000252,
+      "total_increase": 0.3103
     },
     {
       "id": "GI",
       "name": "直布罗陀",
       "en": "Gibraltar",
-      "total": 0.2891,
-      "active": 0.050651,
-      "increase": 0.018441,
-      "total_increase": 0.0794
-    },
-    {
-      "id": "AX",
-      "name": "奥兰",
-      "en": "Åland",
-      "total": 0.1673,
-      "active": 0.049499,
-      "increase": 0.011653,
-      "total_increase": 0.0311
+      "total": 0.3007,
+      "active": 0.051113,
+      "increase": 0.002328,
+      "total_increase": 0.0192
     },
     {
       "id": "SH",
       "name": "圣赫勒拿",
       "en": "Saint Helena",
       "total": null,
-      "active": 0.049499,
-      "increase": 0.010042,
+      "active": 0.051113,
+      "increase": 0.000252,
       "total_increase": null
-    },
-    {
-      "id": "FO",
-      "name": "法罗群岛",
-      "en": "Faeroe Is.",
-      "total": 0.235,
-      "active": 0.048348,
-      "increase": 0.010501,
-      "total_increase": 0.0434
-    },
-    {
-      "id": "GG",
-      "name": "根西",
-      "en": "Guernsey",
-      "total": 0.2477,
-      "active": 0.047197,
-      "increase": 0.013377000000000002,
-      "total_increase": 0.0538
     },
     {
       "id": "CW",
       "name": "库拉索",
       "en": "Curaçao",
-      "total": 0.459,
-      "active": 0.046046,
-      "increase": 0.013836000000000001,
-      "total_increase": 0.1014
+      "total": 0.5044,
+      "active": 0.049802,
+      "increase": 0.008283,
+      "total_increase": 0.0863
     },
     {
-      "id": "MQ",
-      "name": "马提尼克",
-      "en": "Martinique",
-      "total": 0.6943,
-      "active": 0.044895,
-      "increase": 0.010269,
-      "total_increase": 0.1922
+      "id": "AX",
+      "name": "奥兰",
+      "en": "Åland",
+      "total": 0.1753,
+      "active": 0.048492,
+      "increase": 0.0017829999999999999,
+      "total_increase": 0.022
     },
     {
       "id": "BM",
       "name": "百慕大",
       "en": "Bermuda",
-      "total": 0.2996,
-      "active": 0.041441000000000006,
-      "increase": 0.006816,
-      "total_increase": 0.0334
-    },
-    {
-      "id": "SM",
-      "name": "圣马力诺",
-      "en": "San Marino",
-      "total": 0.1297,
-      "active": 0.04029,
-      "increase": 0.008884999999999999,
-      "total_increase": 0.0335
-    },
-    {
-      "id": "TD",
-      "name": "乍得",
-      "en": "Chad",
-      "total": 0.5566,
-      "active": 0.039139,
-      "increase": 0.014981999999999999,
-      "total_increase": 0.2711
+      "total": 0.3257,
+      "active": 0.047181,
+      "increase": 0.0056619999999999995,
+      "total_increase": 0.0492
     },
     {
       "id": "GL",
       "name": "格陵兰",
       "en": "Greenland",
-      "total": 0.1545,
-      "active": 0.035686,
-      "increase": 0.009112,
-      "total_increase": 0.0135
+      "total": 0.1682,
+      "active": 0.043249,
+      "increase": 0.008995999999999999,
+      "total_increase": 0.0287
+    },
+    {
+      "id": "SM",
+      "name": "圣马力诺",
+      "en": "San Marino",
+      "total": 0.1381,
+      "active": 0.043249,
+      "increase": 0.0038060000000000004,
+      "total_increase": 0.0262
+    },
+    {
+      "id": "GG",
+      "name": "根西",
+      "en": "Guernsey",
+      "total": 0.2691,
+      "active": 0.041939,
+      "increase": 0.00042,
+      "total_increase": 0.0324
     },
     {
       "id": "GP",
       "name": "瓜德罗普",
       "en": "Guadeloupe",
-      "total": 0.8619,
-      "active": 0.034535,
-      "increase": 0.0055450000000000004,
-      "total_increase": 0.2423
+      "total": 0.955,
+      "active": 0.040628,
+      "increase": 0.008451,
+      "total_increase": 0.2252
     },
     {
-      "id": "SS",
-      "name": "南苏丹",
-      "en": "S. Sudan",
-      "total": 0.6142,
-      "active": 0.032232,
-      "increase": 0.006464,
-      "total_increase": 0.2816
+      "id": "TD",
+      "name": "乍得",
+      "en": "Chad",
+      "total": 0.6676,
+      "active": 0.038007,
+      "increase": 0.001678,
+      "total_increase": 0.3233
     },
     {
       "id": "SC",
       "name": "塞舌尔",
       "en": "Seychelles",
-      "total": 2.1288,
-      "active": 0.028779000000000002,
-      "increase": 0.010258,
-      "total_increase": 1.2847
+      "total": 2.6777,
+      "active": 0.035386,
+      "increase": 0.008398000000000001,
+      "total_increase": 1.7038
+    },
+    {
+      "id": "SS",
+      "name": "南苏丹",
+      "en": "S. Sudan",
+      "total": 0.7034,
+      "active": 0.034075,
+      "increase": 0.001898,
+      "total_increase": 0.2807
     },
     {
       "id": "TL",
       "name": "东帝汶",
       "en": "Timor-Leste",
-      "total": 0.299,
-      "active": 0.027627999999999996,
-      "increase": 0.009106999999999999,
-      "total_increase": 0.1044
+      "total": 0.3545,
+      "active": 0.032764999999999996,
+      "increase": 0.004739,
+      "total_increase": 0.1196
     },
     {
       "id": "LC",
       "name": "圣卢西亚",
       "en": "Saint Lucia",
-      "total": 0.396,
-      "active": 0.026476,
-      "increase": 0.00715,
-      "total_increase": 0.089
-    },
-    {
-      "id": "VA",
-      "name": "梵蒂冈",
-      "en": "Vatican",
-      "total": 0.0183,
-      "active": 0.023023,
-      "increase": 0.007723000000000001,
-      "total_increase": -0.0012
-    },
-    {
-      "id": "GD",
-      "name": "格林纳达",
-      "en": "Grenada",
-      "total": 0.3133,
-      "active": 0.020721,
-      "increase": 0.007837,
-      "total_increase": 0.0962
+      "total": 0.4283,
+      "active": 0.024901,
+      "increase": 0.002066,
+      "total_increase": 0.0631
     },
     {
       "id": "DJ",
       "name": "吉布提",
       "en": "Djibouti",
-      "total": 0.5156,
-      "active": 0.01957,
-      "increase": 0.00588,
-      "total_increase": 0.1745
+      "total": 0.5867,
+      "active": 0.020968999999999998,
+      "increase": 0.002286,
+      "total_increase": 0.1875
     },
     {
-      "id": "GF",
-      "name": "法属圭亚那",
-      "en": "French Guiana",
-      "total": 0.36,
-      "active": 0.01957,
-      "increase": 0.002659,
-      "total_increase": 0.0955
-    },
-    {
-      "id": "AW",
-      "name": "阿鲁巴",
-      "en": "Aruba",
-      "total": 0.357,
-      "active": 0.01957,
-      "increase": 0.00427,
-      "total_increase": 0.0742
-    },
-    {
-      "id": "AG",
-      "name": "安提瓜和巴布达",
-      "en": "Antigua and Barb.",
-      "total": 0.2351,
-      "active": 0.01957,
-      "increase": 0.005075,
-      "total_increase": 0.0514
+      "id": "VA",
+      "name": "梵蒂冈",
+      "en": "Vatican",
+      "total": 0.018,
+      "active": 0.020968999999999998,
+      "increase": 0.001248,
+      "total_increase": 0.001
     },
     {
       "id": "SJ",
       "name": "斯瓦尔巴和扬马延",
       "en": "Svalbard and Jan Mayen",
       "total": null,
-      "active": 0.01957,
-      "increase": 0.0034649999999999998,
+      "active": 0.020968999999999998,
+      "increase": 0.002286,
       "total_increase": null
+    },
+    {
+      "id": "GF",
+      "name": "法属圭亚那",
+      "en": "French Guiana",
+      "total": 0.3915,
+      "active": 0.018348,
+      "increase": -0.001373,
+      "total_increase": 0.0757
+    },
+    {
+      "id": "AG",
+      "name": "安提瓜和巴布达",
+      "en": "Antigua and Barb.",
+      "total": 0.257,
+      "active": 0.018348,
+      "increase": 0.001741,
+      "total_increase": 0.0319
     },
     {
       "id": "GU",
       "name": "关岛",
       "en": "Guam",
-      "total": 0.5679,
-      "active": 0.018418,
-      "increase": 0.005534000000000001,
-      "total_increase": 0.0879
+      "total": 0.603,
+      "active": 0.017038,
+      "increase": 0.00043,
+      "total_increase": 0.0769
     },
     {
-      "id": "VC",
-      "name": "圣文森特和格林纳丁斯",
-      "en": "St. Vin. and Gren.",
-      "total": 0.2039,
-      "active": 0.014965000000000001,
-      "increase": 0.003691,
-      "total_increase": 0.0586
+      "id": "GD",
+      "name": "格林纳达",
+      "en": "Grenada",
+      "total": 0.3085,
+      "active": 0.017038,
+      "increase": -0.000608,
+      "total_increase": -0.0048
+    },
+    {
+      "id": "AW",
+      "name": "阿鲁巴",
+      "en": "Aruba",
+      "total": 0.3848,
+      "active": 0.015727,
+      "increase": -0.005033,
+      "total_increase": 0.065
+    },
+    {
+      "id": "KN",
+      "name": "圣基茨和尼维斯",
+      "en": "St. Kitts and Nevis",
+      "total": 0.1741,
+      "active": 0.015727,
+      "increase": 0.004309,
+      "total_increase": 0.0382
     },
     {
       "id": "VG",
       "name": "英属维尔京群岛",
       "en": "British Virgin Is.",
-      "total": 0.1071,
-      "active": 0.014965000000000001,
-      "increase": 0.007718000000000001,
-      "total_increase": 0.0284
+      "total": 0.1216,
+      "active": 0.015727,
+      "increase": 0.006385,
+      "total_increase": 0.0269
+    },
+    {
+      "id": "WS",
+      "name": "萨摩亚",
+      "en": "Samoa",
+      "total": 0.0979,
+      "active": 0.015727,
+      "increase": 0.003271,
+      "total_increase": 0.0246
     },
     {
       "id": "CX",
       "name": "圣诞岛",
       "en": "Christmas Island",
       "total": null,
-      "active": 0.014965000000000001,
-      "increase": 0.003691,
+      "active": 0.015727,
+      "increase": 0.003271,
       "total_increase": null
-    },
-    {
-      "id": "KN",
-      "name": "圣基茨和尼维斯",
-      "en": "St. Kitts and Nevis",
-      "total": 0.1633,
-      "active": 0.013813999999999998,
-      "increase": 0.003346,
-      "total_increase": 0.0498
-    },
-    {
-      "id": "KM",
-      "name": "科摩罗",
-      "en": "Comoros",
-      "total": 0.1051,
-      "active": 0.013813999999999998,
-      "increase": 0.004956,
-      "total_increase": 0.0425
-    },
-    {
-      "id": "VU",
-      "name": "瓦努阿图",
-      "en": "Vanuatu",
-      "total": 0.1201,
-      "active": 0.012662999999999999,
-      "increase": 0.006221,
-      "total_increase": 0.0298
-    },
-    {
-      "id": "WS",
-      "name": "萨摩亚",
-      "en": "Samoa",
-      "total": 0.0893,
-      "active": 0.012662999999999999,
-      "increase": 0.001389,
-      "total_increase": 0.027
-    },
-    {
-      "id": "MP",
-      "name": "北马里亚纳群岛",
-      "en": "N. Mariana Is.",
-      "total": 0.1312,
-      "active": 0.011512,
-      "increase": 0.0034590000000000003,
-      "total_increase": 0.0246
     },
     {
       "id": "GQ",
       "name": "赤道几内亚",
       "en": "Eq. Guinea",
-      "total": 0.1966,
-      "active": 0.01036,
-      "increase": 0.0023079999999999997,
-      "total_increase": 0.0711
+      "total": 0.2289,
+      "active": 0.013106,
+      "increase": 0.004802000000000001,
+      "total_increase": 0.0692
+    },
+    {
+      "id": "VC",
+      "name": "圣文森特和格林纳丁斯",
+      "en": "St. Vin. and Gren.",
+      "total": 0.2176,
+      "active": 0.013106,
+      "increase": 0.00065,
+      "total_increase": 0.0375
+    },
+    {
+      "id": "MP",
+      "name": "北马里亚纳群岛",
+      "en": "N. Mariana Is.",
+      "total": 0.1371,
+      "active": 0.011795,
+      "increase": 0.001415,
+      "total_increase": 0.0189
     },
     {
       "id": "YT",
       "name": "马约特",
       "en": "Mayotte",
-      "total": 0.1588,
-      "active": 0.01036,
-      "increase": 0.0023079999999999997,
-      "total_increase": 0.0474
+      "total": 0.1746,
+      "active": 0.010485,
+      "increase": -0.000933,
+      "total_increase": 0.0459
+    },
+    {
+      "id": "VU",
+      "name": "瓦努阿图",
+      "en": "Vanuatu",
+      "total": 0.1289,
+      "active": 0.010485,
+      "increase": 0.0021809999999999998,
+      "total_increase": 0.0288
+    },
+    {
+      "id": "KM",
+      "name": "科摩罗",
+      "en": "Comoros",
+      "total": 0.1194,
+      "active": 0.010485,
+      "increase": -0.000933,
+      "total_increase": 0.0402
     },
     {
       "id": "SB",
       "name": "所罗门群岛",
       "en": "Solomon Is.",
-      "total": 0.1315,
-      "active": 0.01036,
-      "increase": 0.001503,
-      "total_increase": 0.0499
-    },
-    {
-      "id": "DM",
-      "name": "多米尼克",
-      "en": "Dominica",
-      "total": 0.1672,
-      "active": 0.009209,
-      "increase": 0.001157,
-      "total_increase": 0.0395
-    },
-    {
-      "id": "ST",
-      "name": "圣多美和普林西比",
-      "en": "São Tomé and Principe",
-      "total": 0.0753,
-      "active": 0.008058,
-      "increase": 0.000811,
-      "total_increase": 0.033
-    },
-    {
-      "id": "TO",
-      "name": "汤加",
-      "en": "Tonga",
-      "total": 0.0697,
-      "active": 0.008058,
-      "increase": 0.000811,
-      "total_increase": 0.0231
+      "total": 0.1533,
+      "active": 0.009174,
+      "increase": -0.003282,
+      "total_increase": 0.0503
     },
     {
       "id": "TC",
       "name": "特克斯和凯科斯群岛",
       "en": "Turks and Caicos Is.",
-      "total": 0.1238,
-      "active": 0.006906999999999999,
-      "increase": 0.0012699999999999999,
-      "total_increase": 0.0393
+      "total": 0.1286,
+      "active": 0.009174,
+      "increase": 0.0039840000000000006,
+      "total_increase": 0.0048
     },
     {
-      "id": "CF",
-      "name": "中非共和国",
-      "en": "Central African Rep.",
-      "total": 0.0736,
-      "active": 0.006906999999999999,
-      "increase": 0.002881,
-      "total_increase": 0.0265
-    },
-    {
-      "id": "ER",
-      "name": "厄立特里亚",
-      "en": "Eritrea",
-      "total": 0.168,
-      "active": 0.005756,
-      "increase": 0.0017289999999999999,
-      "total_increase": -0.0087
-    },
-    {
-      "id": "GW",
-      "name": "几内亚比绍",
-      "en": "Guinea-Bissau",
-      "total": 0.1216,
-      "active": 0.005756,
-      "increase": -0.000686,
-      "total_increase": 0.0581
+      "id": "DM",
+      "name": "多米尼克",
+      "en": "Dominica",
+      "total": 0.1803,
+      "active": 0.007863,
+      "increase": 0.000598,
+      "total_increase": 0.0325
     },
     {
       "id": "SX",
       "name": "荷属圣马丁",
       "en": "Sint Maarten",
-      "total": 0.1153,
-      "active": 0.005756,
-      "increase": 0.002535,
-      "total_increase": 0.0278
+      "total": 0.1299,
+      "active": 0.007863,
+      "increase": 0.0026739999999999997,
+      "total_increase": 0.0262
     },
     {
-      "id": "FM",
-      "name": "密克罗尼西亚联邦",
-      "en": "Micronesia",
-      "total": 0.0523,
-      "active": 0.005756,
-      "increase": 0.000924,
-      "total_increase": 0.0175
+      "id": "TO",
+      "name": "汤加",
+      "en": "Tonga",
+      "total": 0.0778,
+      "active": 0.007863,
+      "increase": -0.00044,
+      "total_increase": 0.0184
     },
     {
-      "id": "MH",
-      "name": "马绍尔群岛",
-      "en": "Marshall Is.",
-      "total": 0.031,
-      "active": 0.005756,
-      "increase": 0.0033399999999999997,
-      "total_increase": 0.0074
+      "id": "ER",
+      "name": "厄立特里亚",
+      "en": "Eritrea",
+      "total": 0.1628,
+      "active": 0.006553,
+      "increase": 0.000325,
+      "total_increase": -0.0048
     },
     {
-      "id": "AI",
-      "name": "安圭拉",
-      "en": "Anguilla",
-      "total": 0.0571,
-      "active": 0.004605,
-      "increase": 0.001384,
-      "total_increase": -0.0001
+      "id": "GW",
+      "name": "几内亚比绍",
+      "en": "Guinea-Bissau",
+      "total": 0.1521,
+      "active": 0.006553,
+      "increase": 0.000325,
+      "total_increase": 0.0688
+    },
+    {
+      "id": "CF",
+      "name": "中非共和国",
+      "en": "Central African Rep.",
+      "total": 0.0868,
+      "active": 0.006553,
+      "increase": 0.000325,
+      "total_increase": 0.0301
+    },
+    {
+      "id": "ST",
+      "name": "圣多美和普林西比",
+      "en": "São Tomé and Principe",
+      "total": 0.0859,
+      "active": 0.005242,
+      "increase": -0.005137,
+      "total_increase": 0.0273
+    },
+    {
+      "id": "AS",
+      "name": "美属萨摩亚",
+      "en": "American Samoa",
+      "total": 0.083,
+      "active": 0.005242,
+      "increase": 0.00109,
+      "total_increase": 0.0119
     },
     {
       "id": "PW",
       "name": "帕劳",
       "en": "Palau",
-      "total": 0.0376,
-      "active": 0.004605,
-      "increase": 0.0005780000000000001,
-      "total_increase": 0.0085
+      "total": 0.0397,
+      "active": 0.005242,
+      "increase": 5.2000000000000004e-05,
+      "total_increase": 0.0021
     },
     {
       "id": "TV",
       "name": "图瓦卢",
       "en": "Tuvalu",
       "total": null,
-      "active": 0.004605,
-      "increase": 0.0005780000000000001,
+      "active": 0.005242,
+      "increase": 5.2000000000000004e-05,
       "total_increase": null
     },
     {
@@ -2040,44 +2032,80 @@
       "name": "布韦岛",
       "en": "Bouvet Island",
       "total": null,
-      "active": 0.004605,
-      "increase": 0.002189,
+      "active": 0.005242,
+      "increase": 0.002128,
       "total_increase": null
     },
     {
-      "id": "WF",
-      "name": "瓦利斯和富图纳",
-      "en": "Wallis and Futuna Is.",
-      "total": null,
-      "active": 0.004605,
-      "increase": 0.001384,
-      "total_increase": null
+      "id": "AI",
+      "name": "安圭拉",
+      "en": "Anguilla",
+      "total": 0.0634,
+      "active": 0.003932,
+      "increase": -0.001258,
+      "total_increase": 0.0082
+    },
+    {
+      "id": "FM",
+      "name": "密克罗尼西亚联邦",
+      "en": "Micronesia",
+      "total": 0.057,
+      "active": 0.003932,
+      "increase": -0.0022960000000000003,
+      "total_increase": 0.0092
+    },
+    {
+      "id": "KI",
+      "name": "基里巴斯",
+      "en": "Kiribati",
+      "total": 0.052,
+      "active": 0.003932,
+      "increase": 0.0008179999999999999,
+      "total_increase": 0.0268
+    },
+    {
+      "id": "MH",
+      "name": "马绍尔群岛",
+      "en": "Marshall Is.",
+      "total": 0.034,
+      "active": 0.003932,
+      "increase": 0.0008179999999999999,
+      "total_increase": 0.0088
     },
     {
       "id": "CK",
       "name": "库克群岛",
       "en": "Cook Is.",
-      "total": 0.0251,
-      "active": 0.003453,
-      "increase": 0.00023199999999999997,
-      "total_increase": 0.0092
+      "total": 0.0307,
+      "active": 0.003932,
+      "increase": 0.0008179999999999999,
+      "total_increase": 0.0102
+    },
+    {
+      "id": "PM",
+      "name": "圣皮埃尔和密克隆",
+      "en": "St. Pierre and Miquelon",
+      "total": 0.0225,
+      "active": 0.003932,
+      "increase": 0.0008179999999999999,
+      "total_increase": 0.0026
     },
     {
       "id": "MS",
       "name": "蒙特塞拉特",
       "en": "Montserrat",
-      "total": 0.0228,
-      "active": 0.003453,
-      "increase": 0.001843,
-      "total_increase": 0.0228
+      "total": 0.0124,
+      "active": 0.003932,
+      "increase": 0.0028940000000000003,
+      "total_increase": -0.0104
     },
     {
       "id": "GS",
       "name": "南乔治亚和南桑威奇群岛",
       "en": "S. Geo. and the Is.",
       "total": null,
-      "active": 0.003453,
-      "increase": -0.002183,
+      "active": 0.003932,
+      "increase": -0.001258,
       "total_increase": null
     },
     {
@@ -2085,53 +2113,17 @@
       "name": "法属南部和南极领地",
       "en": "Fr. S. Antarctic Lands",
       "total": null,
-      "active": 0.003453,
-      "increase": 0.001843,
+      "active": 0.003932,
+      "increase": 0.0018559999999999998,
       "total_increase": null
     },
     {
-      "id": "NU",
-      "name": "纽埃",
-      "en": "Niue",
+      "id": "WF",
+      "name": "瓦利斯和富图纳",
+      "en": "Wallis and Futuna Is.",
       "total": null,
-      "active": 0.003453,
-      "increase": -0.000573,
-      "total_increase": null
-    },
-    {
-      "id": "AS",
-      "name": "美属萨摩亚",
-      "en": "American Samoa",
-      "total": 0.079,
-      "active": 0.002302,
-      "increase": -0.000919,
-      "total_increase": 0.0197
-    },
-    {
-      "id": "PM",
-      "name": "圣皮埃尔和密克隆",
-      "en": "St. Pierre and Miquelon",
-      "total": 0.0218,
-      "active": 0.002302,
-      "increase": -0.000919,
-      "total_increase": 0.0034
-    },
-    {
-      "id": "HM",
-      "name": "赫德岛和麦克唐纳群岛",
-      "en": "Heard I. and McDonald Is.",
-      "total": null,
-      "active": 0.002302,
-      "increase": 0.001497,
-      "total_increase": null
-    },
-    {
-      "id": "NR",
-      "name": "瑙鲁",
-      "en": "Nauru",
-      "total": null,
-      "active": 0.002302,
-      "increase": 0.000692,
+      "active": 0.003932,
+      "increase": 0.0018559999999999998,
       "total_increase": null
     },
     {
@@ -2139,44 +2131,26 @@
       "name": "福克兰群岛",
       "en": "Falkland Is.",
       "total": null,
-      "active": 0.002302,
-      "increase": -0.000919,
+      "active": 0.003932,
+      "increase": 0.0008179999999999999,
       "total_increase": null
     },
     {
-      "id": "KI",
-      "name": "基里巴斯",
-      "en": "Kiribati",
-      "total": 0.0433,
-      "active": 0.001151,
-      "increase": -0.001265,
-      "total_increase": 0.0236
-    },
-    {
-      "id": "EH",
-      "name": "西撒哈拉",
-      "en": "W. Sahara",
+      "id": "NU",
+      "name": "纽埃",
+      "en": "Niue",
       "total": null,
-      "active": 0.001151,
-      "increase": 0.000346,
+      "active": 0.003932,
+      "increase": 0.0008179999999999999,
       "total_increase": null
     },
     {
-      "id": "TK",
-      "name": "托克劳",
-      "en": "Tokelau",
+      "id": "HM",
+      "name": "赫德岛和麦克唐纳群岛",
+      "en": "Heard I. and McDonald Is.",
       "total": null,
-      "active": 0.001151,
-      "increase": 0.000346,
-      "total_increase": null
-    },
-    {
-      "id": "IO",
-      "name": "英属印度洋领地",
-      "en": "Br. Indian Ocean Ter.",
-      "total": null,
-      "active": 0.001151,
-      "increase": -0.000459,
+      "active": 0.002621,
+      "increase": 0.001583,
       "total_increase": null
     },
     {
@@ -2184,45 +2158,63 @@
       "name": "美国本土外小岛屿",
       "en": "U.S. Minor Outlying Is.",
       "total": null,
-      "active": 0.001151,
-      "increase": 0.000346,
+      "active": 0.002621,
+      "increase": 0.001583,
       "total_increase": null
     },
     {
-      "id": "NF",
-      "name": "诺福克岛",
-      "en": "Norfolk Island",
+      "id": "NR",
+      "name": "瑙鲁",
+      "en": "Nauru",
+      "total": 0.011,
+      "active": 0.0013109999999999999,
+      "increase": -0.0007650000000000001,
+      "total_increase": 0.011
+    },
+    {
+      "id": "EH",
+      "name": "西撒哈拉",
+      "en": "W. Sahara",
       "total": null,
-      "active": 0.001151,
-      "increase": 0.000346,
+      "active": 0.0013109999999999999,
+      "increase": 0.000273,
+      "total_increase": null
+    },
+    {
+      "id": "IO",
+      "name": "英属印度洋领地",
+      "en": "Br. Indian Ocean Ter.",
+      "total": null,
+      "active": 0.0013109999999999999,
+      "increase": -0.0007650000000000001,
       "total_increase": null
     },
     {
       "id": "VI",
       "name": "美属维尔京群岛",
       "en": "U.S. Virgin Is.",
-      "total": 0.271,
+      "total": 0.2892,
       "active": null,
       "increase": null,
-      "total_increase": 0.0526
+      "total_increase": 0.0435
     },
     {
       "id": "BQ",
       "name": "荷兰加勒比区",
       "en": "Bonaire, Sint Eustatius and Saba",
-      "total": 0.073,
+      "total": 0.077,
       "active": null,
       "increase": null,
-      "total_increase": 0.0211
+      "total_increase": 0.0117
     },
     {
       "id": "MF",
       "name": "法属圣马丁",
       "en": "St-Martin",
-      "total": 0.0381,
+      "total": 0.0375,
       "active": null,
       "increase": null,
-      "total_increase": 0.008
+      "total_increase": -0.0006
     }
   ],
   "five_groups": [
@@ -2230,24 +2222,25 @@
     "EU",
     "CN",
     "IN",
-    "SOUTH6"
+    "SOUTH"
   ],
   "group_notes": {
-    "EU": "成员清单与同版汇总待确认",
-    "SOUTH6": "巴西、印度尼西亚、越南、菲律宾、埃及、南非；按同版自然年表加总，不重复计入中国与印度"
+    "EU": "五域原稿汇总，已由编制组确认并与原稿图交叉核对。",
+    "SOUTH": "五域原稿的全球南方代表组；五域不构成全球穷尽划分。",
+    "SOUTH6": "GitHub 底表中的巴西、印度尼西亚、越南、菲律宾、埃及、南非合计，保留为额外观察组。"
   },
   "images": {
     "global-openshare.png": {
       "sha256": "46de3ceefb4e8452bc0426c0bb4d2cbcc7c458afed0782d2ed515c639c2bff21",
-      "status": "交互图读数转录依据，原图仅供来源查阅"
+      "status": "历史截图参考；当前版以报告年度底表为准"
     },
     "china-reference.png": {
       "sha256": "36a52e7b3bd97d2b0d555958e807907bed8f865b9f5543d935795df340013a47",
-      "status": "旧版参考，250.48万与当前基线不一致"
+      "status": "历史截图参考；当前版以报告年度底表为准"
     },
     "china-openshare-20261015.png": {
       "sha256": "83feb7c6b79eab757af85a11f98b56bf120a54b07854627b06e50808a6efe18c",
-      "status": "当前中国交互图的逐项转录依据；234.46万全国基线"
+      "status": "历史截图参考；当前版以报告年度底表为准"
     }
   },
   "provinces": [
@@ -2255,318 +2248,315 @@
       "id": "110000",
       "name": "北京市",
       "en": "Beijing",
-      "total": 391.081683,
-      "active": 51.488128,
-      "increase": 12.86172,
-      "total_increase": 53.4496
+      "total": 408.012927,
+      "active": 54.823104,
+      "increase": 6.452425,
+      "total_increase": 45.163270000000004
     },
     {
       "id": "310000",
       "name": "上海市",
       "en": "Shanghai",
-      "total": 286.57518,
-      "active": 38.264094,
-      "increase": 9.718039,
-      "total_increase": 39.166571000000005
+      "total": 298.981985,
+      "active": 40.956035,
+      "increase": 5.073683,
+      "total_increase": 33.09455
     },
     {
       "id": "440000",
       "name": "广东省",
       "en": "Guangdong",
-      "total": 253.58654900000002,
-      "active": 33.495314,
-      "increase": 8.288025,
-      "total_increase": 34.657976
+      "total": 264.56516600000003,
+      "active": 35.949686,
+      "increase": 4.390463,
+      "total_increase": 29.284925
     },
     {
       "id": "710000",
       "name": "台湾省",
       "en": "Taiwan",
-      "total": 163.13241299999999,
-      "active": 21.777286,
-      "increase": 5.805804,
-      "total_increase": 22.295501
+      "total": 170.194965,
+      "active": 23.949786,
+      "increase": 3.8617589999999997,
+      "total_increase": 18.839014000000002
     },
     {
       "id": "330000",
       "name": "浙江省",
       "en": "Zhejiang",
-      "total": 153.504884,
-      "active": 21.543819,
-      "increase": 5.620625,
-      "total_increase": 20.979696
+      "total": 160.150628,
+      "active": 23.287941,
+      "increase": 3.226782,
+      "total_increase": 17.727198
     },
     {
       "id": "320000",
       "name": "江苏省",
       "en": "Jiangsu",
-      "total": 96.396426,
-      "active": 12.800335,
-      "increase": 3.214686,
-      "total_increase": 13.174614000000002
+      "total": 100.56975200000001,
+      "active": 13.521977,
+      "increase": 1.432825,
+      "total_increase": 11.132144
     },
     {
       "id": "510000",
       "name": "四川省",
       "en": "Sichuan",
-      "total": 82.516207,
-      "active": 10.98448,
-      "increase": 2.680925,
-      "total_increase": 11.277588
+      "total": 86.088612,
+      "active": 11.604792999999999,
+      "increase": 1.192949,
+      "total_increase": 9.529216
     },
     {
       "id": "420000",
       "name": "湖北省",
       "en": "Hubei",
-      "total": 58.798058,
-      "active": 7.911938,
-      "increase": 1.9912459999999998,
-      "total_increase": 8.036000999999999
+      "total": 61.343624,
+      "active": 8.368922,
+      "increase": 0.9265899999999999,
+      "total_increase": 6.790174
     },
     {
       "id": "610000",
       "name": "陕西省",
       "en": "Shaanxi",
-      "total": 39.409108,
-      "active": 4.9936,
-      "increase": 1.222214,
-      "total_increase": 5.38609
+      "total": 41.115261,
+      "active": 5.218073,
+      "increase": 0.504724,
+      "total_increase": 4.551080000000001
     },
     {
       "id": "350000",
       "name": "福建省",
       "en": "Fujian",
-      "total": 28.857082000000002,
-      "active": 3.875265,
-      "increase": 0.9632059999999999,
-      "total_increase": 3.9439319999999998
+      "total": 30.106402000000003,
+      "active": 4.117776,
+      "increase": 0.467617,
+      "total_increase": 3.332501
     },
     {
       "id": "370000",
       "name": "山东省",
       "en": "Shandong",
-      "total": 27.671175,
-      "active": 3.7585309999999996,
-      "increase": 0.9262959999999999,
-      "total_increase": 3.7818519999999998
+      "total": 28.869153000000004,
+      "active": 3.9810730000000003,
+      "increase": 0.46141400000000005,
+      "total_increase": 3.195549
     },
     {
       "id": "430000",
       "name": "湖南省",
       "en": "Hunan",
-      "total": 24.789292,
-      "active": 3.330508,
-      "increase": 0.8550120000000001,
-      "total_increase": 3.387982
+      "total": 25.862504,
+      "active": 3.4559309999999996,
+      "increase": 0.338007,
+      "total_increase": 2.862741
     },
     {
       "id": "340000",
       "name": "安徽省",
       "en": "Anhui",
-      "total": 22.513115,
-      "active": 3.127305,
-      "increase": 0.801601,
-      "total_increase": 3.076894
+      "total": 23.487783,
+      "active": 3.324229,
+      "increase": 0.375187,
+      "total_increase": 2.5998810000000003
     },
     {
       "id": "500000",
       "name": "重庆市",
       "en": "Chongqing",
-      "total": 22.436604,
-      "active": 2.873662,
-      "increase": 0.644533,
-      "total_increase": 3.066437
+      "total": 23.407961,
+      "active": 3.032484,
+      "increase": 0.263839,
+      "total_increase": 2.5910450000000003
     },
     {
       "id": "210000",
       "name": "辽宁省",
       "en": "Liaoning",
-      "total": 19.841635,
-      "active": 2.5249029999999997,
-      "increase": 0.6456149999999999,
-      "total_increase": 2.71178
+      "total": 20.700646,
+      "active": 2.6573830000000003,
+      "increase": 0.272561,
+      "total_increase": 2.291371
     },
     {
       "id": "120000",
       "name": "天津市",
       "en": "Tianjin",
-      "total": 16.143644000000002,
-      "active": 2.189114,
-      "increase": 0.521702,
-      "total_increase": 2.206371
+      "total": 16.842557,
+      "active": 2.292284,
+      "increase": 0.211963,
+      "total_increase": 1.864316
     },
     {
       "id": "410000",
       "name": "河南省",
       "en": "Henan",
-      "total": 15.761092999999999,
-      "active": 2.011852,
-      "increase": 0.525766,
-      "total_increase": 2.154087
+      "total": 16.443444,
+      "active": 2.0455509999999997,
+      "increase": 0.194244,
+      "total_increase": 1.820138
     },
     {
       "id": "230000",
       "name": "黑龙江省",
       "en": "Heilongjiang",
-      "total": 9.021823,
-      "active": 1.199041,
-      "increase": 0.298323,
-      "total_increase": 1.233023
+      "total": 9.412408000000001,
+      "active": 1.265341,
+      "increase": 0.15481199999999998,
+      "total_increase": 1.041867
     },
     {
       "id": "360000",
       "name": "江西省",
       "en": "Jiangxi",
-      "total": 7.325848,
-      "active": 0.9511620000000001,
-      "increase": 0.241625,
-      "total_increase": 1.001232
+      "total": 7.643008,
+      "active": 0.9886,
+      "increase": 0.086615,
+      "total_increase": 0.8460110000000001
     },
     {
       "id": "530000",
       "name": "云南省",
       "en": "Yunnan",
-      "total": 6.40135,
-      "active": 0.8401930000000001,
-      "increase": 0.204566,
-      "total_increase": 0.8748799999999999
+      "total": 6.678486,
+      "active": 0.9035770000000001,
+      "increase": 0.100107,
+      "total_increase": 0.739247
     },
     {
       "id": "130000",
       "name": "河北省",
       "en": "Hebei",
-      "total": 8.039943,
-      "active": 0.837311,
-      "increase": 0.16226500000000002,
-      "total_increase": 1.098829
+      "total": 8.388019,
+      "active": 0.8568979999999999,
+      "increase": 0.026560000000000004,
+      "total_increase": 0.928476
     },
     {
       "id": "450000",
       "name": "广西壮族自治区",
       "en": "Guangxi",
-      "total": 4.877523,
-      "active": 0.6845479999999999,
-      "increase": 0.182945,
-      "total_increase": 0.666617
+      "total": 5.088687,
+      "active": 0.741867,
+      "increase": 0.11239600000000001,
+      "total_increase": 0.563271
     },
     {
       "id": "220000",
       "name": "吉林省",
       "en": "Jilin",
-      "total": 4.858395,
-      "active": 0.675901,
-      "increase": 0.16838499999999998,
-      "total_increase": 0.664003
+      "total": 5.068731,
+      "active": 0.696854,
+      "increase": 0.05459,
+      "total_increase": 0.561062
     },
     {
       "id": "140000",
       "name": "山西省",
       "en": "Shanxi",
-      "total": 4.928529,
-      "active": 0.5937560000000001,
-      "increase": 0.15128,
-      "total_increase": 0.673588
+      "total": 5.141902,
+      "active": 0.626836,
+      "increase": 0.079248,
+      "total_increase": 0.5691609999999999
     },
     {
       "id": "520000",
       "name": "贵州省",
       "en": "Guizhou",
-      "total": 3.270809,
-      "active": 0.403523,
-      "increase": 0.077333,
-      "total_increase": 0.447025
+      "total": 3.412414,
+      "active": 0.42511499999999997,
+      "increase": 0.028497,
+      "total_increase": 0.377723
     },
     {
       "id": "620000",
       "name": "甘肃省",
       "en": "Gansu",
-      "total": 2.582218,
-      "active": 0.322819,
-      "increase": 0.077437,
-      "total_increase": 0.35291500000000003
+      "total": 2.694011,
+      "active": 0.338425,
+      "increase": 0.016013,
+      "total_increase": 0.298202
     },
     {
       "id": "460000",
       "name": "海南省",
       "en": "Hainan",
-      "total": 2.250674,
-      "active": 0.295437,
-      "increase": 0.066808,
-      "total_increase": 0.307602
+      "total": 2.348113,
+      "active": 0.313418,
+      "increase": 0.033227,
+      "total_increase": 0.259914
     },
     {
       "id": "150000",
       "name": "内蒙古自治区",
       "en": "Inner Mongol",
-      "total": 1.65772,
-      "active": 0.21761399999999997,
-      "increase": 0.046143,
-      "total_increase": 0.22656300000000001
+      "total": 1.7294880000000001,
+      "active": 0.213391,
+      "increase": 0.002288,
+      "total_increase": 0.191438
     },
     {
       "id": "810000",
       "name": "香港特别行政区",
       "en": "Hong Kong SAR",
-      "total": 1.58121,
-      "active": 0.184468,
-      "increase": 0.039604,
-      "total_increase": 0.216106
+      "total": 1.649666,
+      "active": 0.19838699999999998,
+      "increase": 0.025666,
+      "total_increase": 0.182603
     },
     {
       "id": "650000",
       "name": "新疆维吾尔自治区",
       "en": "Xinjiang",
-      "total": 1.351679,
-      "active": 0.17005599999999998,
-      "increase": 0.043916000000000004,
-      "total_increase": 0.18473599999999998
+      "total": 1.410198,
+      "active": 0.18171600000000002,
+      "increase": 0.01923,
+      "total_increase": 0.156096
     },
     {
       "id": "640000",
       "name": "宁夏回族自治区",
       "en": "Ningxia",
-      "total": 0.465437,
-      "active": 0.054764,
-      "increase": 0.013374,
-      "total_increase": 0.063612
+      "total": 0.485587,
+      "active": 0.055014999999999994,
+      "increase": 0.005118,
+      "total_increase": 0.05375
     },
     {
       "id": "630000",
       "name": "青海省",
       "en": "Qinghai",
-      "total": 0.32516799999999996,
-      "active": 0.038911,
-      "increase": 0.012304,
-      "total_increase": 0.044441
+      "total": 0.339246,
+      "active": 0.038344,
+      "increase": 0.005079,
+      "total_increase": 0.037551
     },
     {
       "id": "540000",
       "name": "西藏自治区",
       "en": "Xizang",
-      "total": 0.248658,
-      "active": 0.027382,
-      "increase": 0.010629000000000001,
-      "total_increase": 0.033984
+      "total": 0.259423,
+      "active": 0.033342000000000004,
+      "increase": 0.010313,
+      "total_increase": 0.028716000000000002
     },
     {
       "id": "820000",
       "name": "澳门特别行政区",
       "en": "Macau SAR",
-      "total": 0.140269,
-      "active": 0.018734999999999998,
-      "increase": 0.001982,
-      "total_increase": 0.019171
+      "total": 0.146341,
+      "active": 0.018338,
+      "increase": -0.002132,
+      "total_increase": 0.016199
     }
   ],
   "province_source": {
-    "source": "https://selfoss.open-digger.cn/openshare/overview/CN/developers.json",
-    "provided_date": "2026-10-15",
-    "national_active": 234.46575499999997,
-    "province_coverage": "34个省级地区；含台湾省、香港和澳门特别行政区",
-    "increase_period": "2024自然年",
-    "fujian_active_increase_original": "9,632.06人",
-    "fujian_active_increase_unit_conversion": "9,632.06 / 10,000 = 0.963206 万人",
-    "description": "总量字段源表标为Estimated Developers；活跃规模的省级分配方法待补充，沿用平台读数。"
+    "source": "https://selfoss.open-digger.cn/openshare/overview_half_year/CN/developers.json",
+    "national_active": 250.482488,
+    "province_coverage": "34个省级地区",
+    "increase_period": "2025报告年度",
+    "description": "沿用 OpenShare 报告年度省级分布；开发者总量为平台估计。"
   },
   "trend": {
     "years": [
@@ -2576,12 +2566,12 @@
       2025,
       2026
     ],
-    "status": "仓库历史序列 · 口径待核验",
+    "status": "编制组确认 · 2022—2026报告年度",
     "estimated": false,
     "unit": "万人",
     "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/main/data/processed/chapter2/fig-2-1-3_five_region_active_developers_trend.csv",
     "source_blob_sha": "b77a9e07110a9a61a88ce2759109d5dada3dfeef",
-    "warning": "原表中国2026值为454.53万，与当前GitHub的234.46万不一致；平台范围、统计窗口及分组成员尚待对齐。原样展示，不据此计算本期同比。",
+    "warning": "",
     "series": [
       {
         "id": "EU",
@@ -2638,10 +2628,11 @@
           300.4584
         ]
       }
-    ]
+    ],
+    "period_convention": "标注年份为报告年度：前一年7月1日至当年6月30日。"
   },
   "report_period_source": "https://open-share.com/insight/open-world/gosd",
-  "source_updated_at": "2026-10-08T08:06:42.223Z",
+  "source_updated_at": "2026-10-08T08:18:22.697Z",
   "source_registry": {
     "world.json": {
       "url": "https://open-share.com/geo/world.json",
@@ -2653,15 +2644,18 @@
     },
     "calendar-meta.json": {
       "url": "https://selfoss.open-digger.cn/openshare/overview/meta.json",
-      "sha256": "141f49881d2bb932bf9ff54d09464d5eb2f5887ab3a8e1f4aa2ae38274fc0f44"
+      "sha256": "141f49881d2bb932bf9ff54d09464d5eb2f5887ab3a8e1f4aa2ae38274fc0f44",
+      "role": "历史自然年快照，仅归档，不用于当前2.1图件"
     },
     "calendar-developers.json": {
       "url": "https://selfoss.open-digger.cn/openshare/overview/developers.json",
-      "sha256": "d0f5ee2f59633fc2f826f5774cad754639b9f608cb0621893b058c4a93bbf701"
+      "sha256": "d0f5ee2f59633fc2f826f5774cad754639b9f608cb0621893b058c4a93bbf701",
+      "role": "历史自然年快照，仅归档，不用于当前2.1图件"
     },
     "calendar-CN-developers.json": {
       "url": "https://selfoss.open-digger.cn/openshare/overview/CN/developers.json",
-      "sha256": "ee4e70835f0e19d9b97ebba6a9bc48426320fbcc21bc61e6908d4719d11e0127"
+      "sha256": "ee4e70835f0e19d9b97ebba6a9bc48426320fbcc21bc61e6908d4719d11e0127",
+      "role": "历史自然年快照，仅归档，不用于当前2.1图件"
     },
     "data-meta.json": {
       "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/meta.json",
@@ -2670,21 +2664,31 @@
     "report-CN-developers-reference.json": {
       "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/CN/developers.json",
       "sha256": "acf6e49a8e9d322a2a03e2af5ef1b3167759a7f71c6ab2eee7c2d6626573956e",
-      "role": "仅对照报告年度窗口，不混入2025自然年数据"
+      "role": "同一报告年度省级源文件的早期留存，与本次下载逐字节一致"
+    },
+    "report-developers.json": {
+      "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/developers.json",
+      "sha256": "3419ec9f879762277d7b085a8514a01e8ff0a4b639ad208884385782af631aa9",
+      "role": "当前报告年度地图、排名与趋势数据"
+    },
+    "report-CN-developers.json": {
+      "url": "https://selfoss.open-digger.cn/openshare/overview_half_year/CN/developers.json",
+      "sha256": "acf6e49a8e9d322a2a03e2af5ef1b3167759a7f71c6ab2eee7c2d6626573956e",
+      "role": "当前报告年度地图、排名与趋势数据"
     }
   },
   "source_checks": {
     "attachment_readings_verified": 40,
     "display_rule": "与OpenShare一致，万人读数截断至两位小数；低于0.01万改用人显示；原始精度保留在JSON/CSV。",
-    "matching_screenshot": "2025自然年；不混用2026报告年度250.48万",
+    "matching_screenshot": "原稿五域两图与仓库总量、历史序列交叉核对",
     "report_period": {
       "reportYear": 2026,
       "start": "2025-07-01",
       "endExclusive": "2026-07-01",
       "totalSnapshotQuarter": 2
     },
-    "world_active_region_sum": 2726.695702,
-    "world_active_difference": 35.41278300000022
+    "world_active_region_sum": 2865.560708,
+    "world_active_difference": 24.804536999999982
   },
   "groups": {
     "SOUTH6": {
@@ -2698,9 +2702,9 @@
         "EG",
         "ZA"
       ],
-      "total": 2033.1193,
-      "active": 300.794411,
-      "increase": 68.021674
+      "total": 2206.1649,
+      "active": 314.769257,
+      "increase": 25.101557
     }
   },
   "snapshot_trends": [
@@ -2708,55 +2712,93 @@
       "title": "Global Total Developers",
       "title_zh": "全球开发者总量趋势",
       "labels": [
-        "2021",
         "2022",
         "2023",
         "2024",
-        "2025"
+        "2025",
+        "2026"
       ],
       "values": [
-        73611289,
-        93314942,
-        116604427,
-        140851879,
-        180145424
+        83667695,
+        104953184,
+        128849256,
+        156702654,
+        193896100
       ]
     },
     {
       "title": "Global Active Developers",
       "title_zh": "全球活跃开发者总量趋势",
       "labels": [
-        "2021",
         "2022",
         "2023",
         "2024",
-        "2025"
+        "2025",
+        "2026"
       ],
       "values": [
-        14460695,
-        16723916,
-        19017848,
-        21433797,
-        27621084.85
+        15432666,
+        17943118,
+        20091095,
+        26440474.7,
+        28903652.45
       ]
     },
     {
       "title": "China Active Developers",
       "title_zh": "中国活跃开发者数量趋势",
       "labels": [
-        "2021",
         "2022",
         "2023",
         "2024",
-        "2025"
+        "2025",
+        "2026"
       ],
       "values": [
-        1251372.28,
-        1363642.53,
-        1539970.72,
-        1753798.2,
-        2344657.55
+        1294731.12,
+        1457098.56,
+        1624709.7,
+        2200778.3,
+        2504824.88
       ]
     }
-  ]
+  ],
+  "five_group_records": [
+    {
+      "id": "US",
+      "name": "美国",
+      "total": 3029.8253,
+      "active": 465.1526
+    },
+    {
+      "id": "EU",
+      "name": "欧洲",
+      "total": 3014.812,
+      "active": 675.3891
+    },
+    {
+      "id": "CN",
+      "name": "中国",
+      "total": 2918.6672,
+      "active": 454.534
+    },
+    {
+      "id": "IN",
+      "name": "印度",
+      "total": 2457.6236,
+      "active": 272.3577
+    },
+    {
+      "id": "SOUTH",
+      "name": "全球南方代表组",
+      "total": 2033.1193,
+      "active": 300.4584
+    }
+  ],
+  "five_group_source": {
+    "total": "data/processed/chapter2/fig-2-1-2_five_region_total_developers.csv",
+    "active": "data/processed/chapter2/fig-2-1-3_five_region_active_developers_trend.csv",
+    "confirmation": "2026-10-20 编制组确认并提供原稿两图交叉核对",
+    "scope": "原稿五域综合统计；与 GitHub 地图分别注明来源，不重复叠加国内补充量。"
+  }
 }

@@ -73,7 +73,7 @@ def map_panel(f,scope,x,y,w):
 def map_legend(f,x,y,w,mx):
  for i,c in enumerate(p.MAP_COLORS):f.rect(x+i*13,y-8,13,7,c,c,0)
  f.text(x+84,y,'0—'+number(mx)+' 万人',8.5,MUTED)
- f.rect(x,y+7,12,7,'#E6E8EA',LINE,0);f.text(x+18,y+14,'未收录不按零处理；世界与中国色阶独立。',8.5,MUTED)
+ f.rect(x+230,y-8,12,7,'#E6E8EA',LINE,0);f.text(x+248,y,'未收录',8.5,MUTED)
 
 def ranks(f,rows,key,x,y,w,step=19):
  title(f,x,y,('开发者总量' if key=='total' else '活跃开发者')+' · 前十 / 万人')
@@ -98,38 +98,38 @@ def line_chart(f,x,y,w,h,values,labels,color,maximum,unit='万人',dash=None,end
 
 def global_figure():
  f=Figure(p.FIGURES['global']['title'],'图 2-1-1',LWIDTH,461)
- title(f,0,13,'A  全球活跃分布与两类规模排名');f.text(LWIDTH,13,'2025 自然年 · GitHub',9,MUTED,'right')
+ title(f,0,13,'A  全球活跃分布与两类规模排名');f.text(LWIDTH,13,'GitHub · 2025.07.01—2026.06.30',9,MUTED,'right')
  mx=map_panel(f,'world',0,35,424);map_legend(f,0,263,424,mx)
  ranks(f,D['countries'],'total',442,42,143,19);ranks(f,D['countries'],'active',607,42,143,19)
  f.line([(0,302),(LWIDTH,302)],LINE,.6)
- title(f,0,323,'B  同源五年趋势 · 2021—2025 自然年')
+ title(f,0,323,'B  全球规模趋势 · 2022—2026报告年度')
  for j in range(2):
   tr=D['snapshot_trends'][j];x=j*390
   f.text(x,342,['全球开发者总量','全球活跃开发者'][j],9.5,INK)
   line_chart(f,x,345,360,87,[v/10000 for v in tr['values']],tr['labels'],p.SERIES_COLORS[0],p.SNAPSHOT_AXIS_MAX_PEOPLE[j]/10000)
- notes(f,444,'来源：OpenDigger / OpenShare；中国含台湾省。地区表合计与全球汇总的差额待核查，不归入未知。')
+ notes(f,444,'来源：OpenDigger / OpenShare。')
  return f.caption()
 
 def current_figure():
  f=Figure(p.FIGURES['comparison']['title'],'图 2-1-2',height=239)
- title(f,0,13,'A  当前五域规模 · 2025 自然年 / GitHub')
- rows=[BY['US'],dict(name='欧洲',active=None,total=None),BY['CN'],BY['IN'],D['groups']['SOUTH6']]
+ title(f,0,13,'A  五域规模 · 2026报告年度')
+ rows=D['five_group_records']
  for j,key in enumerate(['total','active']):
-  x=j*263;w=240;limit=4000 if key=='total' else 500
+  x=j*263;w=240;limit=4000 if key=='total' else 800
   title(f,x,38,('开发者总量' if key=='total' else '活跃开发者')+' / 万人')
   for i,r in enumerate(rows):
-   yy=63+i*27;f.text(x,yy,r['name'],9.2,INK)
+   yy=63+i*27;f.text(x,yy,('全球南方' if r.get('id')=='SOUTH' else r['name']),9.2,INK)
    v=r[key]
-   if v is None:f.text(x+100,yy,'待对齐',9.2,'#704400');continue
+   if v is None:f.text(x+100,yy,'未提供',9.2,MUTED);continue
    f.rect(x+83,yy-9,95*v/limit,10,p.SERIES_COLORS[0],p.SERIES_COLORS[0],0);f.text(x+w,yy,number(v),9.2,INK,'right')
   f.line([(x+83,183),(x+178,183)],LINE,.6);f.text(x+83,195,'0',8.5,MUTED);f.text(x+178,195,str(limit),8.5,MUTED,'right')
- notes(f,214,'六国：巴西、印度尼西亚、越南、菲律宾、埃及、南非；非国家排名，非全球穷尽分组。')
+ notes(f,214,'来源：报告编制组。全球南方为代表组；五域不构成全球穷尽划分。')
  return f.caption()
 
 def history_figure():
  f=Figure(p.FIGURES['comparison']['title'],'图 2-1-2',height=603)
- title(f,0,13,'B  五域历史原表 · 2022—2026')
- badge(f,0,36,'口径待核验｜与当前自然年快照分开展示',280)
+ title(f,0,13,'B  五域活跃规模演变 · 2022—2026报告年度')
+ f.text(0,37,'每年统计期：前一年7月1日至当年6月30日',9,MUTED)
  left=37;right=323;top=76;bottom=278
  for v in [0,200,400,600,800]:
   yy=bottom-v/800*(bottom-top);f.line([(left,yy),(right,yy)],LINE,.5);f.text(left-7,yy+3,str(v),9,MUTED,'right')
@@ -139,48 +139,48 @@ def history_figure():
   pts=[(left+i*(right-left)/4,bottom-v/800*(bottom-top)) for i,v in enumerate(r['values'])]
   f.line(pts,p.SERIES_COLORS[j],1.6,p.SERIES_DASH[j])
   for xx,yy in pts:f.dot(xx,yy,2,p.SERIES_COLORS[j])
-  ly=85+j*39;f.line([(347,ly-3),(369,ly-3)],p.SERIES_COLORS[j],1.6,p.SERIES_DASH[j]);f.text(376,ly,r['name'],9.2,INK)
+  ly=85+j*39;f.line([(347,ly-3),(369,ly-3)],p.SERIES_COLORS[j],1.6,p.SERIES_DASH[j]);f.text(376,ly,('全球南方' if r.get('id')=='SOUTH' else r['name']),9.2,INK)
   f.text(376,ly+15,f'{r["values"][0]:.2f} → {r["values"][-1]:.2f}',9,MUTED)
- notes(f,320,'历史中国末期 454.53 万；欧洲与全球南方历史成员待核对。保留原值，不据此计算本期同比。')
+ notes(f,320,'来源：报告编制组五域历史统计。')
  f.line([(0,348),(PWIDTH,348)],LINE,.6)
- title(f,0,372,'C  平台覆盖的条件情景 · 活跃开发者 / 万人')
- badge(f,0,397,'条件情景｜国内约 120 万假设为同口径净增',290)
+ title(f,0,372,'C  平台覆盖比较 · 活跃开发者 / 万人')
+ f.line([(0,397),(16,397)],p.SERIES_COLORS[0],3);f.text(23,400,'GitHub',9,MUTED)
+ f.line([(91,397),(107,397)],p.SERIES_COLORS[1],3);f.text(114,400,'中国国内平台补充约120万（去重）',9,MUTED)
  for i,code in enumerate(['US','CN','IN']):
   r=BY[code];yy=430+i*34;x=66;w=320
   f.text(0,yy,r['name'],9.5,INK);f.rect(x,yy-11,w*r['active']/500,13,p.SERIES_COLORS[0],p.SERIES_COLORS[0],0)
   if code=='CN':
    x0=x+w*r['active']/500;ww=w*120/500;f.rect(x0,yy-11,ww,13,'#edf6f5',p.SERIES_COLORS[1],0)
    for xx in range(math.ceil(x0),int(x0+ww),6):f.line([(xx,yy+2),(min(xx+7,x0+ww),yy-11)],p.SERIES_COLORS[1],.8)
-  f.text(PWIDTH,yy,'约354*' if code=='CN' else number(r['active']),9.5,INK,'right')
+  f.text(PWIDTH,yy,'约'+str(round(r['active']+D['domestic']['active_approx'])) if code=='CN' else number(r['active']),9.5,INK,'right')
  f.line([(66,516),(386,516)],LINE,.6);f.text(66,529,'0',8.5,MUTED);f.text(386,529,'500',8.5,MUTED,'right')
- notes(f,550,'* 假设同窗口、同定义且已剔除与 GitHub 的重合；并集值待核验。其他国家仍仅覆盖 GitHub。')
- notes(f,578,'来源：仓库历史原表；OpenShare 自然年底表；作者提供的国内补充量。')
+ notes(f,550,'国内补充依据：报告编制组根据 Gitee、AtomGit 等官方平台数据，结合问卷调研去重得到。其他国家仅展示 GitHub 覆盖。')
+ notes(f,578,'统计期：2025.07.01—2026.06.30。来源：OpenDigger / OpenShare；报告编制组。')
  return f.caption(True)
 
-def china_map():
- f=Figure(p.FIGURES['china']['title'],'图 2-1-3',height=345)
- title(f,0,13,'A  中国省级活跃分布 · 2025 自然年')
- badge(f,0,37,'平台分布｜省级分配方法待补',225)
- mx=map_panel(f,'china',0,53,PWIDTH)
- map_legend(f,0,302,PWIDTH,mx)
- return f.caption()
-
-def china_structure():
- f=Figure(p.FIGURES['china']['title'],'图 2-1-3',height=618)
- title(f,0,13,'B  中国省级规模排名 · 2025 自然年')
- badge(f,0,37,'总量为平台估计｜省级分配方法待补',265)
- ranks(f,D['provinces'],'total',0,69,236,20);ranks(f,D['provinces'],'active',267,69,236,20)
- f.line([(0,296),(PWIDTH,296)],LINE,.6)
- title(f,0,319,'C  全国活跃规模 · 2021—2025 自然年')
- tr=D['snapshot_trends'][2];line_chart(f,0,332,PWIDTH,128,[v/10000 for v in tr['values']],tr['labels'],p.SERIES_COLORS[0],p.SNAPSHOT_AXIS_MAX_PEOPLE[2]/10000)
- title(f,0,486,'D  活跃参与结构 · 分母为全国活跃规模')
- rr=sorted(D['provinces'],key=lambda r:-r['active']);values=[sum(r['active'] for r in rr[:3]),sum(r['active'] for r in rr[3:10]),sum(r['active'] for r in rr[10:])];x=0
+def china_figure():
+ f=Figure(p.FIGURES['china']['title'],'图 2-1-3',height=508)
+ title(f,0,13,'A  中国省级活跃分布')
+ title(f,330,13,'B  全国活跃规模 / 万人')
+ f.text(330,34,'2022—2026报告年度',9,MUTED)
+ mx=map_panel(f,'china',0,30,318)
+ tr=D['snapshot_trends'][2]
+ line_chart(f,326,55,177,140,[v/10000 for v in tr['values']],tr['labels'],p.SERIES_COLORS[0],p.SNAPSHOT_AXIS_MAX_PEOPLE[2]/10000,unit='')
+ map_legend(f,0,210,318,mx)
+ f.text(PWIDTH,210,'GitHub · 2026报告年度',9,MUTED,'right')
+ f.line([(0,224),(PWIDTH,224)],LINE,.6)
+ ranks(f,D['provinces'],'total',0,245,236,15.5)
+ ranks(f,D['provinces'],'active',267,245,236,15.5)
+ title(f,0,428,'C  区域活跃份额')
+ rr=sorted(D['provinces'],key=lambda r:-r['active'])
+ values=[sum(r['active'] for r in rr[:3]),sum(r['active'] for r in rr[3:10]),sum(r['active'] for r in rr[10:])]
+ x=0
  for i,(label,v) in enumerate(zip(['京沪粤','第4—10位','其余24地'],values)):
-  share=v/BY['CN']['active'];w=PWIDTH*share;f.rect(x,502,w,14,p.SERIES_COLORS[i],p.SERIES_COLORS[i],0)
-  if i:f.line([(x,502),(x,516)],'#ffffff',1)
-  tx=x+w/2;x+=w;f.text(tx,539,label,9.5,INK,'center');f.text(tx,556,f'{share*100:.1f}%',10.5,INK,'center')
- notes(f,581,'来源：OpenDigger / OpenShare；中国含台湾省、香港、澳门。省级合计与全国一致；份额独立取整；国内补充量不分摊。')
- return f.caption(True)
+  share=v/BY['CN']['active'];w=PWIDTH*share;f.rect(x,441,w,13,p.SERIES_COLORS[i],p.SERIES_COLORS[i],0)
+  if i:f.line([(x,441),(x,454)],'#ffffff',1)
+  tx=x+w/2;x+=w;f.text(PWIDTH if i==2 else tx,474,label+' '+f'{share*100:.1f}%',9,INK,'right' if i==2 else 'center')
+ notes(f,491,'来源：OpenDigger / OpenShare。开发者总量为平台估计；份额独立取整。')
+ return f.caption()
 
 class FigureFlow(Flowable):
  def __init__(self,fig,key):super().__init__();self.fig=fig;self.key=key;self.width=fig.width;self.height=fig.height;self.spaceBefore=8;self.spaceAfter=8
@@ -216,7 +216,7 @@ def build(output,figs):
  para('2.1 '+p.TITLE,'chapter');para('2026.10.20 · 2.1 出版样章','note');para('研究问题：'+p.QUESTION);para('指标定位：'+p.POSITION);para('核心发现：'+p.FINDING);para(p.SNAPSHOT_NOTE,'note');section(0)
  story.extend([NextPageTemplate('landscape'),PageBreak(),FigureFlow(figs[0],'2-1-1')]);story.extend([NextPageTemplate('portrait'),PageBreak()])
  section(1);story.append(FigureFlow(figs[1],'2-1-2-A'));story.append(PageBreak());story.append(FigureFlow(figs[2],'2-1-2-BC'));story.append(PageBreak())
- section(2);story.append(FigureFlow(figs[3],'2-1-3-A'));story.append(PageBreak());story.append(FigureFlow(figs[4],'2-1-3-BCD'));story.append(PageBreak())
+ section(2);story.append(FigureFlow(figs[3],'2-1-3'));story.append(PageBreak())
  para('2.1.4 行动建议','section')
  for i,(title,paras) in enumerate(p.STRATEGIES,1):
   para(str(i)+' '+title,'subsection')
@@ -231,13 +231,15 @@ def main():
  work=ROOT/'tmp/pdfs/vmap';work.mkdir(parents=True,exist_ok=True);args.output.parent.mkdir(parents=True,exist_ok=True)
  extra=Path(__file__).read_text()+p.manuscript()+json.dumps(D,ensure_ascii=False)+json.dumps(GEO,ensure_ascii=False)
  common.font_setup(args.font,work,subset_text=extra)
- figs=[global_figure(),current_figure(),history_figure(),china_map(),china_structure()]
+ figs=[global_figure(),current_figure(),history_figure(),china_figure()]
  dest=p.ROOT/'content/vmap/print';dest.mkdir(parents=True,exist_ok=True)
  names=[name for spec in p.FIGURES.values() for name in spec['files']]
  for name,fig in zip(names,figs):(dest/name).write_text(fig.svg())
+ # Retain previous direct-download URLs, pointing to the same complete one-page view.
+ for name in ['fig-2-1-3_a_geography.svg','fig-2-1-3_bcd_structure.svg']:(dest/name).write_text(figs[3].svg())
  layout=build(args.output,figs);shutil.copy2(args.output,dest/p.PDF_NAME)
  (p.ROOT/'content/vmap/chapter-2-1.md').write_text(p.manuscript())
- manifest=dict(edition=p.EDITION,baseline='GOSD-PUB-20261020',scope='2.1 完整正文与三幅图组；第二章其他小节未收录',pdf=p.PDF_NAME,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],source_sha256=hashlib.sha256((p.ROOT/'content/vmap/fig-2-1-2_platform-coverage.json').read_bytes()).hexdigest(),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=hashlib.sha256(args.output.read_bytes()).hexdigest(),figures=p.specification(),verification=dict(browser_visual='not_run_no_supported_browser',physical_print='not_run',pdf_render='seven_pages_visually_checked',grayscale='charts_checked',dom='100_bilingual_operations_passed'))
+ manifest=dict(edition=p.EDITION,baseline='GOSD-PUB-20261020',scope='2.1 完整正文与三幅图组；第二章其他小节未收录',pdf=p.PDF_NAME,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],source_sha256=hashlib.sha256((p.ROOT/'content/vmap/fig-2-1-2_platform-coverage.json').read_bytes()).hexdigest(),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=hashlib.sha256(args.output.read_bytes()).hexdigest(),figures=p.specification(),verification=dict(browser_visual='not_run_no_supported_browser',physical_print='not_run',pdf_render='pending_current_revision',grayscale='pending_current_revision',dom='pending_current_revision'))
  (dest/'publication-spec.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');(work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2))
  print(json.dumps(dict(pdf=str(args.output),pages=layout['pages'],figure_pages=layout['figures']),ensure_ascii=False))
 if __name__=='__main__':main()

@@ -156,7 +156,7 @@
 .vmap-figure .vm-trend-table button[aria-pressed=true]{color:var(--cyan);font-weight:600}
 .vmap-figure .vm-trend-table p{font:13px/1.7 var(--sans)!important;color:var(--muted);margin:14px 0 8px!important}
 .vmap-figure .vm-trend-table a{font-size:13px;color:var(--cyan)}
-.vmap-figure.vmap-trend-mode .vmap-status{font-size:18px;background:color-mix(in srgb,var(--gv-highlight,#C8A045) 14%,var(--paper));border-left:3px solid var(--gv-highlight,#C8A045);padding:7px 12px;height:42px;top:205px}
+.vmap-figure.vmap-trend-mode .vmap-status{font-size:18px;background:color-mix(in srgb,var(--cyan,#156993) 9%,var(--paper));border-left:3px solid var(--cyan,#156993);padding:7px 12px;height:42px;top:205px}
 .vmap-figure.vmap-trend-mode .vmap-scope-note{top:677px;font-size:15px!important;line-height:1.55!important}
 .vmap-figure.screen-slide .vmap-controls button{font-size:17px;padding:10px 13px}
 @media(prefers-reduced-motion:reduce){.vmap-figure [data-map-id]{transition:none}}

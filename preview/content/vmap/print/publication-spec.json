@@ -1,30 +1,29 @@
 {
-  "edition": "2026-10-20-vmap-publication",
+  "edition": "2026-10-20-vmap-report-year",
   "baseline": "GOSD-PUB-20261020",
   "scope": "2.1 完整正文与三幅图组；第二章其他小节未收录",
   "pdf": "GOSD-2026-section-2-1.pdf",
-  "pages": 7,
+  "pages": 6,
   "figure_pages": {
     "2-1-1": 2,
     "2-1-2-A": 3,
     "2-1-2-BC": 4,
-    "2-1-3-A": 5,
-    "2-1-3-BCD": 6
+    "2-1-3": 5
   },
   "body_font_pt": 11.2,
   "chart_font_range_pt": [
     8.5,
     10.5
   ],
-  "source_sha256": "5892bbcc2a3ec25acf7a5c9f88edba80b4c0371213095438940c66a428bfb7c0",
-  "manuscript_sha256": "b46a7f19dc58165ab605001c09b334bc3b90c9c7ae8d0522596aec5bae15f0b7",
-  "pdf_sha256": "71dc6d983dcde406b3c535c186176f367e8014a229367a94876e43df6c920c22",
+  "source_sha256": "0f4fbe5f5424b82d6f9cb4e96c6a79a92959603d343eb0f9a8d3972e55991d53",
+  "manuscript_sha256": "cc70602755a5f4f601dada19fb70215dcad366d4122cf075eda0d308ce2d1ee2",
+  "pdf_sha256": "813ab441b15bf1ad26bb4ac25d73b739a9ebd823e5a5db34d7c7dd789c0886aa",
   "figures": [
     {
       "figure": "图 2-1-1",
       "question": "2.1.1 全球参与：让已有力量更可见",
-      "claim": "2025 自然年，平台记录的全球开发者总量约 1.80 亿，活跃开发者约 2,762.10 万。图 2-1-1 同时呈现世界分布、两类排名和五年趋势。英国的开发者总量高于德国，活跃规模却低于德国，说明参与基础与当期参与是两个不同侧面。",
-      "data_scope": "2025自然年 · GitHub · 同版底表",
+      "claim": "本报告期，GitHub 全球开发者总量约 1.94 亿，活跃开发者约 2,890.36 万。图 2-1-1 同时呈现世界分布、两类排名和五年趋势。英国的开发者总量高于德国，活跃规模却低于德国，说明参与基础与当期参与是两个不同侧面。",
+      "data_scope": "2026报告年度 · GitHub",
       "web_default": "世界活跃地图＋双榜＋同源趋势",
       "print_panels": [
         "A 世界地图与双榜",
@@ -32,7 +31,7 @@
       ],
       "exploration_only": "地区详情、总量着色、中国下钻",
       "design_status": "pilot_for_review",
-      "evidence_status": "source_snapshot_with_geography_gap",
+      "evidence_status": "report_year_source",
       "simulated": false,
       "source": "fig-2-1-2_platform-coverage.json",
       "assets": [
@@ -41,18 +40,18 @@
     },
     {
       "figure": "图 2-1-2",
-      "question": "2.1.2 五域比较：规模之外，看清覆盖与时间",
-      "claim": "图 2-1-2 将美国、欧洲、中国、印度和全球南方代表六国并列。按同版 GitHub 数据，美国、中国、印度活跃规模分别为 464.84 万、234.46 万和 273.28 万；六国合计 300.79 万。欧洲当前汇总待对齐，保留空位。六国是观察组，不参与国家排名；五域也不是全球的穷尽划分。",
-      "data_scope": "当前规模｜历史待核验｜条件情景",
-      "web_default": "五域当前规模；GitHub 范围",
+      "question": "2.1.2 五域比较：看规模、演变与平台覆盖",
+      "claim": "图 2-1-2 依据报告编制组的五域统计，将美国、欧洲、中国、印度和全球南方代表组并列。开发者总量分别约为 3,030 万、3,015 万、2,919 万、2,458 万和 2,033 万。五域是观察框架，不构成全球的穷尽划分。",
+      "data_scope": "2026报告年度 · 编制组五域统计与平台比较",
+      "web_default": "编制组五域规模；2026报告年度",
       "print_panels": [
         "A 当前五域双指标",
-        "B 历史原表",
-        "C 国内补充条件情景"
+        "B 五域五年演变",
+        "C 国内平台补充比较"
       ],
       "exploration_only": "国家前十、起点指数、年份与组别聚焦",
       "design_status": "pilot_for_review",
-      "evidence_status": "mixed_source_pending_and_conditional",
+      "evidence_status": "author_confirmed_five_groups_and_domestic",
       "simulated": false,
       "source": "fig-2-1-2_platform-coverage.json",
       "assets": [
@@ -63,31 +62,30 @@
     {
       "figure": "图 2-1-3",
       "question": "2.1.3 中国实例：让区域节点连接长期合作",
-      "claim": "图 2-1-3 覆盖中国 34 个省级地区，包含台湾省、香港和澳门特别行政区。按平台分布口径，省级活跃规模合计与全国值一致；总量字段为平台估计，活跃规模的省级分配方法仍待补充。地图与双榜分别呈现地理分布和规模差异。",
-      "data_scope": "2025自然年 · 省级分配方法待补",
+      "claim": "图 2-1-3 将中国 34 个省级地区的分布、双榜、全国趋势与区域份额集中呈现。北京、上海、广东合计约 132 万活跃开发者，占全国约 52.6%；第 4—10 位地区约占 36.0%，其余 24 地约占 11.5%。",
+      "data_scope": "2026报告年度 · GitHub · 34个省级地区",
       "web_default": "中国活跃地图＋双榜＋全国趋势",
       "print_panels": [
         "A 省级活跃地图",
-        "B 总量和活跃前十",
-        "C 全国活跃趋势",
-        "D 区域份额"
+        "B 全国活跃趋势",
+        "总量和活跃前十",
+        "C 区域份额"
       ],
       "exploration_only": "所选省级详情、总量着色、缩放",
       "design_status": "pilot_for_review",
-      "evidence_status": "platform_estimate_method_pending",
+      "evidence_status": "report_year_provincial_source",
       "simulated": false,
       "source": "fig-2-1-2_platform-coverage.json",
       "assets": [
-        "fig-2-1-3_a_geography.svg",
-        "fig-2-1-3_bcd_structure.svg"
+        "fig-2-1-3_china.svg"
       ]
     }
   ],
   "verification": {
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "pdf_render": "seven_pages_visually_checked",
-    "grayscale": "charts_checked",
-    "dom": "100_bilingual_operations_passed"
+    "pdf_render": "six_pages_visually_checked",
+    "grayscale": "all_charts_checked",
+    "dom": "102_bilingual_operations_passed"
   }
 }
