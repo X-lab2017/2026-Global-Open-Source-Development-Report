@@ -2,7 +2,7 @@
   "review_date": "2026-10-20",
   "status": "publication_review",
   "scope": "2.5 A-Map",
-  "revision": "2026-10-20-amap-publication-v3",
+  "revision": "2026-10-20-amap-publication-v4",
   "layout": "代码平台规模与增长—模型地域供给与下载—数据地域供给与下载",
   "sources": [
     {
@@ -175,5 +175,10 @@
       }
     ]
   },
-  "europe_comparison": "comparison-groups.json"
+  "europe_comparison": "comparison-groups.json",
+  "category_demo": {
+    "file": "category-demo.json",
+    "status": "simulated",
+    "note": "所有类别数量与历史均模拟，仅2026合计对齐既有总量；不可作为实测结论"
+  }
 }

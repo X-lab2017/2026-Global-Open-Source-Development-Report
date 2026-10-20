@@ -41,7 +41,7 @@ def asset_figure(key):
  by={r['id']:r['count'] for r in a['countries']};mx=max(by.values());sc=302/880;colors=['#DCEBF2','#BCD8E4','#8FBFD3','#5B9FBE','#337FA6','#156993']
  for g in D['world']:
   v=by.get(g['id']);fill='#e6e8ea' if v is None else colors[min(5,int(math.log10(v+1)/math.log10(mx+1)*5.999))]
-  f.path(g['d'],0,43,sc,None if g.get('kind')=='line' else fill,'#9cacb6',.25)
+  f.path(g['d'],0,43,sc,None if g.get('kind')=='line' else fill,'#91AAB9',.4)
  for code,name in [('US','美国'),('CN','中国')]:
   g=next(r for r in D['world'] if r['id']==code);xx,yy=g['center'][0]*sc,43+g['center'][1]*sc;f.rect(xx-12,yy-9,24,14,'#ffffff','#ffffff',1);f.text(xx,yy+1,name,8.5,INK,'center')
  for i,c in enumerate(colors):f.rect(i*12,210,12,7,c,c,0)
@@ -64,6 +64,36 @@ def asset_figure(key):
   f.line([(left,316),(right,316)],LINE,.5);f.text(left,329,'0',8.5,MUTED);f.text(right,329,'100%',8.5,MUTED,'right')
  f.text(0,347,f'* 欧洲数量为已列{len(europe["members"])}国小计（数量下限）；下载待补。来源：Hugging Face。',8.5,MUTED)
  return f.caption()
+CAT_COLORS=['#156993','#007D87','#76549D','#8A631F','#426C9D','#4F7647','#8F556C','#557D83','#79614D','#646CAC','#537C65','#656F7C']
+def cat_tiles(items,x,y,w,h):
+ if len(items)==1:return [(items[0],x,y,w,h)]
+ total=sum(r['values'][-1] for r in items);part=0;k=0
+ while k<len(items)-1 and part<total/2:part+=items[k]['values'][-1];k+=1
+ ratio=part/total
+ if w>=h:return cat_tiles(items[:k],x,y,w*ratio,h)+cat_tiles(items[k:],x+w*ratio,y,w*(1-ratio),h)
+ return cat_tiles(items[:k],x,y,w,h*ratio)+cat_tiles(items[k:],x,y+h*ratio,w,h*(1-ratio))
+def category_figure(key):
+ a=D['categories']['assets'][key];items=a['items'];kind={'code':'代码','models':'模型','datasets':'数据集'}[key]
+ f=Figure(kind+'类别结构与增长（模拟）','图 '+p.FIGURES[key]['id'],height=425)
+ f.rect(0,0,158,20,'#FFF4CF','#D8B74A',.5);f.text(8,14,'模拟数据｜待替换',10,'#755600');f.text(PW,13,a['scope'],9,MUTED,'right')
+ for row,x,y,w,h in cat_tiles(items,0,28,PW,165):
+  color=CAT_COLORS[int(row['id'])];f.rect(x+2,y+2,w-4,h-4,color,color,0)
+  name=row['name'];chars=max(2,int((w-14)/9));lines=[name[j:j+chars] for j in range(0,len(name),chars)]
+  if w>45 and h>42:
+   for j,line in enumerate(lines[:max(1,int((h-28)/12))]):f.text(x+7,y+15+j*12,line,8.5,'#FFFFFF')
+   f.text(x+7,y+h-8,f'{row["values"][-1]:,}',8.5,'#FFFFFF')
+ for i,row in enumerate(items):
+  x=(i%3)*168;y=207+(i//3)*13;f.rect(x,y-7,6,6,CAT_COLORS[i],CAT_COLORS[i],0);f.text(x+11,y,row['name'],8.5,INK)
+ top=270;bottom=370;left=42;right=PW-20;maximum=max(v for row in items for v in row['values'])*1.15
+ for j in range(3):
+  v=maximum*j/2;yy=bottom-(bottom-top)*j/2;f.line([(left,yy),(right,yy)],LINE,.5);f.text(left-6,yy+3,f'{v/10000:.1f}万' if v>=10000 else f'{v:.0f}',8.5,MUTED,'right')
+ for i,row in enumerate(items):
+  pts=[(left+j*(right-left)/4,bottom-v/maximum*(bottom-top)) for j,v in enumerate(row['values'])];f.line(pts,CAT_COLORS[i],1.1,[3,2])
+  for xx,yy in pts:f.dot(xx,yy,1.5,CAT_COLORS[i])
+ for j,year in enumerate(D['categories']['years']):f.text(left+j*(right-left)/4,384,str(year),8.5,MUTED,'center')
+ f.text(0,400,'类别及历史均为模拟；2026 合计对齐现有总量，历史年份为演示节点。',8.5,MUTED)
+ return f.caption(continued=True)
+
 class Doc(vp.Doc):
  def __init__(self,path):super().__init__(path);self.title='GOSD 2026 · 2.5 全球开源资产地图';self.subject='同源正文、代码增长、模型供给与数据供给'
  def frame(self,c,doc):
@@ -77,7 +107,10 @@ def build(output,figs):
   for t in p.STORIES[i][1][1:]:a,b=t.split('。',1);para('**'+a+'。**'+b)
  para('2.5 '+p.TITLE,'chapter');para(p.INTRO);para('研究问题：'+p.QUESTION);para('指标定位：'+p.POSITION,'note');para('核心发现：'+p.FINDING);para(p.WINDOW,'note');lead(0)
  story.extend([FigureFlow(figs[0],'2-5-1'),PageBreak()]);after(0)
- for i in [1,2]:lead(i);story.append(FigureFlow(figs[i],f'2-5-{i+1}'));story.append(PageBreak());after(i)
+ story.extend([FigureFlow(category_figure('code'),'2-5-1-category'),PageBreak()])
+ for i,key in [(1,'models'),(2,'datasets')]:
+  lead(i);story.append(FigureFlow(figs[i],f'2-5-{i+1}'));story.append(PageBreak());after(i)
+  story.extend([FigureFlow(category_figure(key),f'2-5-{i+1}-category'),PageBreak()])
  para(p.ACTION_TITLE,'section');para(p.ACTION_INTRO)
  for i,(title,ps) in enumerate(p.STRATEGIES,1):
   para(str(i)+' '+title,'subsection')
@@ -90,6 +123,7 @@ def main():
  common.font_setup(args.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+p.PDF_REVISION+json.dumps(D,ensure_ascii=False)+Path(vp.__file__).read_text())
  figs=[code_figure(),asset_figure("models"),asset_figure("datasets")];dest=p.BASE/'print';dest.mkdir(parents=True,exist_ok=True)
  for spec,fig in zip(p.FIGURES.values(),figs):(dest/spec['file']).write_text(fig.svg())
+ for key in p.FIGURES:(dest/f'fig-{p.FIGURES[key]["id"]}_categories.svg').write_text(category_figure(key).svg())
  layout=build(args.output,figs);shutil.copy2(args.output,dest/p.PDF_NAME);(p.BASE/'chapter-2-5.md').write_text(p.manuscript());digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
  manifest=dict(edition=p.EDITION,baseline='GOSO-PUB-20261020',pdf=p.PDF_NAME,release_pdf=p.PDF_RELEASE_NAME,revision=p.PDF_REVISION,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],data_sha256={str(f.relative_to(p.BASE)):digest(f) for f in [p.BASE/'observations.json',p.BASE/'fig-2-7-1_platform_active_repository_trend.csv',p.BASE/'comparison-groups.json']},manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=digest(args.output),figures=p.FIGURES,verification={'pdf_render':'pending','dom':'pending','browser_visual':'not_run_no_supported_browser','physical_print':'not_run'})
  (dest/'publication-spec.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');(work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'pdf':str(args.output),'pages':layout['pages'],'figure_pages':layout['figures']},ensure_ascii=False))
