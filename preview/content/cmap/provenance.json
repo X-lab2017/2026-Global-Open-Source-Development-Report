@@ -1,25 +1,27 @@
 {
-  "retrieved_date": "2026-10-20",
+  "retrieved_date": "2026-10-15",
+  "restored_on": "2026-10-20",
+  "restoration_basis": "用户指定回到上一版地图快照及原稿；恢复236地区、34省级地区与原五年序列。",
   "sources": [
     {
-      "file": "source/report-meta.json",
-      "sha256": "93c18a23103a8bfa027233a42b1da6f69ab10d75e56cb368d9a60863033e72e9"
+      "file": "source/calendar-meta.json",
+      "sha256": "141f49881d2bb932bf9ff54d09464d5eb2f5887ab3a8e1f4aa2ae38274fc0f44"
     },
     {
-      "file": "source/report-contribution.json",
-      "sha256": "5991b71eb546685f54cf986e46b378bc82ac7ea64f99c852c6db9f0c6d0c1a4f"
+      "file": "source/calendar-contribution.json",
+      "sha256": "79a223f2079a9b86c0c2dccc8845f5c164a2e1a4e1cef16c6f62ef62b77ab779"
     },
     {
-      "file": "source/report-CN-contribution.json",
-      "sha256": "e3b38cf47ba7c8eb752160459413ba5ce613b5718d3925f0d9fabb302a0e2973"
+      "file": "source/calendar-CN-contribution.json",
+      "sha256": "3ecb0030259200d01fb7952f96b2823146b11ed339f8b69ef9962d35589f993a"
     },
     {
-      "file": "source/report-developers.json",
-      "sha256": "3419ec9f879762277d7b085a8514a01e8ff0a4b639ad208884385782af631aa9"
+      "file": "source/calendar-developers.json",
+      "sha256": "d0f5ee2f59633fc2f826f5774cad754639b9f608cb0621893b058c4a93bbf701"
     },
     {
-      "file": "source/report-CN-developers.json",
-      "sha256": "acf6e49a8e9d322a2a03e2af5ef1b3167759a7f71c6ab2eee7c2d6626573956e"
+      "file": "source/calendar-CN-developers.json",
+      "sha256": "ee4e70835f0e19d9b97ebba6a9bc48426320fbcc21bc61e6908d4719d11e0127"
     },
     {
       "file": "source/repository-contribution-trend.csv",
@@ -28,18 +30,24 @@
     {
       "file": "source/repository-project-sources.csv",
       "sha256": "590aeb718d75dabf12d334f24d1b54b61867eb0ac458ec8b9fae077c8bb62d3c"
+    },
+    {
+      "file": "source/repository-province-average.csv",
+      "sha256": "9e368036caacff8d781c5ad8cbe3f08b4d8f8a46839ea5e529c96e4b0811503e"
     }
   ],
-  "source_root": "https://selfoss.open-digger.cn/openshare/overview_half_year/",
+  "source_root": "https://selfoss.open-digger.cn/openshare/overview/",
   "report_period": {
-    "reportYear": 2026,
-    "start": "2025-07-01",
-    "endExclusive": "2026-07-01",
-    "totalSnapshotQuarter": 2
+    "reportYear": 2025,
+    "start": "2025-01-01",
+    "endExclusive": "2026-01-01",
+    "totalSnapshotQuarter": null
   },
   "geometry_reference": "../vmap/map-provenance.json",
   "accepted_report_series": "data/processed/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.csv",
-  "claim_scope": "中国高于美国成立于编制组2026报告年度五域开发者贡献度汇总；不延伸到GitHub单平台、项目影响力或贡献来源样本。",
+  "claim_scope": "中国高于美国限于原稿2026报告年度五域开发者贡献度汇总。地图为2025自然年快照，未据此建立同年平台拆分。",
   "globe_network": "20 observed sample relationships; no estimated sources; all rendering widths use a common optional multiplier of 3.",
-  "archived_sources": "calendar-* retain their original natural-year meaning; not used in the current figures."
+  "archived_sources": "report-* retain the superseded report-year snapshot; not used in the current maps.",
+  "upstream_scope": "保留原快照数值；不再将接口断言为纯GitHub原始统计。计算规则与平台构成不由本次排版更改。",
+  "mechanism": "The restored fictional mechanism is isolated from observed source-flow data."
 }

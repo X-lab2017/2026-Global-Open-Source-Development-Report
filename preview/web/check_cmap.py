@@ -1,16 +1,16 @@
-"""Verify source records, report-year scope and the immutable observed network."""
+"""Verify source records, selected snapshot scope and the immutable observed network."""
 from pathlib import Path
 import argparse,json,hashlib,csv,math
 from html.parser import HTMLParser
 import cmap_content
 p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);out=p.parse_args().output
 root=Path(__file__).resolve().parents[1];base=out/'assets/cmap';data=json.loads((base/'data.json').read_text())
-assert len(data['countries'])==238 and len(data['provinces'])==34
-assert data['period']['start']=='2025-07-01' and data['period']['endExclusive']=='2026-07-01'
+assert len(data['countries'])==236 and len(data['provinces'])==34
+assert data['period']['start']=='2025-01-01' and data['period']['endExclusive']=='2026-01-01'
 by={r['id']:r for r in data['countries']};cn={r['id']:r for r in data['provinces']}
-assert by['CN']['value']==936846.83 and by['US']['value']==3321044.53
+assert by['CN']['value']==1210375.59 and by['US']['value']==4236888.42
 assert not {'TW','HK','MO'}.intersection(by) and {'710000','810000','820000'}.issubset(cn)
-for scope,stem in [('countries','report-'),('provinces','report-CN-')]:
+for scope,stem in [('countries','calendar-'),('provinces','calendar-CN-')]:
  source=json.loads((base/'source'/f'{stem}contribution.json').read_text());raw={r['code']:r for r in source['leaderboards'][0]['data']}
  dev=json.loads((base/'source'/f'{stem}developers.json').read_text());active={r['code']:r for r in dev['leaderboards'][1]['data']}
  for row in data[scope]:
@@ -18,7 +18,7 @@ for scope,stem in [('countries','report-'),('provinces','report-CN-')]:
   assert row['active']==active[row['source_code']]['value']
   assert math.isclose(row['average'],row['value']/row['active'])
 assert math.isclose(sum(r['value'] for r in cn.values()),by['CN']['value'],abs_tol=.011)
-assert data['global_value']==14125100.55 and data['trends']['CN']['labels']==['2022','2023','2024','2025','2026']
+assert data['global_value']==18943529.85 and data['trends']['CN']['labels']==['2021','2022','2023','2024','2025']
 source=list(csv.DictReader((root.parent/'data/processed/chapter2/fig-2-2-2_five_region_openrank_contribution_trend.csv').open()))
 for key,values in data['legacy']['series'].items():assert values==[float(r[key]) for r in source]
 assert round((data['legacy']['series']['China'][-1]/data['legacy']['series']['United States'][-1]-1)*100,1)==4.5
@@ -42,8 +42,8 @@ for lang in ['zh','en']:
   for g in cmap_content.GEO[scope]:
    if g['id'] in page.paths:assert g['d']==page.paths[g['id']]
  for n in range(1,5):assert f'图 2-2-{n} / C-MAP' in section
- for term in ['机制示意','虚构节点','残差估算','2025 自然年','算法对象范围待核','欧洲成员口径待补']:assert term not in section,term
- assert '增强 ×3' in section and '20 条实际记录' in section and '统计范围与指标说明' in section
+ for term in ['残差估算','贡献分布 · 实测','中美结论的适用范围 · 同一报告年度','算法对象范围待核','欧洲成员口径待补','GitHub 单平台']:assert term not in section,term
+ assert '增强 ×3' in section and '20 条关系' in section and '统计范围与指标说明' in section
 assert (base/'vendor/three.module.js').stat().st_size>500000
 assert "from './three.module.js'" in (base/'vendor/OrbitControls.js').read_text()
 assert (base/'chapter-2-2.md').read_text()==cmap_content.manuscript()
@@ -59,5 +59,9 @@ for target,expected,coverage in [('CN',29666.1,93.24),('US',244808.4,77.94)]:
  assert round(t['observed_share_pct']+t['unlisted_share_pct'],2)==100
  assert len([r for r in rr if r['source']==target])==1
 assert flows['enhancement']['adds_observations'] is False
-assert 'DEMO_NODES' not in (out/'cmap-globe.js').read_text() and 'estimated' not in (out/'cmap-globe.js').read_text()
-print('PASS: C-Map report-year sources, 238 regions/34 provinces, four figures, confirmed five-group comparison and 20 immutable source relationships with display-only enhancement.')
+assert 'DEMO_NODES' in (out/'cmap-globe.js').read_text() and 'estimated' not in (out/'cmap-globe.js').read_text()
+assert len(data['province_average_reference'])==10
+for row in data['province_average_reference']:assert math.isclose(row['average'],row['value']/row['active'])
+assert round(data['province_average_reference'][0]['average'],3)==.683
+for step in range(3):assert (base/f'globe-mechanism-{step}.svg').exists()
+print('PASS: C-Map restored 2025 snapshot, 236 regions/34 provinces, original average Top10, integrated five-group comparison, isolated conceptual mechanism and 20 immutable observed relationships.')

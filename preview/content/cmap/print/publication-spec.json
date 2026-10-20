@@ -1,23 +1,22 @@
 {
-  "edition": "2026-10-20-cmap-publication",
+  "edition": "2026-10-20-cmap-review2",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-2.pdf",
-  "pages": 7,
+  "pages": 6,
   "figure_pages": {
     "2-2-1": 2,
-    "2-2-2-A": 3,
-    "2-2-2-B": 4,
-    "2-2-3": 5,
-    "2-2-4": 6
+    "2-2-2": 3,
+    "2-2-3": 4,
+    "2-2-4": 5
   },
   "body_font_pt": 11.2,
   "chart_font_range_pt": [
     8.5,
     10.5
   ],
-  "data_sha256": "4d75af1ec262ec62187d56e717f8df49abe1e4f564f9add72a873a5e790455d0",
-  "manuscript_sha256": "292cf3313955bd3fef265eb35ea19932d97266b51bbc7ee2c3625d6ec13c2547",
-  "pdf_sha256": "9b7562e41358fdaef6127b5dd51aa33ed534984498a4463decd5c3205dc8a8db",
+  "data_sha256": "5c7d6ded5cb704037b37d90ca5c172f7901a1905faff0e9cc2da488a6c7c589a",
+  "manuscript_sha256": "dc27c9f79f424c4769b496b37b737be28eba938468ea1dff490473bf99567fc0",
+  "pdf_sha256": "1c70dc19e1c2f2f091f88a3c02e11220a325a96cb0ad910d0e36eb96c7719abc",
   "figures": {
     "global": {
       "id": "2-2-1",
@@ -28,17 +27,15 @@
       "orientation": [
         "landscape"
       ],
-      "note": "GitHub · 2025.07.01—2026.06.30 · 来源：OpenDigger / OpenShare。"
+      "note": "OpenDigger / OpenShare · 2025自然年地域快照。"
     },
     "comparison": {
       "id": "2-2-2",
-      "title": "五域贡献规模、五年变化与中美比较",
+      "title": "五域贡献趋势、当期规模与中美变化",
       "files": [
-        "fig-2-2-2_a_current.svg",
-        "fig-2-2-2_b_history.svg"
+        "fig-2-2-2_comparison.svg"
       ],
       "orientation": [
-        "portrait",
         "portrait"
       ],
       "note": "编制组五域综合统计 · 2022—2026报告年度。"
@@ -52,11 +49,11 @@
       "orientation": [
         "portrait"
       ],
-      "note": "GitHub · 34个省级地区 · 2025.07.01—2026.06.30。"
+      "note": "地图：2025自然年地域快照；平均贡献：编制组Top10样本。"
     },
     "globe": {
       "id": "2-2-4",
-      "title": "中美项目贡献来源网络与本土建设",
+      "title": "协作机制与中美项目贡献来源",
       "files": [
         "fig-2-2-4_network.svg"
       ],
@@ -67,11 +64,9 @@
     }
   },
   "verification": {
-    "pdf_render": "passed_seven_pages_reviewed",
-    "dom": "passed_186_bilingual_interaction_checks",
+    "pdf_render": "passed_six_pages_and_grayscale_comparison",
+    "dom": "passed_222_bilingual_operations",
     "browser_visual": "not_run_no_supported_browser",
-    "physical_print": "not_run",
-    "grayscale": "passed_trends_and_scope_page_reviewed",
-    "network": "passed_20_observed_edges_and_uniform_enhancement"
+    "physical_print": "not_run"
   }
 }
