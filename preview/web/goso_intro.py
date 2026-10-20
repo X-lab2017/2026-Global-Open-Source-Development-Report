@@ -12,15 +12,15 @@ READING='七节沿着三层问题展开：先看谁在参与、贡献如何形�
 TOPICS=[('V-MAP','活跃参与','参与基础有多大，分布在哪里？'),('C-MAP','协作贡献','参与如何形成共同建设的贡献？'),('I-MAP','项目影响力','哪些项目与地区积累了网络影响？'),('T-MAP','开源人才','支撑协作的高影响力人才在哪里？'),('A-MAP','开放资产','代码、模型与数据如何积累和使用？'),('D-MAP','多样性共建','不同地区的贡献如何连接项目？'),('G-MAP','治理与公益','组织与许可如何支撑长期共建？')]
 SCOPE=['除特别说明外，统计期为 2025 年 7 月 1 日至 2026 年 6 月 30 日；历史年份采用对应报告年度。单独标注的快照、累计样本与平台补充分别阅读，具体范围见各节。','本章以 OpenDigger 为主要数据与方法基础，结合编制组确认的多平台统计和专题样本。人数、贡献度、项目影响力及资产数量分别计量；五域用于比较，不构成全球的穷尽分区。','网页与 PDF 共用研究正文及核心图形编码。网页支持进一步选择与比较；模拟类别图和机制示意均有标注，不作为实测发现。规模、排名与网络影响也不能单独证明治理质量或公共价值。']
 def cover():
- return '<section class="goso-cover goso-opening" id="goso-intro"><div><span class="eyebrow">GOSO / OBSERVATORY 2026</span><h2>从广泛参与，<br><em>走向持续共同创造。</em></h2><p>'+E(INTRO)+'</p><p class="goso-opening-question">'+E(QUESTION)+'</p></div><h3>本章的三个观察</h3><aside aria-label="本章综合发现">'+''.join('<a href="#'+anchor+'"><span>'+span+'</span><strong>'+E(title)+'</strong><p>'+E(text)+'</p></a>' for title,text,anchor,span in FINDINGS)+'</aside></section>'
+ return '<section class="goso-chapter-intro" id="goso-intro" aria-label="本章导读"><h2>本章导读</h2><p class="goso-intro-question">'+E(QUESTION)+'</p><p>'+E(INTRO)+'</p><h3>本章主要观察</h3>'+''.join('<p><strong>'+E(title)+'。</strong>'+E(text)+'</p>' for title,text,_,_ in FINDINGS)+'</section>'
 def overview():
- return '<section class="goso-reading-guide" aria-label="本章阅读方式"><div><span class="goso-kicker">SEVEN MAPS · ONE READING PATH</span><h3>从参与与作用，到持续共建的条件。</h3><p>'+READING+'</p></div><p class="goso-guide-hint">各节按“问题与发现 → 图件证据与解读 → 行动建议”展开。可顺序阅读，也可从下方主题直接进入。</p></section>'
+ return '<section class="goso-reading-guide goso-intro-route-lead" aria-label="本章阅读方式"><div><h3>本章阅读路径</h3><p>'+READING+'</p></div></section>'
 def route():
- return '<nav class="atlas-chapter-route" aria-label="七个地图视角">'+''.join(f'<a href="#ch02-s0{i}"><b>2.{i} / {code}</b><span>{title}</span><small>{question}</small></a>' for i,(code,title,question) in enumerate(TOPICS,1))+'</nav>'
+ return '<nav class="foundation-route goso-chapter-route" aria-label="本章阅读路径">'+''.join(f'<a href="#ch02-s0{i}"><small>2.{i} / {code}</small><strong>{title}</strong><span>{question}</span></a>' for i,(code,title,question) in enumerate(TOPICS,1))+'</nav>'
 def scope(lang):
  return '<details class="goso-scope"><summary>阅读说明 · 时间、范围与图件</summary>'+''.join('<p>'+E(t)+'</p>' for t in SCOPE)+f'<a href="/2026/{lang}/chapters/01/#ch01-s03">回到 1.3 · OSDI 方法基础</a></details>'
 def manuscript():
- out=['# '+TITLE,'## '+DECK,INTRO,'本章问题：'+QUESTION,'## 本章的三个观察']
+ out=['# '+TITLE,'## 本章导读',QUESTION,INTRO,'## 本章主要观察']
  for title,text,_,_ in FINDINGS:out+=['### '+title,text]
  out+=['## 七个主题的阅读路径',READING]
  out += [f'- 2.{i} {title}（{code}）：{question}' for i,(code,title,question) in enumerate(TOPICS,1)]

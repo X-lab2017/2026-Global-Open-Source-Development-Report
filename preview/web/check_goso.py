@@ -42,18 +42,20 @@ influence=goso.rows('influence');assert round((float(influence[-1]['China'])/flo
 for lang in ['zh','en']:
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
     assert page.count_sections==7 and page.charts==[]
-    assert len(page.fields)==4 and len(page.ids)==len(set(page.ids))
+    assert len(page.fields)==0 and len(page.ids)==len(set(page.ids))
     # I-Map no longer renders an empty project-count placeholder.
-    for term in ['AtomGit','前 5%','当前浏览器','23 个图组','统计范围与指标说明']:assert term in text,term
+    for term in ['AtomGit','前 5%','23 个图组','统计范围与指标说明']:assert term in text,term
     # Source snapshots are shared by inline and on-demand source panels.
     for key,entry in evidence['files'].items():
         assert (out/'assets/report/data'/Path(entry['path']).name).is_file(),key
     for n,count in enumerate([3,4,3,4,3,3,3],1):
         for i in range(1,count+1):assert f'fig-2-{n}-{i}' in page.ids
     assert text.count('class="goso-section-nav"')==7
+    assert 'goso-review' not in text and 'data-export-notes' not in text
+    assert 'goso-chapter-intro' in text and 'foundation-route goso-chapter-route' in text
     for key in ('fig-2-3-1','fig-2-3-2','fig-2-3-3','fig-2-4-1','fig-2-4-2','fig-2-4-3','fig-2-4-4','fig-2-4-5'):assert key in page.ids,key
 assert (out/'assets/goso/GOSO-review-draft.md').exists()
-print('PASS: GOSO seven sections, 23 numbered interactive figures and 17 preserved static observation views, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, four review fields and static exports.')
+print('PASS: GOSO seven sections, 23 numbered interactive figures and 17 preserved static observation views, 15 original datasets, coverage/growth claims, AtomGit alias with missing values, no internal review form and static exports.')
 # Chapter opening follows the reviewed seven-section manuscript.
 import goso_intro
 assert (goso.ROOT.parent/'chapters/chapter2/本章介绍.md').read_text()==goso_intro.manuscript()

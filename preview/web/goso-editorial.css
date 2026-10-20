@@ -7,11 +7,16 @@
 @media(max-width:800px){.goso-cover aside a{padding:0 12px}.goso-cover aside strong{font-size:27px}.editorial-figure-head{align-items:flex-start;flex-direction:column;padding:18px}.flow-statements{gap:18px;flex-wrap:wrap;padding:0 18px 15px}.flow-statements p{margin:0}.flow-statements strong{font-size:28px}.composition-summary{flex-direction:column;align-items:flex-start;gap:0;padding:0 18px 15px}.governance-small-multiples{grid-template-columns:1fr}.stage-tabs{gap:18px}}
 @media print{[data-stage-panel][hidden]{display:block!important}.stage-tabs{display:none!important}.editorial-figure{break-inside:avoid}.editorial-svg svg{min-width:0}}
 
-/* Chapter opening: synthesize all seven reviewed sections without repeating KPIs. */
-.goso-opening>div>p{font:17px/1.95 var(--serif,Georgia,serif);max-width:48em;color:var(--ink)}
-.goso-opening .goso-opening-question{font-family:var(--sans);font-weight:600;color:var(--gv-brand,#156993);margin-top:20px}
-.goso-opening>h3{font-size:22px;margin:28px 0 0}.goso-opening aside{margin-top:18px}
-.goso-opening aside strong{font:600 20px/1.6 var(--sans);letter-spacing:0;margin:10px 0}
-.goso-opening aside p{font:14px/1.9 var(--sans);color:var(--muted)}
-.atlas-chapter-route a small{display:block;font-size:12px;line-height:1.7;color:var(--muted);margin-top:6px}
-@media(max-width:800px){.goso-opening aside{grid-template-columns:1fr;gap:20px}.goso-opening aside a{border-left:0;border-top:1px solid var(--line);padding:16px 0 0}.goso-opening aside a:first-child{border-top:0;padding:0}.goso-opening aside strong{font-size:20px}}
+/* Chapter opening follows Chapter 1's prose and reading-route hierarchy. */
+.goso-chapter-intro{scroll-margin-top:110px;padding:10px 0 20px}
+.goso-chapter-intro h2{font:600 27px/1.6 var(--sans);margin:0 0 22px}
+.goso-chapter-intro h3,.goso-intro-route-lead h3{font:600 22px/1.6 var(--sans);margin:28px 0 14px}
+.goso-chapter-intro p,.goso-intro-route-lead p{font:17px/1.95 var(--serif,Georgia,serif);max-width:48em;margin:16px 0;color:var(--ink)}
+.goso-chapter-intro p strong{font-weight:600;color:var(--ink)}
+.goso-reading-guide.goso-intro-route-lead{display:block;padding:0;margin:0;border:0;background:transparent}
+.goso-chapter-route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 30px}
+.goso-chapter-route a{display:flex;flex-direction:column;gap:10px;padding:20px 17px;background:var(--paper);border:1px solid var(--line);border-radius:5px;color:var(--ink)}
+.goso-chapter-route small{font:14px/1.6 var(--sans);color:var(--cyan)}.goso-chapter-route strong{font:600 19px/1.55 var(--sans)}.goso-chapter-route span{font:12px/1.8 var(--sans);color:var(--muted)}.goso-chapter-route a:hover{border-color:var(--cyan)}
+@media(max-width:800px){.goso-chapter-route{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.goso-chapter-route a{padding:15px 12px}.goso-chapter-route strong{font-size:16px}.goso-chapter-intro p,.goso-intro-route-lead p{font-size:16px}}
+@media(max-width:480px){.goso-chapter-route{grid-template-columns:1fr}}
+@media print{.goso-chapter-route,.goso-intro-route-lead{display:none}.goso-chapter-intro p{font-size:11.2pt;line-height:1.66}}

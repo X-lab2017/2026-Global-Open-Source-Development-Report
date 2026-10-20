@@ -139,11 +139,4 @@
   });
   window.addEventListener('popstate',()=>controllers.forEach(c=>{c.readURL();c.render();}));
   document.addEventListener('gosdthemechange',()=>controllers.forEach(c=>c.render()));
-  const fields=[...document.querySelectorAll('[data-review-key]')],status=document.getElementById('goso-note-status'),storeKey='gosd-goso-review-v07';
-  let saved={};try{saved=JSON.parse(localStorage.getItem(storeKey)||'{}');}catch{}
-  fields.forEach(f=>{f.value=typeof saved[f.dataset.reviewKey]==='string'?saved[f.dataset.reviewKey]:'';f.addEventListener('input',()=>{try{localStorage.setItem(storeKey,JSON.stringify(Object.fromEntries(fields.map(x=>[x.dataset.reviewKey,x.value]))));status.textContent='已保存到当前浏览器';}catch{status.textContent='浏览器无法保存，请导出备注';}});});
-  document.querySelector('[data-export-notes]').addEventListener('click',()=>{
-    const text='# GOSO 样章评审备注\n\n数据版本：95ffe2d3ae52191555a40af25e1a00b26ffc65cc\n\n'+fields.map(f=>'## '+f.closest('label').querySelector('strong').textContent+'\n\n'+(f.value.trim()||'待补充')).join('\n\n')+'\n';
-    download(text,'GOSO-review-notes.md','text/markdown;charset=utf-8');status.textContent='已导出评审备注';
-  });
 })();

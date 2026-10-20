@@ -113,7 +113,7 @@ def normalize(text,n,lang):
         if any(x.has(c) for c in ['goso-map-end','tm-end-nav','am-end-nav','dm-end-nav','gm-end-nav']):remove(root,x)
     prev=(f'#ch02-s0{n-1}',f'2.{n-1} {TOPICS[n-2][1]}') if n>1 else (f'/2026/{lang}/chapters/01/#ch01-s03','1.3 方法基础')
     nex=(f'#ch02-s0{n+1}',f'2.{n+1} {TOPICS[n][1]}') if n<7 else (f'/2026/{lang}/chapters/03/','第三章 GOSR')
-    root.children+=fragment(f'<nav class="goso-section-nav" aria-label="2.{n} 前后节导航"><a href="{prev[0]}">← {prev[1]}</a><a href="#goso-intro">本章总览</a><a href="#goso-review">评审与待补</a><a href="{nex[0]}">{nex[1]} →</a></nav>')
+    root.children+=fragment(f'<nav class="goso-section-nav" aria-label="2.{n} 前后节导航"><a href="{prev[0]}">← {prev[1]}</a><a href="#goso-intro">本章总览</a><a href="{nex[0]}">{nex[1]} →</a></nav>')
     return tree.root.html()
 
 def overview():

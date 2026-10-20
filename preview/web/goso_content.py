@@ -160,14 +160,14 @@ def chapter(lang):
     vv=views();base='/2026/'+lang+'/';all_data=json.dumps(vv,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     out=['<div class="goso-chapter" lang="zh-CN">',atlas.defs()]
     if lang=='en':out.append('<div class="reader-note" lang="en">GOSO review chapter: the Chinese manuscript and charts are shown below. English translation will follow editorial review.</div>')
-    out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 2026 报告年度</span><div><a href="#goso-review">集中待补与评审</a><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
+    out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 2026 报告年度</span><div><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
     import goso_intro as intro
     out.append(intro.cover())
     import goso_reading as reading
     out.append(intro.overview())
-    out.append('<div data-goso-directory></div>')
     out.append(intro.route())
     out.append(intro.scope(lang))
+    out.append('<div data-goso-directory></div>')
     sections=[]
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)
@@ -197,19 +197,10 @@ def chapter(lang):
         for title,text in s['paragraphs'][1:]:out.append('<div class="goso-prose"><h3>'+title+'</h3><p>'+text+'</p></div>')
         out.append('<aside class="goso-implication"><span>研究启示</span><p>'+s['takeaway']+'</p></aside>')
         out.append('<div class="goso-method-links">OSDI 查证入口（图表不等同完整指标测算）：'+' · '.join(link(base+'data/indicators/#indicator-'+k,k) for k in s['pillars'])+'</div>')
-        out.append('<details class="goso-gap"><summary>待补证据 · '+s['name'].replace('全球开源','')+'</summary><p>'+s['gap']+'</p><div class="goso-blank">待补充</div>'+link('#goso-review','到章末填写评审备注 →')+'</details><p class="goso-bridge">'+s['bridge']+'</p></section>')
+        out.append('<details class="goso-gap"><summary>待补证据 · '+s['name'].replace('全球开源','')+'</summary><p>'+s['gap']+'</p><div class="goso-blank">待补充</div>'+'</details><p class="goso-bridge">'+s['bridge']+'</p></section>')
     out.append('<section class="goso-closing" id="goso-next"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h2>把差异变成下一步研究与行动的问题。</h2><p>七个主题共同提示：开放参与的扩张是起点，持续贡献、共同维护和可复用供给构成不同的能力层次。对这些差异的理解，需要继续深入主体与技术网络，并以公共场景检验开放的价值。</p><div class="goso-next-grid">'+''.join(link(base+'chapters/'+n+'/',tag+' · '+label) for n,tag,label in [('03','GOSR','哪些主体形成影响'),('04','GOSL','技术网络如何演进'),('05','GOSM','模型怎样被复用与治理'),('06','行动建议','哪些条件值得持续投入')])+'</div></section>')
-    out.append(review_panel(lang))
     out.append('<script type="application/json" id="goso-chart-data">'+all_data+'</script><script type="application/json" id="goso-atlas-data">'+json.dumps(atlas.payload(),ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></div>')
     return ''.join(out).replace('<div data-goso-directory></div>',reading.figure_directory(sections))
-
-def review_panel(lang):
-    gaps=[('scope','全章主张与阅读顺序','七节按活跃、贡献、影响力、人才、资产、多样性、治理与公益展开；统一问题、指标、证据与行动建议的阅读路径。'),('methods','数据口径与样本','算法版本、年度汇总、多平台合并、前 5% 基准、地区与项目样本说明。'),('geography','完整地图与分母','全球地理底表、人才完整总体、贡献来源完整关系，以及各项未知处理。'),('public','公共价值案例与开放数据','公共服务场景及受益证据；数据集供给底表与模型归属补全。')]
-    out=['<section id="goso-review" class="goso-review"><span class="eyebrow">EDITORIAL REVIEW / 集中补充</span><h2>评审与待补材料</h2><p>缺口保留在相应小节，这里集中收集。备注仅保存在当前浏览器，可导出后交回；不会自动写入 GitHub。当前页面用于共同评审，后续正文与图表修订在确认后更新。</p>']
-    out.append('<div class="goso-decisions"><strong>已落实的决定</strong><p>保留七节并优化衔接；开展跨年比较；GitCode 列按 AtomGit 品牌展示；缺失数据留白或采用醒目标注的设计模拟。附件旧称 OSIDX 统一为 OSDI，按平台推定国籍的旧建议采用现行所在地规则处理。</p></div>')
-    for key,label,desc in gaps:out.append('<label class="goso-review-field" for="review-'+key+'"><strong>'+label+'</strong><span>'+desc+'</span><textarea id="review-'+key+'" data-review-key="'+key+'" rows="3" placeholder="待你补充"></textarea></label>')
-    out.append('<div class="goso-review-actions"><button type="button" data-export-notes>导出评审备注 Markdown ↓</button><a href="/assets/goso/GOSO-review-draft.md" download>下载样章正文 Markdown ↓</a><span id="goso-note-status" role="status"></span></div><details><summary>本轮数据与编写记录</summary><p>本版整合第二章 2.1—2.7 的 26 个图组。来源记录、报告年度、平台快照、近似读数、预测与模拟分别保留，具体范围以各图“口径与来源”为准；研究结论与数据准确性留待专家复核。仓库原稿与根目录数据不在本轮呈现优化中改写。</p><p>本章评审正文根据第一章、三级目录附件与本轮决策编写。原稿中的全球分母、人才占比和未验证因果判断未作为已证实结论。代码、数据与页面可继续复用为其他核心章节的样章模板。</p>'+link(REPO+'data/README.md','查看仓库数据说明 ↗')+'</details></section>')
-    return ''.join(out)
 
 def feature(lang):
     zh=lang=='zh';p='/2026/'+lang+'/chapters/02/'

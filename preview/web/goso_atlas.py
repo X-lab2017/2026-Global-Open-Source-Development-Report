@@ -101,7 +101,7 @@ def original_gallery(kind):
     return '<details class="atlas-original"><summary>对照带图初稿 · '+str(len(obj['images']))+' 幅原图</summary><p>来自你提供的《'+E(obj['pdf'])+'》。保留原始图面用于核对；时间、范围或数值存在差异时，以本页注明的底表和快照为准。</p><div class="atlas-original-grid">'+''.join('<a href="/assets/goso-atlas/original/'+im['file']+'" data-original-image><img loading="lazy" src="/assets/goso-atlas/original/'+im['file']+'" width="'+str(im['width'])+'" height="'+str(im['height'])+'" alt="带图初稿 '+sec+' · 原图 '+str(i+1)+'，PDF 第 '+str(im['page'])+' 页"><span>原图 '+str(i+1)+' · 点击放大 ↗</span></a>' for i,im in enumerate(obj['images']))+'</div></details>'
 
 def governance():
-    return '''<div class="atlas-governance" aria-label="治理与公共价值观察框架"><article><span>01 / 组织承载</span><strong>3,350</strong><p>基金会样本活跃仓库<br>2026 报告年</p><a href="#goso-g">观察数量与影响力份额 ↓</a></article><article><span>02 / 复用规则</span><strong>71,760</strong><p>MIT 许可样本活跃仓库<br>2026 报告年</p><a href="#goso-g">比较五类许可证 ↓</a></article><article><span>03 / 公共实践</span><strong class="atlas-pending">待补案例</strong><p>应用场景 → 长期维护 → 受益证据<br>与 SDGs 建立可查证的联系</p><a href="#goso-review">补充公共价值证据 →</a></article></div>'''
+    return '''<div class="atlas-governance" aria-label="治理与公共价值观察框架"><article><span>01 / 组织承载</span><strong>3,350</strong><p>基金会样本活跃仓库<br>2026 报告年</p><a href="#goso-g">观察数量与影响力份额 ↓</a></article><article><span>02 / 复用规则</span><strong>71,760</strong><p>MIT 许可样本活跃仓库<br>2026 报告年</p><a href="#goso-g">比较五类许可证 ↓</a></article><article><span>03 / 公共实践</span><strong class="atlas-pending">待补案例</strong><p>应用场景 → 长期维护 → 受益证据<br>与 SDGs 建立可查证的联系</p><a href="#goso-next">继续阅读 →</a></article></div>'''
 
 def export(out):
     target=out/'assets/goso-atlas';shutil.copytree(ASSETS,target,dirs_exist_ok=True)
