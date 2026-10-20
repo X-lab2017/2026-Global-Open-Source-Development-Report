@@ -10,6 +10,9 @@ from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
 
 def section(key, lang='zh'):
+    if key=='imap':
+        from imap_content import section as publication_section
+        return publication_section(lang)
     text = (ROOT/'content'/key/'section.html').read_text()
     return text.replace('/2026/zh/', '/2026/'+lang+'/')
 
@@ -26,7 +29,9 @@ def export(out):
         if key == 'tmap':
             js += 'window.TMAP_SIM='+(ROOT/'content/tmap/simulation.json').read_text().strip()+';\n'
         (out/'assets'/key/'data.js').write_text(js)
-    for name in ('imap.css','imap.js','tmap.css','tmap.js','goso-map-system.css'):
+    from imap_content import export as publication_export
+    publication_export(out)
+    for name in ('imap.css','imap-publication.css','imap.js','tmap.css','tmap.js','goso-map-system.css'):
         shutil.copy2(ROOT/'web'/name, out/name)
 
 class Prose(HTMLParser):
@@ -43,5 +48,8 @@ class Prose(HTMLParser):
         if not self.skip:self.chunks.append(data)
 
 def manuscript(key):
+    if key=='imap':
+        from imap_publication import manuscript as publication_manuscript
+        return publication_manuscript()
     parser=Prose(); parser.feed(section(key))
     return '\n'.join(line.rstrip() for line in ''.join(parser.chunks).strip().splitlines())

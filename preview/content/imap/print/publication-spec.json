@@ -1,0 +1,52 @@
+{
+  "edition": "2026-10-20-imap-publication",
+  "baseline": "GOSO-PUB-20261020",
+  "pdf": "GOSD-2026-section-2-3.pdf",
+  "pages": 5,
+  "figure_pages": {
+    "2-3-1": 2,
+    "2-3-2": 3,
+    "2-3-3": 4
+  },
+  "body_font_pt": 11.2,
+  "chart_font_range_pt": [
+    8.5,
+    10.5
+  ],
+  "data_sha256": {
+    "observations.json": "00115083eb0bc90c07fc940d0ee6664e4ce09507c97ea5e3802067d7f80b5c67",
+    "influence.json": "523b4bbfb9b598e5d8154003cecb1a56fce890fff3df42ed63f2761f826882b6"
+  },
+  "manuscript_sha256": "52ad0f6fb0d5fb0f672773f025c061cbcf79fa7ca9c09ffac46b76a98376db59",
+  "pdf_sha256": "40027bf5f23d8aa30d284f3d73b82e89d1419f67a1d9e5e46239a33436b1d60d",
+  "figures": {
+    "world": {
+      "id": "2-3-1",
+      "title": "全球项目影响力分布、排名与增长",
+      "file": "fig-2-3-1_global.svg",
+      "orientation": "landscape",
+      "note": "来源：OpenDigger"
+    },
+    "comparison": {
+      "id": "2-3-2",
+      "title": "五域项目影响力趋势与贡献对照",
+      "file": "fig-2-3-2_comparison.svg",
+      "orientation": "portrait",
+      "note": "来源：报告编制组 · 2022—2026报告年度"
+    },
+    "china": {
+      "id": "2-3-3",
+      "title": "中国项目成长、样本排行与协作来源",
+      "file": "fig-2-3-3_china.svg",
+      "orientation": "portrait",
+      "note": "来源：报告编制组 · 2026报告年度项目样本"
+    }
+  },
+  "verification": {
+    "pdf_render": "five_pages_rendered_and_reviewed",
+    "dom": "162_bilingual_interactions_passed",
+    "browser_visual": "not_run_no_supported_browser",
+    "physical_print": "not_run",
+    "css_cascade": "106_light_dark_reading_presentation_narrow_checks_passed"
+  }
+}

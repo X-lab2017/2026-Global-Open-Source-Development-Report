@@ -43,7 +43,8 @@ for lang in ['zh','en']:
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
     assert page.count_sections==7 and page.charts==[]
     assert len(page.fields)==4 and len(page.ids)==len(set(page.ids))
-    for term in ['AtomGit','前 5%','待补充','当前浏览器','26 个图组','指标反馈与待补证据']:assert term in text,term
+    # I-Map no longer renders an empty project-count placeholder.
+    for term in ['AtomGit','前 5%','当前浏览器','26 个图组','指标反馈与待补证据']:assert term in text,term
     # Source snapshots are shared by inline and on-demand source panels.
     for key,entry in evidence['files'].items():
         assert (out/'assets/report/data'/Path(entry['path']).name).is_file(),key

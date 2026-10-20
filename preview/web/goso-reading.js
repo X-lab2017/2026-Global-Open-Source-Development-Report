@@ -4,13 +4,13 @@ const chapter=document.querySelector('.goso-chapter');if(!chapter)return;
 const screens=[...chapter.querySelectorAll('.goso-screen')],all=[];
 const sourceSelector='[data-dialog="world-source"],[data-dialog="comparison-source"],[data-dialog="china-source"],[data-tm-info],[data-am-source],[data-dm-source],[data-gm-source]';
 const safeText=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'地图采用 OpenDigger 的2025自然年数据；五域与项目来源采用报告年度。平均贡献为独立样本。协作机制为示意；项目网络按实际记录绘制，增强显示不改变数值。'};
+const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'地图采用 OpenDigger 的2025自然年数据；五域与项目来源采用报告年度。平均贡献为独立样本。协作机制为示意；项目网络按实际记录绘制，增强显示不改变数值。',3:'地图采用 OpenDigger 的2025自然年数据；五域与项目样本采用报告年度。国家榜与企业榜分别汇总，不能相加。中国项目榜与贡献来源为独立样本；未列来源不推断所在地。'};
 function fallbackSource(stage,section,fig){
- const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector(stage.classList.contains('cmap-figure')?'figcaption':'.viz-heading')?.append(button);
+ const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector(stage.matches('.cmap-figure,.imap-figure')?'figcaption':'.viz-heading')?.append(button);
  const dialog=document.createElement('dialog');dialog.className='goso-source-dialog goso-presentation';dialog.setAttribute('aria-label','图表口径与来源');dialog.innerHTML='<button type="button" aria-label="关闭口径与来源">关闭 ×</button><h3>口径与来源</h3><div></div>';document.body.append(dialog);
  const close=dialog.querySelector('button');let trigger=button;
  button.addEventListener('click',()=>{
-  const caption=fig.querySelector('.cm-caption-note')||fig.querySelector('figcaption'),note=sourceNotes[section.dataset.mapIndex]||'',links=[...fig.querySelectorAll('a[href]')].filter(a=>!a.getAttribute('href').startsWith('#'));
+  const caption=fig.querySelector('.cm-caption-note,.im-caption-note')||fig.querySelector('figcaption'),note=sourceNotes[section.dataset.mapIndex]||'',links=[...fig.querySelectorAll('a[href]')].filter(a=>!a.getAttribute('href').startsWith('#'));
   const uniq=[...new Map(links.map(a=>[a.href,a])).values()];
   dialog.querySelector('h3').textContent=stage.dataset.figureNumber+' · 口径与来源';dialog.querySelector('div').innerHTML='<p>'+safeText(note)+'</p>'+(caption?'<p>'+safeText(caption.textContent.trim())+'</p>':'')+'<div class="goso-source-links">'+uniq.map(a=>a.outerHTML).join('')+'</div><p>完整统计说明保留在本节末尾。</p>';
   trigger=document.activeElement;dialog.showModal();close.focus();

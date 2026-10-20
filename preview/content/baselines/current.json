@@ -30,9 +30,15 @@
   ],
   "pending_reviews": [
     {
-      "section": "2.3–2.4",
-      "status": "alignment_for_review",
+      "section": "2.3",
+      "status": "publication_for_review",
       "preview_section": "/2026/zh/chapters/02/#ch02-s03",
+      "implementation_record": "docs/imap-publication-revision-20261020.md"
+    },
+    {
+      "section": "2.4",
+      "status": "alignment_for_review",
+      "preview_section": "/2026/zh/chapters/02/#ch02-s04",
       "implementation_record": "docs/goso-alignment-20261015.md"
     }
   ],
@@ -83,6 +89,15 @@
       "status": "publication_for_review",
       "edition": "2026-10-20-cmap-concise",
       "web_revision": "2026-10-20-cmap-concise"
+    },
+    {
+      "date": "2026-10-20",
+      "sections": [
+        "2.3"
+      ],
+      "record": "docs/imap-publication-revision-20261020.md",
+      "status": "publication_for_review",
+      "edition": "2026-10-20-imap-publication"
     }
   ],
   "specification": "print/BASELINE.md",
