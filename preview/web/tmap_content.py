@@ -13,8 +13,8 @@ def frame(key,n):
  f=FIGURES[key];modes={
  'world':('world',[('map','全球全景'),('concept','理解人才')]),
  'regions':('region-view',[('trend','五年趋势'),('growth','增长比较'),('position','规模 × 增速')]),
- 'china':('china',[('map','城市全景'),('trend','十城变化'),('records','定位记录')]),
- 'connect':('connect',[('flow','跨地域协作'),('transition','技术领域'),('ai','AI 贡献角色')])}
+ 'china':('china',[('map','城市全景'),('trend','十城变化')]),
+ 'connect':('connect',[('flow','跨地域协作'),('transition','技术领域连接')])}
  attr,items=modes[key];buttons=''.join(f'<button type="button" data-tm-{attr}="{v}" aria-pressed="{str(i==0).lower()}">{label}</button>' for i,(v,label) in enumerate(items))
  context={'world':'2026 年 7 月','regions':'','china':'十城样本','connect':'模拟数据｜待替换'}[key]
  control=('<label class="tm-year-label">报告年度 <select id="tm-region-year" aria-label="报告年度">'+''.join(f'<option value="{yr}"'+(' selected' if yr==2026 else '')+f'>{yr}</option>' for yr in D['years'])+'</select></label>') if key=='regions' else f'<span class="tm-context{ " tm-sim-badge" if n>3 else ""}"'+(' id="tm-world-context"' if key=='world' else '')+'>'+context+'</span>'

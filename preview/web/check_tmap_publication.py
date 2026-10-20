@@ -28,7 +28,8 @@ for lang in ['zh','en']:
  assert section.count('data-slide-height="860"')==4 and 'goso-unified-canvas' not in section
  assert section.count('模拟数据｜待替换')>=3
  for key,f in p.FIGURES.items():assert section.index(f'id="tm-story-{key}"')<section.index(f'id="fig-{f["id"]}"')
- for stale in ['全球约 35 万','全球人才总量为','只供版式评审']:assert stale not in section
+ for stale in ['全球约 35 万','全球人才总量为','只供版式评审','定位记录','AI 贡献角色','贡献角色','data-tm-china="records"','data-tm-connect="ai"']:assert stale not in section
+ assert section.count('data-tm-china=')==2 and section.count('data-tm-connect=')==2
  assert '<summary>统计范围与指标说明</summary>' in section
 ns={'s':'http://www.w3.org/2000/svg'}
 for key,f in p.FIGURES.items():
@@ -44,6 +45,7 @@ if args.pdf:
  import fitz
  doc=fitz.open(dest/p.PDF_NAME);assert len(doc)==6 and [i+1 for i,page in enumerate(doc) if page.rect.width>page.rect.height]==[2]
  text=norm(''.join(page.get_text() for page in doc))
+ for stale in ['定位记录','AI贡献角色','AI领域×贡献角色']:assert stale not in text
  for t in paragraphs:assert norm(t) in text,t
  for page in doc:
   assert not page.get_images()

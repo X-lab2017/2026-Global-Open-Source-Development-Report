@@ -18,7 +18,6 @@
       "id": "fig-2-4-3",
       "status": "repository_source",
       "files": [
-        "fig-2-4-3_china_city_open_source_talent_map.csv",
         "fig-2-4-4_china_top10_city_talent_trend.csv",
         "table-2-4-1_china_city_talent_top10.csv"
       ]
@@ -27,7 +26,7 @@
       "id": "fig-2-4-4",
       "status": "simulated_design_only",
       "file": "simulation.json",
-      "title": "跨地域协作、技术领域与贡献角色"
+      "title": "跨地域协作与技术领域连接"
     }
   ],
   "geometry": "/assets/vmap/map-provenance.json",
@@ -42,6 +41,19 @@
       "title": "人才成长、留存与接续",
       "removed": "2026-10-20",
       "reason": "作者要求移除"
+    }
+  ],
+  "retired_views": [
+    {
+      "figure": "2-4-3",
+      "view": "定位记录",
+      "removed": "2026-10-20",
+      "archived_source": "fig-2-4-3_china_city_open_source_talent_map.csv"
+    },
+    {
+      "figure": "2-4-4",
+      "view": "AI 贡献角色",
+      "removed": "2026-10-20"
     }
   ]
 }

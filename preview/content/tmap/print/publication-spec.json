@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-20-tmap-layout-repair",
+  "edition": "2026-10-20-tmap-narrative",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-4.pdf",
   "pages": 6,
@@ -18,8 +18,8 @@
     "observations.json": "35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813",
     "simulation.json": "339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025"
   },
-  "manuscript_sha256": "5186741d59b5b857acc16651916628938421b8c4695b3d907b77202eab107523",
-  "pdf_sha256": "bda881999bea9d0a52d345cf95ca2f056767773eb63b7aa14a3914dc6db4730e",
+  "manuscript_sha256": "3027bed946bd478257be3937980a73ec5480a0f994250b8c7bc5684a9023a94d",
+  "pdf_sha256": "97ef0deb55bd5b69f4c6cae55969bd81876046f7198f78b3fdd03be916e9826c",
   "figures": {
     "world": {
       "id": "2-4-1",
@@ -44,7 +44,7 @@
     },
     "connect": {
       "id": "2-4-4",
-      "title": "跨地域协作、技术领域与贡献角色",
+      "title": "跨地域协作与技术领域连接",
       "file": "fig-2-4-4_connections.svg",
       "orientation": "portrait",
       "note": "模拟数据｜待替换"
@@ -52,10 +52,10 @@
   },
   "verification": {
     "pdf_render": "all_6_pages_inspected",
-    "dom": "556_bilingual_interaction_assertions_passed",
+    "dom": "518_bilingual_interaction_checks_passed",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "css": "240_light_dark_row_placement_and_cascade_assertions_passed",
+    "css": "240_light_dark_cascade_checks_passed",
     "release_gates": "22_passed"
   }
 }

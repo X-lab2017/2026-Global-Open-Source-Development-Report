@@ -41,7 +41,7 @@ def global_figure():
  for i,(c,label) in enumerate(zip(brand.MAP_COLORS,labels)):
   x=(i%3)*155;y=328+(i//3)*23;f.rect(x,y-7,17,8,c,c,0);f.text(x+22,y,label,8.8,MUTED)
  f.rect(0,371,17,8,'#e6e8ea',LINE,0);f.text(22,379,'未收录',8.8,MUTED);f.text(160,379,'单位：人',8.8,MUTED)
- vp.title(f,505,13,'B  源表人数前十');f.text(LW,37,'人',8.5,MUTED,'right')
+ vp.title(f,505,13,'B  人才人数前十');f.text(LW,37,'人',8.5,MUTED,'right')
  for i,r in enumerate(D['world'][:10]):
   y=63+i*33;f.text(505,y,f'{i+1:02}  '+r['name'],9.4,INK);f.text(LW,y,num(r['value']),9.4,INK,'right');f.line([(505,y+9),(505+240*r['value']/35005,y+9)],TEAL,2)
  vp.notes(f,422,'来源：报告编制组。地图快照与五域年度序列分别阅读。');return f.caption()
@@ -72,7 +72,7 @@ def china_figure():
   y=246+i*11.6;f.text(0,y+3,k,8.5,INK);f.line([(x(vs[0]),y),(x(vs[-1]),y)],LINE,1.5);f.dot(x(vs[0]),y,2.1,MUTED);f.dot(x(vs[-1]),y,2.3,TEAL);f.text(PW,y+3,f'+{(vs[-1]/vs[0]-1)*100:.1f}%',8.5,INK,'right')
  return f.caption()
 def connections_figure():
- f=Figure(p.FIGURES['connect']['title'],'图 2-4-4',height=408);vp.badge(f,0,13,'模拟数据｜待替换',133);vp.title(f,0,43,'A  跨地域协作 · 人才所在地 → 项目归属组');sc=map_draw(f,'world',0,52,290);codes=['US','CN','DE','BR','IN'];nodes=[next(g for g in vp.GEO['world'] if g['id']==c)['center'] for c in codes];x1,y1=nodes[1];x1*=sc;y1=52+y1*sc
+ f=Figure(p.FIGURES['connect']['title'],'图 2-4-4',height=432);vp.badge(f,0,13,'模拟数据｜待替换',133);vp.title(f,0,43,'A  跨地域协作 · 人才所在地 → 项目归属组');sc=map_draw(f,'world',0,52,290);codes=['US','CN','DE','BR','IN'];nodes=[next(g for g in vp.GEO['world'] if g['id']==c)['center'] for c in codes];x1,y1=nodes[1];x1*=sc;y1=52+y1*sc
  for j,(xx,yy) in enumerate(nodes):
   x2,y2=xx*sc,52+yy*sc
   if j!=1:
@@ -81,25 +81,19 @@ def connections_figure():
  f.text(315,70,'中国来源 · 100条模拟关系',9,INK)
  for i,j in enumerate([0,2,3,4]):f.text(315,93+i*21,LABEL[j],8.8,INK);f.text(PW,93+i*21,str(S['flows'][1][j])+'条',8.8,INK,'right')
  f.text(0,211,'节点为分组示意位置；关系不表示迁居。',8.5,MUTED)
- vp.title(f,0,239,'B  技术领域转换 · 1,000人');vp.title(f,267,239,'C  AI领域 × 贡献角色')
+ vp.title(f,0,239,'B  技术领域连接 · 1,000名模拟人员');f.text(0,258,'前期主领域',8.5,MUTED);f.text(375,258,'后期主领域',8.5,MUTED)
  # The same proportional flow bands as the web, with all source groups visible.
- fr=S['transition']['from'];to=S['transition']['to'];m=S['transition']['matrix'];outs=[sum(r) for r in m];ins=[sum(r[j] for r in m) for j in range(3)];scale=.08;gap=18
- sy=[267+sum(outs[:i])*scale+i*gap for i in range(3)];ty=[267+sum(ins[:i])*scale+i*gap for i in range(3)]
+ fr=S['transition']['from'];to=S['transition']['to'];m=S['transition']['matrix'];outs=[sum(r) for r in m];ins=[sum(r[j] for r in m) for j in range(3)];scale=.09;gap=16
+ sy=[272+sum(outs[:i])*scale+i*gap for i in range(3)];ty=[272+sum(ins[:i])*scale+i*gap for i in range(3)]
  for a,row in enumerate(m):
   for b,v in enumerate(row):
    y1=sy[a]+sum(row[:b])*scale;y2=ty[b]+sum(r[b] for r in m[:a])*scale;h=v*scale;upper=[];lower=[]
    for i in range(33):
-    t=i/32;xx=(1-t)**3*68+3*(1-t)**2*t*105+3*(1-t)*t*t*130+t**3*167;yy=(1-t)**3*y1+3*(1-t)**2*t*y1+3*(1-t)*t*t*y2+t**3*y2;upper.append((xx,yy));lower.append((xx,yy+h))
+    t=i/32;xx=(1-t)**3*82+3*(1-t)**2*t*178+3*(1-t)*t*t*269+t**3*365;yy=(1-t)**3*y1+3*(1-t)**2*t*y1+3*(1-t)*t*t*y2+t**3*y2;upper.append((xx,yy));lower.append((xx,yy+h))
    f.polygon(upper+list(reversed(lower)),['#93c6cb','#b5cadd','#aac39b'][a])
  for i,name in enumerate(fr):f.text(0,sy[i]+outs[i]*scale/2-2,name,8.5,INK);f.text(0,sy[i]+outs[i]*scale/2+11,str(outs[i])+'人',8.5,MUTED)
- for i,name in enumerate(['基础软件','Agent/模型工具','数据协作']):f.text(174,ty[i]+ins[i]*scale/2-2,name,8.5,INK);f.text(174,ty[i]+ins[i]*scale/2+11,str(ins[i])+'人',8.5,MUTED)
- labels=['代码','评审','文档','导师']
- for j,name in enumerate(labels):f.text(361+j*40,261,name,8.5,MUTED,'center')
- for i,name in enumerate(['AI基础软件','Agent工具','模型与推理','数据与评测','应用与集成']):
-  y=281+i*18;f.text(267,y,name,8.5,INK)
-  for j,v in enumerate(S['ai']['matrix'][i]):
-   fill=['#f0f7f8','#dfedef','#c9e3e7','#afd7de'][min(3,v//15)];f.rect(346+j*40,y-10,33,14,fill,fill,0);f.text(362+j*40,y+1,str(v),8.5,INK,'center')
- f.text(267,382,'每行100条模拟主角色记录',8.5,MUTED);return f.caption()
+ for i,name in enumerate(['基础软件','Agent / 模型工具','数据协作']):f.text(375,ty[i]+ins[i]*scale/2-2,name,8.5,INK);f.text(375,ty[i]+ins[i]*scale/2+11,str(ins[i])+'人',8.5,MUTED)
+ return f.caption()
 class Doc(vp.Doc):
  def __init__(self,path):super().__init__(path);self.title='GOSD 2026 · 2.4 全球开源人才地图';self.subject='完整研究正文与四幅人才地图图组'
  def frame(self,c,doc):
