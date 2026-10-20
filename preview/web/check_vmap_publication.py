@@ -15,18 +15,32 @@ class Text(HTMLParser):
  def __init__(self,s):super().__init__();self.parts=[];self.feed(s)
  def handle_data(self,s):self.parts.append(s)
 def norm(s):return re.sub(r'\s+','',s)
-paragraphs=[p.QUESTION,p.POSITION,p.FINDING,p.SNAPSHOT_NOTE,p.INDICATOR_FEEDBACK,*p.GAPS]+[t for _,paras in p.STORIES+p.STRATEGIES for t in paras]
+paragraphs=[p.INTRO,p.ACTION_INTRO,p.BRIDGE,p.QUESTION,p.POSITION,p.FINDING,p.SNAPSHOT_NOTE,p.INDICATOR_FEEDBACK,*p.GAPS]+[t for _,paras in p.STORIES+p.STRATEGIES for t in paras]
 for lang in ['zh','en']:
  html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text();text=norm(''.join(Text(html).parts))
  for paragraph in paragraphs:assert norm(paragraph) in text,paragraph
  assert html.count('class="vmap-publication-views"')==3
  assert html.count('vmap-print-panel')==4
  assert p.PDF_NAME in html
+ section=html[html.index('id="ch02-s01"'):html.index('id="ch02-s02"')]
+ for i,kind in enumerate(['global','regions','china']):
+  fig=['global','comparison','china'][i]
+  assert section.index('id="vmap-'+kind+'"') < section.index('id="fig-vmap-'+fig+'"') < section.index('data-figure-reading="'+kind+'"')
+ assert section.count('class="vmap-download"')==1
+ assert p.ACTION_TITLE in section
+ assert '<summary>统计范围与指标说明</summary>' in section
+ assert '同源正文 · 三幅图组' not in section
+ assert 'class="vmap-print-evidence"' in section
 for f in p.FIGURES.values():
  for name in f['files']:
   tree=ET.parse(dest/name)
   for text in tree.findall('.//s:text',ns):assert 8<=float(text.attrib['font-size'])<=11.2,(name,text.text)
   assert tree.getroot().find('s:title',ns) is not None
+baseline=json.loads((args.output/'assets/baselines/goso-publication-v2.json').read_text())
+assert spec['chapter_baseline']==baseline['id']=='GOSO-PUB-20261020'
+for path,digest in baseline['reference_sha256'].items():
+ assert hashlib.sha256((p.ROOT/path).read_bytes()).hexdigest()==digest,path
+assert 'GOSO-PUB-20261020' in (args.output/'assets/baselines/current.json').read_text()
 geo=json.loads((asset/'map-geometry.json').read_text())
 for scope,name in [('world','fig-2-1-1_global.svg'),('china','fig-2-1-3_china.svg')]:
  tree=ET.parse(dest/name);paths=[x for x in tree.findall('.//s:path',ns) if 'transform' in x.attrib]

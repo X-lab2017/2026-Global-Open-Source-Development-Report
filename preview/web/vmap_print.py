@@ -212,17 +212,21 @@ def build(output,figs):
  def para(s,style='body'):story.append(common.paragraph(s,styles.get(style,body)))
  def section(i):
   title,paras=p.STORIES[i];para(title,'section')
-  for text in paras:para(text)
- para('2.1 '+p.TITLE,'chapter');para('2026.10.20 · 2.1 出版样章','note');para('研究问题：'+p.QUESTION);para('指标定位：'+p.POSITION);para('核心发现：'+p.FINDING);para(p.SNAPSHOT_NOTE,'note');section(0)
+  for text in paras[:p.FIGURE_AFTER[i]]:para(text)
+ def interpretation(i):
+  for text in p.STORIES[i][1][p.FIGURE_AFTER[i]:]:
+   head,tail=text.split('。',1);para('**'+head+'。**'+tail)
+ para('2.1 '+p.TITLE,'chapter');para(p.INTRO);para('研究问题：'+p.QUESTION);para('指标定位：'+p.POSITION,'note');para('核心发现：'+p.FINDING);para(p.SNAPSHOT_NOTE,'note');section(0)
  story.extend([NextPageTemplate('landscape'),PageBreak(),FigureFlow(figs[0],'2-1-1')]);story.extend([NextPageTemplate('portrait'),PageBreak()])
- section(1);story.append(FigureFlow(figs[1],'2-1-2-A'));story.append(PageBreak());story.append(FigureFlow(figs[2],'2-1-2-BC'));story.append(PageBreak())
- section(2);story.append(FigureFlow(figs[3],'2-1-3'));story.append(PageBreak())
- para('2.1.4 行动建议','section')
+ interpretation(0);section(1);story.append(FigureFlow(figs[1],'2-1-2-A'));story.append(PageBreak());story.append(FigureFlow(figs[2],'2-1-2-BC'));interpretation(1);story.append(PageBreak())
+ section(2);story.append(FigureFlow(figs[3],'2-1-3'));interpretation(2);story.append(PageBreak())
+ para(p.ACTION_TITLE,'section');para(p.ACTION_INTRO)
  for i,(title,paras) in enumerate(p.STRATEGIES,1):
   para(str(i)+' '+title,'subsection')
   for text in paras:para(text)
- para('指标与证据说明','section');para(p.INDICATOR_FEEDBACK,'note')
+ para('统计范围与指标说明','section');para(p.INDICATOR_FEEDBACK,'note')
  for text in p.GAPS:para(text,'note')
+ para(p.BRIDGE)
  doc=Doc(output);doc.build(story)
  return dict(pages=doc.page,figures=doc.figures,headings=doc.headings,paragraphs=doc.locations)
 
@@ -239,7 +243,7 @@ def main():
  for name in ['fig-2-1-3_a_geography.svg','fig-2-1-3_bcd_structure.svg']:(dest/name).write_text(figs[3].svg())
  layout=build(args.output,figs);shutil.copy2(args.output,dest/p.PDF_NAME)
  (p.ROOT/'content/vmap/chapter-2-1.md').write_text(p.manuscript())
- manifest=dict(edition=p.EDITION,baseline='GOSD-PUB-20261020',scope='2.1 完整正文与三幅图组；第二章其他小节未收录',pdf=p.PDF_NAME,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],source_sha256=hashlib.sha256((p.ROOT/'content/vmap/fig-2-1-2_platform-coverage.json').read_bytes()).hexdigest(),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=hashlib.sha256(args.output.read_bytes()).hexdigest(),figures=p.specification(),verification=dict(browser_visual='not_run_no_supported_browser',physical_print='not_run',pdf_render='pending_current_revision',grayscale='pending_current_revision',dom='pending_current_revision'))
+ manifest=dict(edition=p.EDITION,baseline='GOSD-PUB-20261020',chapter_baseline='GOSO-PUB-20261020',scope='2.1 完整正文与三幅图组；第二章其他小节未收录',pdf=p.PDF_NAME,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],source_sha256=hashlib.sha256((p.ROOT/'content/vmap/fig-2-1-2_platform-coverage.json').read_bytes()).hexdigest(),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=hashlib.sha256(args.output.read_bytes()).hexdigest(),figures=p.specification(),verification=dict(browser_visual='not_run_no_supported_browser',physical_print='not_run',pdf_render='pending_current_revision',grayscale='pending_current_revision',dom='pending_current_revision'))
  (dest/'publication-spec.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');(work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2))
  print(json.dumps(dict(pdf=str(args.output),pages=layout['pages'],figure_pages=layout['figures']),ensure_ascii=False))
 if __name__=='__main__':main()

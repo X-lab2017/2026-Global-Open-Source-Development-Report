@@ -1,0 +1,50 @@
+{
+  "id": "GOSO-PUB-20261020",
+  "title": "第二章网页与 PDF 复用基线",
+  "version": "2.0",
+  "date": "2026-10-20",
+  "status": "active_user_directed_baseline",
+  "inherits": "GOSD-PUB-20261020",
+  "supersedes": "gosd-goso-theme-map-v1",
+  "specification": "docs/goso-publication-baseline-v2.md",
+  "reference_section": "2.1",
+  "reference_url": "https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/02/#ch02-s01",
+  "reference_edition": "2026-10-20-vmap-chapter-baseline",
+  "accepted_figures_commit": "465ca9730bfa729689d3f0228db37872a20e9718",
+  "acceptance_scope": "用户认可图件与上一轮统计决定，并要求本轮精修图文、作为本章复用基线；不表示其他小节已完成出版核验。",
+  "manuscript": "content/vmap/chapter-2-1.md",
+  "publication_spec": "content/vmap/print/publication-spec.json",
+  "reference_sha256": {
+    "content/vmap/fig-2-1-2_platform-coverage.json": "0f4fbe5f5424b82d6f9cb4e96c6a79a92959603d343eb0f9a8d3972e55991d53",
+    "content/vmap/map-geometry.json": "586ffb51e43854a290fce46035dd9f7f28893dd0100d42853e415ee958b15512",
+    "content/vmap/print/fig-2-1-1_global.svg": "47b68cc5de61629bbcab1d5ccf9c701141d1762fde6ce6850c7d3e21d403c04e",
+    "content/vmap/print/fig-2-1-2_a_current.svg": "bcf43b7e4133e7ceb4a2a16847282fa8a8ac2edbb6705b2340932a343f0aeee5",
+    "content/vmap/print/fig-2-1-2_bc_history-scenario.svg": "78f52f9dde2a73606c16d803702f156459b6d649b31a81853f0278b13444e56b",
+    "content/vmap/print/fig-2-1-3_china.svg": "bf2a0986801818f2e8efccd4c9eb2db34b2b18a66290132fe7977165d39f3566"
+  },
+  "reading_sequence": [
+    "节首导入",
+    "研究问题与指标定位",
+    "核心发现",
+    "图前观察",
+    "图件证据",
+    "图后解释",
+    "主体行动与后续观察",
+    "统计说明与下一节"
+  ],
+  "web_pdf_same_manuscript": true,
+  "report_period": {
+    "start": "2025-07-01",
+    "end_exclusive": "2026-07-01"
+  },
+  "pdf_pages": 6,
+  "china_figure_one_page": true,
+  "verification": {
+    "pdf": "passed_six_pages_vector_text_bounds_and_shared_prose",
+    "dom": "passed_102_bilingual_operations",
+    "browser_visual": "not_run_no_supported_browser",
+    "physical_print": "not_run",
+    "workflow": "all_publication_gates_and_javascript_syntax_passed",
+    "accepted_data_and_figures": "byte_identical_to_accepted_commit"
+  }
+}

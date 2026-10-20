@@ -227,3 +227,53 @@
 .vmap-figure.screen-slide:not(.vmap-reflow) .vmap-legend{top:632px}
 .vmap-figure.screen-slide:not(.vmap-reflow) .vmap-scope-note{top:672px;font-size:14px!important;line-height:1.5!important}
 .vmap-figure.screen-slide.vmap-trend-mode:not(.vmap-reflow) .vmap-scope-note{top:652px;font-size:14px!important;line-height:1.5!important}
+
+/* Chapter 2 reading baseline: evidence first, interpretation close to the figure. */
+.vmap-section .vmap-introduction,
+.vmap-section .goso-question,
+.vmap-section #vmap-findings+p,
+.vmap-section .vmap-story,
+.vmap-section .vmap-interpretation,
+.vmap-section .vmap-action-intro,
+.vmap-section .goso-action-body p{max-width:46em}
+.vmap-section .vmap-introduction{font:400 18px/1.9 var(--sans);margin:18px 0 22px;color:var(--ink)}
+.vmap-section .goso-question{font:500 19px/1.7 var(--sans);color:var(--cyan);margin:18px 0!important}
+.vmap-section .vmap-position{padding:14px 20px;margin:20px 0 26px}
+.vmap-section #vmap-findings{font-size:19px;margin:26px 0 10px}
+.vmap-section #vmap-findings+p,
+.vmap-section .vmap-story p,
+.vmap-section .vmap-interpretation p,
+.vmap-section .goso-action-body p,
+.vmap-section .vmap-action-intro{font:400 17px/1.95 var(--sans);margin:14px 0}
+.vmap-section .vmap-window-note{font:400 13px/1.8 var(--sans);color:var(--muted);max-width:62em;margin:16px 0}
+.vmap-section .vmap-reading-route{gap:9px;margin:22px 0 34px}
+.vmap-reading-route .vmap-download{margin-left:auto;color:var(--cyan);background:transparent;border-color:var(--cyan)}
+.vmap-section .vmap-story{margin-top:34px}
+.vmap-section .vmap-story h3{margin:0 0 17px;line-height:1.55!important}
+.vmap-section .vmap-interpretation{margin:20px 0 42px}
+.vmap-section .vmap-interpretation strong{font-weight:600;color:var(--cyan)}
+.vmap-section .goso-action h4{font-size:20px;margin-bottom:10px}
+.vmap-section .goso-action{padding-top:20px;margin-top:20px}
+.vmap-section .goso-bridge{max-width:46em;font:400 17px/1.9 var(--sans);margin-top:28px}
+@media(max-width:680px){
+ .vmap-section .vmap-introduction{font-size:17px}
+ .vmap-section .vmap-story p,.vmap-section .vmap-interpretation p,.vmap-section .goso-action-body p{font-size:16px}
+ .vmap-reading-route .vmap-download{margin-left:0}
+ .vmap-section .vmap-reading-route>span{display:none}
+ .vmap-section .vmap-story h3{font-size:21px!important}
+ .vmap-section .vmap-strategies>h3{font-size:22px!important}
+}
+@media print{
+ .vmap-reading-route{display:none!important}
+ .vmap-section .vmap-introduction,.vmap-section .goso-question,.vmap-section #vmap-findings+p,
+ .vmap-section .vmap-story p,.vmap-section .vmap-interpretation p,.vmap-section .goso-action-body p,
+ .vmap-section .vmap-action-intro,.vmap-section .goso-bridge{font-size:11.2pt;line-height:1.66}
+ .vmap-section .vmap-interpretation{margin:4mm 0 7mm}
+ .vmap-section .goso-gap{display:none!important}
+ .vmap-section .goso-gap>summary{font-size:11pt;font-weight:600;list-style:none}
+ .vmap-section .goso-gap>*{display:block!important}
+ .vmap-section .goso-gap>a{display:none!important}
+}
+
+.vmap-print-evidence{display:none}
+@media print{.vmap-print-evidence{display:block;font:9.5pt/1.6 var(--sans)}.vmap-print-evidence h4{font-size:11.2pt}.vmap-print-evidence p{font-size:9.5pt}}

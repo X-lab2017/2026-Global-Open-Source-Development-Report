@@ -93,20 +93,22 @@ def normalize(text,n,lang):
             normalized.append(f'<article class="goso-action"><span class="goso-action-number">0{i}</span><div class="goso-action-body">{content}</div></article>')
         intros=[x.html() for x in action.children if isinstance(x,Node) and x.tag=='p']
         # The former descriptive title remains a short lead above the three actions.
-        action.children=fragment((f'<span id="{aid}" class="goso-anchor" aria-hidden="true"></span>' if action.attrs.get('id')!=aid else '')+'<span class="goso-kicker">FROM OBSERVATION TO ACTION</span><h3>'+('2.1.4 行动建议' if n==1 else '行动建议')+'</h3>'+('' if n==1 else '<p class="goso-action-lead">'+lead+'</p>')+''.join(intros)+'<div class="goso-action-list">'+''.join(normalized)+'</div>')
+        action.children=fragment((f'<span id="{aid}" class="goso-anchor" aria-hidden="true"></span>' if action.attrs.get('id')!=aid else '')+'<span class="goso-kicker">FROM OBSERVATION TO ACTION</span><h3>'+(lead if n==1 else '行动建议')+'</h3>'+('' if n==1 else '<p class="goso-action-lead">'+lead+'</p>')+''.join(intros)+'<div class="goso-action-list">'+''.join(normalized)+'</div>')
     # Uniform local itinerary points to figures and actions.
     route=next((x for x in root.walk() if x.tag=='nav'),None)
     if route:
         route.add('goso-section-route');route.set('aria-label',f'2.{n} 本节阅读路径')
-        items=[]
-        for i,fig in enumerate(figures,1):
-            title=next((x.text() for x in fig.walk() if x.tag in ('h3','h4')),'交互图')
-            items.append(f'<a href="#fig-2-{n}-{i}"><b>0{i}</b>{title}</a>')
-        items.append(f'<a href="#{aid}"><b>→</b>行动建议</a>');route.children=fragment(''.join(items))
+        # V-Map's publication route includes concise reading stops and its PDF.
+        if n!=1:
+            items=[]
+            for i,fig in enumerate(figures,1):
+                title=next((x.text() for x in fig.walk() if x.tag in ('h3','h4')),'交互图')
+                items.append(f'<a href="#fig-2-{n}-{i}"><b>0{i}</b>{title}</a>')
+            items.append(f'<a href="#{aid}"><b>→</b>行动建议</a>');route.children=fragment(''.join(items))
     for x in root.walk():
         if x.tag=='details' and any(x.has(c) for c in ['goso-gap','tm-methods','am-methods','dm-methods','gm-methods']):
             x.add('goso-evidence');summary=next((a for a in x.children if isinstance(a,Node) and a.tag=='summary'),None)
-            if summary:summary.children=['指标反馈与待补证据']
+            if summary and n!=1:summary.children=['指标反馈与待补证据']
     for x in list(root.walk()):
         if any(x.has(c) for c in ['goso-map-end','tm-end-nav','am-end-nav','dm-end-nav','gm-end-nav']):remove(root,x)
     prev=(f'#ch02-s0{n-1}',f'2.{n-1} {TOPICS[n-2][1]}') if n>1 else (f'/2026/{lang}/chapters/01/#ch01-s03','1.3 方法基础')

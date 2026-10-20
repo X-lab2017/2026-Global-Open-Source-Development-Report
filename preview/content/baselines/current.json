@@ -22,10 +22,10 @@
       "role": "Shared chapter reading and presentation rules"
     },
     {
-      "id": "gosd-goso-theme-map-v1",
-      "manifest": "goso-theme-map-v1.json",
-      "specification": "docs/goso-theme-map-baseline-v1.md",
-      "role": "V-Map narrative and thematic-map extension"
+      "id": "GOSO-PUB-20261020",
+      "manifest": "goso-publication-v2.json",
+      "specification": "docs/goso-publication-baseline-v2.md",
+      "role": "Current Chapter 2 web/PDF narrative, figure-reading and publication reference based on section 2.1"
     }
   ],
   "pending_reviews": [
@@ -64,6 +64,15 @@
       ],
       "record": "docs/vmap-publication-revision-20261020.md",
       "status": "report_year_revision_for_review"
+    },
+    {
+      "date": "2026-10-20",
+      "sections": [
+        "2.1"
+      ],
+      "record": "docs/goso-publication-baseline-v2.md",
+      "status": "active_chapter_baseline",
+      "edition": "2026-10-20-vmap-chapter-baseline"
     }
   ],
   "specification": "print/BASELINE.md",
@@ -79,5 +88,13 @@
     "display": "2025 年 7 月 1 日至 2026 年 6 月 30 日",
     "historical_year": "N-1 July 1 to N June 30",
     "exceptions": "Explicitly labelled actual source periods"
-  }
+  },
+  "historical_components": [
+    {
+      "id": "gosd-goso-theme-map-v1",
+      "manifest": "goso-theme-map-v1.json",
+      "specification": "docs/goso-theme-map-baseline-v1.md",
+      "role": "V-Map narrative and thematic-map extension"
+    }
+  ]
 }
