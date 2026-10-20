@@ -43,7 +43,7 @@ for lang in ['zh','en']:
    if g['id'] in page.paths:assert g['d']==page.paths[g['id']]
  for n in range(1,5):assert f'图 2-2-{n} / C-MAP' in section
  for term in ['残差估算','贡献分布 · 实测','中美结论的适用范围 · 同一报告年度','算法对象范围待核','欧洲成员口径待补','GitHub 单平台']:assert term not in section,term
- assert '增强 ×3' in section and '20 条关系' in section and '统计范围与指标说明' in section
+ assert '增强 ×3' in section and '20 条记录' in section and '统计范围与指标说明' in section
 assert (base/'vendor/three.module.js').stat().st_size>500000
 assert "from './three.module.js'" in (base/'vendor/OrbitControls.js').read_text()
 assert (base/'chapter-2-2.md').read_text()==cmap_content.manuscript()

@@ -1,5 +1,5 @@
 {
-  "edition": "2026-10-20-cmap-review2",
+  "edition": "2026-10-20-cmap-narrative",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-2.pdf",
   "pages": 6,
@@ -15,8 +15,8 @@
     10.5
   ],
   "data_sha256": "5c7d6ded5cb704037b37d90ca5c172f7901a1905faff0e9cc2da488a6c7c589a",
-  "manuscript_sha256": "dc27c9f79f424c4769b496b37b737be28eba938468ea1dff490473bf99567fc0",
-  "pdf_sha256": "1c70dc19e1c2f2f091f88a3c02e11220a325a96cb0ad910d0e36eb96c7719abc",
+  "manuscript_sha256": "5300446afea578c7505ff2c6e1bda02cff5664cf7345918e955790f702fcac47",
+  "pdf_sha256": "2237d23a452f3bfa929baa1c895e143e292de2904dfa3a7dbd582391cf885fac",
   "figures": {
     "global": {
       "id": "2-2-1",
@@ -64,9 +64,11 @@
     }
   },
   "verification": {
-    "pdf_render": "passed_six_pages_and_grayscale_comparison",
-    "dom": "passed_222_bilingual_operations",
+    "pdf_render": "passed_all_6_pages",
+    "dom": "passed_222_operations",
     "browser_visual": "not_run_no_supported_browser",
-    "physical_print": "not_run"
+    "physical_print": "not_run",
+    "css_cascade": "passed_194_assertions",
+    "approved_figures": "unchanged_data_geometry_and_svg_files"
   }
 }

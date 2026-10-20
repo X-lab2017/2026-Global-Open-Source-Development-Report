@@ -19,7 +19,9 @@ def frame(key,n,title,sub,body,caption):
     figure=f'<figure id="fig-cmap-{key}" class="chapter-one-visual cmap-figure" data-slide-key="cmap-{key}" data-slide-height="860" data-reflow-minimum-width="700" data-lang="zh" aria-labelledby="fig-cmap-{key}-title"><header class="viz-heading"><span class="eyebrow">图 2-2-{n} / C-MAP</span><h4 id="fig-cmap-{key}-title">{title}</h4><p>{sub}</p></header>{body}<figcaption><span class="cm-caption-note">{spec["note"]}</span></figcaption></figure>'
     views=''.join(f'<div class="cm-print-panel cm-print-{o}"><img src="/assets/cmap/print/{name}" alt="图 2-2-{n} {title}，出版分面 {i+1}"></div>' for i,(name,o) in enumerate(zip(spec['files'],spec['orientation'])))
     return figure+'<div class="cm-publication-views">'+views+'</div>'
-def btn(key,value,text,pressed=False):return f'<button type="button" data-{key}="{value}" aria-pressed="{str(pressed).lower()}">{text}</button>'
+def btn(key,value,text,pressed=False,hint=''):
+    description=f' title="{E(hint)}" aria-description="{E(hint)}"' if hint else ''
+    return f'<button type="button" data-{key}="{value}" aria-pressed="{str(pressed).lower()}"{description}>{text}</button>'
 def svg_map(scope):
     rows=DATA['countries' if scope=='world' else 'provinces'];by={r['id']:r for r in rows};maximum=max(r['value'] for r in rows)
     out=[f'<svg viewBox="0 0 880 470" preserveAspectRatio="xMidYMid meet" data-cm-svg="{scope}" role="group" aria-label="'+('全球贡献地图，全球地域分布' if scope=='world' else '中国贡献地图，含台湾省、港澳及南海附图')+'">']
@@ -51,7 +53,7 @@ def map_figure(scope):
     caption=''
     return frame('global' if world else 'china',1 if world else 3,'全球开发者 OpenRank 贡献全景' if world else '中国开源贡献全景 · 区域结构与发展观察','地图与排名联动，底部查看趋势与区域结构。',body,caption)
 def comparison():
-    body='<div data-cm-comparison><div class="cm-toolbar"><div class="cm-tabs" aria-label="趋势尺度">'+btn('cm-index','absolute','贡献规模',True)+btn('cm-index','index','相对增长')+'</div><span class="cm-comparison-status" data-cm-comparison-status>2026报告年度 · 万 OpenRank</span></div><div class="cm-comparison-body cm-comparison-integrated" data-cm-comparison-body></div><div class="cm-gap-chart" data-cm-gap></div></div>'
+    body='<div data-cm-comparison><div class="cm-toolbar"><div class="cm-tabs" aria-label="趋势尺度">'+btn('cm-index','absolute','贡献规模',True)+btn('cm-index','index','累计增长（2022＝100）',hint='各区域当年贡献度除以其2022年贡献度，再乘100。指数200表示比起点增长100%，不是同比；右侧排名仍显示所选年的贡献规模。')+'</div><span class="cm-comparison-status" data-cm-comparison-status>2026 报告年度</span></div><div class="cm-comparison-body cm-comparison-integrated" data-cm-comparison-body></div><div class="cm-gap-chart" data-cm-gap></div></div>'
     return frame('comparison',2,'','上看五域趋势与排名，下看中美差距变化。',body,'')
 def globe():
     body='<div class="cm-globe" data-cm-globe data-mode="mechanism"><div class="cm-toolbar"><div class="cm-tabs" aria-label="观察视角">'+btn('globe-mode','mechanism','协作机制 · 示意',True)+btn('globe-mode','projects','全部项目')+'</div><div class="cm-globe-tools"><button type="button" data-globe-motion aria-pressed="true">暂停流动</button><button type="button" data-globe-rotate aria-pressed="false">自动旋转</button><button type="button" data-globe-reset>复位</button></div></div>'
