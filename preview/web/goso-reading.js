@@ -4,15 +4,15 @@ const chapter=document.querySelector('.goso-chapter');if(!chapter)return;
 const screens=[...chapter.querySelectorAll('.goso-screen')],all=[];
 const sourceSelector='[data-dialog="world-source"],[data-dialog="comparison-source"],[data-dialog="china-source"],[data-tm-info],[data-am-source],[data-dm-source],[data-gm-source]';
 const safeText=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'本节分别保留自然年 GitHub 地图、报告五域序列与项目流向样本。地球中的机制示意、实测分布、样本流向和估算层分别标注，不混合计算。'};
+const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'地域地图采用 OpenDigger / OpenShare 的2025自然年快照；五域序列与项目来源样本采用报告年度统计。省级平均贡献 Top10 独立展示。协作机制为示意，实际来源网络保留20条原始记录；增强显示不改变统计值。'};
 function fallbackSource(stage,section,fig){
- const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector('.viz-heading')?.append(button);
+ const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector(stage.classList.contains('cmap-figure')?'figcaption':'.viz-heading')?.append(button);
  const dialog=document.createElement('dialog');dialog.className='goso-source-dialog goso-presentation';dialog.setAttribute('aria-label','图表口径与来源');dialog.innerHTML='<button type="button" aria-label="关闭口径与来源">关闭 ×</button><h3>口径与来源</h3><div></div>';document.body.append(dialog);
  const close=dialog.querySelector('button');let trigger=button;
  button.addEventListener('click',()=>{
-  const caption=fig.querySelector('figcaption'),note=sourceNotes[section.dataset.mapIndex]||'',links=[...fig.querySelectorAll('a[href]')].filter(a=>!a.getAttribute('href').startsWith('#'));
+  const caption=fig.querySelector('.cm-caption-note')||fig.querySelector('figcaption'),note=sourceNotes[section.dataset.mapIndex]||'',links=[...fig.querySelectorAll('a[href]')].filter(a=>!a.getAttribute('href').startsWith('#'));
   const uniq=[...new Map(links.map(a=>[a.href,a])).values()];
-  dialog.querySelector('h3').textContent=stage.dataset.figureNumber+' · 口径与来源';dialog.querySelector('div').innerHTML='<p>'+safeText(note)+'</p>'+(caption?'<p>'+safeText(caption.textContent.trim())+'</p>':'')+'<div class="goso-source-links">'+uniq.map(a=>a.outerHTML).join('')+'</div><p>完整的指标反馈与待补证据保留在本节末尾。</p>';
+  dialog.querySelector('h3').textContent=stage.dataset.figureNumber+' · 口径与来源';dialog.querySelector('div').innerHTML='<p>'+safeText(note)+'</p>'+(caption?'<p>'+safeText(caption.textContent.trim())+'</p>':'')+'<div class="goso-source-links">'+uniq.map(a=>a.outerHTML).join('')+'</div><p>完整统计说明保留在本节末尾。</p>';
   trigger=document.activeElement;dialog.showModal();close.focus();
  });
  close.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>trigger?.focus({preventScroll:true}));return button;

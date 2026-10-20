@@ -11,31 +11,29 @@ if(root&&dataNode){
  let target='all',filter='all',multiplier=3,selected=null,page=0,motion=!reduced,renderer,scene,camera,controls,earth,land,flowGroup,raf=0,clock=0,lastTime=0,visible=true,started=false,failed=false,cameraGoal=null;
  let curves=[],particles=[],pickers=[];const nodes=[];const pageSize=5;
  const rows=()=>selectedFlows(F,{target,filter});
- function stat(title,value,note){return `<span class="cm-globe-stat"><small>${title}</small><strong>${value}</strong><em>${note}</em></span>`;}
  const explanations=[
- ['活动，是贡献的起点','示意开发者与共享项目分布在不同地域。活动计数可以看见规模，关系视角进一步解释他们怎样共同建设。','从参与出发，理解贡献发生在哪里。'],
- ['开发者与项目相互成就','本地社区、跨地域连接与共享枢纽交织。双向光点演示相互作用，点击节点可聚焦相邻关系。','让协作关系可见，让共同建设得到支持。'],
+ ['活动，是贡献的起点','开发者与共享项目分布在不同地域。活动记录让参与可见，协作关系帮助理解贡献。','从参与出发，理解贡献发生在哪里。'],
+ ['开发者与项目相互成就','本地社区与跨地域连接共同支持项目。双向光点表示相互作用；点击节点可聚焦相邻关系。','让协作关系可见，让共同建设得到支持。'],
  ['长期价值，需要持续投入','亮线和光环表示延续的关系，淡线表示投入中断后的衰减。历史积累影响下一期观察。','认可长期维护，也欢迎新的有效贡献。']];
  function updateText(){
   root.dataset.mode=mode;press('globe-mode',mode);press('globe-step',step);
   q('[data-globe-mechanism-panel]').hidden=mode!=='mechanism';q('[data-globe-project-panel]').hidden=mode!=='projects';q('[data-globe-project-controls]').hidden=mode!=='projects';
   q('[data-globe-title]').textContent=explanations[step][0];q('[data-globe-explanation]').innerHTML='<p>'+explanations[step][1]+'</p>';q('[data-globe-principle]').textContent=explanations[step][2];q('[data-globe-clear]').hidden=!focus;
-  const a0=F.targets.CN,b0=F.targets.US;
-  q('[data-globe-shares]').innerHTML=['CN','US'].map(code=>{const t=F.targets[code],cross=t.observed_share_pct-t.local_share_pct;return `<button type="button" class="cm-target-share" data-globe-target="${code}" aria-pressed="${target===code}"><span>${by[code].name}项目<b>本土 ${t.local_share_pct.toFixed(2)}%</b></span><div class="cm-share-bar"><i style="width:${t.local_share_pct}%;background:var(--gv-s${code==='CN'?2:1})"></i><i class="cm-cross-share" style="width:${cross}%;background:var(--gv-s${code==='CN'?2:1})"></i><i class="cm-unlisted-share" style="width:${t.unlisted_share_pct}%"></i></div><small>跨境已列 ${cross.toFixed(2)}% · 未列 ${t.unlisted_share_pct.toFixed(2)}%</small></button>`;}).join('');
+   q('[data-globe-shares]').innerHTML=['CN','US'].map(code=>{const t=F.targets[code],cross=t.observed_share_pct-t.local_share_pct;return `<button type="button" class="cm-target-share" data-globe-target="${code}" aria-pressed="${target===code}"><span>${by[code].name}项目<b>本土 ${t.local_share_pct.toFixed(2)}%</b></span><div class="cm-share-bar"><i style="width:${t.local_share_pct}%;background:var(--gv-s${code==='CN'?2:1})"></i><i class="cm-cross-share" style="width:${cross}%;background:var(--gv-s${code==='CN'?2:1})"></i><i class="cm-unlisted-share" style="width:${t.unlisted_share_pct}%"></i></div><small>跨境已列 ${cross.toFixed(2)}% · 未列 ${t.unlisted_share_pct.toFixed(2)}%</small></button>`;}).join('');
   q('.cm-globe-fallback').src=mode==='mechanism'?new URL(`./assets/cmap/globe-mechanism-${step}.svg`,import.meta.url).href:new URL('./assets/cmap/print/fig-2-2-4_network.svg',import.meta.url).href;
   q('.cm-globe-fallback').alt=mode==='mechanism'?'协作机制示意：'+explanations[step][0]:'中美项目20条实际来源关系';
   q('[data-globe-legend]').textContent=mode==='mechanism'?(step===0?'青色：开发者 · 金色：共享项目':step===1?'双向光点：相互作用 · 连线：示意协作':'亮线与光环：持续投入 · 淡线：中断衰减'):'蓝色：中国项目 · 青色：美国项目 · 回环：本土贡献';
   hint.textContent=mode==='mechanism'?'拖动旋转 · 点击节点聚焦关系':'拖动旋转 · 点击连线或来源记录';
 
   const rr=rows(),pages=Math.max(1,Math.ceil(rr.length/pageSize));page=Math.min(page,pages-1);press('globe-target',target);press('globe-filter',filter);press('globe-enhance',multiplier);
-  q('[data-globe-badge]').textContent=mode==='mechanism'?'协作机制 · 虚构节点与关系':`实际来源样本 · ${rr.length} 条关系 · ${multiplier===1?'原始线宽':'视觉增强 ×3'}`;
+  q('[data-globe-badge]').textContent=mode==='mechanism'?'协作机制 · 示意':`来源样本 · ${rr.length} 条关系`;
   q('[data-globe-list]').innerHTML=rr.slice(page*pageSize,(page+1)*pageSize).map(e=>`<button type="button" data-globe-edge="${e.id}" aria-pressed="${selected===e.id}"><span>${esc(by[e.source].name)} → ${esc(by[e.target].name)}</span><b>${exact(e.value)}</b></button>`).join('');
   q('[data-globe-page-status]').textContent=`${page+1} / ${pages} · ${rr.length} 条`;
   q('[data-globe-page="prev"]').disabled=page===0;q('[data-globe-page="next"]').disabled=page===pages-1;
   const edge=F.edges.find(e=>e.id===selected);
-  q('[data-globe-detail]').innerHTML=edge?`<strong>${esc(by[edge.source].name)} → ${esc(by[edge.target].name)}项目</strong><p>${exact(edge.value)} OpenRank · 原表份额 ${edge.share_pct.toFixed(2)}%</p>`:'<strong>20 条来源记录，14 个国家</strong><p>列表、连线与读数联动。单位：OpenRank。</p>';
-  const a=F.targets.CN,b=F.targets.US;
-  q('[data-globe-bottom]').innerHTML=mode==='mechanism'?stat('活动','参与的起点','看见开发者与共享项目')+stat('关系','共同建设','看见双向协作与连接')+stat('时间','持续投入','看见维护与积累'):stat('中国项目 · 本土贡献',a.local_share_pct.toFixed(2)+'%','来源前十已列 '+a.observed_share_pct.toFixed(2)+'%')+stat('美国项目 · 本土贡献',b.local_share_pct.toFixed(2)+'%','来源前十已列 '+b.observed_share_pct.toFixed(2)+'%')+stat('中国→美国项目 / 反向','12.3 倍','仅限本表中两条定向关系');
+  q('[data-globe-detail]').innerHTML=edge?`<strong>${esc(by[edge.source].name)} → ${esc(by[edge.target].name)}项目</strong><p>${exact(edge.value)} OpenRank · 原表份额 ${edge.share_pct.toFixed(2)}%</p>`:'<p>选择来源记录，查看贡献值与份额。</p>';
+  q('[data-globe-bottom]').innerHTML=mode==='mechanism'?'':'<span>中国 → 美国项目 <b>24,420.69</b></span><span>美国 → 中国项目 <b>1,980.46</b></span><small>OpenRank · 前者约为后者 12.3 倍（样本）</small>';
+  const caption=root.closest('figure').querySelector('.cm-caption-note');if(caption)caption.textContent=mode==='mechanism'?'机制示意：虚构节点与关系，不代表真实人物、项目或贡献得分。':'编制组来源前十样本 · 2026报告年度 · 增强显示不改变统计值。';
   q('[data-globe-motion]').setAttribute('aria-pressed',String(motion));q('[data-globe-motion]').textContent=motion?'暂停流动':'播放流动';
  }
  function schedule(){if(!raf&&renderer&&visible&&!document.hidden)raf=requestAnimationFrame(draw);}

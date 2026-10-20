@@ -81,7 +81,8 @@
       ],
       "record": "docs/cmap-publication-revision-20261020.md",
       "status": "publication_for_review",
-      "edition": "2026-10-20-cmap-review2"
+      "edition": "2026-10-20-cmap-review2",
+      "web_revision": "2026-10-20-cmap-web3"
     }
   ],
   "specification": "print/BASELINE.md",
