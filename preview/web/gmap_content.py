@@ -26,4 +26,5 @@ def export(out):
  shutil.copy2(BASE/'chapter-2-7.md',dest/'chapter-2-7.md')
  shutil.copytree(BASE/'print',dest/'print',dirs_exist_ok=True)
  shutil.copy2(BASE/'print'/PDF_NAME,out/'assets/gmap/print'/PDF_RELEASE_NAME)
+ shutil.copy2(BASE/'print'/PDF_NAME,out/'assets/gmap/print/GOSD-2026-section-2-7-20261020-v3.pdf')
  for name in ['gmap.js','gmap.css']:shutil.copy2(ROOT/'web'/name,out/name)
