@@ -22,7 +22,8 @@ for lang in ['zh','en']:
  for t in paragraphs:assert norm(t) in text,t
  assert section.count('class="im-download"')==1 and section.count('class="im-print-view ')==3
  for key,f in p.FIGURES.items():assert section.index(f'id="im-{key}"')<section.index(f'id="fig-{f["id"]}"')<section.index(f'data-im-reading="{key}"')
- for stale in ['项目规模','20.78%','61.72%','273.1万','89.7%']:assert stale not in section
+ assert re.findall(r'data-im-china-view="([^"]+)"',section)==['growth','sources']
+ for stale in ['20.78%','61.72%','273.1万','89.7%']:assert stale not in section
  assert '<summary>统计范围与指标说明</summary>' in section
 ns={'s':'http://www.w3.org/2000/svg'}
 for f in p.FIGURES.values():

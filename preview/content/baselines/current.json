@@ -96,8 +96,8 @@
         "2.3"
       ],
       "record": "docs/imap-publication-revision-20261020.md",
-      "status": "publication_for_review",
-      "edition": "2026-10-20-imap-publication"
+      "status": "narrative_refinement_for_review",
+      "edition": "2026-10-20-imap-narrative"
     }
   ],
   "specification": "print/BASELINE.md",

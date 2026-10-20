@@ -1,7 +1,18 @@
 /* Publication layout: bounded rows in manuscript and fullscreen, reflow on small screens. */
-.imap-review .im-story,.imap-review .im-interpretation{max-width:46em;margin:26px auto;font:17px/1.95 var(--serif,serif)}
+.imap-review .im-story,.imap-review .im-interpretation{max-width:46em;margin:26px 0;font:17px/1.95 var(--sans)}
 .imap-review .im-story h3{font:600 24px/1.55 var(--sans);margin:36px 0 16px}.imap-review .im-story p,.imap-review .im-interpretation p{margin:16px 0}
 .imap-review .im-interpretation strong{color:var(--cyan);font-weight:600}
+/* Match the reviewed V/C-Map reading rhythm without changing figure geometry. */
+#ch02-s03 :is(.im-introduction,.goso-question,.im-core-finding,.im-story,.im-interpretation,.goso-action-body p,.im-actions>p,.goso-bridge){max-width:46em}
+#ch02-s03 .im-introduction{font:400 18px/1.9 var(--sans);margin:18px 0 22px}
+#ch02-s03 :is(.im-story p,.im-interpretation p,.im-core-finding,.goso-action-body p,.goso-bridge){font:400 17px/1.95 var(--sans);margin:14px 0}
+#ch02-s03 #im-findings{font:600 19px/1.6 var(--sans);margin:26px 0 10px}
+#ch02-s03 .goso-map-position{padding:14px 20px;margin:20px 0 26px}
+#ch02-s03 .goso-map-window{border:0;background:transparent;padding:0;max-width:64em}
+#ch02-s03 .im-interpretation{margin:20px 0 40px}
+#ch02-s03 :is(.im-story,.im-actions){scroll-margin-top:100px}
+@media(max-width:680px){#ch02-s03 :is(.im-story p,.im-interpretation p,.im-core-finding,.goso-action-body p,.goso-bridge){font-size:16px}.imap-review .im-reading-route .im-download{margin-left:0}}
+@media print{#ch02-s03 :is(.im-introduction,.goso-question,.im-story p,.im-interpretation p,.im-core-finding,.goso-action-body p,.goso-bridge){font-size:11.2pt;line-height:1.66}#ch02-s03 .goso-question{font-size:11.2pt!important}}
 .imap-review .im-reading-route{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 36px;font:13px/1.5 var(--sans)}
 .imap-review .im-reading-route a{border:1px solid var(--line);border-radius:4px;padding:8px 14px;background:var(--pale);color:var(--ink)}
 .imap-review .im-download{margin-left:auto}.imap-review .im-print-view,.imap-review .im-print-evidence{display:none}
