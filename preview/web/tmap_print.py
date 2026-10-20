@@ -71,21 +71,8 @@ def china_figure():
  for i,(k,vs) in enumerate(D['cities'].items()):
   y=246+i*11.6;f.text(0,y+3,k,8.5,INK);f.line([(x(vs[0]),y),(x(vs[-1]),y)],LINE,1.5);f.dot(x(vs[0]),y,2.1,MUTED);f.dot(x(vs[-1]),y,2.3,TEAL);f.text(PW,y+3,f'+{(vs[-1]/vs[0]-1)*100:.1f}%',8.5,INK,'right')
  return f.caption()
-def growth_figure():
- f=Figure(p.FIGURES['growth']['title'],'图 2-4-4',height=375);vp.badge(f,0,13,'模拟数据｜待替换',133);vp.title(f,0,45,'A  新人进入后的持续贡献');f.text(PW,45,'每队列1,000人',8.5,MUTED,'right')
- for j,m in enumerate([3,6,12,24]):f.text(145+j*101,67,f'第{m}个月',8.5,MUTED,'center')
- for i,row in enumerate(S['cohorts']):
-  y=78+i*19;f.text(0,y+12,row['period'],9,INK)
-  for j,v in enumerate(row['rates']):
-   x=100+j*101;fill='#f3f5f6' if v is None else ['#e5f1f3','#c5e0e4','#91c4cd','#5ba4b1'][min(3,v//20)];f.rect(x,y,90,16,fill,fill,0);f.text(x+45,y+12,'未满观察期' if v is None else f'{v}%',8.5,INK,'center')
- vp.title(f,0,250,'B  人才留存 · 同一上年样本');f.text(PW,250,'每情景1,000人',8.5,MUTED,'right')
- for j,c in enumerate(S['retention']):
-  x=j*262;f.text(x,271,c['name'],9,INK)
-  for i,(label,v,color) in enumerate([('持续贡献',c['active'],TEAL),('仍在前5%',c['top'],COLORS[3])]):
-   yy=287+i*17;f.text(x,yy,label,8.5,MUTED);f.rect(x+63,yy-6,v*1.6,5,color,color,0);f.text(x+240,yy,f'{v}%',8.5,INK,'right')
- vp.title(f,0,329,'C  接续条件 · 默认参数');f.text(0,346,'1,000人 × 45%持续贡献 × 12%条件比例 ＝ 54人',9,INK);f.text(PW,346,'非预测',8.5,MUTED,'right');return f.caption()
 def connections_figure():
- f=Figure(p.FIGURES['connect']['title'],'图 2-4-5',height=408);vp.badge(f,0,13,'模拟数据｜待替换',133);vp.title(f,0,43,'A  跨地域协作 · 人才所在地 → 项目归属组');sc=map_draw(f,'world',0,52,290);codes=['US','CN','DE','BR','IN'];nodes=[next(g for g in vp.GEO['world'] if g['id']==c)['center'] for c in codes];x1,y1=nodes[1];x1*=sc;y1=52+y1*sc
+ f=Figure(p.FIGURES['connect']['title'],'图 2-4-4',height=408);vp.badge(f,0,13,'模拟数据｜待替换',133);vp.title(f,0,43,'A  跨地域协作 · 人才所在地 → 项目归属组');sc=map_draw(f,'world',0,52,290);codes=['US','CN','DE','BR','IN'];nodes=[next(g for g in vp.GEO['world'] if g['id']==c)['center'] for c in codes];x1,y1=nodes[1];x1*=sc;y1=52+y1*sc
  for j,(xx,yy) in enumerate(nodes):
   x2,y2=xx*sc,52+yy*sc
   if j!=1:
@@ -95,24 +82,26 @@ def connections_figure():
  for i,j in enumerate([0,2,3,4]):f.text(315,93+i*21,LABEL[j],8.8,INK);f.text(PW,93+i*21,str(S['flows'][1][j])+'条',8.8,INK,'right')
  f.text(0,211,'节点为分组示意位置；关系不表示迁居。',8.5,MUTED)
  vp.title(f,0,239,'B  技术领域转换 · 1,000人');vp.title(f,267,239,'C  AI领域 × 贡献角色')
- # Same source-to-target curve geometry as the web; all three sources remain visible in print.
- fr=S['transition']['from'];to=S['transition']['to'];m=S['transition']['matrix']
+ # The same proportional flow bands as the web, with all source groups visible.
+ fr=S['transition']['from'];to=S['transition']['to'];m=S['transition']['matrix'];outs=[sum(r) for r in m];ins=[sum(r[j] for r in m) for j in range(3)];scale=.08;gap=18
+ sy=[267+sum(outs[:i])*scale+i*gap for i in range(3)];ty=[267+sum(ins[:i])*scale+i*gap for i in range(3)]
  for a,row in enumerate(m):
   for b,v in enumerate(row):
-   y1=278+a*34;y2=278+b*34;pts=[]
+   y1=sy[a]+sum(row[:b])*scale;y2=ty[b]+sum(r[b] for r in m[:a])*scale;h=v*scale;upper=[];lower=[]
    for i in range(33):
-    t=i/32;pts.append(((1-t)**3*68+3*(1-t)**2*t*105+3*(1-t)*t*t*130+t**3*167,(1-t)**3*y1+3*(1-t)**2*t*y1+3*(1-t)*t*t*y2+t**3*y2))
-   f.line(pts,['#93c6cb','#b5cadd','#aac39b'][a],v/38)
- for i,name in enumerate(fr):f.text(0,279+i*34,name,8.5,INK);f.text(0,292+i*34,str(sum(m[i]))+'人',8.5,MUTED)
- for i,name in enumerate(['基础软件','Agent/模型工具','数据协作']):f.text(174,279+i*34,name,8.5,INK);f.text(174,292+i*34,str(sum(row[i] for row in m))+'人',8.5,MUTED)
+    t=i/32;xx=(1-t)**3*68+3*(1-t)**2*t*105+3*(1-t)*t*t*130+t**3*167;yy=(1-t)**3*y1+3*(1-t)**2*t*y1+3*(1-t)*t*t*y2+t**3*y2;upper.append((xx,yy));lower.append((xx,yy+h))
+   f.polygon(upper+list(reversed(lower)),['#93c6cb','#b5cadd','#aac39b'][a])
+ for i,name in enumerate(fr):f.text(0,sy[i]+outs[i]*scale/2-2,name,8.5,INK);f.text(0,sy[i]+outs[i]*scale/2+11,str(outs[i])+'人',8.5,MUTED)
+ for i,name in enumerate(['基础软件','Agent/模型工具','数据协作']):f.text(174,ty[i]+ins[i]*scale/2-2,name,8.5,INK);f.text(174,ty[i]+ins[i]*scale/2+11,str(ins[i])+'人',8.5,MUTED)
  labels=['代码','评审','文档','导师']
  for j,name in enumerate(labels):f.text(361+j*40,261,name,8.5,MUTED,'center')
  for i,name in enumerate(['AI基础软件','Agent工具','模型与推理','数据与评测','应用与集成']):
   y=281+i*18;f.text(267,y,name,8.5,INK)
-  for j,v in enumerate(S['ai']['matrix'][i]):f.rect(346+j*40,y-10,33,14,'#e5f1f3','#e5f1f3',0);f.text(362+j*40,y+1,str(v),8.5,INK,'center')
+  for j,v in enumerate(S['ai']['matrix'][i]):
+   fill=['#f0f7f8','#dfedef','#c9e3e7','#afd7de'][min(3,v//15)];f.rect(346+j*40,y-10,33,14,fill,fill,0);f.text(362+j*40,y+1,str(v),8.5,INK,'center')
  f.text(267,382,'每行100条模拟主角色记录',8.5,MUTED);return f.caption()
 class Doc(vp.Doc):
- def __init__(self,path):super().__init__(path);self.title='GOSD 2026 · 2.4 全球开源人才地图';self.subject='完整研究正文与五幅人才地图图组'
+ def __init__(self,path):super().__init__(path);self.title='GOSD 2026 · 2.4 全球开源人才地图';self.subject='完整研究正文与四幅人才地图图组'
  def frame(self,c,doc):
   w,h=c._pagesize;c.saveState();c.setFillColor(HexColor(TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0);c.setFont(common.FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(w-46,h-37,'第二章 全球开源生态观测地图');c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.drawString(46,28,'2.4 全球开源人才地图 · T-Map');c.drawRightString(w-46,28,str(doc.page));c.restoreState()
 def build(output,figs):
@@ -125,7 +114,7 @@ def build(output,figs):
    a,b=t.split('。',1);para('**'+a+'。**'+b)
  para('2.4 '+p.TITLE,'chapter');para(p.INTRO);para('研究问题：'+p.QUESTION);para('指标定位：'+p.POSITION,'note');para('核心发现：'+p.FINDING);para(p.WINDOW,'note');lead(0);after(0)
  story.extend([NextPageTemplate('landscape'),PageBreak(),FigureFlow(figs[0],'2-4-1'),NextPageTemplate('portrait'),PageBreak()])
- for i in [1,2,3,4]:lead(i);story.append(FigureFlow(figs[i],f'2-4-{i+1}'));after(i);story.append(PageBreak())
+ for i in [1,2,3]:lead(i);story.append(FigureFlow(figs[i],f'2-4-{i+1}'));after(i);story.append(PageBreak())
  para(p.ACTION_TITLE,'section');para(p.ACTION_INTRO)
  for i,(title,ps) in enumerate(p.STRATEGIES,1):
   para(str(i)+' '+title,'subsection')
@@ -136,7 +125,7 @@ def build(output,figs):
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--font',type=Path,required=True);parser.add_argument('--output',type=Path,default=p.ROOT.parent/'output/pdf'/p.PDF_NAME);args=parser.parse_args();work=p.ROOT.parent/'tmp/pdfs/tmap';work.mkdir(parents=True,exist_ok=True);args.output.parent.mkdir(parents=True,exist_ok=True)
  common.font_setup(args.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+json.dumps(D,ensure_ascii=False)+json.dumps(S,ensure_ascii=False)+Path(vp.__file__).read_text())
- figs=[global_figure(),regions_figure(),china_figure(),growth_figure(),connections_figure()];dest=p.BASE/'print';dest.mkdir(parents=True,exist_ok=True)
+ figs=[global_figure(),regions_figure(),china_figure(),connections_figure()];dest=p.BASE/'print';dest.mkdir(parents=True,exist_ok=True)
  for spec,fig in zip(p.FIGURES.values(),figs):(dest/spec['file']).write_text(fig.svg())
  layout=build(args.output,figs);shutil.copy2(args.output,dest/p.PDF_NAME);(p.BASE/'chapter-2-4.md').write_text(p.manuscript());digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
  manifest=dict(edition=p.EDITION,baseline='GOSO-PUB-20261020',pdf=p.PDF_NAME,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],data_sha256={n:digest(p.BASE/n) for n in ['observations.json','simulation.json']},manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=digest(args.output),figures=p.FIGURES,verification={'pdf_render':'pending','dom':'pending','browser_visual':'not_run_no_supported_browser','physical_print':'not_run'})

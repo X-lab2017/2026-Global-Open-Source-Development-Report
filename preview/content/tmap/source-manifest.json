@@ -26,12 +26,8 @@
     {
       "id": "fig-2-4-4",
       "status": "simulated_design_only",
-      "file": "simulation.json"
-    },
-    {
-      "id": "fig-2-4-5",
-      "status": "simulated_design_only",
-      "file": "simulation.json"
+      "file": "simulation.json",
+      "title": "跨地域协作、技术领域与贡献角色"
     }
   ],
   "geometry": "/assets/vmap/map-provenance.json",
@@ -39,5 +35,13 @@
     "图1理解人才的网络是教学示意，不输出模拟OpenRank排名。",
     "全球总量、年度构建、前5%总体和并列规则待补。",
     "模拟数据不能作为结论、实际人才流动或政策效果预测。"
+  ],
+  "retired_figures": [
+    {
+      "former_id": "fig-2-4-4",
+      "title": "人才成长、留存与接续",
+      "removed": "2026-10-20",
+      "reason": "作者要求移除"
+    }
   ]
 }

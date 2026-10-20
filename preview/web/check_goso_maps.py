@@ -19,8 +19,8 @@ for lang in ('zh','en'):
     assert len(imap)==3 and all(a['data-slide-height']=='860' for a in imap)
     assert {a['data-slide-key'] for a in imap}=={'imap-1','imap-2','imap-3'}
     tmap=[a for _,a in page.nodes if 'tmap-figure' in a.get('class','')]
-    assert len(tmap)==5 and all(a['data-slide-height']=='860' for a in tmap)
-    assert {a['data-slide-key'] for a in tmap}=={f'tmap-{i}' for i in range(1,6)}
+    assert len(tmap)==4 and all(a['data-slide-height']=='860' for a in tmap)
+    assert {a['data-slide-key'] for a in tmap}=={f'tmap-{i}' for i in range(1,5)}
     assert not any('data-tm-full' in a or 'data-fullscreen' in a for _,a in page.nodes)
     for term in ['OpenRankInflu','OpenRankContrib','HighImpactTalent','GlobalCollabShare','模拟演示','非预测','14.02%','39.66%','442.92','423.97']:
         assert term in text,term
@@ -59,4 +59,4 @@ assert len(i['chinaProjects'])==30 and i['chinaProjectCounts']==[None]*5
 assert len(t['world'])==175 and len(t['chinaRecords'])==370
 assert 'geometry' not in i and 'geometry' not in t
 for k in ('imap','tmap'):assert (out/'assets'/k/'data.js').exists()
-print('PASS: 3 I-Map and 5 T-Map publication figures; 11 A/D/G presentations; scoped light/dark tokens; unchanged source CSVs; isolated simulations; shared source geometry.')
+print('PASS: 3 I-Map and 4 T-Map publication figures; 11 A/D/G presentations; scoped light/dark tokens; unchanged source CSVs; isolated simulations; shared source geometry.')

@@ -1,14 +1,13 @@
 {
-  "edition": "2026-10-20-tmap-publication",
+  "edition": "2026-10-20-tmap-layout-repair",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-4.pdf",
-  "pages": 7,
+  "pages": 6,
   "figure_pages": {
     "2-4-1": 2,
     "2-4-2": 3,
     "2-4-3": 4,
-    "2-4-4": 5,
-    "2-4-5": 6
+    "2-4-4": 5
   },
   "body_font_pt": 11.2,
   "chart_font_range_pt": [
@@ -19,8 +18,8 @@
     "observations.json": "35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813",
     "simulation.json": "339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025"
   },
-  "manuscript_sha256": "36ea9d0ddc3622e2c402cb14c564f482bb3252315d780b7ace32532ae0ce8e6f",
-  "pdf_sha256": "c79b05bcf5cfe73363120f41c72f48dcaf280069876d3595e6c452c8beefa0a7",
+  "manuscript_sha256": "5186741d59b5b857acc16651916628938421b8c4695b3d907b77202eab107523",
+  "pdf_sha256": "bda881999bea9d0a52d345cf95ca2f056767773eb63b7aa14a3914dc6db4730e",
   "figures": {
     "world": {
       "id": "2-4-1",
@@ -43,27 +42,20 @@
       "orientation": "portrait",
       "note": "来源：报告编制组 · 十城样本"
     },
-    "growth": {
-      "id": "2-4-4",
-      "title": "人才成长、留存与接续",
-      "file": "fig-2-4-4_growth.svg",
-      "orientation": "portrait",
-      "note": "模拟数据｜待替换"
-    },
     "connect": {
-      "id": "2-4-5",
+      "id": "2-4-4",
       "title": "跨地域协作、技术领域与贡献角色",
-      "file": "fig-2-4-5_connections.svg",
+      "file": "fig-2-4-4_connections.svg",
       "orientation": "portrait",
       "note": "模拟数据｜待替换"
     }
   },
   "verification": {
-    "pdf_render": "all_7_pages_inspected",
-    "dom": "426_bilingual_interaction_assertions_passed",
+    "pdf_render": "all_6_pages_inspected",
+    "dom": "556_bilingual_interaction_assertions_passed",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "css": "180_light_dark_reading_fullscreen_narrow_cascade_assertions_passed",
+    "css": "240_light_dark_row_placement_and_cascade_assertions_passed",
     "release_gates": "22_passed"
   }
 }

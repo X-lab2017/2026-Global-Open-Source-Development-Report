@@ -39,7 +39,7 @@
       "section": "2.4",
       "status": "publication_for_review",
       "preview_section": "/2026/zh/chapters/02/#ch02-s04",
-      "implementation_record": "docs/tmap-publication-revision-20261020.md"
+      "implementation_record": "docs/tmap-layout-repair-20261020.md"
     }
   ],
   "implementation_updates": [
@@ -107,6 +107,15 @@
       "record": "docs/tmap-publication-revision-20261020.md",
       "status": "publication_for_review",
       "edition": "2026-10-20-tmap-publication"
+    },
+    {
+      "date": "2026-10-20",
+      "sections": [
+        "2.4"
+      ],
+      "record": "docs/tmap-layout-repair-20261020.md",
+      "status": "layout_repair_for_review",
+      "edition": "2026-10-20-tmap-layout-repair"
     }
   ],
   "specification": "print/BASELINE.md",
