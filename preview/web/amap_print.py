@@ -52,7 +52,7 @@ def asset_figure(key):
   f.line([(321,yy+3.5),(321+170*r['count']/mx,yy+3.5)],TEAL,.75)
  f.line([(0,231),(PW,231)],LINE,.6);vp.title(f,0,250,'B  中美欧：数量与下载份额')
  for j,(c,label) in enumerate(zip(p.PALETTE,['数量份额','下载份额'])):
-  xx=325+j*90;f.rect(xx,242,12,8,c,c,0);f.text(xx+18,250,label,9,INK)
+  xx=325+j*90;f.rect(xx,242,12,8,c if j==0 else "#FFFFFF",c,0 if j==0 else 1);f.text(xx+18,250,label,9,INK)
  europe=D['comparison']['assets'][key]
  for j,(country,label) in enumerate([('CN','中国'),('US','美国'),('EU','欧洲 *')]):
   x=j*172;left=x+27;right=x+118;f.text(x,271,label,9,INK)
@@ -60,7 +60,7 @@ def asset_figure(key):
   for k,(v,label) in enumerate([(count/a['total']*100,'数量'),(download,'下载')]):
    yy=289+k*19;f.text(x,yy,label,8.5,INK)
    if v is None:f.line([(left,yy-3),(left+34,yy-3)],MUTED,.6,[3,2]);f.text(x+158,yy,'待补',8.5,MUTED,'right')
-   else:f.rect(left,yy-9,(right-left)*v/100,10,p.PALETTE[k],p.PALETTE[k],0);f.text(x+158,yy,f'{v:.1f}%',8.5,INK,'right')
+   else:f.rect(left,yy-9,(right-left)*v/100,10,p.PALETTE[k] if k==0 else '#FFFFFF',p.PALETTE[k],0 if k==0 else 1);f.text(x+158,yy,f'{v:.1f}%',8.5,INK,'right')
   f.line([(left,316),(right,316)],LINE,.5);f.text(left,329,'0',8.5,MUTED);f.text(right,329,'100%',8.5,MUTED,'right')
  f.text(0,347,f'* 欧洲数量为已列{len(europe["members"])}国小计（数量下限）；下载待补。来源：Hugging Face。',8.5,MUTED)
  return f.caption()

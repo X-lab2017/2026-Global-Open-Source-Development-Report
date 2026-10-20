@@ -1,9 +1,9 @@
 {
-  "edition": "2026-10-20-amap-publication-v2",
+  "edition": "2026-10-20-amap-publication-v3",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-5.pdf",
-  "release_pdf": "GOSD-2026-section-2-5-20261020-v2.pdf",
-  "revision": "2026-10-20 · 资产地图评审版 v2",
+  "release_pdf": "GOSD-2026-section-2-5-20261020-v3.pdf",
+  "revision": "2026-10-20 · 资产地图评审版 v3",
   "pages": 4,
   "figure_pages": {
     "2-5-1": 1,
@@ -20,8 +20,8 @@
     "fig-2-7-1_platform_active_repository_trend.csv": "996852657b99c3fe9843cb0594bfe8a84fe750dedf68d4b658909b7ae1afd9de",
     "comparison-groups.json": "77e950e1180a381d75e21e35cf4cb16eb471fecb341c98dfc96131bf8ed424c1"
   },
-  "manuscript_sha256": "fd68ce3ff7b8a4920c1df5e159bb0cc64d6ccb67ea07a70394090f33e2d02076",
-  "pdf_sha256": "5c41c16948e69a6a17d8b2ed6003d4013bfa0d09174e7f0bac566a66be28ea6a",
+  "manuscript_sha256": "216b3c1ecb723d8b6e557b818fe632bc448858463885d57f980bcd3aae562e2a",
+  "pdf_sha256": "f14ce3ad3967ae0e7603cb5bd39bbba6d0aa7cbf2ecab7fcd2c7a98da1f670f4",
   "figures": {
     "code": {
       "id": "2-5-1",
@@ -46,11 +46,10 @@
     }
   },
   "verification": {
-    "pdf_render": "all_4_portrait_pages_visually_checked",
-    "dom": "598_bilingual_assertions_passed",
+    "pdf_render": "four_pages_reviewed",
+    "dom": "598 assertions passed",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "css_cascade": "250_dynamic_assertions_passed",
-    "build_gates": "73_passed"
+    "css_cascade": "250 assertions passed"
   }
 }

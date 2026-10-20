@@ -27,7 +27,7 @@ for lang in ['zh','en']:
  for key,f in p.FIGURES.items():assert section.index(f'id="am-story-{key}"')<section.index(f'id="fig-{f["id"]}"')
  for stale in ['goso-unified-canvas','提交事件','data-am-mock','data-am-forecast','类别演进']:assert stale not in section
  assert '<summary>统计范围与指标说明</summary>' in section
- assert '/assets/amap/publication-data.js?v=20261020-v2' in html and '/assets/amap/data.js' not in html
+ assert '/assets/amap/publication-data.js?v=20261020-v3' in html and '/assets/amap/data.js' not in html
 css=(args.output/'amap-publication.css').read_text()
 for selector,area,row in [('.viz-heading','heading',1),('.am-toolbar','toolbar',2),('.am-panel','chart',3),('figcaption','caption',4)]:assert f'.amap-review .am-figure.screen-slide>{selector}'+'{'+f'grid-area:{area};grid-row:{row};grid-column:1'+'}' in css
 js=(args.output/'amap.js').read_text()
@@ -49,6 +49,9 @@ for key,total,downloads,cn,us in [('models',72280,60000691937,6017,45801),('data
  assert set(a['downloadShares'])=={'US','CN'}
  # Same metric colors and bar family in both renderers; no inferred country downloads.
  svg=(dest/p.FIGURES[key]['file']).read_text();assert p.PALETTE[0] in svg and p.PALETTE[1] in svg
+assert 'opacity="${S.region' not in js
+assert 'am-download-key' in js and 'am-map-stage' in js
+assert "p.PALETTE[k] if k==0 else '#FFFFFF'" in (p.ROOT/'web/amap_print.py').read_text()
 # Europe is a checked subtotal, never a synthetic full-region total or a zero download.
 assert len(D['comparison']['memberCodes'])==28
 for key,expected_count,n in [('models',10084,6),('datasets',2359,5)]:

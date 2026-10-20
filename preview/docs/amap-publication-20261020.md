@@ -19,3 +19,12 @@ A-Map is section 2.5 in the current seven-map chapter. Its original source filen
 Review focus: whether the three-asset sequence is clear, whether quantity and download comparisons are intuitive, and whether the source notes remain concise enough for independent reading.
 
 The v1 versioned PDF remains available at its original URL. The stable PDF and the new v2 versioned PDF contain the new portrait edition.
+
+
+## v3：视觉与叙事对齐
+
+沿用 2.1、2.2 的明暗主题和蓝色地图色阶；图例精确对应六档色阶，地图使用统一底板，选择状态通过边线与侧栏表达。模型、数据集的数量份额采用实心蓝柱，下载份额采用青色空心柱，两版一致，避免深色模式下两种近似颜色难辨；地区选择不再改变柱条透明度。
+
+共享正文按“供给增长—发布与使用差异—持续维护和复用”组织。引图先交代问题和样本，图后先给出发现再解释含义；增加中美比较中中国模型 +4.3、数据集 −6.2 个百分点的份额差异说明，不据此推断质量或因果。原始数据与欧洲数量下限、下载缺值处理保持不变。
+
+PDF 四页均已逐页检查；598 项 DOM、250 项样式级联核验通过。未运行浏览器像素核验或实物打印。保留 v1、v2 下载，新入口使用 v3。
