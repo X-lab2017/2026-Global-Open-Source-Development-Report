@@ -12,8 +12,8 @@ class Page(HTMLParser):
 for lang in ('zh','en'):
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
     canvases=[a for _,a in page.nodes if 'goso-unified-canvas' in a.get('class','')]
-    assert len(canvases)==5
-    assert {a['data-slide-key'] for a in canvases}=={f'{k}-{i}' for k,n in [('gmap',5)] for i in range(1,n+1)}
+    assert len(canvases)==3
+    assert {a['data-slide-key'] for a in canvases}=={f'{k}-{i}' for k,n in [('gmap',3)] for i in range(1,n+1)}
     assert all(a['data-slide-height']=='860' for a in canvases)
     amap=[a for _,a in page.nodes if 'am-figure' in a.get('class','')]
     assert len(amap)==3 and all(a['data-slide-height']=='860' for a in amap)
@@ -26,7 +26,7 @@ for lang in ('zh','en'):
     assert len(tmap)==4 and all(a['data-slide-height']=='860' for a in tmap)
     assert {a['data-slide-key'] for a in tmap}=={f'tmap-{i}' for i in range(1,5)}
     assert not any('data-tm-full' in a or 'data-fullscreen' in a for _,a in page.nodes)
-    for term in ['OpenRankInflu','OpenRankContrib','HighImpactTalent','GlobalCollabShare','模拟数据','14.02%','39.66%','442.92','423.97']:
+    for term in ['OpenRankInflu','OpenRankContrib','HighImpactTalent','GlobalCollabShare','14.02%','39.66%','442.92','423.97']:
         assert term in text,term
     assert f'/2026/{lang}/data/indicators/#indicator-HighImpactTalent' in text
 
@@ -63,4 +63,4 @@ assert len(i['chinaProjects'])==30 and i['chinaProjectCounts']==[None]*5
 assert len(t['world'])==175 and len(t['chinaRecords'])==370
 assert 'geometry' not in i and 'geometry' not in t
 for k in ('imap','tmap'):assert (out/'assets'/k/'data.js').exists()
-print('PASS: 3 I-Map and 4 T-Map publication figures; 3 A-Map and 3 D-Map publication figures; 5 G-Map presentations; scoped light/dark tokens; unchanged source CSVs; isolated simulations; shared source geometry.')
+print('PASS: 3 I-Map and 4 T-Map publication figures; 3 A-Map and 3 D-Map publication figures; 3 G-Map presentations; scoped light/dark tokens; unchanged source CSVs; isolated simulations; shared source geometry.')

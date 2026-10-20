@@ -14,7 +14,7 @@ TOPICS=[
  ('T-Map','人才','谁在支撑开源的长期发展？','让人才监测服务真实成长','同时观察规模、增量与成长机会；城市数量变化不能直接解释为人才迁移。','X1 / X3 · 3.1','HighImpactTalent',['fig-2-4-1','fig-2-4-2','fig-2-4-3','fig-2-4-4'],['全球人才','五域动能','中国节点','跨地域与领域连接']),
  ('A-Map','资产','AI 时代共同创造了哪些开放资产？','建立代码、模型、数据的长期观测','代码看规模与增长；模型、数据看地域供给与下载使用，分别计量。','X2 · 2.1—2.3','ActiveRepo · OpenModelRelease · OpenDatasetRelease',['fig-2-5-1','fig-2-5-2','fig-2-5-3'],['代码平台规模与增长','模型地域供给与下载','数据地域供给与下载']),
  ('D-Map','多样性','谁能进入并持续参与全球共建？','把参与机会推进为共建机会','贡献的来源、流向与持续性共同构成多样性；中美对照只解释当前覆盖的样本。','X1 · 1.2 / X3','GlobalCollabShare',['fig-2-6-3','fig-2-6-1','fig-2-6-2'],['跨地域贡献连接','全球来源与五年变化','中美来源对照']),
- ('G-Map','治理与社会公益','开放投入怎样形成持久公共价值？','把维护、治理与受益证据连接起来','许可和托管提供证据入口；公共价值还需要采用、维护与真实受益的证据。','X4 · 4.1—4.2','治理成熟度 · 公共福祉',['fig-2-7-1','fig-2-7-2','fig-2-7-3','fig-2-7-4','fig-2-7-5'],['治理与公共品','制度演进','持续支持','公共服务','AI 责任'])
+ ('G-Map','治理与社会公益','谁承载协作，成果如何共享？','支持长期维护，完善许可实践','基金会项目规模与影响份额增长；主流许可证和木兰许可采用持续扩展。','X4 · 4.1—4.2','治理基础 · 公共价值',['fig-2-7-1','fig-2-7-2','fig-2-7-3'],['基金会项目','主流许可证','木兰许可证'])
 ]
 
 def compact(s):return re.sub(r'\s+',' ',html.unescape(s)).strip()
@@ -69,7 +69,7 @@ def data(out):
         if s.get('topic'):s['notes'].append(sections['ch02-s0'+str(s['topic'])]['position'])
     # Explicit mentions only: no invented indicator-to-chapter coverage or completion claim.
     coverage={str(i):[r['indicator_code'] for r in indicators if re.search(r'(?<![A-Za-z])'+re.escape(r['indicator_code'])+r'(?![A-Za-z])',sections['ch02-s0'+str(i)]['position'])] for i in range(1,8)}
-    assert len(slides)==21 and len(figures)==32 and len(indicators)==29
+    assert len(slides)==21 and len(figures)==30 and len(indicators)==29
     return dict(version=VERSION,revision=REVISION,date=DATE,slides=slides,figures=figures,topics=[dict(code=t[0],title=t[1],question=t[2],action=t[3],slide=10+i) for i,t in enumerate(TOPICS)],sections=sections,indicators=indicators,coverage=coverage,chapters=manifest['chapters'])
 
 def presentation(lang,out):
