@@ -51,6 +51,7 @@ jobs:
           python3 preview/web/check_chapter1_sample.py --output _site
           python3 preview/web/check_frontmatter_publication.py --output _site
           python3 preview/web/check_goso.py --output _site
+          python3 preview/web/check_chapter2_acceptance.py --output _site
           python3 preview/web/check_vmap.py --output _site
           python3 preview/web/check_vmap_publication.py --output _site
           python3 preview/web/check_cmap.py --output _site

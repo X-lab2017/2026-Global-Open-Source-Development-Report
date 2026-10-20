@@ -14,7 +14,7 @@ COL={'US':'#168b92','CN':'#397da6','DE':'#936c9e','GB':'#a87f2e','IN':'#558247',
 PAL=['#647f96','#8c6f75','#6b8281','#a07580','#658395','#8a8264','#6b7894','#767895']
 ORDER=['US','CN','DE','GB','CA','FR','IN','NL','CH','PL','SG','CZ','BG','SE']
 color=lambda c:COL[c] if c in COL else PAL[ORDER.index(c)%len(PAL)]
-nm=lambda c:'其他来源' if c=='OTH' else D['names'][c]
+nm=lambda c:'未列来源' if c=='OTH' else D['names'][c]
 num=lambda v:f'{v:,.2f}'
 def trend(f,codes,x,y,w,h,maxv):
  left=x+30;right=x+w-8;top=y+8;bottom=y+h-22
@@ -44,12 +44,15 @@ def sources_figure():
  f=Figure(p.FIGURES['sources']['title'],'图 2-6-2',height=301)
  for j,c in enumerate(['CN','US']):
   x=j*263;w=240;rows=[r for r in D['sourceShares'] if r['target']==c];local=next(r['share'] for r in rows if r['source']==c)
-  vp.title(f,x,13,nm(c)+'项目');f.rect(x,27,w*local/100,19,'#326f9e','#326f9e',0);f.rect(x+w*local/100,27,w*(100-local)/100,19,'#16808a','#16808a',0)
-  f.text(x,61,'本土 '+f'{local:.2f}%',9,INK);f.text(x+w,61,'海外 '+f'{100-local:.2f}%',9,INK,'right')
+  unlisted=next(r['share'] for r in rows if r['source']=='OTH');cross=sum(r['share'] for r in rows if r['source'] not in (c,'OTH'))
+  vp.title(f,x,13,nm(c)+'项目');offset=0
+  for value,colour in [(local,'#326f9e'),(cross,'#16808a'),(unlisted,'#788991')]:
+   f.rect(x+w*offset/100,27,w*value/100,19,colour,colour,0);offset+=value
+  f.text(x,61,f'本土 {local:.2f}%',8.5,INK);f.text(x+79,61,f'已列跨境 {cross:.2f}%',8.5,INK);f.text(x+w,61,f'未列 {unlisted:.2f}%',8.5,INK,'right')
   f.text(x,82,'来源',8.5,MUTED);f.text(x+178,82,'OpenRank',8.5,MUTED,'right');f.text(x+w,82,'份额',8.5,MUTED,'right')
   for i,r in enumerate(rows[:10]):
    y=101+i*16;f.text(x,y,f'{i+1:02} '+nm(r['source']),8.8,INK);f.text(x+178,y,num(r['value']),8.8,INK,'right');f.text(x+w,y,f'{r["share"]:.2f}%',8.8,INK,'right');f.line([(x,y+5),(x+90*r['share']/100,y+5)],color(r['source']),1)
-  f.text(x,269,'其他来源 '+f'{rows[-1]["share"]:.2f}%',8.5,MUTED)
+  f.text(x,269,'未列来源 '+f'{rows[-1]["share"]:.2f}%',8.5,MUTED)
  return f.caption()
 def network_figure():
  f=Figure(p.FIGURES['network']['title'],'图 2-6-3',height=330);rows=[r for r in D['flows'] if r['target'] in ['CN','US']];src=[c for c in ORDER if any(r['source']==c for r in rows)];dest=['US','CN'];H=218;top=35;pad=6;total=sum(r['value'] for r in rows);scale=(H-pad*(len(src)-1))/total

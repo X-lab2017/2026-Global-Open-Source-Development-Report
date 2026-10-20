@@ -1,9 +1,9 @@
 {
-  "edition": "2026-10-20-dmap-publication",
+  "edition": "2026-10-20-dmap-source-audit",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-6.pdf",
-  "release_pdf": "GOSD-2026-section-2-6-20261020.pdf",
-  "revision": "2026-10-20 · 多样性地图评审版",
+  "release_pdf": "GOSD-2026-section-2-6-20261020-sources.pdf",
+  "revision": "2026-10-20 · 来源分类核验版",
   "pages": 5,
   "figure_pages": {
     "2-6-1": 2,
@@ -21,8 +21,8 @@
     "source/fig-2-5-2_cross_border_project_contribution_flow.csv": "aa9e64aaf25ad6c653061e48f39a92d64692d57d1b2963e4eb99dc74cdc7fc9b",
     "source/table-2-5-1_china_us_project_contribution_top10.csv": "590aeb718d75dabf12d334f24d1b54b61867eb0ac458ec8b9fae077c8bb62d3c"
   },
-  "manuscript_sha256": "cf1d140c40eedfa026b197019535340b2dfb02880764a026aa9133540fec03a4",
-  "pdf_sha256": "31c0c24ab474b29e60cd9f347becf6c32c51ba41b81dd8411cd98d63cfb605df",
+  "manuscript_sha256": "2ccbe18ca8979f70f9310fc93e54b4ec9af9153ba14537b77a634bf092da0eb1",
+  "pdf_sha256": "0b7b6fd1539bb9aeeed40f6e4ddea783253ebe156041549cea7cb09cbc43ba50",
   "figures": {
     "breadth": {
       "id": "2-6-1",
@@ -33,7 +33,7 @@
     },
     "sources": {
       "id": "2-6-2",
-      "title": "中美项目的本土与海外贡献来源",
+      "title": "中美项目的本土、已列跨境与未列来源",
       "file": "fig-2-6-2_sources.svg",
       "orientation": "portrait",
       "note": "2026 报告年度 · 来源份额样本"
@@ -47,11 +47,9 @@
     }
   },
   "verification": {
-    "pdf_render": "passed_all_five_pages",
-    "dom": "passed_398_bilingual_assertions",
+    "pdf_render": "pending",
+    "dom": "pending",
     "browser_visual": "not_run_no_supported_browser",
-    "physical_print": "not_run",
-    "css_cascade": "passed_180_light_dark_reading_fullscreen_narrow_assertions",
-    "publication_gates": "69_passed"
+    "physical_print": "not_run"
   }
 }

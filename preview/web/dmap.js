@@ -2,7 +2,7 @@
 (()=>{'use strict';
 const D=window.GOSD_DMAP,d3=window.d3;if(!D||!d3||!document.querySelector('.dmap-review'))return;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const BASE=$('meta[name="gosd-base"]')?.content||'',N=n=>Number(n).toLocaleString('zh-CN',{maximumFractionDigits:2}),F=n=>Math.abs(n)>=1e4?(n/1e4).toFixed(2)+'万':N(n),nm=c=>c==='OTH'?'其他来源':D.names[c]||c;
+const BASE=$('meta[name="gosd-base"]')?.content||'',N=n=>Number(n).toLocaleString('zh-CN',{maximumFractionDigits:2}),F=n=>Math.abs(n)>=1e4?(n/1e4).toFixed(2)+'万':N(n),nm=c=>c==='OTH'?'未列来源':D.names[c]||c;
 const palette=['#397da6','#168b92','#936c9e','#a87f2e','#558247','#b46d56','#647f96','#8c6f75','#6b8281','#a07580','#658395','#8a8264','#6b7894','#767895'];
 const order=['US','CN','DE','GB','CA','FR','IN','NL','CH','PL','SG','CZ','BG','SE','OTH'];
 const color=c=>({US:'#168b92',CN:'#397da6',DE:'#936c9e',GB:'#a87f2e',IN:'#558247',OTH:'#788991'}[c]||palette[Math.max(0,order.indexOf(c))%palette.length]);
@@ -54,9 +54,9 @@ function renderBreadth(){
 function renderSources(){
  $('#dm-sources-context').textContent='2026 报告年度';
  const row=(r,i)=>`<button class="dm-source-row" data-dm-source-country="${r.source}" aria-pressed="${S.source===r.source}"><small>${i+1}</small><span>${nm(r.source)}<i><em style="width:${r.share}%;background:${color(r.source)}"></em></i></span><b>${N(r.value)}</b><strong>${r.share.toFixed(2)}%</strong></button>`;
- const cols=['CN','US'].map(c=>{const all=D.sourceShares.filter(r=>r.target===c),local=all.find(r=>r.source===c).share,rows=all.filter(r=>r.source!=='OTH'&&(!S.overseas||r.source!==c));return `<section class="dm-source-column"><h5>${nm(c)}项目</h5><div class="dm-sharebar"><span style="width:${local}%">本土 ${local.toFixed(2)}%</span><span style="width:${100-local}%">海外 ${(100-local).toFixed(2)}%</span></div><div class="dm-source-head"><span>来源地区</span><span>贡献度</span><span>份额</span></div><div class="dm-source-rows">${rows.map(row).join('')}</div><p class="dm-remainder">Top 10 之外的其他来源：${all.find(r=>r.source==='OTH').share.toFixed(2)}%</p></section>`;}).join('');
+ const cols=['CN','US'].map(c=>{const all=D.sourceShares.filter(r=>r.target===c),local=all.find(r=>r.source===c).share,unlisted=all.find(r=>r.source==='OTH').share,cross=all.filter(r=>r.source!==c&&r.source!=='OTH').reduce((a,r)=>a+r.share,0),rows=all.filter(r=>r.source!=='OTH'&&(!S.overseas||r.source!==c));return `<section class="dm-source-column"><h5>${nm(c)}项目</h5><div class="dm-sharebar"><span style="width:${local}%" title="本土 ${local.toFixed(2)}%"></span><span style="width:${cross}%" title="已列跨境 ${cross.toFixed(2)}%"></span><span style="width:${unlisted}%;background:#788991" title="未列来源 ${unlisted.toFixed(2)}%"></span></div><div class="dm-share-labels"><span>本土 ${local.toFixed(2)}%</span><span>已列跨境 ${cross.toFixed(2)}%</span><span>未列 ${unlisted.toFixed(2)}%</span></div><div class="dm-source-head"><span>来源地区</span><span>贡献度</span><span>份额</span></div><div class="dm-source-rows">${rows.map(row).join('')}</div><p class="dm-remainder">未列来源（不归入已列跨境）：${all.find(r=>r.source==='OTH').share.toFixed(2)}%</p></section>`;}).join('');
  const detail=['CN','US'].map(c=>{const r=D.sourceShares.find(r=>r.source===S.source&&r.target===c);return `${nm(c)}项目：${r?r.share.toFixed(2)+'%':'未列入 Top 10'}`;}).join('　｜　');
- $('#dm-sources').innerHTML=`<div class="dm-sources-layout"><div class="dm-controls"><label><input type="checkbox" data-dm-overseas ${S.overseas?'checked':''}>只看已列海外来源</label><span>贡献度：OpenRank</span></div><div class="dm-source-columns">${cols}</div><div class="dm-shared-readout" role="status"><b>${nm(S.source)}</b>　${detail}</div></div>`;
+ $('#dm-sources').innerHTML=`<div class="dm-sources-layout"><div class="dm-controls"><label><input type="checkbox" data-dm-overseas ${S.overseas?'checked':''}>只看已列跨境来源</label><span>贡献度：OpenRank</span></div><div class="dm-source-columns">${cols}</div><div class="dm-shared-readout" role="status"><b>${nm(S.source)}</b>　${detail}</div></div>`;
  foot('sources','来源：报告编制组 · 两侧横条共用 0—100% 刻度');
 }
 function renderNetwork(){
@@ -78,7 +78,7 @@ function applyHighlight(){
 }
 const sources={
  breadth:['全球来源与年度份额','<p>地图为 OpenDigger 2025 自然年快照，份额分母为已列 236 个地区的贡献合计。</p><p>五年序列使用原稿的固定五国及其他国家份额，按报告年度展示。它不是每年重新选出的前五名，也不与地图拼接计算。“其他国家”不等同于全球南方。</p>','source/fig-2-5-1_country_contribution_share_trend.csv'],
- sources:['中美项目贡献来源','<p>2026 报告年度为 2025 年 7 月 1 日至 2026 年 6 月 30 日。中美来源表保留原表贡献度与份额，不重新归一。</p><p>Top 10 之外的其他来源分别占 6.76% 与 22.06%。未列入某侧 Top 10 的地区不按零处理，不根据四舍五入后的份额反推贡献度。该表与贡献流向样本分别计量。</p>','source/table-2-5-1_china_us_project_contribution_top10.csv'],
+ sources:['中美项目贡献来源','<p>2026 报告年度为 2025 年 7 月 1 日至 2026 年 6 月 30 日。中美来源表保留原表贡献度与份额，不重新归一。</p><p>未列来源分别占 6.76% 与 22.06%，不归入已核实的跨境贡献。未列入某侧 Top 10 的地区不按零处理，不根据四舍五入后的份额反推贡献度。该表与贡献流向样本分别计量。</p>','source/table-2-5-1_china_us_project_contribution_top10.csv'],
  network:['跨地域贡献流向','<p>原稿保留 60 条关系、14 个来源地区、10 个项目归属地区。图中汇总只反映已列关系，未列关系不等于零。2026 报告年度为 2025 年 7 月 1 日至 2026 年 6 月 30 日。</p><p>路径、弦图与地图使用同一筛选结果，颜色表示来源，连线指向项目归属。关闭本土贡献只移除本地关系，不改变其余数值。弦图外弧合计输入和输出，本土关系占两个端点。</p><p>本图与中美来源份额表使用不同样本，不能混算。贡献连线不表示人口迁移；地图仅提供位置参照。</p>','source/fig-2-5-2_cross_border_project_contribution_flow.csv']};
 function openSource(k){const o=$(`[data-dm-overlay="${k}"]`),a=sources[k];o.innerHTML=`<button data-dm-close="${k}" class="dm-source-close">关闭 ×</button><h4>${a[0]}</h4>${a[1]}<a href="${BASE}/assets/dmap/${a[2]}" download>下载底表 ↓</a>`;o.hidden=false;o.setAttribute('role','dialog');o.setAttribute('aria-label',a[0]);o.querySelector('button').focus();}
 function closeSource(k){$(`[data-dm-overlay="${k}"]`).hidden=true;$(`[data-dm-source="${k}"]`).focus();}

@@ -9,7 +9,7 @@ def prose(ps,insight=False):
  return ''.join(map(one,ps))
 def figure(key):
  f=FIGURES[key];tabs={'breadth':[('map','全球分布'),('trend','五年变化')],'sources':[],'network':[('sankey','贡献路径'),('chord','连接网络'),('map','协作地图')]}[key]
- controls='<div class="dm-tabs" role="group" aria-label="观察视角">'+''.join(f'<button data-dm-tab="{key}:{v}" aria-pressed="{str(i==0).lower()}">{t}</button>' for i,(v,t) in enumerate(tabs))+'</div>' if tabs else '<span>本土与海外 · 已列来源 Top 10</span>'
+ controls='<div class="dm-tabs" role="group" aria-label="观察视角">'+''.join(f'<button data-dm-tab="{key}:{v}" aria-pressed="{str(i==0).lower()}">{t}</button>' for i,(v,t) in enumerate(tabs))+'</div>' if tabs else '<span>本土、已列跨境与未列来源</span>'
  return f'''<figure id="fig-{f['id']}" class="chapter-one-visual dm-figure" data-slide-key="dmap-{f['id'][-1]}" data-slide-height="860" data-reflow-minimum-width="700" data-lang="zh" aria-labelledby="dm-{key}-title"><header class="viz-heading"><span class="eyebrow">图 {f['id']} / D-MAP</span><h4 id="dm-{key}-title">{f['title']}</h4></header><div class="dm-toolbar">{controls}<span class="dm-context" id="dm-{key}-context"></span></div><div class="dm-panel" id="dm-{key}"></div><figcaption><span id="dm-{key}-foot">{f['note']}</span><button data-dm-source="{key}">口径与来源</button></figcaption><div class="dm-source-overlay" data-dm-overlay="{key}" hidden></div><noscript><img src="/assets/dmap/print/{f['file']}" alt="{f['title']}"></noscript></figure><div class="dm-print-view"><img src="/assets/dmap/print/{f['file']}" alt="图 {f['id']} {f['title']}"></div>'''
 def section(lang='zh'):
  out=[f'<section id="ch02-s06" class="chapter-section goso-section dmap-review"><div class="section-topline">2.6 / D-MAP</div><h2>{TITLE}</h2><p class="dm-introduction">{INTRO}</p><p class="goso-question">{QUESTION}</p><div class="goso-map-position"><strong>目标与指标定位</strong><p>{POSITION}</p><a href="/2026/{lang}/data/indicators/#indicator-GlobalCollabShare">跨地域协作指标</a></div><h3>核心发现</h3><p class="dm-core-finding">{FINDING}</p><p class="goso-map-window">{WINDOW}</p><nav class="dm-reading-route" aria-label="D-Map 阅读路径">']
@@ -24,4 +24,5 @@ def export(out):
  (BASE/'chapter-2-6.md').write_text(manuscript())
  shutil.copytree(BASE,out/'assets/dmap',dirs_exist_ok=True)
  shutil.copy2(BASE/'print'/PDF_NAME,out/'assets/dmap/print'/PDF_RELEASE_NAME)
+ shutil.copy2(BASE/'print'/PDF_NAME,out/'assets/dmap/print/GOSD-2026-section-2-6-20261020.pdf')
  for f in ['dmap.js','dmap.css','dmap-publication.css']:shutil.copy2(ROOT/'web'/f,out/f)
