@@ -8,6 +8,7 @@ import chapter1_print as common
 import vmap_print as vp
 import vmap_publication as brand
 import tmap_publication as p
+from tmap_network import payload as network_payload
 INK,MUTED,TEAL,LINE=vp.INK,vp.MUTED,vp.TEAL,vp.LINE
 Figure,FigureFlow=vp.Figure,vp.FigureFlow
 PW,LW=vp.PWIDTH,vp.LWIDTH
@@ -45,6 +46,41 @@ def global_figure():
  for i,r in enumerate(D['world'][:10]):
   y=63+i*33;f.text(505,y,f'{i+1:02}  '+r['name'],9.4,INK);f.text(LW,y,num(r['value']),9.4,INK,'right');f.line([(505,y+9),(505+240*r['value']/35005,y+9)],TEAL,2)
  vp.notes(f,422,'来源：报告编制组。地图快照与五域年度序列分别阅读。');return f.caption()
+def network_figure():
+ d=network_payload();s=d['scenarios']['base'];nodes=d['nodes'];by={n['id']:i for i,n in enumerate(nodes)}
+ f=Figure('同一协作网络：参与、贡献与影响力','图 2-4-1',LW,461)
+ vp.badge(f,0,13,'教学模拟 · 非真实排名',153)
+ f.text(LW,13,'同一组节点与连线，回答三个不同问题',9,MUTED,'right')
+ cw=(LW-36)/3;sc=(cw-8)/800
+ for col,m in enumerate(d['modes']):
+  x=col*(cw+18);mid=m['id'];vp.title(f,x,43,m['chapter']+'  '+m['title']+'：'+m['question'])
+  if col:f.line([(x-9,31),(x-9,382)],LINE,.5)
+  rad=lambda i:(24 if mid=='participation' else math.sqrt(s['totals'][i])*11 if mid=='contribution' else max(12,math.sqrt(s['steps'][-1][i])*118))*sc
+  xy=lambda n:(x+4+n['x']*sc,61+n['y']*sc)
+  for e in s['edges']:
+   i,j=by[e['source']],by[e['target']];a,b=xy(nodes[i]),xy(nodes[j]);dx,dy=b[0]-a[0],b[1]-a[1];ll=math.hypot(dx,dy);ux,uy=dx/ll,dy/ll
+   start=(a[0]+ux*(rad(i)+1.5),a[1]+uy*(rad(i)+1.5));end=(b[0]-ux*(rad(j)+1.5),b[1]-uy*(rad(j)+1.5))
+   f.line([start,end],LINE if mid=='participation' else TEAL,.5 if mid=='participation' else .4+math.sqrt(e['weight'])*.35)
+   if mid=='influence':
+    for tip,vx,vy in [(end,ux,uy),(start,-ux,-uy)]:f.polygon([tip,(tip[0]-3.3*vx+1.5*vy,tip[1]-3.3*vy-1.5*vx),(tip[0]-3.3*vx-1.5*vy,tip[1]-3.3*vy+1.5*vx)],TEAL)
+  for i,n in enumerate(nodes):
+   xx,yy=xy(n);r=rad(i)
+   if n['kind']=='project':f.rect(xx-r,yy-r,r*2,r*2,'#edf4f5',TEAL,3)
+   else:f.dot(xx,yy,r,TEAL)
+   f.text(xx,yy-r-3 if r<5.5 else yy+3,n['id'],8.5,INK if n['kind']=='project' or r<5.5 else '#ffffff','center')
+  brief={'participation':'每位活跃开发者计 1 人。','contribution':'节点越大、连线越粗，示意投入越多。','influence':'箭头表示传播方向；节点越大，影响越高。'}
+  f.text(x,227,brief[mid],8.5,MUTED)
+  f.text(x,257,'开发者',8.5,MUTED);f.text(x+cw,257,{'participation':'参与计数 / 人','contribution':'贡献强度 / 示意值','influence':'开发者内相对影响'}[mid],8.5,MUTED,'right')
+  vals=[1]*6 if mid=='participation' else s['totals'][:6] if mid=='contribution' else s['developer_shares']
+  for row,i in enumerate(sorted(range(6),key=lambda i:(-vals[i],i))):
+   y=278+row*17;f.text(x,y,nodes[i]['id'],9,INK);f.line([(x+27,y-3),(x+27+100*vals[i]/(1 if mid=='participation' else 12 if mid=='contribution' else 40),y-3)],TEAL,2)
+   f.text(x+cw,y,f'{vals[i]:.1f}%' if mid=='influence' else str(vals[i]),9,INK,'right')
+ f.text(0,387,'圆形 A—F：开发者；方形 P1：基础库，P2：开发工具，P3：应用项目。',8.5,MUTED)
+ f.line([(0,397),(LW,397)],LINE,.5)
+ b0=s['developer_shares'][1];b1=d['scenarios']['rewired']['developer_shares'][1]
+ f.text(0,413,f'连接实验：B 的贡献强度仍为 8，将其中 6 从开发工具改为基础库，示意影响由 {b0:.1f}% 变为 {b1:.1f}%。',9,INK)
+ f.text(0,432,'借鉴 PageRank 的递归传播思想；正式 OpenRank 还包括活跃增值、历史继承等机制。本图不复现正式算法。',8.5,MUTED)
+ return f.caption(continued=True)
 def regions_figure():
  f=Figure(p.FIGURES['regions']['title'],'图 2-4-2',height=372);vp.title(f,0,13,'A  五年趋势 · 2022—2026报告年度');trend(f,D['regions'],0,29,PW,184,60000)
  for j,k in enumerate(G):
@@ -97,8 +133,8 @@ def connections_figure():
 class Doc(vp.Doc):
  def __init__(self,path):super().__init__(path);self.title='GOSD 2026 · 2.4 全球开源人才地图';self.subject='完整研究正文与四幅人才地图图组'
  def frame(self,c,doc):
-  w,h=c._pagesize;c.saveState();c.setFillColor(HexColor(TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0);c.setFont(common.FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(w-46,h-37,'第二章 全球开源生态观测地图');c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.drawString(46,28,'2.4 全球开源人才地图 · T-Map');c.drawRightString(w-46,28,str(doc.page));c.restoreState()
-def build(output,figs):
+  w,h=c._pagesize;c.saveState();c.setFillColor(HexColor(TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0);c.setFont(common.FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(w-46,h-37,'第二章 全球开源生态观测地图');c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.drawString(46,28,'2.4 全球开源人才地图');c.drawCentredString(w/2,28,p.PDF_REVISION);c.drawRightString(w-46,28,str(doc.page));c.restoreState()
+def build(output,figs,network):
  body=ParagraphStyle('body',fontName=common.FONT,fontSize=11.2,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=8,allowWidows=0,allowOrphans=0)
  styles={'chapter':ParagraphStyle('chapter',parent=body,fontSize=16,leading=24,spaceAfter=16,keepWithNext=True),'section':ParagraphStyle('section',parent=body,fontSize=12.6,leading=21,spaceBefore=12,spaceAfter=10,textColor=HexColor(TEAL),keepWithNext=True),'subsection':ParagraphStyle('subsection',parent=body,fontSize=11.2,leading=19,spaceBefore=8,spaceAfter=6,textColor=HexColor(TEAL),keepWithNext=True),'note':ParagraphStyle('note',parent=body,fontSize=9.5,leading=15,spaceAfter=8)};story=[]
  def para(t,s='body'):story.append(common.paragraph(t,styles.get(s,body)))
@@ -107,7 +143,7 @@ def build(output,figs):
   for t in p.STORIES[i][1][1:]:
    a,b=t.split('。',1);para('**'+a+'。**'+b)
  para('2.4 '+p.TITLE,'chapter');para(p.INTRO);para('研究问题：'+p.QUESTION);para('指标定位：'+p.POSITION,'note');para('核心发现：'+p.FINDING);para(p.WINDOW,'note');lead(0);after(0)
- story.extend([NextPageTemplate('landscape'),PageBreak(),FigureFlow(figs[0],'2-4-1'),NextPageTemplate('portrait'),PageBreak()])
+ story.extend([NextPageTemplate('landscape'),PageBreak(),FigureFlow(figs[0],'2-4-1'),PageBreak(),FigureFlow(network,'2-4-1-continued'),NextPageTemplate('portrait'),PageBreak()])
  for i in [1,2,3]:lead(i);story.append(FigureFlow(figs[i],f'2-4-{i+1}'));after(i);story.append(PageBreak())
  para(p.ACTION_TITLE,'section');para(p.ACTION_INTRO)
  for i,(title,ps) in enumerate(p.STRATEGIES,1):
@@ -118,10 +154,11 @@ def build(output,figs):
  para(p.BRIDGE);doc=Doc(output);doc.build(story);return dict(pages=doc.page,figures=doc.figures,headings=doc.headings,paragraphs=doc.locations)
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--font',type=Path,required=True);parser.add_argument('--output',type=Path,default=p.ROOT.parent/'output/pdf'/p.PDF_NAME);args=parser.parse_args();work=p.ROOT.parent/'tmp/pdfs/tmap';work.mkdir(parents=True,exist_ok=True);args.output.parent.mkdir(parents=True,exist_ok=True)
- common.font_setup(args.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+json.dumps(D,ensure_ascii=False)+json.dumps(S,ensure_ascii=False)+Path(vp.__file__).read_text())
- figs=[global_figure(),regions_figure(),china_figure(),connections_figure()];dest=p.BASE/'print';dest.mkdir(parents=True,exist_ok=True)
+ common.font_setup(args.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+p.PDF_REVISION+json.dumps(D,ensure_ascii=False)+json.dumps(S,ensure_ascii=False)+Path(vp.__file__).read_text())
+ figs=[global_figure(),regions_figure(),china_figure(),connections_figure()];network=network_figure();dest=p.BASE/'print';dest.mkdir(parents=True,exist_ok=True)
  for spec,fig in zip(p.FIGURES.values(),figs):(dest/spec['file']).write_text(fig.svg())
- layout=build(args.output,figs);shutil.copy2(args.output,dest/p.PDF_NAME);(p.BASE/'chapter-2-4.md').write_text(p.manuscript());digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
- manifest=dict(edition=p.EDITION,baseline='GOSO-PUB-20261020',pdf=p.PDF_NAME,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],data_sha256={n:digest(p.BASE/n) for n in ['observations.json','simulation.json']},manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=digest(args.output),figures=p.FIGURES,verification={'pdf_render':'pending','dom':'pending','browser_visual':'not_run_no_supported_browser','physical_print':'not_run'})
+ (dest/p.NETWORK_FIGURE).write_text(network.svg())
+ layout=build(args.output,figs,network);shutil.copy2(args.output,dest/p.PDF_NAME);(p.BASE/'chapter-2-4.md').write_text(p.manuscript());digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
+ manifest=dict(edition=p.EDITION,baseline='GOSO-PUB-20261020',pdf=p.PDF_NAME,release_pdf=p.PDF_RELEASE_NAME,revision=p.PDF_REVISION,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],data_sha256={n:digest(p.BASE/n) for n in ['observations.json','simulation.json']},teaching_network_sha256=digest(p.BASE/'network-concept.json'),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=digest(args.output),figures=p.FIGURES,verification={'pdf_render':'pending','dom':'pending','browser_visual':'not_run_no_supported_browser','physical_print':'not_run'})
  (dest/'publication-spec.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');(work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'pdf':str(args.output),'pages':layout['pages'],'figure_pages':layout['figures']},ensure_ascii=False))
 if __name__=='__main__':main()

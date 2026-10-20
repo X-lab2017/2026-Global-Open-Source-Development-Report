@@ -1,13 +1,16 @@
 {
-  "edition": "2026-10-20-tmap-narrative",
+  "edition": "2026-10-20-tmap-network",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-4.pdf",
-  "pages": 6,
+  "release_pdf": "GOSD-2026-section-2-4-20261020-network.pdf",
+  "revision": "2026-10-20 · 网络解释修订版",
+  "pages": 7,
   "figure_pages": {
     "2-4-1": 2,
-    "2-4-2": 3,
-    "2-4-3": 4,
-    "2-4-4": 5
+    "2-4-1-continued": 3,
+    "2-4-2": 4,
+    "2-4-3": 5,
+    "2-4-4": 6
   },
   "body_font_pt": 11.2,
   "chart_font_range_pt": [
@@ -18,13 +21,15 @@
     "observations.json": "35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813",
     "simulation.json": "339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025"
   },
-  "manuscript_sha256": "3027bed946bd478257be3937980a73ec5480a0f994250b8c7bc5684a9023a94d",
-  "pdf_sha256": "97ef0deb55bd5b69f4c6cae55969bd81876046f7198f78b3fdd03be916e9826c",
+  "teaching_network_sha256": "a447e9e3436d4ee8bd61f0878ab0078d7dc9332f997de36987e6907083f45f2f",
+  "manuscript_sha256": "38d71249a5e8812223a4eb8a75b5796f59d2dd807271c1921165abe6026e0733",
+  "pdf_sha256": "ad952841c64e2ba92ecc8d9b97ce17c07a2e4dc4747a858e3694f93dc52281b9",
   "figures": {
     "world": {
       "id": "2-4-1",
       "title": "全球高影响力人才分布与排名",
       "file": "fig-2-4-1_global.svg",
+      "continuation": "fig-2-4-1_network.svg",
       "orientation": "landscape",
       "note": "来源：报告编制组 · 2026年7月快照"
     },
@@ -51,11 +56,10 @@
     }
   },
   "verification": {
-    "pdf_render": "all_6_pages_inspected",
-    "dom": "518_bilingual_interaction_checks_passed",
+    "pdf_render": "all_7_pages_reviewed",
+    "dom": "590_interaction_assertions",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "css": "240_light_dark_cascade_checks_passed",
-    "release_gates": "22_passed"
+    "css_cascade": "240_assertions"
   }
 }

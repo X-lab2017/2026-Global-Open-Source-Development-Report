@@ -166,7 +166,7 @@ def chapter(lang):
     out.append(reading.overview())
     out.append('<div data-goso-directory></div>')
     out.append('<nav class="atlas-chapter-route" aria-label="七个地图视角">'+''.join('<a href="#ch02-s0'+str(i+1)+'"><b>'+s['code']+'</b><span>'+label+'</span></a>' for i,(s,label) in enumerate(zip(SECTIONS,['活跃参与','协作贡献','项目影响力','开源人才','开放资产','多样性共建','治理与公益'])))+'</nav>')
-    out.append('<details class="goso-scope"><summary>阅读说明 · 报告年度、地图快照与来源</summary><p>除特别标注外，2026 报告年度为 2025 年 7 月 1 日至 2026 年 6 月 30 日。2.1 按报告年度阅读，国内平台补充量为编制组依据官方平台数据与问卷调研去重得到。2.2、2.3 的地图采用 2025 自然年数据，五域与项目样本采用报告年度；2.4 的全球地图与定位记录为 2026 年 7 月快照，五域与十城趋势按报告年度阅读。不同窗口与样本分别展示，不混合计算。</p><p>OpenDigger 提供主要数据与方法基础。协作机制示意、实际项目记录与人才模拟分别标注；模拟不作为实测发现。账户、人才、项目、模型和数据资产分别计量，缺失不补零，五域不构成全球的穷尽分区。具体范围与来源见各图及节末说明。</p>'+link(base+'chapters/01/#ch01-s03','回到 1.3 · OSDI 方法基础')+' · '+link(base+'methodology/','完整方法与范围')+'</details>')
+    out.append('<details class="goso-scope"><summary>阅读说明 · 报告年度、地图快照与来源</summary><p>除特别标注外，2026 报告年度为 2025 年 7 月 1 日至 2026 年 6 月 30 日。2.1 按报告年度阅读，国内平台补充量为编制组依据官方平台数据与问卷调研去重得到。2.2、2.3 的地图采用 2025 自然年数据，五域与项目样本采用报告年度；2.4 的全球地图为 2026 年 7 月快照，五域与十城趋势按报告年度阅读。不同窗口与样本分别展示，不混合计算。</p><p>OpenDigger 提供主要数据与方法基础。协作机制示意、实际项目记录与人才模拟分别标注；模拟不作为实测发现。账户、人才、项目、模型和数据资产分别计量，缺失不补零，五域不构成全球的穷尽分区。具体范围与来源见各图及节末说明。</p>'+link(base+'chapters/01/#ch01-s03','回到 1.3 · OSDI 方法基础')+' · '+link(base+'methodology/','完整方法与范围')+'</details>')
     sections=[]
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)

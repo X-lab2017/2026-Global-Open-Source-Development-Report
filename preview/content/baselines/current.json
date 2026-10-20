@@ -39,7 +39,7 @@
       "section": "2.4",
       "status": "publication_for_review",
       "preview_section": "/2026/zh/chapters/02/#ch02-s04",
-      "implementation_record": "docs/tmap-narrative-polish-20261020.md"
+      "implementation_record": "docs/tmap-network-consistency-20261020.md"
     }
   ],
   "implementation_updates": [
@@ -125,6 +125,15 @@
       "record": "docs/tmap-narrative-polish-20261020.md",
       "status": "narrative_polish_for_review",
       "edition": "2026-10-20-tmap-narrative"
+    },
+    {
+      "date": "2026-10-20",
+      "sections": [
+        "2.4"
+      ],
+      "record": "docs/tmap-network-consistency-20261020.md",
+      "status": "network_and_version_alignment_for_review",
+      "edition": "2026-10-20-tmap-network"
     }
   ],
   "specification": "print/BASELINE.md",

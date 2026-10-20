@@ -6,7 +6,12 @@
       "id": "fig-2-4-1",
       "status": "repository_source",
       "file": "fig-2-4-1_global_open_source_talent_map.csv",
-      "period": "2026-07"
+      "period": "2026-07",
+      "teaching_network": {
+        "file": "network-concept.json",
+        "status": "teaching_simulation",
+        "print": "fig-2-4-1_network.svg"
+      }
     },
     {
       "id": "fig-2-4-2",
@@ -31,7 +36,7 @@
   ],
   "geometry": "/assets/vmap/map-provenance.json",
   "notes": [
-    "图1理解人才的网络是教学示意，不输出模拟OpenRank排名。",
+    "图1理解人才使用统一教学网络展示参与、贡献与简化传播；示意值不是正式 OpenRank，网页与 PDF 共用节点、连线与计算结果。",
     "全球总量、年度构建、前5%总体和并列规则待补。",
     "模拟数据不能作为结论、实际人才流动或政策效果预测。"
   ],

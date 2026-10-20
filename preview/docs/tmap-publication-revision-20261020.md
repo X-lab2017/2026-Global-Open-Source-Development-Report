@@ -1,5 +1,7 @@
 # 2.4 T-Map 图文与出版优化
 
+> 此文记录初版，非当前状态。当前为四幅图组与网络解释续图，详见 [网络解释与版本对齐](tmap-network-consistency-20261020.md)。
+
 本轮沿用 2.1 / 2.2 基线，状态为提交评审。五幅图、原始 CSV、`observations.json` 与 `simulation.json` 数值全部保留；不抓取另一份数据替换既有样本。
 
 - 共用正文：`web/tmap_publication.py`；同步源章节、网页、下载底稿与 PDF。
