@@ -106,3 +106,6 @@
 .goso-chapter .slide-launcher>span{font:500 14px/1.65 var(--sans);color:var(--ink);max-width:none;flex:1;min-width:0}
 .goso-source-context{border-top:1px solid var(--line);margin-top:20px;padding-top:12px}
 @media(max-width:800px){.goso-chapter .goso-reading-section :is(.cm-story,.im-story,.tm-story,.am-story,.dm-story,.cm-interpretation,.im-interpretation,.tm-interpretation,.am-interpretation,.dm-interpretation) p{font-size:16px}}
+
+.goso-chapter-intro p{max-width:none!important;font-family:var(--sans)}
+.goso-chapter p.goso-body-width{font-family:var(--sans)!important}
