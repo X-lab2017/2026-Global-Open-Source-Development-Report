@@ -1,7 +1,9 @@
 {
-  "review_date": "2026-10-15",
-  "status": "review",
-  "scope": "2.5 A-Map private design review",
+  "review_date": "2026-10-20",
+  "status": "publication_review",
+  "scope": "2.5 A-Map",
+  "revision": "2026-10-20-amap-publication",
+  "layout": "代码平台规模与增长—模型地域供给与下载—数据地域供给与下载",
   "sources": [
     {
       "key": "platforms",
@@ -10,133 +12,166 @@
       "sha256": "996852657b99c3fe9843cb0594bfe8a84fe750dedf68d4b658909b7ae1afd9de"
     },
     {
-      "key": "models",
-      "file": "fig-5-1-1_hf_cumulative_models_publishers.csv",
-      "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-1-1_hf_cumulative_models_publishers.csv",
-      "sha256": "37124646ec1c5033554294a451ccc23df2a151534cd7ad09efdcbe1dec53aad3"
-    },
-    {
-      "key": "countries",
-      "file": "fig-5-1-2_country_model_contribution.csv",
-      "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-1-2_country_model_contribution.csv",
-      "sha256": "4736ac4bff4ea26f1c62bb91c33bbb707504f56ab816f3d403ae9fa129776578"
-    },
-    {
-      "key": "derivation",
-      "file": "fig-5-2-1_hf_cumulative_derivation.csv",
-      "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-2-1_hf_cumulative_derivation.csv",
-      "sha256": "05b2c068a044a14d55b9da06a8cd41594dc3d935dcc4c7edd6731ea2c50049fb"
-    },
-    {
-      "key": "quadrants",
-      "file": "fig-5-3-1_openness_quadrants.csv",
-      "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-3-1_openness_quadrants.csv",
-      "sha256": "faa29a52488561319476c54b94728751b34e11bcfdf87368ed4cb813fd9e389e"
-    },
-    {
-      "key": "modelSummary",
-      "file": "modelSummary.json",
-      "source": "http://47.100.76.186:9529/api/models/summary/",
-      "captured_at": "2026-10-15",
-      "sha256": "a012d816877d164bf7e01dfac8cee4faac90e3d2e88e36927b23e5a8ad725d92"
-    },
-    {
-      "key": "datasetSummary",
-      "file": "datasetSummary.json",
-      "source": "http://47.100.76.186:9529/api/datasets/summary/?granularity=weekly",
-      "captured_at": "2026-10-15",
-      "sha256": "94aab737d618c4c8628603fce75ddb042a4b07d3ddafd89cc3bc0404472f2a24"
-    },
-    {
-      "key": "modelMonthly",
-      "file": "modelMonthly.json",
-      "source": "http://47.100.76.186:9529/api/models/trend/?granularity=monthly",
-      "captured_at": "2026-10-15",
-      "sha256": "026ea0d5dab0382ccd7a5785aed62593e854ad87e3cd84b68b3080a9122679b2"
-    },
-    {
-      "key": "datasetMonthly",
-      "file": "datasetMonthly.json",
-      "source": "http://47.100.76.186:9529/api/datasets/trend/?granularity=monthly",
-      "captured_at": "2026-10-15",
-      "sha256": "ba046b0efaa502bf4b1f2ba452c78bdec9fa0f4ebc4396ae5b4612d63b6db822"
-    },
-    {
-      "key": "modelTasks",
-      "file": "modelTasks.json",
-      "source": "http://47.100.76.186:9529/api/models/distribution/?group_by=pipeline_tag",
-      "captured_at": "2026-10-15",
-      "sha256": "406ab59a4584287c0c77fd04fdf1bb864b882c56f06b2cad89afe9aaf7985378"
-    },
-    {
-      "key": "datasetTasks",
-      "file": "datasetTasks.json",
-      "source": "http://47.100.76.186:9529/api/datasets/distribution/?group_by=task_categories",
-      "captured_at": "2026-10-15",
-      "sha256": "f2930bc17e35e31204d9420e34faf34330f4c6b77eb8c007bcddbc22d6ac8884"
-    }
-  ],
-  "external_sources": [
-    {
-      "id": "github-coo",
-      "url": "https://x.com/kdaigle/status/2040164759836778878",
-      "interview": "https://www.latent.space/p/github",
-      "as_of": "2026-04-03",
-      "note": "2025约10亿次；2026按当时速率外推全年140亿次，非全年实测，不限公开开源仓库。"
-    },
-    {
-      "id": "octoverse2025",
-      "url": "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/",
-      "note": "2025报告窗口；总仓库包含私有仓库，不能替代开放资产量。"
-    },
-    {
-      "id": "hf-model-cards",
-      "url": "https://huggingface.co/docs/hub/model-cards"
-    },
-    {
-      "id": "hf-downloads",
-      "url": "https://huggingface.co/docs/hub/models-download-stats"
-    },
-    {
-      "id": "hf-dataset-cards",
-      "url": "https://huggingface.co/docs/hub/datasets-cards"
+      "key": "model_dataset_publisher_sample",
+      "source_name": "2.7 全球开源资产地图（A-Map）(4).pdf",
+      "sha256": "b76a899de1a721cc4b553dcfd6f069ca694e1387727d2a9e2390cb28525b381e",
+      "pages": [
+        2,
+        3
+      ],
+      "usage": "逐项核读样本总量、前14国数量与中美下载份额；累计快照时点未注明",
+      "extracted": "observations.json"
     }
   ],
   "boundaries": [
-    "公开可见不自动等于合格开源发布",
-    "2026平台活跃仓库采用原表报告年度，窗口待对齐",
-    "模型国家已识别样本不代表全部模型所在地",
-    "模型与数据集任务标签覆盖不全且可能多标签，不计算全平台份额",
-    "供应者所在国不是下载者所在国",
-    "图1代码国家分布为模拟，模型/数据为原稿前14国+模拟补齐；一键可隐藏模拟。",
-    "类别树图对模型/数据按任务标签记录计量，允许多标签，不是去重仓库占比。",
-    "2022—2024提交量与2022—2025数据集规模为设计模拟；2026提交量为管理层前瞻推算。"
+    "代码仓库沿用四平台原表。原始列名 GitCode 按合并后的品牌统一显示为 AtomGit，2022、2023 年缺值保留为空，不补零或模拟；平台记录合计不视为跨平台去重总量。",
+    "模型与数据集为原稿发布单位累计样本，不代表 Hugging Face 全体仓库。地图仅着色原稿中可逐项核对的 14 个国家，其余为未列明；份额分母仍为完整样本总量，不按 14 国重新归一。原稿未注明累计快照时点，不能与年度代码序列直接对齐计算增长。",
+    "下载份额沿用原稿中的中美数据，数量份额由样本数量计算并保留一位小数。发布方所在地不表示下载者所在地；下载次数不等于独立用户或实际应用成效。公开可见也不自动代表符合本报告的开放资格。"
   ],
-  "revision": "三图审阅稿 v3",
-  "layout": "全球分布—五年增长—类别演进",
-  "simulation_manifest": "simulation-v3.json",
-  "attachments": [
-    {
-      "file": "A-Map-draft-3.pdf",
-      "source_name": "2.7 全球开源资产地图（A-Map）(3).pdf",
-      "usage": "模型、数据集前14国及样本总量手工核读；快照日期待补"
+  "report_year": "2026 = 2025-07-01 through 2026-06-30",
+  "figures": {
+    "code": {
+      "id": "2-5-1",
+      "title": "代码平台活跃仓库趋势、规模与增长",
+      "file": "fig-2-5-1_code.svg",
+      "orientation": "landscape",
+      "note": "来源：报告编制组 · 平台记录分别计量"
     },
-    {
-      "file": "technology-openrank.png",
-      "source_name": "image(20261015-154501).png",
-      "usage": "技术领域及2022—2025 OpenRank图像近似读数，非仓库数量"
+    "models": {
+      "id": "2-5-2",
+      "title": "全球模型供给分布与中美下载对照",
+      "file": "fig-2-5-2_models.svg",
+      "orientation": "portrait",
+      "note": "来源：Hugging Face · 发布单位累计样本"
     },
-    {
-      "file": "active-repository-trend.png",
-      "source_name": "image(20261015-154441).png",
-      "usage": "活跃代码仓库趋势参照；数值以报告CSV为准"
+    "datasets": {
+      "id": "2-5-3",
+      "title": "全球数据集供给分布与中美下载对照",
+      "file": "fig-2-5-3_datasets.svg",
+      "orientation": "portrait",
+      "note": "来源：Hugging Face · 发布单位累计样本"
     }
-  ],
-  "fresh_geography_attempt": "2026-10-15 /api/geography/overview/ returned HTTP 500; use attachment and marked simulations.",
-  "retained_prior_sources": [
-    "derivation",
-    "quadrants",
-    "modelMonthly",
-    "datasetMonthly"
-  ]
+  },
+  "legacy_archive": {
+    "note": "旧设计资产保留供追溯，不用于本次三幅图与 PDF。旧数据包及模拟补齐不再加载。",
+    "data_files": [
+      "atlas-v3.json",
+      "data.js",
+      "geography-v3.csv",
+      "growth-v3.csv",
+      "categories-v3.csv",
+      "simulation-v3.json"
+    ],
+    "sources": [
+      {
+        "key": "models",
+        "file": "fig-5-1-1_hf_cumulative_models_publishers.csv",
+        "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-1-1_hf_cumulative_models_publishers.csv",
+        "sha256": "37124646ec1c5033554294a451ccc23df2a151534cd7ad09efdcbe1dec53aad3"
+      },
+      {
+        "key": "countries",
+        "file": "fig-5-1-2_country_model_contribution.csv",
+        "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-1-2_country_model_contribution.csv",
+        "sha256": "4736ac4bff4ea26f1c62bb91c33bbb707504f56ab816f3d403ae9fa129776578"
+      },
+      {
+        "key": "derivation",
+        "file": "fig-5-2-1_hf_cumulative_derivation.csv",
+        "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-2-1_hf_cumulative_derivation.csv",
+        "sha256": "05b2c068a044a14d55b9da06a8cd41594dc3d935dcc4c7edd6731ea2c50049fb"
+      },
+      {
+        "key": "quadrants",
+        "file": "fig-5-3-1_openness_quadrants.csv",
+        "source": "https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/blob/423f9cf14ac8d2886133d3ab63969db5521a2365/data/processed/chapter5/fig-5-3-1_openness_quadrants.csv",
+        "sha256": "faa29a52488561319476c54b94728751b34e11bcfdf87368ed4cb813fd9e389e"
+      },
+      {
+        "key": "modelSummary",
+        "file": "modelSummary.json",
+        "source": "http://47.100.76.186:9529/api/models/summary/",
+        "captured_at": "2026-10-15",
+        "sha256": "a012d816877d164bf7e01dfac8cee4faac90e3d2e88e36927b23e5a8ad725d92"
+      },
+      {
+        "key": "datasetSummary",
+        "file": "datasetSummary.json",
+        "source": "http://47.100.76.186:9529/api/datasets/summary/?granularity=weekly",
+        "captured_at": "2026-10-15",
+        "sha256": "94aab737d618c4c8628603fce75ddb042a4b07d3ddafd89cc3bc0404472f2a24"
+      },
+      {
+        "key": "modelMonthly",
+        "file": "modelMonthly.json",
+        "source": "http://47.100.76.186:9529/api/models/trend/?granularity=monthly",
+        "captured_at": "2026-10-15",
+        "sha256": "026ea0d5dab0382ccd7a5785aed62593e854ad87e3cd84b68b3080a9122679b2"
+      },
+      {
+        "key": "datasetMonthly",
+        "file": "datasetMonthly.json",
+        "source": "http://47.100.76.186:9529/api/datasets/trend/?granularity=monthly",
+        "captured_at": "2026-10-15",
+        "sha256": "ba046b0efaa502bf4b1f2ba452c78bdec9fa0f4ebc4396ae5b4612d63b6db822"
+      },
+      {
+        "key": "modelTasks",
+        "file": "modelTasks.json",
+        "source": "http://47.100.76.186:9529/api/models/distribution/?group_by=pipeline_tag",
+        "captured_at": "2026-10-15",
+        "sha256": "406ab59a4584287c0c77fd04fdf1bb864b882c56f06b2cad89afe9aaf7985378"
+      },
+      {
+        "key": "datasetTasks",
+        "file": "datasetTasks.json",
+        "source": "http://47.100.76.186:9529/api/datasets/distribution/?group_by=task_categories",
+        "captured_at": "2026-10-15",
+        "sha256": "f2930bc17e35e31204d9420e34faf34330f4c6b77eb8c007bcddbc22d6ac8884"
+      }
+    ],
+    "external_sources": [
+      {
+        "id": "github-coo",
+        "url": "https://x.com/kdaigle/status/2040164759836778878",
+        "interview": "https://www.latent.space/p/github",
+        "as_of": "2026-04-03",
+        "note": "2025约10亿次；2026按当时速率外推全年140亿次，非全年实测，不限公开开源仓库。"
+      },
+      {
+        "id": "octoverse2025",
+        "url": "https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/",
+        "note": "2025报告窗口；总仓库包含私有仓库，不能替代开放资产量。"
+      },
+      {
+        "id": "hf-model-cards",
+        "url": "https://huggingface.co/docs/hub/model-cards"
+      },
+      {
+        "id": "hf-downloads",
+        "url": "https://huggingface.co/docs/hub/models-download-stats"
+      },
+      {
+        "id": "hf-dataset-cards",
+        "url": "https://huggingface.co/docs/hub/datasets-cards"
+      }
+    ],
+    "attachments": [
+      {
+        "file": "A-Map-draft-3.pdf",
+        "source_name": "2.7 全球开源资产地图（A-Map）(3).pdf",
+        "usage": "模型、数据集前14国及样本总量手工核读；快照日期待补"
+      },
+      {
+        "file": "technology-openrank.png",
+        "source_name": "image(20261015-154501).png",
+        "usage": "技术领域及2022—2025 OpenRank图像近似读数，非仓库数量"
+      },
+      {
+        "file": "active-repository-trend.png",
+        "source_name": "image(20261015-154441).png",
+        "usage": "活跃代码仓库趋势参照；数值以报告CSV为准"
+      }
+    ]
+  }
 }

@@ -233,7 +233,7 @@ def export(out):
             manuscript.append(__import__('dmap_content').manuscript())
             continue
         if s['key']=='a':
-            manuscript.append('\n## 2.5 全球开源资产地图（A-Map）\n\n'+__import__('re').sub('<[^>]+>', ' ', __import__('amap_content').section('zh')))
+            manuscript.append(__import__('amap_content').manuscript())
             continue
         if s['key']=='v':
             manuscript.append(__import__('vmap_content').manuscript())

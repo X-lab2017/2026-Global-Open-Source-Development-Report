@@ -1,0 +1,55 @@
+{
+  "edition": "2026-10-20-amap-publication",
+  "baseline": "GOSO-PUB-20261020",
+  "pdf": "GOSD-2026-section-2-5.pdf",
+  "release_pdf": "GOSD-2026-section-2-5-20261020.pdf",
+  "revision": "2026-10-20 · 资产地图评审版",
+  "pages": 5,
+  "figure_pages": {
+    "2-5-1": 2,
+    "2-5-2": 3,
+    "2-5-3": 4
+  },
+  "body_font_pt": 11.2,
+  "chart_font_range_pt": [
+    8.5,
+    10.5
+  ],
+  "data_sha256": {
+    "observations.json": "3c2d9175cefcb5789db936160f6e786a84cb5d8dd609bc4de4a28b667000eb95",
+    "fig-2-7-1_platform_active_repository_trend.csv": "996852657b99c3fe9843cb0594bfe8a84fe750dedf68d4b658909b7ae1afd9de"
+  },
+  "manuscript_sha256": "e1e0425d498658df4545317676ce4243e2590eef553bb20c42a55f2e0a99a6b7",
+  "pdf_sha256": "611f280a2b3e5866e4ded333ab59e216531c25591e2a433f545588ec24f17b74",
+  "figures": {
+    "code": {
+      "id": "2-5-1",
+      "title": "代码平台活跃仓库趋势、规模与增长",
+      "file": "fig-2-5-1_code.svg",
+      "orientation": "landscape",
+      "note": "来源：报告编制组 · 平台记录分别计量"
+    },
+    "models": {
+      "id": "2-5-2",
+      "title": "全球模型供给分布与中美下载对照",
+      "file": "fig-2-5-2_models.svg",
+      "orientation": "portrait",
+      "note": "来源：Hugging Face · 发布单位累计样本"
+    },
+    "datasets": {
+      "id": "2-5-3",
+      "title": "全球数据集供给分布与中美下载对照",
+      "file": "fig-2-5-3_datasets.svg",
+      "orientation": "portrait",
+      "note": "来源：Hugging Face · 发布单位累计样本"
+    }
+  },
+  "verification": {
+    "pdf_render": "all_5_pages_visually_checked",
+    "dom": "684_bilingual_assertions_passed",
+    "browser_visual": "not_run_no_supported_browser",
+    "physical_print": "not_run",
+    "css_cascade": "180_assertions_passed",
+    "build_gates": "73_passed"
+  }
+}

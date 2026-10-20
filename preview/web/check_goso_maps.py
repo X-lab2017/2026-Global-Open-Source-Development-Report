@@ -12,9 +12,11 @@ class Page(HTMLParser):
 for lang in ('zh','en'):
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text();page=Page(text)
     canvases=[a for _,a in page.nodes if 'goso-unified-canvas' in a.get('class','')]
-    assert len(canvases)==8
-    assert {a['data-slide-key'] for a in canvases}=={f'{k}-{i}' for k,n in [('amap',3),('gmap',5)] for i in range(1,n+1)}
+    assert len(canvases)==5
+    assert {a['data-slide-key'] for a in canvases}=={f'{k}-{i}' for k,n in [('gmap',5)] for i in range(1,n+1)}
     assert all(a['data-slide-height']=='820' for a in canvases)
+    amap=[a for _,a in page.nodes if 'am-figure' in a.get('class','')]
+    assert len(amap)==3 and all(a['data-slide-height']=='860' for a in amap)
     dmap=[a for _,a in page.nodes if 'dm-figure' in a.get('class','')]
     assert len(dmap)==3 and all(a['data-slide-height']=='860' for a in dmap)
     imap=[a for _,a in page.nodes if 'imap-figure' in a.get('class','')]
@@ -61,4 +63,4 @@ assert len(i['chinaProjects'])==30 and i['chinaProjectCounts']==[None]*5
 assert len(t['world'])==175 and len(t['chinaRecords'])==370
 assert 'geometry' not in i and 'geometry' not in t
 for k in ('imap','tmap'):assert (out/'assets'/k/'data.js').exists()
-print('PASS: 3 I-Map and 4 T-Map publication figures; 3 D-Map publication figures; 8 A/G presentations; scoped light/dark tokens; unchanged source CSVs; isolated simulations; shared source geometry.')
+print('PASS: 3 I-Map and 4 T-Map publication figures; 3 A-Map and 3 D-Map publication figures; 5 G-Map presentations; scoped light/dark tokens; unchanged source CSVs; isolated simulations; shared source geometry.')
