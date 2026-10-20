@@ -159,7 +159,7 @@ def chapter(lang):
     import goso_editorial as editorial
     vv=views();base='/2026/'+lang+'/';all_data=json.dumps(vv,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     out=['<div class="goso-chapter" lang="zh-CN">',atlas.defs()]
-    if lang=='en':out.append('<div class="reader-note" lang="en">GOSO review chapter: the Chinese manuscript and charts are shown below. English translation will follow editorial review.</div>')
+    if lang=='en':out.append('<div class="reader-note" lang="en">The Chinese manuscript and charts are shown below.</div>')
     out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 2026 报告年度</span><div><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
     import goso_intro as intro
     out.append(intro.cover())
@@ -167,7 +167,6 @@ def chapter(lang):
     out.append(intro.overview())
     out.append(intro.route())
     out.append(intro.scope(lang))
-    out.append('<div data-goso-directory></div>')
     sections=[]
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)
@@ -198,13 +197,13 @@ def chapter(lang):
         out.append('<aside class="goso-implication"><span>研究启示</span><p>'+s['takeaway']+'</p></aside>')
         out.append('<div class="goso-method-links">OSDI 查证入口（图表不等同完整指标测算）：'+' · '.join(link(base+'data/indicators/#indicator-'+k,k) for k in s['pillars'])+'</div>')
         out.append('<details class="goso-gap"><summary>待补证据 · '+s['name'].replace('全球开源','')+'</summary><p>'+s['gap']+'</p><div class="goso-blank">待补充</div>'+'</details><p class="goso-bridge">'+s['bridge']+'</p></section>')
-    out.append('<section class="goso-closing" id="goso-next"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h2>把差异变成下一步研究与行动的问题。</h2><p>七个主题共同提示：开放参与的扩张是起点，持续贡献、共同维护和可复用供给构成不同的能力层次。对这些差异的理解，需要继续深入主体与技术网络，并以公共场景检验开放的价值。</p><div class="goso-next-grid">'+''.join(link(base+'chapters/'+n+'/',tag+' · '+label) for n,tag,label in [('03','GOSR','哪些主体形成影响'),('04','GOSL','技术网络如何演进'),('05','GOSM','模型怎样被复用与治理'),('06','行动建议','哪些条件值得持续投入')])+'</div></section>')
+    out.append('<section class="goso-closing" id="goso-next"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h2>把差异变成下一步研究与行动的问题。</h2><p>七个主题共同提示：开放参与的扩张是起点，持续贡献、共同维护和可复用供给构成不同的能力层次。对这些差异的理解，需要继续深入主体与技术网络，并以公共场景检验开放的价值。</p><div class="goso-next-grid">'+''.join(link(base+'chapters/'+n+'/',tag+' · '+label) for n,tag,label in [('03','第三章','全球开源影响力排行榜')])+'</div></section>')
     out.append('<script type="application/json" id="goso-chart-data">'+all_data+'</script><script type="application/json" id="goso-atlas-data">'+json.dumps(atlas.payload(),ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></div>')
-    return ''.join(out).replace('<div data-goso-directory></div>',reading.figure_directory(sections))
+    return ''.join(out)
 
 def feature(lang):
     zh=lang=='zh';p='/2026/'+lang+'/chapters/02/'
-    return '<section class="chapter-feature goso-feature"><div><span class="eyebrow">NEW / GOSO · CHAPTER 02</span><h2>'+('在世界地图上，读懂开源的变化。' if zh else 'Seven views of a changing ecosystem.')+'</h2><p>'+('从全球地图进入中国省级观察，联动地区读数与跨年趋势；通过人才点位、贡献流向和模型地域分布，读懂生态结构。' if zh else 'Explore the GOSO review chapter: regional trends, talent, collaboration, governance and open supply.')+'</p>'+link(p,'阅读 GOSO 样章 →' if zh else 'Read the GOSO chapter →')+'</div><div class="feature-route">'+''.join(link(p+'#ch02-s0'+str(n),label) for n,label in [(1,'01　参与、贡献与影响力'),(4,'02　人才、资产与多样性'),(7,'03　治理与公共价值')])+'</div></section>'
+    return '<section class="chapter-feature goso-feature"><div><span class="eyebrow">NEW / GOSO · CHAPTER 02</span><h2>'+('在世界地图上，读懂开源的变化。' if zh else 'Seven views of a changing ecosystem.')+'</h2><p>'+('从全球地图进入中国省级观察，联动地区读数与跨年趋势；通过人才点位、贡献流向和模型地域分布，读懂生态结构。' if zh else 'Explore the GOSO chapter: regional trends, talent, collaboration, governance and open supply.')+'</p>'+link(p,'阅读第二章 →' if zh else 'Read the GOSO chapter →')+'</div><div class="feature-route">'+''.join(link(p+'#ch02-s0'+str(n),label) for n,label in [(1,'01　参与、贡献与影响力'),(4,'02　人才、资产与多样性'),(7,'03　治理与公共价值')])+'</div></section>'
 
 def export(out):
     dest=out/'assets/goso';dest.mkdir(parents=True,exist_ok=True)

@@ -52,7 +52,14 @@ def normalize(text,n,lang):
     tree=Tree(text);root=next((x for x in tree.root.walk() if x.attrs.get('id')==f'ch02-s0{n}'),None)
     if not root:return text
     root.add('goso-reading-section');root.set('data-map-index',n)
-    # Some English sections intentionally link to the Chinese review.
+    # Keep reader navigation and PDF downloads; technical exports stay in the repository.
+    for anchor in list(root.walk()):
+        if anchor.tag != 'a':continue
+        href=anchor.attrs.get('href','')
+        if ('/assets/' in href and not href.split('?')[0].endswith('.pdf')) or '/data/indicators/' in href or href=='#fig-vmap-global' or '#goso-review' in href:
+            remove(root,anchor)
+    for node in reversed(list(root.walk())):
+        if node.tag in ('p','div') and not any(isinstance(c,Node) for c in node.children) and re.fullmatch(r'[\s·|]*',node.text()):remove(root,node)
     figures=[x for x in root.walk() if x.tag=='figure']
     if not figures:return tree.root.html()
     for c in root.children:

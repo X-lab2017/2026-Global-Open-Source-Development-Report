@@ -12,7 +12,7 @@ function fallbackSource(stage,section,fig){
  button.addEventListener('click',()=>{
   const caption=fig.querySelector('.cm-caption-note,.im-caption-note')||fig.querySelector('figcaption'),note=sourceNotes[section.dataset.mapIndex]||'',links=[...fig.querySelectorAll('a[href]')].filter(a=>!a.getAttribute('href').startsWith('#'));
   const uniq=[...new Map(links.map(a=>[a.href,a])).values()];
-  dialog.querySelector('h3').textContent=stage.dataset.figureNumber+' · 口径与来源';dialog.querySelector('div').innerHTML='<p>'+safeText(note)+'</p>'+(caption?'<p>'+safeText(caption.textContent.trim())+'</p>':'')+'<div class="goso-source-links">'+uniq.map(a=>a.outerHTML).join('')+'</div><p>完整统计说明保留在本节末尾。</p>';
+  dialog.querySelector('h3').textContent=stage.dataset.figureNumber+' · 口径与来源';dialog.querySelector('div').innerHTML='<p>'+safeText(note)+'</p>'+(caption?'<p>'+safeText(caption.textContent.trim())+'</p>':'')+'<div class="goso-source-links">'+uniq.map(a=>a.outerHTML).join('')+'</div>';
   trigger=document.activeElement;dialog.showModal();close.focus();
  });
  close.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>trigger?.focus({preventScroll:true}));return button;
@@ -21,7 +21,7 @@ for(const stage of screens){
  const section=stage.closest('.goso-reading-section'),fig=stage.closest('figure'),frame=stage.parentElement,launcher=frame.previousElementSibling;
  if(!launcher?.classList.contains('slide-launcher'))continue;
  const launch=launcher.querySelector('button'),title=stage.querySelector('.board-head h3,.tm-board-head h4,.am-board-head h4,.dm-board-head h4,.gm-board-head h4,.viz-heading h4')?.textContent||stage.getAttribute('aria-label');
- const hint=launcher.querySelector('span');hint.textContent=stage.dataset.figureNumber+' · 点击探索，演示放大';
+ const hint=launcher.querySelector('span');hint.textContent=stage.dataset.figureNumber ;
  const tools=document.createElement('div');tools.className='goso-chart-tools';const source=document.createElement('button');source.type='button';source.textContent='口径与来源';source.setAttribute('aria-haspopup','dialog');
  const nativeSource=stage.querySelector(sourceSelector)||fallbackSource(stage,section,fig);source.addEventListener('click',()=>nativeSource.click());tools.append(source,launch);launcher.append(tools);launch.classList.add('goso-present-button');
  launch.textContent='⛶ 全屏演示';launch.setAttribute('aria-label',stage.dataset.figureNumber+' 全屏演示：'+title);

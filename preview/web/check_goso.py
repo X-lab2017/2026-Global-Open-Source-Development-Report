@@ -44,7 +44,7 @@ for lang in ['zh','en']:
     assert page.count_sections==7 and page.charts==[]
     assert len(page.fields)==0 and len(page.ids)==len(set(page.ids))
     # I-Map no longer renders an empty project-count placeholder.
-    for term in ['AtomGit','前 5%','23 个图组','统计范围与指标说明']:assert term in text,term
+    for term in ['AtomGit','前 5%','统计范围与指标说明']:assert term in text,term
     # Source snapshots are shared by inline and on-demand source panels.
     for key,entry in evidence['files'].items():
         assert (out/'assets/report/data'/Path(entry['path']).name).is_file(),key
@@ -66,3 +66,10 @@ for lang in ['zh','en']:
     assert '2025 自然年' not in opening and '2026-10-16' not in opening
     for i in range(1,8):assert f'href="#ch02-s0{i}"' in opening
 print('PASS: chapter opening shares canonical prose and seven reading destinations')
+
+# Publication navigation must not expose editorial review or technical exports.
+for lang in ('zh','en'):
+    text=(out/f'2026/{lang}/chapters/02/index.html').read_text()
+    assert '集中待补与评审' not in text and '评审与待补' not in text
+    assert 'goso-figure-directory' not in text
+    assert '图件出版说明</a>' not in text and '数据来源清单</a>' not in text
