@@ -10,6 +10,9 @@ from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
 
 def section(key, lang='zh'):
+    if key=='tmap':
+        from tmap_content import section as publication_section
+        return publication_section(lang)
     if key=='imap':
         from imap_content import section as publication_section
         return publication_section(lang)
@@ -31,7 +34,9 @@ def export(out):
         (out/'assets'/key/'data.js').write_text(js)
     from imap_content import export as publication_export
     publication_export(out)
-    for name in ('imap.css','imap-publication.css','imap.js','tmap.css','tmap.js','goso-map-system.css'):
+    from tmap_content import export as tmap_export
+    tmap_export(out)
+    for name in ('imap.css','imap-publication.css','imap.js','tmap.css','tmap-publication.css','tmap.js','goso-map-system.css'):
         shutil.copy2(ROOT/'web'/name, out/name)
 
 class Prose(HTMLParser):
@@ -48,6 +53,9 @@ class Prose(HTMLParser):
         if not self.skip:self.chunks.append(data)
 
 def manuscript(key):
+    if key=='tmap':
+        from tmap_publication import manuscript as publication_manuscript
+        return publication_manuscript()
     if key=='imap':
         from imap_publication import manuscript as publication_manuscript
         return publication_manuscript()

@@ -1,0 +1,69 @@
+{
+  "edition": "2026-10-20-tmap-publication",
+  "baseline": "GOSO-PUB-20261020",
+  "pdf": "GOSD-2026-section-2-4.pdf",
+  "pages": 7,
+  "figure_pages": {
+    "2-4-1": 2,
+    "2-4-2": 3,
+    "2-4-3": 4,
+    "2-4-4": 5,
+    "2-4-5": 6
+  },
+  "body_font_pt": 11.2,
+  "chart_font_range_pt": [
+    8.5,
+    10.5
+  ],
+  "data_sha256": {
+    "observations.json": "35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813",
+    "simulation.json": "339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025"
+  },
+  "manuscript_sha256": "36ea9d0ddc3622e2c402cb14c564f482bb3252315d780b7ace32532ae0ce8e6f",
+  "pdf_sha256": "c79b05bcf5cfe73363120f41c72f48dcaf280069876d3595e6c452c8beefa0a7",
+  "figures": {
+    "world": {
+      "id": "2-4-1",
+      "title": "全球高影响力人才分布与排名",
+      "file": "fig-2-4-1_global.svg",
+      "orientation": "landscape",
+      "note": "来源：报告编制组 · 2026年7月快照"
+    },
+    "regions": {
+      "id": "2-4-2",
+      "title": "五域人才趋势、当期规模与增长",
+      "file": "fig-2-4-2_regions.svg",
+      "orientation": "portrait",
+      "note": "来源：报告编制组 · 2022—2026报告年度"
+    },
+    "china": {
+      "id": "2-4-3",
+      "title": "中国十城人才分布、排名与成长",
+      "file": "fig-2-4-3_china.svg",
+      "orientation": "portrait",
+      "note": "来源：报告编制组 · 十城样本"
+    },
+    "growth": {
+      "id": "2-4-4",
+      "title": "人才成长、留存与接续",
+      "file": "fig-2-4-4_growth.svg",
+      "orientation": "portrait",
+      "note": "模拟数据｜待替换"
+    },
+    "connect": {
+      "id": "2-4-5",
+      "title": "跨地域协作、技术领域与贡献角色",
+      "file": "fig-2-4-5_connections.svg",
+      "orientation": "portrait",
+      "note": "模拟数据｜待替换"
+    }
+  },
+  "verification": {
+    "pdf_render": "all_7_pages_inspected",
+    "dom": "426_bilingual_interaction_assertions_passed",
+    "browser_visual": "not_run_no_supported_browser",
+    "physical_print": "not_run",
+    "css": "180_light_dark_reading_fullscreen_narrow_cascade_assertions_passed",
+    "release_gates": "22_passed"
+  }
+}
