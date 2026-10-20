@@ -47,6 +47,16 @@ def remove(root,target):
     for parent in [root,*root.walk()]:
         if target in parent.children:parent.children.remove(target);return
 
+# Web consolidates the shared reporting calendar; PDFs remain self-contained.
+REPORT_PERIOD='统计期：2025 年 7 月 1 日至 2026 年 6 月 30 日。历史年份均指前一年 7 月至当年 6 月；自然年、快照与累计样本以图中标注为准。'
+def web_window(n):
+    return {1:'',2:'地图采用 2025 自然年数据，历史序列为 2021—2025 年；五域比较与项目来源采用报告年度，平均贡献为前十样本。',3:'全球地图采用 2025 自然年数据及 2021—2025 年历史序列；五域与项目样本采用报告年度。',4:'全球地图采用 2026 年 7 月快照，五域与十城采用报告年度。图 2-4-4 为模拟数据。',5:'代码采用报告年度；模型与数据集为发布单位的累计样本，不代表平台全量。',6:'全球地图为 2025 自然年快照；年度序列与中美样本采用报告年度。来源份额表与贡献流向表分别阅读。',7:''}[n]
+
+def web_paragraph(text,n):
+    module=__import__(['vmap','cmap','imap','tmap','amap','dmap','gmap'][n-1]+'_publication')
+    original=getattr(module,'WINDOW',getattr(module,'SNAPSHOT_NOTE',''))
+    return web_window(n) if text==original else text
+
 def normalize(text,n,lang):
     if lang!='zh':text=text.replace('/2026/zh/','/2026/'+lang+'/')
     tree=Tree(text);root=next((x for x in tree.root.walk() if x.attrs.get('id')==f'ch02-s0{n}'),None)
@@ -60,6 +70,19 @@ def normalize(text,n,lang):
             remove(root,anchor)
     for node in reversed(list(root.walk())):
         if node.tag in ('p','div') and not node.attrs and not any(isinstance(c,Node) for c in node.children) and re.fullmatch(r'[\s·|]*',node.text()):remove(root,node)
+    # Only named editorial paragraphs are changed; live chart containers are untouched.
+    for node in list(root.children):
+        if isinstance(node,Node) and node.tag=='p':
+            updated=web_paragraph(node.text(),n)
+            if updated!=node.text():
+                if updated:node.children=[updated]
+                else:remove(root,node)
+    # The chapter overview and sidebar already provide navigation. Keep one PDF link.
+    for nav in [x for x in root.walk() if x.tag=='nav']:
+        pdfs=[x for x in nav.walk() if x.tag=='a' and '.pdf' in x.attrs.get('href','')]
+        if pdfs:
+            nav.children=pdfs
+            nav.set('aria-label',f'2.{n} 分节下载')
     figures=[x for x in root.walk() if x.tag=='figure']
     if not figures:return tree.root.html()
     for c in root.children:
@@ -100,7 +123,7 @@ def normalize(text,n,lang):
             normalized.append(f'<article class="goso-action"><span class="goso-action-number">0{i}</span><div class="goso-action-body">{content}</div></article>')
         intros=[x.html() for x in action.children if isinstance(x,Node) and x.tag=='p']
         # The former descriptive title remains a short lead above the three actions.
-        action.children=fragment((f'<span id="{aid}" class="goso-anchor" aria-hidden="true"></span>' if action.attrs.get('id')!=aid else '')+'<span class="goso-kicker">FROM OBSERVATION TO ACTION</span><h3>'+(lead if n in (1,2,3,4,5,6,7) else '行动建议')+'</h3>'+('' if n in (1,2,3,4,5,6,7) else '<p class="goso-action-lead">'+lead+'</p>')+''.join(intros)+'<div class="goso-action-list">'+''.join(normalized)+'</div>')
+        action.children=fragment((f'<span id="{aid}" class="goso-anchor" aria-hidden="true"></span>' if action.attrs.get('id')!=aid else '')+'<h3>'+(lead if n in (1,2,3,4,5,6,7) else '行动建议')+'</h3>'+('' if n in (1,2,3,4,5,6,7) else '<p class="goso-action-lead">'+lead+'</p>')+''.join(intros)+'<div class="goso-action-list">'+''.join(normalized)+'</div>')
     # Uniform local itinerary points to figures and actions.
     route=next((x for x in root.walk() if x.tag=='nav'),None)
     if route:
@@ -118,9 +141,6 @@ def normalize(text,n,lang):
             if summary and n not in (1,2,3,4,5,6,7):summary.children=['指标反馈与待补证据']
     for x in list(root.walk()):
         if any(x.has(c) for c in ['goso-map-end','tm-end-nav','am-end-nav','dm-end-nav','gm-end-nav']):remove(root,x)
-    prev=(f'#ch02-s0{n-1}',f'2.{n-1} {TOPICS[n-2][1]}') if n>1 else (f'/2026/{lang}/chapters/01/#ch01-s03','1.3 方法基础')
-    nex=(f'#ch02-s0{n+1}',f'2.{n+1} {TOPICS[n][1]}') if n<7 else (f'/2026/{lang}/chapters/03/','第三章 GOSR')
-    root.children+=fragment(f'<nav class="goso-section-nav" aria-label="2.{n} 前后节导航"><a href="{prev[0]}">← {prev[1]}</a><a href="#goso-intro">本章总览</a><a href="{nex[0]}">{nex[1]} →</a></nav>')
     return tree.root.html()
 
 def overview():

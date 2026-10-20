@@ -160,13 +160,12 @@ def chapter(lang):
     vv=views();base='/2026/'+lang+'/';all_data=json.dumps(vv,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
     out=['<div class="goso-chapter" lang="zh-CN">',atlas.defs()]
     if lang=='en':out.append('<div class="reader-note" lang="en">The Chinese manuscript and charts are shown below.</div>')
-    out.append('<div class="reading-tools"><span>GOSO · 七个主题 · 2026 报告年度</span><div><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
+    out.append('<div class="reading-tools"><span>GOSO · 全球开源生态观测</span><div><button data-print>打印本章</button></div></div><progress class="reading-progress" id="reading-progress" max="100" value="0" aria-label="本章阅读进度"></progress>')
     import goso_intro as intro
     out.append(intro.cover())
     import goso_reading as reading
-    out.append(intro.overview())
-    out.append(intro.route())
     out.append(intro.scope(lang))
+    out.append(intro.route())
     sections=[]
     for i,s in enumerate(SECTIONS):
         n=i+1;sid='ch02-s0'+str(n)

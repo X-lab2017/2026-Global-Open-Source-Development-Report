@@ -50,7 +50,7 @@ for lang in ['zh','en']:
         assert (out/'assets/report/data'/Path(entry['path']).name).is_file(),key
     for n,count in enumerate([3,4,3,4,3,3,3],1):
         for i in range(1,count+1):assert f'fig-2-{n}-{i}' in page.ids
-    assert text.count('class="goso-section-nav"')==7
+    assert text.count('class="goso-section-nav"')==0
     assert 'goso-review' not in text and 'data-export-notes' not in text
     assert 'goso-chapter-intro' in text and 'foundation-route goso-chapter-route' in text
     for key in ('fig-2-3-1','fig-2-3-2','fig-2-3-3','fig-2-4-1','fig-2-4-2','fig-2-4-3','fig-2-4-4','fig-2-4-5'):assert key in page.ids,key
@@ -62,8 +62,8 @@ assert (goso.ROOT.parent/'chapters/chapter2/本章介绍.md').read_text()==goso_
 for lang in ['zh','en']:
     text=(out/f'2026/{lang}/chapters/02/index.html').read_text()
     opening=text[text.index('id="goso-intro"'):text.index('id="ch02-s01"')]
-    for paragraph in [goso_intro.INTRO,goso_intro.QUESTION,goso_intro.READING,*goso_intro.SCOPE,*[f[1] for f in goso_intro.FINDINGS]]:assert paragraph in opening
-    assert '2025 自然年' not in opening and '2026-10-16' not in opening
+    for paragraph in [goso_intro.INTRO,goso_intro.QUESTION,__import__('goso_reading').REPORT_PERIOD,*[f[1] for f in goso_intro.FINDINGS]]:assert paragraph in opening
+    assert '阅读说明 · 时间、范围与图件' not in opening and '2026-10-16' not in opening
     for i in range(1,8):assert f'href="#ch02-s0{i}"' in opening
 print('PASS: chapter opening shares canonical prose and seven reading destinations')
 

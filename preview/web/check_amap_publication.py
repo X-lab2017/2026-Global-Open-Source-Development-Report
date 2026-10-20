@@ -1,3 +1,4 @@
+from goso_reading import web_paragraph
 """A-Map publication gate: source identity, separate scopes and shared prose."""
 from pathlib import Path
 from html.parser import HTMLParser
@@ -21,7 +22,7 @@ norm=lambda s:re.sub(r'\s+','',s)
 paragraphs=[p.INTRO,p.QUESTION,p.POSITION,p.FINDING,p.WINDOW,p.ACTION_TITLE,p.ACTION_INTRO,p.BRIDGE,*p.NOTES]+[t for _,ps in p.STORIES+p.STRATEGIES for t in ps]
 for lang in ['zh','en']:
  html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text();section=html[html.index('id="ch02-s05"'):html.index('id="ch02-s06"')];text=norm(''.join(Text(section).parts))
- for t in paragraphs:assert norm(t) in text,t
+ for t in paragraphs:assert norm(web_paragraph(t,5)) in text,t
  assert section.count('class="am-download"')==1 and section.count('class="am-print-view"')==6
  assert f'print/{p.PDF_RELEASE_NAME}' in section and section.count('data-slide-height="860"')==3
  for key,f in p.FIGURES.items():assert section.index(f'id="am-story-{key}"')<section.index(f'id="fig-{f["id"]}"')

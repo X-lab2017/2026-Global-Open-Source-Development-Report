@@ -1,3 +1,4 @@
+from goso_reading import web_paragraph
 """Protect I-Map data versions, prose, static figures and publication bounds."""
 from pathlib import Path
 from html.parser import HTMLParser
@@ -19,7 +20,7 @@ norm=lambda s:re.sub(r'\s+','',s)
 paragraphs=[p.INTRO,p.QUESTION,p.POSITION,p.FINDING,p.WINDOW,p.ACTION_TITLE,p.ACTION_INTRO,p.BRIDGE,*p.NOTES]+[t for _,ps in p.STORIES+p.STRATEGIES for t in ps]
 for lang in ['zh','en']:
  html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text();section=html[html.index('id="ch02-s03"'):html.index('id="ch02-s04"')];text=norm(''.join(Text(section).parts))
- for t in paragraphs:assert norm(t) in text,t
+ for t in paragraphs:assert norm(web_paragraph(t,3)) in text,t
  assert section.count('class="im-download"')==1 and section.count('class="im-print-view ')==3
  for key,f in p.FIGURES.items():assert section.index(f'id="im-{key}"')<section.index(f'id="fig-{f["id"]}"')<section.index(f'data-im-reading="{key}"')
  assert re.findall(r'data-im-china-view="([^"]+)"',section)==['growth','sources']

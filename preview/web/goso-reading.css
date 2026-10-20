@@ -92,3 +92,8 @@
 .goso-source-links a{font:13px/1.7 var(--sans)}
 @media(max-width:760px){.goso-reading-guide{grid-template-columns:1fr;gap:18px}.goso-guide-hint{padding-left:15px}.goso-figure-directory>div{grid-template-columns:1fr}.goso-chapter .atlas-chapter-route{grid-template-columns:repeat(4,minmax(0,1fr))}.goso-reading-section .goso-findings{grid-template-columns:1fr;gap:17px}.goso-chapter .goso-reading-section>h2{font-size:26px}.goso-chapter .goso-reading-section>.goso-question{font-size:19px!important}.goso-reading-section .slide-launcher{align-items:flex-start}.goso-reading-section .slide-launcher>span{font-size:11px;max-width:45%}.goso-presentation .goso-slide-caption{display:none}.goso-presentation .slide-presentation-bar>span:first-child{display:none}.goso-presentation .goso-slide-switch{margin-right:auto}.goso-source-dialog{padding:25px}.goso-reading-section .goso-section-nav{display:grid;grid-template-columns:1fr 1fr}.goso-section-nav a:nth-child(even){text-align:right}}
 @media print{.goso-reading-guide,.goso-figure-directory,.goso-section-route,.goso-section-nav,.goso-chart-tools,.goso-source-trigger{display:none!important}.goso-reading-section{break-before:page}.goso-reading-section .goso-actions .goso-action{break-inside:avoid}.goso-reading-section .goso-position{border:1px solid #CADCE5}.goso-reading-section .goso-evidence-note{color:#444!important}}
+
+/* Chapter calendar is stated once; exceptions remain next to their evidence. */
+.goso-period-note{font:14px/1.85 var(--sans);color:var(--muted);border-left:3px solid var(--line);padding:8px 16px;margin:24px 0 30px}
+.goso-reading-section .goso-section-route{justify-content:flex-end;border:0;padding:0;margin:18px 0 28px}
+.goso-reading-section .goso-section-route a{font-size:13px}

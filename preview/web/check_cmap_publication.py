@@ -1,3 +1,4 @@
+from goso_reading import web_paragraph
 """Shared text, source geometry, final typography and the printable C-Map edition."""
 from pathlib import Path
 import argparse,json,hashlib,re,xml.etree.ElementTree as ET
@@ -15,7 +16,7 @@ norm=lambda s:re.sub(r'\s+','',s)
 paragraphs=[p.INTRO,p.QUESTION,p.POSITION,p.FINDING,p.WINDOW,p.ACTION_TITLE,p.ACTION_INTRO,p.BRIDGE,*p.NOTES]+[t for _,ps in p.STORIES+p.STRATEGIES for t in ps]
 for lang in ['zh','en']:
  html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text();section=html[html.index('id="ch02-s02"'):html.index('id="ch02-s03"')];text=norm(''.join(Text(section).parts))
- for paragraph in paragraphs:assert norm(paragraph) in text,paragraph
+ for paragraph in paragraphs:assert norm(web_paragraph(paragraph,2)) in text,paragraph
  assert section.count('class="cm-download"')==1 and section.count('class="cm-publication-views"')==4
  for key in p.FIGURES:assert section.index(f'id="cmap-{key}"')<section.index(f'id="fig-cmap-{key}"')<section.index(f'data-cmap-reading="{key}"')
  assert '<summary>统计范围与指标说明</summary>' in section and 'cm-print-evidence' in section

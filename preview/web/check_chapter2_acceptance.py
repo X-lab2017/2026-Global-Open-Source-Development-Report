@@ -22,3 +22,16 @@ for c,expected in [('CN',(79.22,14.02,6.76)),('US',(38.28,39.66,22.06))]:
  actual=(next(r['share'] for r in rows if r['source']==c),round(sum(r['share'] for r in rows if r['source'] not in (c,'OTH')),2),next(r['share'] for r in rows if r['source']=='OTH'))
  assert actual==expected
 print(f'PASS: {count} live empty containers retained and three source buckets verified')
+
+# Web reading cleanup: one calendar, concise downloads, preserved chart surfaces.
+from goso_reading import REPORT_PERIOD, web_window
+for lang in ('zh','en'):
+ html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text()
+ assert html.count(REPORT_PERIOD)==1
+ assert '阅读说明 · 时间、范围与图件' not in html
+ assert '评审预览' not in html
+ assert 'class="goso-section-nav"' not in html
+ for n in range(1,8):
+  if web_window(n):assert web_window(n) in html
+ assert html.count('下载本节 PDF')==7
+print('PASS: one chapter calendar, five explicit exceptions, seven section PDFs, no editorial navigation')

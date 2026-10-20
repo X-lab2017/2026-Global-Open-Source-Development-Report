@@ -123,10 +123,10 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
     gmap_assets='<link rel="stylesheet" href="/gmap.css?v=20261020-pub3"><script src="/assets/gmap/publication-data.js?v=20261020-pub3" defer></script><script src="/gmap.js?v=20261020-pub3" defer></script>' if route=='chapters/02/' else ''
     gosm_assets='<link rel="stylesheet" href="/gosm.css?v=gosm-openness-v2-atlas"><link rel="stylesheet" href="/gosm-supply.css?v=gosm-supply-v9-story"><script src="/gosm-supply.js?v=gosm-supply-v9-story" defer></script><script src="/assets/amap/d3.min.js" defer></script><link rel="stylesheet" href="/gosm-influence.css?v=gosm-influence-v3-story"><script src="/gosm-influence.js?v=gosm-influence-v3-story" defer></script><link rel="stylesheet" href="/gosm-openness.css?v=gosm-openness-v2-atlas"><script src="/gosm-openness.js?v=gosm-openness-v2-atlas" defer></script><script src="/gosm.js?v=gosm-openness-v2-atlas" defer></script>' if route=='chapters/05/' else ''
     if route=='chapters/02/':
-        main=main.replace('2025.07 — 2026.06',t('各图标注统计期与数据状态','Periods and evidence status labelled per figure')).replace('2026.10.16','2026.10.20')
+        main=main.replace(t('评审预览 · 2026.10.16','Review preview · 2026.10.16'),t('在线版','Online edition')).replace('<span>2025.07 — 2026.06</span>','')
     if route=='chapters/05/':
         main=main.replace('2025.07 — 2026.06',t('各图按来源标注统计期与快照','Dates and scope are specified in each figure')).replace('2026.10.16','2026.10.17')
-    reading_assets='<link rel="stylesheet" href="/goso-reading.css"><script src="/goso-reading.js?v=20261020-minimal-reading" defer></script>' if route=='chapters/02/' else ''
+    reading_assets='<link rel="stylesheet" href="/goso-reading.css?v=20261021-reading"><script src="/goso-reading.js?v=20261021-reading" defer></script>' if route=='chapters/02/' else ''
     if route=='chapters/03/':reading_assets+='<link rel="stylesheet" href="/company-ranking.css"><script src="/company-ranking.js" defer></script><link rel="stylesheet" href="/rankings.css"><script src="/ranking-details.js" defer></script><script src="/rankings.js" defer></script>'
     reading_page='chapter1' if route=='chapters/01/' else 'introduction' if route=='introduction/' else 'summary' if route=='summary/' else 'overview' if is_home else 'contents' if route=='' else ''
     front_assets='<link rel="stylesheet" href="/reading-experience.css"><script src="/reading-experience.js?v=20261019-ch1-captions" defer></script>'

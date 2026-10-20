@@ -22,8 +22,10 @@ for(const stage of screens){
  if(!launcher?.classList.contains('slide-launcher'))continue;
  const launch=launcher.querySelector('button'),title=stage.querySelector('.board-head h3,.tm-board-head h4,.am-board-head h4,.dm-board-head h4,.gm-board-head h4,.viz-heading h4')?.textContent||stage.getAttribute('aria-label');
  const hint=launcher.querySelector('span');hint.textContent=stage.dataset.figureNumber ;
- const tools=document.createElement('div');tools.className='goso-chart-tools';const source=document.createElement('button');source.type='button';source.textContent='口径与来源';source.setAttribute('aria-haspopup','dialog');
- const nativeSource=stage.querySelector(sourceSelector)||fallbackSource(stage,section,fig);source.addEventListener('click',()=>nativeSource.click());tools.append(source,launch);launcher.append(tools);launch.classList.add('goso-present-button');
+ const tools=document.createElement('div');tools.className='goso-chart-tools';
+ // A single source control lives inside the chart, including fullscreen mode.
+ if(!stage.querySelector(sourceSelector))fallbackSource(stage,section,fig);
+ tools.append(launch);launcher.append(tools);launch.classList.add('goso-present-button');
  launch.textContent='⛶ 全屏演示';launch.setAttribute('aria-label',stage.dataset.figureNumber+' 全屏演示：'+title);
  // Find the dialog assigned by the shared Chapter 1 lifecycle without changing it.
  const dialog=[...document.querySelectorAll('dialog.explorer-presentation')].find(d=>d.getAttribute('aria-label')===(stage.querySelector('h3,h4')?.textContent||'报告交互图全屏演示')&&!all.some(x=>x.dialog===d));

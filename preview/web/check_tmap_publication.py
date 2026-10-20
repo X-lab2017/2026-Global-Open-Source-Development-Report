@@ -1,3 +1,4 @@
+from goso_reading import web_paragraph
 """Guard T-Map data identity, common prose, chart families and publication bounds."""
 from pathlib import Path
 from html.parser import HTMLParser
@@ -30,7 +31,7 @@ norm=lambda s:re.sub(r'\s+','',s)
 paragraphs=[p.INTRO,p.QUESTION,p.POSITION,p.FINDING,p.WINDOW,p.ACTION_TITLE,p.ACTION_INTRO,p.BRIDGE,*p.NOTES]+[t for _,ps in p.STORIES+p.STRATEGIES for t in ps]
 for lang in ['zh','en']:
  html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text();section=html[html.index('id="ch02-s04"'):html.index('id="ch02-s05"')];text=norm(''.join(Text(section).parts))
- for t in paragraphs:assert norm(t) in text,t
+ for t in paragraphs:assert norm(web_paragraph(t,4)) in text,t
  assert section.count('class="tm-download"')==1 and section.count('class="tm-print-view"')==4
  assert f'print/{p.PDF_RELEASE_NAME}' in section and f'print/{p.PDF_NAME}' not in section
  scripts=re.findall(r'<script[^>]+src="([^"]+)"',html)

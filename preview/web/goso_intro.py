@@ -18,7 +18,8 @@ def overview():
 def route():
  return '<nav class="foundation-route goso-chapter-route" aria-label="本章阅读路径">'+''.join(f'<a href="#ch02-s0{i}"><small>2.{i} / {code}</small><strong>{title}</strong><span>{question}</span></a>' for i,(code,title,question) in enumerate(TOPICS,1))+'</nav>'
 def scope(lang):
- return '<details class="goso-scope"><summary>阅读说明 · 时间、范围与图件</summary>'+''.join('<p>'+E(t)+'</p>' for t in SCOPE)+'</details>'
+ from goso_reading import REPORT_PERIOD
+ return '<p class="goso-period-note">'+E(REPORT_PERIOD)+'</p>'
 def manuscript():
  out=['# '+TITLE,'## 本章导读',QUESTION,INTRO,'## 本章主要观察']
  for title,text,_,_ in FINDINGS:out+=['### '+title,text]

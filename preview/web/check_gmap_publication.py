@@ -1,3 +1,4 @@
+from goso_reading import web_paragraph
 """G-Map gate: retain sources, synchronize prose, preserve print legibility."""
 from pathlib import Path
 from html.parser import HTMLParser
@@ -20,7 +21,7 @@ norm=lambda s:re.sub(r'\s+','',s)
 paragraphs=[p.INTRO,p.QUESTION,p.POSITION,p.FINDING,p.WINDOW,p.ACTION_TITLE,p.ACTION_INTRO,p.BRIDGE,*p.NOTES]+[t for _,ps in p.STORIES+p.STRATEGIES for t in ps]
 for lang in ['zh','en']:
  html=(a.output/f'2026/{lang}/chapters/02/index.html').read_text();section=html[html.index('id="ch02-s07"'):];txt=norm(''.join(Text(section).parts))
- for t in paragraphs:assert norm(t) in txt,t
+ for t in paragraphs:assert norm(web_paragraph(t,7)) in txt,t
  assert section.count('data-slide-height="860"')==3
  assert f'print/{p.PDF_RELEASE_NAME}' in section
  assert '<summary>统计范围与指标说明</summary>' in section

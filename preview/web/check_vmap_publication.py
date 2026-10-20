@@ -1,3 +1,4 @@
+from goso_reading import web_paragraph
 """Meaningful publication gates: shared prose, unchanged data and geometry, legible exports."""
 from pathlib import Path
 import argparse,hashlib,json,re,xml.etree.ElementTree as ET
@@ -18,7 +19,7 @@ def norm(s):return re.sub(r'\s+','',s)
 paragraphs=[p.INTRO,p.ACTION_INTRO,p.BRIDGE,p.QUESTION,p.POSITION,p.FINDING,p.SNAPSHOT_NOTE,p.INDICATOR_FEEDBACK,*p.GAPS]+[t for _,paras in p.STORIES+p.STRATEGIES for t in paras]
 for lang in ['zh','en']:
  html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text();text=norm(''.join(Text(html).parts))
- for paragraph in paragraphs:assert norm(paragraph) in text,paragraph
+ for paragraph in paragraphs:assert norm(web_paragraph(paragraph,1)) in text,paragraph
  assert html.count('class="vmap-publication-views"')==3
  assert html.count('vmap-print-panel')==4
  assert p.PDF_NAME in html
