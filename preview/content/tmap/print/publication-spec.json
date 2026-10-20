@@ -1,9 +1,9 @@
 {
-  "edition": "2026-10-20-tmap-network",
+  "edition": "2026-10-20-tmap-community",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-4.pdf",
-  "release_pdf": "GOSD-2026-section-2-4-20261020-network.pdf",
-  "revision": "2026-10-20 · 网络解释修订版",
+  "release_pdf": "GOSD-2026-section-2-4-20261020-community.pdf",
+  "revision": "2026-10-20 · 社区网络修订版",
   "pages": 7,
   "figure_pages": {
     "2-4-1": 2,
@@ -21,9 +21,9 @@
     "observations.json": "35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813",
     "simulation.json": "339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025"
   },
-  "teaching_network_sha256": "a447e9e3436d4ee8bd61f0878ab0078d7dc9332f997de36987e6907083f45f2f",
-  "manuscript_sha256": "38d71249a5e8812223a4eb8a75b5796f59d2dd807271c1921165abe6026e0733",
-  "pdf_sha256": "ad952841c64e2ba92ecc8d9b97ce17c07a2e4dc4747a858e3694f93dc52281b9",
+  "community_network_sha256": "be6f87cb83e942613007af0c111f445240d5257e1fa04206281a75f42f6fb76d",
+  "manuscript_sha256": "01a001473a74b0429ed457aac66f9dcfad2e6f58d53ead4cbc2eb5a4a29fbdf5",
+  "pdf_sha256": "2fc4a6760b7df2054087acc9c226acb33bc673ac983ecd9472dfd1b786e7c4c9",
   "figures": {
     "world": {
       "id": "2-4-1",
@@ -56,10 +56,10 @@
     }
   },
   "verification": {
-    "pdf_render": "all_7_pages_reviewed",
-    "dom": "590_interaction_assertions",
+    "pdf_render": "passed_7_pages",
+    "dom": "passed_756_bilingual_assertions",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
-    "css_cascade": "240_assertions"
+    "css_cascade": "passed_240_assertions"
   }
 }

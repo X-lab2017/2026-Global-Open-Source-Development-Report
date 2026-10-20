@@ -47,39 +47,46 @@ def global_figure():
   y=63+i*33;f.text(505,y,f'{i+1:02}  '+r['name'],9.4,INK);f.text(LW,y,num(r['value']),9.4,INK,'right');f.line([(505,y+9),(505+240*r['value']/35005,y+9)],TEAL,2)
  vp.notes(f,422,'来源：报告编制组。地图快照与五域年度序列分别阅读。');return f.caption()
 def network_figure():
- d=network_payload();s=d['scenarios']['base'];nodes=d['nodes'];by={n['id']:i for i,n in enumerate(nodes)}
- f=Figure('同一协作网络：参与、贡献与影响力','图 2-4-1',LW,461)
- vp.badge(f,0,13,'教学模拟 · 非真实排名',153)
- f.text(LW,13,'同一组节点与连线，回答三个不同问题',9,MUTED,'right')
- cw=(LW-36)/3;sc=(cw-8)/800
- for col,m in enumerate(d['modes']):
-  x=col*(cw+18);mid=m['id'];vp.title(f,x,43,m['chapter']+'  '+m['title']+'：'+m['question'])
-  if col:f.line([(x-9,31),(x-9,382)],LINE,.5)
-  rad=lambda i:(24 if mid=='participation' else math.sqrt(s['totals'][i])*11 if mid=='contribution' else max(12,math.sqrt(s['steps'][-1][i])*118))*sc
-  xy=lambda n:(x+4+n['x']*sc,61+n['y']*sc)
-  for e in s['edges']:
-   i,j=by[e['source']],by[e['target']];a,b=xy(nodes[i]),xy(nodes[j]);dx,dy=b[0]-a[0],b[1]-a[1];ll=math.hypot(dx,dy);ux,uy=dx/ll,dy/ll
-   start=(a[0]+ux*(rad(i)+1.5),a[1]+uy*(rad(i)+1.5));end=(b[0]-ux*(rad(j)+1.5),b[1]-uy*(rad(j)+1.5))
-   f.line([start,end],LINE if mid=='participation' else TEAL,.5 if mid=='participation' else .4+math.sqrt(e['weight'])*.35)
-   if mid=='influence':
-    for tip,vx,vy in [(end,ux,uy),(start,-ux,-uy)]:f.polygon([tip,(tip[0]-3.3*vx+1.5*vy,tip[1]-3.3*vy-1.5*vx),(tip[0]-3.3*vx-1.5*vy,tip[1]-3.3*vy+1.5*vx)],TEAL)
-  for i,n in enumerate(nodes):
-   xx,yy=xy(n);r=rad(i)
-   if n['kind']=='project':f.rect(xx-r,yy-r,r*2,r*2,'#edf4f5',TEAL,3)
-   else:f.dot(xx,yy,r,TEAL)
-   f.text(xx,yy-r-3 if r<5.5 else yy+3,n['id'],8.5,INK if n['kind']=='project' or r<5.5 else '#ffffff','center')
-  brief={'participation':'每位活跃开发者计 1 人。','contribution':'节点越大、连线越粗，示意投入越多。','influence':'箭头表示传播方向；节点越大，影响越高。'}
-  f.text(x,227,brief[mid],8.5,MUTED)
-  f.text(x,257,'开发者',8.5,MUTED);f.text(x+cw,257,{'participation':'参与计数 / 人','contribution':'贡献强度 / 示意值','influence':'开发者内相对影响'}[mid],8.5,MUTED,'right')
-  vals=[1]*6 if mid=='participation' else s['totals'][:6] if mid=='contribution' else s['developer_shares']
-  for row,i in enumerate(sorted(range(6),key=lambda i:(-vals[i],i))):
-   y=278+row*17;f.text(x,y,nodes[i]['id'],9,INK);f.line([(x+27,y-3),(x+27+100*vals[i]/(1 if mid=='participation' else 12 if mid=='contribution' else 40),y-3)],TEAL,2)
-   f.text(x+cw,y,f'{vals[i]:.1f}%' if mid=='influence' else str(vals[i]),9,INK,'right')
- f.text(0,387,'圆形 A—F：开发者；方形 P1：基础库，P2：开发工具，P3：应用项目。',8.5,MUTED)
- f.line([(0,397),(LW,397)],LINE,.5)
- b0=s['developer_shares'][1];b1=d['scenarios']['rewired']['developer_shares'][1]
- f.text(0,413,f'连接实验：B 的贡献强度仍为 8，将其中 6 从开发工具改为基础库，示意影响由 {b0:.1f}% 变为 {b1:.1f}%。',9,INK)
- f.text(0,432,'借鉴 PageRank 的递归传播思想；正式 OpenRank 还包括活跃增值、历史继承等机制。本图不复现正式算法。',8.5,MUTED)
+ d=network_payload();nodes=d['nodes'];by={n['id']:n for n in nodes};chosen=by[d['default_selected']];colors=d['colors']
+ f=Figure('从真实协作理解参与、贡献与影响力','图 2-4-1',LW,461)
+ vp.badge(f,0,13,'真实历史案例 · 2024.09',159);f.text(LW,13,'X-lab2017/open-digger',9,MUTED,'right')
+ for x,title,brief in [(0,'参与','8 个账户共同参与'),(258,'贡献','社区 OpenRank：项目内贡献'),(516,'影响力','全域 OpenRank：更广泛的网络')]:
+  f.text(x,42,title,10,TEAL);f.text(x,60,brief,9,MUTED)
+ f.line([(0,72),(LW,72)],LINE,.5)
+ # Shared positions and source values; the static plate uses the contribution view.
+ sc=470/800;xy=lambda n:(n['x']*sc,93+n['y']*sc)
+ radius=lambda n:(min(33,11+math.sqrt(n['community'])*6) if n['kind']=='developer' else 17 if n['kind']=='repo' else min(12,6+math.sqrt(n['community'])*2))*sc
+ for e in d['pairs']:
+  u,v=by[e['source']],by[e['target']];start,end=xy(u),xy(v);focus=u['id']==chosen['id'];dx,dy=end[0]-start[0],end[1]-start[1];ll=math.hypot(dx,dy);ux,uy=dx/ll,dy/ll
+  aa=(start[0]+ux*(radius(u)+2),start[1]+uy*(radius(u)+2));bb=(end[0]-ux*(radius(v)+2),end[1]-uy*(radius(v)+2));f.line([aa,bb],colors[v['kind']] if focus else '#b9c4c9',1.5 if focus else .45)
+  if focus:f.polygon([aa,(aa[0]+5*ux+2*uy,aa[1]+5*uy-2*ux),(aa[0]+5*ux-2*uy,aa[1]+5*uy+2*ux)],colors[v['kind']])
+ for n in [n for n in nodes if n['kind']!='developer']+[n for n in nodes if n['kind']=='developer']:
+  xx,yy=xy(n);r=radius(n);c=colors[n['kind']]
+  if n['kind']=='developer':f.dot(xx,yy,r,c)
+  elif n['kind']=='issue':f.polygon([(xx,yy-r),(xx+r,yy),(xx,yy+r),(xx-r,yy)],c)
+  else:f.rect(xx-r,yy-r,2*r,2*r,c,c,2)
+  if n['kind']=='developer' or n['kind']=='repo' or n['id']=='p1616':
+   label=n['name'] if n['kind']=='developer' else n['label'];f.text(xx,yy+r+12,label,8.5,INK,'center')
+ f.text(0,420,'账户节点越大，社区值越高；箭头由 PR 指向 PsiACE。',8.5,MUTED)
+ for x,kind,label in [(0,'developer','账户'),(95,'issue','Issue · 问题讨论'),(230,'pull','PR · 变更请求'),(365,'repo','项目')]:
+  if kind=='developer':f.dot(x+4,438,3,colors[kind])
+  elif kind=='issue':f.polygon([(x+4,434),(x+8,438),(x+4,442),(x,438)],colors[kind])
+  else:f.rect(x,434,8,8,colors[kind],colors[kind],1)
+  f.text(x+13,441,label,8.5,MUTED)
+ f.line([(491,88),(491,445)],LINE,.5);x=509
+ vp.title(f,x,99,'同一批账户，两种观察范围')
+ f.text(x,122,'账户',8.5,MUTED);f.text(674,122,'社区值',8.5,MUTED,'right');f.text(LW,122,'全域值',8.5,MUTED,'right')
+ users=sorted((n for n in nodes if n['kind']=='developer'),key=lambda n:-n['community'])
+ for i,n in enumerate(users):
+  y=143+i*20
+  if n['id']==chosen['id']:f.rect(x-5,y-12,LW-x+10,19,'#edf4f5','#edf4f5',2)
+  f.text(x,y,n['name'],8.5,INK);f.text(674,y,f"{n['community']:.3f}",8.5,INK,'right');f.text(LW,y,'—' if n['global_value'] is None else f"{n['global_value']:.2f}",8.5,INK,'right')
+ f.text(x,308,'两种分值不直接比较；— 为未取得。',8.5,MUTED)
+ vp.title(f,x,335,'PsiACE 的社区值从哪里来')
+ for i,c in enumerate(chosen['components']):
+  y=357+i*20;f.text(x,y,c['label'],9,INK);f.text(LW,y,f"{c['value']:.3f}",9,INK,'right')
+ f.text(x,423,'关系传播＋自身保留＋项目背景 ≈ 0.861',8.5,MUTED)
+ f.text(x,441,'来源：OpenDigger。历史案例不替代本期统计。',8.5,MUTED)
  return f.caption(continued=True)
 def regions_figure():
  f=Figure(p.FIGURES['regions']['title'],'图 2-4-2',height=372);vp.title(f,0,13,'A  五年趋势 · 2022—2026报告年度');trend(f,D['regions'],0,29,PW,184,60000)
@@ -154,11 +161,11 @@ def build(output,figs,network):
  para(p.BRIDGE);doc=Doc(output);doc.build(story);return dict(pages=doc.page,figures=doc.figures,headings=doc.headings,paragraphs=doc.locations)
 def main():
  parser=argparse.ArgumentParser();parser.add_argument('--font',type=Path,required=True);parser.add_argument('--output',type=Path,default=p.ROOT.parent/'output/pdf'/p.PDF_NAME);args=parser.parse_args();work=p.ROOT.parent/'tmp/pdfs/tmap';work.mkdir(parents=True,exist_ok=True);args.output.parent.mkdir(parents=True,exist_ok=True)
- common.font_setup(args.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+p.PDF_REVISION+json.dumps(D,ensure_ascii=False)+json.dumps(S,ensure_ascii=False)+Path(vp.__file__).read_text())
+ common.font_setup(args.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+p.PDF_REVISION+json.dumps(D,ensure_ascii=False)+json.dumps(S,ensure_ascii=False)+json.dumps(network_payload(),ensure_ascii=False)+Path(vp.__file__).read_text())
  figs=[global_figure(),regions_figure(),china_figure(),connections_figure()];network=network_figure();dest=p.BASE/'print';dest.mkdir(parents=True,exist_ok=True)
  for spec,fig in zip(p.FIGURES.values(),figs):(dest/spec['file']).write_text(fig.svg())
  (dest/p.NETWORK_FIGURE).write_text(network.svg())
  layout=build(args.output,figs,network);shutil.copy2(args.output,dest/p.PDF_NAME);(p.BASE/'chapter-2-4.md').write_text(p.manuscript());digest=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
- manifest=dict(edition=p.EDITION,baseline='GOSO-PUB-20261020',pdf=p.PDF_NAME,release_pdf=p.PDF_RELEASE_NAME,revision=p.PDF_REVISION,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],data_sha256={n:digest(p.BASE/n) for n in ['observations.json','simulation.json']},teaching_network_sha256=digest(p.BASE/'network-concept.json'),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=digest(args.output),figures=p.FIGURES,verification={'pdf_render':'pending','dom':'pending','browser_visual':'not_run_no_supported_browser','physical_print':'not_run'})
+ manifest=dict(edition=p.EDITION,baseline='GOSO-PUB-20261020',pdf=p.PDF_NAME,release_pdf=p.PDF_RELEASE_NAME,revision=p.PDF_REVISION,pages=layout['pages'],figure_pages=layout['figures'],body_font_pt=11.2,chart_font_range_pt=[8.5,10.5],data_sha256={n:digest(p.BASE/n) for n in ['observations.json','simulation.json']},community_network_sha256=digest(p.BASE/'network-concept.json'),manuscript_sha256=hashlib.sha256(p.manuscript().encode()).hexdigest(),pdf_sha256=digest(args.output),figures=p.FIGURES,verification={'pdf_render':'pending','dom':'pending','browser_visual':'not_run_no_supported_browser','physical_print':'not_run'})
  (dest/'publication-spec.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');(work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'pdf':str(args.output),'pages':layout['pages'],'figure_pages':layout['figures']},ensure_ascii=False))
 if __name__=='__main__':main()

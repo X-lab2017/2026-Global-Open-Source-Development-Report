@@ -11,15 +11,21 @@ assert spec['figure_pages']=={'2-4-1':2,'2-4-1-continued':3,'2-4-2':4,'2-4-3':5,
 assert spec['pdf_sha256']==digest(dest/p.PDF_NAME)
 assert digest(dest/p.PDF_RELEASE_NAME)==digest(dest/p.PDF_NAME)
 assert spec['release_pdf']==p.PDF_RELEASE_NAME and spec['revision']==p.PDF_REVISION
-teaching=json.loads((base/'network-concept.json').read_text())
-assert teaching==network.payload() and spec['teaching_network_sha256']==digest(base/'network-concept.json')
-first,second=teaching['scenarios'].values()
-assert first['totals'][:6]==second['totals'][:6] and first['totals'][1]==8
-assert first['developer_shares'][0]>first['developer_shares'][1]
-assert second['developer_shares'][1]>first['developer_shares'][1]
-for model in [first,second]:
- assert model['delta_last']<1e-6 and abs(sum(model['developer_shares'])-100)<1e-9
- for step in model['steps']:assert abs(sum(step)-1)<1e-9 and all(v>=0 for v in step)
+case=json.loads((base/'network-concept.json').read_text())
+assert case==network.payload() and spec['community_network_sha256']==digest(base/'network-concept.json')
+assert digest(dest/'GOSD-2026-section-2-4-20261020-network.pdf')==digest(dest/p.PDF_NAME)
+raw=json.loads((base/'community-snapshot.json').read_text())
+assert case['status']=='observed_historical_case' and case['month']=='2024-09'
+assert len(case['nodes'])==37 and len(case['pairs'])==35 and len(case['links'])==70
+assert case['links']==raw['links']
+users=[n for n in case['nodes'] if n['kind']=='developer']
+assert len(users)==8 and sum(n['global_value'] is not None for n in users)==6
+for original in raw['nodes']:
+ n=next(n for n in case['nodes'] if n['id']==original['id'])
+ assert n['community']==original['community'] and n['initial']==original['initial']
+ assert abs(n['reconstructed']-n['community'])<.006,(n['id'],n['reconstructed'],n['community'])
+assert next(n for n in users if n['name']=='PsiACE')['community']==.861
+assert next(n for n in users if n['name']=='PsiACE')['global_value']==3.23
 expected={'observations.json':'35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813','simulation.json':'339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025'}
 assert spec['data_sha256']==expected
 for name,sha in expected.items():assert digest(base/name)==sha
@@ -55,7 +61,7 @@ for key,f in p.FIGURES.items():
  if key in ('connect',):assert '模拟数据｜待替换' in ''.join(tree.getroot().itertext())
 tree=ET.parse(dest/p.NETWORK_FIGURE)
 for t in tree.findall('.//s:text',ns):assert 8.5<=float(t.attrib['font-size'])<=11.2
-assert '教学模拟 · 非真实排名' in ''.join(tree.getroot().itertext())
+assert '真实历史案例 · 2024.09' in ''.join(tree.getroot().itertext())
 for key,scope in [('world','world'),('china','china'),('connect','world')]:
  geo=json.loads((p.ROOT/'content/vmap/map-geometry.json').read_text())[scope];paths=[x for x in ET.parse(dest/p.FIGURES[key]['file']).findall('.//s:path',ns) if 'transform' in x.attrib];assert len(paths)==len(geo)
  for path,g in zip(paths,geo):assert path.attrib['d']==g['d'] and path.attrib['fill-rule']=='evenodd'
@@ -65,8 +71,8 @@ if args.pdf:
  import fitz
  doc=fitz.open(dest/p.PDF_NAME);assert len(doc)==7 and [i+1 for i,page in enumerate(doc) if page.rect.width>page.rect.height]==[2,3]
  text=norm(''.join(page.get_text() for page in doc))
- for stale in ['定位记录','AI贡献角色','AI领域×贡献角色','成长接续：','人才成长、留存与接续']:assert stale not in text
- assert '图2-4-1（续）' in text and '同一协作网络：参与、贡献与影响力' in text
+ for stale in ['图2-4-5','贡献角色','定位记录','AI贡献角色','AI领域×贡献角色','成长接续：','人才成长、留存与接续']:assert stale not in text
+ assert '图2-4-1（续）' in text and '从真实协作理解参与、贡献与影响力' in text
  for t in paragraphs:assert norm(t) in text,t
  for page in doc:
   assert norm(p.PDF_REVISION) in norm(page.get_text())
