@@ -1,30 +1,27 @@
-"""D-Map: breadth, cross-border connections and sustained co-creation."""
-from pathlib import Path
-import shutil,re
-ROOT=Path(__file__).resolve().parents[1]
-FIGURES=[
- ('breadth','PARTICIPATION & REPRESENTATION','全球开源参与广度地图',[('map','贡献来源'),('trend','五年格局'),('south','新兴参与观察')],'看见不同地方的参与 · 地图与年度序列分别标注'),
- ('network','CROSS-BORDER COLLABORATION','全球开源跨境协作地图',[('paired','桑基图 × 弦图'),('map','协作地图'),('compare','中美来源对照')],'同一选择 · 两种视角 · 来源地区 → 项目归属'),
- ('cocreation','SUSTAINED CO-CREATION','全球开源持续共建地图',[('organizations','组织结构'),('roles','贡献角色'),('retention','持续参与')],'六种假设参与结构 · 观察组织、角色与长期参与')]
-def figure(i):
- key,en,title,tabs,context=FIGURES[i-1]
- caption=[
- '地图采用 OpenShare 2025 自然年同源快照，份额以已列地区贡献合计为分母；五年份额保留报告原表，两个范围分别展示。',
- '桑基图与有向弦图共享同一数据、筛选与高亮；线宽表示当前度量，箭头指向项目归属地。原稿流向样本与中美来源份额表分别选择，跨境贡献不表示人员迁移。',
- '本图全部为设计模拟，使用六种假设社区类型。组织、角色与持续参与曲线不对应真实国家或项目，也不作为治理机制有效性的因果证据。'][i-1]
- return f'''<figure id="fig-2-6-{i}" class="dm-figure"><div class="dm-stage goso-unified-canvas" data-lang="zh" data-slide-key="dmap-{i}" data-slide-height="820" role="group" aria-label="{title}"><div class="dm-board"><header class="dm-board-head"><div><span class="dm-eyebrow">图 2-6-{i} / {en}</span><h4>{title}</h4></div><button data-dm-source="{key}">口径与来源</button></header><div class="dm-toolbar"><div class="dm-tabs" aria-label="{title}视图">{''.join(f'<button data-dm-tab="{key}:{v}" aria-pressed="{str(j==0).lower()}">{label}</button>' for j,(v,label) in enumerate(tabs))}</div><span class="dm-context">{context}</span></div><div id="dm-{key}" class="dm-panel"></div><footer class="dm-board-foot"><span id="dm-{key}-foot"></span><a href="/assets/dmap/source-manifest.json" download>来源清单 ↓</a></footer><div class="dm-source-overlay" data-dm-overlay="{key}" hidden></div></div></div><figcaption>{caption}</figcaption></figure>'''
+"""D-Map web and print use the same publication manuscript."""
+import html,shutil
+from dmap_publication import *
+E=lambda s:html.escape(str(s),quote=True)
+def prose(ps,insight=False):
+ def one(t):
+  if not insight:return '<p>'+E(t)+'</p>'
+  a,b=t.split('。',1);return '<p><strong>'+E(a+'。')+'</strong>'+E(b)+'</p>'
+ return ''.join(map(one,ps))
+def figure(key):
+ f=FIGURES[key];tabs={'breadth':[('map','全球分布'),('trend','五年变化')],'sources':[],'network':[('sankey','贡献路径'),('chord','连接网络'),('map','协作地图')]}[key]
+ controls='<div class="dm-tabs" role="group" aria-label="观察视角">'+''.join(f'<button data-dm-tab="{key}:{v}" aria-pressed="{str(i==0).lower()}">{t}</button>' for i,(v,t) in enumerate(tabs))+'</div>' if tabs else '<span>本土与海外 · 已列来源 Top 10</span>'
+ return f'''<figure id="fig-{f['id']}" class="chapter-one-visual dm-figure" data-slide-key="dmap-{f['id'][-1]}" data-slide-height="860" data-reflow-minimum-width="700" data-lang="zh" aria-labelledby="dm-{key}-title"><header class="viz-heading"><span class="eyebrow">图 {f['id']} / D-MAP</span><h4 id="dm-{key}-title">{f['title']}</h4></header><div class="dm-toolbar">{controls}<span class="dm-context" id="dm-{key}-context"></span></div><div class="dm-panel" id="dm-{key}"></div><figcaption><span id="dm-{key}-foot">{f['note']}</span><button data-dm-source="{key}">口径与来源</button></figcaption><div class="dm-source-overlay" data-dm-overlay="{key}" hidden></div><noscript><img src="/assets/dmap/print/{f['file']}" alt="{f['title']}"></noscript></figure><div class="dm-print-view"><img src="/assets/dmap/print/{f['file']}" alt="图 {f['id']} {f['title']}"></div>'''
 def section(lang='zh'):
- if lang!='zh':return '<section id="ch02-s06"><h2>2.6 Global open-source diversity map (D-Map)</h2><p>The interactive design review is available in Chinese.</p><a href="/2026/zh/chapters/02/#ch02-s06">Open D-Map →</a></section>'
- return '''<section id="ch02-s06" class="chapter-section goso-section dmap-review"><div class="section-topline">2.6 / D-MAP</div><h2>全球开源多样性地图（D-Map）</h2><p class="goso-question">全球开源的参与机会是否正在拓宽？不同地区与组织，如何成为持续的共同建设者？</p><div class="goso-map-position"><strong>目标与指标定位</strong><p>本节主要对应 OSDGs 的 X1“人才规模与多样性”，以 OSDI 的 GlobalCollabShare 观察跨地区协作，并通过贡献来源的结构呼应 X3“全球连接与网络效应”。AcademicShare 为学术机构参与提供观察入口；组织来源、贡献角色和持续参与用于提出待核验的诊断问题，与下一节 X4“开源善治与公共价值”衔接。重点回应 SDG 10 与 SDG 17。</p><a href="/2026/zh/data/indicators/">回到第一章的 OSDI 指标词典 →</a></div><h3>核心发现</h3><p><strong>更多地方进入开源网络，需要进一步转化为更广泛的连接与持续共建的机会。</strong>前五节依次观察参与、贡献、影响力、人才与资产，本节转向这些力量的来源和关系：谁在参与、彼此如何连接，以及不同参与者怎样留下来、共同承担建设工作。</p><div class="dm-findings"><p><b>01 · 参与看广度</b>贡献来源缓慢拓宽，头部之外的力量需要进一步被看见。</p><p><b>02 · 连接看结构</b>向全球贡献与吸纳全球贡献，是两个可以同时观察的方向。</p><p><b>03 · 共建看持续</b>多样性需要进入组织分工、贡献角色与长期参与条件。</p></div><p class="dm-review-banner"><strong>审阅样稿 · 来源样本与设计模拟分开</strong>前两图保留已有来源记录，所有样本范围就近说明；第三图用假设社区类型展示研究结构，全部醒目标记为模拟，等待正式数据补充。</p><nav class="goso-map-route" aria-label="多样性图组"><a href="#fig-2-6-1">01 参与广度</a><a href="#fig-2-6-2">02 跨境协作</a><a href="#fig-2-6-3">03 持续共建</a></nav>
- <section class="dm-section"><div class="dm-section-head"><span>01 / 参与广度</span><div><h3>看见更多地方，也辨认结构变化的速度。</h3><p>全球地图展示贡献来源，五年格局展示来源结构的变化。新兴参与观察选取中国、印度、巴西、印度尼西亚、南非与埃及，提供同一自然年中的贡献规模及增量参照；这一选集不代表完整全球南方。</p></div></div>'''+figure(1)+'''
- <div class="dm-insight"><b>洞察 01</b><div><h4>参与来源正在缓慢拓宽，长尾地区仍需更细的观察。</h4><p>2022—2026 年，原表所列美、德、中、英、印五国的合计贡献份额由 49.47% 降至 48.62%，其他国家合计由 50.53% 升至 51.38%，变化为 0.85 个百分点，期间存在波动。现有资料支持“缓慢拓宽”的判断；进一步讨论全球南方的具体贡献，需要将“其他国家”拆开，并补齐同口径的长期序列。</p></div></div></section>
- <section class="dm-section"><div class="dm-section-head"><span>02 / 跨境协作</span><div><h3>把贡献流向展开，观察多元参与如何形成连接。</h3><p>左侧桑基图保留开发者来源到项目归属的路径，右侧有向弦图展示相同关系的网络结构。选择中国、美国或中美同时观察，可以同步比较贡献规模、来源分布与双向关系；点击任一节点或连线，两图一起高亮。</p></div></div>'''+figure(2)+'''
- <div class="dm-insight"><b>洞察 02</b><div><h4>国际参与能力，需要与项目连接全球伙伴的能力共同建设。</h4><p>在中美项目贡献来源份额表中，中国项目本地贡献占 79.22%，美国项目本地贡献占 38.28%，相应海外份额为 20.78% 与 61.72%。这一组样本说明，两类项目的贡献来源结构不同；稳定的本地支持与广泛的跨境连接可以共同构成发展的基础。中国作为区域案例，提出了具有普遍意义的问题：参与全球项目的经验，如何帮助本地项目成为更多地区共同建设的平台？</p><p>原稿另有 60 条贡献流向记录，包含 14 个来源地区、10 个项目归属地区；其样本和分母与上述份额表不同。图中提供独立切换，分别比较，不混合推算全球网络或人员流动。</p></div></div></section>
- <section class="dm-section"><div class="dm-section-head"><span>03 / 持续共建</span><div><h3>让不同参与者获得持续贡献与承担责任的机会。</h3><p>地域来源之外，多样性还体现为组织构成、贡献角色和参与持续性。六种假设社区结构用于展示后续研究的观察方式：从谁提供贡献，进入谁承担评审、文档、支持与需求工作，再追踪首次贡献者是否持续参与。</p></div></div>'''+figure(3)+'''
- <div class="dm-insight"><b>研究方向 03</b><div><h4>多样性需要落实到可持续的共建条件。</h4><p>组织来源较广，并不直接说明各类角色已经充分开放；新人进入后，也需要适当的协作条件、认可与支持。正式数据补齐后，应对照不同组织和参与群体的角色分布与持续参与轨迹，寻找可改善的环节。本图的模拟只用于设计研究问题，不对具体国家、组织或政策作成效判断。</p></div></div></section>
- <section class="dm-actions"><span class="dm-eyebrow">FROM DIVERSITY TO SHARED DEVELOPMENT</span><h3>三个主张：看见代表性、建立伙伴关系、支持持续共建。</h3><div><article><b>01</b><h4>将参与代表性纳入长期观测</h4><p>在规模与影响力之外，持续观察贡献来源、组织构成和长期参与情况，让更多地区及较少被看见的贡献进入发展视野。共同维护稳定口径，识别参与机会的变化。</p></article><article><b>02</b><h4>把全球南方纳入长期共建伙伴网络</h4><p>围绕共同技术需求和公共议题，支持跨地区联合开发、社区交流与维护者合作，让各方共同定义问题、建设成果并持续维护。中国及其他区域节点均可成为合作的参与者和支持者。</p></article><article><b>03</b><h4>为不同参与者建立持续贡献的条件</h4><p>支持多语言文档、异步协作、导师机制，以及文档、翻译、评审等贡献的认可；帮助高校、中小组织和新进入者形成稳定参与能力，并逐步承担更多共同建设责任。</p></article></div></section>
- <details class="dm-methods"><summary>指标使用与待补数据</summary><p><b>已使用：</b>地区贡献及份额、来源流向样本、项目贡献来源份额。<b>待测算：</b>完整同口径的 GlobalCollabShare、AcademicShare。<b>诊断候选：</b>贡献来源地区数、组织数、头部来源份额、合作持续性及分组留存。治理权力分布由下一节继续研究，贡献组织分布不直接代替决策权。</p><p>优先补齐：① 完整的国家贡献来源与流向、统计窗口及未知地域分母；② 贡献者在对应时期的机构和角色关联；③ 首次贡献者的后续参与记录。历史 CSV 原文件名保留以便追溯，页面图号统一为 2-6-1 至 2-6-3。</p><a href="/assets/dmap/source/fig-2-5-2_cross_border_project_contribution_flow.csv" download>原稿流向底表 ↓</a> · <a href="/assets/dmap/source/table-2-5-1_china_us_project_contribution_top10.csv" download>中美来源份额 ↓</a> · <a href="/assets/dmap/collaboration-scenarios.csv" download>第三图模拟底表 ↓</a></details><p class="goso-bridge">持续共建需要公开、可信且可延续的协作机制。下一节 G-Map 将进一步观察治理安排与社会公益，讨论开放成果如何承接公共价值。</p><div class="dm-end-nav"><a href="#ch02-s05">← 回看资产 A-Map</a><a href="#ch02-s07">继续：治理与公益 G-Map →</a></div><noscript><p>启用 JavaScript 可使用联动图；来源与模拟底表可通过上方链接下载。</p></noscript></section>'''
-def manuscript():return '\n## 2.6 全球开源多样性地图（D-Map）\n\n'+re.sub('<[^>]+>',' ',section('zh'))
+ out=[f'<section id="ch02-s06" class="chapter-section goso-section dmap-review"><div class="section-topline">2.6 / D-MAP</div><h2>{TITLE}</h2><p class="dm-introduction">{INTRO}</p><p class="goso-question">{QUESTION}</p><div class="goso-map-position"><strong>目标与指标定位</strong><p>{POSITION}</p><a href="/2026/{lang}/data/indicators/#indicator-GlobalCollabShare">跨地域协作指标</a></div><h3>核心发现</h3><p class="dm-core-finding">{FINDING}</p><p class="goso-map-window">{WINDOW}</p><nav class="dm-reading-route" aria-label="D-Map 阅读路径">']
+ for key,label in [('breadth','全球来源'),('sources','中美对照'),('network','贡献连接'),('actions','行动建议')]:out.append(f'<a href="#dm-story-{key}">{label}</a>')
+ out.append(f'<a class="dm-download" href="/assets/dmap/print/{PDF_RELEASE_NAME}" download="{PDF_RELEASE_NAME}">下载本节 PDF ↓</a></nav>')
+ for (title,ps),key in zip(STORIES,FIGURES):out.extend([f'<div class="goso-prose dm-story" id="dm-story-{key}"><h3>{title}</h3>'+prose(ps[:1])+'</div>',figure(key),'<div class="goso-prose dm-interpretation">'+prose(ps[1:],True)+'</div>'])
+ out.append('<div class="dm-actions" id="dm-story-actions"><h3>'+ACTION_TITLE+'</h3><p>'+ACTION_INTRO+'</p>')
+ for i,(title,ps) in enumerate(STRATEGIES,1):out.append(f'<article><span>0{i}</span><h4>{title}</h4>'+prose(ps)+'</article>')
+ out.append('</div><details class="goso-gap"><summary>统计范围与指标说明</summary>'+prose(NOTES)+'<p><a href="/assets/dmap/source-manifest.json" download>数据来源清单</a></p></details><div class="dm-print-evidence">'+prose(NOTES)+'</div><p class="goso-bridge">'+BRIDGE+'</p></section>')
+ return ''.join(out)
 def export(out):
- shutil.copytree(ROOT/'content/dmap',out/'assets/dmap',dirs_exist_ok=True)
- for f in ['dmap.js','dmap.css']:shutil.copy2(ROOT/'web'/f,out/f)
+ (BASE/'chapter-2-6.md').write_text(manuscript())
+ shutil.copytree(BASE,out/'assets/dmap',dirs_exist_ok=True)
+ shutil.copy2(BASE/'print'/PDF_NAME,out/'assets/dmap/print'/PDF_RELEASE_NAME)
+ for f in ['dmap.js','dmap.css','dmap-publication.css']:shutil.copy2(ROOT/'web'/f,out/f)

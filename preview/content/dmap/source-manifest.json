@@ -1,5 +1,5 @@
 {
-  "revision": "D-Map three-figure review 2026-10-16",
+  "revision": "D-Map publication 2026-10-20",
   "repo_ref": "423f9cf14ac8d2886133d3ab63969db5521a2365",
   "sources": [
     {
@@ -26,19 +26,17 @@
     "top10": "Independent China/US source-share table. Original shares preserved; residual 6.76/22.06 percentage points grouped as Other, not inferred countries.",
     "direction": "Developer location → project affiliation; not human migration, money, or dependency adoption.",
     "chord": "Directed chords; arrowhead identifies destination. Arc width reflects inbound plus outbound in the displayed matrix.",
-    "normalization": "Flow value mode uses original OpenRank; percentage mode divides each destination by its current included inflow. Source-share dataset uses original share_pct without renormalization.",
-    "simulation": "All Figure3 organizational, role and retention values are hypothetical profiles, not measured countries or verified interventions. No causal effect inferred."
+    "normalization": "Source shares retain the original denominator. Flow values retain original OpenRank without renormalization.",
+    "period": "2026 report year: 2025-07-01 to 2026-06-30. Map exception: 2025 natural year."
   },
-  "external_methods": [
-    "https://open-digger.cn/en/docs/user-docs/metrics/new-contributors",
-    "https://www.chaoss.community/kb/metric-organizational-diversity/"
-  ],
-  "figure3_status": "simulated",
+  "external_methods": [],
+  "figure3_status": "repository_flow_sample",
   "missing": [
     "Complete global source-target matrix and source windows",
     "Known/unknown location denominator",
     "Historical organization affiliations and role evidence",
     "Cohort-level longitudinal participation data"
   ],
-  "geography": "Same OpenShare geometry as V/C/I/A maps. China includes Taiwan; no separate Taiwan country node."
+  "geography": "Same OpenShare geometry as V/C/I/A maps. China includes Taiwan; no separate Taiwan country node.",
+  "retired": "Hypothetical organization, role and retention profiles are not used in this publication."
 }
