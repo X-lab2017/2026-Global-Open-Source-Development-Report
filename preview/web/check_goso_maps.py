@@ -28,7 +28,7 @@ for lang in ('zh','en'):
     assert not any('data-tm-full' in a or 'data-fullscreen' in a for _,a in page.nodes)
     for term in ['OpenRankInflu','OpenRankContrib','HighImpactTalent','GlobalCollabShare','14.02%','39.66%','442.92','423.97']:
         assert term in text,term
-    assert f'/2026/{lang}/data/indicators/#indicator-HighImpactTalent' in text
+    assert '高影响力人才指标</a>' not in text  # Minimal publication navigation
 
 # @charset was accidentally parsed into the :root rule, invalidating every light
 # token in the previous review. It must never pass the release gate again.
