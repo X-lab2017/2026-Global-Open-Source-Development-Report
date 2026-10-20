@@ -37,11 +37,11 @@ for lang in ['zh','en']:
  scripts=re.findall(r'<script[^>]+src="([^"]+)"',html)
  assert all('network-concept.js' not in url and 'tmap-network.js' not in url for url in scripts)
  assert section.count('data-slide-height="860"')==4 and 'goso-unified-canvas' not in section
- assert section.count('模拟数据｜待替换')>=3
+ assert section.count('模拟数据｜待替换')>=2
  for key,f in p.FIGURES.items():assert section.index(f'id="tm-story-{key}"')<section.index(f'id="fig-{f["id"]}"')
  for stale in ['理解人才','PsiACE','社区网络','data-tm-world=','全球约 35 万','全球人才总量为','只供版式评审','定位记录','AI 贡献角色','贡献角色','成长接续：','人才成长、留存与接续','data-tm-china="records"','data-tm-connect="ai"']:assert stale not in section
  assert section.count('data-tm-china=')==2 and section.count('data-tm-connect=')==2
- assert '<summary>统计范围与指标说明</summary>' in section
+ assert 'data-goso-source-notes=' in section
 ns={'s':'http://www.w3.org/2000/svg'}
 for key,f in p.FIGURES.items():
  tree=ET.parse(dest/f['file']);assert tree.getroot().find('s:title',ns) is not None

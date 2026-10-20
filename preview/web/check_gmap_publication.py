@@ -24,7 +24,7 @@ for lang in ['zh','en']:
  for t in paragraphs:assert norm(web_paragraph(t,7)) in txt,t
  assert section.count('data-slide-height="860"')==3
  assert f'print/{p.PDF_RELEASE_NAME}' in section
- assert '<summary>统计范围与指标说明</summary>' in section
+ assert 'data-goso-source-notes=' in section
  for i in range(1,4):assert f'图 2-7-{i}' in section
 js=(a.output/'gmap.js').read_text()
 assert 'D.simulation' not in js and 'gm-country-rank' not in js

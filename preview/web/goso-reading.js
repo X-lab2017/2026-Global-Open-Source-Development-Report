@@ -21,10 +21,22 @@ for(const stage of screens){
  const section=stage.closest('.goso-reading-section'),fig=stage.closest('figure'),frame=stage.parentElement,launcher=frame.previousElementSibling;
  if(!launcher?.classList.contains('slide-launcher'))continue;
  const launch=launcher.querySelector('button'),title=stage.querySelector('.board-head h3,.tm-board-head h4,.am-board-head h4,.dm-board-head h4,.gm-board-head h4,.viz-heading h4')?.textContent||stage.getAttribute('aria-label');
- const hint=launcher.querySelector('span');hint.textContent=stage.dataset.figureNumber ;
+ const hint=launcher.querySelector('span');hint.textContent=stage.dataset.figureNumber+' '+title;
  const tools=document.createElement('div');tools.className='goso-chart-tools';
  // A single source control lives inside the chart, including fullscreen mode.
- if(!stage.querySelector(sourceSelector))fallbackSource(stage,section,fig);
+ const sourceButton=stage.querySelector(sourceSelector)||fallbackSource(stage,section,fig);
+ const notes=section.querySelector('template[data-goso-source-notes]');
+ sourceButton.addEventListener('click',()=>queueMicrotask(()=>{
+  const panel=stage.querySelector('.am-source-overlay:not([hidden]),.dm-source-overlay:not([hidden]),.gm-source-overlay:not([hidden])')||[...document.querySelectorAll('dialog[open]')].find(d=>!d.classList.contains('explorer-presentation'));
+  if(!panel||!notes)return;
+  panel.querySelector('.goso-source-context')?.remove();
+  const extra=document.createElement('div');extra.className='goso-source-context';
+  const existing=panel.textContent.replace(/\s+/g,'');
+  for(const paragraph of notes.content.querySelectorAll('p,li')){
+   if(!existing.includes(paragraph.textContent.replace(/\s+/g,''))){const p=document.createElement('p');p.textContent=paragraph.textContent;extra.append(p);}
+  }
+  if(extra.children.length)panel.append(extra);
+ }));
  tools.append(launch);launcher.append(tools);launch.classList.add('goso-present-button');
  launch.textContent='⛶ 全屏演示';launch.setAttribute('aria-label',stage.dataset.figureNumber+' 全屏演示：'+title);
  // Find the dialog assigned by the shared Chapter 1 lifecycle without changing it.

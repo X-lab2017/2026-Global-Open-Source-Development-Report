@@ -27,7 +27,7 @@ for lang in ['zh','en']:
  assert f'print/{p.PDF_RELEASE_NAME}' in section and section.count('data-slide-height="860"')==3
  for key,f in p.FIGURES.items():assert section.index(f'id="am-story-{key}"')<section.index(f'id="fig-{f["id"]}"')
  for stale in ['goso-unified-canvas','提交事件','data-am-mock','data-am-forecast','类别演进']:assert stale not in section
- assert '<summary>统计范围与指标说明</summary>' in section
+ assert 'data-goso-source-notes=' in section
  assert '/assets/amap/publication-data.js?v=20261020-v4' in html and '/assets/amap/data.js' not in html
 css=(args.output/'amap-publication.css').read_text()
 for selector,area,row in [('.viz-heading','heading',1),('.am-toolbar','toolbar',2),('.am-panel','chart',3),('figcaption','caption',4)]:assert f'.amap-review .am-figure.screen-slide>{selector}'+'{'+f'grid-area:{area};grid-row:{row};grid-column:1'+'}' in css

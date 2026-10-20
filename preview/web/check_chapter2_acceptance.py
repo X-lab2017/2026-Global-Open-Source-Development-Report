@@ -35,3 +35,9 @@ for lang in ('zh','en'):
   if web_window(n):assert web_window(n) in html
  assert html.count('下载本节 PDF')==7
 print('PASS: one chapter calendar, five explicit exceptions, seven section PDFs, no editorial navigation')
+
+for lang in ('zh','en'):
+ html=(args.output/f'2026/{lang}/chapters/02/index.html').read_text()
+ assert '<summary>统计范围与指标说明</summary>' not in html
+ assert html.count('data-goso-source-notes=')==7
+print('PASS: seven section method blocks relocated to on-demand source notes')

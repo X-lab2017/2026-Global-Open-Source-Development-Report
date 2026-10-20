@@ -26,7 +26,7 @@ for lang in ['zh','en']:
  assert f'print/{p.PDF_RELEASE_NAME}' in section and section.count('data-slide-height="860"')==3
  for key,f in p.FIGURES.items():assert section.index(f'id="dm-story-{key}"')<section.index(f'id="fig-{f["id"]}"')
  for stale in ['goso-unified-canvas','假设社区','持续共建地图','data-dm-dataset','AcademicShare']:assert stale not in section
- assert '<summary>统计范围与指标说明</summary>' in section
+ assert 'data-goso-source-notes=' in section
 css=(args.output/'dmap-publication.css').read_text()
 for selector,area,row in [('.viz-heading','heading',1),('.dm-toolbar','toolbar',2),('.dm-panel','chart',3),('figcaption','caption',4)]:assert f'.dmap-review .dm-figure.screen-slide>{selector}'+'{'+f'grid-area:{area};grid-row:{row};grid-column:1'+'}' in css
 js=(args.output/'dmap.js').read_text()

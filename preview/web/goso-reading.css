@@ -97,3 +97,12 @@
 .goso-period-note{font:14px/1.85 var(--sans);color:var(--muted);border-left:3px solid var(--line);padding:8px 16px;margin:24px 0 30px}
 .goso-reading-section .goso-section-route{justify-content:flex-end;border:0;padding:0;margin:18px 0 28px}
 .goso-reading-section .goso-section-route a{font-size:13px}
+
+/* Same full reading-column measure as Chapter 1; never resize chart internals. */
+.goso-chapter .goso-body-width{max-width:none!important;width:auto!important}
+.goso-chapter .goso-reading-section :is(.cm-story,.im-story,.tm-story,.am-story,.dm-story,.cm-interpretation,.im-interpretation,.tm-interpretation,.am-interpretation,.dm-interpretation){max-width:none!important}
+.goso-chapter .goso-reading-section :is(.cm-story,.im-story,.tm-story,.am-story,.dm-story,.cm-interpretation,.im-interpretation,.tm-interpretation,.am-interpretation,.dm-interpretation) p{font:17px/1.95 var(--serif);margin:18px 0}
+.goso-chapter .explorer-slide-frame{margin-inline:auto}
+.goso-chapter .slide-launcher>span{font:500 14px/1.65 var(--sans);color:var(--ink);max-width:none;flex:1;min-width:0}
+.goso-source-context{border-top:1px solid var(--line);margin-top:20px;padding-top:12px}
+@media(max-width:800px){.goso-chapter .goso-reading-section :is(.cm-story,.im-story,.tm-story,.am-story,.dm-story,.cm-interpretation,.im-interpretation,.tm-interpretation,.am-interpretation,.dm-interpretation) p{font-size:16px}}

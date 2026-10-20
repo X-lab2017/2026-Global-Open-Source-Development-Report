@@ -83,6 +83,18 @@ def normalize(text,n,lang):
         if pdfs:
             nav.children=pdfs
             nav.set('aria-label',f'2.{n} 分节下载')
+    # Relocate section methodology to the chart source panels, not the reading flow.
+    for node in list(root.walk()):
+        if node.tag=='details' and any(x.tag=='summary' and x.text()=='统计范围与指标说明' for x in node.children if isinstance(x,Node)):
+            node.tag='template';node.dirty=True;node.set('data-goso-source-notes',str(n))
+            node.children=[x for x in node.children if not (isinstance(x,Node) and x.tag=='summary')]
+        if any(node.has(c) for c in ['vmap-print-evidence','cm-print-evidence','im-print-evidence','tm-print-evidence','am-print-evidence','dm-print-evidence']):remove(root,node)
+    excluded=set()
+    for node in root.walk():
+        if node.tag in ('figure','dialog','template'):excluded.update([node,*node.walk()])
+    for node in root.walk():
+        if node in excluded:continue
+        if node.tag in ('p','article') or any(node.has(c) for c in ['cm-story','cm-interpretation','im-story','im-interpretation','tm-story','tm-interpretation','am-story','am-interpretation','dm-story','dm-interpretation']):node.add('goso-body-width')
     figures=[x for x in root.walk() if x.tag=='figure']
     if not figures:return tree.root.html()
     for c in root.children:

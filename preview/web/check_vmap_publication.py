@@ -29,9 +29,9 @@ for lang in ['zh','en']:
   assert section.index('id="vmap-'+kind+'"') < section.index('id="fig-vmap-'+fig+'"') < section.index('data-figure-reading="'+kind+'"')
  assert section.count('class="vmap-download"')==1
  assert p.ACTION_TITLE in section
- assert '<summary>统计范围与指标说明</summary>' in section
+ assert 'data-goso-source-notes=' in section
  assert '同源正文 · 三幅图组' not in section
- assert 'class="vmap-print-evidence"' in section
+ assert 'data-goso-source-notes="1"' in section
 for f in p.FIGURES.values():
  for name in f['files']:
   tree=ET.parse(dest/name)

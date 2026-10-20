@@ -19,7 +19,7 @@ for lang in ['zh','en']:
  for paragraph in paragraphs:assert norm(web_paragraph(paragraph,2)) in text,paragraph
  assert section.count('class="cm-download"')==1 and section.count('class="cm-publication-views"')==4
  for key in p.FIGURES:assert section.index(f'id="cmap-{key}"')<section.index(f'id="fig-cmap-{key}"')<section.index(f'data-cmap-reading="{key}"')
- assert '<summary>统计范围与指标说明</summary>' in section and 'cm-print-evidence' in section
+ assert 'data-goso-source-notes=' in section
 ns={'s':'http://www.w3.org/2000/svg'}
 for f in p.FIGURES.values():
  for name in f['files']:

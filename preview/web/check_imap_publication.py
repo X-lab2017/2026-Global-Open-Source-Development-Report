@@ -25,7 +25,7 @@ for lang in ['zh','en']:
  for key,f in p.FIGURES.items():assert section.index(f'id="im-{key}"')<section.index(f'id="fig-{f["id"]}"')<section.index(f'data-im-reading="{key}"')
  assert re.findall(r'data-im-china-view="([^"]+)"',section)==['growth','sources']
  for stale in ['20.78%','61.72%','273.1万','89.7%']:assert stale not in section
- assert '<summary>统计范围与指标说明</summary>' in section
+ assert 'data-goso-source-notes=' in section
 ns={'s':'http://www.w3.org/2000/svg'}
 for f in p.FIGURES.values():
  tree=ET.parse(dest/f['file']);assert tree.getroot().find('s:title',ns) is not None
