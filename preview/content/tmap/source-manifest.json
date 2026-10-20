@@ -6,16 +6,7 @@
       "id": "fig-2-4-1",
       "status": "repository_source",
       "file": "fig-2-4-1_global_open_source_talent_map.csv",
-      "period": "2026-07",
-      "community_network": {
-        "file": "network-concept.json",
-        "source_extract": "community-snapshot.json",
-        "status": "observed_historical_case",
-        "period": "2024-09",
-        "repo": "X-lab2017/open-digger",
-        "print": "fig-2-4-1_network.svg",
-        "global_values": "independently published, 6 available / 8 participating accounts"
-      }
+      "period": "2026-07"
     },
     {
       "id": "fig-2-4-2",
@@ -40,7 +31,7 @@
   ],
   "geometry": "/assets/vmap/map-provenance.json",
   "notes": [
-    "理解人才采用真实历史社区网络；社区贡献与独立发布的全域影响力分别阅读，网页与 PDF 共用节点、连线和公开数值。",
+    "网页和 PDF 保留全球分布、五域比较、中国十城与协作连接四个图组，共用正文和统计数据。",
     "全球总量、年度构建、前5%总体和并列规则待补。",
     "模拟数据不能作为结论、实际人才流动或政策效果预测。"
   ],
@@ -63,6 +54,12 @@
       "figure": "2-4-4",
       "view": "AI 贡献角色",
       "removed": "2026-10-20"
+    },
+    {
+      "figure": "2-4-1",
+      "view": "理解人才",
+      "removed": "2026-10-20",
+      "reason": "作者要求移除；同步删除 PDF 续页及案例说明"
     }
   ]
 }

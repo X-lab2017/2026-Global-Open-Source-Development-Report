@@ -1,16 +1,15 @@
 {
-  "edition": "2026-10-20-tmap-community",
+  "edition": "2026-10-20-tmap-reading",
   "baseline": "GOSO-PUB-20261020",
   "pdf": "GOSD-2026-section-2-4.pdf",
-  "release_pdf": "GOSD-2026-section-2-4-20261020-community.pdf",
-  "revision": "2026-10-20 · 社区网络修订版",
-  "pages": 7,
+  "release_pdf": "GOSD-2026-section-2-4-20261020-reading.pdf",
+  "revision": "2026-10-20 · 阅读优化版",
+  "pages": 6,
   "figure_pages": {
     "2-4-1": 2,
-    "2-4-1-continued": 3,
-    "2-4-2": 4,
-    "2-4-3": 5,
-    "2-4-4": 6
+    "2-4-2": 3,
+    "2-4-3": 4,
+    "2-4-4": 5
   },
   "body_font_pt": 11.2,
   "chart_font_range_pt": [
@@ -21,43 +20,41 @@
     "observations.json": "35105a5e3d4087ff65cbab22800e0b4e84fec984b6fdf9fde95e9c21bda94813",
     "simulation.json": "339625dc705debecb7b7bf35e59cbdc01fec7edaebc6ec2a1fe67a98b366f025"
   },
-  "community_network_sha256": "be6f87cb83e942613007af0c111f445240d5257e1fa04206281a75f42f6fb76d",
-  "manuscript_sha256": "01a001473a74b0429ed457aac66f9dcfad2e6f58d53ead4cbc2eb5a4a29fbdf5",
-  "pdf_sha256": "2fc4a6760b7df2054087acc9c226acb33bc673ac983ecd9472dfd1b786e7c4c9",
+  "manuscript_sha256": "d693cc42f676b6e5ed9fbc15eb11e501a7d90445c4e1ea8e0b38ab4d4fb0c176",
+  "pdf_sha256": "2a53a61831d86942d7f56f84569a303f0cb2d9ae926c05324e50c87b1e2b0600",
   "figures": {
     "world": {
       "id": "2-4-1",
       "title": "全球高影响力人才分布与排名",
       "file": "fig-2-4-1_global.svg",
-      "continuation": "fig-2-4-1_network.svg",
       "orientation": "landscape",
-      "note": "来源：报告编制组 · 2026年7月快照"
+      "note": "来源：报告编制组"
     },
     "regions": {
       "id": "2-4-2",
       "title": "五域人才趋势、当期规模与增长",
       "file": "fig-2-4-2_regions.svg",
       "orientation": "portrait",
-      "note": "来源：报告编制组 · 2022—2026报告年度"
+      "note": "来源：报告编制组"
     },
     "china": {
       "id": "2-4-3",
       "title": "中国十城人才分布、排名与成长",
       "file": "fig-2-4-3_china.svg",
       "orientation": "portrait",
-      "note": "来源：报告编制组 · 十城样本"
+      "note": "来源：报告编制组"
     },
     "connect": {
       "id": "2-4-4",
       "title": "跨地域协作与技术领域连接",
       "file": "fig-2-4-4_connections.svg",
       "orientation": "portrait",
-      "note": "模拟数据｜待替换"
+      "note": "关系数与人数分别统计"
     }
   },
   "verification": {
-    "pdf_render": "passed_7_pages",
-    "dom": "passed_756_bilingual_assertions",
+    "pdf_render": "passed_6_pages",
+    "dom": "passed_510_bilingual_assertions",
     "browser_visual": "not_run_no_supported_browser",
     "physical_print": "not_run",
     "css_cascade": "passed_240_assertions"
