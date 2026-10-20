@@ -1,0 +1,80 @@
+{
+  "name": "欧洲",
+  "definition": "欧盟27国与英国；本图仅合计原稿已列成员国，作为数量下限",
+  "memberCodes": [
+    "AT",
+    "BE",
+    "BG",
+    "HR",
+    "CY",
+    "CZ",
+    "DK",
+    "EE",
+    "FI",
+    "FR",
+    "DE",
+    "GR",
+    "HU",
+    "IE",
+    "IT",
+    "LV",
+    "LT",
+    "LU",
+    "MT",
+    "NL",
+    "PL",
+    "PT",
+    "RO",
+    "SK",
+    "SI",
+    "ES",
+    "SE",
+    "GB"
+  ],
+  "assets": {
+    "models": {
+      "members": [
+        "FR",
+        "DE",
+        "FI",
+        "GB",
+        "ES",
+        "IE"
+      ],
+      "memberNames": [
+        "法国",
+        "德国",
+        "芬兰",
+        "英国",
+        "西班牙",
+        "爱尔兰"
+      ],
+      "count": 10084,
+      "quantityScope": "listed_country_subtotal",
+      "downloadShare": null,
+      "downloadScope": "not_available_same_snapshot"
+    },
+    "datasets": {
+      "members": [
+        "DE",
+        "FR",
+        "IE",
+        "ES",
+        "GB"
+      ],
+      "memberNames": [
+        "德国",
+        "法国",
+        "爱尔兰",
+        "西班牙",
+        "英国"
+      ],
+      "count": 2359,
+      "quantityScope": "listed_country_subtotal",
+      "downloadShare": null,
+      "downloadScope": "not_available_same_snapshot"
+    }
+  },
+  "source": "observations.json / 原稿累计样本",
+  "boundary": "欧洲成员范围沿用本章欧洲组（欧盟27国与英国）；当前数量仅为原稿已列成员国小计。原稿未提供同一快照的欧洲下载汇总。"
+}

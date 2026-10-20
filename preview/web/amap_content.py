@@ -1,5 +1,5 @@
 """A-Map web and print use the same publication manuscript."""
-import html,shutil
+import html,shutil,json
 from amap_publication import *
 E=lambda s:html.escape(str(s),quote=True)
 def prose(ps,insight=False):
@@ -9,7 +9,7 @@ def prose(ps,insight=False):
  return ''.join(map(one,ps))
 def figure(key):
  f=FIGURES[key];tabs={'code':[('trend','五年趋势'),('compare','当期比较')],'models':[('map','地域供给'),('compare','数量与下载')],'datasets':[('map','地域供给'),('compare','数量与下载')]}[key]
- controls='<div class="am-tabs" role="group" aria-label="观察视角">'+''.join(f'<button data-am-tab="{key}:{v}" aria-pressed="{str(i==0).lower()}">{t}</button>' for i,(v,t) in enumerate(tabs))+'</div>'
+ controls=('<span class="am-context">2022—2026 · 五年趋势与当期比较</span>' if key=='code' else '<div class="am-tabs" role="group" aria-label="观察视角">'+''.join(f'<button data-am-tab="{key}:{v}" aria-pressed="{str(i==0).lower()}">{t}</button>' for i,(v,t) in enumerate(tabs))+'</div>')
  context=('<label>报告年度 <select data-am-year>'+''.join(f'<option value="{y}"'+(' selected' if y==2026 else '')+f'>{y}</option>' for y in D['years'])+'</select></label>') if key=='code' else '发布单位累计样本'
  return f'''<figure id="fig-{f['id']}" class="chapter-one-visual am-figure" data-slide-key="amap-{f['id'][-1]}" data-slide-height="860" data-reflow-minimum-width="700" data-lang="zh" aria-labelledby="am-{key}-title"><header class="viz-heading"><span class="eyebrow">图 {f['id']} / A-MAP</span><h4 id="am-{key}-title">{f['title']}</h4></header><div class="am-toolbar">{controls}<span class="am-context" id="am-{key}-context">{context}</span></div><div class="am-panel" id="am-{key}"></div><figcaption><span id="am-{key}-foot">{f['note']}</span><button data-am-source="{key}">口径与来源</button></figcaption><div class="am-source-overlay" data-am-overlay="{key}" hidden></div><noscript><img src="/assets/amap/print/{f['file']}" alt="{f['title']}"></noscript></figure><div class="am-print-view"><img src="/assets/amap/print/{f['file']}" alt="图 {f['id']} {f['title']}"></div>'''
 def section(lang='zh'):
@@ -23,6 +23,7 @@ def section(lang='zh'):
  return ''.join(out)
 def export(out):
  (BASE/'chapter-2-5.md').write_text(manuscript())
+ (BASE/'publication-data.js').write_text('window.AMAP_DATA='+json.dumps(D,ensure_ascii=False,separators=(',',':'))+';\n')
  shutil.copytree(BASE,out/'assets/amap',dirs_exist_ok=True)
  shutil.copy2(BASE/'print'/PDF_NAME,out/'assets/amap/print'/PDF_RELEASE_NAME)
  for f in ['amap.js','amap.css','amap-publication.css']:shutil.copy2(ROOT/'web'/f,out/f)
