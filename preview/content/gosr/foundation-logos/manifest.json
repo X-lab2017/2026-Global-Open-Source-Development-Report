@@ -1,0 +1,326 @@
+{
+  "OpenAtom Foundation": {
+    "filename": "openatom-foundation.png",
+    "source_page": "https://www.openatom.org/",
+    "asset_url": "https://res.oafimg.cn/openatom-www/home/assets/logo-300x300-BwQ1lpUU.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "7ceefc73db74c699397a5f0e9e9e238dac9f9ad7e4f428e82f03cd7379a435a5",
+    "background": "#ffffff"
+  },
+  "Apache Software Foundation": {
+    "filename": "apache-software-foundation.png",
+    "source_page": "https://www.apache.org/",
+    "asset_url": "https://www.apache.org/favicons/apple-touch-icon-180x180.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "f5527075a93c0baddfef2cd8042edeb69a2b0d1cb085d8da9a8822c35e0ae98d",
+    "background": "#ffffff"
+  },
+  "Rust Foundation": {
+    "filename": "rust-foundation.png",
+    "source_page": "https://rustfoundation.org/",
+    "asset_url": "https://rustfoundation.org/wp-content/uploads/2025/01/rf-logo-white-2.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "61fa4e500b6c670b4d856fdaa6961f1ea606fabe8d6001541c2b09048bdf4fe6",
+    "background": "#16364b"
+  },
+  "Python Software Foundation": {
+    "filename": "python-software-foundation.png",
+    "source_page": "https://www.python.org/psf-landing/",
+    "asset_url": "https://www.python.org/static/img/psf-logo.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "c057c47f6bdbfec03c25f1fd5387d13aa3df97434630afa36f332dc52c272013",
+    "background": "#16364b"
+  },
+  "Godot Foundation": {
+    "filename": "godot-foundation.png",
+    "source_page": "https://godot.foundation/",
+    "asset_url": "https://godot.foundation/assets/godot-foundation-logo.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "52d80388bff61902eeb4c7ca30ecde280987de4f1554aa6478432c3d1ad7aee5",
+    "background": "#16364b"
+  },
+  "DuckDB Foundation": {
+    "filename": "duckdb-foundation.png",
+    "source_page": "https://duckdb.foundation/",
+    "asset_url": "https://duckdb.foundation/images/logo/DuckDB_Foundation-horizontal.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "6b28f3fba95c1a152ee8e401c199d465fe74607488f5b9f41159268077213dad",
+    "background": "#ffffff"
+  },
+  "Connectivity Standards Alliance": {
+    "filename": "connectivity-standards-alliance.png",
+    "source_page": "https://csa-iot.org/",
+    "asset_url": "https://csa-iot.org/favicon/apple-touch-icon.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "493e65d1a9547a07e0d0b9af86235d0d737a2040c627e51c6bbbf07021374ce2",
+    "background": "#ffffff"
+  },
+  "PHP Foundation": {
+    "filename": "php-foundation.png",
+    "source_page": "https://thephp.foundation/",
+    "asset_url": "https://thephp.foundation/assets/icons/php_foundation.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "c2e5fb59a742d7ba3a25cb8dd02d3c5274e165b2a92d5267d988c2d041409415",
+    "background": "#ffffff"
+  },
+  "Bevy Foundation": {
+    "filename": "bevy-foundation.png",
+    "source_page": "https://bevy.org/foundation/",
+    "asset_url": "https://bevy.org/assets/bevy_foundation.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "c705a7f75008531f4b48fffcf9bb20b51b9fe7148c833537381ae00577b2cb3f",
+    "background": "#16364b"
+  },
+  "Gentoo Foundation": {
+    "filename": "gentoo-foundation.png",
+    "source_page": "https://www.gentoo.org/",
+    "asset_url": "https://www.gentoo.org/assets/img/logo/icon-192.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "87c473d32f8bf3fc6052817c69166a6ccdc11243c244e05eb924f765420b38e9",
+    "background": "#ffffff"
+  },
+  "Trino Foundation": {
+    "filename": "trino-foundation.png",
+    "source_page": "https://trino.io/foundation",
+    "asset_url": "https://trino.io/assets/images/trino-logo/trino-ko_tiny-alt.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "01e54bba5d477238dc4b336dc60e71dbe8bd7fdf85a8d382aca9d305683b6208",
+    "background": "#ffffff"
+  },
+  "Zig Software Foundation": {
+    "filename": "zig-software-foundation.png",
+    "source_page": "https://ziglang.org/zsf/",
+    "asset_url": "https://ziglang.org/favicon.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "1c871bc4b13190e8ca3eb3bb4855f9cda7bf1a1fc07c0f2064ecc74c76c0adc1",
+    "background": "#ffffff"
+  },
+  "OpenInfra Foundation": {
+    "filename": "openinfra-foundation.png",
+    "source_page": "https://openinfra.org/",
+    "asset_url": "https://openinfra.org/img/apple-touch-icon.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "3261d69ad968aa17840a58ea55bcd95155f29d016ad07f0b86098f4691ce4857",
+    "background": "#ffffff"
+  },
+  "Free EBook Foundation": {
+    "filename": "free-ebook-foundation.png",
+    "source_page": "https://ebookfoundation.org/",
+    "asset_url": "https://ebookfoundation.org/fef_logo_large.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "9deb9a1d5ee31c0cd059d057c7c1c4fb2234bd54827504b72093c0863764f581",
+    "background": "#16364b"
+  },
+  "farama": {
+    "filename": "farama.png",
+    "source_page": "https://farama.org/",
+    "asset_url": "https://farama.org/assets/images/farama-gradient-favicon.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "07a1bfc2fda4c9d14571f9c84cc3b060f97ff85cd16060ba58b412f1c2523b79",
+    "background": "#ffffff"
+  },
+  "Anoma Foundation": {
+    "filename": "anoma-foundation.png",
+    "source_page": "https://anoma.foundation/",
+    "asset_url": "https://anoma.foundation/favicon.ico",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "e32e98e19fd2b49d076b242ac99b7c84aeee56e090b77a74a8424994f9c972b6",
+    "background": "#ffffff"
+  },
+  "GirlScript Foundation": {
+    "filename": "girlscript-foundation.png",
+    "source_page": "https://github.com/girlscript",
+    "asset_url": "https://avatars.githubusercontent.com/u/27850350?s=200&v=4",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "cc95d5ac0e5508f72e8a424912640a1a18411cbd6763bdbb7c9e0adaf030c6ed",
+    "background": "#ffffff"
+  },
+  "cncf": {
+    "filename": "cncf.png",
+    "source_page": "https://www.cncf.io/",
+    "asset_url": "https://www.cncf.io/wp-content/themes/cncf-twenty-two/images/favicon.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "6c350c06b7af9b0d057ee84e640be88c1ea093620b88a3fcd12861a2eff35619",
+    "background": "#ffffff"
+  },
+  "pytorch": {
+    "filename": "pytorch.png",
+    "source_page": "https://pytorch.org/foundation/",
+    "asset_url": "https://pytorch.org/wp-content/uploads/2024/10/logo.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "385c02e1bdf1f572db62ec0c2fa68a009833552fa5e8d8d2d27b513ffffd4b61",
+    "background": "#16364b"
+  },
+  "lf-ai-data": {
+    "filename": "lf-ai-data.png",
+    "source_page": "https://lfaidata.foundation/",
+    "asset_url": "https://lfaidata.foundation/wp-content/uploads/sites/3/2022/02/lfaidata-horizontal-white-1.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "6c191fcf64d0bbe3c2717f9bc31f418f687b1ba7aee0fff2294dbb99f5a98581",
+    "background": "#16364b"
+  },
+  "openjs": {
+    "filename": "openjs.png",
+    "source_page": "https://openjsf.org/",
+    "asset_url": "https://openjsf.org/_next/image?url=%2Flogo.svg&w=828&q=75",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "583b7312a9b3a5fbecb61b6081bff4fa3ad430a6ee9e85bfb6996f8cddf91d99",
+    "background": "#ffffff"
+  },
+  "lf-networking": {
+    "filename": "lf-networking.png",
+    "source_page": "https://lfnetworking.org/",
+    "asset_url": "https://lfnetworking.org/wp-content/uploads/sites/7/2022/03/LFN-Logo-Color.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "fa936694cbad8056387eeae7a7b000febf044a889acf76fb4053b466a1d7e3ff",
+    "background": "#ffffff"
+  },
+  "lf-edge": {
+    "filename": "lf-edge.png",
+    "source_page": "https://lfedge.org/",
+    "asset_url": "https://lfedge.org/wp-content/uploads/sites/24/2023/07/lfedge-logo.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "000edb80a4d365314d33b743c6e05ac26fd94e0f69cd31fe7f4abe0072a3513e",
+    "background": "#ffffff"
+  },
+  "finos": {
+    "filename": "finos.png",
+    "source_page": "https://www.finos.org/",
+    "asset_url": "https://www.finos.org/hubfs/FINOS/finos-logo/favicon.ico",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "b304a6398b32f230d8e0c7eaa48d5b88635027f72a9aa540080b4d8b7c594020",
+    "background": "#ffffff"
+  },
+  "openssf": {
+    "filename": "openssf.png",
+    "source_page": "https://www.linuxfoundation.org/",
+    "asset_url": "https://www.linuxfoundation.org/hubfs/openssf-horizontal-color.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "8da2461ed0356abe76402857b3068bf3663a6a58fe037a9cd8cba48e0467f0d5",
+    "background": "#ffffff"
+  },
+  "lfdt": {
+    "filename": "lfdt.png",
+    "source_page": "https://www.lfdecentralizedtrust.org/",
+    "asset_url": "https://www.lfdecentralizedtrust.org/hubfs/LF%20Decentralized%20Trust/lfdt-horizontal-white.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "cf87f57d528d29fdd9aaf95841adff881fc543f7fb501c408a434b7c95e3bc02",
+    "background": "#16364b"
+  },
+  "aswf": {
+    "filename": "aswf.png",
+    "source_page": "https://artwork.aswf.io/other/aswf/",
+    "asset_url": "https://artwork.aswf.io/other/aswf/acronym/aqua/aswf-acronym-aqua.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "afec765c8f1554aa2ea0aca16ff22added065e488c36511ab9852f31beeaa61e",
+    "background": "#ffffff"
+  },
+  "cdf": {
+    "filename": "cdf.png",
+    "source_page": "https://cd.foundation/",
+    "asset_url": "https://cd.foundation/wp-content/uploads/sites/35/2019/02/cdf-color.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "1a788e9ef0a41aff10b90da8cf95d9f64df973c2499d93f6b3b73dfe93e8906a",
+    "background": "#ffffff"
+  },
+  "lf-energy": {
+    "filename": "lf-energy.png",
+    "source_page": "https://lfenergy.org/",
+    "asset_url": "https://lfenergy.org/wp-content/uploads/sites/5/2023/01/lf-energy-logo-white.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "57dbed753fb7700db20429f42d58867a34c7c690b24fce2d8b7451a37aa65ebe",
+    "background": "#16364b"
+  },
+  "chips": {
+    "filename": "chips.png",
+    "source_page": "https://www.chipsalliance.org/",
+    "asset_url": "https://www.chipsalliance.org/images/chips_alliance.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "87681899f4b68cb8c216bf8685351900fdd4bcead5b9b90df4dbea923bc7c012",
+    "background": "#ffffff"
+  },
+  "o3df": {
+    "filename": "o3df.png",
+    "source_page": "https://o3df.org/",
+    "asset_url": "https://o3df.org/wp-content/uploads/sites/13/2023/03/O3DF-Logo.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "434746cc9775e3b48cb0c9b8a6005cc8546321b274c68659687f1805d6960b8b",
+    "background": "#ffffff"
+  },
+  "aaif": {
+    "filename": "aaif.png",
+    "source_page": "https://aaif.io/",
+    "asset_url": "https://cdn.sanity.io/images/4o10fa7h/production/b2a2e03cf5baa4ada47dccb4cfabb3e29c5dc1b9-2000x2000.png?auto=format&fit=max&q=75&w=56",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "cd19465d93590c1d15c81ade3b099a8985824fadb72add6ad82524d6306c074e",
+    "background": "#ffffff"
+  },
+  "Linux Foundation": {
+    "filename": "linux-foundation.png",
+    "source_page": "https://www.linuxfoundation.org/brand-guidelines",
+    "asset_url": "https://www.linuxfoundation.org/hubfs/lf-stacked-color.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "e7a0922025e6317bbc12fa410c3accf40843dd436d6c91a65bf25b0661d09fa2",
+    "background": "#ffffff"
+  },
+  "Stichting NixOS Foundation": {
+    "filename": "stichting-nixos-foundation.png",
+    "source_page": "https://nixos.org/",
+    "asset_url": "https://nixos.org/favicon.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "c7c1f1417685d0dd179d43d61b3c95137b777672ec6b33fef5b1b981413503f6",
+    "background": "#ffffff"
+  },
+  "Eclipse Foundation": {
+    "filename": "eclipse-foundation.png",
+    "source_page": "https://www.eclipse.org/",
+    "asset_url": "https://www.eclipse.org/eclipse.org-common/themes/solstice/public/images/logo/eclipse-foundation-white-orange.svg",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "d22dfd30916b258d03d3d45ee34f1919d7b1312276982ba1e9a954ce35605b42",
+    "background": "#16364b"
+  },
+  "openinfra": {
+    "filename": "openinfra-foundation.png",
+    "source_page": "https://openinfra.org/",
+    "asset_url": "https://openinfra.org/img/apple-touch-icon.png",
+    "retrieved_at": "2026-10-21",
+    "use": "organization identification; no endorsement",
+    "sha256": "3261d69ad968aa17840a58ea55bcd95155f29d016ad07f0b86098f4691ce4857",
+    "background": "#ffffff"
+  }
+}

@@ -1124,6 +1124,187 @@
           "sha256": "4e99514652b98edf65295a07269125e6eab777df376623c2e5ab1ce7d58ba72b"
         }
       ]
+    },
+    {
+      "file": "chapter3-foundation-logos.zip",
+      "sha256": "a939ccd402b692246042c52bd2af71f2197ae795e5ca1c8fda31ba4388ee1a01",
+      "files": [
+        {
+          "path": "content/gosr/foundation-logos/assets/aaif.png",
+          "size": 1840,
+          "sha256": "cd19465d93590c1d15c81ade3b099a8985824fadb72add6ad82524d6306c074e"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/anoma-foundation.png",
+          "size": 2495,
+          "sha256": "e32e98e19fd2b49d076b242ac99b7c84aeee56e090b77a74a8424994f9c972b6"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/apache-software-foundation.png",
+          "size": 7958,
+          "sha256": "f5527075a93c0baddfef2cd8042edeb69a2b0d1cb085d8da9a8822c35e0ae98d"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/aswf.png",
+          "size": 7843,
+          "sha256": "afec765c8f1554aa2ea0aca16ff22added065e488c36511ab9852f31beeaa61e"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/bevy-foundation.png",
+          "size": 14130,
+          "sha256": "c705a7f75008531f4b48fffcf9bb20b51b9fe7148c833537381ae00577b2cb3f"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/cdf.png",
+          "size": 11076,
+          "sha256": "1a788e9ef0a41aff10b90da8cf95d9f64df973c2499d93f6b3b73dfe93e8906a"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/chips.png",
+          "size": 11396,
+          "sha256": "87681899f4b68cb8c216bf8685351900fdd4bcead5b9b90df4dbea923bc7c012"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/cncf.png",
+          "size": 3212,
+          "sha256": "6c350c06b7af9b0d057ee84e640be88c1ea093620b88a3fcd12861a2eff35619"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/connectivity-standards-alliance.png",
+          "size": 6497,
+          "sha256": "493e65d1a9547a07e0d0b9af86235d0d737a2040c627e51c6bbbf07021374ce2"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/duckdb-foundation.png",
+          "size": 6482,
+          "sha256": "6b28f3fba95c1a152ee8e401c199d465fe74607488f5b9f41159268077213dad"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/eclipse-foundation.png",
+          "size": 10505,
+          "sha256": "d22dfd30916b258d03d3d45ee34f1919d7b1312276982ba1e9a954ce35605b42"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/farama.png",
+          "size": 11385,
+          "sha256": "07a1bfc2fda4c9d14571f9c84cc3b060f97ff85cd16060ba58b412f1c2523b79"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/finos.png",
+          "size": 1356,
+          "sha256": "b304a6398b32f230d8e0c7eaa48d5b88635027f72a9aa540080b4d8b7c594020"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/free-ebook-foundation.png",
+          "size": 17483,
+          "sha256": "9deb9a1d5ee31c0cd059d057c7c1c4fb2234bd54827504b72093c0863764f581"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/gentoo-foundation.png",
+          "size": 13240,
+          "sha256": "87c473d32f8bf3fc6052817c69166a6ccdc11243c244e05eb924f765420b38e9"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/girlscript-foundation.png",
+          "size": 12963,
+          "sha256": "cc95d5ac0e5508f72e8a424912640a1a18411cbd6763bdbb7c9e0adaf030c6ed"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/godot-foundation.png",
+          "size": 17012,
+          "sha256": "52d80388bff61902eeb4c7ca30ecde280987de4f1554aa6478432c3d1ad7aee5"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/lf-ai-data.png",
+          "size": 5682,
+          "sha256": "6c191fcf64d0bbe3c2717f9bc31f418f687b1ba7aee0fff2294dbb99f5a98581"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/lf-edge.png",
+          "size": 4381,
+          "sha256": "000edb80a4d365314d33b743c6e05ac26fd94e0f69cd31fe7f4abe0072a3513e"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/lf-energy.png",
+          "size": 5118,
+          "sha256": "57dbed753fb7700db20429f42d58867a34c7c690b24fce2d8b7451a37aa65ebe"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/lf-networking.png",
+          "size": 5045,
+          "sha256": "fa936694cbad8056387eeae7a7b000febf044a889acf76fb4053b466a1d7e3ff"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/lfdt.png",
+          "size": 4848,
+          "sha256": "cf87f57d528d29fdd9aaf95841adff881fc543f7fb501c408a434b7c95e3bc02"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/linux-foundation.png",
+          "size": 8988,
+          "sha256": "e7a0922025e6317bbc12fa410c3accf40843dd436d6c91a65bf25b0661d09fa2"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/o3df.png",
+          "size": 13991,
+          "sha256": "434746cc9775e3b48cb0c9b8a6005cc8546321b274c68659687f1805d6960b8b"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/openatom-foundation.png",
+          "size": 9923,
+          "sha256": "7ceefc73db74c699397a5f0e9e9e238dac9f9ad7e4f428e82f03cd7379a435a5"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/openinfra-foundation.png",
+          "size": 3531,
+          "sha256": "3261d69ad968aa17840a58ea55bcd95155f29d016ad07f0b86098f4691ce4857"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/openjs.png",
+          "size": 16974,
+          "sha256": "583b7312a9b3a5fbecb61b6081bff4fa3ad430a6ee9e85bfb6996f8cddf91d99"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/openssf.png",
+          "size": 14965,
+          "sha256": "8da2461ed0356abe76402857b3068bf3663a6a58fe037a9cd8cba48e0467f0d5"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/php-foundation.png",
+          "size": 9114,
+          "sha256": "c2e5fb59a742d7ba3a25cb8dd02d3c5274e165b2a92d5267d988c2d041409415"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/python-software-foundation.png",
+          "size": 9901,
+          "sha256": "c057c47f6bdbfec03c25f1fd5387d13aa3df97434630afa36f332dc52c272013"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/pytorch.png",
+          "size": 8023,
+          "sha256": "385c02e1bdf1f572db62ec0c2fa68a009833552fa5e8d8d2d27b513ffffd4b61"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/rust-foundation.png",
+          "size": 13550,
+          "sha256": "61fa4e500b6c670b4d856fdaa6961f1ea606fabe8d6001541c2b09048bdf4fe6"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/stichting-nixos-foundation.png",
+          "size": 10580,
+          "sha256": "c7c1f1417685d0dd179d43d61b3c95137b777672ec6b33fef5b1b981413503f6"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/trino-foundation.png",
+          "size": 6719,
+          "sha256": "01e54bba5d477238dc4b336dc60e71dbe8bd7fdf85a8d382aca9d305683b6208"
+        },
+        {
+          "path": "content/gosr/foundation-logos/assets/zig-software-foundation.png",
+          "size": 5870,
+          "sha256": "1c871bc4b13190e8ca3eb3bb4855f9cda7bf1a1fc07c0f2064ecc74c76c0adc1"
+        }
+      ]
     }
   ]
 }

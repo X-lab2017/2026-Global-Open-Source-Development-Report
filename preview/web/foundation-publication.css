@@ -25,3 +25,13 @@
 .fp-stage.vmap-reflow .rp-caption{font-size:12px;align-self:stretch}
 .fp-stage.vmap-reflow .rp-foot{display:none}
 .fp-stage.vmap-reflow .cr-overlay[data-mode=profile]{width:min(465px,calc(100% - 28px))}
+
+/* Local official artwork remains legible in both page themes. */
+.fp-stage .fr-object{display:flex;align-items:center;gap:10px;width:100%;text-align:left}
+.fp-stage .fr-logo,.fp-stage .fr-logo-space{width:48px;height:29px;flex:0 0 48px;object-fit:contain;border-radius:3px}
+.fp-stage .fr-logo{background:#fff;box-shadow:0 0 0 1px #dce5ea}
+.fp-stage .fr-object .cr-name{min-width:0}
+.fp-stage .fr-rank-grid{grid-template-columns:44px 278px minmax(220px,1fr) 110px 230px 34px;gap:12px}
+.fp-stage .fr-compare-name,.fp-stage .fr-profile-name{display:flex;align-items:center;gap:10px}
+.fp-stage .fr-compare-name .fr-logo,.fp-stage .fr-profile-name .fr-logo{width:60px;height:36px;flex-basis:60px}
+.fp-stage[data-rr-group="3"][data-simulated="false"] .fr-history{grid-template-rows:78px minmax(0,1fr) 33px}

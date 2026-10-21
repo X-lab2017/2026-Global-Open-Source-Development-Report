@@ -35,6 +35,17 @@ class Figure(vp.Figure):
 def bar(f,x,y,w,value,maximum,color=BLUE):
  f.rect(x,y,w,4,TRACK,TRACK,1);f.rect(x,y,w*value/maximum,4,color,color,1)
 
+def leading_figure():
+ f=Figure(p.FIGURES[0],'图 3-2-1',height=265)
+ f.text(0,16,'全球企业榜前五 · 完整 Top 30 见续图',11,TEAL)
+ for x,t in [(313,'OpenRank'),(393,'仓库 / 个'),(W,'关联开发者 / 人')]:f.text(x,38,t,8.5,MUTED,'right')
+ for i,r in enumerate(D['company']['rows'][:5]):
+  y=65+i*34;f.text(0,y,f'{int(r["rank"]):02}',10,MUTED);f.logo(r['company'],25,y-12,18);f.text(53,y,r['company_zh'],10.2,INK)
+  bar(f,160,y+7,153,float(r['openrank']),167060.26)
+  f.text(313,y,fmt(r['openrank']),10,INK,'right');f.text(393,y,fmt(r['active_repos'],0),10,INK,'right');f.text(W,y,fmt(r['active_developers'],0),10,INK,'right')
+ f.text(0,235,'关联开发者不等于企业员工；条形从零起，使用同一尺度。',8.6,MUTED)
+ return f.caption()
+
 def main_figure():
  f=Figure(p.FIGURES[0],'图 3-2-1',LW,461);cw=(LW-22)/2
  for j in range(2):
@@ -55,7 +66,7 @@ def main_figure():
    f.text(x+cw-58,y+12,fmt(r['active_repos'],0),8.8,INK,'right')
    f.text(x+cw-5,y+12,fmt(r['active_developers'],0),8.8,INK,'right')
  f.text(0,440,'开发者为企业关联活跃开发者，不等于企业员工；条形从零起，使用同一尺度。',8.5,MUTED)
- return f.caption()
+ return f.caption(True)
 
 def china_figure():
  f=Figure(p.FIGURES[0],'图 3-2-1',height=248)
@@ -149,7 +160,7 @@ def main():
  styles={'chapter':ParagraphStyle('chapter',parent=body,fontSize=16,leading=24,spaceAfter=15,keepWithNext=True),'section':ParagraphStyle('section',parent=body,fontSize=12.5,leading=21,spaceBefore=10,spaceAfter=9,textColor=HexColor(TEAL),keepWithNext=True),'subsection':ParagraphStyle('subsection',parent=body,spaceBefore=7,spaceAfter=6,textColor=HexColor(TEAL),keepWithNext=True),'note':ParagraphStyle('note',parent=body,fontSize=9,leading=14,spaceAfter=7)};story=[]
  def add(t,style='body'):story.append(common.paragraph(t,styles.get(style,body)))
  def interpret(t):head,tail=t.split('。',1);add('**'+head+'。**'+tail)
- add('3.2 '+p.TITLE,'chapter');add(p.INTRO);add('研究问题：'+p.QUESTION);add('指标定位：'+p.POSITION,'note');add('核心发现：'+p.FINDING);add(p.STORIES[0][0],'section');add(p.STORIES[0][1][0])
+ add('3.2 '+p.TITLE,'chapter');add(p.INTRO);add('研究问题：'+p.QUESTION);add('指标定位：'+p.POSITION,'note');add('核心发现：'+p.FINDING);add(p.STORIES[0][0],'section');add(p.STORIES[0][1][0]);story.append(vp.FigureFlow(leading_figure(),'3-2-1-lead'))
  # A full, readable global ranking follows on its own landscape page.
  story += [NextPageTemplate('landscape'),PageBreak(),vp.FigureFlow(main_figure(),'3-2-1'),NextPageTemplate('portrait'),PageBreak()]
  for t in p.STORIES[0][1][1:]:interpret(t)
