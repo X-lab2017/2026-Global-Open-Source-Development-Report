@@ -73,6 +73,9 @@ def chapter(lang):
   if i==3:
    from foundation_publication import section as foundation_section
    out.append(foundation_section(DATA));continue
+  if i==4:
+   from project_publication import section as project_section
+   out.append(project_section(DATA));continue
   if i!=2:
    import rankings
    out.append(gosr_reading.normalize(rankings.section(i,DATA,REPO),i)+gallery(f'3.{i}'));continue

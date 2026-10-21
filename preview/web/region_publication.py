@@ -42,6 +42,8 @@ from company_publication import NOTES as COMPANY_NOTES
 NOTES += COMPANY_NOTES
 from foundation_publication import NOTES as FOUNDATION_NOTES
 NOTES += FOUNDATION_NOTES
+from project_publication import NOTES as PROJECT_NOTES
+NOTES += PROJECT_NOTES
 def paragraphs():
  return [CHAPTER_QUESTION,CHAPTER_INTRO,*[t for a in CHAPTER_FINDINGS for t in a],PERIOD,INTRO,QUESTION,POSITION,FINDING,*[p for _,ps in STORIES for p in ps],ACTION_INTRO,*[p for _,p in ACTIONS],BRIDGE]
 def para(t,cls=''):return f'<p class="{cls}">{E(t)}</p>'
