@@ -70,6 +70,9 @@ def chapter(lang):
  for i,(tag,name,headline) in enumerate(sections,1):
   if i==1:
    out.append(rp.section(DATA));continue
+  if i==3:
+   from foundation_publication import section as foundation_section
+   out.append(foundation_section(DATA));continue
   if i!=2:
    import rankings
    out.append(gosr_reading.normalize(rankings.section(i,DATA,REPO),i)+gallery(f'3.{i}'));continue
