@@ -52,7 +52,7 @@ def opening():
 def figure(i,data):
  import rankings
  tree=Tree(rankings.figure('1',i,data));root=next(n for n in tree.root.walk() if n.tag=='figure');root.add('rp-figure')
- stage=next(n for n in root.walk() if n.has('rr-stage'));stage.add('rp-stage');stage.set('data-slide-height',760 if i!=2 else 800)
+ stage=next(n for n in root.walk() if n.has('rr-stage'));stage.add('rp-stage');stage.set('data-slide-height',{1:880,2:800,3:760}[i])
  board=next(n for n in root.walk() if n.has('cr-board'))
  for n in list(root.walk()):
   if n.has('cr-eyebrow') or n.tag=='figcaption':remove(root,n)
