@@ -1,5 +1,7 @@
 """Chapter 4 opening and 4.1: a shared publication manuscript; observed data unchanged."""
 from html import escape as E
+from gosl_publication import NOTES as GOSL_NOTES
+from gosl_landscapes import DATASETS as GOSL_DATASETS, DATA as GOSL_DATA
 from goso_reading import Tree,Node,fragment,remove
 EDITION='2026-10-21-a-landscape-publication-v2'
 CHAPTER_TITLE='第四章 全球开源技术全景洞察（GOSL）'
@@ -55,7 +57,7 @@ def apply(html):
    elif n.has('al-sim'):n.children=['模拟数据 · 不代表真实贡献']
    elif n.tag=='summary':n.children=['查看明细']
   panel.children+=fragment(f'<footer class="lp-caption"><h4 id="{id}-caption">图 4-1-{i} {E(title)}</h4></footer>')
-  if i==1:panel.children+=fragment('<details class="lp-source" id="land-evidence"><summary>口径与来源</summary>'+''.join(para(n) for n in NOTES)+'</details>')
+  if i==1:panel.children+=fragment('<details class="lp-source" id="land-evidence"><summary>口径与来源</summary>'+'<h4>4.1 智能体生态</h4>'+''.join(para(n) for n in NOTES)+'<h4>4.2—4.6 全景样本与分类</h4>'+''.join(para(n) for n in GOSL_NOTES)+'<p>'+ ' · '.join(f'<a href="{d["source"]["url"]}">{d["number"]} 原始清单</a>' for d in GOSL_DATASETS)+'</p><p><a href="/assets/gosl/landscapes.json" download>全部全景记录 JSON</a> · <a href="/assets/gosl/provenance.json">来源指纹与分类版本</a> · <a href="https://github.com/X-lab2017/open-digger/tree/'+GOSL_DATA['classificationRef']+'/labeled_data/technology">OpenDigger 分类来源</a></p></details>')
  out=['<section class="chapter-section lp-section" id="ch04-s01"><div class="lp-topline"><span>4.1 / A-LANDSCAPE</span><button type="button" data-al-theme aria-pressed="false">切换深色</button></div><h2>4.1 '+E(TITLE)+'</h2>',para(INTRO),para('研究问题：'+QUESTION),para('指标定位：'+POSITION,'lp-position'),para('核心发现：'+FINDING)]
  ids=[['al-agent','al-model'],['al-category-rank','al-category-heat','al-category-trend','al-project-rank'],['al-concentration','al-shift'],['al-country-rank','al-country-detail','al-country-stack','al-specialization','al-country-trend']]
  for i,(anchor,title,ps) in enumerate(STORIES):

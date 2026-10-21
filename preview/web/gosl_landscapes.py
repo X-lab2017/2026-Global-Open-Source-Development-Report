@@ -5,7 +5,8 @@ from urllib.parse import urlencode
 ROOT=Path(__file__).resolve().parents[1]
 DATA=json.loads((ROOT/'content/gosl/landscapes.json').read_text())
 DATASETS=DATA['datasets']
-VERSION=DATA['version']
+from gosl_publication import SECTIONS, EDITION, figure_number
+VERSION=EDITION
 REPO='https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report'
 W,H=1600,1100
 TOP,BOTTOM=106,906
@@ -13,6 +14,8 @@ E=lambda s:html.escape(str(s),quote=True)
 def text(x,y,s,size=16,attrs=''):
     return f'<text x="{x:.2f}" y="{y:.2f}" font-size="{size}" {attrs}>{E(s)}</text>'
 def names(d):return {c['id']:c for c in d['categories']}
+def display_name(d,p):
+    return p['repo'] if sum(q['name']==p['name'] for q in d['projects'])>1 else p['name']
 def weighted_length(s):return sum(1 if ord(c)>255 else .82 if c in 'MW@#%' else .29 if c in 'il.:|!\'' else .54 for c in s)
 def wrap(s,width,size=14,limit=None):
     lines=[];line=''
@@ -39,7 +42,7 @@ def geometry(d):
             rowheight=38 if d['id']=='models' else 28
             cw=(width-20)/cols
             for p in items:
-                if len(wrap(p['name'],cw-34,11.5))>2:rowheight=max(rowheight,45)
+                if len(wrap(display_name(d,p),cw-34,11.5))>2:rowheight=max(rowheight,45)
             height=32 if not items else 35+math.ceil(len(items)/cols)*rowheight+8
             base.append((key,items,height,rowheight))
         available=BOTTOM-TOP-(len(base)-1)*7
@@ -63,8 +66,8 @@ def geometry(d):
 
 def project_svg(p,x,y,w,h,d):
     available=w-34;size=14
-    while len(wrap(p['name'],available,size))>2 and size>11.5:size-=.5
-    lines=wrap(p['name'],available,size)
+    while (len(wrap(display_name(d,p),available,size))>2 or len(wrap(display_name(d,p),available,size))*(size+1)>h-3) and size>11.5:size-=.5
+    lines=wrap(display_name(d,p),available,size)
     assert len(lines)<=3,(d['id'],p['name'],available)
     lh=size+1;start=y+h/2-(len(lines)-1)*lh/2+size*.35
     body=f'<rect class="gl-project-box" x="{x}" y="{y+1}" width="{w}" height="{h-2}" rx="3" fill="var(--gv-surface)" stroke="transparent"/>'
@@ -99,15 +102,14 @@ def chapter_overview():
     return '''<section id="gosl-overview" class="gl-overview"><div class="gl-overview-top"><span class="eyebrow">CHAPTER 04 / OPEN SOURCE LANDSCAPES</span><span>全景与共建评审版 · 2026.10</span></div><h2>六个领域，读懂开源技术结构</h2><p>从一个项目走向完整技术分工。本章以 4.1 作为深入样章，其余五节先开放技术全景与研究框架，邀请熟悉各领域的研究者、维护者和使用者共同补充。</p><nav class="gl-directory" aria-label="第四章六个领域">'''+''.join(f'<a href="{href}"><div><span>{num}</span><small>{status}</small></div><h3>{title}</h3><p>{route}</p><footer>{counts}<b>查看全景 ↗</b></footer></a>' for num,title,route,counts,status,href in cards)+'''</nav><div class="gl-overview-foot"><p>本轮开放：技术分类、项目定位与来源记录。后续补充：核心发现、演变趋势、贡献结构与行动建议。</p><a href="#gosl-contribute">参与本章共建 ↗</a></div></section>'''
 
 def framework_section(d):
-    sid='ch04-s0'+d['number'][-1];pid='gl-'+d['id'];pending=sum(p['category']=='pending' for p in d['projects'])
+    m=SECTIONS[d['id']];sid='ch04-s0'+d['number'][-1];pid='gl-'+d['id'];figure=figure_number(d)
     controls='<div class="gl-groups" role="group" aria-label="功能分区"><button data-gl-focus="all" aria-pressed="true">全部结构</button>'+''.join(f'<button data-gl-focus="{E(g["id"])}" aria-pressed="false">{E(g["name"])}</button>' for g in d['groups'])+'</div>'
-    controls+='<div class="gl-control-row"><label>快速定位<input type="search" data-gl-search placeholder="搜索项目、发布者或技术类别"></label><button data-gl-reset>恢复全景</button><button data-gl-zoom disabled>放大模块</button><a data-gl-project-link href="'+d['source']['url']+'" target="_blank" rel="noopener">查看数据来源 ↗</a></div>'
-    sourceText='原表任务分类与排序' if d['id']=='models' else 'OpenDigger 技术标签；主展示类别与完整标签分别保留' if d['id'] in ['cloud','database'] else '报告原有类别 + 项目一手说明；功能归类供共建复核'
-    empty=''.join(f'<article><span>{i+2:02d} / 待补充</span><h4>{name}</h4><div class="gl-writing-space" aria-label="{name}内容待补充"></div><p>{hint}</p></article>' for i,(name,hint) in enumerate([('核心发现','预留研究判断及对应证据。'),('排行与演变','预留项目、子类别及时间变化。'),('贡献与协作','预留参与主体、贡献结构和案例。'),('行动建议','预留面向维护者、采用方与支持方的建议。')]))
-    return f'''<section class="chapter-section gl-section" id="{sid}" data-gosl-section="{d['id']}"><header class="gl-section-header"><div class="gl-section-top"><span>{d['number']} / {d['en']}</span><span>全景已上线 · 正文待共建</span></div><h2>{d['title']}</h2><p class="gl-question">{d['question']}</p><p>{d['intro']}</p><dl class="gl-section-spec"><div><dt>观察对象</dt><dd>{d['count']} 条入库记录 · {d['categoryCount']} 个技术类别{f' · {pending} 条分类待核' if pending else ''}</dd></div><div><dt>指标定位</dt><dd>{d['metric']} · 本轮仅作为图内原始记录查看</dd></div><div><dt>研究路径</dt><dd>技术结构 → 项目与类别演变 → 贡献与协作 → 行动建议</dd></div></dl></header><article id="{pid}" class="gl-plate" data-gl-plate="{d['id']}" data-accent="{d['accent']}"><header class="gl-plate-heading"><div><span class="eyebrow">{d['number']}-01 / THE LANDSCAPE</span><h3>{d['short']} · 技术结构全景</h3></div><div class="gl-tools"><button data-gl-full>全屏</button><button data-gl-svg>SVG ↓</button><button data-gl-csv>清单 CSV ↓</button></div></header><p class="gl-scope">{d['scope']}</p><div class="gl-controls">{controls}</div><div class="gl-canvas">{plate_svg(d)}</div><p class="gl-readout" aria-live="polite">点击分区或项目在图内查看详情；所有分类始终保留。</p><details class="gl-data"><summary>查看完整项目清单与分类来源</summary><div class="gl-table-host"></div><noscript><p><a href="/assets/gosl/{d['id']}-projects.csv" download>下载完整清单 CSV ↓</a></p></noscript></details><p class="gl-source">来源：<a href="{d['source']['url']}">报告原始清单</a> · {sourceText}。<a href="/assets/gosl/{d['id']}-projects.csv" download>完整分类记录 ↓</a> · <a href="#gosl-methods">分类与口径说明 ↗</a></p></article><section class="gl-outline" aria-label="{d['number']}待共建内容"><div class="gl-outline-title"><h3>本节研究框架</h3><a href="{E(contribution_url(d))}" target="_blank" rel="noopener">补充本节材料 ↗</a></div><div class="gl-outline-grid">{empty}</div><p class="gl-needed">欢迎补充：{d['need']}</p></section></section>'''
+    controls+='<div class="gl-control-row"><label>定位项目<input type="search" data-gl-search placeholder="搜索项目、发布者或技术类别"></label><button data-gl-reset>恢复全景</button><button data-gl-zoom disabled>放大模块</button><a data-gl-project-link href="'+d['source']['url']+'" target="_blank" rel="noopener">查看数据来源 ↗</a><button data-gl-full>全屏</button></div>'
+    questions=''.join(f'<article class="gl-research-question"><h4>{E(title)}</h4><p>{E(question)}</p></article>' for title,question in m['questions'])
+    return f'''<section class="chapter-section gl-section" id="{sid}" data-gosl-section="{d['id']}" data-gosl-edition="{EDITION}"><header class="gl-section-header"><div class="gl-section-top"><span>{d['number']} / {d['en']}</span><span>全景与研究框架</span></div><h2>{d['number']} {E(m['title'])}</h2><p>{E(m['intro'])}</p></header><article id="{pid}" class="gl-plate" data-gl-plate="{d['id']}" data-accent="{d['accent']}" aria-labelledby="{pid}-caption" data-figure-number="{figure}"><div class="gl-controls">{controls}</div><div class="gl-canvas">{plate_svg(d)}</div><p class="gl-readout" aria-live="polite"></p><details class="gl-data"><summary>查看项目明细</summary><div class="gl-table-host"></div><noscript><p><a href="/assets/gosl/{d['id']}-projects.csv" download>下载完整清单 CSV</a></p></noscript></details><footer class="gl-caption"><h4 id="{pid}-caption">{figure} {E(m['caption'])}</h4><p>{E(m['scope'])}</p></footer></article><p class="gl-reading">{E(m['reading'])}</p><section class="gl-outline" aria-label="{d['number']}后续研究框架"><div class="gl-outline-title"><h3>后续研究框架</h3><span>以下问题待补充证据与分析</span></div><div class="gl-outline-grid">{questions}</div></section></section>'''
 
 def section_fragments():
-    return ''.join(framework_section(d) for d in DATASETS)+f'''<section id="gosl-contribute" class="gl-contribute"><span class="eyebrow">BUILD THIS LANDSCAPE TOGETHER</span><h2>从一张全景开始，共同补全技术生态</h2><p>欢迎纠正分类、补充项目、提供一手数据与实践案例。可以从熟悉的一节开始，说明来源、日期和适用范围；研究判断与行动建议在证据齐备后逐步填写。</p><div class="gl-contribute-links"><a href="{REPO}/issues/new">提交材料与建议 ↗</a><a href="/assets/gosl/contribution-template.md" download>下载共建模板 ↓</a><a href="{REPO}/blob/main/preview/content/gosl/landscapes.json">查看可维护的分类清单 ↗</a></div></section><section id="gosl-methods" class="gl-methods"><h3>全景样本与分类口径</h3><details><summary>分类表示什么，哪些内容仍待补充？</summary><p>4.2—4.6 的项目和数值来自报告已有 CSV；本次未重新抓取排名，也未生成趋势或国家贡献结论。云与数据库使用固定版本的 OpenDigger 标签，以仓库 ID 和标签引用关系匹配。一个仓库可能具有多个标签；全景只放置一次，其余标签在图内详情和下载中保留，因此本图类别数量不能直接复算原稿多标签的年度分类汇总。</p><p>RISC-V 与 PyTorch 使用报告既有类别，结合项目自身说明作功能归类；这是供评审的编辑分类，不冒充原年度统计的项目映射。缺少证据或与技术主题不符的样本单列“分类与样本待核”。PyTorch 周边仓库不自动代表基金会正式托管项目。面积与位置用于组织阅读，功能相邻不证明真实依赖或兼容。</p></details><details><summary>数据时点、开放资格与下载</summary><p>模型图为 2026-10-02 快照，六任务领域各取近 30 天下载量 Top 16；下载量不是用户数、能力评分或 ModelRank。公开模型样本不自动满足开源资格。其余四图仅保留原表的项目 OpenRank 值和 2026 年标记，具体起止窗口仍待核验，不扩写同比结论。原始数据不补零、不跨图合并，分类未覆盖不表示技术不存在。</p><p><a href="/assets/gosl/landscapes.json" download>下载全部全景记录 JSON ↓</a> · <a href="/assets/gosl/provenance.json">来源指纹与分类版本 ↗</a> · <a href="https://github.com/X-lab2017/open-digger/tree/{DATA['classificationRef']}/labeled_data/technology">OpenDigger 分类版本 ↗</a></p></details></section><dialog id="gl-fullscreen" aria-label="技术全景全屏查看"><div class="gl-fullscreen-bar"><strong>技术全景</strong><div><button data-gl-theme>切换深色</button><button data-gl-close>退出全屏 ×</button></div></div><div id="gl-fullscreen-body"></div></dialog><script type="application/json" id="gosl-data">'''+json.dumps(DATA,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script>'
+    return ''.join(framework_section(d) for d in DATASETS)+f'''<section id="gosl-contribute" class="gl-contribute"><h3>参与本章共建</h3><p>欢迎补充分类修订、一手数据与实践案例，并注明来源、日期和适用范围。研究结论与行动建议在证据齐备后逐步完善。</p><a href="{REPO}/issues/new">提交材料与建议 ↗</a> · <a href="#land-evidence">口径与来源</a></section><dialog id="gl-fullscreen" aria-label="技术全景全屏查看"><div class="gl-fullscreen-bar"><strong>技术全景</strong><div><button data-gl-prev aria-label="上一张全景">上一图</button><span data-gl-index></span><button data-gl-next aria-label="下一张全景">下一图</button><button data-gl-theme>切换深色</button><button data-gl-close>退出全屏 ×</button></div></div><div id="gl-fullscreen-body"></div></dialog><script type="application/json" id="gosl-data">'''+json.dumps(DATA,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script>'
 
 def english_framework():
     return '<div id="gosl-overview" class="reader-note">Chapter 4 has one in-depth Agentic AI section and five Chinese interactive landscape frameworks. Analysis in sections 4.2–4.6 remains open for contributions.</div>'+''.join(f'<section id="ch04-s0{i}" class="chapter-section"><h2>{number} {title}</h2><p>{status}</p><a href="/2026/zh/chapters/04/#ch04-s0{i}">Explore the Chinese landscape →</a></section>' for i,number,title,status in [(1,'4.1','Agentic AI','In-depth sample with landscapes, evolution and contributions.')]+[(int(d['number'][-1]),d['number'],d['en'].title(),'Landscape and research framework available; findings and further analysis are pending.') for d in DATASETS])

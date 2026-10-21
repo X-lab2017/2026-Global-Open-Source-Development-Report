@@ -120,7 +120,7 @@
         : c
           ? "查看分类依据 ↗"
           : "查看数据来源 ↗";
-      let readout = "点击分区或项目在图内查看详情；所有分类始终保留。";
+      let readout = "";
       if (!c) {
         replaceSvg(inspector, defaultInspector);
       } else {
@@ -373,15 +373,21 @@
       .querySelector("[data-gl-theme]")
       .setAttribute("aria-pressed", String(dark));
   }
-  function openFull(plate, d) {
-    if (active) return;
-    returnFocus = document.activeElement;
+  function mountPlate(plate, d) {
     placeholder = document.createComment("landscape position");
     plate.before(placeholder);
     active = plate;
-    modal.querySelector("strong").textContent =
-      `${d.number}-01 / ${d.short}技术全景`;
+    modal.querySelector("strong").textContent = plate.dataset.figureNumber;
     document.querySelector("#gl-fullscreen-body").append(plate);
+    const index = data.datasets.findIndex(item => item.id === d.id);
+    modal.querySelector("[data-gl-index]").textContent = `${index + 1} / ${data.datasets.length}`;
+    modal.querySelector("[data-gl-prev]").disabled = index === 0;
+    modal.querySelector("[data-gl-next]").disabled = index === data.datasets.length - 1;
+  }
+  function openFull(plate, d) {
+    if (active) return;
+    returnFocus = document.activeElement;
+    mountPlate(plate, d);
     document.body.classList.add("gl-modal-open");
     themeLabel();
     modal.showModal();
@@ -395,6 +401,16 @@
     document.body.classList.remove("gl-modal-open");
     returnFocus?.focus();
   }
+  function moveFull(delta) {
+    if (!active) return;
+    const index = data.datasets.findIndex(d => d.id === active.dataset.glPlate);
+    const next = data.datasets[index + delta];
+    if (!next) return;
+    placeholder.replaceWith(active);
+    mountPlate(document.querySelector(`[data-gl-plate="${next.id}"]`), next);
+  }
+  modal.querySelector("[data-gl-prev]").addEventListener("click", () => moveFull(-1));
+  modal.querySelector("[data-gl-next]").addEventListener("click", () => moveFull(1));
   modal
     .querySelector("[data-gl-close]")
     .addEventListener("click", () => modal.close());

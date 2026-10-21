@@ -6,7 +6,10 @@ parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,requir
 repo=Path(__file__).resolve().parents[2]
 page=(args.output/'2026/zh/chapters/04/index.html').read_text()
 assert page.count('data-gl-plate=')==5
-assert page.count('class="gl-writing-space"')==20
+assert page.count('class="gl-research-question"')==20
+assert 'class="gl-writing-space"' not in page
+assert page.count('class="gl-caption"')==5
+assert page.count('id="land-evidence"')==1
 assert page.count('id="gosl-overview"')==1 and page.count('id="gosl-contribute"')==1
 assert 'gosl-landscapes.js?v='+G.VERSION in page
 assert sum(d['count'] for d in G.DATASETS)==436
@@ -48,9 +51,9 @@ for d in G.DATASETS:
         label=''.join(n.find('{*}text').itertext()) if n.find('{*}text') is not None else ''
         # Project names are in tspans; marks are separate direct text elements.
         actual=''.join(t.text or '' for t in n.findall('.//{*}tspan'))
-        assert actual==projects[n.attrib['data-gl-project']]['name']
+        assert actual==G.display_name(d,projects[n.attrib['data-gl-project']])
     exported=list(csv.DictReader((args.output/'assets/gosl'/f'{d["id"]}-projects.csv').open(encoding='utf-8-sig')))
     assert len(exported)==d['count'] and {r['repo_or_model'] for r in exported}==set(originals)
 assert (repo/'chapters/chapter4/4.2-AI-大模型全景洞察.md').exists()
 assert json.loads((args.output/'assets/gosl/landscapes.json').read_text())==G.DATA
-print('PASS GOSL: all 436 source rows and values preserved; 74 categories plus 4 pending samples; non-overlapping geometry; full project names; five first landscapes and 20 intentionally empty analysis slots; complete CSV/JSON exports.')
+print('PASS GOSL: all 436 source rows and values preserved; 74 categories plus 4 pending samples; non-overlapping geometry; full project names; five captioned landscapes and 20 pending research questions; complete CSV/JSON exports.')
