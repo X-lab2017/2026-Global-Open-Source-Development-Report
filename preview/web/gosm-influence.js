@@ -17,7 +17,7 @@ window.createGOSM52 = function(D,H) {
   const own=p=>Object.hasOwn(defaults,p.dataset.gmChart);
   const sb=(k,v,label,x,y,w,active=false,disabled=false)=>{const C=theme(),b=box(x,y,w,28,active?C.raised:C.bg,active?C.brand:C.line,4)+txt(x+w/2,y+19,label,14,disabled?C.unknown:active?C.brand:C.ink,'middle');return disabled?`<g aria-disabled="true">${b}</g>`:action(k,v,label,b);};
   const select=(key,options,value,label)=>`<label class="s52-select-label">${label}<select data-s52-select="${key}" aria-label="${label}">${options.map(([v,l])=>`<option value="${v}" ${String(v)===String(value)?'selected':''}>${esc(l)}</option>`).join('')}</select></label>`;
-  function paint(p,s,controls,b,readout,rows,source,height=560){const keys=[...new Set(rows.flatMap(r=>Object.keys(r)))];set(p,controls,svg(b,1280,height,p.querySelector('h3').textContent),note(readout),rows.map(r=>Object.fromEntries(keys.map(k=>[k,r[k]??'']))),source);p.dataset.evidence='observed';}
+  function paint(p,s,controls,b,readout,rows,source,height=560){const keys=[...new Set(rows.flatMap(r=>Object.keys(r)))];set(p,controls,svg(b,1280,height,p.querySelector('h3').textContent),note(readout),rows.map(r=>Object.fromEntries(keys.map(k=>[k,r[k]??'']))),source);p.dataset.evidence='observed';p.s52State=s;const paper=p.querySelector('.s52-print-view');if(paper)paper.innerHTML=publication(p,s);}
   function source(keys,explanation){return H.source(keys,explanation)+`<p>${link(asset('influence-methods.md'),'5.2图表口径与交互说明')}</p>`;}
   const TASKS=[['language','语言生成','#79d8df'],['multimodal','多模态','#c1a1f0'],['vision','图像与视频','#a5cd85'],['speech','语音','#e6b875'],['other','其他任务','#819edb'],['unknown','任务未标注','#a2adb8']];
   function task(n){const t=n.task||'';return t==='unspecified-model'||!t?'unknown':t==='text-generation'?'language':['image-text-to-text','any-to-any'].includes(t)?'multimodal':/image|video|depth/.test(t)?'vision':/speech|audio/.test(t)?'speech':'other';}
@@ -76,21 +76,23 @@ window.createGOSM52 = function(D,H) {
   }
   function growth(s){
     const C=theme(),rows=D.derivation,selected=rows.find(r=>r.date===s.year)||rows.at(-1),prev=rows[rows.indexOf(selected)-1];let b='';
-    [['derived_models','可见派生模型',palette()[0],false],['derived_pct','派生模型占比',palette()[1],true]].forEach(([key,title,color,pct],j)=>{
-      const x=18+j*632,px=x+280,py=471,w=300,h=58,mx=Math.max(...rows.map(r=>r[key]))*1.1,xx=i=>px+i*w/4,yy=v=>py+h-v/mx*h;
-      b+=box(x,450,612,103,C.paper,C.line,6)+txt(x+16,474,title,15,C.muted)+txt(x+16,506,pct?fmt(selected[key],2)+'%':compact(selected[key]),27,color)+txt(x+16,535,s.year.slice(0,4)+(prev?(pct?' · 较上年 '+fmt(selected[key]-prev[key],2)+'pp':' · 同比 +'+fmt((selected[key]/prev[key]-1)*100,1)+'%'):''),13,C.muted);
-      b+=line(px,py+h,px+w,py+h,C.line)+`<path d="${rows.map((r,i)=>(i?'L':'M')+xx(i)+','+yy(r[key])).join(' ')}" fill="none" stroke="${color}" stroke-width="2.4"/>`;
-      rows.forEach((r,i)=>b+=action('year',r.date,`${r.date} ${title} ${r[key]}`,`<circle cx="${xx(i)}" cy="${yy(r[key])}" r="10" fill="${C.paper}" fill-opacity="0"/><circle cx="${xx(i)}" cy="${yy(r[key])}" r="${r.date===s.year?4.5:2.5}" fill="${color}"/>`)+txt(xx(i),546,r.date.slice(0,4),12,C.muted,'middle'));
+    [['derived_models','可见派生模型 / 万',palette()[0],false],['derived_pct','派生模型占比 / %',palette()[1],true]].forEach(([key,title,color,pct],j)=>{
+      const x=18+j*632,px=x+250,py=475,w=330,h=104,mx=pct?35:100,xx=i=>px+i*w/4,val=r=>pct?r[key]:r[key]/1e4,yy=v=>py+h-v/mx*h;
+      b+=box(x,450,612,171,C.paper,C.line,6)+txt(x+16,477,title,16,C.muted)+txt(x+16,513,pct?fmt(selected[key],2)+'%':fmt(selected[key]/1e4,2)+'万',25,color)+txt(x+16,545,s.year.slice(0,4)+(prev?(pct?' · 较上年 '+fmt(selected[key]-prev[key],2)+' 个百分点':' · 较上年 +'+fmt((selected[key]/prev[key]-1)*100,1)+'%'):''),14,C.muted);
+      b+=txt(x+16,605,'各年均为 9 月 13 日',14,C.muted);
+      [0,mx/2,mx].forEach(v=>b+=line(px,yy(v),px+w,yy(v),C.line,.6)+txt(px-8,yy(v)+4,fmt(v,Number.isInteger(v)?0:1),13,C.muted,'end'));
+      b+=`<path d="${rows.map((r,i)=>(i?'L':'M')+xx(i)+','+yy(val(r))).join(' ')}" fill="none" stroke="${color}" stroke-width="2.4"/>`;
+      rows.forEach((r,i)=>b+=action('year',r.date,`${r.date} ${title} ${r[key]}`,`<circle cx="${xx(i)}" cy="${yy(val(r))}" r="10" fill="${C.paper}" fill-opacity="0"/><circle cx="${xx(i)}" cy="${yy(val(r))}" r="${r.date===s.year?4.5:3}" fill="${color}"/>`)+txt(xx(i),yy(val(r))-10,fmt(val(r),2),14,color,'middle')+txt(xx(i),605,r.date.slice(0,4),14,C.muted,'middle'));
     });return b;
   }
   function network(p,s){
     const slice=sliceNetwork(s),controls=seg('view',[['concept','读懂派生'],['overview','网络全景']],s.view)+(s.view==='overview'?`<div class="s52-search"><input type="search" data-s52-search="network" placeholder="搜索模型或发布账号" aria-label="搜索模型或发布账号" autocomplete="off"><div class="s52-search-results" hidden></div></div>`:'<span class="s52-caption">从基座到派生，再成为新的起点</span>');
     const b=(s.view==='concept'?concept():galaxy(s,slice)+networkSide(s))+growth(s);
     const rows=[...(s.view==='concept'?[]:slice.edges).map(e=>({记录类型:'声明关系样本',日期:'2026-10-16',基座:e.source,派生:e.target,关系类型:'模型卡声明'})),...D.derivation.map(r=>({记录类型:'全平台累计回溯',日期:r.date,模型总数:r.models,派生模型数:r.derived_models,派生占比_pct:r.derived_pct}))];
-    paint(p,s,controls,b,'网络：2026-10-16声明关系样本；增长：2026-09-13快照回溯。两套数据独立，年份只联动增长读数。',rows,source(['derivation'],`网络取自 ${link(D.network.meta.sourceFile,'参考项目固定快照')}；上游 ${link(D.network.meta.upstreamDataset,'hub-stats')}。默认全景显示5,777模型、5,111条明确声明的基座关系，来自前12,000模型的非随机输入样本。参考图还包括数据集、Space与推断关系，本图不将这些连接当作派生。保留参考坐标布局；坐标、距离只用于导航，颜色表示任务类别，节点大小为样本内直接下游数，不表示ModelRank。点选仅高亮或聚焦直接上下游，不改变完整样本和导出计数。模型卡声明不等于训练过程经过独立核验。网络没有完整历史日期，底部年份不生成网络回放。`)+`<p>${link(asset('network.json'),'网络JSON')} · ${link(asset('lineage-live-provenance.json'),'固定来源与抽取记录')}</p>`);
+    paint(p,s,controls,b,'网络：2026-10-16非随机声明样本；增长：2026-09-13可见快照回溯。两套数据独立。',rows,source(['derivation'],`网络取自 ${link(D.network.meta.sourceFile,'参考项目固定快照')}；上游 ${link(D.network.meta.upstreamDataset,'hub-stats')}。默认全景显示5,777模型、5,111条明确声明的基座关系，来自前12,000模型的非随机输入样本。参考图还包括数据集、Space与推断关系，本图不将这些连接当作派生。保留参考坐标布局；坐标、距离只用于导航，颜色表示任务类别，节点大小为样本内直接下游数，不表示ModelRank。点选仅高亮或聚焦直接上下游，不改变完整样本和导出计数。模型卡声明不等于训练过程经过独立核验。网络没有完整历史日期，底部年份不生成网络回放。`)+`<p>${link(asset('network.json'),'网络JSON')} · ${link(asset('lineage-live-provenance.json'),'固定来源与抽取记录')}</p>`,630);
     p.s52Slice=slice;p.gmNetworkSlice=slice;if(s.view==='overview')bindPan(p,p.querySelector('.gm-svg'),s);
   }
-  function bindPan(p,sv,s){let drag;const coords=e=>{const r=sv.getBoundingClientRect(),scale=Math.min(r.width/1280,r.height/560)||1;return{x:(e.clientX-r.left-(r.width-1280*scale)/2)/scale,y:(e.clientY-r.top-(r.height-560*scale)/2)/scale};};
+  function bindPan(p,sv,s){let drag;const coords=e=>{const r=sv.getBoundingClientRect(),scale=Math.min(r.width/1280,r.height/630)||1;return{x:(e.clientX-r.left-(r.width-1280*scale)/2)/scale,y:(e.clientY-r.top-(r.height-630*scale)/2)/scale};};
     const update=()=>sv.querySelector('[data-s52-camera]')?.setAttribute('transform',camera(s));
     sv.addEventListener('pointerdown',e=>{if(e.button!==0||!e.target.hasAttribute('data-s52-pan'))return;const q=coords(e);drag={x:q.x,y:q.y,px:s.panX,py:s.panY};sv.setPointerCapture?.(e.pointerId);});
     sv.addEventListener('pointermove',e=>{if(!drag)return;const q=coords(e);s.panX=drag.px+q.x-drag.x;s.panY=drag.py+q.y-drag.y;update();});
@@ -111,18 +113,18 @@ window.createGOSM52 = function(D,H) {
   const edgeDesc=e=>`${nm(e.source)} → ${nm(e.target)}：${fmt(e.weight)} 对${e.source==='OTH'||e.target==='OTH'?'（合并显示）':''}`;
   function flowAction(key,v,label,b,attrs=''){return `<g role="button" tabindex="0" data-gm-action="${key}" data-value="${esc(v)}" ${attrs} class="gm-svg-action">${b}<title>${esc(label)}</title></g>`;}
   function sankey(edges){
-    const C=theme(),left=111,right=526,bar=10,top=85,h=352,pad=10,total=sum(edges,'weight');
+    const C=theme(),left=145,right=480,bar=10,top=85,h=352,pad=10,total=sum(edges,'weight');
     const ids=k=>[...new Set(edges.map(r=>r[k]))].sort((a,b)=>a==='OTH'?1:b==='OTH'?-1:sum(edges.filter(r=>r[k]===b),'weight')-sum(edges.filter(r=>r[k]===a),'weight'));
     const src=ids('source'),dst=ids('target'),ky=Math.min((h-pad*(src.length-1))/(total||1),(h-pad*(dst.length-1))/(total||1));
     const layout=(ids,k)=>{let y=top;return new Map(ids.map(c=>{const value=sum(edges.filter(r=>r[k]===c),'weight'),q={y,h:value*ky,cursor:0,value};y+=q.h+pad;return[c,q];}));};
-    const a=layout(src,'source'),b=layout(dst,'target');let out=txt(103,66,'基座来源国',15,C.muted,'middle')+txt(537,66,'派生发布国',15,C.muted,'middle');
+    const a=layout(src,'source'),b=layout(dst,'target');let out=txt(132,66,'基座来源国',15,C.muted,'middle')+txt(509,66,'派生发布国',15,C.muted,'middle');
     edges.forEach(e=>{const s=a.get(e.source),t=b.get(e.target),dy=e.weight*ky,sy=s.y+s.cursor+dy/2,ty=t.y+t.cursor+dy/2;s.cursor+=dy;t.cursor+=dy;
       out+=flowAction('flowPair',e.source+'|'+e.target,edgeDesc(e),`<path d="M${left+bar},${sy} C280,${sy} 378,${ty} ${right},${ty}" fill="none" stroke="${col(e.source)}" stroke-width="${Math.max(.2,dy)}"/>`,`data-s52-edge="${e.source}|${e.target}" opacity=".58"`);
     });
     const nodes=(ids,lay,x,isLeft)=>{
       const ys=[];let last=68;for(const c of ids){const q=lay.get(c);last=Math.max(last+24,q.y+q.h/2);ys.push(last);}
       if(ys.at(-1)>447){ys[ys.length-1]=447;for(let i=ys.length-2;i>=0;i--)ys[i]=Math.min(ys[i],ys[i+1]-24);}
-      ids.forEach((c,i)=>{const q=lay.get(c),y=ys[i];out+=flowAction('flowNode',c,nm(c)+'：'+fmt(q.value)+' 对',box(x,q.y,bar,Math.max(.6,q.h),col(c),'none',0)+line(isLeft?x:x+bar,q.y+q.h/2,isLeft?x-7:x+bar+7,y,col(c),.8)+txt(isLeft?x-9:x+bar+9,y+5,trim(nm(c),4),14,C.ink,isLeft?'end':'start'),`data-s52-country="${c}"`);});
+      ids.forEach((c,i)=>{const q=lay.get(c),y=ys[i];out+=flowAction('flowNode',c,nm(c)+'：'+fmt(q.value)+' 对',box(x,q.y,bar,Math.max(.6,q.h),col(c),'none',0)+line(isLeft?x:x+bar,q.y+q.h/2,isLeft?x-7:x+bar+7,y,col(c),.8)+txt(isLeft?x-9:x+bar+9,y+5,trim(nm(c),4)+' '+fmt(q.value),14,C.ink,isLeft?'end':'start'),`data-s52-country="${c}"`);});
     };nodes(src,a,left,true);nodes(dst,b,right,false);return out;
   }
   function chord(edges,ids){
@@ -158,7 +160,7 @@ window.createGOSM52 = function(D,H) {
     for(const [code,i] of [['CN',0],['US',1]]){const x=18+i*632,out=sum(D.flows.filter(e=>e.source===code),'weight'),input=sum(D.flows.filter(e=>e.target===code),'weight'),other=code==='CN'?'US':'CN',bilateral=D.flows.find(e=>e.source===code&&e.target===other).weight;
       let q=box(x,486,612,66,C.paper,C.line,6)+txt(x+15,513,nm(code),21,col(code));[['输出',out],['接收',input],[code==='CN'?'对美':'对华',bilateral]].forEach(([l,v],j)=>{const xx=x+116+j*162;q+=txt(xx,513,l,14,C.muted)+txt(xx+42,514,fmt(v),22,j===2?col(code):C.ink);});q+=txt(x+15,539,'完整跨国样本 · 单位：关系对 · 点击聚焦',12,C.muted);b+=action('focus',code,'聚焦'+nm(code),q);
     }
-    paint(p,s,controls,b,'基座来源 → 派生发布。两图筛选与高亮联动；底部中美读数固定使用完整跨国样本。',rows.map(r=>({数据类型:'报告观测',日期:'2026-09-13',基座来源国家:r.source,派生发布国家:r.target,关系对数:r.weight,全部跨国样本份额_pct:r.weight/totalFlows*100,当前筛选份额_pct:r.weight/(count||1)*100})),source(['flows'],'原报告186条有向国家流向，共10,943对跨国关系。修订稿明确source为基座来源，target为派生发布；中国输出5,888、美国接收7,513、中国→美国4,639均与原表交叉核对。完整约89.22万对派生关系中，双端国家可识别约2.59%（含境内），本图为其中跨国子集。国家按发布主体归属，不是使用者位置。按当前入出量保留前6/8/10国，其他国家合并但不丢失计数；其他→其他仍是实际不同国家的跨国关系。弦图外弧计量两端连接，不表示独立模型数。CSV保留每条原始方向和两个分母。'));
+    paint(p,s,controls,b,'基座来源→派生发布，单位为关系对。仅含双端国家可识别的跨国样本；底部中美读数采用完整样本。',rows.map(r=>({数据类型:'报告观测',日期:'2026-09-13',基座来源国家:r.source,派生发布国家:r.target,关系对数:r.weight,全部跨国样本份额_pct:r.weight/totalFlows*100,当前筛选份额_pct:r.weight/(count||1)*100})),source(['flows'],'原报告186条有向国家流向，共10,943对跨国关系。修订稿明确source为基座来源，target为派生发布；中国输出5,888、美国接收7,513、中国→美国4,639均与原表交叉核对。完整约89.22万对派生关系中，双端国家可识别约2.59%（含境内），本图为其中跨国子集。国家按发布主体归属，不是使用者位置。按当前入出量保留前6/8/10国，其他国家合并但不丢失计数；其他→其他仍是实际不同国家的跨国关系。弦图外弧计量两端连接，不表示独立模型数。CSV保留每条原始方向和两个分母。'));
     p.s52FlowRows=rows;p.s52Aggregated=agg;bindFlowHover(p,s);
   }
   function highlightFlow(p,key){
@@ -193,6 +195,32 @@ window.createGOSM52 = function(D,H) {
     b+=box(18,487,1244,65,C.paper,C.line,6)+txt(34,511,`${start.month} → ${s.month}`,14,C.muted)+txt(34,538,`Top ${s.k} · 窗口变化`,13,C.muted);
     [['中国',start.china,chosen.china,palette()[0]],['美国',start.us,chosen.us,palette()[1]],['中美差距',Math.abs(start.us-start.china),Math.abs(delta),C.ink],['未知',start.unknown,chosen.unknown,C.unknown]].forEach(([l,a,z,c],i)=>{const x=252+i*248;b+=txt(x,510,l,13,C.muted)+txt(x,538,`${a} → ${z}`,23,c);});
     paint(p,s,controls,b,'按模型版本计席位，未知归属保留在分母；累计榜单相互包含，分段按同月相减。',D.head.filter(r=>rows.some(q=>q.month===r.month)).map(r=>({数据类型:'ModelRank原报告月表',月份:r.month,榜单深度:r.k,中国:r.china,美国:r.us,其他已识别:r.other_known,未知归属:r.unknown,中国份额_pct:r.china_pct,美国份额_pct:r.us_pct,国家识别覆盖_pct:r.coverage_pct})),source(['head'],'原表覆盖2024-07至2026-08，共26个月、78行TopK汇总。三档榜单各自以20/100/1000为分母，保留未知归属。分段为同月嵌套榜单相减，不跨月份减去不同集合。底部从当前窗口起点比较所选月；窗口变化时起点随之变化。席位数不是ModelRank分数份额或测试性能。不从聚合值生成具体模型名单；具体模型见第三章M-Ranking。'));
+  }
+  // One static projection serves SVG export, browser print and the private PDF.
+  function publication(p,s){
+    const original=p.querySelector('.gm-view svg');if(!original)return '';
+    const el=original.cloneNode(true),kind=p.dataset.gmChart,C=theme();
+    const removeActions=new Set(['zoom','reset','focusNode','clearNode','neighbors','neighborPage','flowClear','bands','mode','unknown']);
+    el.querySelectorAll('[data-gm-action]').forEach(n=>{if(removeActions.has(n.dataset.gmAction))n.remove();else{n.removeAttribute('tabindex');n.removeAttribute('role');n.removeAttribute('class');n.removeAttribute('data-gm-action');n.removeAttribute('data-value');}});
+    el.querySelectorAll('text').forEach(n=>{
+      if(/拖动平移|点选名称|悬停联动|请用顶部选择器|单独探索其中一国|查看模型卡|点选月份/.test(n.textContent)){n.remove();return;}
+      n.textContent=n.textContent.replace('从一个基座开始探索','代表基座与直接下游').replace('任务着色 · 点选高亮','任务类别').replace(' · 点击聚焦','').replace('点选高亮','');
+      n.setAttribute('font-size',clamp(Number(n.getAttribute('font-size')||14),14,19));
+      n.removeAttribute('paint-order');n.removeAttribute('stroke');n.removeAttribute('stroke-width');
+    });
+    el.querySelectorAll('title,circle[opacity=".10"]').forEach(n=>n.remove());
+    const vb=el.getAttribute('viewBox').split(' ').map(Number),height=vb[3],width=vb[2];
+    const notes=kind==='network'?['网络：2026-10-16，非随机样本；颜色为任务，节点大小为样本内直接下游数。','增长：2026-09-13 仍可见模型回溯，与网络样本独立；布局和距离无指标含义。']:kind==='flows'?['2026-09-13 · 基座来源→派生发布 · 单位：关系对；图面数值为当前筛选。','仅双端国家可识别的跨国样本；两图使用同一关系集合，底部中美读数使用完整样本。']:['ModelRank 月表 · 按模型版本计席位，归属未知始终保留在分母中。','三档累计榜单相互包含；席位数不等于模型家族数、分数份额或测试性能。'];
+    if(kind==='head'){
+      const r=k=>D.head.find(r=>r.month===s.month&&r.k===k),v=k=>['china','us','other_known','unknown'].map(key=>r(k)[key]).join(' / ');
+      notes.push(`${s.month} · 中国 / 美国 / 其他已识别 / 归属未知：Top20 为 ${v(20)}；Top100 为 ${v(100)}；Top1000 为 ${v(1000)}。`);
+    }
+    const footerHeight=49+notes.length*23;
+    const footer=document.createElementNS('http://www.w3.org/2000/svg','g');
+    footer.innerHTML=box(0,height,width,footerHeight,C.bg,'none',0)+txt(width/2,height+28,p.querySelector('h3').textContent,17,C.ink,'middle')+notes.map((n,i)=>txt(18,height+55+i*23,n,14,C.muted)).join('');el.append(footer);
+    el.setAttribute('viewBox',`0 0 ${width} ${height+footerHeight}`);el.setAttribute('width',width);el.setAttribute('height',height+footerHeight);el.removeAttribute('class');
+    el.querySelectorAll('[id]').forEach(n=>{const id=n.id,newid='s52-paper-'+id;el.querySelectorAll('*').forEach(q=>{for(const a of [...q.attributes])if(a.value.includes('url(#'+id+')'))q.setAttribute(a.name,a.value.replaceAll('url(#'+id+')','url(#'+newid+')'));});n.id=newid;});
+    return new XMLSerializer().serializeToString(el);
   }
   function resetCamera(s){s.zoom=1;s.panX=0;s.panY=0;}
   const timers=new Map();
@@ -243,5 +271,5 @@ window.createGOSM52 = function(D,H) {
   function stamp(p,s){return p.dataset.gmChart==='network'?'网络 2026-10-16 非随机样本；增长 2026-09-13快照回溯 · 两者独立':p.dataset.gmChart==='flows'?'报告 2026-09-13 · 基座来源→派生发布 · 双端已识别跨国关系样本':`ModelRank 2024-07—2026-08月表 · 当前${s.month} / Top${s.k} · 版本席位含未知`;}
   const baseHandle=handle;
   function dispatch(p,s,k,v){if(own(p)&&k==='searchNode'){s.node=v;s.view='overview';s.page=0;s.query='';s.focused=true;s.task='';focusCamera(s);return true;}return baseHandle(p,s,k,v);}
-  return{defaults,renderers:{network,flows,head},handle:dispatch,input,change,stamp,own,sliceNetwork,filteredFlows,aggregateFlows};
+  return{defaults,publication,renderers:{network,flows,head},handle:dispatch,input,change,stamp,own,sliceNetwork,filteredFlows,aggregateFlows};
 };

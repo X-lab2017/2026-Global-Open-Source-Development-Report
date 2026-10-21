@@ -1,73 +1,73 @@
-"""Section 5.2: evidence-led reuse narratives and three approved compact views."""
-VERSION='gosm-influence-v3-story'
-FIGS={
- 'network':('5.2-01','模型派生网络与增长','看懂一条派生关系，探索模型谱系，再观察复用规模如何增长。','network,derivation'),
- 'flows':('5.2-02','跨国模型派生流：基座来源与再开发','桑基图与有向弦图使用同一关系集合，联动探索上游供给与下游再开发。','flows'),
- 'head':('5.2-03','高影响力模型：中美结构与月度变化','同时观察榜单深度、当月构成与26个月的席位变化。','head'),
-}
-TOPIC=dict(
- id='ch05-s02',n='5.2',en='NETWORKS & INFLUENCE',title='网络与影响力',
- question='哪些模型成为后续创新的基础，复用怎样跨越国界，又如何形成持续的生态影响？',
- lede='5.1 观察模型由谁提供，本节继续追踪这些成果如何被再创造。沿着“模型关系—跨国连接—头部结构”三条线索，观察一次发布怎样成为后续开发的起点，并为持续维护与国际共建寻找可查证的对象。',
- metric='本节对应 OSDGs 的 X3“全球连接与网络效应”、3.2“模型影响力”，以 OSDI 的 ModelRank（模型生态衍生力）为主要指标方向，连接 SDG 9。派生模型数、跨国关系数与榜单席位分别补充复用规模、连接方向和头部结构；它们不直接等于 ModelRank 分值。当前采用公开声明关系及既有月度榜单，算法版本、关系覆盖与模型去重仍需进一步核验。承接 2.3 的网络影响视角、2.6 的跨境协作观察和 3.2 对规模与影响的区分，再与 3.6 的具体模型榜单对照。',
- core_finding='三幅图揭示了复用生态的不同侧面：派生模型数量继续扩张，但在全部可见模型中的占比略有下降；可识别跨国样本中，中国基座输出与美国下游再开发形成主要连接，同时存在其他国家与反向联系；中美在最头部与更广榜单中的结构不同，月度变化还需结合归属覆盖阅读。由此，本节将复用观察连接到基础维护、跨国共建与长期监测三类行动。',
- window_note='读图口径｜网络为 2026-10-16 的声明关系样本；增长按 2026-09-13 仍可见模型回溯，跨国流向采用同日原表；ModelRank 覆盖 2024-07—2026-08 的26个月。各组证据分别解释，网络节点不作为增长或国家流向的分母。',
- findings=[
-  ('派生数量扩张，占比略有回落','派生模型从56.38万增至85.87万，增长52.3%；占比由29.14%降至28.04%。','network'),
-  ('基座供给与再开发呈现不同角色','在10,943对可识别跨国关系中，中国→美国为4,639对，占42.4%。','flows'),
-  ('榜单深度改变中美结构','2026年8月，中美在Top20为16与4席，在Top100为46与49席，在Top1000为200与388席。','head')],
- figures=list(FIGS),
- narratives=[
-  ('视角一｜模型派生：从复用增长，看后续创新的基础','一条基座—派生关系记录已有模型怎样成为继续开发的起点；网络呈现关系，下方曲线呈现复用规模与占比。'),
-  ('视角二｜跨国连接：从基座来源，看再开发如何发生','同看基座来源与派生发布，辨识跨国复用中的不同角色，再沿具体方向寻找进一步共建的入口。'),
-  ('视角三｜头部影响：从榜单深度，看中美结构的变化','将同月的不同榜单深度与连续月度记录结合，观察最头部位置、更广覆盖和归属识别之间的差异。')],
- insights={
-  'network':[
-   '按2026年9月13日仍可见模型的创建时间回溯，派生模型由上年同日的56.38万增至85.87万，增长52.3%；同期全部可见模型增长58.3%，派生占比因而从29.14%回落至28.04%，下降1.10个百分点。复用的绝对规模仍在扩大，占比变化则说明它与全部模型增长的速度不同。这组回溯反映当前快照中仍可见的资产，并非各年独立存档；缺少基座声明也不直接表示模型没有复用上游成果。',
-   '网络将“复用”落实为可追溯的模型关系：本图保留5,777个模型、5,111条明确声明的基座—派生连接。一个模型可以连接多个上游，也可以继续成为后续模型的基座，因此模型数量与关系条数需要分别计算。这个非随机样本帮助观察具体谱系；点选节点可以沿上下游继续探索，但图中簇群大小、节点距离不能据此解释为全平台格局或ModelRank得分。',
-   '规模与关系共同提示，支持开放模型需要关注发布后的持续使用与维护。资助方和社区可沿已声明的上下游寻找被反复采用的基础版本，再核查文档、评测、适配和问题响应的实际需求。派生数量提供观察入口，维护负担与公共需求仍须由具体项目记录确认；复用能否形成长期共同创新，也取决于下游经验能否持续回到上游。'],
-  'flows':[
-   '2026年9月13日的跨国底表记录10,943对双端国家可识别的基座—派生关系。其中，中国作为基座来源对应5,888对，占53.8%；美国作为派生发布地对应7,513对，占68.7%。中国→美国为4,639对，占整个跨国样本的42.4%，是最主要的单一方向。这里的比例均以10,943对为分母，描述的是关系数量，不能读成独立模型、开发者人数或实际部署份额。',
-   '基座供给与下游再开发是两种需要分别识别的角色。美国也作为基座来源对应1,694对，中国作为派生发布地对应213对；反向的美国→中国为143对。德国、法国作为基座来源分别对应1,106对和841对，说明中美之外仍存在可继续探索的连接。桑基图与有向弦图展示同一组关系，方向差异用于辨识复用结构；发布主体之间的派生联系尚不能证明双方已有正式合作或贡献回流。',
-   '跨国复用为共同维护提供了具体入口：可以由已存在的上下游围绕版本兼容、任务适配、评测和多语言文档开展协作，让改进与使用经验更容易回到上游。该样本仅覆盖双端国家均可识别的跨国关系，缺失归属与境内关系另有范围，国家按发布主体归属。国际合作应以模型、维护者和共同需求进一步核查，避免把可见连接的多少直接当作一国全部研发活动的强弱。'],
-  'head':[
-   '2026年8月，ModelRank Top20中中国16席、美国4席；扩大到Top100，两国分别为46席与49席；再到Top1000，则为200席与388席，另有82席属于其他已知国家、330席归属未知。中国在最头部的席位优势，与美国在更广榜单中拥有更多席位同时存在。三档榜单相互包含，不能相加；席位统计的是入榜模型版本，也不能直接换算为独立模型家族或影响力分值份额。',
-   '从2024年7月到2026年8月，Top100中的中国席位由7增至46，美国由66变为49，两国差距在起止两期由59席缩至3席。月度曲线有助于观察期间波动，这个端点变化不意味着每个月都持续收敛。同一窗口内，Top100归属未知由11席减至4席，Top1000由469席减至330席；榜单构成与识别覆盖都在变化，国家汇总表不足以单独分解每个版本进入、退出或归属修订的影响。',
-   '延续3.2将本期位置与历史变化结合阅读的方法，模型影响力也应保留多层次、连续的观察。最头部榜单帮助识别突出版本，更广榜单提供其他模型与发布力量的线索；进一步理解其生态作用，还需回到3.6中的模型、任务与发布账号，以及可核验的派生关系。持续支持应结合复用、维护与需求证据，单月席位变化本身不能证明能力提升或某项政策已经取得成效。']},
- action_lead='策略建议：让复用网络形成可持续的共同创新能力',
- action_intro='从可持续发展与国际合作的视角，三条建议分别回应复用基础、跨国连接与影响力观测。模型派生与榜单结构帮助寻找观察对象，资源安排和合作成效仍需落实到具体维护者、共同任务及后续使用。',
- actions=[
-  ('公共资助方、平台与开源社区','把支持延伸到被持续复用的基础模型','沿可核验的基座—派生关系，识别后续开发反复使用的模型版本，结合维护需求，为文档、兼容性、评测和问题响应提供持续资源。兼顾关键基座与服务特定任务、语言和资源条件的模型，让更广泛的参与者能够在已有成果上继续开发。','network'),
-  ('国际组织、企业、高校与社区','沿真实上下游建立双向共建机制','以可查证的跨国派生关系为起点，由上游发布者与下游开发者共同确认需求、任务和维护分工。围绕适配、评测、多语言文档及问题修复建立稳定反馈入口，让基座供给与再开发经验形成持续交流。','flows'),
-  ('平台、研究机构与公共部门','建立多层次、可复核的影响力观察','同时保留Top20、Top100、Top1000及月度历史，在同一统计规则下区分突出版本、更广覆盖和持续变化。将榜单席位与具体模型、发布账号、任务方向及派生证据关联，为长期观察提供可追溯的对象。','head')],
- action_followups={
-  'network':'保留版本来源与更新记录，分别跟踪派生规模、持续复用、维护响应和新增参与者。用实际维护与使用反馈检验支持效果，数量、占比和模型版本边界共同解释，避免以仓库新增或单次入榜替代长期效果。',
-  'flows':'为资源较少地区和本地语言社区提供参与入口，由共同任务记录检验合作进展。持续观察下游提出的问题是否得到回应、改进是否被上游采用、共同维护关系能否延续；关系数量增长作为线索，与实际协作成果分别记录。',
-  'head':'公开算法版本、样本覆盖、模型家族与版本的关系以及国家归属未知项，保存修订前后的记录。每次更新都能追溯变化来自哪些对象与口径；月度榜单不直接平均为年度评价，政策判断结合长期维护和公共需求证据。'},
- related=[('1.3 OSDI · ModelRank','/2026/zh/data/indicators/#indicator-ModelRank'),('2.3 I-Map · 网络影响','/2026/zh/chapters/02/#ch02-s03'),('2.6 D-Map · 跨境协作','/2026/zh/chapters/02/#ch02-s06'),('3.6 M-Ranking · 具体模型','/2026/zh/chapters/03/#ch03-s06')])
+"""Shared Section 5.2 publication manuscript and figure definitions."""
+VERSION="20261021-s52-publication"
+FIGS={'network': ('5-2-1', '模型派生网络与增长', '', 'network,derivation'),
+ 'flows': ('5-2-2', '跨国模型派生：基座来源与再开发', '', 'flows'),
+ 'head': ('5-2-3', '高影响力模型的榜单结构与月度变化', '', 'head')}
+TOPIC={'id': 'ch05-s02',
+ 'n': '5.2',
+ 'en': 'NETWORKS & INFLUENCE',
+ 'title': '网络与影响力',
+ 'question': '哪些模型成为后续创新的基础，复用怎样跨越国界，又如何形成持续的生态影响？',
+ 'lede': '模型发布之后，能否成为后续开发的基础，是理解生态影响的重要线索。沿着模型谱系、跨国派生和头部榜单，本节观察已有成果如何被继续使用，以及哪些连接值得长期维护。',
+ 'metric': '对应 OSDGs 的 X3“全球连接与网络效应”和 3.2“模型影响力”，以 ModelRank 观察模型生态衍生力，并连接 SDG 9。派生数量、跨国关系与榜单席位分别补充规模、方向和结构，不能替代 ModelRank 分值。',
+ 'core_finding': '派生模型数量持续扩大，但增长速度低于全部可见模型；可识别的跨国样本中，中国基座供给与美国下游再开发构成主要连接；中国在最头部榜单席位较多，美国在更广榜单中覆盖较多。持续支持需要同时关注关键基座、上下游协作和长期变化。',
+ 'window_note': '本节采用独立快照与月度记录：网络截至 2026-10-16；增长与跨国流向为 2026-09-13；ModelRank 为 2024-07—2026-08。各图保留真实统计期，不合并为报告年度总量。',
+ 'findings': [('派生数量扩张，占比略有回落', '派生模型从56.38万增至85.87万，增长52.3%；占比由29.14%降至28.04%。', 'network'),
+              ('基座供给与再开发呈现不同角色', '在10,943对可识别跨国关系中，中国→美国为4,639对，占42.4%。', 'flows'),
+              ('榜单深度改变中美结构', '2026年8月，中美在Top20为16与4席，在Top100为46与49席，在Top1000为200与388席。', 'head')],
+ 'figures': ['network', 'flows', 'head'],
+ 'narratives': [('5.2.1 模型派生：复用如何成为后续创新的基础', ''), ('5.2.2 跨国连接：基座供给与再开发承担不同角色', ''), ('5.2.3 头部结构：榜单深度改变影响力观察', '')],
+ 'insights': {'network': ['按 2026 年 9 月 13 日仍可见模型回溯，派生模型由上年同日的 56.38 万增至 85.87 万，增长 52.3%；同期全部可见模型增长 58.3%。派生占比因此由 29.14% 回落至 28.04%。图 '
+                          '5-2-1 将具体谱系与规模变化并列，说明复用的绝对规模扩大，并不必然带来占比上升。',
+                          '网络保留 5,777 个模型、5,111 '
+                          '条明确声明的基座—派生关系。一个模型可以连接多个上游，也可以继续成为后续开发的基座，因此模型数与关系数分别计算。这个非随机样本用于追溯具体谱系；簇群大小和节点距离不代表全平台格局，节点大小也不表示 ModelRank '
+                          '得分。',
+                          '沿着可核验的上下游，资助方和社区可以寻找被反复采用的基础版本，再结合文档、评测、适配和问题响应记录确认维护需求。派生数量提供观察入口，长期生态价值还取决于下游经验能否回到上游，并支持更多参与者继续开发。'],
+              'flows': ['图 5-2-2 展示双端国家可识别的 10,943 对跨国基座—派生关系。中国作为基座来源对应 5,888 对，占 53.8%；美国作为派生发布地对应 7,513 对，占 68.7%。其中，中国→美国为 4,639 '
+                        '对，占全部跨国样本的 42.4%，是最大的单一方向。',
+                        '基座来源与派生发布体现不同角色。美国作为基座来源对应 1,694 对，中国作为派生发布地对应 213 对；美国→中国为 143 对。德国、法国的基座输出分别为 1,106 对和 841 '
+                        '对，表明中美之外仍有值得关注的连接。两幅流向视图使用同一组关系，不能将其相加；关系数量也不等于独立模型数或部署份额。',
+                        '已有跨国复用可以成为共同维护的起点：上下游围绕版本兼容、任务适配、评测和多语言文档确认需求，建立稳定反馈入口。派生联系本身尚不能证明正式合作或贡献回流，合作成效仍需由改进是否被采用、问题是否得到回应来检验。'],
+              'head': ['2026 年 8 月，ModelRank Top20 中中国与美国分别为 16 席和 4 席；扩大到 Top100，两国为 46 席和 49 席；Top1000 则为 200 席和 388 席。图 5-2-3 '
+                       '表明，中国的最头部席位优势与美国在更广榜单中的覆盖优势同时存在，观察深度会改变结论。',
+                       '从 2024 年 7 月到 2026 年 8 月，Top100 中的中国席位由 7 增至 46，美国由 66 变为 49，两国差距由 59 席缩至 3 席。期间存在波动，端点变化不表示每个月都持续收敛。同时，Top100 '
+                       '的未知归属由 11 席减至 4 席，Top1000 由 469 席减至 330 席；榜单构成与识别覆盖都在变化。',
+                       '三档榜单相互包含，席位按模型版本计数，不代表独立家族数量、影响力分数份额或测试性能。连续观察应结合具体模型、任务与发布账号，再核验其复用和维护记录。单月入榜或席位变化不足以证明能力提升，也不能单独归因于某项政策。']},
+ 'action_lead': '5.2.4 行动建议：让复用形成持续共建',
+ 'action_intro': '',
+ 'actions': [('公共资助方、平台与开源社区', '支持被持续复用的基础模型', '沿已声明的模型谱系核查维护负担，为文档、兼容性、评测和问题响应提供持续资源，同时关注特定任务、本地语言和资源受限场景的需要。', 'network'),
+             ('国际组织、企业、高校与社区', '沿真实上下游建立双向协作', '由基座发布者和派生开发者共同确认任务、版本与维护责任，为问题反馈、评测和改进提交保留稳定入口，并为资源较少地区的参与者提供支持。', 'flows'),
+             ('平台、研究机构与公共部门', '维护可复核的长期影响力记录', '同时保留多档榜单和月度历史，公开算法版本、样本覆盖、模型家族与版本关系，以及国家归属未知项和修订记录。', 'head')],
+ 'action_followups': {'network': '以版本维护、问题解决和可核验的持续复用检验支持效果。',
+                      'flows': '以反馈是否得到回应、改进是否回到上游及共同维护关系是否延续检验成效。',
+                      'head': '将席位变化与具体模型及派生证据关联，为长期支持提供可追溯的依据。'},
+ 'related': []}
+NOTES=['网络取自 2026-10-16 固定快照，只保留模型卡明确声明的基座关系。前 12,000 个模型为非随机输入样本，只保留双端可见连接；关系声明不等于训练过程经过独立核验。颜色表示任务，节点大小表示样本内直接下游数，布局无地理或因果含义。',
+ '增长序列根据 2026-09-13 仍可见模型的创建时间回溯，各年均为 9 月 13 日，并非各年独立存档。每个已声明基座的派生模型计一次；缺少声明不表示没有复用。该序列与网络样本独立，年份不表示网络历史。',
+ '跨国表含 186 条有向国家流向、10,943 对关系；方向为基座来源→派生发布，国家按发布主体归属。完整派生关系中双端国家可识别约占 2.59%（含境内），本图仅为其中跨国子集；不代表全球全部复用。',
+ 'ModelRank 月表覆盖 2024-07—2026-08，共 26 个月。Top20、Top100、Top1000 分别以 20、100、1000 个版本席位为分母，含归属未知；同月分段由嵌套榜单相减。国家汇总不能单独分解版本进入、退出或归属修订的影响。']
+BRIDGE='复用关系说明模型如何成为后续开发的起点，持续再创造还需要相应的材料与权利。5.3 将进一步观察开放条件如何支持使用、研究和共同维护。'
 
+def panel(key,E):
+    num,title,_,_=FIGS[key]
+    return f'''<article id="gm-{key}" class="gm-panel s52-panel gm-compact-panel" data-gm-chart="{key}" data-figure-number="图 {num}" aria-labelledby="gm-{key}-caption"><header class="gm-chart-head"><div class="gm-tools"><button data-gm-full>全屏</button><details class="s51-export-menu" data-s51-menu><summary>数据与导出 ▾</summary><div><button data-gm-table>查看数据表</button><button data-gm-svg>下载 SVG</button><button data-gm-csv>下载 CSV</button></div></details></div></header><div class="gm-controls"></div><div class="gm-view"></div><div class="gm-readout" aria-live="polite"></div><div class="s52-print-view" aria-hidden="true"></div><details class="gm-table"><summary>查看本图数据<span class="s51-close-hint"> · 关闭 ×</span></summary><div class="gm-table-host"></div></details><footer class="s52-figure-caption"><h3 id="gm-{key}-caption">图 {num} {E(title)}</h3></footer><noscript><p>交互需要启用 JavaScript。正文与口径说明可直接阅读。</p></noscript></article>'''
 
 def section(t,panel,E):
-    paras=lambda xs: ''.join('<p>'+E(p)+'</p>' for p in xs)
-    out=[f'<section id="ch05-s02" class="chapter-section gm-topic s52-topic"><header class="gm-topic-header"><span class="eyebrow">5.2 / NETWORKS &amp; INFLUENCE</span><h2>{E(t["title"])}</h2><p class="gm-question">{E(t["question"])}</p><p>{E(t["lede"])}</p><div class="s52-position"><strong>目标与指标定位</strong><p>{E(t["metric"])}</p><div class="gm-related">'+''.join(f'<a href="{u}">{E(l)} →</a>' for l,u in t['related'])+'</div></div></header>']
-    out.append('<div class="s52-findings" id="s52-findings"><h3>核心发现</h3><p>'+E(t['core_finding'])+'</p></div><p class="s52-window-note">'+E(t['window_note'])+'</p>')
-    out.append('<nav class="gm-section-nav" aria-label="5.2 阅读路径"><a href="#s52-network">01 复用基础</a><a href="#s52-flows">02 跨国连接</a><a href="#s52-head">03 头部结构</a><a href="#gm-actions-2">行动建议</a></nav>')
-    for key,(title,body) in zip(t['figures'],t['narratives']):
-        out.append(f'<section class="s52-perspective" id="s52-{key}"><div class="gm-narrative"><h3>{E(title)}</h3><p>{E(body)}</p></div>'+panel(key)+'<div class="s52-reading">'+paras(t['insights'][key])+'</div></section>')
-    out.append('<section class="gm-actions s52-actions" id="gm-actions-2"><span class="eyebrow">FROM OBSERVATION TO ACTION</span><h3>行动建议</h3><p class="s52-action-lead">'+E(t['action_lead'])+'</p><p class="s52-action-intro">'+E(t['action_intro'])+'</p><div class="s52-action-list">')
-    for i,(who,title,body,key) in enumerate(t['actions'],1):
-        out.append(f'<article class="s52-action"><span class="s52-action-number">{i:02d}</span><div><h4>{E(title)}</h4><p class="s52-action-who">{E(who)}</p>'+paras([body,t['action_followups'][key]])+f'<a href="#gm-{key}">查看对应证据 →</a></div></article>')
-    out.append('</div></section><nav class="gm-topic-end"><a href="#gm-framework">返回模型生态观察框架 ↑</a><a href="#ch05-s03">从复用进入开放条件：哪些材料与权利支持持续再创造？ →</a></nav></section>')
+    para=lambda s:'<p>'+E(s)+'</p>'
+    out=[f'<section id="ch05-s02" class="chapter-section gm-topic s52-topic" data-publication-edition="{VERSION}"><header class="gm-topic-header"><span class="eyebrow">5.2 / NETWORKS &amp; INFLUENCE</span><h2>5.2 {E(t["title"])}</h2>'+para(t['lede'])+para('研究问题：'+t['question'])+'<p class="s52-position">'+E('指标定位：'+t['metric'])+'</p></header><p class="s52-core" id="s52-findings"><strong>核心发现：</strong>'+E(t['core_finding'])+'</p><p class="s52-window-note">'+E(t['window_note'])+'</p>']
+    for key,(title,_) in zip(t['figures'],t['narratives']):
+        ps=t['insights'][key]
+        out.append(f'<section class="s52-perspective" id="s52-{key}"><h3>{E(title)}</h3>'+para(ps[0])+panel(key))
+        if key=='network':out.append('<details class="s52-source" id="s52-evidence"><summary>口径与来源</summary>'+''.join(para(n) for n in NOTES)+'<p><a href="/assets/gosm/influence-methods.md">完整方法与原始表</a> · <a href="/assets/gosm/network.json">声明关系样本</a> · <a href="/assets/gosm/influence-provenance.json">来源核验记录</a></p></details>')
+        out.extend(para(s) for s in ps[1:]);out.append('</section>')
+    out.append('<section class="s52-actions" id="gm-actions-2"><h3>'+E(t['action_lead'])+'</h3>')
+    for who,title,body,key in t['actions']:out.append('<h4>'+E(who+'：'+title)+'</h4>'+para(body+t['action_followups'][key]))
+    out.append(para(BRIDGE)+'</section></section>')
     return ''.join(out)
 
-
 def manuscript():
-    t=TOPIC
-    out=['# 5.2 '+t['title'],'> '+t['question'],t['lede'],'## 目标与指标定位',t['metric'],'## 核心发现',t['core_finding'],t['window_note']]
-    for key,(title,body) in zip(t['figures'],t['narratives']):
-        out+=['## '+title,body,f'[图 {FIGS[key][0]}：{FIGS[key][1]}](https://gosd-imap-review.token4all.chatgpt.site/#gm-{key})',*t['insights'][key]]
-    out+=['## 行动建议',t['action_lead'],t['action_intro']]
-    for i,(who,title,body,key) in enumerate(t['actions'],1):
-        out+=['### '+str(i)+' '+title,who,body,t['action_followups'][key]]
-    out+=['## 前文衔接',*[f'[{label}]({url})' for label,url in t['related']],'## 来源与口径','正文与交互版使用同一证据：派生增长与跨国流向为2026-09-13原报告底表，ModelRank为2024-07—2026-08月度汇总，网络为2026-10-16独立声明关系样本。原始表及具体来源见各图“口径与来源”。']
-    return '\n\n'.join(out)+'\n'
+    t=TOPIC;out=['# 5.2 '+t['title'],t['lede'],'研究问题：'+t['question'],'指标定位：'+t['metric'],'核心发现：'+t['core_finding'],t['window_note']]
+    for key,(title,_) in zip(t['figures'],t['narratives']):out.extend(['## '+title,t['insights'][key][0],'图 '+FIGS[key][0]+' '+FIGS[key][1],*t['insights'][key][1:]])
+    out.append('## '+t['action_lead'])
+    for who,title,body,key in t['actions']:out.extend(['### '+who+'：'+title,body+t['action_followups'][key]])
+    return '\n\n'.join([*out,BRIDGE,'## 口径与来源',*NOTES])+'\n'

@@ -162,3 +162,20 @@
   .s52-actions .s52-action { break-inside:avoid; }
   .s52-perspective .gm-narrative { break-after:avoid; }
 }
+
+/* Publication edition: full-width argument, quiet tools, captions below evidence. */
+.s52-topic[data-publication-edition] .gm-topic-header p,.s52-topic[data-publication-edition]>p,.s52-perspective>p,.s52-actions>p{max-width:none!important;width:auto!important;font-size:16px;line-height:1.95!important;margin:14px 0!important}
+.s52-topic[data-publication-edition] .gm-topic-header h2{font-size:29px!important;line-height:1.5}
+.s52-topic[data-publication-edition] .s52-position{padding:0;border:0;background:none;font-size:13px!important;color:var(--gm-muted)}
+.s52-topic[data-publication-edition] .s52-window-note{padding:0;border:0;background:none;font-size:13px!important;color:var(--gm-muted)}
+.s52-perspective>h3,.s52-actions>h3{font-size:21px!important;line-height:1.6;margin:30px 0 18px!important}
+.s52-actions>h4{font-size:17px;line-height:1.7;margin:24px 0 8px}.s52-actions{padding:0;border:0;background:none}
+.s52-panel{grid-template-rows:auto auto minmax(0,1fr) auto auto}
+.s52-panel .gm-chart-head{justify-content:flex-end}.s52-panel .gm-chart-head>.gm-tools{display:flex!important;gap:6px}
+.s52-panel .s52-figure-caption{display:block!important;margin:0;padding:7px 0 0!important;border-top:1px solid var(--gm-line);width:100%;text-align:center}
+.s52-panel .s52-figure-caption h3{font-size:14px!important;font-weight:500!important;line-height:1.6;margin:0!important;color:var(--gm-ink)}
+.s52-source{border-top:1px solid var(--gm-line);padding-top:10px;margin:12px 0 22px;font-size:13px;color:var(--gm-muted)}.s52-source>summary{cursor:pointer;color:var(--gm-brand)}.s52-source p{max-width:none!important;font-size:13px!important;line-height:1.8!important}
+#gm-fullscreen .s52-figure-caption h3{font-size:16px!important}
+.s52-print-view{display:none}
+@media(max-width:760px){.s52-panel{grid-template-rows:auto auto auto auto auto}.s52-topic[data-publication-edition] .gm-topic-header h2{font-size:25px!important}}
+@media print{.s52-panel{height:auto;display:block;break-inside:avoid}.s52-panel .gm-tools,.s52-panel .gm-controls,.s52-panel .gm-view,.s52-panel .gm-readout,.s52-panel .s52-figure-caption,.s52-source{display:none!important}.s52-print-view{display:block!important}.s52-print-view svg{width:100%;height:auto}}

@@ -1879,6 +1879,7 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function exportSvg(p) {
+    if(influence52.own(p)){download(influence52.publication(p,states.get(p)),"image/svg+xml;charset=utf-8",`GOSM-${p.dataset.gmChart}-publication.svg`);return;}
     const el = $(".gm-svg", p);
     if (!el) return;
     const clone = el.cloneNode(true),
