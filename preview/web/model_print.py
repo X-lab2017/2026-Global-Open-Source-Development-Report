@@ -1,4 +1,4 @@
-"""Local M-Ranking review PDF; shared prose, complete Top 100, preserved monthly data."""
+"""Local M-Ranking review PDF; Top 10 display, Top 100 analytical sample."""
 from pathlib import Path
 import argparse,json,collections,math
 import fitz
@@ -11,6 +11,7 @@ import vmap_print as vp
 from project_print import fittext
 import model_publication as p
 import gosr_content as g
+EDITION='2026-10-21-m-ranking-print-v3'
 ROOT=Path(__file__).resolve().parents[1]/'content/gosr'
 SNAP=json.loads((ROOT/'model-rankings-snapshot.json').read_text())
 REF=json.loads((ROOT/'model-organization-reference.json').read_text())['publishers']
@@ -47,26 +48,20 @@ def groups(key,rs=ROWS):
 TG=groups('task_tag');OG=groups('publisher')
 
 def lead():
- f=Figure(p.FIGURES[0],'图 3-6-1',height=233)
- f.text(0,14,'模型榜前五 · 完整 Top 100 见续图',11,TEAL);f.text(W,36,'ModelRank',8.7,MUTED,'right')
- for i,r in enumerate(ROWS[:5]):
-  y=62+i*28;f.text(0,y,f'{r["rank"]:02}',9,MUTED);f.logo(r['publisher'],23,y-12,15);fittext(f,46,y,r['model_id'],316,9.6);bar(f,46,y+9,316,r['modelrank_value'],ROWS[0]['modelrank_value']);f.text(W,y,fmt(r['modelrank_value']),10.5,INK,'right')
- f.text(0,208,'ModelRank 衡量复用网络影响力，不是模型能力测试分。',8.5,MUTED)
- return f.caption()
-
-def models(start,end):
- f=Figure(p.FIGURES[0],'图 3-6-1',height=690)
- f.text(0,14,f'Top 100 · 原榜第 {start+1}—{end} 位',11,TEAL);f.rect(0,27,W,23,PALE,PALE,0)
- for x,t,a in [(4,'原榜次 / 完整模型 ID','left'),(326,'ModelRank','right'),(359,'主任务','center'),(423,'衍生数','right'),(W-4,'下载量','right')]:f.text(x,42,t,8.2,MUTED,a)
- for i,r in enumerate(ROWS[start:end]):
-  y=64+i*23.8
-  if i%2==0:f.rect(0,y-12,W,23.8,'#F7FAFB','#F7FAFB',0)
+ f=Figure(p.FIGURES[0],'图 3-6-1',height=375)
+ f.text(0,14,'Top 100 样本 · 原榜前 10 名',11,TEAL);f.rect(0,27,W,23,PALE,PALE,0)
+ for x,t,a in [(4,'原榜次 / 模型版本','left'),(326,'ModelRank','right'),(359,'主任务','center'),(430,'衍生数','right'),(W-4,'下载量','right')]:f.text(x,42,t,8.2,MUTED,a)
+ for i,r in enumerate(ROWS[:10]):
+  y=64+i*27
+  if i%2==0:f.rect(0,y-12,W,27,'#F7FAFB','#F7FAFB',0)
   owner,name=r['model_id'].split('/',1) if '/' in r['model_id'] else ('',r['model_id'])
-  f.text(4,y+3,f'{r["rank"]:02}',8.7,MUTED);fittext(f,25,y-3,owner+'/' if owner else '发布账户未识别',201,7.3,MUTED);fittext(f,25,y+9,name,201,9)
-  bar(f,232,y+1,27,r['modelrank_value'],ROWS[0]['modelrank_value']);f.text(326,y+4,fmt(r['modelrank_value']),8.9,INK,'right')
-  fittext(f,336,y+4,TASKS[r['task_tag']],48,7.9);f.text(423,y+4,fmt(r['n_derivatives'],0),8.5,INK,'right');f.text(W-4,y+4,fmt(r['downloads'],0),8.5,INK,'right')
- f.text(0,657,'衍生数与下载量为月记录，非当月新增或独立使用人数；详细统计窗口待补。',8.3,MUTED)
- return f.caption(True)
+  f.text(4,y+3,f'{r["rank"]:02}',8.7,MUTED);f.logo(r['publisher'],24,y-8,13)
+  fittext(f,43,y-3,owner+'/' if owner else '发布账户未识别',184,7.5,MUTED);fittext(f,43,y+10,name,184,9.5)
+  bar(f,232,y+1,30,r['modelrank_value'],ROWS[0]['modelrank_value']);f.text(326,y+4,fmt(r['modelrank_value']),9,INK,'right')
+  fittext(f,337,y+4,TASKS[r['task_tag']],48,8.2);f.text(430,y+4,fmt(r['n_derivatives'],0),8.7,INK,'right');f.text(W-4,y+4,fmt(r['downloads'],0),8.7,INK,'right')
+ f.text(0,334,'ModelRank 衡量复用网络影响力；完整 Top 100 可在 Web 版查询。',8.4,MUTED)
+ f.text(0,347,'衍生数与下载量为月记录，非当月新增或独立使用人数；详细统计窗口待补。',8.4,MUTED)
+ return f.caption()
 
 def tasks():
  f=Figure(p.FIGURES[1],'图 3-6-2',height=305)
@@ -122,7 +117,6 @@ def main():
  def interpret(t):h,t=t.split('。',1);add('**'+h+'。**'+t)
  def figure(f,key):story.append(vp.FigureFlow(f,key))
  add('3.6 '+p.TITLE,'chapter');add(p.INTRO);add('研究问题：'+p.QUESTION);add('指标定位：'+p.POSITION,'note');add('核心发现：'+p.FINDING);add(p.STORIES[0][0],'section');add(p.STORIES[0][1][0]);figure(lead(),'3-6-1-lead')
- for start in range(0,100,25):story.append(PageBreak());figure(models(start,start+25),f'3-6-1-{start+1}-{start+25}')
  story.append(PageBreak())
  for t in p.STORIES[0][1][1:]:interpret(t)
  add(p.STORIES[1][0],'section');add(p.STORIES[1][1][0]);figure(tasks(),'3-6-2-counts')
@@ -134,5 +128,5 @@ def main():
  for h,t in p.ACTIONS:add(h,'subsection');add(t)
  add(p.BRIDGE)
  doc=Doc(a.output);doc.title='GOSD 2026 · 3.6 '+p.TITLE;doc.subject='M-Ranking 图文出版样章';doc.build(story)
- (work/'layout.json').write_text(json.dumps({'pages':doc.page,'figures':doc.figures,'paragraphs':doc.locations,'edition':p.EDITION},ensure_ascii=False,indent=2));print(json.dumps({'pdf':str(a.output),'pages':doc.page,'figures':doc.figures},ensure_ascii=False))
+ (work/'layout.json').write_text(json.dumps({'pages':doc.page,'figures':doc.figures,'paragraphs':doc.locations,'edition':EDITION,'manuscript_edition':p.EDITION,'model_display_rows':10,'analytical_sample_rows':len(ROWS)},ensure_ascii=False,indent=2));print(json.dumps({'pdf':str(a.output),'pages':doc.page,'figures':doc.figures},ensure_ascii=False))
 if __name__=='__main__':main()

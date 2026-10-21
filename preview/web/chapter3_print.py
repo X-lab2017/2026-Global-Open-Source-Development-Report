@@ -7,7 +7,7 @@ import argparse,json,hashlib
 import fitz
 import region_publication as opening
 
-EDITION='2026-10-21-chapter3-publication-v1'
+EDITION='2026-10-21-chapter3-publication-v2'
 FILES=['GOSD-2026-Chapter3-Opening-Section3-1-Review-20261021.pdf']+[f'GOSD-2026-Section3-{i}-Review-20261021.pdf' for i in range(2,7)]
 MODULES=['region','company','foundation','project','emerging','model']
 
@@ -22,7 +22,7 @@ def main():
   for level,title,page in local_toc:
    if i==1 and page<section_page:continue
    toc.append([level+1,title,page+offset])
-  parts.append({'section':f'3.{i}','title':mod.TITLE,'file':name,'edition':mod.EDITION,'start_page':offset+section_page,'pages':len(source),'source_sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+  parts.append({'section':f'3.{i}','title':mod.TITLE,'file':name,'edition':getattr(__import__(module+'_print'),'EDITION',mod.EDITION),'manuscript_edition':mod.EDITION,'start_page':offset+section_page,'pages':len(source),'source_sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
   source.close()
  # Replace the local folio, including underlying text, without altering page artwork.
  for n,page in enumerate(doc,1):
