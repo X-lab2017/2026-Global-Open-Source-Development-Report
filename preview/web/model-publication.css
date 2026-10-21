@@ -31,3 +31,13 @@
 .mp-stage.vmap-reflow .rp-caption{font-size:12px;align-self:stretch}
 .mp-stage.vmap-reflow .rp-foot{display:none}
 .mp-stage.vmap-reflow .cr-overlay[data-mode=profile]{width:min(465px,calc(100% - 28px))}
+
+/* Keep default nine task rows and ten account rows visible without internal scrolling. */
+.mp-stage .mr-task-table td{padding-block:8px!important;line-height:1.4}
+.mp-stage .mr-task-count{display:flex;align-items:center;gap:10px}
+.mp-stage .mr-task-count .cr-score{flex:1;min-width:145px;grid-template-columns:minmax(90px,1fr) 28px}
+.mp-stage .mr-task-count .cr-score b{font-size:15px;line-height:1.2}
+.mp-stage .mr-task-count>small{display:inline-block;min-width:40px;margin:0;line-height:1.2}
+.mp-stage .mr-org-grid.cr-rank-row{min-height:48px!important;padding-block:4px!important}
+.mp-stage .mr-org-grid .cr-score b{font-size:16px;line-height:1.2}
+.mp-stage .mr-org-grid small{line-height:1.2}

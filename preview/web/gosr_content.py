@@ -122,7 +122,7 @@ def chapter(lang):
    out.append(panel('gosr-model-structure',['tasks','publishers','series'],'从任务、发布者与系列三个角度看 Top 20','任务数与发布者数均以 Top 20 为分母。系列表仅覆盖 Qwen 与 Llama 的 18 个模型，不包含另两家发布者。'))
    out.append(implications('模型发布者可以完善版本连续性、模型卡与复用路径；使用者还应结合任务能力、许可证和开放属性进行选择。进一步的复用网络与开放性分析将连接 <a href="/2026/zh/chapters/05/#ch05-s02">第五章 GOSM →</a>。','ModelRank 与 OpenRank 的对象、算法与统计期不同，不能相加或同轴比较；分值高不等于性能更强、训练更开放或许可证更宽松。'))
   out.append(gallery(f'3.{i}')+'</section>')
- out.append('''<section class="chapter-section" id="gosr-review"><span class="eyebrow">DATA / SCOPE & SOURCES</span><h2>六类榜单，各自保留范围与来源。</h2><p>代码生态采用 2025.07—2026.06 统计期；模型榜采用 2026.08。每张图可查看口径、下载当前数据或原始底表；筛选保留原榜次，未知与缺失不补零。</p><details><summary>原表、补充数据与模拟范围</summary><p>25 份原始 CSV 固定到报告仓库版本，保持原始字节。模型 Top 100 来自 OpenGauge 同期公开快照；官方项目和模型卡用于补充身份信息，另标核验日期。</p><p>企业共同贡献案例、Linux 基金会旗下组织数值、项目榜第 31—100 位补位及项目贡献份额仍为明确标记的模拟评审内容，不作为真实统计结论。</p><p><a href="/assets/gosr/provenance.json">原表与原图来源清单 ↓</a> · <a href="/assets/gosr/model-rankings-snapshot.json">模型原始快照 ↓</a> · <a href="/2026/zh/methodology/">统计方法 →</a></p></details><nav class="cr-end-nav"><a href="#ch03-s01">↑ 返回地区榜</a><a href="/2026/zh/chapters/04/">继续阅读第四章 →</a></nav></section><script id="gosr-data" type="application/json">'''+json.dumps({'datasets':DATA,'labels':LABELS,'source':REPO},ensure_ascii=False).replace('<','\\u003c')+'</script></div>')
+ out.append('''<nav class="cr-end-nav" id="gosr-review" aria-label="本章结尾"><a href="#ch03-s01">↑ 返回地区榜</a><a href="/2026/zh/chapters/04/">继续阅读第四章 →</a></nav><script id="gosr-data" type="application/json">'''+json.dumps({'datasets':DATA,'labels':LABELS,'source':REPO},ensure_ascii=False).replace('<','\\u003c')+'</script></div>')
  import rankings
  out.append(rankings.payload())
  return ''.join(out)
