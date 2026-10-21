@@ -1289,3 +1289,19 @@
     margin-top: 25px;
   }
 }
+
+/* Chapter 5 review: continuous opening and captions shared with print. */
+.gm-opening .gm-lead { max-width:none; }
+.gm-opening > p { max-width:none; line-height:1.9; }
+.gm-opening-finding strong { color:var(--gm-ink); }
+.gm-opening-note { font-size:14px !important; }
+.gm-opening h2 { font-size:clamp(28px,3.1vw,42px) !important; }
+.gm-framework-panel .gm-chart-head { justify-content:flex-end; }
+.gm-framework-caption { margin-top:16px; text-align:center; }
+.gm-framework-caption h3 { font-size:18px !important; margin:0 !important; }
+.gm-framework-print { display:none; }
+@media print {
+  .gm-framework-panel .gm-view,.gm-framework-panel .gm-readout,.gm-framework-caption { display:none !important; }
+  .gm-framework-print { display:block !important; }
+  .gm-framework-print svg { width:100%;height:auto; }
+}

@@ -226,10 +226,10 @@ window.createGOSM53 = function(D,H){
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height+footer}" width="${width}" height="${height+footer}" role="img" aria-label="${esc(caption)}">${box(0,0,width,height+footer,c.bg,'none',0)}${b}${line(18,height+3,width-18,height+3,c.line)}${txt(width/2,height+31,caption,17,c.ink,'middle')}${notes.map((n,i)=>txt(22,height+60+i*24,n,14,c.muted)).join('')}</svg>`;
  }
  function standardPaper(p,s){
-  const c=C(),cx=205,adds=['权重、配置、分词器、推理脚本与环境','原理、训练过程说明与测试结果','训练代码、数据或完整来源与处理规则、环境','测试代码、数据、环境与无重叠说明','预处理、清洗、完整配方与端到端复现指南'];
+  const c=C(),cx=260,adds=[['权重、配置、分词器、','推理脚本与环境'],['原理、训练过程说明与测试结果'],['训练代码与环境；数据或其','完整来源与处理规则'],['测试代码、数据与环境；','无重叠说明'],['预处理、清洗与完整配方；','端到端复现指南']];
   let b=txt(22,28,'材料与验证 · L1—L5 逐级累进',19,c.ink)+txt(838,28,'先确认 L，再判断相应材料范围内的 O',14,c.muted,'end');
-  [...LS].reverse().forEach((l,i)=>{const n=5-i,y=59+i*95,top=140+i*48,bottom=top+42,on=s.l===n;const path=`M${cx-top/2} ${y} L${cx+top/2} ${y} L${cx+bottom/2} ${y+78} L${cx-bottom/2} ${y+78} Z`;
-   b+=`<path d="${path}" fill="${on?c.brand:c.raised}" stroke="${c.line}"/>`+txt(cx,y+32,l.id+' '+l.label,17,on?c.bg:c.ink,'middle')+txt(cx,y+58,l.short,15,on?c.bg:c.muted,'middle')+line(cx+bottom/2+12,y+39,415,y+39,c.line)+txt(430,y+18,l.id+' · '+(n===1?'必备材料':'在较低层级基础上新增'),15,c.brand)+wrap(adds[n-1],430,y+45,400,16,c.ink,23)+txt(430,y+88,'验证：'+['运行最小推理并核对输出','核对原理、训练与测试说明','启动最小训练并核对环境','按公开配置复现实验','跑通端到端最小闭环'][n-1],14,c.muted);
+  [...LS].reverse().forEach((l,i)=>{const n=5-i,y=59+i*95,top=270+i*48,bottom=top+42,on=s.l===n;const path=`M${cx-top/2} ${y} L${cx+top/2} ${y} L${cx+bottom/2} ${y+78} L${cx-bottom/2} ${y+78} Z`;
+   b+=`<path d="${path}" fill="${on?c.brand:c.raised}" stroke="${c.line}"/>`+txt(cx,y+32,l.id+' '+l.label,17,on?c.bg:c.ink,'middle')+txt(cx,y+58,l.short,15,on?c.bg:c.muted,'middle')+line(cx+bottom/2+12,y+39,535,y+39,c.line)+txt(550,y+18,l.id+' · '+(n===1?'必备材料':'在较低层级基础上新增'),15,c.brand)+adds[n-1].map((v,j)=>txt(550,y+45+j*23,v,16,c.ink)).join('')+txt(550,y+88,'验证：'+['运行最小推理并核对输出','核对原理、训练与测试说明','启动最小训练并核对环境','按公开配置复现实验','跑通端到端最小闭环'][n-1],14,c.muted);
   });
   b+=txt(22,561,'层宽为结构示意，不表示模型数量；材料存在与运行验证分别记录。',14,c.muted)+line(22,580,838,580,c.line)+txt(22,615,'许可权利与义务 · O1—O4 独立判断',19,c.ink);
   const desc=['使用、修改、再分发或商业化存在实质限制，需逐项核对预期用途。','允许使用与改进；衍生物再分发须按相同或兼容许可开放，承担回馈义务。','无 O1 实质限制与 O2 回馈义务，主要保留版权、许可与必要归属。','不额外附加合同性义务；法律法规仍然适用。'];

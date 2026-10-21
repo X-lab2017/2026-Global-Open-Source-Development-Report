@@ -126,7 +126,7 @@ def main():
     page([world()],True)
     page([t(T['narratives'][1][0],'heading'),t(T['insights']['cnus'][0]),comparison('models'),comparison('datasets'),t(T['insights']['cnus'][1]),t(T['insights']['cnus'][2])])
     page([t(T['narratives'][2][0],'heading'),t(T['insights']['china'][0]),china(),t(T['insights']['china'][1]),t(T['insights']['china'][2])])
-    page([t(T['action_lead'],'heading'),*[z for who,title,body,key in T['actions'] for z in [t(who+'：'+title,'action'),t(body+T['action_followups'][key])]],t(P.BRIDGE)])
+    page([t(T['action_lead'],'heading'),*[z for who,title,body,key in T['actions'] for z in [t(who+'：'+title,'action'),t(body+T['action_followups'][key])]],t(P.BRIDGE),t('口径与来源','heading'),*[t(x,'note') for x in P.NOTES]])
     c.save();(args.work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2));print(f'{args.output}: {count} pages')
 
 if __name__=='__main__':main()

@@ -288,13 +288,29 @@
     });
     return out;
   }
+  function frameworkPaper(p,s,l,example,record){
+    const wrap=(text,x,y,width,size=16,color=C.ink)=>{let rows=[],row='',used=0;for(const ch of text){const n=/[\x00-\x7f]/.test(ch)?size*.56:size;if(used+n>width){rows.push(row);row='';used=0;}row+=ch;used+=n;}if(row)rows.push(row);return rows.map((v,i)=>txt(x,y+i*25,v,size,color)).join('');};
+    const parts=[];
+    let b=txt(22,30,'三个视角，围绕具体模型版本',19,C.ink)+txt(838,30,'概念框架 · 不表达因果效应',14,C.muted,'end');
+    b+=`<path d="M190 166L310 210M670 166L550 210M430 320V365" fill="none" stroke="${C.line}" stroke-width="2"/>`;
+    [[22,66,335,100,'supply','5.1 供给与贡献',example.publisher,'发布账号 · 模型与配套数据'],[503,66,335,100,'reuse','5.2 网络与影响力',record?record.downstreamCount+' 个直接下游':'关系样本未覆盖','2026-10-16 · 非随机样本'],[240,365,380,100,'open','5.3 开源开放与分级体系',example.fields.license.label,'材料完整性 · 许可条件 · 版本档案']].forEach(([x,y,w,h,k,a,b,c])=>{
+      b=String(b);let fill=k===s.lens?C.raised:C.bg;
+      // The node selection has the same meaning as in the interactive view.
+      const node=box(x,y,w,h,fill,k===s.lens?C.brand:C.line,5)+txt(x+18,y+27,a,17,C.brand)+txt(x+18,y+57,b,19,C.ink)+txt(x+18,y+83,c,15,C.muted);
+      parts.push(node);
+    });
+    b+=parts.join('')+box(240,210,380,110,C.raised,C.brand,5)+txt(430,238,'模型 / 固定版本',16,C.brand,'middle')+txt(430,271,example.title,19,C.ink,'middle')+txt(430,300,'提交 '+example.revision.slice(0,10),15,C.muted,'middle');
+    b+=line(22,494,838,494)+txt(22,529,l.chapter+' · '+l.question,19,C.ink)+wrap(l.body,22,563,816)+txt(22,631,l.metric,17,C.brand)+txt(22,659,l.signal,15,C.muted);
+    b+=line(22,686,838,686)+txt(430,718,'图 5-0-1 模型生态观察框架',18,C.ink,'middle')+txt(22,750,'示例：'+example.model_id,14,C.muted)+txt(22,775,'官方材料核验于 2026-10-17；派生数量仅指 10 月 16 日关系样本。',14,C.muted)+txt(22,800,'各项证据保留独立窗口与分母；开放许可不自动证明材料完整或符合开源定义。',14,C.muted);
+    return svg(b,860,824,'模型生态观察框架 · 出版视图');
+  }
   function framework(p, s) {
     const lenses = {
       supply: {
         name: "供给与贡献",
         question: "谁发布了什么？",
-        body: "把模型版本、发布账户、国家归属与时间放在一起，观察供给基础及结构。",
-        metric: "模型数 · 发布者数 · 月度新增",
+        body: "将模型与配套数据、发布账号和地域归属放在一起，观察供给积累与维护节点。",
+        metric: "模型与数据集 · 发布账号 · 区域分布",
         signal: "下载与点赞：获取和关注信号",
         link: "#ch05-s01",
         chapter: "5.1",
@@ -311,7 +327,7 @@
         prior: "第二章 D-Map → 第三章 M-Ranking",
       },
       open: {
-        name: "开放与公共价值",
+        name: "开源开放与分级体系",
         question: "能获取哪些材料，如何继续使用？",
         body: "对照具体版本的权重、代码、数据说明与许可，让开放分类有可复核的证据。",
         metric: "材料完整性 · 开放条件 · 版本档案",
@@ -420,7 +436,7 @@
       txt(
         40,
         525,
-        "观察单位保持一致；每项指标保留各自的时间、范围与分母。",
+        "以具体版本为线索；各组证据保留各自的时间、范围与分母。",
         17,
         C.muted,
       );
@@ -431,7 +447,7 @@
         [
           ["supply", "01 供给与贡献"],
           ["reuse", "02 网络与影响力"],
-          ["open", "03 开放与公共价值"],
+          ["open", "03 开源开放与分级体系"],
         ],
         active,
       ) +
@@ -461,6 +477,7 @@
       })),
       `<p>本框架由报告研究问题组织，连接 OSDGs / OSDI、第二章生态地图、第三章榜单与第四章技术全景。模型版本、发布账户、机构与国家不能互相替代。它是阅读与证据组织框架，不是因果模型。</p><p>${link(BASE + "/2026/zh/chapters/01/#ch01-s03", "OSDI 指标")} · ${link(BASE + "/2026/zh/chapters/04/", "技术全景")} · ${link(asset("methods.md"), "方法与对象边界")}</p>`,
     );
+    $(".gm-framework-print",p).innerHTML=frameworkPaper(p,s,l,example,record);
   }
   function supply(p, s) {
     let a = D.supply,
@@ -1879,6 +1896,7 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function exportSvg(p) {
+    if(p.dataset.gmChart==="framework"){download($(".gm-framework-print",p).innerHTML,"image/svg+xml;charset=utf-8","GOSM-framework-publication.svg");return;}
     if(openness53.own(p)){download(openness53.publication(p,states.get(p)),"image/svg+xml;charset=utf-8",`GOSM-${p.dataset.gmChart}-publication.svg`);return;}
     if(influence52.own(p)){download(influence52.publication(p,states.get(p)),"image/svg+xml;charset=utf-8",`GOSM-${p.dataset.gmChart}-publication.svg`);return;}
     const el = $(".gm-svg", p);

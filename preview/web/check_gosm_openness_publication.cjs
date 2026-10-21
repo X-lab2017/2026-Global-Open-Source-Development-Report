@@ -17,6 +17,9 @@ const data=w.GOSM.data,paperDir=process.argv[3];if(paperDir)fs.mkdirSync(paperDi
 function save(id,name){const svg=$('#gm-'+id+' .s53-print-view svg');ok(svg&&!svg.querySelector('[data-gm-action]'),'static SVG without controls '+name);ok([...svg.querySelectorAll('text')].every(t=>+t.getAttribute('font-size')>=14&&+t.getAttribute('font-size')<=19),'publication type range '+name);if(paperDir)fs.writeFileSync(path.join(paperDir,name+'.svg'),new w.XMLSerializer().serializeToString(svg));}
 ok($$('#ch05-s03 .s53-panel').length===3,'three figures');ok($$('#ch05-s03 .s53-source').length===1&&!$('#ch05-s03 [data-gm-source]'),'one common method entrance');
 for(const [i,p] of $$('#ch05-s03 .s53-panel').entries()){ok(p.querySelector('h3').textContent.startsWith('图 5-3-'+(i+1)+' '),'caption number');ok(p.querySelector('.s53-figure-caption').compareDocumentPosition(p.querySelector('.gm-view'))&w.Node.DOCUMENT_POSITION_PRECEDING,'caption below figure');}
+ok($('#gm-framework .gm-framework-caption').compareDocumentPosition($('#gm-framework .gm-view'))&w.Node.DOCUMENT_POSITION_PRECEDING,'opening caption below the chart');
+ok($('#gm-framework .gm-framework-print svg')&&!$('#gm-framework .gm-framework-print [data-gm-action]'),'framework has a publication view');
+if(paperDir)fs.writeFileSync(path.join(paperDir,'framework.svg'),new w.XMLSerializer().serializeToString($('#gm-framework .gm-framework-print svg')));
 save('openness','standard');
 click('#gm-openness [data-gm-action="overviewLevel"][data-value="5"]');click('#gm-openness [data-gm-action="standardDetails"]');
 ok($('#gm-openness .gm-source').open&&$$('#gm-openness .s53-rules ol li').length===19,'complete 19 material requirements');
