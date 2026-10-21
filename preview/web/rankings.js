@@ -412,5 +412,5 @@ B.forEach((b,i)=>{
  dialog.addEventListener('cancel',e=>{if(!b.overlay.hidden){e.preventDefault();e.stopImmediatePropagation();closeOverlay(b);}},true);
  launch?.addEventListener('click',()=>{bar.firstElementChild.textContent=`GOSD · 3.${b.s} / ${b.el.querySelector('.cr-head h4').textContent}`;});
 });
-flagLabels(document.getElementById('ch03-s01'));
+document.querySelectorAll('#ch03-s01 .rr-stage').forEach(flagLabels);
 })();
