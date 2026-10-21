@@ -16,7 +16,7 @@
 .pp-stage .rr-rank-list .cr-rank-row:nth-child(even){background:color-mix(in srgb,var(--gv-raised) 45%,transparent)}
 .pp-stage .pr-country-table td{padding-block:5px!important}
 .pp-stage .pr-domain-table td{padding-block:15px!important}
-.pp-stage .pr-contribution-table td{padding-block:8px!important}
+.pp-stage .pr-contribution-table td{padding-block:6px!important}
 .pp-stage .rr-note{font-size:12px!important;line-height:1.6!important;margin:0!important}
 .pp-stage .pr-detail-columns h5{font-size:15px!important}
 .pp-stage .pr-detail-bar{font-size:13px}
