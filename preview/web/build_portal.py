@@ -128,7 +128,7 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
     if route=='chapters/05/':
         main=main.replace('2025.07 — 2026.06',t('各图按来源标注统计期与快照','Dates and scope are specified in each figure')).replace('2026.10.16','2026.10.17')
     reading_assets='<link rel="stylesheet" href="/goso-reading.css?v=20261021-caption-bottom"><script src="/goso-reading.js?v=20261021-caption-bottom" defer></script>' if route=='chapters/02/' else ''
-    if route=='chapters/03/':reading_assets+='<link rel="stylesheet" href="/company-ranking.css"><script src="/company-ranking.js?v=20261021-c3" defer></script><link rel="stylesheet" href="/rankings.css"><script src="/ranking-details.js" defer></script><script src="/rankings.js?v=20261021-p2" defer></script><link rel="stylesheet" href="/region-publication.css?v=20261021-r4"><link rel="stylesheet" href="/company-publication.css?v=20261021-c3"><link rel="stylesheet" href="/foundation-publication.css?v=20261021-f3"><link rel="stylesheet" href="/project-publication.css?v=20261021-p3">'
+    if route=='chapters/03/':reading_assets+='<link rel="stylesheet" href="/company-ranking.css"><script src="/company-ranking.js?v=20261021-c3" defer></script><link rel="stylesheet" href="/rankings.css"><script src="/ranking-details.js?v=20261021-e1" defer></script><script src="/rankings.js?v=20261021-p2" defer></script><link rel="stylesheet" href="/region-publication.css?v=20261021-r4"><link rel="stylesheet" href="/company-publication.css?v=20261021-c3"><link rel="stylesheet" href="/foundation-publication.css?v=20261021-f3"><link rel="stylesheet" href="/project-publication.css?v=20261021-p3"><link rel="stylesheet" href="/emerging-publication.css?v=20261021-e1">'
     reading_page='chapter1' if route=='chapters/01/' else 'introduction' if route=='introduction/' else 'summary' if route=='summary/' else 'overview' if is_home else 'contents' if route=='' else ''
     front_assets='<link rel="stylesheet" href="/reading-experience.css"><script src="/reading-experience.js?v=20261019-ch1-captions" defer></script>'
     if route=='presentation/':front_assets+='<link rel="stylesheet" href="/review-deck.css"><link rel="stylesheet" href="/concept-lenses.css"><script src="/concept-lenses.js" defer></script><script src="/review-deck.js" defer></script>'
@@ -254,7 +254,7 @@ def build():
     __import__('dmap_content').export(OUT)
     __import__('gmap_content').export(OUT)
     gosr.export(OUT)
-    for file in ['project-publication.css','foundation-publication.css','company-publication.css','company-ranking.css','company-ranking.js','rankings.css','rankings.js','ranking-details.js']:shutil.copy2(ROOT/'web'/file,OUT/file)
+    for file in ['emerging-publication.css','project-publication.css','foundation-publication.css','company-publication.css','company-ranking.css','company-ranking.js','rankings.css','rankings.js','ranking-details.js']:shutil.copy2(ROOT/'web'/file,OUT/file)
     landscape.export(OUT)
     gosm.export(OUT)
     shutil.copy2(ROOT/'content/chart-data.js',OUT/'content.js')

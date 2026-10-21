@@ -1,0 +1,27 @@
+/* Independent samples, precise source values and publication controls. */
+const fs=require('fs'),path=require('path'),assert=require('assert'),{JSDOM}=require('jsdom');
+const out=path.resolve(process.argv[2]||'_site'),read=f=>fs.readFileSync(path.join(out,f),'utf8');
+const dom=new JSDOM(read('2026/zh/chapters/03/index.html'),{url:'https://example.test/2026/zh/chapters/03/',runScripts:'outside-only',pretendToBeVisual:true}),w=dom.window,d=w.document,errors=[];
+w.ResizeObserver=class{observe(){}};w.matchMedia=()=>({matches:true});w.HTMLElement.prototype.scrollIntoView=function(){};w.addEventListener('error',e=>errors.push(e.message));
+for(const f of ['company-ranking.js','ranking-details.js','rankings.js'])w.eval(read(f));
+const $=s=>d.querySelector(s),$$=s=>[...d.querySelectorAll(s)],repo='#fig-3-5-1',proj='#fig-3-5-2',aux='#fig-3-5-3';let checks=0;
+const ok=(v,m)=>{assert(v,m);assert.deepEqual(errors,[]);checks++},click=s=>{assert($(s),s);$(s).click();assert.deepEqual(errors,[])},change=(s,v)=>{$(s).value=v;$(s).dispatchEvent(new w.Event('change',{bubbles:true}));assert.deepEqual(errors,[])},input=(s,v)=>{$(s).value=v;$(s).dispatchEvent(new w.Event('input',{bubbles:true}));assert.deepEqual(errors,[])};
+for(const f of [repo,proj])ok($(f+' .cr-pagination').textContent.includes('/ 30'),'two independent 30-item samples');
+ok($(repo+' .cr-rank-row').textContent.includes('7,047.46'),'repository score unchanged');ok($(repo+' .cr-rank-row').textContent.includes('219 天'),'inclusive creation window');
+click(repo+' [data-er-page="2"]');ok($(repo+' .cr-rank-no').textContent==='21','source rank retained across pages');
+input(repo+' [data-er-search]','mcino-Introduction-to-Git-and-GitHub');ok($(repo+' .cr-rank-row').textContent.includes('ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub'),'full path searchable');
+click(repo+' [data-er-action=reset]');change(repo+' [data-er-setting=platform]','AtomGit');ok($(repo+' .cr-pagination').textContent.includes('/ 20'),'platform filter preserves sample');
+click(repo+' [data-er-action=reset]');click(repo+' [data-rr-view=launch]');ok($(repo+' .er-launch svg').textContent.includes('219 天'),'creation-window view');ok($(repo+' .cr-rank-caption').textContent.includes('不表示实际活跃时长'),'creation not activity');
+click(repo+' [data-rr-view=compare]');ok($$(repo+' .cr-comparison-table thead th').length===4,'three repository comparisons');
+click(repo+' [data-rr-view=ranking]');click(proj+' [data-er-sort=repo_count]');ok($(proj+' .cr-rank-caption').textContent.includes('按仓库数量浏览'),'correct warehouse-count sort caption');ok($(proj+' .cr-rank-row').textContent.includes('68'),'CANN source count retained');
+click(proj+' [data-er-action=reset]');click(proj+' [data-rr-view=portfolio]');ok($$(proj+' .er-linked-table tbody tr').length===8,'8 associated ranked repos, not 68');ok($(proj+' .er-project-summary').textContent.includes('14,719.47'),'project score not recomputed from rows');
+change(proj+' [data-er-setting=project]','Hive');ok($(proj+' .er-no-mapping').textContent.includes('待核验'),'Hive mapping unresolved');ok($(proj+' .er-project-summary').textContent.includes('待核验'),'missing association not shown as zero');
+click(proj+' [data-rr-view=compare]');ok($$(proj+' .cr-comparison-table thead th').length===4,'three project comparisons remain independent');
+click(proj+' [data-rr-view=ranking]');input(proj+' [data-er-search]','Paperclip');click(proj+' [data-er-profile="5"]');ok($(proj+' .cr-overlay').textContent.includes('未识别'),'unknown organization retained');ok(!$(proj+' .cr-overlay [download]'),'no technical download controls in profile');click(proj+' [data-rr-action=close]');
+ok($$(aux+' .er-domain-table tbody tr').reduce((n,r)=>n+Number(r.querySelectorAll('td')[1].textContent.trim()),0)===30,'source domain denominator');
+change(aux+' [data-er-setting=mode]','editorial');const domainRows=$$(aux+' .er-domain-comparison tbody tr');ok(domainRows.reduce((n,r)=>n+Number(r.querySelectorAll('td')[1].querySelector('b').textContent),0)===30,'editorial repository denominator');ok(domainRows.reduce((n,r)=>n+Number(r.querySelectorAll('td')[2].querySelector('b').textContent),0)===30,'editorial project denominator');ok(domainRows.some(r=>r.textContent.includes('AI智能体与Agent工具')&&r.querySelectorAll('td')[2].querySelector('b').textContent==='25'),'25 projects in editorial agent category');
+click(aux+' [data-rr-view=cohort]');ok($$(aux+' svg rect title').filter(n=>n.textContent.includes('2025-09')).reduce((sum,n)=>sum+Number(n.textContent.match(/· (\d+) 个$/)[1]),0)===9,'repository creation cohort September 9');
+change(aux+' [data-er-setting=scope]','newProject');ok($(aux+' svg').textContent.includes('首个纳入仓库创建月'),'project first repository dates');click(aux+' [data-er-cumulative="true"]');ok($(aux+' svg').querySelectorAll('polyline').length===6,'six cumulative editorial series');
+click(aux+' [data-rr-view=languages]');ok($$(aux+' tbody tr').reduce((n,r)=>n+Number(r.querySelectorAll('td')[1].textContent.trim()),0)===30,'language denominator');
+for(const f of [repo,proj,aux]){ok($$(f+' .rp-caption').length===1,'one bottom caption');ok(!$(f+' [data-rr-action=source]')&&!$(f+' [data-rr-action=image]')&&!$(f+' [data-rr-action=export]'),'removed redundant controls');ok(!$(f+' .cr-head-right').textContent.trim(),'no repeated time badge');}
+ok(!/NaN|undefined/.test($('#ch03-s05').innerHTML),'no invalid rendered values');console.log('PASS emerging publication: '+checks+' sample, relationship, time and reading checks');dom.window.close();
