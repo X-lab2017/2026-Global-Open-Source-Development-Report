@@ -38,6 +38,8 @@ ACTIONS=[
  ('平台与社区：把跨城市交流转化为持续合作','围绕不同城市共同参与的项目，组织任务协作并记录阶段成果。继续跟踪活动结束后的合作、新加入的持续贡献者，以及尚未解决的维护需求。')]
 BRIDGE='地区榜呈现协作发生的空间。下一节转向企业，进一步观察组织投入与参与结构。'
 NOTES=[PERIOD,'OpenRank 与开发者数量分别计量，不计算人均效率或合成总分。开发者数量单位为万，不直接解释为活跃开发者。','全球行政区、中国省级与中国城市各有 30 条详细记录；国家分布表覆盖 100 个入榜行政区、32 个国家。数量相同的国家并列，后续名次跳位；“其余国家”为汇总项，不参与排名。','Top 100 国家汇总与 Top 30 详细名单是独立底表，不从 Top 30 推造完整 Top 100 名单。入榜数量不代表国家 OpenRank 份额或生态质量评分。','省级与城市分别保留原榜名次，城市数值不加总回算省级值。台湾省及其城市纳入中国范围。全球行政区粒度不同；地理稳定 ID 和边界版本待补，不据此生成精确行政区地图。','当前 3.1 底表不含历史位次，不能据此计算排名升降或判断政策效果。原始值与缺失状态保持不变，筛选与排序只改变展示。','全章六类主体分别排名，不合成跨对象总榜。OpenRank 不等于治理质量或商业价值；ModelRank 不等于模型能力或开放许可证评级。其他小节中的模拟范围保留各图醒目标识。']
+from company_publication import NOTES as COMPANY_NOTES
+NOTES += COMPANY_NOTES
 def paragraphs():
  return [CHAPTER_QUESTION,CHAPTER_INTRO,*[t for a in CHAPTER_FINDINGS for t in a],PERIOD,INTRO,QUESTION,POSITION,FINDING,*[p for _,ps in STORIES for p in ps],ACTION_INTRO,*[p for _,p in ACTIONS],BRIDGE]
 def para(t,cls=''):return f'<p class="{cls}">{E(t)}</p>'

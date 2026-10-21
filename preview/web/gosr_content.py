@@ -75,7 +75,7 @@ def chapter(lang):
    out.append(gosr_reading.normalize(rankings.section(i,DATA,REPO),i)+gallery(f'3.{i}'));continue
   if i==2:
    from company_ranking import section as company_section
-   out.append(gosr_reading.normalize(company_section(DATA,REPO),i)+gallery('3.2'))
+   out.append(company_section(DATA,REPO))
    continue
   out.append(f'<section class="chapter-section gosr-section" id="ch03-s0{i}"><div class="section-topline"><span>3.{i} / {tag}-Ranking</span><span>数据已接入 · 内容评审稿</span></div><h2>{name}影响力排行榜</h2><p class="gosr-thesis">{headline}</p>')
   if i==1:

@@ -1,0 +1,24 @@
+/* C-Ranking follows the approved R-Ranking reading and caption layout. */
+.cp-section .cr-frame{margin:20px auto 26px!important}
+.cp-stage .cr-board{height:880px;grid-template-rows:48px 42px 36px minmax(0,1fr) 0 26px;gap:9px;padding:20px 26px 16px}
+.cp-stage[data-cr-group="2"] .cr-board{height:780px}
+.cp-stage[data-cr-group="3"] .cr-board{height:840px}
+.cp-stage .cr-head h4{font-size:25px!important;font-weight:550;margin:0!important}
+.cp-stage .rp-foot{height:0;min-height:0;border:0;padding:0;overflow:hidden}
+.cp-stage .cr-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.cp-stage .rp-caption{text-align:center;color:var(--gv-muted);font:14px/1.6 var(--sans);align-self:end}
+.cp-stage .cr-sim-badge{background:#fff4dc;color:#765214;border-color:#b78726;font-weight:600}
+.cp-section .explorer-slide-frame{margin-bottom:26px!important}
+.cp-stage .cr-rank-row:nth-child(even){background:color-mix(in srgb,var(--gv-raised) 45%,transparent)}
+.cp-stage .cr-body{min-height:0}
+@media(max-width:700px){
+ .cp-section .explorer-slide-frame{min-height:0!important}
+ .cp-stage .cr-board,.cp-stage[data-cr-group="2"] .cr-board,.cp-stage[data-cr-group="3"] .cr-board{height:auto;min-height:0;padding:15px 12px;display:flex;flex-direction:column;gap:12px}
+ .cp-stage .cr-head h4{font-size:21px!important}
+ .cp-stage .cr-toolbar,.cp-stage .cr-tabs{flex-wrap:wrap;gap:9px}
+ .cp-stage .cr-body{height:540px;min-height:430px;overflow:auto}
+ .cp-stage .cr-ranking,.cp-stage .cr-structure{min-width:940px}
+ .cp-stage .cr-history,.cp-stage .cc-explorer,.cp-stage .cc-project-view,.cp-stage .cc-matrix-view,.cp-stage .cc-evidence-view{min-width:920px}
+ .cp-stage .rp-caption{font-size:12px;align-self:stretch}
+ .cp-stage .rp-foot{display:none}
+}
