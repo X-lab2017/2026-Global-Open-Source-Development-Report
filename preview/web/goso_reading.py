@@ -139,6 +139,8 @@ def normalize(text,n,lang):
                 if footer:
                     footer.children.append(caption.children.pop())
                     caption.set('hidden','');caption.set('data-goso-source-only','')
+        if n==1 and i==2:
+            fig.set('data-slide-height','700');fig.set('style','--vmap-height:700px')
         for x in fig.walk():
             if x.tag=='button' and any(k in x.attrs for k in ('data-dialog','data-tm-info','data-am-source','data-dm-source','data-gm-source')):
                 if x.attrs.get('data-dialog','').endswith('source') or 'data-dialog' not in x.attrs:

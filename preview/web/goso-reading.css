@@ -114,7 +114,7 @@
 
 /* Reusable figures: internal heading, single bottom caption, no outer title. */
 .goso-screen>figcaption{justify-content:center!important;text-align:center!important;position:static!important;border-top:1px solid var(--line)!important;padding-top:10px!important;margin-top:10px!important;min-height:24px!important}
-.goso-screen .goso-figure-caption{display:block!important;font:600 14px/1.5 var(--sans)!important;color:var(--ink);width:100%;text-align:center}
+.goso-screen .goso-figure-caption{display:block!important;font:400 14px/1.5 var(--sans)!important;color:var(--muted);width:100%;text-align:center}
 .goso-screen .viz-heading{padding-right:0}
 .goso-screen[data-figure-id="fig-2-1-1"] .viz-heading{padding-right:150px}
 .goso-presentation .goso-slide-caption{display:none}
@@ -122,3 +122,9 @@
 .goso-screen .gm-board-foot{display:flex;justify-content:center;border-top:1px solid var(--line);padding-top:10px}
 
 .goso-screen .gm-side>.gm-eyebrow,.goso-screen .vmap-status{display:none!important}
+
+/* V-Map uses positioned canvases; captions must follow their bottom edge. */
+.goso-screen.vmap-figure.screen-slide:not(.vmap-reflow)>figcaption{position:absolute!important;top:auto!important;bottom:21px!important;left:28px!important;right:28px!important;margin:0!important}
+#fig-vmap-comparison.screen-slide:not(.vmap-reflow) .vmap-comparison,
+#fig-vmap-comparison.screen-slide:not(.vmap-reflow) .vmap-trend{top:220px}
+#fig-vmap-comparison.screen-slide:not(.vmap-reflow) .vmap-legend{top:615px}
