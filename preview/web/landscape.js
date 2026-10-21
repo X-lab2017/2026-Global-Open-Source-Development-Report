@@ -1057,7 +1057,7 @@
     const shown = rows.slice(c.page * 8, c.page * 8 + 8);
     controls(
       id,
-      familyPicker([c.section]) + segment("view",[["rows","逐项比较"],["compare","叠线比较"]],c.view,"项目比较方式") +
+      `<div class="al-control-row">${optionSelect(id,"project-category","技术类别",["Agent Infra","Model Infra"].flatMap(layer=>M.sections(layer).map(k=>[k,layer+" · "+catName(k)])),c.section)}${segment("view",[["rows","逐项比较"],["compare","叠线比较"]],c.view,"项目比较方式")}</div>` +
         `<div class="al-control-row">${windowControls(c)}${metricControls(c)}${optionSelect(
           id,
           "month",

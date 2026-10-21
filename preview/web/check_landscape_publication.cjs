@@ -32,7 +32,7 @@ ok(omni.length===11&&!omni.some(t=>t.getAttribute('aria-label').includes('2025-1
 click('#al-project-rank [data-action=project-month][data-value="6"]');
 ok($('#al-project-rank .al-view').textContent.includes('2025-09 位次 / 项目'),'project point changes selected ranking month');
 ok($('#al-category-rank .al-readout').textContent.includes('2026-08'),'project month does not change category ranking');
-click('#al-project-rank [data-action=project-category][data-value="Agentic coding"]');
+change('#al-project-rank [data-field="project-category"]','Agentic coding');
 click('#al-project-rank [data-action=page][data-value="1"]');
 ok($$('#al-project-rank [data-action=open-project]').length===8&&$('#al-project-rank .al-project-toolbar').textContent.includes('2 / 2'),'second project page remains available');
 click('#al-project-rank [data-action=view][data-value="compare"]');

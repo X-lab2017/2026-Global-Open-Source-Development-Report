@@ -52,3 +52,5 @@ Edition: `2026-10-21-a-landscape-publication-v2` (supersedes v1 above).
 - The revised private PDF is 12 pages, with the same two complete landscape architecture plates. No PDF is committed or published.
 
 Validation: the revised DOM check passes 352 assertions, including exact matrix ranks/coverage, common scales, absent project observations, pagination, independent months, both country denominators and share differences. The v3 source JSON and sections 4.2–4.6 are unchanged. The calculation, full-atlas and portal gates pass; the PDF is rendered and checked for clipping, caption clearance, complete project names and shared prose.
+
+Deployed-page review also condenses the project-category selector into one labeled menu, leaving more fullscreen space for all eight project histories. All 25 categories remain selectable.
