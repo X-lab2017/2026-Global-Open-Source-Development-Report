@@ -12,10 +12,11 @@
 .rp-opening strong,.rp-section .rp-interpretation strong{font-weight:600}
 
 /* One chapter source entry, with six concise sections for optional inspection. */
-.rp-source-intro p,.rp-source-groups p{font-size:13px!important;line-height:1.7!important}
+.rp-source-intro p,.rp-source-groups p{font-size:16px!important;line-height:1.7!important}
 .rp-source-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px;align-items:start}
 .rp-source-groups details{border:1px solid var(--gv-line);border-radius:6px;padding:12px 14px;min-width:0}
 .rp-source-groups summary{cursor:pointer;color:var(--gv-brand);font-weight:600;font-size:15px}
+.rp-source-groups details[open]{grid-column:1/-1}
 .rp-source-groups details[open] summary{margin-bottom:12px}
-.rp-source-links{display:flex;flex-direction:column;gap:7px;border-top:1px solid var(--gv-line);padding-top:12px;margin-top:12px;font-size:12px;line-height:1.6}
+.rp-source-links{display:flex;flex-direction:column;gap:7px;border-top:1px solid var(--gv-line);padding-top:12px;margin-top:12px;font-size:15px;line-height:1.6}
 @media(max-width:700px){.rp-source-groups{grid-template-columns:1fr}}
