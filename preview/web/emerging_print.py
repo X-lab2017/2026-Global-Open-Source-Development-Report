@@ -65,6 +65,20 @@ def project_rank(start,end):
  f.text(0,h-20,'国旗沿用原表国家标签；“—”表示未识别。项目范围及资格沿用原表。',8.1,MUTED)
  return f.caption(start>0)
 
+def cann_links():
+ f=Figure(p.FIGURES[1],'图 3-5-2',height=224)
+ f.text(0,14,'CANN · 8 个入榜关联仓库',11,TEAL)
+ f.text(0,35,'原表纳入 68 个仓库；下列仅为已核对官方关系的新仓库榜对象。',8.6,MUTED)
+ f.rect(0,44,W,19,PALE,PALE,0)
+ for x,t,a in [(4,'仓库原榜次 / 仓库路径','left'),(373,'OpenRank','right'),(W-4,'开发者 / 人','right')]:f.text(x,57,t,8.4,MUTED,a)
+ rows=[r for r in D['newRepo']['rows'] if REF['repos'][r['repo']].get('project_name')=='CANN' and REF['repos'][r['repo']].get('relation_status')=='verified']
+ for i,r in enumerate(rows):
+  y=76+i*15
+  if i%2==0:f.rect(0,y-11,W,15,'#F7FAFB','#F7FAFB',0)
+  f.text(4,y,f'{int(r["rank"]):02}',8.4,MUTED);f.text(32,y,r['repo'],9,INK);f.text(373,y,fmt(r['openrank']),9,INK,'right');f.text(W-4,y,fmt(r['active_developers'],0),9,INK,'right')
+ f.text(0,201,'关联不替代完整清单；项目分值与人数不由这些仓库相加。',8.2,MUTED)
+ return f.caption(True)
+
 def structures():
  f=Figure(p.FIGURES[2],'图 3-5-3',height=685)
  f.text(0,14,'A  新仓库领域 · 原表汇总',11,TEAL);f.text(335,14,'B  主要语言 · 原表汇总',11,TEAL)
@@ -118,7 +132,7 @@ def main():
  add('3.5 '+p.TITLE,'chapter');add(p.INTRO);add('研究问题：'+p.QUESTION);add('指标定位：'+p.POSITION,'note');add('核心发现：'+p.FINDING);add(p.STORIES[0][0],'section');add(p.STORIES[0][1][0]);figure(repo_lead(),'3-5-1-lead')
  story.extend([NextPageTemplate('landscape'),PageBreak()]);figure(repo_full(),'3-5-1-full');story.extend([NextPageTemplate('portrait'),PageBreak()])
  for t in p.STORIES[0][1][1:]:interpret(t)
- add(p.STORIES[1][0],'section');add(p.STORIES[1][1][0]);figure(project_rank(0,10),'3-5-2-top');story.append(PageBreak());figure(project_rank(10,30),'3-5-2-rest')
+ add(p.STORIES[1][0],'section');add(p.STORIES[1][1][0]);figure(project_rank(0,10),'3-5-2-top');figure(cann_links(),'3-5-2-cann');story.append(PageBreak());figure(project_rank(10,30),'3-5-2-rest')
  for t in p.STORIES[1][1][1:]:interpret(t)
  add(p.STORIES[2][0],'section');add(p.STORIES[2][1][0]);story.append(PageBreak());figure(structures(),'3-5-3');story.append(PageBreak())
  for t in p.STORIES[2][1][1:]:interpret(t)
