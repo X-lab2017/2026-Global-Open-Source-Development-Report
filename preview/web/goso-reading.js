@@ -4,39 +4,27 @@ const chapter=document.querySelector('.goso-chapter');if(!chapter)return;
 const screens=[...chapter.querySelectorAll('.goso-screen')],all=[];
 const sourceSelector='[data-dialog="world-source"],[data-dialog="comparison-source"],[data-dialog="china-source"],[data-tm-info],[data-am-source],[data-dm-source],[data-gm-source]';
 const safeText=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sourceNotes={1:'本节采用 2025 年 7 月至 2026 年 6 月报告年度。全球与中国地图使用 GitHub 底表，五域采用编制组原稿统计；国内平台补充量经编制组结合官方数据和问卷调研去重确认。',2:'地图采用 OpenDigger 的2025自然年数据；五域与项目来源采用报告年度。平均贡献为独立样本。协作机制为示意；项目网络按实际记录绘制，增强显示不改变数值。',3:'地图采用 OpenDigger 的2025自然年数据；五域与项目样本采用报告年度。国家榜与企业榜分别汇总，不能相加。中国项目榜与贡献来源为独立样本；未列来源不推断所在地。'};
-function fallbackSource(stage,section,fig){
- const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector(stage.matches('.cmap-figure,.imap-figure')?'figcaption':'.viz-heading')?.append(button);
- const dialog=document.createElement('dialog');dialog.className='goso-source-dialog goso-presentation';dialog.setAttribute('aria-label','图表口径与来源');dialog.innerHTML='<button type="button" aria-label="关闭口径与来源">关闭 ×</button><h3>口径与来源</h3><div></div>';document.body.append(dialog);
- const close=dialog.querySelector('button');let trigger=button;
- button.addEventListener('click',()=>{
-  const caption=fig.querySelector('.cm-caption-note,.im-caption-note')||fig.querySelector('figcaption'),note=sourceNotes[section.dataset.mapIndex]||'',links=[...fig.querySelectorAll('a[href]')].filter(a=>!a.getAttribute('href').startsWith('#'));
-  const uniq=[...new Map(links.map(a=>[a.href,a])).values()];
-  dialog.querySelector('h3').textContent=stage.dataset.figureNumber+' · 口径与来源';dialog.querySelector('div').innerHTML='<p>'+safeText(note)+'</p>'+(caption?'<p>'+safeText(caption.textContent.trim())+'</p>':'')+'<div class="goso-source-links">'+uniq.map(a=>a.outerHTML).join('')+'</div>';
-  trigger=document.activeElement;dialog.showModal();close.focus();
- });
- close.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>trigger?.focus({preventScroll:true}));return button;
+function chapterSource(stage){
+ const button=document.createElement('button');button.type='button';button.className='goso-source-trigger';button.textContent='口径与来源';button.setAttribute('aria-haspopup','dialog');stage.querySelector('.viz-heading').append(button);
+ const dialog=document.createElement('dialog');dialog.className='goso-source-dialog goso-presentation';dialog.setAttribute('aria-label','第二章口径与来源');
+ dialog.innerHTML='<button type="button" aria-label="关闭口径与来源">关闭 ×</button><h3>第二章 · 口径与来源</h3><p>本章来源与统计范围集中列于此处。各图时间窗不同，不将自然年、报告年度、快照和累计样本混作同一统计期。</p>';
+ for(const section of chapter.querySelectorAll('.goso-reading-section')){
+  const heading=document.createElement('h4');heading.textContent=section.querySelector('h2').textContent;dialog.append(heading);
+  const seen=new Set();
+  for(const node of section.querySelector('template[data-goso-source-notes]').content.querySelectorAll('p,li')){
+   const text=node.textContent.trim();if(!text||seen.has(text))continue;seen.add(text);
+   const p=document.createElement('p');p.textContent=text;dialog.append(p);
+  }
+ }
+ document.body.append(dialog);button.addEventListener('click',()=>dialog.showModal());dialog.querySelector('button').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>button.focus({preventScroll:true}));
 }
 for(const stage of screens){
  const section=stage.closest('.goso-reading-section'),fig=stage.closest('figure'),frame=stage.parentElement,launcher=frame.previousElementSibling;
  if(!launcher?.classList.contains('slide-launcher'))continue;
  const launch=launcher.querySelector('button'),title=stage.querySelector('.board-head h3,.tm-board-head h4,.am-board-head h4,.dm-board-head h4,.gm-board-head h4,.viz-heading h4')?.textContent||stage.getAttribute('aria-label');
- const hint=launcher.querySelector('span');hint.textContent=stage.dataset.figureNumber+' '+title;
+ const hint=launcher.querySelector('span');hint.textContent='';hint.hidden=true;
  const tools=document.createElement('div');tools.className='goso-chart-tools';
- // A single source control lives inside the chart, including fullscreen mode.
- const sourceButton=stage.querySelector(sourceSelector)||fallbackSource(stage,section,fig);
- const notes=section.querySelector('template[data-goso-source-notes]');
- sourceButton.addEventListener('click',()=>queueMicrotask(()=>{
-  const panel=stage.querySelector('.am-source-overlay:not([hidden]),.dm-source-overlay:not([hidden]),.gm-source-overlay:not([hidden])')||[...document.querySelectorAll('dialog[open]')].find(d=>!d.classList.contains('explorer-presentation'));
-  if(!panel||!notes)return;
-  panel.querySelector('.goso-source-context')?.remove();
-  const extra=document.createElement('div');extra.className='goso-source-context';
-  const existing=panel.textContent.replace(/\s+/g,'');
-  for(const paragraph of [...stage.querySelectorAll('[data-goso-source-only]'),...notes.content.querySelectorAll('p,li')]){
-   if(!existing.includes(paragraph.textContent.replace(/\s+/g,''))){const p=document.createElement('p');p.textContent=paragraph.textContent;extra.append(p);}
-  }
-  if(extra.children.length)panel.append(extra);
- }));
+ if(stage.dataset.figureId==='fig-2-1-1')chapterSource(stage);
  tools.append(launch);launcher.append(tools);launch.classList.add('goso-present-button');
  launch.textContent='⛶ 全屏演示';launch.setAttribute('aria-label',stage.dataset.figureNumber+' 全屏演示：'+title);
  // Find the dialog assigned by the shared Chapter 1 lifecycle without changing it.

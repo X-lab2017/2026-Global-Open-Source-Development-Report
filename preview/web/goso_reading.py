@@ -48,7 +48,7 @@ def remove(root,target):
         if target in parent.children:parent.children.remove(target);return
 
 # Web consolidates the shared reporting calendar; PDFs remain self-contained.
-REPORT_PERIOD='统计期：2025 年 7 月 1 日至 2026 年 6 月 30 日。历史年份均指前一年 7 月至当年 6 月；自然年、快照与累计样本以图中标注为准。'
+REPORT_PERIOD='统计期：2025 年 7 月 1 日至 2026 年 6 月 30 日。历史年份均指前一年 7 月至当年 6 月；自然年、快照与累计样本的差异见图 2-1-1“口径与来源”。'
 def web_window(n):
     return {1:'',2:'地图采用 2025 自然年数据，历史序列为 2021—2025 年；五域比较与项目来源采用报告年度，平均贡献为前十样本。',3:'全球地图采用 2025 自然年数据及 2021—2025 年历史序列；五域与项目样本采用报告年度。',4:'全球地图采用 2026 年 7 月快照，五域与十城采用报告年度。图 2-4-4 为模拟数据。',5:'代码采用报告年度；模型与数据集为发布单位的累计样本，不代表平台全量。',6:'全球地图为 2025 自然年快照；年度序列与中美样本采用报告年度。来源份额表与贡献流向表分别阅读。',7:''}[n]
 
@@ -125,6 +125,20 @@ def normalize(text,n,lang):
                     at=parent.children.index(fig);parent.children[at:at]=fragment(f'<span id="{fid}" class="goso-anchor" aria-hidden="true"></span>');break
         stage=fig if fig.has('chapter-one-visual') else next((x for x in fig.walk() if x.has('goso-unified-canvas')),None)
         if stage:stage.add('goso-screen');stage.set('data-figure-id',fid);stage.set('data-figure-number',f'图 2-{n}-{i}');stage.set('data-map-code',TOPICS[n-1][0])
+        # Every reusable canvas carries one compact, complete bottom caption.
+        title=next((x.text() for x in fig.walk() if x.tag in ('h3','h4')),'交互图')
+        caption=next((x for x in fig.walk() if x.tag=='figcaption'),None)
+        if caption:
+            for x in caption.children:
+                if isinstance(x,Node):
+                    x.set('data-goso-source-only','');x.set('hidden','')
+            caption.children+=fragment('<strong class="goso-figure-caption">'+escape(f'图 2-{n}-{i} {title}')+'</strong>')
+        for x in fig.walk():
+            if x.tag=='button' and any(k in x.attrs for k in ('data-dialog','data-tm-info','data-am-source','data-dm-source','data-gm-source')):
+                if x.attrs.get('data-dialog','').endswith('source') or 'data-dialog' not in x.attrs:
+                    x.set('data-goso-source-only','');x.set('hidden','')
+            if x.tag=='span' and (x.has('im-meta') or x.has('cm-comparison-status') or 'data-cm-period' in x.attrs or x.text().startswith('OpenDigger / OpenShare')):
+                x.set('data-goso-source-only','');x.set('hidden','')
         for x in fig.walk():
             if x.tag=='button' and (x.attrs.get('data-dialog') in ('world-source','china-source','comparison-source') or 'data-tm-info' in x.attrs):
                 x.children=['口径与来源'];x.add('goso-source-button')

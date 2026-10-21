@@ -111,3 +111,10 @@
 .goso-chapter p.goso-body-width{font-family:var(--sans)!important}
 
 [data-goso-source-only]{display:none!important}
+
+/* Reusable figures: internal heading, single bottom caption, no outer title. */
+.goso-screen>figcaption{justify-content:center!important;text-align:center!important;position:static!important;border-top:1px solid var(--line)!important;padding-top:10px!important;margin-top:10px!important;min-height:24px!important}
+.goso-screen .goso-figure-caption{display:block!important;font:600 14px/1.5 var(--sans)!important;color:var(--ink);width:100%;text-align:center}
+.goso-screen .viz-heading{padding-right:0}
+.goso-screen[data-figure-id="fig-2-1-1"] .viz-heading{padding-right:150px}
+.goso-presentation .goso-slide-caption{display:none}
