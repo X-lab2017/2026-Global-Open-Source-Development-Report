@@ -120,3 +120,5 @@
 .goso-presentation .goso-slide-caption{display:none}
 
 .goso-screen .gm-board-foot{display:flex;justify-content:center;border-top:1px solid var(--line);padding-top:10px}
+
+.goso-screen .gm-side>.gm-eyebrow,.goso-screen .vmap-status{display:none!important}
