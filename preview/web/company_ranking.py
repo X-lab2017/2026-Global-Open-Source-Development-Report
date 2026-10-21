@@ -11,7 +11,7 @@ def figure(n,data):
  if n==1:
   fallback='<table class="cr-fallback"><caption>全球企业 OpenRank Top 30</caption><thead><tr><th>名次</th><th>企业</th><th>OpenRank</th><th>活跃仓库</th><th>关联活跃开发者</th></tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+E(r[k])+'</td>' for k in ['rank','company_zh','openrank','active_repos','active_developers'])+'</tr>' for r in data['company']['rows'])+'</tbody></table>'
  caption=f'图 3-2-{n} {pub.FIGURES[n-1]}'
- return f'''<figure class="cr-figure rp-figure" id="fig-3-2-{n}"><div class="cr-stage cp-stage goso-unified-canvas" data-slide-key="company-{n}" data-slide-height="{[880,780,840][n-1]}" data-lang="zh" data-cr-group="{n}" role="group" aria-label="{E(titles[n-1])}"><div class="cr-board">
+ return f'''<figure class="cr-figure rp-figure" id="fig-3-2-{n}"><div class="cr-stage cp-stage goso-unified-canvas" data-slide-key="company-{n}" data-reflow-minimum-width="700" data-slide-height="{[880,780,840][n-1]}" data-lang="zh" data-cr-group="{n}" role="group" aria-label="{E(titles[n-1])}"><div class="cr-board">
 <header class="cr-head"><h4>{titles[n-1]}</h4></header><div class="cr-toolbar"></div><nav class="cr-tabs" aria-label="{titles[n-1]}视图">{''.join(f'<button data-cr-view="{key}" aria-pressed="{str(i==0).lower()}">{label}</button>' for i,(key,label) in enumerate(tabs[n-1]))}</nav>
 <div class="cr-body">{fallback}</div><footer class="cr-foot rp-foot"><span class="cr-status" role="status"></span></footer><div class="rp-caption">{E(caption)}</div><div class="cr-overlay" hidden role="region" aria-label="详细信息"></div></div></div><figcaption class="rp-sr-caption">{E(caption)}</figcaption></figure>'''
 
