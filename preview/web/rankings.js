@@ -14,7 +14,7 @@ const countryPattern=new RegExp(Object.keys(FLAGS).sort((a,b)=>b.length-a.length
 function flagLabels(container){
  if(!container)return;
  const walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT),nodes=[];let node;
- while(node=walker.nextNode())if(!node.parentElement?.closest('script,style,textarea,input,select,option,svg,.rr-country')&&node.textContent.match(countryPattern))nodes.push(node);
+ while(node=walker.nextNode())if(!node.parentElement?.closest('script,style,textarea,input,select,option,svg,.rr-country,.rp-caption,.cr-overlay p,.rr-level-note,h4')&&node.textContent.match(countryPattern))nodes.push(node);
  for(const n of nodes){const fragment=document.createDocumentFragment();let cursor=0;for(const m of n.textContent.matchAll(countryPattern)){fragment.append(n.textContent.slice(cursor,m.index));const span=document.createElement('span');span.className='rr-country';const img=document.createElement('img');img.className='rr-flag';img.src=`${base}/assets/gosr/flags/${FLAGS[m[0]].code}.svg`;img.alt='';img.setAttribute('aria-hidden','true');img.width=24;img.height=18;span.append(img,m[0]);fragment.append(span);cursor=m.index+m[0].length;}fragment.append(n.textContent.slice(cursor));n.replaceWith(fragment);}
 }
 const taskNames={'Text Generation':'文本生成','Multimodal Understanding':'多模态理解','Image Generation':'图像生成','Robotics':'机器人'};
