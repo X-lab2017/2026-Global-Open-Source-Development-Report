@@ -6,7 +6,7 @@ window.createGOSM51 = function (D, H) {
   const names = {models:"模型",datasets:"配套数据集"};
   const PAGE_SIZE = 6;
   const defaults = {
-    world:{asset:"models",metric:"count",country:"",organization:"",list:"countries",query:"",page:0,trendMode:"monthly",months:12,trendPoint:""},
+    world:{asset:"models",metric:"count",country:"",organization:"",list:"countries",query:"",page:0,trendMode:"annual",months:12,trendPoint:""},
     cnus:{asset:"models",metric:"downloads",mode:"share",detail:"ranking",selectedCN:"",selectedUS:"",pageCN:0,pageUS:0,query:""},
     china:{asset:"models",metric:"count",province:"",organization:"",list:"provinces",page:0,query:""},
   };
@@ -140,7 +140,7 @@ window.createGOSM51 = function (D, H) {
     body+=worldSelection(selected,s,org);
     const trend=growthPanel(s);body+=trend.body;
     const exported=[...rowsExport(rr.map(r=>({对象:r.name,编码:r.id,[label(s)]:value(r,k)})),organizationMode?"组织":"国家",s),...trend.rows];
-    paint(p,s,controls,body,"地域：已识别组织样本 · 2026-10-17读取；趋势：全平台独立序列。点击地图联动榜单与详情，点击趋势点查看当期值。",exported,"",560,sources(s)+H.source(["supply"],"全球月度新增截至2026-07，提供6／12／18个月；年度积累来自2026-09-13仍可见模型的创建时间回溯，包含模型与发布账号。两类序列不与10月总量拼接。"));
+    paint(p,s,controls,body,"地域为已识别组织样本，2026-10-17读取；趋势为全平台独立序列。公开可见不等于已核验开源资格。",exported,"",560,sources(s)+H.source(["supply"],"全球月度新增截至2026-07，提供6／12／18个月；年度积累来自2026-09-13仍可见模型的创建时间回溯，包含模型与发布账号。两类序列不与10月总量拼接。"));
   }
   function svgButton(k,v,label,x,y,w,active=false,disabled=false,h=34) {
     const C=theme().C,body=box(x,y,w,h,active?C.raised:C.bg,active?C.brand:C.line,5)+txt(x+w/2,y+h/2+6,label,14,disabled?C.line:active?C.brand:C.ink,"middle");
@@ -150,7 +150,7 @@ window.createGOSM51 = function (D, H) {
     const C=theme().C,annual=s.trendMode==="annual";
     const pairs=annual?[{id:"models",name:"累计模型",rows:D.supply.map(r=>({date:r.date,value:r.models})),color:colors()[0]},{id:"publishers",name:"累计发布账号",rows:D.supply.map(r=>({date:r.date,value:r.publishers})),color:colors()[1]}]:["models","datasets"].map((id,i)=>({id,name:i?"数据集月度新增":"模型月度新增",rows:O.global[id].monthlyNew.slice(-s.months).map(r=>({date:r.month,value:r.count})),color:colors()[i]}));
     if(!pairs[0].rows.some(r=>r.date===s.trendPoint))s.trendPoint=pairs[0].rows.at(-1).date;
-    let b=txt(20,430,"全球增长",18,C.ink,"start",'font-weight="600"')+txt(125,430,annual?"2022—2026 · 同一快照回溯":"截至2026-07 · 月度新增",13,C.muted);
+    let b=txt(20,430,"全球增长",18,C.ink,"start",'font-weight="600"')+txt(125,430,annual?"2022—2026 · 各年9月13日回溯":"截至2026-07 · 月度新增",13,C.muted);
     [6,12,18].forEach((n,i)=>b+=svgButton("months",n,n+"个月",480+i*80,408,72,!annual&&s.months===n,false,28));
     b+=svgButton("trendMode","annual","年度积累",720,408,96,annual,false,28);
     const exports=[];
@@ -158,6 +158,8 @@ window.createGOSM51 = function (D, H) {
       const left=18+j*408,px=left+162,py=470,w=212,h=58,rows=se.rows,chosen=rows.find(r=>r.date===s.trendPoint),max=Math.max(1,...rows.map(r=>r.value))*1.12;
       const xx=i=>px+i*w/Math.max(1,rows.length-1),yy=v=>py+h-v*h/max;
       b+=box(left,444,390,108,C.paper,C.line,7)+txt(left+16,468,se.name,15,se.color)+txt(left+16,499,compact(chosen.value),26,C.ink)+txt(left+16,528,chosen.date,13,C.muted);
+      if(annual){const at=rows.indexOf(chosen),prev=rows[at-1];if(prev&&prev.value>0)b+=txt(left+16,547,"较上年同日 +"+fmt(100*(chosen.value/prev.value-1),1)+"%",12,C.muted);}
+      b+=txt(px-6,py+5,compact(max),11,C.muted,"end")+txt(px-6,py+h+3,"0",11,C.muted,"end");
       b+=line(px,py+h,px+w,py+h,C.line);
       b+=`<path d="${rows.map((r,i)=>(i?'L':'M')+xx(i)+','+yy(r.value)).join(' ')}" fill="none" stroke="${se.color}" stroke-width="2.5"/>`;
       rows.forEach((r,i)=>{const selected=r.date===s.trendPoint;
@@ -211,7 +213,7 @@ window.createGOSM51 = function (D, H) {
       exports.push(...rows.map(r=>({数据类型:"实测",读取日期:"2026-10-17",观察范围:"本国全部关联账号；配套数据沿用同一组织名录",对象类型:"发布账号",国家:countryName(code),账号:r.name,排名:all.indexOf(r)+1,指标:label(s),数值:value(r,k),本国份额_pct:pct(value(r,k),sum)})));
     });
     const controls=assetControls(s)+selectControl(s,"mode","对照",[["share","样本内份额"],["count","绝对量"]])+selectControl(s,"detail","主体",[["ranking","发布者排行"],["concentration","头部集中度"]])+(s.detail==="ranking"?`<div class="s51-world-search">${search("cnus","搜索中美发布账号")}</div>`:"");
-    paint(p,s,controls,b,"点击上方指标切换排行；上方份额基于全部已识别组织，下方基于本国组织。搜索不改变分母，账号未归并为企业集团。"+(s.detail==="concentration"?"虚线为等量参考，曲线越早接近100%越集中。":""),exports,"",560);
+    paint(p,s,controls,b,"上方份额以整个地域样本为分母；下方排行与集中度以本国对应资产为分母。搜索不改变分母，账号未归并为企业集团。"+(s.detail==="concentration"?"虚线为等量参考，曲线越早接近100%越集中。":""),exports,"",560);
   }
   function concentrationCurve(rows,k,x,y,w,h,c) {
     const sum=total(rows,k);let acc=0;

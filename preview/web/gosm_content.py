@@ -87,6 +87,7 @@ TOPICS[1]=S52.TOPIC
 TOPICS[2]=S53.TOPIC
 
 def panel(key):
+    if key in S51.FIGS:return S51.panel(key,E)
     num,title,desc,sources=FIGS[key]
     extra_tools='<button data-gm-table>数据表</button>' if key in S51.FIGS or key in S52.FIGS or key in S53.FIGS else ''
     close_hint='<span class="s51-close-hint"> · 关闭 ×</span>' if key in S51.FIGS or key in S52.FIGS or key in S53.FIGS else ''

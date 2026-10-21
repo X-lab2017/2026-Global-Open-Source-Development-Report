@@ -210,7 +210,7 @@
     $(".gm-view", p).innerHTML = view;
     $(".gm-readout", p).innerHTML = readout || "";
     p.gmRows = rows || [];
-    $(".gm-source-body", p).innerHTML = source;
+    if ($(".gm-source-body", p)) $(".gm-source-body", p).innerHTML = source;
     p.gmTableDirty = true;
     if ($(".gm-table", p).open) fillTable(p);
   }
@@ -1893,7 +1893,7 @@
     const add = document.createElementNS("http://www.w3.org/2000/svg", "g");
     add.innerHTML =
       box(0, h, w, 108, C.paper, "none", 0) +
-      txt(30, h + 30, $("h3", p).textContent, 18) +
+      txt(p.classList.contains("s51-panel") ? w/2 : 30, h + 30, $("h3", p).textContent, 18, C.ink, p.classList.contains("s51-panel") ? "middle" : "start") +
       txt(
         30,
         h + 56,
@@ -1959,7 +1959,7 @@
     if (current === p) return;
     const originalFocus = document.activeElement;
     if (p.classList.contains("gm-compact-panel")) {
-      $(".gm-source",p).open=false; $(".gm-table",p).open=false;
+      if ($(".gm-source",p)) $(".gm-source",p).open=false; $(".gm-table",p).open=false;
     }
     if (current) {
       const old = current;
@@ -2015,7 +2015,7 @@
     }
     if (el.hasAttribute("data-gm-table") && p.classList.contains("gm-compact-panel")) {
       const d = $(".gm-table", p);
-      $(".gm-source", p).open = false;
+      if ($(".gm-source", p)) $(".gm-source", p).open = false;
       d.open = !d.open;
       if (d.open) { fillTable(p); d.querySelector("summary").focus(); }
       return;
