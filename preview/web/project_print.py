@@ -71,25 +71,29 @@ def china_rank():
  return f.caption(True)
 
 def distribution():
- f=Figure(p.FIGURES[1],'图 3-4-2',LW,461)
- f.text(0,14,'A  国家标签 · 独立 Top 100 汇总',11,TEAL);f.text(407,14,'B  编辑领域 · 全球 Top 30',11,TEAL)
- f.text(0,38,'数量排名 / 国家',8.8,MUTED);f.text(365,38,'项目数 / 样本占比',8.8,MUTED,'right')
+ f=Figure(p.FIGURES[1],'图 3-4-2',height=700)
+ f.text(0,14,'A  国家标签 · Top 100 项目',11,TEAL)
+ f.rect(0,25,W,24,PALE,PALE,0)
+ f.text(5,41,'数量排名 / 国家',8.8,MUTED);f.text(404,41,'项目数',8.8,MUTED,'right');f.text(W-5,41,'样本占比',8.8,MUTED,'right')
  rows=sorted(D['projectCountries']['rows'],key=lambda r:(clean(r['country_zh'])=='未识别',-int(r['projects_in_top100'])))
  rank=0;last=None
  for i,r in enumerate(rows):
-  y=63+i*26;v=int(r['projects_in_top100']);c=clean(r['country_zh']);unknown=c=='未识别'
+  y=65+i*22;v=int(r['projects_in_top100']);c=clean(r['country_zh']);unknown=c=='未识别'
   if v!=last:rank=i+1
   last=v
-  if i%2==0 or unknown:f.rect(0,y-15,365,26,PALE,PALE,0)
-  f.text(3,y,'—' if unknown else str(rank),9,MUTED);country(f,c,27,y)
-  bar(f,118,y-4,165,v,69,MUTED if unknown else BLUE)
-  f.text(323,y,str(v),9.5,INK,'right');f.text(362,y,str(v)+'%',9.5,INK,'right')
+  if i%2==0 or unknown:f.rect(0,y-14,W,22,'#F7FAFB','#F7FAFB',0)
+  f.text(5,y,'—' if unknown else str(rank),9,MUTED);country(f,c,31,y,9.5)
+  bar(f,141,y-4,215,v,69,MUTED if unknown else BLUE)
+  f.text(404,y,str(v),10,INK,'right');f.text(W-5,y,str(v)+'%',10,INK,'right')
+ f.text(0,356,'独立 Top 100 汇总；未识别保留，同数量并列。',8.6,MUTED)
+ f.line([(0,377),(W,377)],LINE,.6)
+ f.text(0,402,'B  技术领域 · 全球 Top 30 项目',11,TEAL)
+ f.text(0,426,'编辑分类 / 每项一个主领域',8.8,MUTED);f.text(W,426,'项目数 / 样本占比',8.8,MUTED,'right')
  counts=collections.Counter(REF['projects'][r['project']]['domain'] for r in D['project']['rows'])
  rows=sorted([(k,counts[k]) for k in REF['domains'] if counts[k]],key=lambda x:-x[1])
  for i,(name,n) in enumerate(rows):
-  y=63+i*40;f.text(407,y,name,10,INK);f.text(LW,y,f'{n} 项 · {n/30:.1%}',9.7,INK,'right');bar(f,407,y+11,LW-407,n,8)
- f.lines(0,416,'分母 100；未识别保留，数量并列跳位。',365,8.6,13,MUTED)
- f.lines(407,416,'分母 30；每项一个主领域，不代表全球领域规模。',LW-407,8.6,13,MUTED)
+  y=451+i*26;f.text(0,y,name,10,INK);f.text(W,y,f'{n} 项 · {n/30:.1%}',9.7,INK,'right');bar(f,178,y-4,178,n,8)
+ f.text(0,662,'分类覆盖全球详细榜 30 项；与上方 Top 100 国家汇总分别计算。',8.6,MUTED)
  return f.caption()
 
 def rising():
@@ -152,7 +156,7 @@ def main():
  add('3.4 '+p.TITLE,'chapter');add(p.INTRO);add('研究问题：'+p.QUESTION);add('指标定位：'+p.POSITION,'note');add('核心发现：'+p.FINDING);add(p.STORIES[0][0],'section');add(p.STORIES[0][1][0]);figure(leading(),'3-4-1-lead')
  story.extend([NextPageTemplate('landscape'),PageBreak()]);figure(global_rank(),'3-4-1-full');story.extend([NextPageTemplate('portrait'),PageBreak()])
  for t in p.STORIES[0][1][1:]:interpret(t)
- figure(china_rank(),'3-4-1-china');add(p.STORIES[1][0],'section');add(p.STORIES[1][1][0]);story.extend([NextPageTemplate('landscape'),PageBreak()]);figure(distribution(),'3-4-2');story.extend([NextPageTemplate('portrait'),PageBreak()]);figure(rising(),'3-4-2-rising')
+ figure(china_rank(),'3-4-1-china');add(p.STORIES[1][0],'section');add(p.STORIES[1][1][0]);story.append(PageBreak());figure(distribution(),'3-4-2');story.append(PageBreak());figure(rising(),'3-4-2-rising')
  for t in p.STORIES[1][1][1:]:interpret(t)
  add(p.STORIES[2][0],'section');add(p.STORIES[2][1][0]);story.append(PageBreak());figure(contributions(),'3-4-3');figure(contribution_detail(),'3-4-3-detail');story.append(PageBreak())
  for t in p.STORIES[2][1][1:]:interpret(t)
