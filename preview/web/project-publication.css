@@ -14,9 +14,9 @@
 .pp-stage .pr-filters{gap:15px}
 .pp-stage .pr-grid.cr-rank-row{min-height:47px!important}
 .pp-stage .rr-rank-list .cr-rank-row:nth-child(even){background:color-mix(in srgb,var(--gv-raised) 45%,transparent)}
-.pp-stage .pr-country-table td{padding-block:10px!important}
+.pp-stage .pr-country-table td{padding-block:5px!important}
 .pp-stage .pr-domain-table td{padding-block:15px!important}
-.pp-stage .pr-contribution-table td{padding-block:12px!important}
+.pp-stage .pr-contribution-table td{padding-block:8px!important}
 .pp-stage .rr-note{font-size:12px!important;line-height:1.6!important;margin:0!important}
 .pp-stage .pr-detail-columns h5{font-size:15px!important}
 .pp-stage .pr-detail-bar{font-size:13px}
@@ -34,3 +34,9 @@
 .pp-stage.vmap-reflow .rp-caption{font-size:12px;align-self:stretch}
 .pp-stage.vmap-reflow .rp-foot{display:none}
 .pp-stage.vmap-reflow .cr-overlay[data-mode=profile]{width:min(465px,calc(100% - 28px))}
+
+.pp-stage[data-rr-section="4"][data-rr-group="1"] .cr-board{height:880px}
+
+.pp-stage .pr-contribution-table td:nth-child(5) b{display:inline;margin:0 0 0 5px;font-size:13px}
+.pp-stage .pr-detail-bars{gap:6px}
+.pp-stage .pr-detail-columns h5{margin-bottom:10px!important}
