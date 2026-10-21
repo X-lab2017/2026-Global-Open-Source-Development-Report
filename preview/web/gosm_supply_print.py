@@ -75,24 +75,16 @@ def world():
     return f.caption()
 
 def comparison(asset):
-    ismodel=asset=='models';f=figure('cnus',426,suffix='（A）' if ismodel else '（B）');cn=country(asset,'CN');us=country(asset,'US');a=O['assets'][asset];aw=(W-12)/2
-    f.text(0,12,('A  模型' if ismodel else 'B  配套数据集')+' · 同一地域组织样本 · 2026-10-17 读取',10,TEAL)
-    metrics=[('activeProviders','有资产的发布账号','个账号'),(asset,'资产数量','个仓库'),('downloads','累计下载','次'),('likes','点赞','次')]
-    for i,(k,label,unit) in enumerate(metrics):
-        x=(i%2)*(aw+12);y=25+(i//2)*64;f.rect(x,y,aw,56,'#f5f9fb',LINE,4);f.text(x+10,y+14,label+' / '+unit,8.7,MUTED)
-        for j,(name,row,color) in enumerate([('中国',cn,BLUE),('美国',us,GOLD)]):
-            xx=x+10+j*aw/2;f.text(xx,y+32,name,8,color);f.text(xx+aw/2-15,y+32,compact(row[k]),10.1,color,'right');f.text(xx,y+47,f'样本份额 {100*row[k]/a["summary"][k]:.2f}%',8,MUTED)
-    f.text(0,166,'发布账号按累计下载量排序；条形使用各国份额，分母包含本国全部关联账号。',8,MUTED)
+    ismodel=asset=='models';f=figure('cnus',217,suffix='（A）' if ismodel else '（B）');aw=(W-20)/2
+    f.text(0,10,'A  模型' if ismodel else 'B  配套数据集',10,TEAL)
+    lists={code:sorted([r for r in O['organizationProfiles'] if r['countryCode']==code],key=lambda r:(-r[asset]['downloads'],r['name'].casefold()))[:8] for code in ['CN','US']}
+    mx=max(r[asset]['downloads'] for rows in lists.values() for r in rows)
     for j,(code,name,color) in enumerate([('CN','中国',BLUE),('US','美国',GOLD)]):
-        x=j*(aw+12);c=country(asset,code);rows=sorted([r for r in O['organizationProfiles'] if r['countryCode']==code],key=lambda r:-r[asset]['downloads']);den=c['downloads'];top=c['concentration']['downloads']['top3Share']
-        f.text(x,187,name,11,color);f.text(x+aw,187,f'前三账号 {100*top:.1f}%',10,color,'right')
-        for i,r in enumerate(rows[:6]):
-            y=207+i*24;label=r['name'];parts=common.wrap(label,aw-52,8.5);assert len(parts)<=2,label
-            for n,s in enumerate(parts):f.text(x+15,y+n*9,s,8.5)
-            f.text(x,y,str(i+1),8,MUTED);share=r[asset]['downloads']/den;f.text(x+aw,y,f'{100*share:.1f}%',9,INK,'right');f.rect(x+15,y+14,(aw-15)*share,2,color,color,0)
-        px=x+20;py=359;pw=aw-28;ph=41;acc=0;points=[(px,py+ph)]
-        for i,r in enumerate(rows):acc+=r[asset]['downloads'];points.append((px+pw*(i+1)/len(rows),py+ph*(1-acc/den)))
-        f.line([(px,py+ph),(px+pw,py)],LINE,.6);f.line(points,color,1.1);f.text(x,py+4,'100%',8,MUTED);f.text(x,py+ph,'0',8,MUTED);f.text(px,py+ph+10,'0',8,MUTED);f.text(px+pw,py+ph+10,'100% 账号',8,MUTED,'right');f.text(x+40,py-4,'累计下载份额；斜线为等量参照',8,MUTED)
+        x=j*(aw+20);f.text(x,30,name,10.5,color);f.text(x+aw,30,'累计下载 / 次',8.3,MUTED,'right');f.line([(x,38),(x+aw,38)],LINE,.5)
+        for i,r in enumerate(lists[code]):
+            y=55+i*19;label=r['name'];v=r[asset]['downloads']
+            assert pdfmetrics.stringWidth(label,common.FONT,9.2)<=aw-72,label
+            f.text(x,y,str(i+1).zfill(2),8.2,MUTED);f.text(x+17,y,label,9.2);f.text(x+aw,y,compact(v),9.2,INK,'right');f.rect(x+17,y+7,(aw-17)*v/mx,2,color,color,0)
     return f.caption()
 
 def china():
@@ -132,10 +124,9 @@ def main():
         c.setStrokeColor(HexColor(LINE));c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.setFillColor(HexColor(MUTED));c.drawString(46,28,'5.1 供给与贡献');c.drawRightString(w-46,28,str(count));c.showPage()
     page([t('5.1 供给与贡献','title'),t(T['lede']),t('研究问题：'+T['question']),t('指标定位：'+T['metric'],'note'),t('核心发现：'+T['core_finding']),t(T['window_note'],'note'),t(T['narratives'][0][0],'heading'),*[t(s) for s in T['insights']['world']]])
     page([world()],True)
-    page([t(T['narratives'][1][0],'heading'),t(T['insights']['cnus'][0]),comparison('models')])
-    page([t(T['insights']['cnus'][1]),comparison('datasets'),t(T['insights']['cnus'][2])])
-    page([t(T['narratives'][2][0],'heading'),t(T['insights']['china'][0]),china(),t(T['insights']['china'][1])])
-    page([t(T['insights']['china'][2]),t(T['action_lead'],'heading'),*[z for who,title,body,key in T['actions'] for z in [t(who+'：'+title,'action'),t(body+T['action_followups'][key])]],t(P.BRIDGE)])
+    page([t(T['narratives'][1][0],'heading'),t(T['insights']['cnus'][0]),comparison('models'),comparison('datasets'),t(T['insights']['cnus'][1]),t(T['insights']['cnus'][2])])
+    page([t(T['narratives'][2][0],'heading'),t(T['insights']['china'][0]),china(),t(T['insights']['china'][1]),t(T['insights']['china'][2])])
+    page([t(T['action_lead'],'heading'),*[z for who,title,body,key in T['actions'] for z in [t(who+'：'+title,'action'),t(body+T['action_followups'][key])]],t(P.BRIDGE)])
     c.save();(args.work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2));print(f'{args.output}: {count} pages')
 
 if __name__=='__main__':main()

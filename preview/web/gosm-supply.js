@@ -7,7 +7,7 @@ window.createGOSM51 = function (D, H) {
   const PAGE_SIZE = 6;
   const defaults = {
     world:{asset:"models",metric:"count",country:"",organization:"",list:"countries",query:"",page:0,trendMode:"annual",months:12,trendPoint:""},
-    cnus:{asset:"models",metric:"downloads",mode:"share",detail:"ranking",selectedCN:"",selectedUS:"",pageCN:0,pageUS:0,query:""},
+    cnus:{asset:"models",metric:"downloads",pageCN:0,pageUS:0,query:""},
     china:{asset:"models",metric:"count",province:"",organization:"",list:"provinces",page:0,query:""},
   };
   const own = p => Object.hasOwn(defaults,p.dataset.gmChart);
@@ -40,7 +40,7 @@ window.createGOSM51 = function (D, H) {
   function paint(p,s,controls,body,readout,rows,extra="",height=560,sourceText=null) {
     const columns=[...new Set(rows.flatMap(r=>Object.keys(r)))];
     rows=rows.map(r=>Object.fromEntries(columns.map(k=>[k,r[k]??""])));
-    set(p,controls,svg(body,1280,height,p.querySelector("h3").textContent),note(readout),rows,sourceText||sources(s,extra));
+    set(p,controls,svg(body,1280,height,p.querySelector("h3").textContent),readout?note(readout):"",rows,sourceText||sources(s,extra));
     const inp=p.querySelector("[data-s51-search]");if(inp)inp.value=s.query||"";
     p.dataset.evidence="observed";
     p.querySelectorAll('[data-gm-action]').forEach(el=>{
@@ -172,54 +172,26 @@ window.createGOSM51 = function (D, H) {
     return {body:b,rows:exports};
   }
   function cnus(p,s) {
-    const C=theme().C,a=A(s),cn=country(s,"CN"),us=country(s,"US"),k=key(s);
-    const metrics=[["activeProviders","有资产的发布账号","账号",null],[s.asset,s.asset==="models"?"模型仓库":"配套数据集","仓库","count"],["downloads","累计下载","次","downloads"],["likes","社区关注","赞","likes"]];
-    let b="",exports=[];
-    metrics.forEach(([field,title,u,selector],i)=>{
-      const x=18+i*316,den=a.summary[field],cv=value(cn,field),uv=value(us,field),max=s.mode==="share"?100:Math.max(cv,uv,1),active=s.metric===selector;
-      let card=box(x,4,296,120,active?C.raised:C.paper,active?C.brand:C.line,8)+txt(x+18,29,title,17,C.ink,"start",'font-weight="600"');
-      if(active)card+=`<circle cx="${x+276}" cy="23" r="4" fill="${C.brand}"/>`;
-      [["中国",cv,color("CN")],["美国",uv,color("US")]].forEach(([name,v,c],j)=>{
-        const left=x+16+j*142,vv=s.mode==="share"?pct(v,den):v;
-        card+=`<g><title>${esc(name)}：${fmt(v)} ${u}；样本份额 ${fmt(pct(v,den),2)}%</title>${txt(left,59,name,13,c)}${txt(left+122,59,s.mode==="share"?fmt(vv,2)+"%":compact(v),21,c,"end")}${box(left,70,122,4,C.line,"none",2)}${box(left,70,122*vv/max,4,c,"none",2)}</g>`;
-      });
-      card+=line(x+16,90,x+280,90,C.line)+txt(x+16,108,s.mode==="share"?`样本分母 ${compact(den)} ${u}`:`已识别组织样本 · 单位：${u}`,13,C.muted);
-      b+=`<g data-s51-metric="${field}">${selector?action("metric",selector,`按${title}比较发布者；样本分母 ${fmt(den)} ${u}`,card):card}</g>`;
-      exports.push({数据类型:"实测",读取日期:"2026-10-17",观察范围:"已识别组织样本",对象类型:"中美指标",指标:title,中国:cv,美国:uv,样本总量:den,中国样本份额_pct:pct(cv,den),美国样本份额_pct:pct(uv,den)});
-    });
-    b+=line(640,145,640,552,C.line);
+    const C=theme().C,k=key(s),pageSize=8;
+    const ordered=code=>orgs(code).map(o=>({...o[s.asset],name:o.name,url:o.url})).sort((a,b)=>value(b,k)-value(a,k)||a.name.localeCompare(b.name)).map((o,i)=>({...o,rank:i+1}));
+    const lists={CN:ordered("CN"),US:ordered("US")};
+    const max=Math.max(1,...Object.values(lists).flat().map(r=>value(r,k)));
+    const number=n=>n>=1e8?fmt(n/1e8,2)+"亿":n>=1e4?fmt(n/1e4,2)+"万":fmt(n);
+    let b=line(640,12,640,548,C.line),exports=[];
     ["CN","US"].forEach((code,i)=>{
-      const x=22+i*640,cc=color(code),all=orgs(code).map(o=>({...o[s.asset],name:o.name,url:o.url,allAssets:o})).sort((a,b)=>value(b,k)-value(a,k)||a.name.localeCompare(b.name)),sum=total(all,k);
-      const rows=s.detail==="ranking"?all.filter(o=>!s.query||o.name.toLowerCase().includes(s.query.toLowerCase())):all;
-      const pageKey="page"+code,last=Math.max(0,Math.ceil(rows.length/PAGE_SIZE)-1);s[pageKey]=Math.min(Math.max(0,s[pageKey]),last);
-      const chosen=rows.find(o=>o.name===s["selected"+code])||rows[s[pageKey]*PAGE_SIZE];
-      b+=txt(x,165,countryName(code),25,cc,"start",'font-weight="600"')+txt(x+80,165,`${all.length} 个关联账号`,15,C.muted);
-      b+=txt(x+302,165,`前三 ${fmt(pct(total(all.slice(0,3),k),sum),1)}%`,18,cc)+txt(x+450,165,`前十 ${fmt(pct(total(all.slice(0,10),k),sum),1)}%`,18,cc)+txt(x,194,`本国组织样本 · ${label(s)} / ${unit(s)}`,14,C.muted);
-      if(s.detail==="ranking"){
-        b+=svgButton(pageKey,"prev","←",x+420,180,40,false,s[pageKey]===0,28)+txt(x+505,200,`${s[pageKey]+1} / ${last+1}`,14,C.muted,"middle")+svgButton(pageKey,"next","→",x+554,180,40,false,s[pageKey]===last,28);
-        b+=rankRows(rows,k,x,222,594,chosen?.name,"select"+code,r=>r.name,r=>r.name,s[pageKey]*PAGE_SIZE,PAGE_SIZE,44,cc);
-        if(!rows.length)b+=txt(x+297,348,"没有匹配账号，请调整搜索词",17,C.muted,"middle");
-      }else{
-        const px=x+48,py=246,w=520,h=224;
-        b+=txt(x+48,229,"累计份额 · 账号按指标从高到低排列",14,C.muted);
-        for(let t=0;t<=4;t++){const y=py+h-h*t/4;b+=line(px,y,px+w,y)+txt(px-8,y+5,t*25+"%",14,C.muted,"end");}
-        b+=`<path d="M${px},${py+h} L${px+w},${py}" fill="none" stroke="${C.line}" stroke-dasharray="4 5"/>`+concentrationCurve(all,k,px,py,w,h,cc)+txt(px,490,"0",14,C.muted)+txt(px+w,490,"100% 发布账号",14,C.muted,"end");
-      }
-      b+=box(x,506,594,46,C.paper,C.line,7);
-      if(chosen){
-        const info=`${chosen.name}；${label(s)} ${fmt(value(chosen,k))}；占本国 ${fmt(pct(value(chosen,k),sum),2)}%；模型 ${fmt(chosen.allAssets.models.models)}；配套数据集 ${fmt(chosen.allAssets.datasets.datasets)}`;
-        b+=`<g role="img" aria-label="${esc(info)}"><title>${esc(info)}</title>${txt(x+16,535,fitText(chosen.name,310,18),18,cc)}${txt(x+346,535,`本国 ${fmt(pct(value(chosen,k),sum),1)}%`,14,C.muted)}</g><a href="${esc(chosen.url)}" target="_blank" rel="noopener">${txt(x+576,535,"账号 ↗",14,cc,"end")}</a>`;
-      }else b+=txt(x+18,535,"暂无所选发布者",16,C.muted);
-      exports.push(...rows.map(r=>({数据类型:"实测",读取日期:"2026-10-17",观察范围:"本国全部关联账号；配套数据沿用同一组织名录",对象类型:"发布账号",国家:countryName(code),账号:r.name,排名:all.indexOf(r)+1,指标:label(s),数值:value(r,k),本国份额_pct:pct(value(r,k),sum)})));
+      const x=22+i*640,cc=color(code),all=lists[code],rows=all.filter(o=>!s.query||o.name.toLowerCase().includes(s.query.toLowerCase()));
+      const pageKey="page"+code,last=Math.max(0,Math.ceil(rows.length/pageSize)-1);s[pageKey]=Math.min(Math.max(0,s[pageKey]),last);
+      b+=txt(x,30,countryName(code),25,cc,"start",'font-weight="600"')+txt(x+46,61,"发布账号",14,C.muted)+txt(x+594,61,label(s)+" / "+unit(s),14,C.muted,"end")+line(x,72,x+594,72,C.line);
+      rows.slice(s[pageKey]*pageSize,(s[pageKey]+1)*pageSize).forEach((r,j)=>{
+        const y=85+j*52,v=value(r,k),info=`${countryName(code)}第 ${r.rank} 位，${r.name}，${label(s)} ${fmt(v)} ${unit(s)}`;
+        b+=`<g data-s51-row="${esc(r.name)}" data-s51-rank="${r.rank}"><title>${esc(info)}</title>${txt(x,y+22,String(r.rank).padStart(2,"0"),15,C.muted)}<a href="${esc(r.url)}" target="_blank" rel="noopener" aria-label="${esc(info)}">${txt(x+46,y+22,r.name,19,C.ink)}</a>${txt(x+594,y+22,number(v),19,C.ink,"end")}${box(x+46,y+36,548*v/max,3,cc,"none",1)}</g>`;
+      });
+      if(!rows.length)b+=txt(x+297,292,"没有匹配账号",19,C.muted,"middle");
+      b+=svgButton(pageKey,"prev","←",x,516,40,false,s[pageKey]===0,30)+txt(x+297,537,`${s[pageKey]+1} / ${last+1} · ${rows.length} 个账号`,14,C.muted,"middle")+svgButton(pageKey,"next","→",x+554,516,40,false,s[pageKey]===last,30);
+      exports.push(...rows.map(r=>({数据类型:"实测",读取日期:"2026-10-17",观察范围:"已识别国家的模型发布组织及其配套数据集",对象类型:"发布账号",国家:countryName(code),账号:r.name,排名:r.rank,指标:label(s),数值:value(r,k),单位:unit(s)})));
     });
-    const controls=assetControls(s)+selectControl(s,"mode","对照",[["share","样本内份额"],["count","绝对量"]])+selectControl(s,"detail","主体",[["ranking","发布者排行"],["concentration","头部集中度"]])+(s.detail==="ranking"?`<div class="s51-world-search">${search("cnus","搜索中美发布账号")}</div>`:"");
-    paint(p,s,controls,b,"上方份额以整个地域样本为分母；下方排行与集中度以本国对应资产为分母。搜索不改变分母，账号未归并为企业集团。"+(s.detail==="concentration"?"虚线为等量参考，曲线越早接近100%越集中。":""),exports,"",560);
-  }
-  function concentrationCurve(rows,k,x,y,w,h,c) {
-    const sum=total(rows,k);let acc=0;
-    let path=`M${x},${y+h}`;
-    rows.forEach((r,i)=>{acc+=value(r,k);path+=` L${(x+w*(i+1)/Math.max(1,rows.length)).toFixed(2)},${(y+h-h*acc/(sum||1)).toFixed(2)}`;});
-    return `<path d="${path}" fill="none" stroke="${c}" stroke-width="3.5"/>`;
+    const controls=assetControls(s)+selectControl(s,"metric","排序",[["downloads","累计下载"],["count","数量"],["likes","社区关注"]])+`<div class="s51-world-search">${search("cnus","搜索中美发布账号")}</div>`;
+    paint(p,s,controls,b,"",exports,"",560);
   }
   function china(p,s) {
     const C=theme().C,k=key(s),cn=country(s,"CN"),divs=A(s).divisions.filter(r=>r.parent_id===":divisions/CN"&&r.organizations>0);

@@ -171,3 +171,9 @@
 #gm-fullscreen .s51-caption h3{font-size:16px!important}
 @media(max-width:760px){.s51-panel{grid-template-rows:auto auto auto auto auto}.s51-topic[data-publication-edition] .gm-topic-header h2{font-size:25px!important}}
 @media print{.s51-panel{height:auto;display:block;break-inside:avoid}.s51-panel .gm-svg{width:100%;min-width:0;height:auto}.s51-panel .gm-tools,.s51-source{display:none}.s51-caption{display:block!important}}
+
+/* Ranking-only comparison: the chart carries accounts and values; scope stays in the section source. */
+#gm-cnus.s51-panel{height:min(660px,calc(100dvh - 112px));grid-template-rows:auto auto minmax(0,1fr) auto}
+.s51-panel .gm-readout:empty{display:none}
+#gm-fullscreen-body #gm-cnus{height:100%}
+@media(max-width:760px){#gm-cnus.s51-panel{height:auto;grid-template-rows:auto auto auto auto}}
