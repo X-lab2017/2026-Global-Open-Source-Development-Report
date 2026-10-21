@@ -35,3 +35,5 @@ node preview/web/check_landscape_publication.cjs _site
 ```
 
 The DOM check requires `jsdom` in the Node module path. PDF generation uses the existing ReportLab, PyMuPDF and fontTools workflow and the same JavaScript calculation model as the Web charts.
+
+Live desktop review confirms all thirteen SVGs and bottom captions render without overlapping the following text. Fullscreen uses the remaining viewport height; figure captions explicitly override the global website footer layout. The complete-atlas view, local month selectors and fullscreen restoration are also checked in the deployed page.

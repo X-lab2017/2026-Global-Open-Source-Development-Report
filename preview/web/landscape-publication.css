@@ -6,3 +6,12 @@
 .lp-caption{border-top:1px solid var(--gv-line);margin-top:10px;padding-top:10px;text-align:center}.lp-caption h4{font-size:14px!important;line-height:1.6!important;font-weight:500!important;margin:0!important;color:var(--gv-ink)}.al-chapter[data-publication-edition] .al-readout{font-size:12px;line-height:1.6;margin:8px 0}.al-chapter[data-publication-edition] .al-data{font-size:12px;margin:6px 0}.lp-source{border-top:1px solid var(--gv-line);margin-top:10px;padding-top:9px;font-size:12px}.lp-source summary{cursor:pointer;color:var(--gv-brand)}.lp-source p{font-size:13px!important;line-height:1.8!important;max-width:none!important;margin:10px 0!important}.lp-section .al-sim{font-size:12px;font-weight:600}
 #al-fullscreen .lp-caption{margin-top:10px}#al-fullscreen .lp-caption h4{font-size:16px!important}#al-fullscreen .al-panel{height:auto;min-height:0}#al-fullscreen .al-description{display:none}
 @media(max-width:700px){.lp-topics{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.lp-section>h2{font-size:25px}.al-chapter[data-publication-edition] .al-panel{padding:14px 12px 10px}.lp-caption h4{font-size:13px!important}.lp-topline{letter-spacing:0}.lp-story>h3{font-size:19px!important}}
+/* Do not inherit the website-wide footer layout inside a figure. */
+.al-panel .lp-caption{display:block!important;padding:10px 0 0!important;justify-content:normal;align-items:normal;width:100%;text-align:center}
+#al-fullscreen .lp-source{display:none}
+@media(min-width:900px){
+ #al-fullscreen .al-panel{display:flex;flex-direction:column;height:calc(100dvh - 76px)!important;overflow:hidden;gap:0}
+ #al-fullscreen .al-panel-heading,#al-fullscreen .al-controls,#al-fullscreen .al-locator,#al-fullscreen .lp-caption{flex:0 0 auto}
+ #al-fullscreen .al-view{display:flex;align-items:center;justify-content:center;flex:1 1 auto;min-height:0;overflow:hidden}
+ #al-fullscreen .al-view svg{display:block;width:100%;height:100%;min-width:0;max-height:none}
+}
