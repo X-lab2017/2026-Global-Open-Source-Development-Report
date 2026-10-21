@@ -180,7 +180,7 @@ window.createGOSM52 = function(D,H) {
     [20,100,1000].forEach((k,i)=>{const r=D.head.find(r=>r.k===k&&r.month===s.month),prev=i?D.head.find(r=>r.k===[20,100][i-1]&&r.month===s.month):null,segment=s.bands==='segments',den=segment?k-(prev?.k||0):k,y=128+i*104;
       const values=keys.map(key=>r[key]-(segment?(prev?.[key]||0):0));b+=action('k',k,'选择Top '+k,box(28,y-21,574,89,s.k===k?C.paper:C.bg,s.k===k?C.line:'none',5));
       b+=txt(40,y,segment?(i===0?'第1—20名':i===1?'第21—100名':'第101—1000名'):'Top '+k,18,C.ink)+txt(588,y,segment?`${den}个版本席位`:`已识别 ${fmt(r.coverage_pct,1)}%`,14,C.muted,'end');
-      let x=40;values.forEach((v,j)=>{const w=v/den*546;b+=action('k',k,`${segment?'分段':'Top '+k} · ${labels[j]} ${v} 席`,box(x,y+16,w,36,cs[j],'none',0)+(w>34?txt(x+w/2,y+40,String(v),16,j===3?C.bg:'#fff','middle','font-weight="600"'):''));x+=w;});
+      let x=40;values.forEach((v,j)=>{const w=v/den*546;b+=action('k',k,`${segment?'分段':'Top '+k} · ${labels[j]} ${v} 席`,box(x,y+16,w,36,cs[j],'none',0)+(w>34?txt(x+w/2,y+40,String(v),16,j===3||document.documentElement.dataset.theme==='dark'?C.bg:'#fff','middle','font-weight="600"'):''));x+=w;});
     });
     labels.forEach((l,i)=>{const x=37+i*140;b+=box(x,435,9,9,cs[i],'none',1)+txt(x+15,444,l,13,C.muted);});
     b+=txt(647,74,`Top ${s.k} · 月度变化`,22,C.ink)+sb('mode','count','席位',1100,55,64,s.mode==='count')+sb('mode','share','占比',1172,55,72,s.mode==='share');
