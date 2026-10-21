@@ -113,7 +113,8 @@ def chapter():
     out.append(G.section_fragments())
     out.append('<dialog id="al-project-dialog" aria-labelledby="al-dialog-title"><button type="button" class="al-close">关闭 ×</button><div id="al-project-detail"></div></dialog><dialog id="al-fullscreen" aria-label="图表全屏查看"><div class="al-fullscreen-bar"><strong>图表全屏</strong><div class="al-presentation-tools"><button type="button" data-al-theme aria-pressed="false">切换深色</button><button type="button" class="al-close">退出全屏 ×</button></div></div><div id="al-fullscreen-body"></div></dialog><script type="application/json" id="landscape-data">'+json.dumps(payload(),ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></div>')
     out[0]=out[0].replace('<section id="ch04-s01"',G.chapter_overview()+'<section id="ch04-s01"',1)
-    return ''.join(out)
+    import landscape_publication
+    return landscape_publication.apply(''.join(out))
 
 def export(out):
     THEME.export(out)

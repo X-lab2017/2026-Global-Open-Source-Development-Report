@@ -225,7 +225,7 @@
       focus: null,
     },
     "al-category-trend": {
-      categories: ["Personal AI assistants", "Agentic coding"],
+      categories: ["Personal AI assistants", "Serving · Inference", "Agentic coding"],
       window: 12,
       metric: "rank",
     },
@@ -256,14 +256,14 @@
       mode: "compare",
     },
     "al-concentration": {
-      scope: "Agent Infra",
+      scope: "all",
       month: LAST,
       section: "Personal AI assistants",
     },
     "al-shift": {
-      scope: "Agent Infra",
+      scope: "all",
       window: 12,
-      section: "Personal AI assistants",
+      section: "Multi-agent orchestration",
     },
     "al-specialization": {
       scope: "Agent Infra",
@@ -1508,10 +1508,11 @@
       ),
       top = rr.slice(0, 3),
       sum = rr.reduce((s, r) => s + r.value, 0),
-      selected = rows.find((r) => r.key === c.section);
+      selected = rows.find((r) => r.key === c.section),
+      chartHeight = Math.max(580, rows.length * 28 + 80);
     controls(
       id,
-      scopeControls(c, false) +
+      scopeControls(c) +
         optionSelect(
           id,
           "month",
@@ -1522,7 +1523,7 @@
     );
     let b = barArea(rows, {
       width: 790,
-      height: 560,
+      height: chartHeight - 20,
       action: "category-focus",
       selected: c.section,
       percent: true,
@@ -1573,9 +1574,9 @@
     });
     setChart(
       id,
-      svg(1280, 580, b, "类别集中度与头部项目"),
+      svg(1280, chartHeight, b, "类别集中度与头部项目"),
       exportRows,
-      `${c.scope} · ${D.months[c.month]} · 小样本类别更容易达到 100%；集中度只在有观测项目中计算。`,
+      `${scopeName(c.scope)} · ${D.months[c.month]} · 小样本类别更容易达到 100%；集中度只在有观测项目中计算。`,
       false,
       c.scope,
       D.months[c.month],
@@ -1607,12 +1608,13 @@
     const id = "al-shift",
       c = configs[id],
       rows = M.shift(c.scope, start(c), LAST),
-      common = commonSeries(c);
-    controls(id, scopeControls(c, false) + windowControls(c));
+      common = commonSeries(c),
+      chartHeight = Math.max(580, rows.length * 28 + 80);
+    controls(id, scopeControls(c) + windowControls(c));
     const row = rows.find((r) => r.key === c.section);
     let b = barArea(rows, {
       width: 730,
-      height: 540,
+      height: chartHeight - 40,
       action: "category-focus",
       selected: c.section,
       signedValues: true,
@@ -1664,7 +1666,7 @@
       );
     setChart(
       id,
-      svg(1280, 580, b, "共同样本份额迁移与类别轨迹"),
+      svg(1280, chartHeight, b, "共同样本份额迁移与类别轨迹"),
       common.series.flatMap((r) =>
         r.values.slice(start(c)).map((v, j) => ({
           月份: D.months[start(c) + j],
@@ -1674,7 +1676,7 @@
           该类共同项目数: rows.find((x) => x.key === r.key).count,
         })),
       ),
-      `${c.scope} · ${period(c)} · ${common.count} 个项目在窗口每个月都有观测，全部变化使用同一组项目。点击类别查看右侧轨迹。`,
+      `${scopeName(c.scope)} · ${period(c)} · ${common.count} 个项目在窗口每个月都有观测，全部变化使用同一组项目。点击类别查看右侧轨迹。`,
       false,
       c.scope,
       period(c),
