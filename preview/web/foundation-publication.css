@@ -1,6 +1,7 @@
 /* F-Ranking: full-width reading, compact boards and self-contained bottom captions. */
 .fp-section .explorer-slide-frame{margin:20px auto 26px!important}
-.fp-stage .cr-board{height:840px;grid-template-rows:48px 42px 36px minmax(0,1fr) 0 26px;gap:9px;padding:20px 26px 16px}
+.fp-stage .cr-board{height:880px;grid-template-rows:48px 42px 36px minmax(0,1fr) 0 26px;gap:9px;padding:20px 26px 16px}
+.fp-stage[data-rr-group="2"] .cr-board{height:900px}
 .fp-stage[data-rr-group="3"] .cr-board{height:760px}
 .fp-stage .cr-head h4{font-size:25px!important;font-weight:550;margin:0!important}
 .fp-stage .cr-head-right:empty{display:none}
@@ -31,7 +32,7 @@
 .fp-stage .fr-logo,.fp-stage .fr-logo-space{width:48px;height:29px;flex:0 0 48px;object-fit:contain;border-radius:3px}
 .fp-stage .fr-logo{background:#fff;box-shadow:0 0 0 1px #dce5ea}
 .fp-stage .fr-object .cr-name{min-width:0}
-.fp-stage .fr-rank-grid{grid-template-columns:44px 278px minmax(220px,1fr) 110px 230px 34px;gap:12px}
+.fp-stage .fr-rank-grid{grid-template-columns:44px 320px minmax(190px,1fr) 110px 250px 34px;gap:12px}
 .fp-stage .fr-compare-name,.fp-stage .fr-profile-name{display:flex;align-items:center;gap:10px}
 .fp-stage .fr-compare-name .fr-logo,.fp-stage .fr-profile-name .fr-logo{width:60px;height:36px;flex-basis:60px}
 .fp-stage[data-rr-group="3"][data-simulated="false"] .fr-history{grid-template-rows:78px minmax(0,1fr) 33px}

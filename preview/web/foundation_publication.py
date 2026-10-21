@@ -40,7 +40,7 @@ def paragraphs():
 def figure(i,data):
  import rankings
  tree=Tree(rankings.figure('3',i,data));root=next(n for n in tree.root.walk() if n.tag=='figure');root.add('fp-figure')
- stage=next(n for n in root.walk() if n.has('rr-stage'));stage.add('fp-stage');stage.set('data-slide-height',{1:840,2:840,3:760}[i]);stage.set('data-reflow-minimum-width','700')
+ stage=next(n for n in root.walk() if n.has('rr-stage'));stage.add('fp-stage');stage.set('data-slide-height',{1:880,2:900,3:760}[i]);stage.set('data-reflow-minimum-width','700')
  board=next(n for n in root.walk() if n.has('cr-board'))
  for n in list(root.walk()):
   if n.has('cr-eyebrow') or n.tag=='figcaption':remove(root,n)

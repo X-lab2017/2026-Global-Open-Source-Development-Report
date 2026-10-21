@@ -1127,12 +1127,12 @@
     },
     {
       "file": "chapter3-foundation-logos.zip",
-      "sha256": "a939ccd402b692246042c52bd2af71f2197ae795e5ca1c8fda31ba4388ee1a01",
+      "sha256": "b08465147fbc3d2e0cbf28049e94a597e14153cf6c8ebbcb71e46b700de07c05",
       "files": [
         {
           "path": "content/gosr/foundation-logos/assets/aaif.png",
-          "size": 1840,
-          "sha256": "cd19465d93590c1d15c81ade3b099a8985824fadb72add6ad82524d6306c074e"
+          "size": 5510,
+          "sha256": "3d83d7a969df3b1dce9e0421245913de928ac69abfadce0cf77bf8fb1ffb3291"
         },
         {
           "path": "content/gosr/foundation-logos/assets/anoma-foundation.png",

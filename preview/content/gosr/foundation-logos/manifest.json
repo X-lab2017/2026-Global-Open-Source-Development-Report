@@ -281,10 +281,10 @@
   "aaif": {
     "filename": "aaif.png",
     "source_page": "https://aaif.io/",
-    "asset_url": "https://cdn.sanity.io/images/4o10fa7h/production/b2a2e03cf5baa4ada47dccb4cfabb3e29c5dc1b9-2000x2000.png?auto=format&fit=max&q=75&w=56",
+    "asset_url": "https://cdn.sanity.io/images/4o10fa7h/production/b2a2e03cf5baa4ada47dccb4cfabb3e29c5dc1b9-2000x2000.png",
     "retrieved_at": "2026-10-21",
     "use": "organization identification; no endorsement",
-    "sha256": "cd19465d93590c1d15c81ade3b099a8985824fadb72add6ad82524d6306c074e",
+    "sha256": "3d83d7a969df3b1dce9e0421245913de928ac69abfadce0cf77bf8fb1ffb3291",
     "background": "#ffffff"
   },
   "Linux Foundation": {
