@@ -9,7 +9,7 @@ p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a
 d=G.payload();out=a.output/'assets/gosm'
 page=(a.output/'2026/zh/chapters/05/index.html').read_text()
 assert page.count('data-gm-chart=')==1+sum(len(t['figures']) for t in G.TOPICS)
-assert 'gosm.js?v='+G.VERSION+'-s52-publication' in page and 'gosm.css?v='+G.VERSION in page
+assert 'gosm.js?v='+G.VERSION+'-s53-publication' in page and 'gosm.css?v='+G.VERSION in page
 assert all(f'id="{t["id"]}"' in page for t in G.TOPICS)
 assert len(G.TOPICS)==3 and sum(len(t['actions']) for t in G.TOPICS)==9
 assert '各图按来源标注统计期与快照' in page

@@ -25,6 +25,9 @@ for(const [i,p] of $$('#ch05-s02 .s52-panel').entries()){
  ok([...paper.querySelectorAll('text')].every(t=>+t.getAttribute('font-size')>=14&&+t.getAttribute('font-size')<=19),'print type range');
  if(paperDir)fs.writeFileSync(path.join(paperDir,p.dataset.gmChart+'.svg'),new w.XMLSerializer().serializeToString(paper));
 }
+const headPaper=$('#gm-head .s52-print-view svg'),headBox=headPaper.getAttribute('viewBox').split(' ').map(Number);
+ok(headBox[2]<headBox[3],'head publication uses portrait reflow');
+ok(headPaper.textContent.includes('其他已识别 1')&&headPaper.textContent.includes('归属未知 330'),'small segment values retained');
 ok($('#gm-network').gmRows.length===5116,'all 5111 relations and five growth rows export');
 ok($$('#gm-network .gm-view .s52-node').length===5777,'full network preserved');
 ok($('#gm-network .gm-view').textContent.includes('85.87')&&$('#gm-network .gm-view').textContent.includes('28.04'),'precise growth values visible');

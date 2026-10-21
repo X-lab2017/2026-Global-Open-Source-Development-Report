@@ -197,7 +197,30 @@ window.createGOSM52 = function(D,H) {
     paint(p,s,controls,b,'按模型版本计席位，未知归属保留在分母；累计榜单相互包含，分段按同月相减。',D.head.filter(r=>rows.some(q=>q.month===r.month)).map(r=>({数据类型:'ModelRank原报告月表',月份:r.month,榜单深度:r.k,中国:r.china,美国:r.us,其他已识别:r.other_known,未知归属:r.unknown,中国份额_pct:r.china_pct,美国份额_pct:r.us_pct,国家识别覆盖_pct:r.coverage_pct})),source(['head'],'原表覆盖2024-07至2026-08，共26个月、78行TopK汇总。三档榜单各自以20/100/1000为分母，保留未知归属。分段为同月嵌套榜单相减，不跨月份减去不同集合。底部从当前窗口起点比较所选月；窗口变化时起点随之变化。席位数不是ModelRank分数份额或测试性能。不从聚合值生成具体模型名单；具体模型见第三章M-Ranking。'));
   }
   // One static projection serves SVG export, browser print and the private PDF.
+  function headPortrait(p,s){
+    const C=theme(),W=860,rows=headRows(s),chosen=rows.find(r=>r.month===s.month)||rows.at(-1),start=rows[0];
+    const keys=['china','us','other_known','unknown'],labels=['中国','美国','其他已识别','归属未知'],cs=[palette()[0],palette()[1],palette()[3],C.unknown];
+    let b=box(0,0,W,1014,C.bg,'none',0)+txt(20,30,`${chosen.month} · 三档榜单结构`,19,C.ink)+txt(840,30,s.bands==='segments'?'互不重叠的位次区间':'累计榜单相互包含',14,C.muted,'end');
+    labels.forEach((l,i)=>{const x=24+i*206;b+=box(x,54,10,10,cs[i],'none',1)+txt(x+19,65,l,15,C.muted);});
+    [20,100,1000].forEach((k,i)=>{const r=D.head.find(r=>r.k===k&&r.month===chosen.month),prev=i?D.head.find(r=>r.k===[20,100][i-1]&&r.month===chosen.month):null,segment=s.bands==='segments',den=segment?k-(prev?.k||0):k,y=105+i*105,values=keys.map(key=>r[key]-(segment?(prev?.[key]||0):0));
+      b+=txt(24,y,segment?(i===0?'第1—20名':i===1?'第21—100名':'第101—1000名'):'Top '+k,18,C.ink)+txt(836,y,`${den} 个版本席位`,14,C.muted,'end');let x=24;
+      values.forEach((v,j)=>{const w=v/den*812;b+=box(x,y+14,w,30,cs[j],'none',0)+(w>35?txt(x+w/2,y+35,v,16,j===3||document.documentElement.dataset.theme==='dark'?C.bg:'#fff','middle'): '');x+=w;});
+      b+=txt(24,y+69,labels.map((l,j)=>l+' '+values[j]).join('　 /　 '),15,C.muted);
+    });
+    b+=line(20,405,840,405,C.line)+txt(24,444,`Top ${s.k} · 月度变化`,19,C.ink)+txt(836,444,`${rows[0].month}—${rows.at(-1).month} · ${s.mode==='share'?'占比':'席位'}`,15,C.muted,'end');
+    const px=66,py=490,w=730,h=284,visible=s.unknown?['china','us','unknown']:['china','us'],value=(r,k)=>s.mode==='share'?r[k]/s.k*100:r[k],mx=s.mode==='share'?Math.min(100,Math.ceil(Math.max(...rows.flatMap(r=>visible.map(k=>value(r,k))))/10)*10+10):Math.ceil(Math.max(1,...rows.flatMap(r=>visible.map(k=>r[k])))*1.12/10)*10;
+    const xx=i=>px+i*w/(rows.length-1),yy=v=>py+h-v/mx*h;
+    for(let i=0;i<=4;i++){const v=mx*i/4;b+=line(px,yy(v),px+w,yy(v),C.line)+txt(px-12,yy(v)+5,fmt(v,0)+(s.mode==='share'?'%':''),14,C.muted,'end');}
+    visible.forEach(key=>{const color=key==='china'?cs[0]:key==='us'?cs[1]:cs[3];b+=`<path d="${rows.map((r,i)=>(i?'L':'M')+xx(i)+','+yy(value(r,key))).join(' ')}" fill="none" stroke="${color}" stroke-width="2.7" ${key==='unknown'?'stroke-dasharray="5 5"':''}/>`;rows.forEach((r,i)=>b+=`<circle cx="${xx(i)}" cy="${yy(value(r,key))}" r="${r.month===chosen.month?4.5:2.5}" fill="${color}"/>`);});
+    const selected=rows.indexOf(chosen);b+=line(xx(selected),py-10,xx(selected),py+h,C.gold,1,'stroke-dasharray="4 4"');
+    rows.forEach((r,i)=>{if(i===0||i===rows.length-1||i%Math.ceil(rows.length/5)===0&&rows.length-1-i>=Math.ceil(rows.length/5))b+=txt(xx(i),804,r.month.slice(2),14,C.muted,'middle');});
+    b+=txt(24,842,`${start.month} → ${chosen.month} · 窗口变化（席位）`,15,C.muted);
+    [['中国',start.china,chosen.china,cs[0]],['美国',start.us,chosen.us,cs[1]],['中美差距',Math.abs(start.us-start.china),Math.abs(chosen.us-chosen.china),C.ink],['归属未知',start.unknown,chosen.unknown,cs[3]]].forEach(([l,a,z,c],i)=>{let x=24+i*206;b+=txt(x,873,l,14,C.muted)+txt(x,900,`${a} → ${z}`,19,c);});
+    b+=line(20,922,840,922,C.line)+txt(W/2,949,p.querySelector('h3').textContent,17,C.ink,'middle')+txt(24,979,'ModelRank 月表 · 按模型版本计席位；归属未知始终保留在分母中。',14,C.muted)+txt(24,1002,'席位数不等于独立家族数、影响力分数份额或测试性能。',14,C.muted);
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} 1014" width="${W}" height="1014" role="img" aria-label="${esc(p.querySelector('h3').textContent)}">${b}</svg>`;
+  }
   function publication(p,s){
+    if(p.dataset.gmChart==='head')return headPortrait(p,s);
     const original=p.querySelector('.gm-view svg');if(!original)return '';
     const el=original.cloneNode(true),kind=p.dataset.gmChart,C=theme();
     const removeActions=new Set(['zoom','reset','focusNode','clearNode','neighbors','neighborPage','flowClear','bands','mode','unknown']);

@@ -121,3 +121,19 @@
 
 .s53-rules ol { margin:12px 0; padding-left:22px; font-size:14px; line-height:1.85; }
 .s53-rules li { margin:9px 0; padding-left:3px; }
+
+/* Publication edition: one continuous argument and a caption below every figure. */
+.s53-topic[data-publication-edition] .gm-topic-header p,.s53-topic[data-publication-edition]>p,.s53-perspective>p,.s53-actions>p{max-width:none!important;width:auto!important;font-size:16px;line-height:1.95!important;margin:14px 0!important}
+.s53-topic[data-publication-edition] .gm-topic-header h2{font-size:29px!important;line-height:1.5}
+.s53-topic[data-publication-edition] .s53-position,.s53-topic[data-publication-edition] .s53-window-note{padding:0;border:0;background:none;font-size:13px!important;color:var(--gm-muted)}
+.s53-perspective>h3,.s53-actions>h3{font-size:21px!important;line-height:1.6;margin:30px 0 18px!important}
+.s53-actions>h4{font-size:17px;line-height:1.7;margin:24px 0 8px}.s53-actions{padding:0;border:0;background:none}
+.s53-panel{grid-template-rows:auto auto minmax(0,1fr) auto auto}
+.s53-panel .gm-chart-head{justify-content:flex-end}.s53-panel .gm-chart-head>.gm-tools{display:flex!important;gap:6px}
+.s53-panel .s53-figure-caption{display:block!important;margin:0;padding:7px 0 0!important;border-top:1px solid var(--gm-line);width:100%;text-align:center}
+.s53-panel .s53-figure-caption h3{font-size:14px!important;font-weight:500!important;line-height:1.6;margin:0!important;color:var(--gm-ink)}
+.s53-source{border-top:1px solid var(--gm-line);padding-top:10px;margin:12px 0 22px;font-size:13px;color:var(--gm-muted)}.s53-source>summary{cursor:pointer;color:var(--gm-brand)}.s53-source p{max-width:none!important;font-size:13px!important;line-height:1.8!important}
+#gm-fullscreen .s53-figure-caption h3{font-size:16px!important}
+.s53-print-view{display:none}
+@media(max-width:760px){.s53-panel{grid-template-rows:auto auto auto auto auto}.s53-topic[data-publication-edition] .gm-topic-header h2{font-size:25px!important}}
+@media print{.s53-panel{height:auto;display:block;break-inside:avoid}.s53-panel .gm-tools,.s53-panel .gm-controls,.s53-panel .gm-view,.s53-panel .gm-readout,.s53-panel .s53-figure-caption,.s53-source{display:none!important}.s53-print-view{display:block!important}.s53-print-view svg{width:100%;height:auto}}

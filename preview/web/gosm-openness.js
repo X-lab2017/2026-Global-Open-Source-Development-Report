@@ -12,12 +12,12 @@ window.createGOSM53 = function(D,H){
  const sum=(rs,k)=>rs.reduce((n,r)=>n+(Number(r[k])||0),0);
  const models=new Map(D.opennessCurrent.models.map(m=>[m.model_id,m]));
  const cases=new Map(D.cases.models.map(m=>[m.model_id,m]));
- const defaults={openness:{view:'overview',overviewDetail:'materials',l:3,o:3,sample:'report',quad:Q[1],demo:''},'open-groups':{mode:'map',mapMetric:'count',mapCountry:'',mapPage:0,regions:D.openRegions.map(r=>r.group),region:'中国',quad:Q[0]},dossiers:{view:'map',mapType:'all',pubCountry:'',pubPage:0,pubSelected:'',metric:'double_high',publisher:'企业',pool:'platform',query:'',page:0,model:'meta-llama/Llama-3.1-8B',level:'L3',field:'',detail:false}};
+ const defaults={openness:{view:'overview',overviewDetail:'materials',l:3,o:3,sample:'report',quad:Q[1],demo:''},'open-groups':{mode:'share',mapMetric:'count',mapCountry:'',mapPage:0,regions:D.openRegions.map(r=>r.group),region:'中国',quad:Q[0]},dossiers:{view:'publishers',mapType:'all',pubCountry:'',pubPage:0,pubSelected:'',metric:'double_high',publisher:'企业',pool:'platform',query:'',page:0,model:'meta-llama/Llama-3.1-8B',level:'L3',field:'',detail:false}};
  const own=p=>Object.hasOwn(defaults,p.dataset.gmChart);
  const sb=(k,v,label,x,y,w,on=false,disabled=false)=>{let b=box(x,y,w,29,on?C().raised:C().bg,on?C().brand:C().line,5)+txt(x+w/2,y+20,label,14,disabled?C().unknown:on?C().brand:C().ink,'middle');return disabled?`<g aria-disabled="true">${b}</g>`:action(k,v,label,b);};
  function wrap(text,x,y,width,size=16,color=C().muted,leading=26){let lines=[],s='',units=0;for(const ch of String(text)){const u=ch.charCodeAt(0)>255?1:.55;if(units+u>width/size&&s){lines.push(s);s='';units=0;}s+=ch;units+=u;}if(s)lines.push(s);return lines.map((l,i)=>txt(x,y+i*leading,l,size,color)).join('');}
  const safe=u=>/^https?:\/\//.test(u||'');
- function paint(p,controls,b,readout,rows,source){const keys=[...new Set(rows.flatMap(r=>Object.keys(r)))];set(p,controls,svg(b,1280,560,p.querySelector('h3').textContent),note(readout),rows.map(r=>Object.fromEntries(keys.map(k=>[k,r[k]??'']))),source);p.dataset.evidence='observed-with-labeled-teaching-example';if(p.s53StandardLevel){const sheet=p.querySelector('.gm-source');sheet.open=true;const target=sheet.querySelector('[data-standard-level="'+p.s53StandardLevel+'"]');if(target)sheet.scrollTop=Math.max(0,target.offsetTop-60);p.s53StandardLevel='';}}
+ function paint(p,controls,b,readout,rows,source){const keys=[...new Set(rows.flatMap(r=>Object.keys(r)))];set(p,controls,svg(b,1280,560,p.querySelector('h3').textContent),note(readout),rows.map(r=>Object.fromEntries(keys.map(k=>[k,r[k]??'']))),source);p.dataset.evidence='observed-with-labeled-teaching-example';p.querySelector('.s53-print-view').innerHTML=publication(p,H.state(p));if(p.s53StandardLevel){const sheet=p.querySelector('.gm-source');sheet.open=true;const target=sheet.querySelector('[data-standard-level="'+p.s53StandardLevel+'"]');if(target)sheet.scrollTop=Math.max(0,target.offsetTop-60);p.s53StandardLevel='';}}
  function sources(keys,text){return H.source(keys,text)+`<p>${link(asset('openness53-methods.md'),'5.3 方法与样本边界')} · ${link('http://47.100.76.186:9529/openness','开放评估平台')} · ${link('http://47.100.76.186:9529/modelrank','ModelRank 平台')}</p>`;}
  function standardSource(){return `<p><strong>先 L 后 O：以具体模型发布单元（MRU）评估。</strong>较高 L 必须满足全部较低等级要求；文件存在与验证通过分别记录。本标准已发布；既有870/884样本仍保留源评估结果，不宣称已经按正式标准逐条重评。</p><div class="s53-rules">${LS.map(l=>`<section data-standard-level="${l.id}"><h4>${l.id} ${l.label} · 第7.1.${Number(l.id.slice(1))+1}条</h4><p>${l.id==='L1'?'以下为本级必备材料。':'继承全部较低等级要求；以下为本级新增要求。'}</p><ol>${R.standard.requirements[l.id].map(([title,body])=>`<li><strong>${esc(title)}</strong>：${esc(body)}</li>`).join('')}</ol><p><strong>有效性验证：</strong>${esc(R.standard.requirements.verification[l.id])}</p></section>`).join('')}${OS.map(o=>`<section><h4>${o.id} ${o.label}</h4><p>${o.detail}</p></section>`).join('')}</div><p><strong>特殊情形：</strong>核心材料缺乏可验证许可，结论为“开放性不合格（未声明许可）”，不得归入O1—O4。多材料组合需考虑限制较强的许可条件；非核心材料缺失许可如被排除，应明确记录。安全合规、侵权风险和许可兼容性不在本分级结论范围内。</p><p>${link(R.standard.publication.announcement_url,'工信部正式公告')} · ${link(R.standard.publication.annex_url,'公告附件第465项')} · ${link(asset(R.standard.pdf),'规范参考全文')} · ${esc(R.standard.version_note)} 本图依用户提供文本第6—8章及附录解释，原统计保留源评估等级。教学示例 Atlas-Demo v1.0 为模拟，不进入统计。</p>`;}
  function overview(s){
@@ -219,6 +219,67 @@ window.createGOSM53 = function(D,H){
   paint(p,controls,result.b,s.view==='publishers'?'数量按模型计；组内比例与全体贡献分别计算。发布主体类型沿用原报告，非随机抽样。':'884平台记录、4个固定案例、月榜分别呈现。38为完整ID交集；日期与提交未完全对齐，不据此推断因果。',result.rows,sources(['openPublishers'],'发布主体表只有模型数、高开放数与双高数，不据此拼造四象限交叉表。企业69个双高占117个双高模型的59.0%。')+`<p>模型档案：${link(asset('openness-current.json'),'884补充记录')} · ${link(asset('openness-evidence-884.json'),'逐项材料与许可')} · ${link(asset('cases.json'),'4个固定版本案例')}。22条源站记录许可字段与最终等级不一致，仅标为待复核；材料状态沿用源站，未逐条重新评估。</p><p>ModelRank：${link(R.modelrank.source_url,'2026-08 Top100来源')}；读取于2026-10-17。使用已保存的月榜快照。按完整模型ID精确关联，38条交集；不做模型家族、大小写或别名模糊匹配。12个月覆盖2025-09—2026-08，各月Top100之外不补位次；曲线以位次为主，不把跨月归一化分数当作增长率。开放与影响力时间不同，不能计算因果或未经控制的总体相关性。</p>`);
   if(s.view==='models'&&s.detail){if(s.pool!=='cases')loadEvidence(p);evidenceSheet(p,s);}
  }
+ // Static reflow uses the same records, grouping, colors and selected state.
+ function paper(p,b,height,notes,width=860,facet=''){
+  const c=C(),caption=p.querySelector('h3').textContent+(facet?' · '+facet:'');
+  const footer=57+notes.length*24;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height+footer}" width="${width}" height="${height+footer}" role="img" aria-label="${esc(caption)}">${box(0,0,width,height+footer,c.bg,'none',0)}${b}${line(18,height+3,width-18,height+3,c.line)}${txt(width/2,height+31,caption,17,c.ink,'middle')}${notes.map((n,i)=>txt(22,height+60+i*24,n,14,c.muted)).join('')}</svg>`;
+ }
+ function standardPaper(p,s){
+  const c=C(),cx=205,adds=['权重、配置、分词器、推理脚本与环境','原理、训练过程说明与测试结果','训练代码、数据或完整来源与处理规则、环境','测试代码、数据、环境与无重叠说明','预处理、清洗、完整配方与端到端复现指南'];
+  let b=txt(22,28,'材料与验证 · L1—L5 逐级累进',19,c.ink)+txt(838,28,'先确认 L，再判断相应材料范围内的 O',14,c.muted,'end');
+  [...LS].reverse().forEach((l,i)=>{const n=5-i,y=59+i*95,top=140+i*48,bottom=top+42,on=s.l===n;const path=`M${cx-top/2} ${y} L${cx+top/2} ${y} L${cx+bottom/2} ${y+78} L${cx-bottom/2} ${y+78} Z`;
+   b+=`<path d="${path}" fill="${on?c.brand:c.raised}" stroke="${c.line}"/>`+txt(cx,y+32,l.id+' '+l.label,17,on?c.bg:c.ink,'middle')+txt(cx,y+58,l.short,15,on?c.bg:c.muted,'middle')+line(cx+bottom/2+12,y+39,415,y+39,c.line)+txt(430,y+18,l.id+' · '+(n===1?'必备材料':'在较低层级基础上新增'),15,c.brand)+wrap(adds[n-1],430,y+45,400,16,c.ink,23)+txt(430,y+88,'验证：'+['运行最小推理并核对输出','核对原理、训练与测试说明','启动最小训练并核对环境','按公开配置复现实验','跑通端到端最小闭环'][n-1],14,c.muted);
+  });
+  b+=txt(22,561,'层宽为结构示意，不表示模型数量；材料存在与运行验证分别记录。',14,c.muted)+line(22,580,838,580,c.line)+txt(22,615,'许可权利与义务 · O1—O4 独立判断',19,c.ink);
+  const desc=['使用、修改、再分发或商业化存在实质限制，需逐项核对预期用途。','允许使用与改进；衍生物再分发须按相同或兼容许可开放，承担回馈义务。','无 O1 实质限制与 O2 回馈义务，主要保留版权、许可与必要归属。','不额外附加合同性义务；法律法规仍然适用。'];
+  OS.forEach((o,i)=>{let x=22+(i%2)*419,y=638+Math.floor(i/2)*132;b+=box(x,y,397,117,c.paper,c.line,5)+txt(x+16,y+29,o.id+' '+o.label,18,c.brand)+wrap(desc[i],x+16,y+59,365,16,c.ink,25);});
+  return paper(p,b,908,['SJ/T 12304-2026 · 2026-12-01 实施；本图为规范释义，既有样本未追溯重评。','核心材料缺乏可验证许可时为开放性不合格（未声明许可），不归入 O1—O4。'],860,'分级全貌');
+ }
+ function samplePaper(p,s){
+  const c=C(),rows=s.sample==='report'?D.quadrants.map(r=>({name:r.completeness+'-'+r.openness,n:r.models})):D.opennessCurrent.quadrants.map(r=>({name:r.name,n:r.models})),n=sum(rows,'n'),hi=sum(rows.filter(r=>r.name.endsWith('高开放')),'n'),hh=rows.find(r=>r.name===Q[0]).n;
+  let b=txt(22,30,`${n} 个模型 · ${s.sample==='report'?'报告固定样本':'平台补充快照'}`,19,c.ink)+txt(838,30,s.sample==='report'?'2026-09-14 提取':'2026-10-17 读取',14,c.muted,'end');
+  [[Q[2],22,76],[Q[0],441,76],[Q[3],22,250],[Q[1],441,250]].forEach(([name,x,y])=>{let row=rows.find(r=>r.name===name),color=qcolor(Q.indexOf(name));b+=box(x,y,397,153,c.paper,c.line,5)+box(x+18,y+23,5,27,color,'none',1)+txt(x+37,y+44,name.replace('-',' · '),18,c.ink)+txt(x+22,y+91,fmt(row.n)+' 个模型',19,color)+txt(x+375,y+91,pct(row.n,n),19,c.ink,'end')+txt(x+22,y+125,'占全部 '+n+' 个样本',14,c.muted);});
+  b+=line(22,435,838,435,c.line)+txt(22,476,'高开放模型',16,c.muted)+txt(22,512,`${hi} / ${n}　${pct(hi,n)}`,19,P()[2])+txt(441,476,'高开放模型中，同时达到高完整',16,c.muted)+txt(441,512,`${hh} / ${hi}　${pct(hh,hi)}`,19,P()[0]);
+  return paper(p,b,552,['高完整为 L3—L5，高开放为 O2—O4；互惠许可的具体义务仍需核对。',s.sample==='report'?'仅有报告汇总，不生成 L×O 的 20 格计数或具体模型名单。':'884 与 870 未按模型身份对齐，差值 14 不表示净增长。'],860,'样本结构');
+ }
+ function regionPaper(p,s){
+  const c=C(),rows=D.openRegions.filter(r=>s.regions.includes(r.group)),count=s.mode==='count',max=count?Math.max(...rows.map(r=>r.n)):100,px=150,w=688;
+  let b=txt(22,28,'地域四类结构 · '+(count?'模型数量':'组内比例'),19,c.ink)+txt(838,28,'870 报告样本 · 2026-09-14 提取',14,c.muted,'end');
+  Q.forEach((q,i)=>{const x=22+i*209;b+=box(x,52,9,9,qcolor(i),'none',1)+txt(x+15,62,q.replace('-',' · '),14,c.muted);});
+  for(let i=0;i<=4;i++){const x=px+i*w/4;b+=txt(x,99,fmt(max*i/4,0)+(count?'':'%'),14,c.muted,i===4?'end':'middle');}
+  rows.forEach((r,i)=>{const y=124+i*102;b+=txt(22,y+19,r.group,18,c.ink)+txt(22,y+46,'n = '+r.n,14,c.muted);let x=px;Q.forEach((q,j)=>{let v=r[q],ww=(count?v:v/r.n*100)/max*w;b+=box(x,y,ww,32,qcolor(j),'none',0)+(ww>46?txt(x+ww/2,y+23,count?v:pct(v,r.n),15,j===3||document.documentElement.dataset.theme==='dark'?c.bg:'#fff','middle'):'');x+=ww;});b+=txt(px,y+62,'高开放 '+pct(r.high_open,r.n)+'（'+r.high_open+'）',16,P()[2])+txt(838,y+62,'双高 '+pct(r[Q[0]],r.n)+'（'+r[Q[0]]+'）',16,P()[0],'end');});
+  const h=145+rows.length*102;
+  return paper(p,b,h,['条形颜色顺序与图例一致；括号为模型数，比例均使用本组样本数作分母。','870 样本为地域组汇总；欧洲成员范围待补，不拆成国别数据。'],860,'报告地域比较');
+ }
+ function publisherPaper(p,s){
+  const c=C(),rows=D.openPublishers,high=s.metric==='high_open',key=high?'high_open':'double_high';
+  let b=txt(22,30,'供给规模与组内开放比例',19,c.ink)+txt(838,30,'870 报告样本 · 2026-09-14 提取',14,c.muted,'end');
+  b+=txt(175,81,'模型数量',17,c.ink)+txt(577,81,high?'高开放比例':'双高比例',17,c.ink);
+  [0,200,400,600,800].forEach(v=>{let x=175+v/800*300;b+=line(x,110,x,490,c.line)+txt(x,105,v,14,c.muted,'middle');});
+  [0,25,50,75,100].forEach(v=>{let x=577+v/100*210;b+=line(x,110,x,490,c.line)+txt(x,105,v+'%',14,c.muted,'middle');});
+  rows.forEach((r,i)=>{let y=146+i*91,label=r.publisher_type==='非营利组织和高校'?'高校 / 非营利':r.publisher_type;b+=txt(22,y+16,label,17,c.ink)+txt(22,y+43,r.organizations+' 个发布主体',14,c.muted)+box(175,y,r.models/800*300,27,c.brand,'none',2)+txt(185+r.models/800*300,y+21,r.models,18,c.ink)+box(577,y,r[key]/r.models*210,27,high?P()[2]:P()[0],'none',2)+txt(838,y+22,pct(r[key],r.models),18,high?P()[2]:P()[0],'end')+txt(838,y+49,r[key]+' / '+r.models,14,c.muted,'end');});
+  b+=line(22,507,838,507,c.line)+txt(22,543,'企业：占全部供给 81.7%',18,c.ink)+txt(838,543,high?'占全部高开放 77.0%（462 / 600）':'占全部双高 59.0%（69 / 117）',18,c.brand,'end');
+  return paper(p,b,578,['左侧按模型计数；右侧比例以本组模型数为分母。高完整为 L3—L5，高开放为 O2—O4。','企业组内比例与全体贡献使用不同分母，不能互相替代。'],860,'发布主体比较');
+ }
+ function publication(p,s){
+  const kind=p.dataset.gmChart;
+  if(kind==='openness'&&s.view==='overview')return standardPaper(p,s);
+  if(kind==='openness'&&s.view==='sample')return samplePaper(p,s);
+  if(kind==='open-groups'&&s.mode!=='map')return regionPaper(p,s);
+  if(kind==='dossiers'&&s.view==='publishers')return publisherPaper(p,s);
+  const original=p.querySelector('.gm-view svg');if(!original)return '';const el=original.cloneNode(true),c=C();
+  const remove=new Set(['mapPage','pubPage','modelPage','mapClear','demo','closeEvidence']);
+  el.querySelectorAll('[data-gm-action]').forEach(n=>{if(remove.has(n.dataset.gmAction))n.remove();else for(const a of ['tabindex','role','class','data-gm-action','data-value'])n.removeAttribute(a);});
+  el.querySelectorAll('text').forEach(n=>{if(/点选查看 →|同图完成：|点击任意坐标|从地域进入发布主体/.test(n.textContent)){n.remove();return;}n.textContent=n.textContent.replace(' · 点击国家筛选主体','').replace(' · 点选查看','').replace(' · 点选材料查看证据','').replace('点选材料查看证据','材料证据').replace('动手读懂两个维度','教学示例 · 非真实模型');n.setAttribute('font-size',Math.max(14,Math.min(19,+n.getAttribute('font-size')||14)));});
+  el.querySelectorAll('title,[aria-disabled]').forEach(n=>n.remove());
+  el.querySelectorAll('text').forEach(n=>{if(/^\d+ \/ \d+$/.test(n.textContent))n.remove();});
+  const notes=[stamp(p,s),kind==='dossiers'&&s.view==='models'?'平台等级、固定案例与月榜分别保留；未覆盖月份不补位次，材料记录不等于运行验证。':'地图为补充样本的发布主体归属，不代表各国总体开放能力；未知与未覆盖分别处理。'];
+  if(kind==='openness')notes[1]='教学例明确标注模拟，不进入模型统计；核心材料未声明许可不归入 O1—O4。';
+  if(kind==='dossiers'&&s.view==='models'&&s.pool==='cases'){const cm=cases.get(s.model);notes.push('案例固定提交：'+cm.revision+'；核验于 '+cm.checked_at+'。');}
+  return paper(p,el.innerHTML,575,notes,1280,kind==='open-groups'?'平台国家地图':kind==='dossiers'?(s.view==='models'?'模型材料与月榜':'平台主体地图'):'开放坐标');
+ }
+
  function handle(p,s,k,v){
   if(!own(p))return false;
   const id=p.dataset.gmChart;
@@ -234,5 +295,5 @@ window.createGOSM53 = function(D,H){
  function input(p,s,e){if(!own(p)||!e.target.hasAttribute('data-s53-search'))return false;const cursor=e.target.selectionStart;s.query=e.target.value;s.page=0;s.detail=false;H.draw(p);const input=p.querySelector('[data-s53-search]');input?.focus();try{input?.setSelectionRange(cursor,cursor);}catch{}return true;}
  function change(p,s,e){if(!own(p))return false;if(e.target.hasAttribute('data-s53-map-metric')){s.mapMetric=e.target.value;s.mapPage=0;return true;}if(!e.target.hasAttribute('data-s53-pool'))return false;s.pool=e.target.value;s.page=0;s.query='';s.detail=false;return true;}
  const stamp=(p,s)=>p.dataset.gmChart==='openness'?(s.view!=='sample'?'SJ/T 12304-2026 · 工信部2026年第22号公告；2026-12-01实施':s.sample==='report'?'870原评估 · 2026-09-14提取':'884平台补充 · 2026-10-17'):p.dataset.gmChart==='open-groups'?(s.mode==='map'?'884平台补充 · 国家逐条汇总 · 2026-10-17':'870原评估 · 地域组内分母 · 2026-09-14'):s.view==='map'?'884平台补充 · 主体国家示意 · 2026-10-17':s.view==='publishers'?'870原评估 · 组内比例与全体贡献 · 2026-09-14':'开放2026-10-17 / ModelRank 2026-08 Top100；完整ID关联';
- return {defaults,own,handle,input,change,stamp,renderers:{openness,'open-groups':regions,dossiers},matches,allCountries,typeDefs,codeOf};
+ return {defaults,own,handle,input,change,stamp,publication,renderers:{openness,'open-groups':regions,dossiers},matches,allCountries,typeDefs,codeOf};
 };

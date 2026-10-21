@@ -1879,6 +1879,7 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function exportSvg(p) {
+    if(openness53.own(p)){download(openness53.publication(p,states.get(p)),"image/svg+xml;charset=utf-8",`GOSM-${p.dataset.gmChart}-publication.svg`);return;}
     if(influence52.own(p)){download(influence52.publication(p,states.get(p)),"image/svg+xml;charset=utf-8",`GOSM-${p.dataset.gmChart}-publication.svg`);return;}
     const el = $(".gm-svg", p);
     if (!el) return;
@@ -2045,8 +2046,8 @@
       const overlay = document.querySelector(".gm-compact-panel .gm-source[open],.gm-compact-panel .gm-table[open]");
       if (overlay) {
         e.preventDefault(); e.stopPropagation(); overlay.open=false;
-        const trigger=overlay.closest(".gm-compact-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source]":"[data-gm-table]");
-        (trigger.closest("[data-s51-menu]")?.querySelector("summary")||trigger).focus();
+        const trigger=overlay.closest(".gm-compact-panel").querySelector(overlay.classList.contains("gm-source")?"[data-gm-source],[data-gm-action=standardDetails]":"[data-gm-table]");
+        (trigger?.closest("[data-s51-menu]")?.querySelector("summary")||trigger)?.focus();
         return;
       }
     }

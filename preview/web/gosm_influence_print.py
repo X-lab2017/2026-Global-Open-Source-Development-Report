@@ -30,7 +30,7 @@ def main():
             if etree.QName(node).localname=='text':node.set('font-family',common.FONT)
         drawing=svg2rlg(BytesIO(etree.tostring(root)))
         assert drawing is not None,key
-        width=A4[1]-92;scale=width/drawing.width;drawing.scale(scale,scale);drawing.width*=scale;drawing.height*=scale
+        width=A4[0 if key=='head' else 1]-92;scale=width/drawing.width;drawing.scale(scale,scale);drawing.width*=scale;drawing.height*=scale
         figs[key]=drawing
     body=ParagraphStyle('body',fontName=common.FONT,fontSize=11.2,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=9)
     styles={'body':body,'title':ParagraphStyle('title',parent=body,fontSize=18,leading=28,spaceAfter=15),'heading':ParagraphStyle('heading',parent=body,fontSize=12.8,leading=21,spaceAfter=9,textColor=HexColor(TEAL)),'note':ParagraphStyle('note',parent=body,fontSize=9,leading=14,spaceAfter=8),'action':ParagraphStyle('action',parent=body,fontSize=11.4,leading=19,spaceAfter=6,textColor=HexColor(TEAL))}
@@ -52,7 +52,7 @@ def main():
     page(['network'],True)
     page([t(T['narratives'][1][0],'heading'),t(T['insights']['flows'][0]),'flows'],True)
     page([*[t(s) for s in T['insights']['flows'][1:]],t(T['narratives'][2][0],'heading'),*[t(s) for s in T['insights']['head']]])
-    page(['head'],True)
+    page(['head'])
     page([t(T['action_lead'],'heading'),*[z for who,title,body,key in T['actions'] for z in [t(who+'：'+title,'action'),t(body+T['action_followups'][key])]],t(P.BRIDGE),t('口径与来源','heading'),*[t(s,'note') for s in P.NOTES],t('固定快照、原始表与核验记录（在线）','note')])
     c.save();(a.work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2));print(f'{a.output}: {count} pages')
 
