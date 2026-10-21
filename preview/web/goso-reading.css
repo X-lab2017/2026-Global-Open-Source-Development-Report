@@ -118,3 +118,5 @@
 .goso-screen .viz-heading{padding-right:0}
 .goso-screen[data-figure-id="fig-2-1-1"] .viz-heading{padding-right:150px}
 .goso-presentation .goso-slide-caption{display:none}
+
+.goso-screen .gm-board-foot{display:flex;justify-content:center;border-top:1px solid var(--line);padding-top:10px}

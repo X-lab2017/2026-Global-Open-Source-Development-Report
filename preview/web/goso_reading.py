@@ -132,12 +132,18 @@ def normalize(text,n,lang):
             for x in caption.children:
                 if isinstance(x,Node):
                     x.set('data-goso-source-only','');x.set('hidden','')
+            caption.children=[x for x in caption.children if isinstance(x,Node)]
             caption.children+=fragment('<strong class="goso-figure-caption">'+escape(f'图 2-{n}-{i} {title}')+'</strong>')
+            if stage is not fig:
+                footer=next((x for x in stage.walk() if x.tag=='footer'),None)
+                if footer:
+                    footer.children.append(caption.children.pop())
+                    caption.set('hidden','');caption.set('data-goso-source-only','')
         for x in fig.walk():
             if x.tag=='button' and any(k in x.attrs for k in ('data-dialog','data-tm-info','data-am-source','data-dm-source','data-gm-source')):
                 if x.attrs.get('data-dialog','').endswith('source') or 'data-dialog' not in x.attrs:
                     x.set('data-goso-source-only','');x.set('hidden','')
-            if x.tag=='span' and (x.has('im-meta') or x.has('cm-comparison-status') or 'data-cm-period' in x.attrs or x.text().startswith('OpenDigger / OpenShare')):
+            if x.tag=='span' and (x.has('im-meta') or x.has('cm-comparison-status') or x.has('dm-context') or x.has('gm-context') or (x.has('tm-context') and not x.has('tm-sim-badge')) or 'data-cm-period' in x.attrs or x.text().startswith('OpenDigger / OpenShare')):
                 x.set('data-goso-source-only','');x.set('hidden','')
         for x in fig.walk():
             if x.tag=='button' and (x.attrs.get('data-dialog') in ('world-source','china-source','comparison-source') or 'data-tm-info' in x.attrs):
