@@ -85,7 +85,7 @@ def china_figure():
   if i%2==0:f.rect(0,y-11,left,18,PALE,PALE,0)
   f.text(4,y,f'{int(r["rank"]):02}',8.6,MUTED);f.text(23,y,r['province_zh'],9,INK)
   bar(f,83,y-5,63,v,10188.3);f.text(left-4,y,fmt(v),9,INK,'right')
- f.text(right,13,'B  广东与浙江的入榜城市',10.5,TEAL)
+ f.text(right,13,'B  广东与浙江的入榜城市',10.5,TEAL);f.text(W,13,'OpenRank',8.5,MUTED,'right')
  for k,province in enumerate(['广东省','浙江省']):
   yy=38+k*101;r=next(r for r in D['province']['rows'] if r['province_zh']==province)
   f.rect(right,yy-14,W-right,95,PALE,PALE,4)
