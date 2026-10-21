@@ -1,0 +1,33 @@
+/* M-Ranking publication: retain distinct model, task and publisher-account units. */
+.mp-section .explorer-slide-frame{margin:20px auto 26px!important}
+.mp-stage[data-rr-section="6"] .cr-board{height:880px;grid-template-rows:48px 42px 36px minmax(0,1fr) 0 26px;gap:9px;padding:20px 26px 16px}
+.mp-stage[data-rr-section="6"][data-rr-group="2"] .cr-board{height:760px}
+.mp-stage .cr-head h4{font-size:25px!important;font-weight:550;margin:0!important}
+.mp-stage .cr-head-right>span:empty{display:none}
+.mp-stage .cr-body{min-height:0}
+.mp-stage .rp-foot{height:0;min-height:0;border:0;padding:0;overflow:hidden}
+.mp-stage .cr-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.mp-stage .rp-caption{text-align:center;color:var(--gv-muted);font:14px/1.6 var(--sans);align-self:end}
+.mp-stage .mr-ranking,.mp-stage .mr-org-ranking{min-height:0!important}
+.mp-stage .mr-grid.cr-rank-row,.mp-stage .mr-org-grid.cr-rank-row{min-height:49px!important;padding-block:6px!important}
+.mp-stage .rr-rank-list .cr-rank-row:nth-child(even){background:color-mix(in srgb,var(--gv-raised) 45%,transparent)}
+.mp-stage .mr-grid .cr-name strong,.mp-stage .mr-org-grid .cr-name strong{font-size:13px;line-height:1.3}
+.mp-stage .mr-grid .cr-name small{font-size:10px;margin-top:3px}
+.mp-stage .mr-task-table td{padding-block:10px!important}
+.mp-stage .mr-task-table .rr-link{font-size:12px}
+.mp-stage .mr-task-map>svg{min-height:0}
+.mp-stage .rr-note{font-size:12px!important;line-height:1.6!important;margin:0!important}
+.mp-stage .mr-org-grid .cr-rank-no{font-size:14px}
+.mp-stage .mr-org-grid .cr-company-logo{width:28px;height:28px}
+.mp-stage .mr-org-grid .cr-company-logo img{max-width:100%;max-height:100%}
+.mp-stage.vmap-reflow .cr-board{width:100%;height:auto!important;min-height:0;padding:15px 12px;display:flex;flex-direction:column;gap:12px}
+.mp-stage.vmap-reflow .cr-head{flex-wrap:wrap;gap:8px}
+.mp-stage.vmap-reflow .cr-head h4{font-size:21px!important}
+.mp-stage.vmap-reflow .cr-toolbar,.mp-stage.vmap-reflow .cr-tabs{flex-wrap:wrap;gap:9px}
+.mp-stage.vmap-reflow .cr-search{margin-left:0;flex-wrap:wrap}
+.mp-stage.vmap-reflow .cr-body{height:550px;min-height:430px;overflow:auto}
+.mp-stage.vmap-reflow .mr-ranking,.mp-stage.vmap-reflow .mr-org-ranking,.mp-stage.vmap-reflow .mr-distribution,.mp-stage.vmap-reflow .mr-task-map,.mp-stage.vmap-reflow .cr-compare{min-width:1110px;height:100%;min-height:0}
+.mp-stage.vmap-reflow .mr-task-map>svg{min-height:440px;flex:none}
+.mp-stage.vmap-reflow .rp-caption{font-size:12px;align-self:stretch}
+.mp-stage.vmap-reflow .rp-foot{display:none}
+.mp-stage.vmap-reflow .cr-overlay[data-mode=profile]{width:min(465px,calc(100% - 28px))}

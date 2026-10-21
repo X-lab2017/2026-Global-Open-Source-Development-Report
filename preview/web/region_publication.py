@@ -46,6 +46,8 @@ from project_publication import NOTES as PROJECT_NOTES
 NOTES += PROJECT_NOTES
 from emerging_publication import NOTES as EMERGING_NOTES
 NOTES += EMERGING_NOTES
+from model_publication import NOTES as MODEL_NOTES
+NOTES += MODEL_NOTES
 def paragraphs():
  return [CHAPTER_QUESTION,CHAPTER_INTRO,*[t for a in CHAPTER_FINDINGS for t in a],PERIOD,INTRO,QUESTION,POSITION,FINDING,*[p for _,ps in STORIES for p in ps],ACTION_INTRO,*[p for _,p in ACTIONS],BRIDGE]
 def para(t,cls=''):return f'<p class="{cls}">{E(t)}</p>'
