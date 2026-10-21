@@ -16,7 +16,7 @@ def text(x,y,s,size=16,attrs=''):
 def names(d):return {c['id']:c for c in d['categories']}
 def display_name(d,p):
     return p['repo'] if sum(q['name']==p['name'] for q in d['projects'])>1 else p['name']
-def weighted_length(s):return sum(1 if ord(c)>255 else .82 if c in 'MW@#%' else .29 if c in 'il.:|!\'' else .54 for c in s)
+def weighted_length(s):return sum(1 if ord(c)>255 else .86 if c in 'MW@#%' else .32 if c in 'il.:|!\'' else .58 for c in s)
 def wrap(s,width,size=14,limit=None):
     lines=[];line=''
     for char in s:
