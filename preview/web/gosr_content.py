@@ -64,13 +64,12 @@ def finding(k,title,text):return f'<div class="gosr-finding"><span>{k}</span><di
 def implications(text,limit):return f'<div class="gosr-implications"><h3>从发现到行动</h3><p>{text}</p><p class="gosr-limit"><strong>解释边界：</strong>{limit}</p></div>'
 def chapter(lang):
  if lang!='zh':return '<div class="reader-note">The GOSR review draft is now available in Chinese, with six ranking dimensions, source tables and interactive comparisons. English editorial translation will follow the Chinese review.</div><p id="gosr-review"><a href="/2026/zh/chapters/03/#gosr-review">Review the evidence gaps →</a></p><p><a href="/2026/zh/chapters/03/">Read the interactive GOSR chapter →</a></p>'+''.join(f'<section id="ch03-s0{i}"><h2>{i}. {name}</h2><a href="/2026/zh/chapters/03/#ch03-s0{i}">Read this section →</a></section>' for i,name in enumerate(['Regions','Companies','Foundations','Projects','Emerging projects','Models'],1))
- out=['<div class="goso-chapter gosr-chapter"><div class="gosr-intro"><span class="eyebrow">CHAPTER 03 / GLOBAL OPEN SOURCE RANKINGS</span><h2>谁在把贡献，<br>转化为全球影响力？</h2><p class="gosr-lede">从地区到组织，从项目到模型。六个观察窗口，辨识协作网络中的关键节点，以及正在变化的影响力结构。</p><p>六类主体分别排名。主榜提供完整对象与分值，分布、关联和时序帮助理解位置；原表、外部补充和模拟评审分别标明。</p><div class="gosr-period"><span><b>代码生态</b>2025.07 — 2026.06 / OpenRank</span><span><b>模型生态</b>2026.08 / ModelRank v1</span></div></div>']
- out.append(gosr_reading.overview())
- cards=[('R','区域','加利福尼亚州','50,883.80','OpenRank'),('C','企业','微软','167,060.26','OpenRank'),('F','基金会','Linux 基金会家族','196,128.27','OpenRank'),('P','项目','OpenHarmony','75,809.42','OpenRank'),('E','新势力','openclaw/openclaw','7,047.46','OpenRank · 仓库'),('M','模型','Qwen3.8-27B','27,930.09','ModelRank')]
- out.append('<nav class="gosr-overview" aria-label="六类榜单">'+''.join(f'<a href="#ch03-s0{i}"><span class="gosr-letter">{k}</span><span>{name} / {k}-Ranking</span><strong>{winner}</strong><b>{value}</b><small>{metric} · 本期榜首 →</small></a>' for i,(k,name,winner,value,metric) in enumerate(cards,1))+'</nav>')
- out.append('<p class="gosr-method">六类榜单分别排序，不合成跨对象总榜。OpenRank 不等于治理质量或商业价值；ModelRank 不等于模型能力得分或开放许可证评级。项目按标签聚合仓库，仓库数与项目数不能互换。<a href="/2026/zh/methodology/">查看方法基础 →</a></p>')
+ import region_publication as rp
+ out=['<div class="goso-chapter gosr-chapter">',rp.opening()]
  sections=[('R','行政区划','影响力有地理重心，参与规模不是唯一解释。'),('C','开源企业','年度格局相对稳定，月度位次已出现变化。'),('F','开源基金会','头部集中，需要与组织归并口径一起阅读。'),('P','开源项目','基础软件与 AI 工具共同占据影响力前列。'),('E','新势力项目','从仓库冷启动，到有组织的项目供给。'),('M','开源大模型','从单个模型，观察系列复用与任务覆盖。')]
  for i,(tag,name,headline) in enumerate(sections,1):
+  if i==1:
+   out.append(rp.section(DATA));continue
   if i!=2:
    import rankings
    out.append(gosr_reading.normalize(rankings.section(i,DATA,REPO),i)+gallery(f'3.{i}'));continue
