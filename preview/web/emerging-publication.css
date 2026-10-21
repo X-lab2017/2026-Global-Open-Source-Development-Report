@@ -35,3 +35,6 @@
 .ep-stage.vmap-reflow .rp-caption{font-size:12px;align-self:stretch}
 .ep-stage.vmap-reflow .rp-foot{display:none}
 .ep-stage.vmap-reflow .cr-overlay[data-mode=profile]{width:min(465px,calc(100% - 28px))}
+
+/* Match the 880px publication canvas; override the older 900px ranking rule. */
+@media(min-width:701px){.ep-stage.rr-stage[data-rr-section="5"][data-rr-group="1"] .cr-board,.ep-stage.rr-stage[data-rr-section="5"][data-rr-group="2"] .cr-board{height:880px}}

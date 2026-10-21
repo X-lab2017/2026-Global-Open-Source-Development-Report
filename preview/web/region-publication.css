@@ -1,4 +1,4 @@
-/* Chapter 3 publication pilot: scoped to the opening and R-Ranking. */
+/* Chapter 3 publication baseline: shared reading width, opening and R-Ranking. */
 .rp-opening{margin:26px 0 50px}.rp-opening h2{font-size:clamp(24px,3vw,34px);line-height:1.5;margin-bottom:22px}.rp-opening h3{margin-top:28px}.rp-opening>p,.rp-section>p{max-width:none!important;width:auto!important;line-height:1.95!important;margin:14px 0!important}.rp-period,.rp-position{font-size:13px!important;color:var(--muted)}
 .rp-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 25px;margin:26px 0}.rp-topics a{display:flex;flex-direction:column;gap:6px;padding:18px 0;border-top:1px solid var(--line);text-decoration:none!important}.rp-topics span{font-size:11px;color:var(--muted);letter-spacing:.04em}.rp-topics strong{font-size:19px;font-weight:550}.rp-topics small{font-size:13px;color:var(--muted);line-height:1.6}
 .rp-section>h3{font-size:21px;line-height:1.6;margin:42px 0 18px}.rp-section>.rp-action-title{font-size:17px!important;line-height:1.7;margin:24px 0 8px!important}.rp-section .section-topline{margin-bottom:10px}.rp-section>h2{font-size:29px;line-height:1.5}.rp-section .rr-frame{margin:20px auto 26px!important}.rp-section .slide-launcher{justify-content:flex-end}.rp-section .slide-launcher>span{display:none}
@@ -10,3 +10,12 @@
    Let their real content define the canvas, including in fullscreen and on mobile. */
 .cr-stage.goso-unified-canvas.screen-slide{height:auto!important;background:transparent}
 .rp-opening strong,.rp-section .rp-interpretation strong{font-weight:600}
+
+/* One chapter source entry, with six concise sections for optional inspection. */
+.rp-source-intro p,.rp-source-groups p{font-size:13px!important;line-height:1.7!important}
+.rp-source-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px;align-items:start}
+.rp-source-groups details{border:1px solid var(--gv-line);border-radius:6px;padding:12px 14px;min-width:0}
+.rp-source-groups summary{cursor:pointer;color:var(--gv-brand);font-weight:600;font-size:15px}
+.rp-source-groups details[open] summary{margin-bottom:12px}
+.rp-source-links{display:flex;flex-direction:column;gap:7px;border-top:1px solid var(--gv-line);padding-top:12px;margin-top:12px;font-size:12px;line-height:1.6}
+@media(max-width:700px){.rp-source-groups{grid-template-columns:1fr}}

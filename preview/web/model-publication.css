@@ -41,3 +41,6 @@
 .mp-stage .mr-org-grid.cr-rank-row{min-height:48px!important;padding-block:4px!important}
 .mp-stage .mr-org-grid .cr-score b{font-size:16px;line-height:1.2}
 .mp-stage .mr-org-grid small{line-height:1.2}
+
+/* Match the 880px publication canvas; override the older 900px ranking rule. */
+@media(min-width:701px){.mp-stage.rr-stage[data-rr-section="6"][data-rr-group="1"] .cr-board{height:880px}}

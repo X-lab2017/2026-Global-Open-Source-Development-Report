@@ -1,15 +1,15 @@
 """GOSR opening and R-Ranking: one manuscript for Web and PDF."""
 from html import escape as E
 from goso_reading import Tree, Node, fragment, remove
-EDITION='2026-10-21-r-ranking-publication-v2'
+EDITION='2026-10-21-r-ranking-publication-v3'
 CHAPTER_TITLE='第三章 全球开源影响力排行榜（GOSR）'
-CHAPTER_QUESTION='开源影响力集中在哪里，哪些主体支撑了持续协作？'
-CHAPTER_INTRO='第二章呈现全球开源的分布格局，本章进一步观察具体参与者与成果。从地区寻找协作节点，从企业与基金会了解组织投入，再从项目、新势力与模型观察成果供给。六类榜单共同帮助决策者识别值得深入了解和支持的对象。'
+CHAPTER_QUESTION='哪些主体和成果形成较高影响力，如何选择合作与维护对象？'
+CHAPTER_INTRO='第二章呈现开源活动的分布，本章进一步观察具体参与者与共同成果。从地区、企业和基金会寻找协作主体，再从项目、新势力和模型识别技术供给。六类榜单提供合作与支持的线索，决策还需结合实际依赖和维护需求。'
 CHAPTER_FINDINGS=[
- ('结合规模理解影响力','开发者人数、仓库数量与网络影响力描述不同侧面。同一主体在这些指标上的排名差异，有助于发现值得继续研究的参与结构。'),
- ('按对象层级展开比较','地区、企业、基金会、项目与模型分别排名；整体与子组织、项目与仓库也保留各自边界，便于识别具体的协作主体。'),
- ('用连续记录观察变化','本期榜单提供当前格局，历史记录用于追踪位置变化。对新仓库和模型版本，还需结合创建时间、复用关系与实际使用，观察其影响能否延续。')]
-CHAPTER_TOPICS=[('R','地区','寻找地域协作节点'),('C','企业','观察企业投入与参与结构'),('F','基金会','理解跨组织共建'),('P','项目','识别重要的共同成果'),('E','新势力','观察新仓库与新项目'),('M','模型','了解模型复用影响')]
+ ('参与规模与影响力并不一致','地区与项目榜均显示，参与人数较多的对象，影响力名次未必更高。将规模与协作影响并列，有助于识别值得继续研究的参与结构。'),
+ ('AI 供给在多个榜单中显现','项目榜前列可见 AI 基础软件，新仓库样本偏向 AI 组件，新项目样本偏向智能体工具；模型榜进一步呈现文本与多模态供给。各榜样本独立，不能合计为全球份额。'),
+ ('年度位置需要结合连续记录理解','企业与基金会月榜出现局部换位，年度结果不能代替月度观察。新仓库的创建记录和模型的单月榜单提供跟踪起点，影响能否延续仍需后续记录。')]
+CHAPTER_TOPICS=[('R','地区','寻找地域协作节点'),('C','企业','观察投入与参与结构'),('F','基金会','辨明组织层级与共建对象'),('P','项目','寻找共同维护的成果'),('E','新势力','识别新仓库与新项目'),('M','模型','理解版本复用与任务供给')]
 PERIOD='除特别说明外，统计期为 2025 年 7 月 1 日至 2026 年 6 月 30 日；模型榜采用 2026 年 8 月快照。'
 TITLE='全球行政区划影响力排行榜（R-Ranking）'
 INTRO='地区榜从全球行政区、中国省级行政区和中国城市三个层级，观察开源参与规模与协作影响。将同类地区放在一起比较，可以为地方寻找对标对象、为高校和企业寻找合作伙伴提供起点。'
@@ -38,6 +38,7 @@ ACTIONS=[
  ('平台与社区：把跨城市交流转化为持续合作','围绕不同城市共同参与的项目，组织任务协作并记录阶段成果。继续跟踪活动结束后的合作、新加入的持续贡献者，以及尚未解决的维护需求。')]
 BRIDGE='地区榜呈现协作发生的空间。下一节转向企业，进一步观察组织投入与参与结构。'
 NOTES=[PERIOD,'OpenRank 与开发者数量分别计量，不计算人均效率或合成总分。开发者数量单位为万，不直接解释为活跃开发者。','全球行政区、中国省级与中国城市各有 30 条详细记录；国家分布表覆盖 100 个入榜行政区、32 个国家。数量相同的国家并列，后续名次跳位；“其余国家”为汇总项，不参与排名。','Top 100 国家汇总与 Top 30 详细名单是独立底表，不从 Top 30 推造完整 Top 100 名单。入榜数量不代表国家 OpenRank 份额或生态质量评分。','省级与城市分别保留原榜名次，城市数值不加总回算省级值。台湾省及其城市纳入中国范围。全球行政区粒度不同；地理稳定 ID 和边界版本待补，不据此生成精确行政区地图。','当前 3.1 底表不含历史位次，不能据此计算排名升降或判断政策效果。原始值与缺失状态保持不变，筛选与排序只改变展示。','全章六类主体分别排名，不合成跨对象总榜。OpenRank 不等于治理质量或商业价值；ModelRank 不等于模型能力或开放许可证评级。其他小节中的模拟范围保留各图醒目标识。']
+REGION_NOTES=NOTES[:]
 from company_publication import NOTES as COMPANY_NOTES
 NOTES += COMPANY_NOTES
 from foundation_publication import NOTES as FOUNDATION_NOTES
@@ -48,6 +49,14 @@ from emerging_publication import NOTES as EMERGING_NOTES
 NOTES += EMERGING_NOTES
 from model_publication import NOTES as MODEL_NOTES
 NOTES += MODEL_NOTES
+SOURCE_GROUPS=[
+ {'section':'3.1','title':'地区','notes':REGION_NOTES[1:6],'datasets':['region','province','city','regionCountries']},
+ {'section':'3.2','title':'企业','notes':COMPANY_NOTES,'datasets':['company','chinaCompany','globalYear','globalMonth','chinaYear','chinaMonth']},
+ {'section':'3.3','title':'基金会','notes':FOUNDATION_NOTES,'datasets':['foundation','foundationMonth']},
+ {'section':'3.4','title':'项目','notes':PROJECT_NOTES,'datasets':['project','chinaProject','projectCountries','rising']},
+ {'section':'3.5','title':'新势力','notes':EMERGING_NOTES,'datasets':['newRepo','newProject','domains','languages']},
+ {'section':'3.6','title':'模型','notes':MODEL_NOTES,'datasets':['models','tasks','publishers','series']},
+]
 def paragraphs():
  return [CHAPTER_QUESTION,CHAPTER_INTRO,*[t for a in CHAPTER_FINDINGS for t in a],PERIOD,INTRO,QUESTION,POSITION,FINDING,*[p for _,ps in STORIES for p in ps],ACTION_INTRO,*[p for _,p in ACTIONS],BRIDGE]
 def para(t,cls=''):return f'<p class="{cls}">{E(t)}</p>'
@@ -82,7 +91,7 @@ def section(data):
  for title,t in ACTIONS:out += [f'<h4 class="rp-action-title">{title}</h4>',para(t)]
  out += [para(BRIDGE),'<script id="rp-source-notes" type="application/json">']
  import json
- out += [json.dumps(NOTES,ensure_ascii=False),'</script></section>']
+ out += [json.dumps(NOTES,ensure_ascii=False),'</script><script id="rp-source-groups" type="application/json">',json.dumps({'common':[REGION_NOTES[0],REGION_NOTES[6]],'groups':SOURCE_GROUPS},ensure_ascii=False),'</script></section>']
  return ''.join(out)
 def manuscript():
  out=['# '+CHAPTER_TITLE,CHAPTER_QUESTION,CHAPTER_INTRO,'## 本章主要观察']

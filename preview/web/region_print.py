@@ -104,7 +104,7 @@ def china_figure():
  return f.caption()
 class Doc(vp.Doc):
  def frame(self,c,doc):
-  w,h=c._pagesize;c.saveState();c.setFillColor(HexColor(TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0);c.setFont(common.FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(w-46,h-37,'第三章 全球开源影响力排行榜');c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.drawString(46,28,'章首与 3.1 样章 · 2026.10.21');c.drawRightString(w-46,28,str(doc.page));c.restoreState()
+  w,h=c._pagesize;c.saveState();c.setFillColor(HexColor(TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0);c.setFont(common.FONT,8.5);c.setFillColor(HexColor(MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(w-46,h-37,'第三章 全球开源影响力排行榜');c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.drawString(46,28,('第三章 / GOSR' if doc.page==1 else '3.1 地区')+' · 2026.10.21');c.drawRightString(w-46,28,str(doc.page));c.restoreState()
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--font',type=Path,required=True);ap.add_argument('--output',type=Path,default=Path('output/pdf/GOSD-2026-Chapter3-Opening-Section3-1-Review-20261021.pdf'));a=ap.parse_args();a.output.parent.mkdir(parents=True,exist_ok=True);work=Path('tmp/pdfs/r-ranking');work.mkdir(parents=True,exist_ok=True)
  common.font_setup(a.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+str(p.CHAPTER_TOPICS)+json.dumps({k:D[k] for k in ['region','province','city','regionCountries']},ensure_ascii=False))
