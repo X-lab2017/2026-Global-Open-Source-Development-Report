@@ -3,13 +3,13 @@ from html import escape as E
 from gosl_publication import NOTES as GOSL_NOTES
 from gosl_landscapes import DATASETS as GOSL_DATASETS, DATA as GOSL_DATA
 from goso_reading import Tree,Node,fragment,remove
-EDITION='2026-10-21-a-landscape-publication-v2'
+EDITION='2026-10-21-chapter4-publication-v3'
 CHAPTER_TITLE='第四章 全球开源技术全景洞察（GOSL）'
 CHAPTER_QUESTION='开源技术如何分工协作，哪些基础能力值得持续支持？'
-CHAPTER_INTRO='第三章从榜单识别重要主体与成果，本章将项目放回技术结构，观察它们共同提供了哪些能力。六个领域分别覆盖智能体、模型、云基础设施、数据库、处理器架构与深度学习生态，为技术选型、公共投入和跨组织协作提供参照。'
-CHAPTER_OBSERVATIONS=[('从项目名单走向能力结构','全景图按功能组织项目，帮助读者寻找互补能力与可进一步核查的替代实现。项目被收录不代表已经形成实际依赖关系，也不构成采购推荐。'),('从单月位置走向连续观察','有连续数据的领域，同时观察类别与项目的影响力、集中度和样本覆盖。不同领域的分类、来源与时间窗各自保留，不合成为跨领域总榜。'),('从技术供给走向共同维护','先辨认需要的能力，再核查开放条件、实际采用与维护需求。公共支持应落实到可交付的上游工作，并持续观察贡献接纳和维护接续情况。')]
-TOPICS=[('Agentic AI','理解应用、编排与运行支撑'),('AI 大模型','观察模型供给与任务结构'),('云基础设施','梳理部署、运行与服务能力'),('数据库系统','比较数据管理与处理能力'),('RISC-V','连接指令架构与软硬件生态'),('PyTorch 生态','观察模型开发与工程协作')]
-PERIOD='本报告默认统计期为 2025 年 7 月 1 日至 2026 年 6 月 30 日。4.1 使用 2025 年 3 月至 2026 年 8 月的月度记录；其余领域保留各自来源的快照时间。'
+CHAPTER_INTRO='第三章从榜单识别重要主体与成果，本章将项目与模型放回技术分工，观察实现一项能力需要哪些环节。六个领域连接智能体应用、模型供给、云与数据服务、处理器架构及深度学习开发，为技术选型、公共投入和跨组织协作提供参照。'
+CHAPTER_OBSERVATIONS=[('技术全景连接能力与实现','各领域按任务或功能组织样本，帮助定位互补能力与替代实现。4.1 进一步分析协作影响力及其变化；4.2—4.6 先呈现全景与研究问题，尚不形成趋势或贡献结论。'),('影响力分布需要深入项目内部','在 4.1 的 2026 年 8 月有值样本中，个人助手、推理引擎和编码代理合计占 OpenRank 的 34.7%；个人助手前两项占该类别的 77.2%。类别位置与内部集中度需结合观察。'),('持续支持需要核查采用与维护','全景中的位置不等于实际依赖，项目影响力也不等于使用规模。结合开放条件、真实采用和维护需求，才能把技术观察转化为具体的上游工作，并以贡献接纳和维护接续检验支持成效。')]
+TOPICS=[('Agentic AI','技术分层、影响力与结构变化'),('AI 大模型','模型供给与六类任务能力'),('云基础设施','应用构建、编排运行与运维'),('数据库系统','数据模型、查询与工作负载'),('RISC-V','指令规范、实现与软硬件协同'),('PyTorch 生态','模型任务、训练执行与工程协作')]
+PERIOD='默认统计期为 2025 年 7 月 1 日至 2026 年 6 月 30 日；4.1 使用 2025 年 3 月至 2026 年 8 月的月度记录，4.2 为 2026 年 10 月 2 日快照，4.3—4.6 的原表窗口待核。4.1 国家贡献图为模拟示例。各领域口径不同，不合成为跨领域总榜。'
 TITLE='Agentic AI 全景洞察（A-Landscape）'
 INTRO='智能体将模型能力接入具体任务，需要应用入口、编排框架、工具环境和模型基础设施共同支撑。本节以 145 个精选项目为固定样本，从技术分工进入协作影响力，再观察类别内部的集中与变化。'
 QUESTION='智能体生态由哪些能力共同支撑，影响力分布与项目集中度提示了哪些维护重点？'
@@ -57,7 +57,10 @@ def apply(html):
    elif n.has('al-sim'):n.children=['模拟数据 · 不代表真实贡献']
    elif n.tag=='summary':n.children=['查看明细']
   panel.children+=fragment(f'<footer class="lp-caption"><h4 id="{id}-caption">图 4-1-{i} {E(title)}</h4></footer>')
-  if i==1:panel.children+=fragment('<details class="lp-source" id="land-evidence"><summary>口径与来源</summary>'+'<h4>4.1 智能体生态</h4>'+''.join(para(n) for n in NOTES)+'<h4>4.2—4.6 全景样本与分类</h4>'+''.join(para(n) for n in GOSL_NOTES)+'<p>'+ ' · '.join(f'<a href="{d["source"]["url"]}">{d["number"]} 原始清单</a>' for d in GOSL_DATASETS)+'</p><p><a href="/assets/gosl/landscapes.json" download>全部全景记录 JSON</a> · <a href="/assets/gosl/provenance.json">来源指纹与分类版本</a> · <a href="https://github.com/X-lab2017/open-digger/tree/'+GOSL_DATA['classificationRef']+'/labeled_data/technology">OpenDigger 分类来源</a></p></details>')
+  if i==1:
+   agent_sources='<p><a href="https://github.com/antgroup/agentic-ai-landscape/tree/e330d75ea4ca314bc81f6868df63425c8acca5e3">固定分类来源</a> · <a href="/assets/landscape/v3-observations.csv" download>月度观测 CSV</a> · <a href="/assets/landscape/provenance.json">数据来源与版本</a></p>'
+   other_sources='<p>'+ ' · '.join(f'<a href="{d["source"]["url"]}">{d["number"]} 原始清单</a>' for d in GOSL_DATASETS)+'</p><p><a href="/assets/gosl/landscapes.json" download>全部全景记录 JSON</a> · <a href="/assets/gosl/provenance.json">来源指纹与分类版本</a> · <a href="https://github.com/X-lab2017/open-digger/tree/'+GOSL_DATA['classificationRef']+'/labeled_data/technology">OpenDigger 分类来源</a></p>'
+   panel.children+=fragment('<details class="lp-source" id="land-evidence"><summary>口径与来源</summary><details class="lp-source-group"><summary>4.1 智能体生态：分类、月度观测与模拟边界</summary>'+''.join(para(n) for n in NOTES)+agent_sources+'</details><details class="lp-source-group"><summary>4.2—4.6：全景样本、分类与原始清单</summary>'+''.join(para(n) for n in GOSL_NOTES)+other_sources+'</details></details>')
  out=['<section class="chapter-section lp-section" id="ch04-s01"><div class="lp-topline"><span>4.1 / A-LANDSCAPE</span><button type="button" data-al-theme aria-pressed="false">切换深色</button></div><h2>4.1 '+E(TITLE)+'</h2>',para(INTRO),para('研究问题：'+QUESTION),para('指标定位：'+POSITION,'lp-position'),para('核心发现：'+FINDING)]
  ids=[['al-agent','al-model'],['al-category-rank','al-category-heat','al-category-trend','al-project-rank'],['al-concentration','al-shift'],['al-country-rank','al-country-detail','al-country-stack','al-specialization','al-country-trend']]
  for i,(anchor,title,ps) in enumerate(STORIES):

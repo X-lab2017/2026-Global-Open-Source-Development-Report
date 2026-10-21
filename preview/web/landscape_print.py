@@ -34,10 +34,12 @@ def bar(f,x,y,w,value,maxval,color=BLUE):
  if value is not None and value>0:f.rect(x,y,w*value/maxval,4,color,color,1)
 def stamp(f,text,sim=False):
  f.text(0,13,('模拟数据 · ' if sim else '')+text,9,GOLD if sim else TEAL)
-def guide():
+def guide(whole=False):
  f=vp.Figure('','',height=194)
  for i,(t,s) in enumerate(p.TOPICS):
   x=(i%2)*262;y=(i//2)*62;f.line([(x,y),(x+241,y)],LINE,.6);f.text(x,y+19,f'4.{i+1}  {t}',11,TEAL);f.text(x,y+40,s,9.4,INK)
+  if whole:f.text(x+215,y+19,str([2,13,14,15,16,17][i]),9.4,MUTED)
+ f.is_guide=True
  return f
 def architecture(i):
  layer=['Agent Infra','Model Infra'][i-1];f=Figure(i,455,LW);groups=[x for x in atlas.LAYOUTS[layer]];cw=(LW-24)/3
@@ -194,14 +196,14 @@ def countrytrend():
  return f.caption()
 def main():
  global D,M
- ap=argparse.ArgumentParser();ap.add_argument('--font',type=Path,required=True);ap.add_argument('--output',type=Path,default=Path('output/pdf/GOSD-2026-Chapter4-Opening-Section4-1-Review-20261021.pdf'));a=ap.parse_args();a.output.parent.mkdir(parents=True,exist_ok=True);work=ROOT/'tmp/pdfs/a-landscape';work.mkdir(parents=True,exist_ok=True)
+ ap=argparse.ArgumentParser();ap.add_argument('--font',type=Path,required=True);ap.add_argument('--output',type=Path,default=Path('output/pdf/GOSD-2026-Chapter4-Opening-Section4-1-Review-20261021.pdf'));ap.add_argument('--whole-chapter',action='store_true');ap.add_argument('--total-pages',type=int,default=12);a=ap.parse_args();a.output.parent.mkdir(parents=True,exist_ok=True);work=ROOT/'tmp/pdfs/a-landscape';work.mkdir(parents=True,exist_ok=True)
  D=json.loads((ROOT/'_site/assets/landscape/v3-data.json').read_text())
  js='''const d=JSON.parse(require('fs').readFileSync('_site/assets/landscape/v3-data.json')),m=require('./preview/web/landscape.js')(d);console.log(JSON.stringify({categories:d.months.map((_,i)=>m.categories('all',i)),layerHistory:['Agent Infra','Model Infra'].map(s=>d.months.map((_,i)=>m.categories(s,i))),projects:m.projectRows('all','Serving · Inference',17),concentration:m.concentration('all',17),shift:m.shift('all',6,17),countries:m.country('all','all',12,17),countryCats:d.countries.map(c=>({code:c.code,rows:m.countryCategories('all',c.code,12,17)})),countryByCategory:m.sections('Agent Infra').map(k=>({key:k,name:d.sections[k].name,rows:m.country('Agent Infra',k,12,17)})),baseAgent:m.country('Agent Infra','all',12,17),countryHistory:d.months.map((_,i)=>m.country('all','all','month',i)),countryLayerHistory:['Agent Infra','Model Infra'].map(scope=>d.months.map((_,i)=>m.country(scope,'all','month',i)))}));'''
  M=json.loads(subprocess.check_output(['node','-e',js],cwd=ROOT,text=True));(work/'metrics.json').write_text(json.dumps(M,ensure_ascii=False,indent=2))
  common.font_setup(a.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+json.dumps([D['projects'],D['sections'],D['countries']],ensure_ascii=False))
  body=ParagraphStyle('body',fontName=common.FONT,fontSize=11.2,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=8)
  styles={'body':body,'title':ParagraphStyle('title',parent=body,fontSize=17,leading=27,spaceAfter=15),'heading':ParagraphStyle('heading',parent=body,fontSize=12.8,leading=21,spaceAfter=9,textColor=HexColor(TEAL)),'note':ParagraphStyle('note',parent=body,fontSize=9,leading=14,spaceAfter=7),'action':ParagraphStyle('action',parent=body,fontSize=11.4,leading=19,spaceAfter=5,textColor=HexColor(TEAL))}
- c=Canvas(str(a.output),pagesize=A4,invariant=1);c.setTitle('GOSD 2026 · 第四章章首与 4.1 Agentic AI');c.setAuthor('GOSD / 全球开源发展报告');page=0;layout=[]
+ c=Canvas(str(a.output),pagesize=A4,invariant=1);c.setTitle('GOSD 2026 · 第四章 全球开源技术全景洞察' if a.whole_chapter else 'GOSD 2026 · 第四章章首与 4.1 Agentic AI');c.setAuthor('GOSD / 全球开源发展报告');page=0;layout=[]
  def t(s,style='body'):return (s,style)
  def pageout(items,wide=False):
   nonlocal page
@@ -213,9 +215,13 @@ def main():
     if style in ['title','heading']:
      key='h'+str(len(layout));c.bookmarkPage(key);c.addOutlineEntry(text,key,0 if style=='title' else 1,False)
    else:
-    assert y-item.height>=57,(page,item.title,y,item.height);item.paint(c,46,y,item.width);y-=item.height+10
-  c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.setFillColor(HexColor(MUTED));c.drawString(46,28,'第四章章首与 4.1 Agentic AI');c.drawRightString(w-46,28,str(page));c.showPage()
- pageout([t(p.CHAPTER_TITLE,'title'),t(p.CHAPTER_QUESTION,'heading'),t(p.CHAPTER_INTRO),*[t('**'+h+'。**'+b) for h,b in p.CHAPTER_OBSERVATIONS],guide(),t(p.PERIOD,'note')])
+    assert y-item.height>=57,(page,item.title,y,item.height);item.paint(c,46,y,item.width)
+    if getattr(item,'is_guide',False):layout.append({'page':page,'kind':'guide','top':size[1]-y})
+    y-=item.height+10
+  if page==3 and a.whole_chapter:
+   c.setFont(common.FONT,8);c.setFillColor(HexColor(TEAL));c.drawString(46,49,'口径与来源：本章分类、月度记录与模拟说明（在线）');c.linkURL('https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/04/#land-evidence',(46,46,360,58),relative=0,thickness=0)
+  c.setStrokeColor(HexColor(LINE));c.setLineWidth(.5);c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.setFillColor(HexColor(MUTED));c.drawString(46,28,'第四章 全球开源技术全景洞察' if a.whole_chapter else '第四章章首与 4.1 Agentic AI');c.drawRightString(w-46,28,f'{page} / {a.total_pages}');c.showPage()
+ pageout([t(p.CHAPTER_TITLE,'title'),t(p.CHAPTER_QUESTION,'heading'),t(p.CHAPTER_INTRO),*[t('**'+h+'。**'+b) for h,b in p.CHAPTER_OBSERVATIONS],guide(a.whole_chapter),t(p.PERIOD,'note')])
  pageout([t('4.1 '+p.TITLE,'title'),t(p.INTRO),t('研究问题：'+p.QUESTION),t('指标定位：'+p.POSITION,'note'),t('核心发现：'+p.FINDING),t(p.STORIES[0][1],'heading'),*[t(x) for x in p.STORIES[0][2]],t(p.NOTES[0],'note'),t('观测窗口：2025-03—2026-08。当前分类回溯，未观测与尚未创建均不补零。','note')])
  pageout([architecture(1)],True);pageout([architecture(2)],True)
  pageout([t(p.STORIES[1][1],'heading'),t(p.STORIES[1][2][0]),rank(),t(p.STORIES[1][2][1])])

@@ -15,3 +15,5 @@
  #al-fullscreen .al-view{display:flex;align-items:center;justify-content:center;flex:1 1 auto;min-height:0;overflow:hidden}
  #al-fullscreen .al-view svg{display:block;width:100%;height:100%;min-width:0;max-height:none}
 }
+
+.lp-source-group{margin:12px 0 8px;padding-left:12px;border-left:2px solid var(--gv-line)}.lp-source-group>summary{line-height:1.7}.lp-closing{margin:42px 0 24px;padding-top:22px;border-top:1px solid var(--line)}.lp-closing p{font-size:16px;line-height:1.95;max-width:none}.lp-closing>a{font-size:14px}

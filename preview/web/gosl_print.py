@@ -7,7 +7,7 @@ from reportlab.lib.pagesizes import A3, landscape
 from reportlab.lib.colors import HexColor
 import chapter1_print as common
 import gosl_landscapes as G
-from gosl_publication import SECTIONS, NOTES, EDITION, figure_number
+from gosl_publication import SECTIONS, NOTES, EDITION, CHAPTER_CLOSE, figure_number
 
 INK, MUTED, LINE, WASH = '#18394c', '#4d6573', '#bacbd3', '#f1f6f8'
 ACCENTS = {'models':'#087984','cloud':'#2d5f9f','database':'#8c6928','riscv':'#8a4a42','pytorch':'#76508b'}
@@ -15,9 +15,9 @@ PW, PH = landscape(A3)
 MARGIN = 36
 WEB = 'https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/04/'
 
-def write_pdf(output, font, work):
+def write_pdf(output, font, work, page_offset=0, total_pages=5):
     work.mkdir(parents=True, exist_ok=True)
-    manuscript=json.dumps([G.DATA,SECTIONS,NOTES],ensure_ascii=False)+Path(__file__).read_text()
+    manuscript=json.dumps([G.DATA,SECTIONS,NOTES,CHAPTER_CLOSE],ensure_ascii=False)+Path(__file__).read_text()
     common.font_setup(font,work,subset_text=manuscript)
     c=Canvas(str(output),pagesize=(PW,PH),pageCompression=1)
     c.setTitle('GOSD 2026 · 4.2—4.6 技术全景与研究框架')
@@ -40,7 +40,7 @@ def write_pdf(output, font, work):
         text(MARGIN,25,'GOSD 2026  /  第四章 全球开源技术全景洞察',9,MUTED)
         text(PW-MARGIN,25,'全景与研究框架 · 2026.10',9,MUTED,'right')
         text(MARGIN,54,d['number']+' '+m['title'],21,INK)
-        end=wrapped(MARGIN,77,m['intro'],PW-2*MARGIN,10.8,15)
+        end=wrapped(MARGIN,77,m['intro'],PW-2*MARGIN,11.2,15)
         assert end<=107,(d['id'],'intro',end)
         c.bookmarkPage(d['id']);c.addOutlineEntry(d['number']+' '+m['title'],d['id'])
         # The Web inspector is interactive; the PDF uses the same category geometry
@@ -79,21 +79,26 @@ def write_pdf(output, font, work):
         assert len(rows)==1,(d['id'],'reading',len(rows))
         text(MARGIN,758,m['reading'],9.4,MUTED)
         line(MARGIN,771,PW-MARGIN,771)
-        text(MARGIN,787,'后续研究 · 待补充证据与分析',10,accent)
+        final=page==len(G.DATASETS)
+        text(MARGIN,781 if final else 787,'后续研究 · 待补充证据与分析',10,accent)
         colw=(PW-2*MARGIN-24)/2
         for i,(title,question) in enumerate(m['questions']):
-            x=MARGIN+(i%2)*(colw+24);y=803+(i//2)*15
+            x=MARGIN+(i%2)*(colw+24);y=(795+(i//2)*13) if final else (803+(i//2)*15)
             value=title+'：'+question
             assert pdfmetrics.stringWidth(value,common.FONT,9.2)<=colw,(d['id'],title)
             text(x,y,value,9.2)
+        if final:
+            assert pdfmetrics.stringWidth(CHAPTER_CLOSE,common.FONT,10.2)<=PW-2*MARGIN
+            text(MARGIN,823,CHAPTER_CLOSE,10.2,accent)
         text(MARGIN,835,'来源：报告原始清单与分类记录  ·  项目名可点击核查；图中位置与面积不表示规模或真实依赖。',8,MUTED)
         c.linkURL(d['source']['url'],(MARGIN,0,MARGIN+150,16),relative=0,thickness=0)
-        text(PW-MARGIN,835,f'4.{page+1}  /  {page} of 5',8,MUTED,'right')
+        text(PW-MARGIN,835,f'{page+page_offset} / {total_pages}',8,MUTED,'right')
         c.showPage()
     c.save()
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,required=True);parser.add_argument('--font',type=Path,required=True);parser.add_argument('--work',type=Path,required=True)
+    parser.add_argument('--page-offset',type=int,default=0);parser.add_argument('--total-pages',type=int,default=5)
     args=parser.parse_args();args.output.parent.mkdir(parents=True,exist_ok=True)
-    write_pdf(args.output,args.font,args.work)
+    write_pdf(args.output,args.font,args.work,args.page_offset,args.total_pages)
     print('Created five landscape-only review plates:',args.output)
