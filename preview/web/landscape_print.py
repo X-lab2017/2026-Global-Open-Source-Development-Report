@@ -12,6 +12,7 @@ import chapter1_print as common
 import vmap_print as vp
 import landscape_publication as p
 import landscape_atlas as atlas
+import goso_brand as brand
 ROOT=Path(__file__).resolve().parents[2]
 W,LW=vp.PWIDTH,vp.LWIDTH
 INK,MUTED,TEAL,LINE=vp.INK,vp.MUTED,vp.TEAL,vp.LINE
@@ -62,14 +63,14 @@ def architecture(i):
  f.text(0,437,'功能分层示意，非项目依赖图；标识为仓库所有者图标。固定分类，全部项目保留。',8.2,MUTED)
  return f.caption()
 def rank():
- f=Figure(3,362);stamp(f,'2026-08 · 全部 25 类 · OpenRank / 观测覆盖')
+ f=Figure(3,390);stamp(f,'2026-08 · 全部 25 类 · OpenRank / 观测覆盖')
  rows=M['categories'][-1];cw=(W-22)/2
  for j,rr in enumerate([rows[:13],rows[13:]]):
   x=j*(cw+22)
   for i,r in enumerate(rr):
    y=40+i*23.7;color=PURPLE if next(q['layer'] for q in D['projects'] if q['section']==r['key'])=='Agent Infra' else BLUE
    f.text(x,y,f'{r["rank"]:02}',7.7,MUTED);fittext(f,x+17,y,r['name'],cw-94,8.2);f.text(x+cw,y,fmt(r['value']),8.1,INK,'right');bar(f,x+17,y+5,cw-58,r['value'],rows[0]['value'],color);f.text(x+cw,y+12,f'{r["coverage"]}/{r["count"]}',7.2,MUTED,'right')
- f.text(0,335,'紫色 Agent Infra；蓝色 Model Infra。140 / 145 个项目有值，缺失不补零。',8.1,MUTED)
+ f.text(0,361,'紫色 Agent Infra；蓝色 Model Infra。140 / 145 个项目有值，缺失不补零。',8.1,MUTED)
  return f.caption()
 def lines(f,series,x,y,w,h,maximum,rank=False,start=6,unit='',labels=True):
  left=x+24;right=x+w-7;top=y+9;bottom=y+h-22
@@ -93,31 +94,45 @@ def lines(f,series,x,y,w,h,maximum,rank=False,start=6,unit='',labels=True):
  return bottom
 
 def overview():
- f=Figure(4,286);stamp(f,'2025-09—2026-08 · 位次仅在同一大类内比较；灰线保留其余类别')
+ f=Figure(4,391);stamp(f,'2025-09—2026-08 · 数字为大类内位次；颜色越深，位次越靠前')
+ left=140;cw=(W-left)/12;row=11.6;y=27
  for j,layer in enumerate(['Agent Infra','Model Infra']):
-  y=32+j*115;hist=M['layerHistory'][j];tops=[r['key'] for r in hist[-1][:3]];ss=[]
-  for r in hist[-1][::-1]:ss.append({'name':r['name'],'color':COLORS[tops.index(r['key'])] if r['key'] in tops else '#C4CED3','values':[next(t['rank'] for t in h if t['key']==r['key']) for h in hist]})
-  f.text(0,y,layer,9.3,TEAL);lines(f,ss,0,y+10,W-100,83,len(hist[-1]),rank=True,labels=False)
-  for k,key in enumerate(tops):f.text(W-91,y+29+k*21,D['sections'][key]['name'],8.1,COLORS[k])
+  hist=M['layerHistory'][j];rr=hist[-1];f.text(0,y+9,layer,9.4,TEAL)
+  for z,month in enumerate(D['months'][6:]):f.text(left+(z+.5)*cw,y+9,month[2:].replace('-','.'),7.9,MUTED,'center')
+  y+=18
+  for r in rr:
+   f.text(0,y+8.7,r['name'],8.0,INK)
+   for z,h in enumerate(hist[6:]):
+    rank=next(q['rank'] for q in h if q['key']==r['key']);a=.08+.32*(1-(rank-1)/(len(rr)-1));base=[21,105,147] if j else [120,83,162];rgb=[round(255*(1-a)+v*a) for v in base];color='#'+''.join(f'{v:02x}' for v in rgb);f.rect(left+z*cw,y,cw-2,row-1,color,color,1);f.text(left+(z+.5)*cw-1,y+8.7,str(rank),8.1,INK,'center')
+   y+=row
+  y+=12
  return f.caption()
 def compare():
- f=Figure(5,203);stamp(f,'2025-09—2026-08 · 全领域 25 类统一位次')
- keys=['Personal AI assistants','Serving · Inference','Agentic coding'];ss=[{'name':D['sections'][k]['name'],'values':[next(r['rank'] for r in rr if r['key']==k) for rr in M['categories']]} for k in keys]
- lines(f,ss,0,31,W,133,25,rank=True)
+ f=Figure(5,218);stamp(f,'2025-09—2026-08 · 当期前三类 · 统一纵轴 / OpenRank')
+ keys=['Personal AI assistants','Serving · Inference','Agentic coding'];cw=(W-24)/3;maximum=4000
+ for j,key in enumerate(keys):
+  x=j*(cw+12);vals=[next(r['value'] for r in h if r['key']==key) for h in M['categories']];current=next(r for r in M['categories'][-1] if r['key']==key)
+  f.text(x,36,D['sections'][key]['name'],10,TEAL);f.text(x,52,fmt(vals[-1])+f' · {current["coverage"]}/{current["count"]} 有值',8.3,MUTED)
+  lines(f,[{'name':D['sections'][key]['name'],'values':vals,'color':brand.values('light')['s'+str(j)]}],x,61,cw,118,maximum,labels=False)
+ f.text(0,196,'每类独立成图、刻度一致；缺失项目不补零，类别值为当月有值项目之和。',8.1,MUTED)
  return f.caption()
 def projects():
- f=Figure(6,232);stamp(f,'个人助手 · 2026-08 排名 / 2025-09—2026-08 历史位次')
- rows=M['projects'];left=215
+ f=Figure(6,271);stamp(f,'推理引擎 · 2026-08 排名 / 2025-09—2026-08 月度 OpenRank')
+ rows=M['projects'];left=244;right=W-4;top=48;row=23.5;maximum=800
+ f.text(0,34,'位次 / 项目',8,MUTED);f.text(221,34,'OpenRank',8,MUTED,'right');f.text(left,34,'25.09',7.7,MUTED);f.text((left+right)/2,34,'26.02',7.7,MUTED,'center');f.text(right,34,'26.08',7.7,MUTED,'right')
  for i,r in enumerate(rows):
-  y=40+i*22;f.text(0,y,str(i+1),8,MUTED);fittext(f,16,y,r['name'],108,8.4);bar(f,126,y-4,44,r['value'],rows[0]['value']);f.text(left,y,fmt(r['value']),8.2,INK,'right')
- selected=rows[:3];ps=[next(q for q in D['projects'] if q['id']==r['key']) for r in selected];series=[]
- for q in ps:
-  vv=[]
-  for month in range(18):
-   rr=sorted([x for x in D['projects'] if x['section']==q['section'] and x['trend'][month] is not None],key=lambda x:-x['trend'][month]);vv.append(next((j+1 for j,x in enumerate(rr) if x['id']==q['id']),None))
-  series.append({'name':q['name'],'values':vv})
- lines(f,series,236,28,W-236,135,7,rank=True,labels=False)
- for i,s in enumerate(series):f.text(254,176+i*12,s['name'],8,COLORS[i])
+  y=top+i*row
+  if i%2==0:f.rect(0,y-8,W,row,PALE,PALE,0)
+  f.text(0,y+6,str(r['rank']),8.4,MUTED);fittext(f,17,y+6,r['name'],132,8.7);bar(f,151,y+1,28,r['value'],rows[0]['value']);f.text(221,y+6,fmt(r['value']),8.5,INK,'right')
+  vals=next(q['trend'] for q in D['projects'] if q['id']==r['key']);bottom=y+12;height=18;pts=[]
+  f.line([(left,bottom),(right,bottom)],LINE,.4)
+  for z,v in enumerate(vals[6:]):
+   if v is None:
+    if len(pts)>1:f.line(pts,BLUE,1.2)
+    pts=[];continue
+   xx=left+(right-left)*z/11;yy=bottom-height*v/maximum;pts.append((xx,yy));f.dot(xx,yy,1,BLUE)
+  if len(pts)>1:f.line(pts,BLUE,1.2)
+ f.text(0,248,'每行趋势共用 0—800 刻度；空缺月份断开。行序按 2026-08 OpenRank 排列。',8.1,MUTED)
  return f.caption()
 def concentration():
  f=Figure(7,254);stamp(f,'2026-08 · 前三项目占类别有值项目 OpenRank 的份额')
@@ -166,14 +181,22 @@ def dots(i,lq=False):
  f.text(W,237,'1 = 与该国总体份额相当' if lq else '分母包含其他与未知',8,MUTED,'right')
  return f.caption()
 def countrytrend():
- f=Figure(13,213);stamp(f,'2025-09—2026-08 · 全领域 · 单月贡献份额',True)
- ss=[{'name':name,'values':[next(r['share']*100 for r in rr if r['code']==code) for rr in M['countryHistory']]} for code,name in [('US','美国'),('CN','中国'),('GB','英国')]];lines(f,ss,0,34,W,137,50,unit='%')
+ f=Figure(13,304);stamp(f,'2025-09—2026-08 · 同一国家、同一刻度，两层分别计算份额',True)
+ selected=[('US','美国'),('CN','中国'),('DE','德国'),('GB','英国')];colors=[brand.values('light')['s'+str(i)] for i in [0,5,3,6]];cw=(W-24)/2
+ maximum=math.ceil(max(r['share']*100 for hs in M['countryLayerHistory'] for h in hs[6:] for r in h if r['code'] in [c for c,_ in selected])/10)*10
+ for j,layer in enumerate(['Agent Infra','Model Infra']):
+  x=j*(cw+24);f.text(x,35,layer,10,TEAL);ss=[{'name':name,'color':colors[k],'values':[next(r['share']*100 for r in h if r['code']==code) for h in M['countryLayerHistory'][j]]} for k,(code,name) in enumerate(selected)];lines(f,ss,x,43,cw,121,maximum,unit='%',labels=False)
+ for k,(code,name) in enumerate(selected):f.rect(k*73,171,7,3,colors[k],colors[k],0);f.text(k*73+11,176,name,8.3,INK)
+ f.text(0,200,'2026-08 对照',8.6,TEAL);f.text(244,200,'Agent',8,MUTED,'right');f.text(350,200,'Model',8,MUTED,'right');f.text(W,200,'Agent − Model / 百分点',8,MUTED,'right')
+ for k,(code,name) in enumerate(selected):
+  y=217+k*17;a,b=[next(r['share'] for r in h[-1] if r['code']==code)*100 for h in M['countryLayerHistory']];f.text(0,y,name,8.6,INK);f.text(244,y,f'{a:.1f}%',8.4,INK,'right');f.text(350,y,f'{b:.1f}%',8.4,INK,'right');f.text(W,y,f'{a-b:+.1f}',8.4,INK,'right')
+ f.text(0,287,'两层分母均包含全部国家、其他与未知；差值按未舍入数值计算，仅描述模拟结构。',8,MUTED)
  return f.caption()
 def main():
  global D,M
  ap=argparse.ArgumentParser();ap.add_argument('--font',type=Path,required=True);ap.add_argument('--output',type=Path,default=Path('output/pdf/GOSD-2026-Chapter4-Opening-Section4-1-Review-20261021.pdf'));a=ap.parse_args();a.output.parent.mkdir(parents=True,exist_ok=True);work=ROOT/'tmp/pdfs/a-landscape';work.mkdir(parents=True,exist_ok=True)
  D=json.loads((ROOT/'_site/assets/landscape/v3-data.json').read_text())
- js='''const d=JSON.parse(require('fs').readFileSync('_site/assets/landscape/v3-data.json')),m=require('./preview/web/landscape.js')(d);console.log(JSON.stringify({categories:d.months.map((_,i)=>m.categories('all',i)),layerHistory:['Agent Infra','Model Infra'].map(s=>d.months.map((_,i)=>m.categories(s,i))),projects:m.projectRows('all','Personal AI assistants',17),concentration:m.concentration('all',17),shift:m.shift('all',6,17),countries:m.country('all','all',12,17),countryCats:d.countries.map(c=>({code:c.code,rows:m.countryCategories('all',c.code,12,17)})),countryByCategory:m.sections('Agent Infra').map(k=>({key:k,name:d.sections[k].name,rows:m.country('Agent Infra',k,12,17)})),baseAgent:m.country('Agent Infra','all',12,17),countryHistory:d.months.map((_,i)=>m.country('all','all','month',i))}));'''
+ js='''const d=JSON.parse(require('fs').readFileSync('_site/assets/landscape/v3-data.json')),m=require('./preview/web/landscape.js')(d);console.log(JSON.stringify({categories:d.months.map((_,i)=>m.categories('all',i)),layerHistory:['Agent Infra','Model Infra'].map(s=>d.months.map((_,i)=>m.categories(s,i))),projects:m.projectRows('all','Serving · Inference',17),concentration:m.concentration('all',17),shift:m.shift('all',6,17),countries:m.country('all','all',12,17),countryCats:d.countries.map(c=>({code:c.code,rows:m.countryCategories('all',c.code,12,17)})),countryByCategory:m.sections('Agent Infra').map(k=>({key:k,name:d.sections[k].name,rows:m.country('Agent Infra',k,12,17)})),baseAgent:m.country('Agent Infra','all',12,17),countryHistory:d.months.map((_,i)=>m.country('all','all','month',i)),countryLayerHistory:['Agent Infra','Model Infra'].map(scope=>d.months.map((_,i)=>m.country(scope,'all','month',i)))}));'''
  M=json.loads(subprocess.check_output(['node','-e',js],cwd=ROOT,text=True));(work/'metrics.json').write_text(json.dumps(M,ensure_ascii=False,indent=2))
  common.font_setup(a.font,work,subset_text=Path(__file__).read_text()+p.manuscript()+json.dumps([D['projects'],D['sections'],D['countries']],ensure_ascii=False))
  body=ParagraphStyle('body',fontName=common.FONT,fontSize=11.2,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=8)
@@ -197,10 +220,11 @@ def main():
  pageout([architecture(1)],True);pageout([architecture(2)],True)
  pageout([t(p.STORIES[1][1],'heading'),t(p.STORIES[1][2][0]),rank(),t(p.STORIES[1][2][1])])
  pageout([overview(),compare(),t(p.HISTORY_NOTE)])
- pageout([projects(),t(p.STORIES[1][2][2]),t(p.STORIES[2][1],'heading'),t(p.STORIES[2][2][0]),concentration()])
- pageout([t(p.STORIES[2][2][1]),shift(),t(p.STORIES[2][2][2])])
+ pageout([projects(),t(p.PROJECT_NOTE),t(p.STORIES[2][1],'heading'),t(p.STORIES[2][2][0]),concentration()])
+ pageout([t(p.STORIES[1][2][2]),t(p.STORIES[2][2][1]),shift(),t(p.STORIES[2][2][2])])
  pageout([t(p.STORIES[3][1],'heading'),t(p.STORIES[3][2][0]),countrymap(),countrydetail()])
  pageout([dots(11),t(p.STORIES[3][2][1]),dots(12,True)])
- pageout([countrytrend(),t(p.STORIES[3][2][2]),t(p.ACTION_TITLE,'heading'),*[z for h,b in p.ACTIONS for z in [t(h,'action'),t(b)]],t(p.BRIDGE)])
+ pageout([countrytrend(),t(p.COUNTRY_NOTE),t(p.STORIES[3][2][2])])
+ pageout([t(p.ACTION_TITLE,'heading'),*[z for h,b in p.ACTIONS for z in [t(h,'action'),t(b)]],t(p.BRIDGE)])
  c.save();(work/'layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2));doc=fitz.open(a.output);print(f'{a.output}: {len(doc)} pages, {a.output.stat().st_size:,} bytes')
 if __name__=='__main__':main()

@@ -37,3 +37,18 @@ node preview/web/check_landscape_publication.cjs _site
 The DOM check requires `jsdom` in the Node module path. PDF generation uses the existing ReportLab, PyMuPDF and fontTools workflow and the same JavaScript calculation model as the Web charts.
 
 Live desktop review confirms all thirteen SVGs and bottom captions render without overlapping the following text. Fullscreen uses the remaining viewport height; figure captions explicitly override the global website footer layout. The complete-atlas view, local month selectors and fullscreen restoration are also checked in the deployed page.
+
+
+## Revision 2 — readable histories and layer comparison
+
+Edition: `2026-10-21-a-landscape-publication-v2` (supersedes v1 above).
+
+- Figure 4-1-3 reserves separate space below all 25 ranking rows for its legend and bottom caption; row 13 is unobstructed.
+- Figure 4-1-4 defaults to exact monthly rank matrices, retaining all 12 Agent and 13 Model categories. The PDF places both layers together. Web retains alternate metrics and the optional trajectory view.
+- Figure 4-1-5 separates the current top three categories into small multiples with one shared OpenRank scale (0–4,000 for the default 12-month window). Selection follows current category rank rather than visual appearance.
+- Figure 4-1-6 defaults to inference engines: all eight projects have current observations. Each row combines current rank/value and a monthly trend, with a shared 0–800 scale; missing months remain gaps. Web retains category/month/metric controls, pagination and optional overlays.
+- Figure 4-1-13 compares Agent Infra and Model Infra side by side for the same four countries on one scale. A current-month table shows each layer share and the percentage-point difference. Each layer denominator includes all countries, other and unknown; differences use unrounded values. These remain explicitly simulated observations.
+- Shared prose now explains rank versus value, the eight-project inference example and the two-layer country comparison. The personal-assistant concentration interpretation follows its concentration figure.
+- The revised private PDF is 12 pages, with the same two complete landscape architecture plates. No PDF is committed or published.
+
+Validation: the revised DOM check passes 352 assertions, including exact matrix ranks/coverage, common scales, absent project observations, pagination, independent months, both country denominators and share differences. The v3 source JSON and sections 4.2–4.6 are unchanged. The calculation, full-atlas and portal gates pass; the PDF is rendered and checked for clipping, caption clearance, complete project names and shared prose.

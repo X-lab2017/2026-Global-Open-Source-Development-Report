@@ -222,17 +222,19 @@
       scope: "Agent Infra",
       window: 12,
       metric: "rank",
+      view: "matrix",
       focus: null,
     },
     "al-category-trend": {
       categories: ["Personal AI assistants", "Serving · Inference", "Agentic coding"],
       window: 12,
-      metric: "rank",
+      metric: "value",
     },
     "al-project-rank": {
-      section: "Personal AI assistants",
+      section: "Serving · Inference",
       window: 12,
-      metric: "rank",
+      metric: "value",
+      view: "rows",
       month: LAST,
       picks: [],
       page: 0,
@@ -274,7 +276,8 @@
       scope: "all",
       section: "all",
       window: 12,
-      countries: ["US", "CN", "GB"],
+      countries: ["US", "CN", "DE", "GB"],
+      view: "layers",
     },
   };
   const palette = Array.from({ length: 8 }, (_, i) => `var(--gv-s${i})`);
@@ -500,7 +503,7 @@
         c.countries.push(value);
       } else c.countries = c.countries.filter((x) => x !== value);
     } else if (action === "countries-reset") {
-      c.countries = ["US", "CN", id === "al-country-trend" ? "GB" : "DE"];
+      c.countries = id === "al-country-trend" ? ["US", "CN", "DE", "GB"] : ["US", "CN", "DE"];
     } else if (action === "countries-all")
       c.countries = D.countries.map((x) => x.code);
     else if (action === "countries-none") c.countries = [];
@@ -907,6 +910,38 @@
       D.months[c.month],
     );
   }
+  // Shared-scale small multiples keep comparisons readable without altering values.
+  function smallPlot(series, {x=0,y=0,width=400,height=250,metric="value",window=12,maximum=1}={}) {
+    const first=LAST-window+1,L=x+45,R=x+width-15,T=y+15,B=y+height-30;
+    const px=i=>L+(R-L)*(i-first)/(window-1),py=v=>metric==="rank"?T+(B-T)*(v-1)/Math.max(maximum-1,1):B-(B-T)*v/maximum;
+    const ticks=metric==="rank"?[1,Math.ceil(maximum/2),maximum]:[0,maximum/2,maximum];let b="";
+    for(const v of ticks)b+=`<path d="M${L} ${py(v)}H${R}" stroke="var(--gv-line)"/>`+text(L-8,py(v)+5,metric==="share"?pct(v):F(v,0),'font-size="14" text-anchor="end" fill="var(--gv-muted)"');
+    for(const i of [first,Math.floor((first+LAST)/2),LAST])b+=text(px(i),B+23,D.months[i].slice(2).replace('-','.'),'font-size="14" text-anchor="middle" fill="var(--gv-muted)"');
+    for(const s of series){let path="",connected=false;for(let i=first;i<=LAST;i++){const v=s.values[i];if(!M.num(v)){connected=false;continue;}path+=(connected?'L':'M')+px(i)+','+py(v);connected=true;const label=`${s.name} · ${D.months[i]} · ${metric==='share'?pct(v):F(v,metric==='rank'?0:2)}`;b+=`<circle cx="${px(i)}" cy="${py(v)}" r="3.5" fill="${s.color}" tabindex="0"><title>${E(label)}</title></circle>`;}b+=`<path d="${path}" fill="none" stroke="${s.color}" stroke-width="2.4"/>`;}
+    return b;
+  }
+  function rankMatrix(c,ss,history){
+    const first=start(c),left=280,cw=950/c.window,row=31,height=95+ss.length*row;
+    const ordered=history[LAST].map(r=>r.key);let b=text(15,24,'月度位次 · 大类内分别排序','font-size="17" fill="var(--gv-muted)"');
+    for(let i=first;i<=LAST;i++)b+=text(left+(i-first+.5)*cw,51,D.months[i].slice(2).replace('-','.'),'font-size="14" text-anchor="middle"');
+    ordered.forEach((key,j)=>{const y=65+j*row;let cells=text(15,y+21,catName(key),'font-size="17"');for(let i=first;i<=LAST;i++){const r=history[i].find(r=>r.key===key),opacity=M.num(r.rank)?.08+.32*(1-(r.rank-1)/Math.max(ss.length-1,1)):.04,x=left+(i-first)*cw;cells+=`<g tabindex="0"><title>${E(catName(key)+' · '+D.months[i]+' · '+(M.num(r.rank)?'第 '+r.rank+' 位':'无观测')+' · 覆盖 '+r.coverage+'/'+r.count)}</title><rect x="${x}" y="${y}" width="${cw-3}" height="28" rx="3" fill="var(--gv-cyan)" fill-opacity="${opacity}"/>`+text(x+(cw-3)/2,y+21,r.rank??'—','font-size="16" text-anchor="middle"')+'</g>';}b+=mark('focus',key,catName(key),`<g opacity="${c.focus && c.focus!==key ? .22 : 1}">${cells}</g>`,c.focus===key);});
+    b+=text(15,height-10,'行序按期末位次；颜色越深，位次越靠前。数字为准确位次。','font-size="14" fill="var(--gv-muted)"');return svg(1280,height,b,'技术类别月度位次矩阵');
+  }
+  function projectRowsGraphic(c,shown,rows,histories){
+    const L=510,R=1240,first=start(c),H=110+shown.length*66;
+    const values=histories.slice(first).flatMap(rr=>rr.map(r=>r[c.metric])).filter(M.num);
+    const maximum=c.metric==='rank'?rows.length:c.metric==='share'?Math.ceil(Math.max(...values,.1)*10)/10:Math.max(1,Math.ceil(Math.max(...values,1)/100)*100);
+    let b=text(15,25,D.months[c.month]+' 位次 / 项目','font-size="19"')+text(440,25,'OpenRank','font-size="16" text-anchor="end"');
+    for(const i of [first,Math.floor((first+LAST)/2),LAST])b+=text(L+(R-L)*(i-first)/(c.window-1),25,D.months[i],'font-size="14" text-anchor="middle"');
+    shown.forEach((r,j)=>{const y=62+j*66,B=y+36,T=y-9,color='var(--gv-brand)';b+=`<rect x="0" y="${y-18}" width="1280" height="64" fill="${j%2?'var(--gv-surface)':'var(--gv-raised)'}"/>`;
+      b+=mark('open-project',r.key,'查看 '+r.name+' 详情',text(15,y+15,`${r.rank??'—'}  ${r.name}`,'font-size="18"'))+text(440,y+15,F(r.value),'font-size="17" text-anchor="end"');
+      b+=`<path d="M${L} ${B}H${R}" stroke="var(--gv-line)"/>`;let path='',connected=false;
+      for(let i=first;i<=LAST;i++){const v=histories[i].find(x=>x.key===r.key)[c.metric];if(!M.num(v)){connected=false;continue;}const xx=L+(R-L)*(i-first)/(c.window-1),yy=c.metric==='rank'?T+(B-T)*(v-1)/Math.max(maximum-1,1):B-(B-T)*v/maximum;path+=(connected?'L':'M')+xx+','+yy;connected=true;b+=mark('project-month',String(i),`${r.name} · ${D.months[i]} · ${c.metric==='share'?pct(v):F(v,c.metric==='rank'?0:2)}`,`<circle cx="${xx}" cy="${yy}" r="${i===c.month?5:3.5}" fill="${i===c.month?'var(--gv-gold)':color}"/>`);}
+      b+=`<path d="${path}" fill="none" stroke="${color}" stroke-width="2.2" pointer-events="none"/>`;
+    });
+    b+=text(15,H-15,`逐行共用刻度：${c.metric==='rank'?'1—'+maximum:c.metric==='share'?'0—'+pct(maximum):'0—'+F(maximum,0)} · ${c.metric==='rank'?'类内位次':c.metric==='share'?'类内份额':'OpenRank'}；空缺月份断开。`,'font-size="15" fill="var(--gv-muted)"');return svg(1280,H,b,'类别项目逐行排名与月度影响力');
+  }
+
   function renderOverview() {
     const id = "al-category-heat",
       c = configs[id],
@@ -922,6 +957,7 @@
       scopeControls(c, false) +
         windowControls(c) +
         metricControls(c) +
+        (c.metric === "rank" ? segment("view", [["matrix","月度矩阵"],["lines","轨迹"]],c.view,"呈现方式") : "") +
         `<div class="al-focus-chips" aria-label="聚焦类别">${ss.map((k) => `<button type="button" data-action="focus" data-value="${E(k)}" aria-pressed="${c.focus === k}" style="--al-choice-color:${overviewColor(k)}">${E(catName(k))}</button>`).join("")}</div>`,
     );
     const series = ss.map((k) => ({
@@ -936,7 +972,7 @@
     }));
     setChart(
       id,
-      svg(
+      c.metric === "rank" && c.view === "matrix" ? rankMatrix(c,ss,history) : svg(
         1280,
         570,
         trajectory(series, {
@@ -960,7 +996,7 @@
           关注: c.focus === r.key ? "是" : "否",
         })),
       ),
-      `${c.scope} · ${period(c)} · 位次和份额仅在本大类内计算；默认标注当前前三，其余保留灰色轨迹；点击名称或曲线可聚焦，再次点击恢复全部。`,
+      `${c.scope} · ${period(c)} · 位次和份额仅在本大类内计算；矩阵保留全部类别，轨迹视图可聚焦单类。`,
       false,
       c.scope,
       period(c),
@@ -986,28 +1022,13 @@
           return `${r.coverage}/${r.count}`;
         }),
       }));
-    let cards = c.categories
-      .map((k, i) => {
-        let now = history[LAST].find((r) => r.key === k),
-          before = history[start(c)].find((r) => r.key === k),
-          move = now.rank && before.rank ? before.rank - now.rank : null;
-        return `<div style="--al-choice-color:${palette[i]}"><b>${E(catName(k))}</b><span>当前 #${now.rank ?? "—"} · ${move === null ? "位次待补" : move > 0 ? "↑ " + move + " 位" : move < 0 ? "↓ " + -move + " 位" : "位次不变"}</span><small>OR ${F(now.value)} · ${now.coverage}/${now.count} 有值</small></div>`;
-      })
-      .join("");
+    const values=series.flatMap(s=>s.values.slice(start(c))).filter(M.num);
+    const maximum=c.metric==='rank'?25:c.metric==='share'?Math.max(.1,Math.ceil(Math.max(...values,.1)*10)/10):Math.max(100,Math.ceil(Math.max(...values,1)/1000)*1000);
+    const width=1280/c.categories.length;let charts='';
+    series.forEach((s,j)=>{const x=j*width,now=history[LAST].find(r=>r.key===s.key);charts+=text(x+15,30,s.name,'font-size="23" font-weight="600"')+text(x+15,59,`OpenRank ${F(now.value)} · ${now.coverage}/${now.count} 有值`,'font-size="16" fill="var(--gv-muted)"');charts+=smallPlot([s],{x,y:75,width:width-10,height:300,metric:c.metric,window:c.window,maximum});});
     setChart(
       id,
-      `<div class="al-compare-summary">${cards}</div>` +
-        svg(
-          1280,
-          490,
-          trajectory(series, {
-            height: 490,
-            metric: c.metric,
-            window: c.window,
-            rankMax: 25,
-          }),
-          "所选子类别排名与变化",
-        ),
+      svg(1280,405,charts,'重点类别独立小图，统一刻度'),
       history.slice(start(c)).flatMap((rr, j) =>
         rr
           .filter((r) => c.categories.includes(r.key))
@@ -1020,7 +1041,7 @@
             覆盖: `${r.coverage}/${r.count}`,
           })),
       ),
-      `可跨 Agent / Model 选择 1—3 类。位次与份额分母始终为整个领域；最近选择的类别也会带入项目图。`,
+      `所选类别独立成图、共用刻度。位次与份额分母为全领域 25 类；类别变动不等于同一批项目的增长。`,
       false,
       "整个领域",
       period(c),
@@ -1036,7 +1057,7 @@
     const shown = rows.slice(c.page * 8, c.page * 8 + 8);
     controls(
       id,
-      familyPicker([c.section]) +
+      familyPicker([c.section]) + segment("view",[["rows","逐项比较"],["compare","叠线比较"]],c.view,"项目比较方式") +
         `<div class="al-control-row">${windowControls(c)}${metricControls(c)}${optionSelect(
           id,
           "month",
@@ -1046,7 +1067,7 @@
             .slice(start(c))
             .reverse(),
           c.month,
-        )}</div><div class="al-project-toolbar"><span>${E(catName(c.section))} · ${rows.length} 项目 · 勾选最多 3 项比较</span><div><button type="button" data-action="page" data-value="-1" ${c.page === 0 ? "disabled" : ""}>上一页</button><span>${c.page + 1} / ${numPages}</span><button type="button" data-action="page" data-value="1" ${c.page + 1 === numPages ? "disabled" : ""}>下一页</button></div></div>`,
+        )}</div><div class="al-project-toolbar"><span>${E(catName(c.section))} · ${rows.length} 项目 · ${c.view === "rows" ? "逐行比较全部项目" : "勾选最多 3 项比较"}</span><div><button type="button" data-action="page" data-value="-1" ${c.page === 0 ? "disabled" : ""}>上一页</button><span>${c.page + 1} / ${numPages}</span><button type="button" data-action="page" data-value="1" ${c.page + 1 === numPages ? "disabled" : ""}>下一页</button></div></div>`,
     );
     let b =
       text(
@@ -1116,7 +1137,7 @@
     );
     setChart(
       id,
-      svg(1280, 560, b, "项目榜与历史曲线同图联动"),
+      c.view === "rows" ? projectRowsGraphic(c,shown,rows,histories) : svg(1280, 560, b, "项目榜与历史曲线同图联动"),
       histories.slice(start(c)).flatMap((rr, j) =>
         rr.map((r) => ({
           月份: D.months[start(c) + j],
@@ -1128,7 +1149,7 @@
           曲线已选: c.picks.includes(r.key) ? "是" : "否",
         })),
       ),
-      `${catName(c.section)} · 点击曲线上的月份节点，左侧切换到该月排行。当前比较 ${c.picks.length} 项；缺失月份留空，不计为零。`,
+      `${catName(c.section)} · 点击曲线上的月份节点，左侧切换到该月排行。${c.view === "rows" ? "逐行统一刻度" : "当前比较 "+c.picks.length+" 项"}；缺失月份留空，不计为零。`,
       false,
       catName(c.section),
       period(c),
@@ -1725,41 +1746,17 @@
     );
   }
   function renderCountryTrend() {
-    const id = "al-country-trend",
-      c = configs[id],
-      history = D.months.map((_, i) =>
-        M.country(c.scope, c.section, "month", i),
-      ),
-      series = c.countries.map((code) => ({
-        key: code,
-        name: cc(code).name,
-        color: cc(code).color,
-        values: history.map((rr) => rr.find((r) => r.code === code).share),
-      }));
-    controls(id, countryControls(id, c, { category: true }) + countryPicker(c));
-    setChart(
-      id,
-      svg(
-        1280,
-        540,
-        trajectory(series, { height: 540, metric: "share", window: c.window }),
-        "关注国家的月度贡献份额",
-      ),
-      history.slice(start(c)).flatMap((rr, j) =>
-        rr.map((r) => ({
-          月份: D.months[start(c) + j],
-          国家: r.name,
-          模拟贡献量: r.value,
-          贡献份额: pct(r.share),
-          关注: c.countries.includes(r.code) ? "是" : "否",
-        })),
-      ),
-      `${countryScope(c)} · ${period(c)} · 当前显示 ${c.countries.length} 条曲线；未显示国家的贡献仍保留在各月分母中。`,
-      true,
-      countryScope(c),
-      period(c),
-      c.countries.map((k) => cc(k).name).join(" / ") || "未选择国家",
-    );
+    const id='al-country-trend',c=configs[id],layers=c.view==='layers'?['Agent Infra','Model Infra']:[c.scope];
+    controls(id,segment('view',[['layers','两层对照'],['single','按范围查看']],c.view,'贡献变化视图')+(c.view==='layers'?windowControls(c):countryControls(id,c,{category:true}))+countryPicker(c));
+    const histories=layers.map(scope=>D.months.map((_,i)=>M.country(scope,c.view==='layers'?'all':c.section,'month',i)));
+    const groups=histories.map(history=>c.countries.map(code=>({key:code,name:cc(code).name,color:cc(code).color,values:history.map(rr=>rr.find(r=>r.code===code).share)})));
+    const values=groups.flatMap(g=>g.flatMap(s=>s.values.slice(start(c)))),maximum=Math.max(.1,Math.ceil(Math.max(...values,.1)*10)/10),width=1280/layers.length;
+    let b='';layers.forEach((layer,j)=>{const x=j*width;b+=text(x+15,30,scopeName(layer),'font-size="24" font-weight="600"')+smallPlot(groups[j],{x,y:45,width:width-15,height:300,metric:'share',window:c.window,maximum});});
+    c.countries.forEach((code,j)=>{const x=15+(j%5)*245,y=370+Math.floor(j/5)*27;b+=`<circle cx="${x}" cy="${y-5}" r="5" fill="${cc(code).color}"/>`+text(x+13,y,cc(code).name,'font-size="17"');});
+    const tableY=385+Math.ceil(c.countries.length/5)*27;let height=tableY+30;
+    if(layers.length===2){b+=text(15,tableY,D.months[LAST]+' 期末对照','font-size="19"')+text(650,tableY,'Agent Infra','font-size="17" text-anchor="end"')+text(890,tableY,'Model Infra','font-size="17" text-anchor="end"')+text(1250,tableY,'Agent − Model / 百分点','font-size="17" text-anchor="end"');c.countries.forEach((code,j)=>{const y=tableY+34+j*29,a=histories[0][LAST].find(r=>r.code===code).share,z=histories[1][LAST].find(r=>r.code===code).share;b+=text(15,y,cc(code).name,'font-size="18"')+text(650,y,pct(a),'font-size="18" text-anchor="end"')+text(890,y,pct(z),'font-size="18" text-anchor="end"')+text(1250,y,signed((a-z)*100),'font-size="18" text-anchor="end"');});height=tableY+64+c.countries.length*29;}
+    if(!c.countries.length)b+=text(640,180,'选择国家查看趋势','font-size="20" text-anchor="middle"');
+    setChart(id,svg(1280,height,b,'国家贡献份额：两层月度轨迹与期末对照'),histories.flatMap((history,j)=>history.slice(start(c)).flatMap((rr,k)=>rr.map(r=>({技术层:scopeName(layers[j]),月份:D.months[start(c)+k],国家:r.name,模拟贡献量:r.value,贡献份额:pct(r.share),关注:c.countries.includes(r.code)?'是':'否'})))),`${period(c)} · ${c.view==='layers'?'两层共用纵轴，分母分别为各层全部贡献；期末差值为 Agent 减 Model，按未舍入数值计算。':countryScope(c)+' · '}其他与未知始终保留分母；全部为模拟数据。`,true,layers.map(scopeName).join(' / '),period(c),c.countries.map(code=>cc(code).name).join(' / '));
   }
   function render(id) {
     const f = {

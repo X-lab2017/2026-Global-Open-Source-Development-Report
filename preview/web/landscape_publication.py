@@ -1,7 +1,7 @@
 """Chapter 4 opening and 4.1: a shared publication manuscript; observed data unchanged."""
 from html import escape as E
 from goso_reading import Tree,Node,fragment,remove
-EDITION='2026-10-21-a-landscape-publication-v1'
+EDITION='2026-10-21-a-landscape-publication-v2'
 CHAPTER_TITLE='第四章 全球开源技术全景洞察（GOSL）'
 CHAPTER_QUESTION='开源技术如何分工协作，哪些基础能力值得持续支持？'
 CHAPTER_INTRO='第三章从榜单识别重要主体与成果，本章将项目放回技术结构，观察它们共同提供了哪些能力。六个领域分别覆盖智能体、模型、云基础设施、数据库、处理器架构与深度学习生态，为技术选型、公共投入和跨组织协作提供参照。'
@@ -13,8 +13,10 @@ INTRO='智能体将模型能力接入具体任务，需要应用入口、编排�
 QUESTION='智能体生态由哪些能力共同支撑，影响力分布与项目集中度提示了哪些维护重点？'
 POSITION='技术分类描述功能分工；OpenRank 观察开源协作网络影响力，不代表模型能力、市场规模或使用量。'
 FINDING='2026 年 8 月，个人助手、推理引擎和编码代理位居样本类别影响力前三。个人助手的影响力主要集中于两个头部项目；采用连续可比样本后，多代理编排的份额上升较明显。国家贡献图为模拟示例，不用于判断真实地域格局。'
-HISTORY_NOTE='月度位次在每个月分别计算，比较图的位次覆盖全领域 25 类。类别有值项目数变化时，需要回到共同样本进一步核查；曲线用于定位变化，不单凭位次判断投入成效。'
-FIGURES=[('al-agent','Agent Infra 技术全景'),('al-model','Model Infra 技术全景'),('al-category-rank','技术类别影响力分布'),('al-category-heat','两层技术类别的月度位次变化'),('al-category-trend','重点类别的影响力轨迹比较'),('al-project-rank','类别内项目排名与历史变化'),('al-concentration','类别内头部项目集中度'),('al-shift','共同样本的类别份额变化'),('al-country-rank','国家贡献分布与排名（模拟）'),('al-country-detail','国家贡献的技术类别结构（模拟）'),('al-country-stack','技术类别中的国家贡献份额（模拟）'),('al-specialization','国家相对专长比较（模拟）'),('al-country-trend','国家贡献份额的月度变化（模拟）')]
+HISTORY_NOTE='位次与数值回答不同问题。图 4-1-4 用矩阵呈现各类别的月度位置；图 4-1-5 将当期前三类拆开，以相同刻度比较 OpenRank。位次靠前不等于数值持续增长，观测覆盖变化也需一并核查。'
+PROJECT_NOTE='推理引擎提供了跨项目比较的具体例子。该类别 8 个项目在 2026 年 8 月均有观测，前三位为 SGLang、vLLM 和 TensorRT-LLM，OpenRank 分别为 160.30、148.64 和 138.69。逐项趋势使用统一刻度，保留缺失月份，便于把当前排名放回连续记录中理解。'
+COUNTRY_NOTE='两层对照揭示汇总可能掩盖的结构差异。图 4-1-13 将 Agent Infra 与 Model Infra 分开，以同一刻度观察所选国家；期末对照列出两层份额及其差值。两边分别以本层全部模拟贡献为分母，不能直接相加，也不据此推断真实国家优势。'
+FIGURES=[('al-agent','Agent Infra 技术全景'),('al-model','Model Infra 技术全景'),('al-category-rank','技术类别影响力分布'),('al-category-heat','两层技术类别的月度位次变化'),('al-category-trend','重点类别的月度影响力比较'),('al-project-rank','类别内项目排名与月度影响力'),('al-concentration','类别内头部项目集中度'),('al-shift','共同样本的类别份额变化'),('al-country-rank','国家贡献分布与排名（模拟）'),('al-country-detail','国家贡献的技术类别结构（模拟）'),('al-country-stack','技术类别中的国家贡献份额（模拟）'),('al-specialization','国家相对专长比较（模拟）'),('al-country-trend','两层国家贡献份额的月度对照（模拟）')]
 STORIES=[
 ('land-map','4.1.1 技术结构：连接任务、执行与模型能力',[
  '两张全景分别展示 Agent Infra 的 86 个项目、12 个类别，以及 Model Infra 的 59 个项目、13 个类别。前者从任务入口延伸到编排与运行支撑，后者覆盖模型服务、训练、数据和计算。图中位置表示功能分层，不表示项目之间已经存在依赖关系。',
@@ -62,9 +64,11 @@ def apply(html):
    out.append(panels[id].html())
    if i==1 and j==0:out.append(interpretation(ps[1]))
    if i==1 and j==2:out.append(para(HISTORY_NOTE))
-   if i==2 and j==0:out.append(interpretation(ps[1]))
+   if i==1 and j==3:out.append(para(PROJECT_NOTE))
+   if i==3 and j==4:out.append(para(COUNTRY_NOTE))
+   if i==2 and j==0:out.extend([interpretation(STORIES[1][2][2]),interpretation(ps[1])])
    if i==3 and j==2:out.append(interpretation(ps[1]))
-  out += [interpretation(ps[-1]),'</section>']
+  out += ([] if i==1 else [interpretation(ps[-1])])+['</section>']
  out += ['<section class="al-section lp-story" id="land-action"><h3>'+E(ACTION_TITLE)+'</h3>']
  for title,body in ACTIONS:out += ['<h4 class="lp-action">'+E(title)+'</h4>',para(body)]
  out += [para(BRIDGE),'</section></section>']
@@ -73,4 +77,4 @@ def apply(html):
  at=root.children.index(old);root.children[at:at+1]=fragment(''.join(out))
  return tree.root.html()
 def manuscript():
- return '\n\n'.join([CHAPTER_TITLE,CHAPTER_QUESTION,CHAPTER_INTRO,*[h+'。'+b for h,b in CHAPTER_OBSERVATIONS],*[t+' '+d for t,d in TOPICS],PERIOD,TITLE,INTRO,QUESTION,POSITION,FINDING,HISTORY_NOTE,*[x for _,h,ps in STORIES for x in [h,*ps]],*[t for _,t in FIGURES],ACTION_TITLE,*[h+'。'+t for h,t in ACTIONS],BRIDGE,*NOTES])
+ return '\n\n'.join([CHAPTER_TITLE,CHAPTER_QUESTION,CHAPTER_INTRO,*[h+'。'+b for h,b in CHAPTER_OBSERVATIONS],*[t+' '+d for t,d in TOPICS],PERIOD,TITLE,INTRO,QUESTION,POSITION,FINDING,HISTORY_NOTE,PROJECT_NOTE,COUNTRY_NOTE,*[x for _,h,ps in STORIES for x in [h,*ps]],*[t for _,t in FIGURES],ACTION_TITLE,*[h+'。'+t for h,t in ACTIONS],BRIDGE,*NOTES])
