@@ -1305,3 +1305,26 @@
   .gm-framework-print { display:block !important; }
   .gm-framework-print svg { width:100%;height:auto; }
 }
+
+/* Keep the chapter framework, explanatory focus and caption together. */
+.gm-framework-panel { position:relative; }
+.gm-framework-panel .gm-view > .gm-svg { max-height:440px; }
+.gm-framework-panel .gm-framework-caption { display:block!important; width:100%;padding:7px 0 0!important;margin:0;border-top:1px solid var(--gm-line);text-align:center; }
+.gm-framework-panel .gm-framework-caption h3 { font-size:16px!important;line-height:1.6;font-weight:500; }
+.gm-framework-panel > :is(.gm-source,.gm-table):not([open]) { display:none; }
+.gm-framework-panel > :is(.gm-source,.gm-table)[open] { position:absolute;inset:42px 12px 10px;z-index:12;overflow:auto;padding:18px;background:var(--gm-bg);border:1px solid var(--gm-line);border-radius:6px; }
+.gm-framework-panel .gm-framework-focus { padding:12px 18px;gap:24px; }
+.gm-framework-panel .gm-framework-focus h4 { font-size:18px!important;margin:4px 0 6px!important; }
+.gm-framework-panel .gm-framework-focus p { margin:5px 0!important;line-height:1.7; }
+.gm-framework-panel .gm-readout p { margin:6px 0!important; }
+@media (min-width:761px) {
+ .gm-chapter #gm-fullscreen:has(.gm-framework-panel) { display:grid;grid-template-rows:auto minmax(0,1fr);height:calc(100dvh - 16px);width:calc(100vw - 16px);overflow:hidden;max-width:none; }
+ .gm-chapter #gm-fullscreen:not([open]) { display:none; }
+ #gm-fullscreen:has(.gm-framework-panel) .gm-fullscreen-bar { position:static;min-height:0;padding:8px 14px; }
+ #gm-fullscreen:has(.gm-framework-panel) #gm-fullscreen-body { height:100%;min-height:0;box-sizing:border-box;padding:8px 16px;overflow:hidden; }
+ #gm-fullscreen-body .gm-framework-panel { display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto;height:100%;min-height:0;gap:6px;box-sizing:border-box;padding:0 12px; }
+ #gm-fullscreen-body .gm-framework-panel .gm-chart-head,#gm-fullscreen-body .gm-framework-panel .gm-controls { margin:0;padding:0; }
+ #gm-fullscreen-body .gm-framework-panel .gm-view { display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0; }
+ #gm-fullscreen-body .gm-framework-panel .gm-view > .gm-svg { min-height:0;height:100%;width:100%;max-height:100%; }
+}
+@media print { .gm-framework-panel .gm-framework-caption { display:none!important; } }
