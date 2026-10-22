@@ -92,7 +92,7 @@ class Cover(Flowable):
   svg_image(ROOT/'preview/content/assets/cocreation-disc-dark.svg',295,105,244)
   svg_image(ROOT/'preview/content/assets/ccosi-cn-white.svg',54,166,145)
   text(56,134,'INCLUSION · QUALITY',10,'#bcd0db');text(56,115,'PARTICIPATION · IMPACT',10,'#bcd0db')
-  text(54,53,pub.copy('cover_note','zh')+'  |  2026.10.20',9.6,'#bcd0db')
+  text(54,53,pub.copy('cover_note','zh')+'  |  '+pub.EDITION[:10].replace('-','.'),9.6,'#bcd0db')
   c.restoreState()
 
 class Contents(Flowable):

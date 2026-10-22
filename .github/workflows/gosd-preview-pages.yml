@@ -38,7 +38,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Install publication dependencies
-        run: python3 -m pip install reportlab==4.4.3 fonttools==4.60.1 pymupdf==1.26.5 pypdf==6.1.1
+        run: python3 -m pip install reportlab==4.4.3 fonttools==4.60.1 pymupdf==1.26.5 pypdf==6.1.1 playwright==1.55.0
+      - name: Install publication browser
+        run: python3 -m playwright install --with-deps chromium
       - name: Build publication PDFs
         run: python3 preview/web/build_publication_pdfs.py
       - name: Build and check publication
@@ -79,6 +81,10 @@ jobs:
           node --check _site/report.js
           node --check _site/portal.js
           node --check _site/explore.js
+      - name: Check appendix browser layouts
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: python3 preview/web/check_appendix_browser.py --output _site --base-path "$BASE_PATH"
       - name: Upload publication review files
         if: always()
         uses: actions/upload-artifact@v4
