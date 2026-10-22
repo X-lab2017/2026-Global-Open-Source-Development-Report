@@ -140,7 +140,7 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
         main=main.replace('评审预览 · 2026.10.16','正式发布 · 更新 2026.10.19').replace('Review preview · 2026.10.16','Published · Updated 2026.10.19').replace('2025.07 — 2026.06',t('各图标注统计期','Periods are labelled per figure'))
     action_assets='<link rel="stylesheet" href="/chapter6.css?v=20261022-ch6-review"><script src="/chapter6.js?v=20261022-ch6-review" defer></script>' if route=='chapters/06/' else ''
     if route=='chapters/06/':
-        main=main.replace('评审预览 · 2026.10.16','第六章评审版 · 2026.10.18').replace('Review preview · 2026.10.16','Chapter 6 review · 2026.10.18').replace('2025.07 — 2026.06',t('综合前文证据 · 行动建议','Evidence synthesis · Recommended actions'))
+        main=main.replace('评审预览 · 2026.10.16','第六章整章评审版 · 2026.10.22').replace('Review preview · 2026.10.16','Chapter 6 review · 2026.10.22').replace('2025.07 — 2026.06',t('综合前文证据 · 行动建议','Evidence synthesis · Recommended actions'))
     architecture_assets='<link rel="stylesheet" href="/report-architecture.css?v=20261018-journey"><script src="/report-architecture.js?v=20261018-journey" defer></script>' if 'id="fig-report-logic"' in content else ''
     if is_home or route in ['', 'summary/', 'introduction/']:
         architecture_assets+='<link rel="stylesheet" href="/frontmatter.css?v=20261019-front-baseline">'
