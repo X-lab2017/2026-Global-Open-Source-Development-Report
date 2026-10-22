@@ -39,7 +39,7 @@ for lang in ['zh','en']:
     entry=(out/('index.html' if lang=='zh' else 'en/index.html')).read_text()
     assert 'id="fig-report-logic"' not in entry and 'home-reading-start' in entry
     methods=Page((out/f'2026/{lang}/methodology/index.html').read_text())
-    assert '2.2235' in ' '.join(methods.text) and '34' in ' '.join(methods.text)
+    assert all(x in ' '.join(methods.text) for x in ['2.2235','ModelRank','870','884','A.8'])
     data=Page((out/f'2026/{lang}/data/sources/index.html').read_text())
     for entry in r['datasets']:assert 'dataset-'+entry['dataset_id'] in data.ids
     indicators=Page((out/f'2026/{lang}/data/indicators/index.html').read_text())

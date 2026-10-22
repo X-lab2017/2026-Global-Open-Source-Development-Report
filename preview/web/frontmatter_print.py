@@ -92,7 +92,7 @@ class Cover(Flowable):
   svg_image(ROOT/'preview/content/assets/cocreation-disc-dark.svg',295,105,244)
   svg_image(ROOT/'preview/content/assets/ccosi-cn-white.svg',54,166,145)
   text(56,134,'INCLUSION · QUALITY',10,'#bcd0db');text(56,115,'PARTICIPATION · IMPACT',10,'#bcd0db')
-  text(54,53,pub.copy('cover_note','zh')+'  |  2026.10.20',9.6,'#bcd0db')
+  text(54,53,pub.copy('cover_note','zh')+'  |  '+pub.EDITION[:10].replace('-','.'),9.6,'#bcd0db')
   c.restoreState()
 
 class Contents(Flowable):
@@ -168,6 +168,7 @@ def build_front(path,figs,page_map=None):
   elif block.startswith('#### '):story.append(P(block[5:],'subsection'))
   elif block.startswith('**原则'):story.append(P(block.strip('*'),'subsection'))
   else:story.append(P(block))
+ story.append(P('宣言依据报告收录文本；指定来源：飞书文档《全球开源与人工智能国际合作宣言》。英文为本报告译文。','note'))
  doc=FrontDoc(path);doc.build(story);return doc
 
 def assemble(front,doc,output):

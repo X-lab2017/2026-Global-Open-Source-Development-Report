@@ -73,14 +73,6 @@ def body(u,lang):
         out.append(table([t('范围','Scope'),t('安排','Approach')],rows))
         out.append('<h2>'+t('方法信息统一集中','A shared methods reference')+'</h2>'+para(t('指标定义、对象映射、算法版本、样本覆盖、缺失处理与局限集中在附录 A。各章图表通过稳定 ID 关联对应定义，详细核验随内容推进。','Appendix A collects indicator definitions, entity mappings, algorithm versions, sample coverage, missing-data treatment and limitations. Figures link to relevant definitions through stable IDs.')))
         out.append(link('/?lang='+lang+'#framework',t('浏览四支柱、十维度与 29 项指标 →','Explore the four pillars, ten dimensions and 29 indicators →')))
-    elif u['kind']=='declaration':
-        out.append('<h2>'+t('宣言已作为报告引言','The declaration now opens the report')+'</h2>')
-        out.append(para(t('《全球开源与人工智能国际合作宣言》全文收录于引言，作为报告的价值起点。本页保留来源与收录说明，不重复正文。','The Declaration on International Cooperation in Open Source and Artificial Intelligence appears in full in the introduction as the report’s value foundation. This page records its source and inclusion without repeating the text.')))
-        out.append(link('/2026/'+lang+'/introduction/#declaration-text',t('阅读宣言全文 →','Read the full declaration →')))
-        out.append('<h2>'+t('来源与编辑处理','Source and editorial treatment')+'</h2>')
-        out.append(para(t('本次收录依据仓库保存的《引言-宣言》文本，开头已与主编提供的截图核对。指定飞书页面目前需要登录，尚未完成在线版本的逐段核对。','This edition uses the declaration retained in the repository, with its opening checked against the editor’s screenshot. The selected Feishu page currently requires sign-in; its live text has not been compared paragraph by paragraph.')))
-        out.append(para(t('宣言正文与七项原则保持原文，报告另加导语和章节衔接；原稿中的图片占位与编辑提示不纳入正文。英文为本报告译文，非另行核定的官方译本。','The declaration and its seven principles are preserved, with report framing added before and after. Image placeholders and editorial notes are omitted. The English text is a translation prepared for this report, not a separately endorsed official translation.')))
-        out.append(link(u['source_url'],t('打开指定来源 ↗','Open the selected source ↗')))
     elif u['kind']=='dpg':
         out.append('<div class="reader-note">'+t('研究评估框架草案。现有分级与案例待审阅，不作为已实施的官方认证。','Draft research assessment framework. Proposed classifications and cases require review and do not represent an implemented official certification.')+'</div>')
         out.append('<h2>'+t('从评估问题到可查证据','From assessment questions to evidence')+'</h2>')

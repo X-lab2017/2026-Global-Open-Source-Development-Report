@@ -13,6 +13,8 @@ REPO='https://github.com/X-lab2017/2026-Global-Open-Source-Development-Report/bl
 CH1='chapters/chapter1/'
 INTRO=CH1+'本章介绍.md'
 METHOD='appendices/附录A-指标体系与数据来源.md'
+METHOD_EN='appendices/appendix-a.en.md'
+def method_source(lang):return METHOD if lang=='zh' else METHOD_EN
 PARTS=[CH1+x for x in ['1.1-开源-数字公共品与可持续发展引擎.md','1.2-OSDGs-开源发展目标框架.md','1.3-OSDI-开源发展度量体系.md']]
 IND={r['indicator_code']:r for r in R['indicators']}
 DS={r['path']:r for r in R['datasets']}
@@ -34,7 +36,8 @@ def mapped_url(href,src,lang):
     name=posixpath.normpath(posixpath.join(posixpath.dirname(src),unquote(u.path)))
     if name==INTRO:return path(lang,'chapters/01/')+'#chapter-intro'
     if name in PARTS:return path(lang,'chapters/01/')+'#ch01-s0'+str(PARTS.index(name)+1)
-    if name==METHOD:return path(lang,'methodology/')
+    if name in [METHOD,METHOD_EN]:return path(lang,'methodology/')
+    if name=='appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md':return path(lang,'appendices/dpg/')
     if name=='data/meta/数据可用性清单.md':return path(lang,'data/sources/')
     if name=='data/meta/osdi_indicator_dictionary.csv':return path(lang,'data/indicators/')
     if name in DS:return path(lang,'data/sources/')+'#dataset-'+DS[name]['dataset_id']
@@ -107,7 +110,7 @@ def render(src,lang,prefix,skip_title=True):
         para=[line];i+=1
         while i<len(lines) and lines[i].strip() and not re.match(r'^(#|\||>|- |\d+\. |!\[|\$\$)',lines[i].strip()):para.append(lines[i].strip());i+=1
         out.append('<p>'+inline(' '.join(para),src,lang)+'</p>')
-    return '<div class="manuscript" lang="zh-CN">'+''.join(out)+'</div>'
+    return '<div class="manuscript" lang="'+('en' if src==METHOD_EN else 'zh-CN')+'">'+''.join(out)+'</div>'
 def translation_note(lang):
     return '' if lang=='zh' else '<div class="reader-note">The reviewed Chinese manuscript is shown below. The English translation is in preparation; interface labels and navigation remain available in English.</div>'
 def source_bar(src,lang):
@@ -117,7 +120,19 @@ def chapter(lang):
     return reading_experience.chapter(lang,sys.modules[__name__])
 
 def methods(lang):
-    return '<div class="reader-note">'+T(lang,'数据进展：数据目录按已入库文件更新；下文附录保留历史方法记录。新增模型数据采用各表标注的月度或快照窗口，不统一归入代码报告年度。','Data update: the base catalogue contains 50 processed CSVs; section 4.1 lists its supplementary evidence separately. The source appendix below retains its earlier 34-file inventory and method record. New model data retain their stated monthly or snapshot windows.')+'</div>'+translation_note(lang)+source_bar(METHOD,lang)+'<details class="local-toc" open><summary>'+T(lang,'方法目录','Methods contents')+'</summary><nav>'+''.join(a('#'+hid,E(label),'') for hid,label,level in headings(METHOD,'method') if level==2)+'</nav></details>'+render(METHOD,lang,'method')
+    from appendix_publication import download
+    src=method_source(lang)
+    body=render(src,lang,'method')
+    body=re.sub(r' <a class="heading-anchor"[^>]*>.*?</a>','',body)
+    # Preserve inbound anchors from the earlier methods edition.
+    legacy=[["A.1 体系定位与维护基准",1],["A.2 统计周期与研究范围",2],["A.3 基础行为、去重与归属",3],["A.3.1 有效协作与活跃对象",3],["A.3.2 地理位置与组织归属",3],["A.3.3 项目边界与样本排名",3],["A.4 OpenDigger 与 OpenRank 方法",4],["A.4.1 活跃度、人数与贡献行为",4],["A.4.2 社区贡献与全域影响",4],["A.4.3 人才识别、比例与阈值",4],["A.5 模型、数据资产与 ModelRank",6],["A.6 缺失、偏差与可比性",7],["A.7 现有数据与外部案例的边界",7],["A.8 从数据文件到可查证结论",8],["方法来源",8]]
+    current=[(hid,title) for hid,title,level in headings(src,'method') if level==2]
+    for old,number in legacy:
+        old_id=anchor(old,'method')
+        target=current[number-1][0]
+        if old_id!=target and 'id="'+old_id+'"' not in body:
+            body=body.replace('<h3 id="'+target+'">','<span class="method-anchor" id="'+old_id+'" aria-hidden="true"></span><h3 id="'+target+'">')
+    return '<article class="methods-publication">'+download(lang)+body+'</article>'
 def feature(lang):
     return '<section class="chapter-feature"><div><span class="eyebrow">NEW / CHAPTER 01</span><h2>'+T(lang,'先读第一章，建立共同的研究坐标。','Start with Chapter 1.<br>A shared basis for the research.')+'</h2>'+p(T(lang,'从 Linux 的全球协作到开放模型的复用，理解 AI 时代的开源变化；沿着价值、目标与指标，进入整份报告。','From Linux collaboration to open model reuse, explore changes in open source and the report’s values, goals and measures.'))+a(path(lang,'chapters/01/'),T(lang,'阅读第一章 →','Read Chapter 1 →'),'text-link')+'</div><div class="feature-route">'+''.join(a(path(lang,'chapters/01/')+'#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+T(lang,z,e)+'</strong><span>↗</span>','') for i,(z,e) in enumerate([('开源的公共价值','Public value'),('OSDGs 目标框架','OSDGs goals'),('OSDI 指标体系','OSDI measures')]))+'</div></section>'
 def evidence_summary(lang):

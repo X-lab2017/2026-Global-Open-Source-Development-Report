@@ -1,0 +1,26 @@
+/* Appendix A: one reading column, restrained tables, shared light/dark tokens. */
+.methods-publication{max-width:860px;margin-inline:auto;--method-accent:#087d80}
+.methods-publication .manuscript{font-size:1rem;line-height:1.9}
+.methods-publication .manuscript>p{margin:0 0 1.15em;text-wrap:pretty}
+.methods-publication .manuscript>p:first-child{font-size:1.08rem;line-height:1.9}
+.methods-publication .manuscript h3{font-size:1.32rem;line-height:1.5;margin:2.5rem 0 1rem;padding-top:1.3rem;border-top:1px solid #ccdfe2;scroll-margin-top:6rem;color:var(--method-accent)}
+.methods-publication .manuscript h3:first-of-type{margin-top:1.8rem}
+.methods-publication .reader-table-wrap{margin:1.25rem 0 1.5rem;border:1px solid #d2e2e4;border-radius:8px;overflow-x:auto}
+.methods-publication .reader-table{width:100%;min-width:460px;border-collapse:collapse;font-size:.93rem;line-height:1.75}
+.methods-publication .reader-table th,.methods-publication .reader-table td{padding:13px 15px;vertical-align:top;white-space:normal;overflow-wrap:anywhere}
+.methods-publication .reader-table th{background:#edf5f6;text-align:left;font-weight:600}
+.methods-publication .reader-table td{border-bottom:1px solid #dce8ea}
+.methods-publication .reader-table td:first-child{width:21%;font-weight:600}
+.methods-publication .reader-table tr:last-child td{border-bottom:0}
+.methods-publication .reader-table a,.methods-publication p a{text-underline-offset:4px}
+.methods-download{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:2rem;padding:1rem 1.2rem;background:#edf5f6;border:1px solid #d2e2e4;border-radius:8px}
+.methods-download strong,.methods-download span{display:block}
+.methods-download span{margin-top:4px;font-size:.85rem;opacity:.8}
+.methods-download a{font-weight:600;white-space:nowrap;text-underline-offset:4px}
+.method-anchor{display:block;height:0;scroll-margin-top:6rem}
+html[data-theme=dark] .methods-publication{--method-accent:#77d4d0}
+html[data-theme=dark] .methods-publication .reader-table-wrap,html[data-theme=dark] .methods-download{border-color:#36505b}
+html[data-theme=dark] .methods-publication .reader-table th,html[data-theme=dark] .methods-download{background:#18323e}
+html[data-theme=dark] .methods-publication .reader-table td,html[data-theme=dark] .methods-publication .manuscript h3{border-color:#36505b}
+@media(max-width:640px){.methods-download{align-items:flex-start;flex-direction:column}.methods-publication .manuscript{font-size:.98rem}.methods-publication .manuscript h3{font-size:1.18rem}.methods-publication .reader-table th,.methods-publication .reader-table td{padding:10px 12px}}
+@media print{.methods-download{display:none}.methods-publication .reader-table-wrap{overflow:visible}.methods-publication h3{break-after:avoid}.methods-publication tr{break-inside:avoid}}

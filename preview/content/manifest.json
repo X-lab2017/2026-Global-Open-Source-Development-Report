@@ -753,7 +753,7 @@
           "status": "preview",
           "data_status": "source-linked-review",
           "related": [
-            "appendix-c"
+            "appendix-b"
           ],
           "anchor": "ch05-s03",
           "source_heading": null,
@@ -914,41 +914,23 @@
         "en": "Appendix A: indicators, data and methods"
       },
       "question": {
-        "zh": "结论如何核验与复现？",
-        "en": "How can findings be checked and reproduced?"
+        "zh": "如何理解、核对和复用报告中的证据？",
+        "en": "How should the report’s evidence be read, checked and reused?"
       },
       "kind": "methods",
       "source_path": "appendices/附录A-指标体系与数据来源.md",
-      "status": "preview",
+      "status": "published",
       "template": "methodology",
-      "research_status": "working-methods-preview"
+      "research_status": "publication-methods",
+      "source_path_en": "appendices/appendix-a.en.md",
+      "updated_at": "2026-10-22"
     },
     {
       "id": "appendix-b",
-      "route": "appendices/declaration/",
-      "title": {
-        "zh": "附录 B：宣言来源与收录说明",
-        "en": "Appendix B: declaration source and editorial note"
-      },
-      "question": {
-        "zh": "宣言全文收录于引言，本页说明来源与收录方式。",
-        "en": "The declaration appears in the introduction; this page records its source and inclusion."
-      },
-      "kind": "declaration",
-      "source_path": "appendices/附录B-宣言.md",
-      "source_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
-      "status": "published",
-      "template": "declaration",
-      "reference_snapshot": "chapters/引言-宣言.md",
-      "authoritative_url": "https://f16qo26uhe1.feishu.cn/wiki/BBjrwWhukifCqukvEwSct9EYnMf",
-      "research_status": "incorporated-in-introduction"
-    },
-    {
-      "id": "appendix-c",
       "route": "appendices/dpg/",
       "title": {
-        "zh": "附录 C：模型开放条件与数字公共品研究参照",
-        "en": "Appendix C: Model openness and digital public goods"
+        "zh": "附录 B：模型开放条件与数字公共品研究参照",
+        "en": "Appendix B: Model openness and digital public goods"
       },
       "question": {
         "zh": "如何组织公共价值的评估与证据？",

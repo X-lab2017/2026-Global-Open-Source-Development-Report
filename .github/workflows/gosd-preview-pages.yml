@@ -2,7 +2,7 @@ name: Publish GOSD preview to Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'codex/appendix-a-publication']
     paths:
       - 'preview/**'
       - 'chapters/chapter1/**'
@@ -10,9 +10,8 @@ on:
       - 'chapters/引言-人工智能时代的开源发展.md'
       - 'chapters/引言-宣言.md'
       - 'chapters/introduction.en.md'
-      - 'appendices/附录B-宣言.md'
+      - 'appendices/**'
       - 'outline/**'
-      - 'appendices/附录A-指标体系与数据来源.md'
       - 'data/meta/**'
       - 'data/processed/**'
       - 'figures/chapter1/**'
@@ -24,7 +23,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: gosd-preview-pages
+  group: gosd-preview-pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -38,7 +37,13 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Build and check preview only
+      - name: Install publication dependencies
+        run: python3 -m pip install reportlab==4.4.3 fonttools==4.60.1 pymupdf==1.26.5 pypdf==6.1.1 playwright==1.55.0
+      - name: Install publication browser
+        run: python3 -m playwright install --with-deps chromium
+      - name: Build publication PDFs
+        run: python3 preview/web/build_publication_pdfs.py
+      - name: Build and check publication
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: |
@@ -49,7 +54,8 @@ jobs:
           python3 preview/web/check_chapter6.py --output _site
           python3 preview/web/check_chapter_visuals.py --output _site --repo-root .
           python3 preview/web/check_chapter1_sample.py --output _site
-          python3 preview/web/check_frontmatter_publication.py --output _site
+          python3 preview/web/check_frontmatter_publication.py --output _site --inspect-pdf
+          python3 preview/web/check_appendix_publication.py --output _site
           python3 preview/web/check_goso.py --output _site
           python3 preview/web/check_chapter2_acceptance.py --output _site
           python3 preview/web/check_vmap.py --output _site
@@ -75,11 +81,26 @@ jobs:
           node --check _site/report.js
           node --check _site/portal.js
           node --check _site/explore.js
+      - name: Check appendix browser layouts
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: python3 preview/web/check_appendix_browser.py --output _site --base-path "$BASE_PATH"
+      - name: Upload publication review files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: appendix-publication-review
+          path: |
+            preview/content/report-assets/appendix-a/
+            preview/content/report-assets/frontmatter/
+            tmp/publication-review/
+          if-no-files-found: warn
       - name: Upload generated preview
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     permissions:
