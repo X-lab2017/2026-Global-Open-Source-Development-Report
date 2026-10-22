@@ -14,7 +14,11 @@ for(const lang of ['zh','en'])for(const reduced of [false,true]){
  for(const e of D.evidence){click(q('[data-ac-evidence="'+e.id+'"]'));assert(q('#ac-overview-detail').textContent.includes(L(e.summary)));assert(q('.ac-overview figcaption').textContent.includes(L(e.boundary)));assert.equal(qa('#ac-overview-detail a').length,e.links.length);}
  for(const actor of D.actors){const fig=q('[data-action-figure="'+actor.id+'"]');for(const a of D.actions.filter(a=>a.actor===actor.id)){click(fig.querySelector('[data-ac-action="'+a.id+'"]'));assert.equal(fig.dataset.selectedAction,a.id);assert.equal(qa('[data-ac-action][aria-pressed=true]',fig).length,1);for(let i=0;i<3;i++)for(const [name,value]of [['step-title',a.steps[i].title],['step-body',a.steps[i].body],['role-who',a.roles[i].who],['role-work',a.roles[i].work],['watch-label',a.watch[i].label],['watch-detail',a.watch[i].detail]])assert.equal(fig.querySelector('[data-ac-'+name+'="'+i+'"]').textContent,L(value));}}
  for(const v of D.cycle){click(q('[data-ac-cycle="'+v.id+'"]'));assert(q('#ac-cycle-detail').textContent.includes(L(v.body)));assert.equal(qa('.ac-cycle .ac-edge.is-active').length,1);assert(q('#ac-cycle-detail a').getAttribute('href').endsWith(v.link.url));}
- assert.equal(qa('[data-ac-motion],.action-canvas.is-flowing').length,0);
+ const motion=q('[data-ac-cycle-motion]'),cycle=q('.ac-cycle');
+ assert.equal(cycle.dataset.cycleRunning,String(!reduced));assert.equal(motion.disabled,reduced);
+ if(!reduced){click(motion);assert.equal(cycle.dataset.cycleRunning,'false');click(motion);assert.equal(cycle.dataset.cycleRunning,'true');}
+ assert.equal(qa('.ac-cycle-pulse').length,1);assert.equal(qa('.action-related,.action-end-links,.action-section-nav,.action-task-rail,.action-evidence-notes').length,0);
+ assert(q('.action-pdf-link').getAttribute('href').includes('/assets/action/GOSD-2026-chapter6.pdf'));
  for(const fig of qa('.action-canvas'))assert(fig.querySelector('figcaption strong').textContent.includes(lang==='zh'?'图 6-':'Figure 6-'));
  for(const fig of qa('.action-canvas')){
   const frame=fig.parentElement,home=frame.parentElement,launch=frame.previousElementSibling.querySelector('button'),title=fig.querySelector('h3').textContent,dialog=qa('dialog.explorer-presentation').find(x=>x.getAttribute('aria-label')===title),close=dialog.querySelector('.slide-presentation-bar button');

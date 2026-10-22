@@ -138,9 +138,9 @@ def emit(lang,route,active,title,deck,content,unit=None,scripts='',is_home=False
     chapter1_assets='<link rel="stylesheet" href="/chapter1-restored.css?v=20261019-ch1-complete"><link rel="stylesheet" href="/chapter1-release.css?v=20261018-release"><script src="/chapter1-restored.js?v=20261019-ch1-story" defer></script><script src="/chapter1-theme-map.js?v=20261018-release" defer></script>' if route=='chapters/01/' else ''
     if route=='chapters/01/':
         main=main.replace('评审预览 · 2026.10.16','正式发布 · 更新 2026.10.19').replace('Review preview · 2026.10.16','Published · Updated 2026.10.19').replace('2025.07 — 2026.06',t('各图标注统计期','Periods are labelled per figure'))
-    action_assets='<link rel="stylesheet" href="/chapter6.css?v=20261022-ch6-review2"><script src="/chapter6.js?v=20261022-ch6-review" defer></script>' if route=='chapters/06/' else ''
+    action_assets='<link rel="stylesheet" href="/chapter6.css?v=20261022-ch6-publication"><script src="/chapter6.js?v=20261022-ch6-publication" defer></script>' if route=='chapters/06/' else ''
     if route=='chapters/06/':
-        main=main.replace('评审预览 · 2026.10.16','第六章整章评审版 · 2026.10.22').replace('Review preview · 2026.10.16','Chapter 6 review · 2026.10.22').replace('2025.07 — 2026.06',t('综合前文证据 · 行动建议','Evidence synthesis · Recommended actions'))
+        main=main.replace('评审预览 · 2026.10.16','第六章 · 更新 2026.10.22').replace('Review preview · 2026.10.16','Chapter 6 · Updated 2026.10.22').replace('2025.07 — 2026.06',t('综合前文证据 · 行动建议','Evidence synthesis · Recommended actions'))
     architecture_assets='<link rel="stylesheet" href="/report-architecture.css?v=20261018-journey"><script src="/report-architecture.js?v=20261018-journey" defer></script>' if 'id="fig-report-logic"' in content else ''
     if is_home or route in ['', 'summary/', 'introduction/']:
         architecture_assets+='<link rel="stylesheet" href="/frontmatter.css?v=20261019-front-baseline">'
@@ -215,6 +215,7 @@ def assets(lang):
     rows.insert(1,(t('第一章完整 PDF','Complete Chapter 1 PDF'),t('章首与 1.1–1.3，含七幅出版图。','Chapter opening and sections 1.1–1.3, with seven publication figures.'),'/assets/report/chapter1/'+PDF_NAME+'?v='+edition['edition'],t('下载 PDF · '+str(edition['pages'])+' 页 ↗','Download PDF · '+str(edition['pages'])+' pages ↗')))
     rows.insert(2,(t('数据文件清单','Dataset inventory'),t('仓库 CSV 的字段、行数、校验值与核验说明；新登记文件标明待补状态。','Repository CSV fields, row counts, checksums and review notes, with pending status for newly registered files.'),'/assets/report/dataset_inventory.csv',t('下载 CSV ↓','Download CSV ↓')))
     rows.insert(3,(t('报告框架图','Report logic figure'),t('价值、目标、指标与四个研究板块的关系。','Values, goals, measures and the four research chapters.'),'/assets/report/print/fig-1-0-1_report_logic.svg',t('获取 SVG ↗','Get SVG ↗')))
+    rows.insert(2,(t('第六章完整 PDF','Complete Chapter 6 PDF'),t('6.1–6.5，含五幅图与九条行动建议。','Sections 6.1–6.5, with five figures and nine recommendations. Chinese edition.'),action.PDF_URL,t('下载 PDF · 11 页 ↗','Download PDF · 11 pages ↗')))
     return publication.download(lang)+'<div class="asset-list">'+''.join('<div class="asset-row"><div><h3>'+title+'</h3>'+p(desc)+'</div>'+(a(url,label,'','download' if url.endswith(('.csv','.json')) else '') if url else '<span class="pending">'+label+'</span>')+'</div>' for title,desc,url,label in rows)+'</div>'
 
 def news_card(lang):

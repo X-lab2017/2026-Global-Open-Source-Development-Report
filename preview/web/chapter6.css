@@ -102,3 +102,17 @@
 
 .action-canvas .ac-cycle-detail{top:650px}
 .action-canvas .ac-watch{height:128px}
+
+/* A single ellipse carries the cycle; subtle pulses match Chapter 1's flow. */
+.action-canvas.ac-cycle .ac-edge{opacity:.45;stroke-width:1.6}
+.action-canvas.ac-cycle.has-selection .ac-edge{opacity:.3}
+.action-canvas.ac-cycle .ac-edge.is-active{opacity:.85;stroke-width:2.2}
+.action-canvas .ac-cycle-pulse{fill:none;stroke:var(--brand);stroke-width:3;stroke-linecap:round;stroke-dasharray:2 14.666667;opacity:.75;animation:ac-cycle-stream 24s linear infinite;animation-play-state:paused}
+.action-canvas[data-cycle-running=true] .ac-cycle-pulse{animation-play-state:running}
+.action-canvas .ac-cycle-motion{position:absolute;top:24px;right:28px;padding:7px 12px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--brand);font:500 13px/1.5 var(--sans);cursor:pointer}
+.action-canvas .ac-cycle-motion:disabled{display:none}
+.action-canvas.ac-cycle .ac-heading{right:190px;max-width:none}
+.action-pdf-link{display:inline-block;margin-top:22px;color:var(--brand);text-decoration:none;font:500 14px/1.6 var(--sans)}
+@keyframes ac-cycle-stream{to{stroke-dashoffset:-100}}
+@media(prefers-reduced-motion:reduce){.action-canvas .ac-cycle-pulse{display:none;animation:none!important}}
+@media print{.action-pdf-link{display:none}}

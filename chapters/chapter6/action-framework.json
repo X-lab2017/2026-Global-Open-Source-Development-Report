@@ -1,5 +1,5 @@
 {
-  "version": "20261022-ch6-whole-review",
+  "version": "20261022-ch6-publication",
   "date": "2026-10-22",
   "kind": "editorial-action-framework",
   "statistics": "No new measured scores, forecasts or simulated quantitative results. Lines show proposed relationships, not estimated causality.",
@@ -1823,19 +1823,5 @@
   "position": {
     "zh": "本章回到 OSDGs 的四大支柱，将人才、开放供给、全球连接、治理与公共价值落实到共同工作。OSDI 的二十九项指标提供观察框架；以下跟踪项用于组织行动复盘，不另行合成总分。",
     "en": "This chapter returns to the four OSDGs pillars, connecting people, open supply, global connections, governance and public value to shared work. The 29 OSDI indicators provide an observation framework; the follow-up items below support reviews of action rather than an additional composite score."
-  },
-  "evidence_notes": [
-    {
-      "zh": "2.1 的报告年度为 2025.07.01—2026.06.30；GitHub 全球与国家记录、编制组五域综合统计分别解释。国内约 120 万补充量不重复叠加到五域统计。",
-      "en": "Section 2.1 covers 2025-07-01 to 2026-06-30. GitHub global/country records and editorial five-group statistics retain separate scopes. The domestic supplement of about 1.2 million is not added again to the five-group series."
-    },
-    {
-      "zh": "5.1 的增长率来自 2026-09-13 快照按创建时间回溯的两个报告期末，不是独立历史快照；5.2 的派生边为平台声明关系。5.3 的 870 个模型是报告分类样本，不能外推为全球总体。",
-      "en": "Section 5.1 reconstructs two reporting-year endpoints by creation date from the 2026-09-13 snapshot, rather than independent historical snapshots. Derivation edges in 5.2 are platform declarations. The 870 models in 5.3 form a classified report sample, not the global population."
-    },
-    {
-      "zh": "4.1 提供深入分析；4.2—4.6 本轮提供技术全景与研究框架。本章图件为证据与行动关系示意，连线不表示数量、权重或已验证的因果关系。",
-      "en": "Section 4.1 provides in-depth analysis; sections 4.2–4.6 currently provide landscapes and research frameworks. This chapter’s diagrams connect evidence and proposed action; lines do not encode quantities, weights or established causal effects."
-    }
-  ]
+  }
 }

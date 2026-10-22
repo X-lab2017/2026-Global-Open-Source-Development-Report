@@ -1,6 +1,6 @@
-"""Private, complete Chapter 6 PDF from the shared manuscript and publication SVGs.
+"""Complete Chapter 6 publication PDF from the shared manuscript and publication SVGs.
 
-Do not commit generated PDFs or rendered previews. All five figures are portrait;
+The released PDF is published with the chapter. All five figures are portrait;
 each of the nine actions is expanded, including steps, roles and follow-up.
 """
 from pathlib import Path
@@ -58,8 +58,7 @@ def main():
    block=[p(actor['section']+'.'+str(i)+' '+L(action['title']),'heading'),p(action['why']),p(action['body']),p(watch,'watch')]
    story.append(KeepTogether(block))
  cl=D['closing'];new();add('6.5 '+L(cl['title']),'section');add(cl['question'],'lead');add(cl['paragraphs'][0]);story.append(figs['cycle'])
- new();paras(cl['paragraphs'][1:]);add(cl['final'],'lead');add(cl['invitation'],'lead');add('证据与范围','heading')
- for note in D['evidence_notes']:add(note,'note')
+ new();paras(cl['paragraphs'][1:]);add(cl['final'],'lead');add(cl['invitation'],'lead')
  doc=Doc(str(a.output),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=60,bottomMargin=55,title='GOSD 2026 · 第六章 未来展望与行动建议',author='GOSD / 全球开源发展报告');doc.records=[]
  def page(c,doc):
   w,h=A4;c.saveState();c.setFillColor(HexColor(common.TEAL));c.rect(46,h-36,27,2.5,fill=1,stroke=0);c.setFont(common.FONT,8.5);c.setFillColor(HexColor(common.MUTED));c.drawString(83,h-37,'GOSD 2026 / 全球开源发展报告');c.drawRightString(w-46,h-37,'第六章 未来展望与行动建议');c.setStrokeColor(HexColor(common.LINE));c.line(46,43,w-46,43);c.setFont(common.FONT,8.2);c.drawString(46,28,'持续共同创造及其公共价值');c.drawRightString(w-46,28,str(doc.page));c.restoreState()

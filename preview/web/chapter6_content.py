@@ -1,7 +1,9 @@
 """Chapter 6: one shared source for the manuscript, action diagrams and print figures."""
 from pathlib import Path
-import html,json,shutil
+import html,json,shutil,math
 ROOT=Path(__file__).resolve().parents[1]
+PDF_NAME='GOSD-2026-chapter6.pdf'
+PDF_URL='/assets/action/'+PDF_NAME
 E=lambda x:html.escape(str(x),quote=True)
 FILES={'overview':'fig-6-1-1_evidence_to_action','public':'fig-6-2-1_public_support','enterprise':'fig-6-3-1_organization_responsibility','community':'fig-6-4-1_global_cocreation','cycle':'fig-6-5-1_sustained_cocreation'}
 
@@ -26,7 +28,7 @@ def fig_end(key,lang):
  return '<figcaption><strong>'+E(title)+'</strong><span data-ac-caption-note>'+note+'</span></figcaption></figure><img class="action-print" src="'+url+'" alt="'+E(title)+'"><a class="action-figure-download" href="'+url+'" download>'+('下载完整静态图 SVG ↓' if lang=='zh' else 'Download complete static SVG ↓')+'</a></div>'
 def edges(key,paths):
  s='<svg class="ac-edges" viewBox="0 0 1280 800" aria-hidden="true"><defs><marker id="ac-arrow-'+key+'" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="var(--brand)"/></marker></defs>'
- for f,t,d in paths:s+='<path class="ac-edge" data-from="'+f+'" data-to="'+t+'" d="'+d+'" marker-end="url(#ac-arrow-'+key+')"/>'
+ for f,t,d in paths:s+='<path class="ac-edge" data-from="'+f+'" data-to="'+t+'" d="'+d+'" '+('marker-mid' if key=='cycle' else 'marker-end')+'="url(#ac-arrow-'+key+')"/>'
  return s+'</svg>'
 def overview(lang,D):
  t=lambda z,e:z if lang=='zh' else e
@@ -60,12 +62,20 @@ def actor_figure(actor,lang,D):
  for i,w in enumerate(a['watch']):s+='<div><b data-ac-watch-label="'+str(i)+'">'+E(tr(w['label'],lang))+'</b><p data-ac-watch-detail="'+str(i)+'">'+E(tr(w['detail'],lang))+'</p></div>'
  s+='</div></div>'
  return s+fig_end(key,lang)
-CYCLE_POS=[(520,140),(948,244),(948,454),(520,558),(92,454),(92,244)]
-CYCLE_EDGES=['M760 182C890 182 1068 195 1068 244','M1068 328V454','M948 496C860 550 830 600 760 600','M520 600C420 600 340 545 332 496','M212 454V328','M332 286C430 202 446 182 520 182']
+# Six equally spaced angles on one ellipse; arrows sit midway between cards.
+def cycle_point(angle):
+ a=math.radians(angle);return (640+420*math.cos(a),390+210*math.sin(a))
+def cycle_arc(i):
+ points=[cycle_point(-90+i*60+delta) for delta in [0,30,60]]
+ return 'M%.3f %.3fA420 210 0 0 1 %.3f %.3fA420 210 0 0 1 %.3f %.3f'%tuple(v for p in points for v in p)
+CYCLE_POS=[(round(x-120,3),round(y-42,3)) for x,y in [cycle_point(-90+i*60) for i in range(6)]]
+CYCLE_EDGES=[cycle_arc(i) for i in range(6)]
 def cycle(lang,D):
  t=lambda z,e:z if lang=='zh' else e
  s=fig_start('cycle','图 6-5-1' if lang=='zh' else 'FIGURE 6-5-1',t('让一次创造，连接下一次创造','Connect one act of creation to the next'),t('选择环节，观察参与、成果、使用与支持怎样相互衔接。','Select a stage to explore how participation, assets, use and support connect.'),lang)
  s+=edges('cycle',[(v['id'],D['cycle'][(i+1)%6]['id'],CYCLE_EDGES[i]) for i,v in enumerate(D['cycle'])])
+ s+='<svg class="ac-edges ac-cycle-flow" viewBox="0 0 1280 800" aria-hidden="true"><path class="ac-cycle-pulse" pathLength="100" d="M640 180A420 210 0 1 1 640 600A420 210 0 1 1 640 180"/></svg>'
+ s+='<button type="button" class="ac-cycle-motion" data-ac-cycle-motion aria-pressed="false">'+t('继续流动','Resume flow')+'</button>'
  s+='<div class="ac-cycle-center"><span>CO-CREATION</span><h4>'+t('持续共同创造<br>及其公共价值','Sustained co-creation<br>and its public value')+'</h4><p>'+t('维护让成果延续，反馈让行动改进。','Maintenance sustains assets.<br>Feedback improves action.')+'</p></div>'
  for i,v in enumerate(D['cycle']):
   x,y=CYCLE_POS[i];s+='<button type="button" class="ac-node ac-cycle-node" style="left:'+str(x)+'px;top:'+str(y)+'px" data-ac-cycle="'+v['id']+'" aria-pressed="false" aria-controls="ac-cycle-detail"><strong>'+E(tr(v['title'],lang))+'</strong><span>'+E(tr(v['subtitle'],lang))+'</span></button>'
@@ -73,9 +83,7 @@ def cycle(lang,D):
  return s+fig_end('cycle',lang)
 def chapter(lang):
  D=data();t=lambda z,e:z if lang=='zh' else e
- s='<article class="action-chapter" data-action-version="'+D['version']+'"><header class="action-opening"><span class="section-topline">CHAPTER 06 / FROM EVIDENCE TO ACTION</span><h2>'+E(tr(D['headline'],lang))+'</h2>'+paras([D['intro'],D['position']],lang)+'<nav class="action-task-rail" aria-label="'+t('三项共同任务','Three shared tasks')+'">'+''.join('<a href="#ch06-s01"><small>'+x['n']+'</small><span>'+E(tr(x['short'],lang))+'</span></a>' for x in D['tasks'])+'</nav><p class="action-scope">'+E(tr(D['scope'],lang))+'</p></header>'
- titles=[D['synthesis']['title'],*[a['title'] for a in D['actors']],D['closing']['title']]
- s+='<nav class="action-section-nav" aria-label="'+t('第六章阅读路径','Chapter 6 reading path')+'">'+''.join('<a href="#ch06-s0'+str(i+1)+'"><b>6.'+str(i+1)+'</b>'+E(tr(title,lang))+'</a>' for i,title in enumerate(titles))+'</nav>'
+ s='<article class="action-chapter" data-action-version="'+D['version']+'"><header class="action-opening"><span class="section-topline">CHAPTER 06 / FROM EVIDENCE TO ACTION</span><h2>'+E(tr(D['headline'],lang))+'</h2>'+paras([D['intro'],D['position']],lang)+'<p class="action-scope">'+E(tr(D['scope'],lang))+'</p><a class="action-pdf-link" href="'+PDF_URL+'" download>'+t('下载第六章 PDF · 11 页 ↓','Download Chapter 6 PDF · Chinese, 11 pages ↓')+'</a></header>'
  sy=D['synthesis'];s+='<section class="action-section" id="ch06-s01"><span class="section-topline">6.1 / INSIGHTS & SHARED TASKS</span><h2>6.1 '+E(tr(sy['title'],lang))+'</h2><p class="action-question">'+E(tr(sy['question'],lang))+'</p>'+paras(sy['paragraphs'],lang)
  for f in sy['findings']:s+='<div class="action-finding"><h3>'+E(tr(f['title'],lang))+'</h3>'+paras(f['paragraphs'],lang)+'</div>'
  s+='<h3 class="action-task-heading">'+E(tr(sy['task_title'],lang))+'</h3>'+paras([sy['figure_lead']],lang)+overview(lang,D)+'<div class="action-task-cards">'
@@ -84,10 +92,9 @@ def chapter(lang):
  for i,actor in enumerate(D['actors'],2):
   aa=[a for a in D['actions'] if a['actor']==actor['id']];s+='<section class="action-section" id="ch06-s0'+str(i)+'"><span class="section-topline">'+actor['section']+' / '+actor['id'].upper()+'</span><h2>'+actor['section']+' '+t('面向','For ')+E(tr(actor['title'],lang))+t('的倡议' if actor['id']=='community' else '的建议','')+'</h2>'+paras([actor['intro']],lang)+actor_figure(actor,lang,D)+'<div class="action-proposals">'
   for j,a in enumerate(aa,1):
-   s+='<article class="action-proposal" id="action-'+a['id']+'" data-action-article="'+a['id']+'"><span class="action-proposal-number">'+a['number']+'</span><div><h3>'+actor['section']+'.'+str(j)+' '+E(tr(a['title'],lang))+'</h3>'+paras([a['why'],a['body']],lang)+'<div class="action-observe"><b>'+t('持续观察','Follow-up observation')+'</b><p>'+E(('；' if lang=='zh' else '; ').join(tr(w['label'],lang)+' — '+tr(w['detail'],lang) for w in a['watch']))+('。' if lang=='zh' else '.')+'</p></div><nav class="action-related" aria-label="'+t('相关章节','Related sections')+'">'+''.join(local_link(l,lang) for l in a['links'])+'</nav></div></article>'
+   s+='<article class="action-proposal" id="action-'+a['id']+'" data-action-article="'+a['id']+'"><span class="action-proposal-number">'+a['number']+'</span><div><h3>'+actor['section']+'.'+str(j)+' '+E(tr(a['title'],lang))+'</h3>'+paras([a['why'],a['body']],lang)+'<div class="action-observe"><b>'+t('持续观察','Follow-up observation')+'</b><p>'+E(('；' if lang=='zh' else '; ').join(tr(w['label'],lang)+' — '+tr(w['detail'],lang) for w in a['watch']))+('。' if lang=='zh' else '.')+'</p></div></div></article>'
   s+='</div></section>'
- cl=D['closing'];s+='<section class="action-section action-closing" id="ch06-s05"><span class="section-topline">6.5 / SUSTAINED CO-CREATION</span><h2>6.5 '+E(tr(cl['title'],lang))+'</h2><p class="action-question">'+E(tr(cl['question'],lang))+'</p>'+paras(cl['paragraphs'][:1],lang)+cycle(lang,D)+paras(cl['paragraphs'][1:],lang)+'<div class="action-final"><p>'+E(tr(cl['final'],lang))+'</p><strong>'+E(tr(cl['invitation'],lang))+'</strong></div><nav class="action-end-links">'+local_link(link(T('回到第一章：共同目标与观察方法','Return to Chapter 1: shared goals and methods'),'chapters/01/'),lang)+local_link(link(T('回到全书目录','Return to contents'),''),lang)+'</nav></section>'
- s+='<details class="action-evidence-notes"><summary>'+t('本章综合所用证据与范围','Evidence and scope of this synthesis')+'</summary>'+paras(D['evidence_notes'],lang)+'</details>'
+ cl=D['closing'];s+='<section class="action-section action-closing" id="ch06-s05"><span class="section-topline">6.5 / SUSTAINED CO-CREATION</span><h2>6.5 '+E(tr(cl['title'],lang))+'</h2><p class="action-question">'+E(tr(cl['question'],lang))+'</p>'+paras(cl['paragraphs'][:1],lang)+cycle(lang,D)+paras(cl['paragraphs'][1:],lang)+'<div class="action-final"><p>'+E(tr(cl['final'],lang))+'</p><strong>'+E(tr(cl['invitation'],lang))+'</strong></div></section>'
  s+='<script type="application/json" id="chapter6-action-data">'+json.dumps(D,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></article>'
  return s
 
@@ -104,7 +111,7 @@ def manuscript(D,lang='zh'):
   out+=['## '+actor['section']+' '+('面向' if lang=='zh' else 'For ')+L(actor['title'])+(('的倡议' if actor['id']=='community' else '的建议') if lang=='zh' else ''),L(actor['intro']),f'![{L(FIG_TITLES[actor["id"]])}](../../figures/chapter6/{FILES[actor["id"]]}.svg)']
   for i,a in enumerate([a for a in D['actions'] if a['actor']==actor['id']],1):
    out+=['### '+actor['section']+'.'+str(i)+' '+L(a['title']),L(a['why']),L(a['body']),'**'+('持续观察' if lang=='zh' else 'Observe progress')+'：** '+'；'.join(L(w['label'])+'——'+L(w['detail']) for w in a['watch'])+'。']
- cl=D['closing'];out+=['## 6.5 '+L(cl['title']),L(cl['question']),L(cl['paragraphs'][0]),f'![{L(FIG_TITLES["cycle"])}](../../figures/chapter6/{FILES["cycle"]}.svg)',*[L(x) for x in cl['paragraphs'][1:]],L(cl['final']),'**'+L(cl['invitation'])+'**','### '+('证据与范围' if lang=='zh' else 'Evidence and scope'),*[L(x) for x in D['evidence_notes']]]
+ cl=D['closing'];out+=['## 6.5 '+L(cl['title']),L(cl['question']),L(cl['paragraphs'][0]),f'![{L(FIG_TITLES["cycle"])}](../../figures/chapter6/{FILES["cycle"]}.svg)',*[L(x) for x in cl['paragraphs'][1:]],L(cl['final']),'**'+L(cl['invitation'])+'**']
  return '\n\n'.join(out)+'\n'
 def export(out):
  dest=out/'assets/action';shutil.copytree(ROOT/'content/action',dest,dirs_exist_ok=True)

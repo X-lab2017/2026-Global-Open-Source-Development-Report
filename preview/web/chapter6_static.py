@@ -40,34 +40,30 @@ class SVG:
   return ''.join(self.o)+'</g></svg>'
 def build(D,key,lang):
  L=lambda x:x[lang] if isinstance(x,dict) else x;t=lambda z,e:z if lang=='zh' else e
- s=SVG(key,lang,(1260 if key=='cycle' else 1360) if lang=='en' and key!='overview' else (1060 if key not in ['overview','cycle'] else 1000))
+ s=SVG(key,lang,900 if key=='overview' else ((1260 if key=='cycle' else 1360) if lang=='en' else (1000 if key=='cycle' else 1060)))
  if key=='overview':
   s.text(24,26,t('前五章证据 → 三项共同任务 → 主体分工','EVIDENCE → THREE SHARED TASKS → RESPONSIBILITIES'),16,BRAND,600)
   s.text(24,57,t('价值起点：第一章的持续共同创造及其公共价值','Starting point: sustained co-creation and its public value'),16,MUTED)
+  # Each arrow joins an entire group, avoiding a misleading one-to-one mapping.
+  for y,h in [(69,196),(310,270),(632,170)]:s.box(16,y,848,h,PALE)
+  # Explicit arrowheads survive the SVG-to-PDF converter's marker limitations.
+  for y1,y2 in [(266,302),(581,624)]:
+   s.o.append(f'<path d="M440 {y1}V{y2}" fill="none" stroke="{BRAND}" stroke-width="1.8"/>')
+   s.arrow(440,y2)
   for i,e in enumerate(D['evidence']):
    x=24+(i%2)*428;y=77+(i//2)*98;s.box(x,y,404,82)
    s.text(x+16,y+25,e['code'],14.5,BRAND,600)
    s.lines(x+16,y+55,L(e['title']),373,17,22,max_lines=2,weight=600)
-  # Individual evidence-to-task connections retain the source mapping.
-  for i,e in enumerate(D['evidence']):
-   x=226+(i%2)*428;y=159+(i//2)*98
-   for task in e['tasks']:
-    j=next(j for j,v in enumerate(D['tasks']) if v['id']==task);tx=156+j*284
-    s.path(f'M{x} {y}V{275+i*5}H{tx}V316',.3)
   for i,task in enumerate(D['tasks']):
-   x=24+i*284;s.box(x,318,264,254,PALE)
+   x=24+i*284;s.box(x,318,264,254)
    s.text(x+16,344,task['n']+' / '+task['pillars'],14.5,BRAND)
    s.lines(x+16,375,L(task['short']),232,18,26,max_lines=2,weight=600)
    s.lines(x+16,438,L(task['body']),232,16 if lang=='zh' else 15,24 if lang=='zh' else 20,max_lines=6 if lang=='zh' else 7,color=MUTED)
-  for i in range(3):
-   for j in range(3):s.path(f'M{156+i*284} 572C{156+i*284} 602 {156+j*284} 608 {156+j*284} 638',.24)
   for i,a in enumerate(D['actors']):
    x=24+i*284;s.box(x,640,264,154)
    s.text(x+16,667,a['section'],14.5,BRAND);s.lines(x+16,699,L(a['short']),232,18,25,max_lines=1,weight=600)
    s.lines(x+16,730,L(a['role']),232,16,23,max_lines=2,color=MUTED)
    nums=' · '.join(z['number'] for z in D['actions'] if z['actor']==a['id']);s.text(x+16,779,t('建议 ','Actions ')+nums,14.5,BRAND)
-  s.box(24,827,832,92,PALE)
-  s.lines(42,855,t('共同复盘：先明确对象、起点与观察周期，再持续记录参与、维护、使用与结果。根据证据调整支持，让每一轮行动成为下一轮共同创造的基础。','Review together: define the population, baseline and period; record participation, maintenance, use and outcomes. Adapt support using evidence so each round of action enables further co-creation.'),796,17,26,max_lines=3)
  elif key=='cycle':
   s.text(24,26,t('从参与到反馈：每个环节都需要责任主体与记录','FROM PARTICIPATION TO FEEDBACK: RESPONSIBILITIES AND RECORDS'),16,BRAND,600)
   # Six-stage cycle, arranged in two columns for portrait reading.
