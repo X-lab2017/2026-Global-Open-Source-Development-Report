@@ -51,7 +51,7 @@ def main():
    for line in block.get('lines',[]):
     for span in line['spans']:
      x0,y0,x1,y1=span['bbox']
-     assert x0>=44 and x1<=page.rect.width-44 and y0>=15 and y1<=page.rect.height-12,('text outside margins',i+1,span['text'])
+     assert x0>=44 and x1<=page.rect.width-44 and y0>=15 and y1<=page.rect.height-12,('text outside margins',i+1,span['bbox'],span['text'])
      assert span['size']>=8,('small type',i+1,span['text'])
   page.get_pixmap(matrix=fitz.Matrix(1.3,1.3)).save(qa/f'appendix-a-{i+1:02d}.png')
  (qa/'checks.json').write_text(json.dumps({'appendices':2,'appendix_a_pages':len(doc),'web_languages':['zh','en'],'source_parity':True,'a4_portrait':True,'manual_visual_review':'pending: local execution environment unavailable'},indent=2)+'\n')

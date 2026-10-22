@@ -17,7 +17,7 @@ INK='#18343e';TEAL='#087d80';MUTED='#526b76';LINE='#d4e2e5'
 WEB='https://www.x-lab.info/2026-Global-Open-Source-Development-Report/'
 STYLES={}
 def styles():
- b=ParagraphStyle('body',fontName=FONT,fontSize=11.2,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=9,allowWidows=0,allowOrphans=0)
+ b=ParagraphStyle('body',fontName=FONT,fontSize=11.2,leading=18.6,textColor=HexColor(INK),wordWrap='CJK',spaceAfter=9,rightIndent=11.2,allowWidows=0,allowOrphans=0)
  STYLES.update(body=b,title=ParagraphStyle('title',parent=b,fontSize=21,leading=30,spaceAfter=15,keepWithNext=True),
   section=ParagraphStyle('section',parent=b,fontSize=14.5,leading=23,spaceBefore=17,spaceAfter=10,textColor=HexColor(TEAL),keepWithNext=True),
   note=ParagraphStyle('note',parent=b,fontSize=9,leading=15,textColor=HexColor(MUTED),spaceAfter=13),
@@ -40,7 +40,9 @@ def inline(text):
  text=re.sub(r'\*\*(.*?)\*\*',r'<b>\1</b>',text)
  text=re.sub(r'\x60([^\x60]+)\x60',r'\1',text)
  return re.sub(r'\x00(\d+)\x00',lambda m:tokens[int(m[1])],text)
-def para(s,key='body'):return Paragraph(inline(s),STYLES[key])
+def para(s,key='body'):
+ cls=common.ManuscriptParagraph if key=='body' else Paragraph
+ return cls(inline(s),STYLES[key])
 class Document(BaseDocTemplate):
  def __init__(self,path):
   super().__init__(str(path),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=60,bottomMargin=57,title='2026 全球开源发展报告 · 附录 A：指标、数据与研究方法',author='GOSD',pageCompression=1,invariant=1)

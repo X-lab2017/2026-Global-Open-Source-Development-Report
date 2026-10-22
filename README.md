@@ -55,3 +55,5 @@
 
 - [2025 全球开源发展报告（完整版）](https://f16qo26uhe1.feishu.cn/wiki/ZmbtwsFz3ibxoekbHhwcj9QJn8g)
 - 《2026 全球开源发展报告》三级目录
+
+附录 A 与前置合订版的 PDF 由发布流程从当前源稿生成。独立构建时先安装工作流固定版本的 PDF 依赖，运行 `python3 preview/web/build_publication_pdfs.py`，再运行原有 `import_report.py` 与 `build_portal.py`；构建检查核对正文、两篇附录的导航及 PDF 排版边界。
