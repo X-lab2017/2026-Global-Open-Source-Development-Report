@@ -168,6 +168,7 @@ def build_front(path,figs,page_map=None):
   elif block.startswith('#### '):story.append(P(block[5:],'subsection'))
   elif block.startswith('**原则'):story.append(P(block.strip('*'),'subsection'))
   else:story.append(P(block))
+ story.append(P('宣言依据报告收录文本；指定来源：飞书文档《全球开源与人工智能国际合作宣言》。英文为本报告译文。','note'))
  doc=FrontDoc(path);doc.build(story);return doc
 
 def assemble(front,doc,output):

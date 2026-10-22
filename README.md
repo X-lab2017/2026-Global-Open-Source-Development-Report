@@ -15,9 +15,11 @@
 - 第六章完成五节图文，以三项共同任务组织九条主体建议，配有五幅动态连线图，现已上线供审阅。
 - 首页、目录、引言、摘要与当前章节同步；全书以“持续共同创造及其公共价值”为收束。中文正文和双语导航、深浅主题已提供，英文全文仍在准备。
 
-当前发布站由本仓库 `preview/` 构建，GitHub Pages 工作流负责部署。`outline/` 与 `chapters/` 是前置文字与第一章的源稿；`preview/content/manifest.json` 维护六章、30 个小节及附录的导航结构。图表规范与 [osdg-brand](https://github.com/X-lab2017/osdg-brand) 对齐，早期 [gosd-web](https://github.com/X-lab2017/gosd-web) 保留为历史实现。
+当前发布站由本仓库 `preview/` 构建，GitHub Pages 工作流负责部署。`outline/` 与 `chapters/` 是前置文字与第一章的源稿；`preview/content/manifest.json` 维护六章、30 个小节及两篇附录的导航结构。图表规范与 [osdg-brand](https://github.com/X-lab2017/osdg-brand) 对齐，早期 [gosd-web](https://github.com/X-lab2017/gosd-web) 保留为历史实现。
 
-[附录 A 方法基础](appendices/附录A-指标体系与数据来源.md)、[二十九项指标字典](data/meta/osdi_indicator_dictionary.csv)与[数据可用性清单](data/meta/数据可用性清单.md)说明定义、范围及证据状态。图表上线不等于全部测算完成；观测、派生、模拟与预测按图标明。
+[附录 A：指标、数据与研究方法](appendices/附录A-指标体系与数据来源.md)、[二十九项指标字典](data/meta/osdi_indicator_dictionary.csv)与[数据可用性清单](data/meta/数据可用性清单.md)说明定义、范围及证据状态。图表上线不等于全部测算完成；观测、派生、模拟与预测按图标明。
+
+附录已收敛为两篇：A 说明正文采用的指标、统计范围、模型样本与查证方法；B 提供模型开放条件与数字公共品研究参照。宣言来源说明并入引言。附录 A 网页与 PDF 共用正文，更新于 2026-10-22。
 
 ## 目录结构
 
@@ -32,7 +34,7 @@
 │   ├── chapter4/            # 全球开源技术全景洞察（GOSL）
 │   ├── chapter5/            # 全球开源大模型发展洞察（GOSM）
 │   └── chapter6/            # 未来展望与政策建议
-├── appendices/              # 附录 A：指标体系与数据来源；附录：开源 AI DPG 评估框架
+├── appendices/              # 附录 A：指标、数据与研究方法；附录 B：模型开放条件与数字公共品研究参照
 ├── data/                    # 数据资产（规范见 data/README.md）
 │   ├── meta/                # 指标定义与口径（附录 A 各表的 CSV 版）
 │   ├── processed/           # 图表源数据：每张图对应一个同名 CSV
