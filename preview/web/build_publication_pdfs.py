@@ -16,7 +16,7 @@ cover_url='https://raw.githubusercontent.com/notofonts/noto-cjk/'+PIN+'/Serif/OT
 if not cover_font.exists():
  with urlopen(Request(cover_url,headers={'User-Agent':'GOSD-publication'}),timeout=90) as response:cover_font.write_bytes(response.read())
 assert cover_font.read_bytes()[:4]==b'OTTO','Expected the pinned serif cover font'
-for name in ['appendix_print.py','frontmatter_print.py']:
- command=[sys.executable,str(ROOT/'preview/web'/name),'--font',str(font)]
- if name=='frontmatter_print.py':command+=['--cover-font',str(cover_font)]
+for name,extra in [('appendix_print.py',['--appendix','a']),('appendix_print.py',['--appendix','b']),('appendices_publication.py',[]),('frontmatter_print.py',['--cover-font',str(cover_font)])]:
+ command=[sys.executable,str(ROOT/'preview/web'/name)]+extra
+ if name!='appendices_publication.py':command+=['--font',str(font)]
  subprocess.run(command,cwd=ROOT,check=True)

@@ -14,6 +14,9 @@ CH1='chapters/chapter1/'
 INTRO=CH1+'本章介绍.md'
 METHOD='appendices/附录A-指标体系与数据来源.md'
 METHOD_EN='appendices/appendix-a.en.md'
+DPG='appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md'
+DPG_EN='appendices/appendix-b.en.md'
+def dpg_source(lang):return DPG if lang=='zh' else DPG_EN
 def method_source(lang):return METHOD if lang=='zh' else METHOD_EN
 PARTS=[CH1+x for x in ['1.1-开源-数字公共品与可持续发展引擎.md','1.2-OSDGs-开源发展目标框架.md','1.3-OSDI-开源发展度量体系.md']]
 IND={r['indicator_code']:r for r in R['indicators']}
@@ -37,7 +40,8 @@ def mapped_url(href,src,lang):
     if name==INTRO:return path(lang,'chapters/01/')+'#chapter-intro'
     if name in PARTS:return path(lang,'chapters/01/')+'#ch01-s0'+str(PARTS.index(name)+1)
     if name in [METHOD,METHOD_EN]:return path(lang,'methodology/')
-    if name=='appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md':return path(lang,'appendices/dpg/')
+    if name in [DPG,DPG_EN]:return path(lang,'appendices/dpg/')
+    if name=='preview/content/gosm/cases.json':return '/assets/gosm/cases.json'
     if name=='data/meta/数据可用性清单.md':return path(lang,'data/sources/')
     if name=='data/meta/osdi_indicator_dictionary.csv':return path(lang,'data/indicators/')
     if name in DS:return path(lang,'data/sources/')+'#dataset-'+DS[name]['dataset_id']
@@ -91,7 +95,7 @@ def render(src,lang,prefix,skip_title=True):
                 continue
             folded=src==PARTS[2] and rows[0][0]=='支柱／维度'
             if folded:out.append('<details class="osdi-reference-table"><summary>'+T(lang,'完整指标清单（29项，查证用）','Full indicator table (29 measures)')+'</summary>')
-            out.append('<div class="reader-table-wrap" role="region" tabindex="0" aria-label="'+T(lang,'报告数据表，可横向滚动','Report table, horizontally scrollable')+'"><table class="reader-table"><thead><tr>'+''.join('<th scope="col">'+inline(c,src,lang)+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+inline(c,src,lang)+'</td>' for c in row)+'</tr>' for row in rows[1:])+'</tbody></table></div>')
+            out.append('<div class="reader-table-wrap" role="region" tabindex="0" aria-label="'+T(lang,'报告数据表，可横向滚动','Report table, horizontally scrollable')+'"><table class="reader-table" data-columns="'+str(len(rows[0]))+'"><thead><tr>'+''.join('<th scope="col">'+inline(c,src,lang)+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+inline(c,src,lang)+'</td>' for c in row)+'</tr>' for row in rows[1:])+'</tbody></table></div>')
             if folded:out.append('</details>')
             continue
         if line.startswith('$$'):
@@ -110,7 +114,7 @@ def render(src,lang,prefix,skip_title=True):
         para=[line];i+=1
         while i<len(lines) and lines[i].strip() and not re.match(r'^(#|\||>|- |\d+\. |!\[|\$\$)',lines[i].strip()):para.append(lines[i].strip());i+=1
         out.append('<p>'+inline(' '.join(para),src,lang)+'</p>')
-    return '<div class="manuscript" lang="'+('en' if src==METHOD_EN else 'zh-CN')+'">'+''.join(out)+'</div>'
+    return '<div class="manuscript" lang="'+('en' if src in [METHOD_EN,DPG_EN] else 'zh-CN')+'">'+''.join(out)+'</div>'
 def translation_note(lang):
     return '' if lang=='zh' else '<div class="reader-note">The reviewed Chinese manuscript is shown below. The English translation is in preparation; interface labels and navigation remain available in English.</div>'
 def source_bar(src,lang):
@@ -121,6 +125,7 @@ def chapter(lang):
 
 def methods(lang):
     from appendix_publication import download
+    from appendices_publication import companions
     src=method_source(lang)
     body=render(src,lang,'method')
     body=re.sub(r' <a class="heading-anchor"[^>]*>.*?</a>','',body)
@@ -132,7 +137,13 @@ def methods(lang):
         target=current[number-1][0]
         if old_id!=target and 'id="'+old_id+'"' not in body:
             body=body.replace('<h3 id="'+target+'">','<span class="method-anchor" id="'+old_id+'" aria-hidden="true"></span><h3 id="'+target+'">')
-    return '<article class="methods-publication">'+download(lang)+body+'</article>'
+    return '<article class="methods-publication">'+download(lang)+body+companions('a',lang)+'</article>'
+def dpg(lang):
+    from appendix_b_publication import download
+    from appendices_publication import companions
+    body=render(dpg_source(lang),lang,'dpg')
+    body=re.sub(r' <a class="heading-anchor"[^>]*>.*?</a>','',body)
+    return '<article class="methods-publication">'+download(lang)+body+companions('b',lang)+'</article>'
 def feature(lang):
     return '<section class="chapter-feature"><div><span class="eyebrow">NEW / CHAPTER 01</span><h2>'+T(lang,'先读第一章，建立共同的研究坐标。','Start with Chapter 1.<br>A shared basis for the research.')+'</h2>'+p(T(lang,'从 Linux 的全球协作到开放模型的复用，理解 AI 时代的开源变化；沿着价值、目标与指标，进入整份报告。','From Linux collaboration to open model reuse, explore changes in open source and the report’s values, goals and measures.'))+a(path(lang,'chapters/01/'),T(lang,'阅读第一章 →','Read Chapter 1 →'),'text-link')+'</div><div class="feature-route">'+''.join(a(path(lang,'chapters/01/')+'#ch01-s0'+str(i+1),'<small>1.'+str(i+1)+'</small><strong>'+T(lang,z,e)+'</strong><span>↗</span>','') for i,(z,e) in enumerate([('开源的公共价值','Public value'),('OSDGs 目标框架','OSDGs goals'),('OSDI 指标体系','OSDI measures')]))+'</div></section>'
 def evidence_summary(lang):
