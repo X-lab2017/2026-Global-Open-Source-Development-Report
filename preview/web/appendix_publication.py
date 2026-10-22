@@ -2,7 +2,7 @@
 from pathlib import Path
 import html,json
 ROOT=Path(__file__).resolve().parents[2]
-EDITION='2026-10-22-methods-v2'
+EDITION='2026-10-22-methods-v3'
 PDF_NAME='GOSD-2026-appendix-a.pdf'
 DIRECTORY=ROOT/'preview/content/report-assets/appendix-a'
 PDF_URL='/assets/report/appendix-a/'+PDF_NAME+'?v='+EDITION

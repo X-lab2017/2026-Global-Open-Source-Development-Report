@@ -46,7 +46,7 @@ try:
        page.locator('.side-toggle').focus();page.keyboard.press('Enter')
        assert page.locator('.side-toggle').get_attribute('aria-expanded')=='true'
        local=page.locator('.book-nav .local-section').first;local.focus();page.keyboard.press('Enter')
-       assert '#'+page.locator('.methods-publication h3').first.get_attribute('id') in page.url
+       page.wait_for_function("(id)=>decodeURIComponent(location.hash)==='#'+id",arg=page.locator('.methods-publication h3').first.get_attribute('id'))
       if letter=='b' and lang=='zh' and theme=='light':
        page.locator('.methods-publication h3').nth(3).scroll_into_view_if_needed()
        page.screenshot(path=str(qa/f'view-b-standard-{width}.png'),animations='disabled')
