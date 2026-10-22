@@ -2,10 +2,11 @@
 from pathlib import Path
 from urllib.parse import quote
 import argparse,hashlib,html,json,re
-from reportlab.platypus import BaseDocTemplate,PageTemplate,Frame,Paragraph,Table,TableStyle
+from reportlab.platypus import BaseDocTemplate,PageTemplate,Frame,Paragraph,Table,TableStyle,KeepTogether
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A4
+from reportlab.pdfbase import pdfmetrics
 import chapter1_print as common
 from appendix_publication import DIRECTORY,EDITION,PDF_NAME
 ROOT=Path(__file__).resolve().parents[2]
@@ -21,7 +22,7 @@ def styles():
  STYLES.update(body=b,title=ParagraphStyle('title',parent=b,fontSize=21,leading=30,spaceAfter=15,keepWithNext=True),
   section=ParagraphStyle('section',parent=b,fontSize=14.5,leading=23,spaceBefore=17,spaceAfter=10,textColor=HexColor(TEAL),keepWithNext=True),
   note=ParagraphStyle('note',parent=b,fontSize=9,leading=15,textColor=HexColor(MUTED),spaceAfter=13),
-  cell=ParagraphStyle('cell',parent=b,fontSize=9.8,leading=16,spaceAfter=0,allowWidows=1,allowOrphans=1))
+  cell=ParagraphStyle('cell',parent=b,fontSize=9.8,leading=16,spaceAfter=0,rightIndent=0,allowWidows=1,allowOrphans=1))
 def destination(href):
  if href.startswith(('https://','http://')):return href
  name=Path(href).name
@@ -40,9 +41,25 @@ def inline(text):
  text=re.sub(r'\*\*(.*?)\*\*',r'<b>\1</b>',text)
  text=re.sub(r'\x60([^\x60]+)\x60',r'\1',text)
  return re.sub(r'\x00(\d+)\x00',lambda m:tokens[int(m[1])],text)
-def para(s,key='body'):
+def broken_lines(text,width,size):
+ # Keep closing punctuation with its phrase; reserve one em for hanging punctuation.
+ tokens=re.findall(r'[A-Za-z0-9]+(?:[._/-][A-Za-z0-9]+)*|\s+|.',text)
+ lines=[];line=''
+ for token in tokens:
+  if line and pdfmetrics.stringWidth(line+token,FONT,size)>width and token not in '，。；：、！？）》”’%':
+   carry=''
+   if line[-1] in '（《“‘':carry=line[-1];line=line[:-1]
+   lines.append(line.rstrip());line=carry+token.lstrip()
+  else:line+=token
+ if line:lines.append(line.rstrip())
+ return lines
+def para(s,key='body',width=None):
  cls=common.ManuscriptParagraph if key=='body' else Paragraph
- return cls(inline(s),STYLES[key])
+ if key in ['body','cell'] and '[' not in s:
+  available=(WIDTH-11.2 if key=='body' else width)-STYLES[key].fontSize
+  markup='<br/>'.join(html.escape(x) for x in broken_lines(s,available,STYLES[key].fontSize))
+ else:markup=inline(s)
+ return cls(markup,STYLES[key])
 class Document(BaseDocTemplate):
  def __init__(self,path):
   super().__init__(str(path),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=60,bottomMargin=57,title='2026 全球开源发展报告 · 附录 A：指标、数据与研究方法',author='GOSD',pageCompression=1,invariant=1)
@@ -73,9 +90,9 @@ def flow():
     if not all(re.fullmatch(r':?-+:?',x) for x in row):rows.append(row)
     i+=1
    columns=len(rows[0]);widths=[WIDTH*.23,WIDTH*.77] if columns==2 else [WIDTH*.20,WIDTH*.39,WIDTH*.41]
-   table=Table([[para(x,'cell') for x in row] for row in rows],colWidths=widths,repeatRows=1,hAlign='LEFT',spaceBefore=3,spaceAfter=14)
+   table=Table([[para(x,'cell',widths[j]-20) for j,x in enumerate(row)] for row in rows],colWidths=widths,repeatRows=1,hAlign='LEFT',spaceBefore=3,spaceAfter=14)
    table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),HexColor('#edf5f6')),('TEXTCOLOR',(0,0),(-1,0),HexColor(TEAL)),('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),10),('RIGHTPADDING',(0,0),(-1,-1),10),('TOPPADDING',(0,0),(-1,-1),8),('BOTTOMPADDING',(0,0),(-1,-1),8),('LINEBELOW',(0,0),(-1,0),.6,HexColor(LINE)),('LINEBELOW',(0,1),(-1,-1),.35,HexColor(LINE))]))
-   out.append(table);continue
+   out.append(KeepTogether([table]));continue
   parts=[line];i+=1
   while i<len(lines) and lines[i].strip() and not lines[i].startswith(('#','|')):
    parts.append(lines[i].strip());i+=1

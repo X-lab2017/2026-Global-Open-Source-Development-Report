@@ -3,18 +3,20 @@ from pathlib import Path
 from urllib.request import urlopen,Request
 from urllib.error import URLError
 import base64,hashlib,json,re,time
+from appendix_publication import EDITION
 import fitz
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[2]
 WEB='https://www.x-lab.info/2026-Global-Open-Source-Development-Report/'
 def fetch(path):
  with urlopen(Request(WEB+path,headers={'User-Agent':'GOSD-publication-check'}),timeout=45) as r:return r.read()
-meta=json.loads(fetch('assets/report/appendix-a/edition-manifest.json'))
+meta=json.loads(fetch('assets/report/appendix-a/edition-manifest.json?v='+EDITION))
+assert meta['edition']==EDITION,('old edition',meta['edition'],EDITION)
 source='appendices/附录A-指标体系与数据来源.md'
 assert meta['source_sha256'][source]==hashlib.sha256((ROOT/source).read_bytes()).hexdigest()
 raw=fetch('assets/report/appendix-a/GOSD-2026-appendix-a.pdf')
 assert hashlib.sha256(raw).hexdigest()==meta['pdf_sha256']
-doc=fitz.open(stream=raw,filetype='pdf');assert len(doc)==6
+doc=fitz.open(stream=raw,filetype='pdf');assert len(doc)==meta['pages']
 for i,page in enumerate(doc):
  png=page.get_pixmap(matrix=fitz.Matrix(1.1,1.1)).tobytes('png')
  print('REVIEW_IMAGE_PDF_'+str(i+1)+' '+base64.b64encode(png).decode(),flush=True)
