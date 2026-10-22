@@ -1,6 +1,6 @@
 {
-  "version": "chapter6-review-20261018",
-  "date": "2026-10-18",
+  "version": "20261022-ch6-whole-review",
+  "date": "2026-10-22",
   "kind": "editorial-action-framework",
   "statistics": "No new measured scores, forecasts or simulated quantitative results. Lines show proposed relationships, not estimated causality.",
   "title": {
@@ -8,20 +8,20 @@
     "en": "Outlook and action"
   },
   "headline": {
-    "zh": "让开放成果，成为持续共同创造的基础。",
-    "en": "Make open assets a foundation for sustained co-creation."
+    "zh": "把不断扩大的参与，转化为持续共同创造。",
+    "en": "Turn expanding participation into sustained co-creation."
   },
   "question": {
     "zh": "怎样把生态观察转化为不同参与者可以共同推进、持续检验的行动？",
     "en": "How can ecosystem observations become shared actions whose progress can be examined over time?"
   },
   "intro": {
-    "zh": "第一章提出共同目标，第二至第五章从生态地图、影响力榜单、技术全景和模型生态组织证据。本章把这些观察汇聚为三项共同任务，再由政府与国际组织、企业与组织、社区与全球合作三个方向展开九条建议。",
-    "en": "Chapter 1 establishes shared goals. Chapters 2–5 organize evidence through ecosystem maps, influence rankings, technology landscapes and model ecosystems. This chapter connects those observations to three shared tasks and nine recommendations for public institutions, companies and organizations, and communities working across borders."
+    "zh": "第一章以“持续共同创造及其公共价值”确立共同方向，2.1 从参与规模与地域分布展开观察，随后各章追踪贡献、影响、技术分工和模型复用。本章沿着这条线索，提出三项共同任务和九条行动建议：让更多人能够留下来，让开放成果得到持续维护，让实际使用与公共结果可以检验。",
+    "en": "Chapter 1 establishes sustained co-creation and its public value as the shared direction. Section 2.1 begins with participation and geography; subsequent chapters examine contribution, influence, technical roles and model reuse. This chapter brings that evidence into three shared tasks and nine actions: helping people stay involved, sustaining open assets, and examining actual use and public outcomes."
   },
   "scope": {
-    "zh": "建议用于组织下一步行动，实施时需结合具体项目与当地条件。图中连线表示研究与行动的关系；前文模拟图仅用于提出待核验的问题。",
-    "en": "The recommendations organize possible next steps and require adaptation to each project and local context. Lines show relationships between research and action. Simulated figures in earlier chapters only identify questions for further investigation."
+    "zh": "本章综合前文证据提出行动方向，沿用各节的统计范围与时间窗口。建议的实施和成效，需要在具体项目与当地条件下持续检验。",
+    "en": "This chapter develops action directions from earlier evidence, preserving each section’s scope and period. Implementation and outcomes require continued examination in specific projects and local contexts."
   },
   "tasks": [
     {
@@ -36,8 +36,8 @@
         "en": "Support sustained participation and talent development"
       },
       "body": {
-        "zh": "让新人有入口、贡献能被看见、维护者有接续。关注谁能够留下来，以及如何逐步承担共同建设的责任。",
-        "en": "Create entry points, recognize contributions and support maintainer succession. Observe who can stay involved and take on shared responsibility."
+        "zh": "把参与入口连接到真实任务、导师反馈和角色成长。跟踪同一批参与者能否持续贡献，让不同地区与不同贡献角色都有机会进入共同维护和决策。",
+        "en": "Connect real tasks, mentoring and role progression. Follow participant cohorts over time; open maintenance and decisions to people across regions and roles."
       },
       "watch": {
         "zh": "后续参与、角色成长、跨地区合作",
@@ -57,8 +57,8 @@
         "en": "Build maintainable, reusable open foundations"
       },
       "body": {
-        "zh": "把支持延伸到文档、评测、适配与日常维护。沿真实依赖和复用关系找到共同承担工作的伙伴。",
-        "en": "Extend support to documentation, evaluation, adaptation and routine maintenance. Use verified dependencies and reuse relationships to find partners who can share the work."
+        "zh": "沿实际依赖确认维护责任，把文档、测试、评测、适配和人员接续纳入支持。清楚记录版本与上游关系，让后续创造能够复核条件、反馈改进。",
+        "en": "Verify dependencies and maintenance owners. Support documentation, evaluation, adaptation and succession; record versions and upstream relationships for further use."
       },
       "watch": {
         "zh": "维护责任、持续支持、可核验的复用",
@@ -78,8 +78,8 @@
         "en": "Advance transparent governance and verifiable public value"
       },
       "body": {
-        "zh": "把开放条件落实到具体版本，把公共价值落实到实际使用和结果。让参与规则、决策和维护责任可以查证。",
-        "en": "Link openness conditions to specific versions and public value to actual use and outcomes. Make participation rules, decisions and maintenance responsibilities inspectable."
+        "zh": "公开参与规则、重要决策和责任安排；分别核查开放交付、实际采用与使用结果。让本地使用者参与问题定义和评价，逐步积累可验证的公共价值证据。",
+        "en": "Publish rules, decisions and responsibilities. Examine delivery, use and outcomes separately, involving local users in defining needs and evaluating public value."
       },
       "watch": {
         "zh": "开放材料、治理记录、公共使用与结果",
@@ -93,16 +93,16 @@
       "id": "goso",
       "code": "GOSO",
       "title": {
-        "zh": "生态地图：参与与连接",
-        "en": "Maps: participation and connections"
+        "zh": "生态地图：参与与平台覆盖",
+        "en": "Ecosystem maps: participation and coverage"
       },
       "summary": {
-        "zh": "规模、贡献、人才与跨地区关系共同解释参与基础。2.6 的来源结构提醒我们：参与全球项目与吸引全球伙伴，需要结合起来观察。",
-        "en": "Scale, contributions, talent and cross-region relationships describe participation. Section 2.6 shows why contributing globally and attracting global collaborators need to be observed together."
+        "zh": "2.1 展示多中心参与基础，也说明平台覆盖影响规模判断。由地区分布走向长期共建，需要追踪持续贡献、角色成长和参与机会。",
+        "en": "Section 2.1 shows multiple centres of participation and the effect of platform coverage. Connecting geography to lasting collaboration requires tracking continued contribution, role progression and opportunities to participate."
       },
       "boundary": {
-        "zh": "维护、留存与公共应用中的模拟视图只提出问题，不证明行动成效。",
-        "en": "Simulated maintenance, retention and public-use views identify questions, not demonstrated effects."
+        "zh": "五域与 GitHub 国家统计分别解释；国内补充量不重复叠加。",
+        "en": "Interpret five-group and GitHub country statistics separately; do not add the domestic supplement twice."
       },
       "tasks": [
         "people",
@@ -111,17 +111,17 @@
       "links": [
         {
           "label": {
-            "zh": "2.6 多样性与共建",
-            "en": "2.6 Diversity and co-creation"
+            "zh": "2.1 全球参与与平台覆盖",
+            "en": "2.1 Participation and coverage"
           },
-          "url": "chapters/02/#ch02-s06"
+          "url": "chapters/02/#ch02-s01"
         },
         {
           "label": {
-            "zh": "2.7 治理与公益",
-            "en": "2.7 Governance and public value"
+            "zh": "2.6 多样性与共建",
+            "en": "2.6 Diversity and collaboration"
           },
-          "url": "chapters/02/#ch02-s07"
+          "url": "chapters/02/#ch02-s06"
         }
       ]
     },
@@ -197,12 +197,12 @@
         "en": "Models: supply, reuse and openness"
       },
       "summary": {
-        "zh": "5.1 同一快照回溯中，模型数与发布账号分别增长 58.3% 和 48.4%；5.2 用声明关系观察后续创造；5.3 将材料完整性与许可开放性分开解释。",
-        "en": "In the retrospective snapshot in 5.1, models and publishing accounts grew by 58.3% and 48.4%. Section 5.2 follows declared reuse relationships; 5.3 distinguishes material completeness from license openness."
+        "zh": "5.1 观察供给扩张，5.2 追踪声明复用关系，5.3 区分材料完整性与许可开放性。600 个高开放性样本中，117 个同时具备高完整性。",
+        "en": "Section 5.1 examines supply, 5.2 declared reuse, and 5.3 completeness and licence openness. Of 600 highly open models in the sample, 117 also have high completeness."
       },
       "boundary": {
-        "zh": "增长来自 2026-09-13 快照的同日回溯；派生声明、下载和开放等级均不能独立证明公共成效。",
-        "en": "Growth uses the 2026-09-13 snapshot and a year-earlier retrospective point. Derivation declarations, downloads and openness levels do not independently establish public outcomes."
+        "zh": "供给为同一快照回溯；复用为声明关系；开放样本不能代替实际成效。",
+        "en": "Supply is reconstructed from one snapshot; reuse is declared; openness does not establish outcomes."
       },
       "tasks": [
         "commons",
@@ -254,8 +254,8 @@
         "en": "Connect public support to sustained collaboration"
       },
       "intro": {
-        "zh": "公共支持可以同时改善资源条件、参与机会与证据基础。建议从能够识别责任主体、保留实施记录的项目开始，以维护和真实公共需求安排投入，再用后续观察改进支持方式。",
-        "en": "Public support can improve resources, participation opportunities and the evidence base together. Start with projects whose responsibilities and implementation can be documented, align support with maintenance and real public needs, and refine it using follow-up observations."
+        "zh": "公共部门和国际组织能够改善长期协作的条件。2.1 提醒资源配置同时关注已有中心、不断扩大的参与力量与平台覆盖；第三、四章为寻找共建对象提供线索。公共支持应进一步核查真实需求，把维护、人才成长和公共结果分别纳入安排。图 6-2-1 展示三条建议的实施路径。",
+        "en": "Public bodies and international organizations can improve conditions for lasting collaboration. Section 2.1 highlights established centres, expanding participation and platform coverage; Chapters 3 and 4 help locate potential partners. Public support should verify needs and address maintenance, participant growth and public outcomes. Figure 6-2-1 presents the three action pathways."
       },
       "evidence": [
         "gosr",
@@ -283,8 +283,8 @@
         "en": "Connect product use to maintenance of open foundations"
       },
       "intro": {
-        "zh": "企业既是开放成果的使用者，也是发布者和长期维护者。把依赖管理、清晰发布和协作者成长放进日常研发流程，能够使生态投入对应到具体责任，也让外部伙伴更容易参与。",
-        "en": "Companies use, publish and maintain open assets. Integrating dependency management, clear releases and contributor development into everyday engineering assigns concrete responsibilities and makes participation easier for external partners."
+        "zh": "企业同时连接产品使用、开放发布与上游维护。第三章提供组织参与的观察，第四、五章展示技术分工与复用关系。建议把这些联系落实到研发预算、责任人员和版本记录，使维护与协作成为日常工作。图 6-3-1 将产品责任、开放发布和协作者成长放在同一流程中。",
+        "en": "Companies connect product use, open releases and upstream maintenance. Chapter 3 examines organizational participation; Chapters 4 and 5 add technical roles and reuse. These connections should inform engineering budgets, responsible teams and version records. Figure 6-3-1 links product responsibilities, open releases and contributor development."
       },
       "evidence": [
         "gosr",
@@ -312,8 +312,8 @@
         "en": "From a first contribution to lasting co-creation"
       },
       "intro": {
-        "zh": "社区让分散的参与者在共同工作中建立联系。全球合作应落到具体任务、维护分工和本地需求上，让更多人能够加入，也能够逐步参与评审、决策和接续维护。",
-        "en": "Communities connect dispersed participants through shared work. Global cooperation should be grounded in concrete tasks, maintenance roles and local needs, enabling people to join and gradually participate in review, decisions and succession."
+        "zh": "全球合作的基础，是不同地区的人能够围绕共同问题持续工作。2.1 显示全球南方已具有值得关注的参与规模，区域节点也为连接更多伙伴提供了入口。社区可以进一步开放任务、评审与治理机会，让本地需求进入技术建设。图 6-4-1 将加入社区、联合维护与共同评价连接起来。",
+        "en": "Global cooperation rests on people in different regions working together on shared problems over time. Section 2.1 shows substantial participation in the Global South and opportunities to connect partners through regional nodes. Communities can open tasks, review and governance to wider participation and bring local needs into development. Figure 6-4-1 connects entry, joint maintenance and shared evaluation."
       },
       "evidence": [
         "goso",
@@ -337,12 +337,12 @@
         "en": "Support long-term maintenance"
       },
       "why": {
-        "zh": "榜单与技术全景能够帮助寻找关键对象，具体支持仍需了解使用依赖、维护负担和已有资源。",
-        "en": "Rankings and landscapes help identify candidate projects. Support decisions still need evidence of dependencies, maintenance workloads and existing resources."
+        "zh": "第三、四章帮助定位协作主体和技术环节；确定支持顺序，还需核查实际依赖、维护负担和已有资源。",
+        "en": "Chapters 3 and 4 help locate actors and technical roles. Setting support priorities also requires evidence of actual dependencies, maintenance burdens and existing resources."
       },
       "body": {
-        "zh": "由公共资助方联合基金会、使用单位和维护团队，建立可复核的重点项目清单。支持范围覆盖日常维护、文档、测试、适配和安全修复，并明确责任人、资源安排与交接方案。成熟基础项目与新生社区可以采用不同的支持方式，避免只按短期热度分配资源。",
-        "en": "Public funders can work with foundations, users and maintainers on a reviewable list of priority projects. Support routine maintenance, documentation, tests, adaptation and security fixes, with named owners, resources and handover plans. Mature foundations and emerging communities may need different forms of support; short-term attention should not be the sole allocation criterion."
+        "zh": "由公共资助方联合基金会、使用单位和维护团队，建立有明确范围的重点项目清单。支持日常维护、文档、测试、适配和安全修复，约定责任人、支持周期与人员交接；将成果的持续可用性纳入后续复盘。成熟基础项目与新生社区可采用不同方式，让资源安排与维护任务相匹配。",
+        "en": "Public funders, foundations, users and maintainers should establish a scoped list of priority projects. Support maintenance, documentation, testing, adaptation and security fixes, with named owners, funding periods and succession arrangements. Review continued usability. Mature infrastructure and emerging communities may require different support arrangements."
       },
       "steps": [
         {
@@ -471,12 +471,12 @@
         "en": "Connect people and tasks"
       },
       "why": {
-        "zh": "地域参与和人才集聚提供了合作入口，但培训人数、活动规模不能直接说明后续贡献能否持续。",
-        "en": "Geographic participation and talent clusters offer partnership entry points. Training attendance and event size do not establish continued contribution."
+        "zh": "2.1 的多中心格局和区域实例提供了合作入口。参与规模反映基础，人才支持还需观察同一批人能否持续贡献、逐步承担责任。",
+        "en": "Section 2.1’s multiple centres and regional examples identify opportunities for collaboration. Scale describes the participation base; talent support should also follow the same people as they contribute and take responsibility."
       },
       "body": {
-        "zh": "由地区、高校、企业与社区共同开放任务，提供导师、工具和适当资源，让学习者参与真实项目。支持文档、翻译、评测与维护等多种角色，并为资源较少地区提供远程和异步协作入口。国际组织可帮助连接具有共同需求的伙伴，持续跟踪首次参与后的成长。",
-        "en": "Regions, universities, companies and communities can jointly open tasks and provide mentors, tools and appropriate resources for learners to join real projects. Support documentation, translation, evaluation and maintenance roles, with remote and asynchronous entry points for less-resourced regions. International organizations can connect partners around shared needs and follow development after first participation."
+        "zh": "由地区、高校、企业与社区依托已有项目开放真实任务，配套导师、工具和持续反馈，认可文档、翻译、评测等多种贡献。国际组织可连接全球南方与其他地区的伙伴，支持远程、多语种和异步协作，并让本地伙伴参与任务设计。固定参与批次与观察周期，记录持续贡献、角色变化及退出原因，用于改进支持条件。",
+        "en": "Regions, universities, companies and communities should open real tasks in existing projects, with mentoring, tools and continued feedback across documentation, translation and evaluation roles. International organizations can connect Global South partners with peers, support remote, multilingual and asynchronous work, and involve local partners in task design. Follow defined cohorts and periods, recording continued contributions, role changes and reasons for leaving."
       },
       "steps": [
         {
@@ -505,8 +505,8 @@
             "en": "Observe subsequent growth"
           },
           "body": {
-            "zh": "在相同时间窗口追踪继续参与与角色变化。",
-            "en": "Follow continued participation and changing roles over consistent periods."
+            "zh": "固定参与批次，记录持续贡献、角色变化和退出原因。",
+            "en": "Follow defined cohorts: continued contributions, role changes and reasons for leaving."
           }
         }
       ],
@@ -517,8 +517,8 @@
             "en": "Regions and international organizations"
           },
           "work": {
-            "zh": "连接节点与资源",
-            "en": "Connect hubs and resources"
+            "zh": "连接区域节点与全球南方伙伴",
+            "en": "Connect regional nodes and Global South partners"
           }
         },
         {
@@ -577,6 +577,13 @@
       "links": [
         {
           "label": {
+            "zh": "2.1 参与与长期共建",
+            "en": "2.1 Participation and collaboration"
+          },
+          "url": "chapters/02/#ch02-s01"
+        },
+        {
+          "label": {
             "zh": "2.4 人才",
             "en": "2.4 Talent"
           },
@@ -612,12 +619,12 @@
         "en": "Examine deliverables and outcomes"
       },
       "why": {
-        "zh": "开放条件说明后续使用的可能性；公共价值还需要具体使用场景、实施过程和结果材料。",
-        "en": "Openness conditions describe possibilities for further use. Public value additionally requires evidence about use, implementation and outcomes."
+        "zh": "第一章区分目标、指标和证据，5.3 进一步区分材料完整性与许可开放性。公共支持需要把这些条件连接到实际使用和结果。",
+        "en": "Chapter 1 distinguishes goals, indicators and evidence; section 5.3 separates completeness from licence openness. Public support should connect these conditions to actual use and outcomes."
       },
       "body": {
-        "zh": "在公共资助和应用试点中，分别说明要交付哪些开放材料、由谁维护，以及希望回应什么公共需求。模型材料和许可按具体版本记录，公共应用由本地实施方与受益群体共同提出评价问题。国际合作可共享记录格式与复核方法；开放分级、正式认可和使用成效分别判断。",
-        "en": "Public funding and application pilots can specify the open materials to deliver, who will maintain them, and the public need they address. Record model materials and licenses by version; local implementers and intended beneficiaries should help define evaluation questions. International cooperation can share record formats and review methods. Openness classification, formal recognition and usage outcomes require separate judgments."
+        "zh": "公共资助与应用试点可分别约定开放材料、维护安排和预期回应的公共需求。交付按具体版本核对材料与许可，使用按部署、服务对象和运行周期记录，结果由本地实施方、目标使用者与研究者共同评价。国际合作可共享记录格式和复核方法；正式认可依据相应规则单独核验，使不同层次的证据各有对应。",
+        "en": "Public funding and pilots can specify open materials, maintenance and the public needs to address. Check delivery by version, record use by deployment, user group and operating period, and evaluate outcomes with local implementers, intended users and researchers. International cooperation can share documentation and review methods. Verify formal recognition under its applicable rules, keeping the evidence for each layer distinct."
       },
       "steps": [
         {
@@ -746,12 +753,12 @@
         "en": "Support upstream maintenance"
       },
       "why": {
-        "zh": "产品依赖多个项目，模型也可能建立在已有基座之上。依赖关系为共同维护提供入口，采用本身不意味着贡献已经回流。",
-        "en": "Products rely on multiple projects, and models may build on existing foundations. Dependencies create opportunities for shared maintenance; adoption alone does not establish a return contribution."
+        "zh": "第四章的技术分工和 5.2 的复用网络提示，产品与模型往往建立在已有成果之上。采用关系需要进一步落实为维护责任和改进回流。",
+        "en": "Chapter 4’s technical roles and section 5.2’s reuse networks show how products and models build on earlier assets. Adoption relationships should be connected to maintenance responsibilities and returning improvements."
       },
       "body": {
-        "zh": "由研发与产品团队共同维护关键依赖清单，识别代码、模型和数据的版本及上游。为重要依赖明确对接人员和投入安排，将修复、测试、适配经验和文档改进回馈上游。项目调整时提前准备迁移与交接，避免责任随一次发布或团队变化而中断。",
-        "en": "Engineering and product teams can maintain a shared register of critical dependencies, including code, model and data versions and upstream sources. Assign contacts and resources, and return fixes, tests, adaptation experience and documentation upstream. Prepare migration and handover plans when projects change so responsibilities survive releases and team transitions."
+        "zh": "研发与产品团队共同核对关键代码、模型和数据的版本及上游，标记已确认与待核查的依赖。为关键依赖安排对接人员和工作时间，将修复、测试、适配和文档改进提交上游，并分别记录提交、讨论与接纳状态。产品调整或人员变动时，保留维护、迁移与交接安排，使责任跨越单次发布。",
+        "en": "Engineering and product teams should verify versions and upstream sources for key code, models and data, distinguishing confirmed dependencies from those needing review. Assign contacts and working time; return fixes, tests, adaptations and documentation, separately recording submission, discussion and acceptance. Preserve maintenance, migration and handover arrangements through product and personnel changes."
       },
       "steps": [
         {
@@ -887,12 +894,12 @@
         "en": "Improve versioned releases"
       },
       "why": {
-        "zh": "模型数量、下载和网络影响描述不同侧面。使用者还需要知道具体开放了什么、适用什么任务，以及如何报告问题。",
-        "en": "Counts, downloads and network influence describe different aspects. Users also need to know what is available, which tasks it serves and how to report problems."
+        "zh": "5.3 的样本差异说明，较开放的许可条件仍需完整材料配合。清晰发布能让下游判断如何运行、复核和继续改进。",
+        "en": "Section 5.3’s sample shows that open licence conditions still need complete materials. Clear releases help downstream users determine how to run, examine and improve an asset."
       },
       "body": {
-        "zh": "围绕具体版本组织代码、权重、数据说明、评测条件、许可与上游声明，说明已提供、待核实和不适用的材料。把运行示例、资源需求、已知局限和维护入口与成果共同发布。开放档案随版本更新，让下游能够辨识变化、复核条件并反馈使用经验。",
-        "en": "Organize code, weights, data descriptions, evaluation conditions, licenses and upstream declarations by version. Distinguish available, unverified and inapplicable materials. Publish runnable examples, resource requirements, known limitations and maintenance contacts with the asset. Update the record with releases so downstream users can identify changes, check conditions and provide feedback."
+        "zh": "以具体版本为单位组织代码、权重、数据说明、评测条件、许可与上游声明，分别标明已提供、待核实和不适用项。运行示例同时说明环境、资源需求和已知局限，并提供维护入口。发布后根据复核与使用反馈更新档案，让材料、许可和变更记录保持对应；涉及公共应用时，另行积累实际使用与结果证据。",
+        "en": "Organize code, weights, data documentation, evaluation conditions, licences and upstream declarations by version, marking provided, unverified and inapplicable items separately. Document the environment, resource needs, limitations and maintenance access alongside runnable examples. Update the dossier through review and user feedback, keeping materials, licences and changes aligned. Public applications also require evidence of use and outcomes."
       },
       "steps": [
         {
@@ -1021,12 +1028,12 @@
         "en": "Support contributor development"
       },
       "why": {
-        "zh": "企业参与结构与榜次变化提供了持续投入的线索，真正的协作能力还需要落实到团队、角色和长期参与条件。",
-        "en": "Company participation patterns and changing ranks offer clues about sustained investment. Collaboration capability also depends on teams, roles and conditions for long-term involvement."
+        "zh": "2.1 提出从参与基础走向长期共建，第三章则提供企业参与结构的观察。组织投入需要落实到协作者的时间、反馈和成长机会。",
+        "en": "Section 2.1 moves from participation towards lasting collaboration, while Chapter 3 examines corporate participation. Organizational support should provide contributors with time, feedback and opportunities to grow."
       },
       "body": {
-        "zh": "将开源协作纳入研发安排，为员工参与上游、评审外部贡献和维护文档预留工作时间。认可代码之外的测试、翻译、支持和发布工作，让高校、中小团队与个人贡献者有清晰的对接路径。团队评价结合贡献内容、协作质量与持续责任，避免由提交次数或单一榜次替代判断。",
-        "en": "Include open collaboration in engineering plans, with working time for upstream participation, external reviews and documentation. Recognize testing, translation, support and release work, and provide clear contacts for universities, smaller teams and individuals. Assess the substance of contributions, collaboration and sustained responsibility rather than relying on commit counts or a single rank."
+        "zh": "将上游参与、外部贡献评审与文档维护纳入研发计划，明确责任团队和可用时间。认可代码之外的测试、翻译、支持和发布工作，为高校、中小团队与个人贡献者提供稳定对接。评价结合贡献内容、协作质量与持续责任，跟踪同一批协作者的角色成长，使投入与真实共建相连接。",
+        "en": "Include upstream work, external review and documentation in engineering plans, with responsible teams and allocated time. Recognize testing, translation, support and release work, and provide stable contacts for universities, small teams and individuals. Assess contribution content, collaboration quality and sustained responsibility, following role progression within the same contributor cohorts."
       },
       "steps": [
         {
@@ -1127,6 +1134,13 @@
       "links": [
         {
           "label": {
+            "zh": "2.1 参与与长期共建",
+            "en": "2.1 Participation and collaboration"
+          },
+          "url": "chapters/02/#ch02-s01"
+        },
+        {
+          "label": {
             "zh": "3.2 企业结构",
             "en": "3.2 Company participation"
           },
@@ -1155,12 +1169,12 @@
         "en": "Open paths to shared responsibility"
       },
       "why": {
-        "zh": "参与来源更广，不自动意味着各类角色都可以进入。持续共建需要明确任务、及时反馈和可理解的成长规则。",
-        "en": "Broader participation does not automatically make every role accessible. Sustained co-creation requires clear tasks, timely feedback and understandable paths to responsibility."
+        "zh": "2.1 的增长与地域分布说明参与来源在扩展。让这些力量留下来，需要容易找到的任务、持续反馈和清楚的角色成长规则。",
+        "en": "Section 2.1’s growth and geography show expanding sources of participation. Keeping people involved requires discoverable tasks, continued feedback and clear routes to greater responsibility."
       },
       "body": {
-        "zh": "从适合首次参与的任务开始，配套多语言文档、异步沟通和导师支持。公开贡献、评审与维护者接续规则，让贡献者知道怎样获得反馈、怎样承担更多责任。根据实际项目条件观察参与后的三个月、六个月及更长时间变化，并将反馈用于改进协作入口。",
-        "en": "Start with suitable first tasks, supported by multilingual documentation, asynchronous communication and mentoring. Publish contribution, review and maintainer-succession practices so contributors understand feedback and responsibility. Where appropriate, observe participation after three months, six months and longer, and use the feedback to improve entry points."
+        "zh": "从边界清楚的首次任务开始，配套多语种文档、异步沟通和导师支持，公开贡献评审与维护者接续规则。将代码、文档、翻译和用户支持纳入成长路径，让不同背景的贡献者逐步进入评审与决策。结合项目节奏跟踪固定参与批次，例如参与后三个月、六个月的变化，同时记录退出原因，持续改进入口和协作条件。",
+        "en": "Start with clearly scoped first tasks, multilingual documentation, asynchronous communication and mentoring. Publish review and maintainer succession rules. Include code, documentation, translation and user support in progression paths. Track defined cohorts at project-appropriate intervals, such as three and six months after joining, and record reasons for leaving to improve entry and collaboration conditions."
       },
       "steps": [
         {
@@ -1261,6 +1275,13 @@
       "links": [
         {
           "label": {
+            "zh": "2.1 参与与长期共建",
+            "en": "2.1 Participation and collaboration"
+          },
+          "url": "chapters/02/#ch02-s01"
+        },
+        {
+          "label": {
             "zh": "2.6 持续共建",
             "en": "2.6 Sustained co-creation"
           },
@@ -1289,12 +1310,12 @@
         "en": "Organize cross-region maintenance"
       },
       "why": {
-        "zh": "代码协作和模型派生都能显现跨地区连接。已有连接是寻找伙伴的入口，正式合作与贡献回流还需要进一步记录。",
-        "en": "Code collaboration and model derivation reveal cross-region connections. These are entry points for finding partners; formal cooperation and return contributions need additional evidence."
+        "zh": "2.1 为寻找跨地区伙伴提供参与线索，第四、五章为辨识共同技术任务提供入口。合作应进一步核实真实依赖、共同需求和持续分工。",
+        "en": "Section 2.1 helps identify regional partners, while Chapters 4 and 5 help identify shared technical work. Cooperation should establish actual dependencies, common needs and lasting responsibilities."
       },
       "body": {
-        "zh": "沿真实的依赖、上游与下游关系寻找共同需求，以版本兼容、任务适配、评测和多语言文档组织联合维护。让不同地区的伙伴共同定义任务与分工，资源较少的参与方也能进入评审和决策。合作成果保留版本、贡献与持续维护记录，避免把一次交流活动当作长期伙伴关系。",
-        "en": "Follow verified dependencies and upstream/downstream relationships to find shared needs. Organize joint work on version compatibility, task adaptation, evaluation and multilingual documentation. Partners across regions should jointly define tasks and roles, including less-resourced participants in review and decisions. Preserve version, contribution and maintenance records rather than treating a one-off event as a lasting partnership."
+        "zh": "沿上游与下游关系，由维护者和本地使用方共同选择兼容、适配、评测或文档任务，约定交付、评审与后续维护。为资源较少地区和全球南方伙伴提供参与条件，使其能够共同定义任务和重要决策。保留版本、贡献与改进回流记录，定期检查合作能否跨越人员变化和单次活动。",
+        "en": "Along upstream and downstream relationships, maintainers and local users can jointly select compatibility, adaptation, evaluation or documentation tasks, agreeing delivery, review and continued maintenance. Enable partners in less-resourced regions and the Global South to shape tasks and important decisions. Retain version, contribution and upstream-feedback records, and review whether cooperation lasts beyond events and personnel changes."
       },
       "steps": [
         {
@@ -1313,8 +1334,8 @@
             "en": "Agree on shared work"
           },
           "body": {
-            "zh": "共同定义适配、评测、文档与维护分工。",
-            "en": "Jointly define adaptation, evaluation, documentation and maintenance roles."
+            "zh": "共同确定适配、评测和维护任务，让本地伙伴参与决策。",
+            "en": "Agree adaptation, evaluation and maintenance tasks, involving local partners in decisions."
           }
         },
         {
@@ -1395,6 +1416,13 @@
       "links": [
         {
           "label": {
+            "zh": "2.1 参与与长期共建",
+            "en": "2.1 Participation and collaboration"
+          },
+          "url": "chapters/02/#ch02-s01"
+        },
+        {
+          "label": {
             "zh": "2.6 跨境协作",
             "en": "2.6 Cross-region collaboration"
           },
@@ -1423,12 +1451,12 @@
         "en": "Examine public value together"
       },
       "why": {
-        "zh": "第一章把公共价值作为共同方向。判断具体成果是否有帮助，需要使用者、实施者与维护者共同提供证据。",
-        "en": "Chapter 1 establishes public value as a shared direction. Understanding whether an asset helps in practice requires evidence from users, implementers and maintainers."
+        "zh": "第一章将公共价值作为共同方向，前文各类指标提供了不同层次的观察。具体成果是否回应需求，需要使用者、实施者与维护者共同检验。",
+        "en": "Chapter 1 establishes public value as a shared direction; earlier indicators offer different layers of observation. Users, implementers and maintainers should jointly examine whether a specific asset addresses a need."
       },
       "body": {
-        "zh": "围绕明确的教育、无障碍、公共服务等需求，让本地伙伴与目标使用者参与问题定义、试用和结果评价。社区公开重要决策、反馈处理和维护责任，说明谁参与、谁受益以及仍有哪些限制。将本地适配经验带回项目，让一次公共应用成为后续共同创造的起点。",
-        "en": "For defined needs in education, accessibility or public services, involve local partners and intended users in problem definition, trials and evaluation. Communities can publish important decisions, feedback handling and maintenance responsibilities, explaining who participates, who benefits and what remains limited. Return local adaptation experience to the project so one public application becomes a starting point for further co-creation."
+        "zh": "从明确的本地需求出发，邀请目标使用者参与问题定义、试用与结果评价。社区公开重要决策、反馈处理和维护责任，记录实际参与者、使用范围、受益情况及局限。将适配经验和评价反馈带回上游，形成可以继续改进的版本与工作安排，使一次公共应用与后续共同创造相衔接。",
+        "en": "Start with a specific local need and involve intended users in defining the problem, testing and evaluation. Publish important decisions, feedback handling and maintenance responsibilities; record participation, scope of use, benefits and limitations. Return adaptation experience and evaluation feedback upstream, connecting public applications to further versions and shared work."
       },
       "steps": [
         {
@@ -1550,26 +1578,76 @@
       "en": "Findings and outlook"
     },
     "question": {
-      "zh": "前四个研究板块，共同指向什么下一步？",
-      "en": "What next steps emerge from the four research perspectives?"
+      "zh": "怎样把参与基础的增长，转化为可以延续的协作与公共价值？",
+      "en": "How can growing participation support lasting collaboration and public value?"
     },
     "paragraphs": [
       {
-        "zh": "前文展示了开放生态的不同侧面。第二章观察参与、贡献与资产在哪里积累，第三章辨识连接这些力量的组织与项目；第四章将分散项目放回技术体系，第五章进一步追踪模型从发布到复用的关系。把这些观察放在一起，核心问题是：增长形成的开放成果，能否得到持续维护，并成为更多人继续创造的基础？",
-        "en": "The earlier chapters reveal different parts of the open ecosystem. Chapter 2 observes participation, contributions and asset accumulation; Chapter 3 identifies the organizations and projects connecting them. Chapter 4 places projects in technology systems, and Chapter 5 follows models from release into reuse. Together, they pose a shared question: can growing open assets be maintained and become foundations for further creation?"
-      },
-      {
-        "zh": "模型生态使这一问题更加具体。5.1 的同一快照回溯显示，模型与发布账号都在增长；5.2 保留的声明关系让后续创造可以追踪。与此同时，5.3 提醒我们，材料完整性、许可条件和使用成效需要分别判断。更多供给为选择和复用创造条件，文档、维护、清晰规则与使用反馈决定这些条件如何进入实际协作。",
-        "en": "Model ecosystems make this question tangible. The consistent snapshot in 5.1 shows growth in both models and publishing accounts; the declared relationships in 5.2 make subsequent creation traceable. Section 5.3 also shows why material completeness, license conditions and usage outcomes require separate judgments. Greater supply creates opportunities for choice and reuse; documentation, maintenance, clear rules and user feedback help those opportunities become practical collaboration."
-      },
-      {
-        "zh": "因此，未来观察应优先检验三类变化：参与者能否持续成长，开放成果能否持续维护与复用，公共价值能否获得更清楚的使用和结果证据。这是后续研究与行动的方向，不预设各地区、技术或组织必然沿同一路径发展。",
-        "en": "Future observation should examine three changes: whether participants can continue to grow, whether open assets can be maintained and reused, and whether public value can be supported by clearer usage and outcome evidence. These are priorities for research and action, without assuming that every region, technology or organization will follow the same path."
+        "zh": "前五章逐步展开了同一个问题：谁能够参与，形成了什么贡献，哪些主体和技术环节连接这些工作，开放成果又怎样支持后续创造。综合来看，参与入口、维护责任和使用条件需要同时建设。规模、位次与开放程度各自提供线索，持续共同创造则需要沿着人、成果和使用过程继续追踪。",
+        "en": "The first five chapters examine who can participate, what they contribute, which actors and technical roles connect that work, and how open assets support further creation. Together, they point to the need to develop participation pathways, maintenance responsibilities and conditions for use. Scale, rank and openness each offer evidence; sustained co-creation requires following people, assets and their use over time."
       }
     ],
     "after": {
-      "zh": "三项任务贯穿各类主体：公共部门改善支持条件，企业把协作落实到产品与研发责任，社区连接参与者、维护者和本地需求。下面九条建议各有侧重，但需要彼此配合。观察成效时，先明确对象、时间和证据来源，再比较变化；不把建议中的跟踪项直接当作已经完成的 OSDI 测算。",
-      "en": "The three tasks cut across actors: public institutions improve support conditions, companies embed collaboration in product and engineering responsibilities, and communities connect participants, maintainers and local needs. The nine recommendations have distinct roles and depend on one another. To assess progress, define objects, periods and evidence before comparing change; proposed tracking items are not completed OSDI measurements."
+      "zh": "以下九条建议分别说明为何行动、由谁推进和怎样复盘。实施时先确定对象、起点和观察周期，再记录投入、过程与结果。相同范围内的后续变化有助于改进支持；跨地区比较则应同时保留平台、样本和时间窗口的差异。",
+      "en": "The nine recommendations explain why to act, who should take responsibility and how to review progress. Begin with a defined population, baseline and observation period, then record inputs, processes and outcomes. Follow-up within a comparable scope can improve support; comparisons across regions should retain differences in platforms, samples and time periods."
+    },
+    "findings": [
+      {
+        "title": {
+          "zh": "6.1.1 参与呈现多中心格局，长期协作需要继续培育",
+          "en": "6.1.1 Multiple centres of participation need lasting collaboration"
+        },
+        "paragraphs": [
+          {
+            "zh": "2.1 显示，2026 报告年度 GitHub 全球活跃开发者约 2,890.36 万；印度、巴西和印度尼西亚合计约占 18.2%。按编制组五域统计，美国、欧洲和中国的开发者总量均接近 3,000 万。两组观察分别说明，已有中心与不断扩大的参与力量共同构成了全球共建基础。",
+            "en": "Section 2.1 records about 28.9036 million active GitHub developers in the 2026 reporting year, with India, Brazil and Indonesia together accounting for about 18.2%. In the editorial team’s five-group statistics, the United States, Europe and China each approach 30 million developers in total. These distinct observations show both established centres and expanding sources of participation."
+          },
+          {
+            "zh": "平台覆盖也影响哪些参与能够被看见。2.1 在国家比较中单列国内平台补充量，五域综合统计则保持自身范围。这提示后续研究完善跨平台覆盖与去重；行动上，应以区域节点、真实任务和导师支持连接更多参与者，尤其让全球南方伙伴进入共同维护与决策。规模增长是否延续为长期贡献，还需跟踪同一批参与者的后续活动。",
+            "en": "Platform coverage affects whose participation is visible. Section 2.1 reports the domestic-platform supplement separately in country comparisons while retaining the scope of its five-group series. Research should improve coverage and deduplication. Action should connect participants through regional nodes, real tasks and mentoring, including Global South partners in maintenance and decisions. Following the same participant cohorts is necessary to assess whether growth develops into lasting contribution."
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "6.1.2 用影响力定位主体，用技术分工识别共建任务",
+          "en": "6.1.2 Locate actors through influence and shared work through technical roles"
+        },
+        "paragraphs": [
+          {
+            "zh": "第三章把地区、企业、基金会和项目放入协作网络，帮助寻找具有连接作用的主体。第四章进一步解释项目在技术体系中承担什么功能：4.1 对 Agent Infra 与 Model Infra 的分类和月度观察，连接了应用入口与运行、评估、工具链等基础能力；4.2—4.6 的全景则为其他领域建立了后续研究入口。",
+            "en": "Chapter 3 locates regions, companies, foundations and projects within collaboration networks. Chapter 4 adds their technical roles: section 4.1 connects application entry points with runtime, evaluation and tooling through its Agent Infra and Model Infra categories and monthly observations. The landscapes in sections 4.2–4.6 provide entry points for further research in other fields."
+          },
+          {
+            "zh": "由此提出的行动重点，是沿实际使用关系确认共同依赖，再核查维护团队、工作负担和支持缺口。榜单可以帮助选择调查对象，分类可以帮助辨识分工；资源配置仍需具体的依赖、维护与使用证据。头部项目和规模较小的基础组件，都可能需要跨组织共同承担长期工作。",
+            "en": "The resulting action priority is to establish shared dependencies from actual use, then examine maintainers, workload and support gaps. Rankings can identify subjects for investigation and categories can clarify technical roles. Resource allocation still requires concrete evidence of dependencies, maintenance and use. Both leading projects and smaller foundational components may need sustained work across organizations."
+          }
+        ]
+      },
+      {
+        "title": {
+          "zh": "6.1.3 供给与复用扩展，开放条件仍需落实到具体版本",
+          "en": "6.1.3 Growing supply and reuse require version-specific openness"
+        },
+        "paragraphs": [
+          {
+            "zh": "第五章将供给、复用与开放条件连在一起。5.1 的同一快照回溯中，模型数量增长 58.3%，发布账号增长 48.4%；5.2 进一步展示声明关系中的派生网络与影响力结构。供给增加扩大了选择范围，后续创造是否便利，还取决于上游关系、版本材料和使用条件能否查清。",
+            "en": "Chapter 5 connects supply, reuse and openness. In section 5.1’s reconstruction from a single snapshot, model counts grow by 58.3% and publishing accounts by 48.4%. Section 5.2 examines declared derivation networks and influence. Greater supply widens choice; further creation also depends on clear upstream relationships, versioned materials and conditions of use."
+          },
+          {
+            "zh": "5.3 的 870 个模型样本中，600 个被归为高开放性，其中 117 个同时具备高完整性；其余 483 个仍有材料完整性缺口。这个差异提示，许可条件需要与代码、权重、数据说明、评测和维护入口相互配合。该样本支持完善发布和复核流程；实际采用、正式认可与公共成效，还应分别取得证据。",
+            "en": "Among the 870 models examined in section 5.3, 600 are classified as highly open, of which 117 also have high completeness; the remaining 483 have completeness gaps. This difference points to the need to connect licence conditions with code, weights, data documentation, evaluation and maintenance access. The sample supports improving release and review processes. Actual adoption, formal recognition and public outcomes each require their own evidence."
+          }
+        ]
+      }
+    ],
+    "task_title": {
+      "zh": "6.1.4 三项共同任务，贯穿不同主体与领域",
+      "en": "6.1.4 Three shared tasks across actors and fields"
+    },
+    "figure_lead": {
+      "zh": "图 6-1-1 将上述观察连接到第一章提出的三项共同任务。任务贯穿四大支柱，各主体承担不同职责，并通过共同维护、开放交付与使用反馈相互衔接。",
+      "en": "Figure 6-1-1 connects these observations to the three shared tasks introduced in Chapter 1. The tasks span the four pillars; actors take distinct responsibilities linked through maintenance, open delivery and feedback from use."
     }
   },
   "cycle": [
@@ -1717,16 +1795,20 @@
     },
     "paragraphs": [
       {
-        "zh": "开源的发展，由无数具体的共同工作构成。一个问题被回应，一份文档得到完善，一个基础模型被继续适配，一位新参与者成长为维护者，都可能为下一次创造增加条件。持续观察这些变化，能够让规模与影响之外的维护责任、参与机会和公共结果逐渐清晰。",
-        "en": "Open source development consists of countless acts of shared work. A question answered, documentation improved, a foundation model adapted, or a newcomer becoming a maintainer can each create conditions for further creation. Continued observation can make maintenance responsibilities, participation opportunities and public outcomes clearer alongside scale and influence."
+        "zh": "未来展望应落实为可以持续追踪的问题：参与能否延续为贡献，贡献能否支撑维护，开放成果能否进入真实使用，使用经验又能否改进下一轮共同工作。图 6-5-1 表达这种反馈关系。每个环节都需要责任主体与记录，过程中的停顿和退出也应成为改进依据。",
+        "en": "The outlook should become a set of questions that can be followed over time: does participation develop into contribution, does contribution sustain maintenance, are open assets used, and does that experience improve subsequent work? Figure 6-5-1 expresses this feedback relationship. Each stage needs responsible actors and records, including interruptions and departures that can inform improvement."
       },
       {
-        "zh": "本报告以共同目标组织证据，也需要在共同使用中不断完善。下一轮研究应继续维护可比的统计窗口，补齐主体、版本、关系和地域映射；同时把长期参与、维护支持与公共使用的记录接入现有地图、榜单和全景。对模拟、未知与待核验部分，保留清楚的状态，逐步用真实材料补充。",
-        "en": "This report organizes evidence around shared goals and should improve through shared use. The next research cycle should preserve comparable periods and improve actor, version, relationship and geographic mappings. Records of continued participation, maintenance support and public use can be connected to the maps, rankings and landscapes. Simulation, unknowns and unverified elements should remain clearly marked until evidence becomes available."
+        "zh": "行动可以从有明确对象的共同项目开始。先由参与方确认需求、起点和责任，再记录投入、交付与使用过程，在约定周期共同复盘。复盘关注哪些参与得以延续、哪些维护问题得到回应、哪些使用结果已有证据，并据此决定继续、调整或平稳结束支持。观察项应随项目成熟度选择，不要求所有地区和领域采用同一阈值。",
+        "en": "Action can begin with a clearly scoped joint project. Agree needs, a baseline and responsibilities, record inputs, delivery and use, and review together at agreed intervals. Examine continued participation, maintenance issues addressed and evidenced outcomes, then decide whether to continue, adapt or conclude support. Choose observations appropriate to project maturity rather than imposing a common threshold across regions and fields."
       },
       {
-        "zh": "政府与国际组织可以改善长期支持和合作条件，企业与组织可以把使用和维护责任连接起来，社区与各地伙伴可以让更多人进入共同建设。研究者则持续解释变化、检验判断，让经验与证据回到下一轮行动。不同角色共同承担这些工作，开放成果才更有机会跨越一次发布、一个项目和一个年度。",
-        "en": "Governments and international organizations can improve sustained support and cooperation. Companies can connect use with maintenance responsibilities. Communities and local partners can enable wider participation in shared work. Researchers can explain change and test interpretations, returning learning and evidence to the next round of action. Together, these roles help open assets endure beyond a release, project or reporting year."
+        "zh": "下一轮研究应优先补齐三条证据链。参与方面，延续 2.1 的跨平台覆盖与地域观察，逐步连接固定批次的贡献和角色记录；成果方面，核对组织、项目、模型、版本及上下游关系，将技术分类接到可核查的维护与采用；公共价值方面，结合真实应用记录参与、受益和局限。未知、未检查与模拟内容继续保留明确状态，以新增证据逐步完善。",
+        "en": "The next research cycle should strengthen three evidence chains. For participation, extend section 2.1’s platform and geographic coverage and connect it to cohort-level contributions and roles. For assets, verify organizations, projects, models, versions and upstream relationships, linking technical categories to documented maintenance and adoption. For public value, record participation, benefits and limitations in actual applications. Keep unknown, unchecked and simulated elements clearly identified as evidence improves."
+      },
+      {
+        "zh": "这也使报告本身成为共同工作的组成部分。政府与国际组织改善支持条件，企业连接使用与维护，社区和本地伙伴开放参与与治理，研究者持续核对变化与解释边界。把这些工作接起来，开放成果才能更有机会跨越一次发布、一个项目和一个年度，成为下一次创造的基础。",
+        "en": "This makes the report part of shared work. Governments and international organizations improve support conditions; companies connect use and maintenance; communities and local partners open participation and governance; researchers verify change and its interpretation. Together, these efforts help open assets endure beyond a release, project or reporting year and support further creation."
       }
     ],
     "final": {
@@ -1737,5 +1819,23 @@
       "zh": "持续共同创造及其公共价值",
       "en": "Sustained co-creation and its public value"
     }
-  }
+  },
+  "position": {
+    "zh": "本章回到 OSDGs 的四大支柱，将人才、开放供给、全球连接、治理与公共价值落实到共同工作。OSDI 的二十九项指标提供观察框架；以下跟踪项用于组织行动复盘，不另行合成总分。",
+    "en": "This chapter returns to the four OSDGs pillars, connecting people, open supply, global connections, governance and public value to shared work. The 29 OSDI indicators provide an observation framework; the follow-up items below support reviews of action rather than an additional composite score."
+  },
+  "evidence_notes": [
+    {
+      "zh": "2.1 的报告年度为 2025.07.01—2026.06.30；GitHub 全球与国家记录、编制组五域综合统计分别解释。国内约 120 万补充量不重复叠加到五域统计。",
+      "en": "Section 2.1 covers 2025-07-01 to 2026-06-30. GitHub global/country records and editorial five-group statistics retain separate scopes. The domestic supplement of about 1.2 million is not added again to the five-group series."
+    },
+    {
+      "zh": "5.1 的增长率来自 2026-09-13 快照按创建时间回溯的两个报告期末，不是独立历史快照；5.2 的派生边为平台声明关系。5.3 的 870 个模型是报告分类样本，不能外推为全球总体。",
+      "en": "Section 5.1 reconstructs two reporting-year endpoints by creation date from the 2026-09-13 snapshot, rather than independent historical snapshots. Derivation edges in 5.2 are platform declarations. The 870 models in 5.3 form a classified report sample, not the global population."
+    },
+    {
+      "zh": "4.1 提供深入分析；4.2—4.6 本轮提供技术全景与研究框架。本章图件为证据与行动关系示意，连线不表示数量、权重或已验证的因果关系。",
+      "en": "Section 4.1 provides in-depth analysis; sections 4.2–4.6 currently provide landscapes and research frameworks. This chapter’s diagrams connect evidence and proposed action; lines do not encode quantities, weights or established causal effects."
+    }
+  ]
 }

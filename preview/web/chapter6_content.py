@@ -9,11 +9,21 @@ def data():return json.loads((ROOT/'content/action/chapter6.json').read_text())
 def tr(value,lang):return value[lang] if isinstance(value,dict) else value
 def local_link(item,lang):return '<a href="/2026/'+lang+'/'+E(item['url'])+'">'+E(tr(item['label'],lang))+' ↗</a>'
 def paras(values,lang):return ''.join('<p>'+E(tr(v,lang))+'</p>' for v in values)
+FIG_TITLES={
+ 'overview': {'zh':'证据、共同任务与主体责任','en':'Evidence, shared tasks and responsibilities'},
+ 'public':{'zh':'公共支持的三条行动路径','en':'Three pathways for public support'},
+ 'enterprise':{'zh':'企业与组织的协作责任','en':'Collaboration responsibilities of organizations'},
+ 'community':{'zh':'社区与全球伙伴的共同建设','en':'Co-creation by communities and global partners'},
+ 'cycle':{'zh':'持续共同创造与行动反馈','en':'Sustained co-creation and feedback'}
+}
+FIG_NUMBERS=dict(zip(FILES,['6-1-1','6-2-1','6-3-1','6-4-1','6-5-1']))
 def fig_start(key,number,title,sub,lang):
- return '<div class="action-figure-wrap"><figure id="'+FILES[key].split('_')[0]+'" class="chapter-explorer action-canvas ac-'+key+'" data-lang="'+lang+'" data-action-figure="'+key+'" data-slide-key="action-'+key+'"><div class="ac-heading"><span class="ac-kicker">'+number+' / '+{'overview':'EVIDENCE TO ACTION','public':'PUBLIC SUPPORT','enterprise':'SHARED RESPONSIBILITY','community':'GLOBAL CO-CREATION','cycle':'SUSTAINED CO-CREATION'}[key]+'</span><h3>'+E(title)+'</h3><p>'+E(sub)+'</p></div><button type="button" class="ac-motion" data-ac-motion aria-pressed="false">'+('流动连线' if lang=='zh' else 'Animate links')+'</button>'
+ return '<div class="action-figure-wrap"><figure id="'+FILES[key].split('_')[0]+'" class="chapter-explorer action-canvas ac-'+key+'" data-lang="'+lang+'" data-action-figure="'+key+'" data-slide-key="action-'+key+'"><div class="ac-heading"><span class="ac-kicker">'+('研究综合 · 行动路径' if lang=='zh' else 'RESEARCH SYNTHESIS · ACTION PATHWAYS')+'</span><h3>'+E(tr(FIG_TITLES[key],lang))+'</h3><p>'+E(sub)+'</p></div>'
 def fig_end(key,lang):
- title='行动路径示意 · 连线不表示数量、权重或已经验证的因果关系。' if lang=='zh' else 'Action pathways · Lines do not encode quantities, weights or established causal effects.'
- return '<figcaption>'+title+'</figcaption></figure><img class="action-print" src="/assets/action/'+FILES[key]+('' if lang=='zh' else '-en')+'.svg" alt="'+('本节行动关系总览' if lang=='zh' else 'Overview of the action pathways')+'"></div>'
+ title=('图 ' if lang=='zh' else 'Figure ')+FIG_NUMBERS[key]+' '+tr(FIG_TITLES[key],lang)
+ note='研究与行动关系示意；连线不表示数量、权重或已验证的因果关系。' if lang=='zh' else 'Proposed relationships; lines do not encode quantities, weights or established causal effects.'
+ url='/assets/action/'+FILES[key]+('' if lang=='zh' else '-en')+'.svg'
+ return '<figcaption><strong>'+E(title)+'</strong><span data-ac-caption-note>'+note+'</span></figcaption></figure><img class="action-print" src="'+url+'" alt="'+E(title)+'"><a class="action-figure-download" href="'+url+'" download>'+('下载完整静态图 SVG ↓' if lang=='zh' else 'Download complete static SVG ↓')+'</a></div>'
 def edges(key,paths):
  s='<svg class="ac-edges" viewBox="0 0 1280 800" aria-hidden="true"><defs><marker id="ac-arrow-'+key+'" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L8 4L0 8" fill="var(--brand)"/></marker></defs>'
  for f,t,d in paths:s+='<path class="ac-edge" data-from="'+f+'" data-to="'+t+'" d="'+d+'" marker-end="url(#ac-arrow-'+key+')"/>'
@@ -63,33 +73,38 @@ def cycle(lang,D):
  return s+fig_end('cycle',lang)
 def chapter(lang):
  D=data();t=lambda z,e:z if lang=='zh' else e
- s='<article class="action-chapter" data-action-version="'+D['version']+'"><header class="action-opening"><span class="section-topline">CHAPTER 06 / FROM EVIDENCE TO ACTION</span><h2>'+E(tr(D['headline'],lang))+'</h2>'+paras([D['intro']],lang)+'<nav class="action-task-rail" aria-label="'+t('三项共同任务','Three shared tasks')+'">'+''.join('<a href="#ch06-s01"><small>'+x['n']+'</small><span>'+E(tr(x['short'],lang))+'</span></a>' for x in D['tasks'])+'</nav><p class="action-scope">'+E(tr(D['scope'],lang))+'</p></header>'
+ s='<article class="action-chapter" data-action-version="'+D['version']+'"><header class="action-opening"><span class="section-topline">CHAPTER 06 / FROM EVIDENCE TO ACTION</span><h2>'+E(tr(D['headline'],lang))+'</h2>'+paras([D['intro'],D['position']],lang)+'<nav class="action-task-rail" aria-label="'+t('三项共同任务','Three shared tasks')+'">'+''.join('<a href="#ch06-s01"><small>'+x['n']+'</small><span>'+E(tr(x['short'],lang))+'</span></a>' for x in D['tasks'])+'</nav><p class="action-scope">'+E(tr(D['scope'],lang))+'</p></header>'
  titles=[D['synthesis']['title'],*[a['title'] for a in D['actors']],D['closing']['title']]
  s+='<nav class="action-section-nav" aria-label="'+t('第六章阅读路径','Chapter 6 reading path')+'">'+''.join('<a href="#ch06-s0'+str(i+1)+'"><b>6.'+str(i+1)+'</b>'+E(tr(title,lang))+'</a>' for i,title in enumerate(titles))+'</nav>'
- sy=D['synthesis'];s+='<section class="action-section" id="ch06-s01"><span class="section-topline">6.1 / INSIGHTS & SHARED TASKS</span><h2>6.1 '+E(tr(sy['title'],lang))+'</h2><p class="action-question">'+E(tr(sy['question'],lang))+'</p>'+paras(sy['paragraphs'],lang)+overview(lang,D)+'<div class="action-task-cards">'
+ sy=D['synthesis'];s+='<section class="action-section" id="ch06-s01"><span class="section-topline">6.1 / INSIGHTS & SHARED TASKS</span><h2>6.1 '+E(tr(sy['title'],lang))+'</h2><p class="action-question">'+E(tr(sy['question'],lang))+'</p>'+paras(sy['paragraphs'],lang)
+ for f in sy['findings']:s+='<div class="action-finding"><h3>'+E(tr(f['title'],lang))+'</h3>'+paras(f['paragraphs'],lang)+'</div>'
+ s+='<h3 class="action-task-heading">'+E(tr(sy['task_title'],lang))+'</h3>'+paras([sy['figure_lead']],lang)+overview(lang,D)+'<div class="action-task-cards">'
  for task in D['tasks']:s+='<article><small>'+task['n']+' / '+task['pillars']+'</small><h3>'+E(tr(task['title'],lang))+'</h3><p>'+E(tr(task['body'],lang))+'</p></article>'
  s+='</div>'+paras([sy['after']],lang)+'</section>'
  for i,actor in enumerate(D['actors'],2):
   aa=[a for a in D['actions'] if a['actor']==actor['id']];s+='<section class="action-section" id="ch06-s0'+str(i)+'"><span class="section-topline">'+actor['section']+' / '+actor['id'].upper()+'</span><h2>'+actor['section']+' '+t('面向','For ')+E(tr(actor['title'],lang))+t('的倡议' if actor['id']=='community' else '的建议','')+'</h2>'+paras([actor['intro']],lang)+actor_figure(actor,lang,D)+'<div class="action-proposals">'
-  for a in aa:
-   s+='<article class="action-proposal" id="action-'+a['id']+'" data-action-article="'+a['id']+'"><span class="action-proposal-number">'+a['number']+'</span><div><h3>'+E(tr(a['title'],lang))+'</h3>'+paras([a['why'],a['body']],lang)+'<div class="action-observe"><b>'+t('持续观察','Follow-up observation')+'</b><p>'+E(('；' if lang=='zh' else '; ').join(tr(w['label'],lang)+' — '+tr(w['detail'],lang) for w in a['watch']))+('。' if lang=='zh' else '.')+'</p></div><nav class="action-related" aria-label="'+t('相关章节','Related sections')+'">'+''.join(local_link(l,lang) for l in a['links'])+'</nav></div></article>'
+  for j,a in enumerate(aa,1):
+   s+='<article class="action-proposal" id="action-'+a['id']+'" data-action-article="'+a['id']+'"><span class="action-proposal-number">'+a['number']+'</span><div><h3>'+actor['section']+'.'+str(j)+' '+E(tr(a['title'],lang))+'</h3>'+paras([a['why'],a['body']],lang)+'<div class="action-observe"><b>'+t('持续观察','Follow-up observation')+'</b><p>'+E(('；' if lang=='zh' else '; ').join(tr(w['label'],lang)+' — '+tr(w['detail'],lang) for w in a['watch']))+('。' if lang=='zh' else '.')+'</p></div><nav class="action-related" aria-label="'+t('相关章节','Related sections')+'">'+''.join(local_link(l,lang) for l in a['links'])+'</nav></div></article>'
   s+='</div></section>'
  cl=D['closing'];s+='<section class="action-section action-closing" id="ch06-s05"><span class="section-topline">6.5 / SUSTAINED CO-CREATION</span><h2>6.5 '+E(tr(cl['title'],lang))+'</h2><p class="action-question">'+E(tr(cl['question'],lang))+'</p>'+paras(cl['paragraphs'][:1],lang)+cycle(lang,D)+paras(cl['paragraphs'][1:],lang)+'<div class="action-final"><p>'+E(tr(cl['final'],lang))+'</p><strong>'+E(tr(cl['invitation'],lang))+'</strong></div><nav class="action-end-links">'+local_link(link(T('回到第一章：共同目标与观察方法','Return to Chapter 1: shared goals and methods'),'chapters/01/'),lang)+local_link(link(T('回到全书目录','Return to contents'),''),lang)+'</nav></section>'
+ s+='<details class="action-evidence-notes"><summary>'+t('本章综合所用证据与范围','Evidence and scope of this synthesis')+'</summary>'+paras(D['evidence_notes'],lang)+'</details>'
  s+='<script type="application/json" id="chapter6-action-data">'+json.dumps(D,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')+'</script></article>'
  return s
 
 def T(z,e):return {'zh':z,'en':e}
 def link(label,url):return {'label':label,'url':url}
 def manuscript(D,lang='zh'):
- L=lambda x:tr(x,lang);out=['# '+('第六章 ' if lang=='zh' else 'Chapter 6 · ')+L(D['title']),L(D['headline']),L(D['intro']),L(D['scope'])]
- sy=D['synthesis'];out+=['## 6.1 '+L(sy['title']),L(sy['question']),*[L(x) for x in sy['paragraphs']],f'![{L(sy["title"])}](../../figures/chapter6/{FILES["overview"]}.svg)']
- for t in D['tasks']:out+=['### '+t['n']+' '+L(t['title']),L(t['body'])]
+ L=lambda x:tr(x,lang);out=['# '+('第六章 ' if lang=='zh' else 'Chapter 6 · ')+L(D['title']),L(D['headline']),L(D['intro']),L(D['position']),L(D['scope'])]
+ sy=D['synthesis'];out+=['## 6.1 '+L(sy['title']),L(sy['question']),*[L(x) for x in sy['paragraphs']]]
+ for f in sy['findings']:out+=['### '+L(f['title']),*[L(x) for x in f['paragraphs']]]
+ out+=['### '+L(sy['task_title']),L(sy['figure_lead']),f'![{L(FIG_TITLES["overview"])}](../../figures/chapter6/{FILES["overview"]}.svg)']
+ for t in D['tasks']:out+=['#### '+t['n']+' '+L(t['title']),L(t['body'])]
  out+=[L(sy['after'])]
  for actor in D['actors']:
-  out+=['## '+actor['section']+' '+('面向' if lang=='zh' else 'For ')+L(actor['title'])+(('的倡议' if actor['id']=='community' else '的建议') if lang=='zh' else ''),L(actor['intro']),f'![{L(actor["diagram"])}](../../figures/chapter6/{FILES[actor["id"]]}.svg)']
-  for a in [a for a in D['actions'] if a['actor']==actor['id']]:
-   out+=['### '+a['number']+' '+L(a['title']),L(a['why']),L(a['body']),'**'+('持续观察' if lang=='zh' else 'Observe progress')+'：** '+'；'.join(L(w['label'])+'——'+L(w['detail']) for w in a['watch'])+'。']
- cl=D['closing'];out+=['## 6.5 '+L(cl['title']),L(cl['question']),L(cl['paragraphs'][0]),f'![{L(cl["invitation"])}](../../figures/chapter6/{FILES["cycle"]}.svg)',*[L(x) for x in cl['paragraphs'][1:]],L(cl['final']),'**'+L(cl['invitation'])+'**']
+  out+=['## '+actor['section']+' '+('面向' if lang=='zh' else 'For ')+L(actor['title'])+(('的倡议' if actor['id']=='community' else '的建议') if lang=='zh' else ''),L(actor['intro']),f'![{L(FIG_TITLES[actor["id"]])}](../../figures/chapter6/{FILES[actor["id"]]}.svg)']
+  for i,a in enumerate([a for a in D['actions'] if a['actor']==actor['id']],1):
+   out+=['### '+actor['section']+'.'+str(i)+' '+L(a['title']),L(a['why']),L(a['body']),'**'+('持续观察' if lang=='zh' else 'Observe progress')+'：** '+'；'.join(L(w['label'])+'——'+L(w['detail']) for w in a['watch'])+'。']
+ cl=D['closing'];out+=['## 6.5 '+L(cl['title']),L(cl['question']),L(cl['paragraphs'][0]),f'![{L(FIG_TITLES["cycle"])}](../../figures/chapter6/{FILES["cycle"]}.svg)',*[L(x) for x in cl['paragraphs'][1:]],L(cl['final']),'**'+L(cl['invitation'])+'**','### '+('证据与范围' if lang=='zh' else 'Evidence and scope'),*[L(x) for x in D['evidence_notes']]]
  return '\n\n'.join(out)+'\n'
 def export(out):
  dest=out/'assets/action';shutil.copytree(ROOT/'content/action',dest,dirs_exist_ok=True)

@@ -3,15 +3,11 @@
 const source=document.getElementById('chapter6-action-data');if(!source)return;
 const D=JSON.parse(source.textContent),base=document.querySelector('meta[name="gosd-base"]')?.content||'';
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text)n.textContent=text;if(cls)n.className=cls;return n;};
-const preference=window.matchMedia?.('(prefers-reduced-motion: reduce)');
 for(const fig of document.querySelectorAll('[data-action-figure]')){
- const lang=fig.dataset.lang==='en'?'en':'zh',L=x=>typeof x==='object'?x[lang]:x,t=(z,e)=>lang==='zh'?z:e,q=s=>fig.querySelector(s),qa=s=>[...fig.querySelectorAll(s)],motion=q('[data-ac-motion]');
+ const lang=fig.dataset.lang==='en'?'en':'zh',L=x=>typeof x==='object'?x[lang]:x,t=(z,e)=>lang==='zh'?z:e,q=s=>fig.querySelector(s),qa=s=>[...fig.querySelectorAll(s)];
  const link=(label,url)=>{const a=el('a',L(label)+' ↗');a.href=base+'/2026/'+lang+'/'+url;return a;};
- function animate(on){const play=!!on&&!preference?.matches;fig.classList.toggle('is-flowing',play);motion.setAttribute('aria-pressed',String(play));motion.textContent=play?t('暂停连线','Pause motion'):t('流动连线','Animate links');}
- motion.addEventListener('click',()=>animate(motion.getAttribute('aria-pressed')!=='true'));preference?.addEventListener?.('change',()=>animate(false));animate(true);
- if('IntersectionObserver' in window)new IntersectionObserver(entries=>entries.forEach(e=>fig.classList.toggle('ac-outside',!e.isIntersecting)),{rootMargin:'200px'}).observe(fig);
  if(fig.dataset.actionFigure==='overview'){
-  const detail=q('#ac-overview-detail'),caption=q('figcaption'),defaultCaption=caption.textContent;let taskId='commons';
+  const detail=q('#ac-overview-detail'),caption=q('[data-ac-caption-note]'),defaultCaption=caption.textContent;let taskId='commons';
   const task=()=>D.tasks.find(x=>x.id===taskId),recommendation=actor=>D.actions.find(a=>a.actor===actor&&a.task===taskId);
   function highlight(evidence=null,actor=null){qa('.ac-edge').forEach(p=>{const connected=p.dataset.to===taskId||p.dataset.from===taskId;const focus=connected&&(!evidence||p.dataset.from===evidence||p.dataset.from===taskId)&&(!actor||p.dataset.to===taskId||p.dataset.to===actor);p.classList.toggle('is-active',focus);});}
   function reset(){qa('[data-ac-evidence],[data-ac-actor]').forEach(b=>b.setAttribute('aria-pressed','false'));caption.textContent=defaultCaption;}
