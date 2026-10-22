@@ -1,0 +1,21 @@
+name: Verify deployed appendix publication
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gosd-appendix-live-review.yml'
+      - 'preview/web/check_appendix_live.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install review tools
+        run: |
+          python3 -m pip install pymupdf==1.26.5 playwright==1.55.0
+          python3 -m playwright install --with-deps chromium
+      - name: Verify live editions and render review images
+        run: python3 preview/web/check_appendix_live.py
