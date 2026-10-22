@@ -48,7 +48,7 @@ Chapter 5 retains four purposively selected cases to demonstrate evidence organi
 
 A model revision pins its repository. External terms, datasets and maintenance pages may have separate versions. Retain their dates too; one model commit does not freeze all dependencies.
 
-The cases are excluded from both the 870-model report sample and the 884-record platform snapshot, and do not replace source grades. Those cohorts have not been identity-aligned, so their difference is not growth. The 22 licensing-field discrepancies in the 884 records remain pending review. Appendix A explains the statistical boundaries; [Section 5.3’s dossiers](/2026/zh/chapters/05/#gm-dossiers) provide detailed evidence.
+The cases are excluded from both the 870-model report sample and the 884-record platform snapshot, and do not replace source grades. Those cohorts have not been identity-aligned, so their difference is not growth. The 22 licensing-field discrepancies in the 884 records remain pending review. Appendix A explains the statistical boundaries; [Section 5.3’s dossiers (Chinese)](https://www.x-lab.info/2026-Global-Open-Source-Development-Report/2026/zh/chapters/05/#gm-dossiers) provide detailed evidence.
 
 ## B.4 The DPG Standard and formal recognition
 
