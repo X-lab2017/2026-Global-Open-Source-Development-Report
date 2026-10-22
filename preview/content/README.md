@@ -11,9 +11,10 @@
 ## 同源正文与发布
 
 - 附录 A 的中文源稿位于 `appendices/附录A-指标体系与数据来源.md`，英文源稿为 `appendices/appendix-a.en.md`。网页与中文 PDF 使用相同正文。
+- 附录 B 的中文源稿为 `appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md`，英文源稿为 `appendices/appendix-b.en.md`；网页直接渲染同源正文，不另维护简写版。
 - `import_report.py` 更新正文、文件清单和来源快照；`report.json`、`frontmatter.json` 是生成副本。
-- `build_publication_pdfs.py` 从当前源稿生成附录 A PDF，并同步前置合订版的目录与范围说明。原第一章 PDF 整页保留。
-- `build_portal.py` 统一生成目录、前后篇章、搜索与下载入口。方法附录保留已发布的旧锚点。
+- `build_publication_pdfs.py` 从当前源稿生成附录 A、B 独立 PDF 及附录合订版，并同步前置合订版的目录与范围说明。原第一章 PDF 整页保留。
+- `build_portal.py` 统一生成目录、前后篇章、搜索与下载入口。方法附录保留已发布的旧锚点；两篇附录均提供本页目录、搜索条目和相互查阅入口。
 - 发布检查核对链接、完整正文、数据文件校验值、PDF 书签、文字边界与页面尺寸。自动检查与人工视觉核验分别记录。
 
 ## 清单约定

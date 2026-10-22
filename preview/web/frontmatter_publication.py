@@ -4,7 +4,7 @@ import html,json
 ROOT=Path(__file__).resolve().parents[2]
 EDITORIAL=json.loads((ROOT/'outline/frontmatter-editorial.json').read_text())
 PDF_NAME='GOSD-2026-opening-and-chapter1.pdf'
-EDITION='2026-10-22-two-appendices'
+EDITION='2026-10-22-appendices'
 MANIFEST=ROOT/'preview/content/report-assets/frontmatter/edition-manifest.json'
 WEB='https://www.x-lab.info/2026-Global-Open-Source-Development-Report/'
 def copy(key,lang):return EDITORIAL[key][lang]

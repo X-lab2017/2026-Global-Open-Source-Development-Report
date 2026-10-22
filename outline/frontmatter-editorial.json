@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-22-two-appendices",
+  "version": "2026-10-22-appendices",
   "hero_description": {
     "zh": "从代码、模型与数据，观察谁在参与、成果如何复用，以及开放协作怎样产生公共价值。",
     "en": "Explore who participates, how code, models and data are reused, and how open collaboration creates public value."
@@ -9,8 +9,8 @@
     "en": "Start with the findings, read the shared vision, then explore the chapters—or go straight to your question."
   },
   "reading_route": {
-    "zh": "第一章建立价值与方法基础，第二至第五章分别观察参与与贡献、影响主体、技术结构以及模型生态，第六章连接共同任务与主体行动。可顺序阅读，也可从目录进入关心的小节。",
-    "en": "Chapter 1 establishes values and methods. Chapters 2–5 examine participation and contribution, influential actors, technology structures and model ecosystems. Chapter 6 connects shared tasks to action. Read in sequence or find a section in the contents."
+    "zh": "第一章建立价值与方法基础，第二至第五章分别观察参与与贡献、影响主体、技术结构以及模型生态，第六章连接共同任务与主体行动。可顺序阅读，也可从目录进入关心的小节。附录 A 集中解释指标与统计方法，附录 B 说明模型开放条件、数字公共品认可与公共用途。",
+    "en": "Chapter 1 establishes values and methods. Chapters 2–5 examine participation and contribution, influential actors, technology structures and model ecosystems. Chapter 6 connects shared tasks to action. Read in sequence or find a section in the contents. Appendix A explains measures and statistical methods; Appendix B covers model openness, DPG recognition and public uses."
   },
   "contents_intro": {
     "zh": "从共同愿景进入研究，以四个视角观察生态，再把证据带回行动。目录列出六章、三十个小节及两篇附录。",
@@ -21,8 +21,8 @@
     "en": "Chapter 4 develops 4.1 in depth; 4.2–4.6 provide landscapes and research frameworks, with further analysis to follow. Sample scope, data status and simulations are labelled in each figure."
   },
   "pdf_scope": {
-    "zh": "本下载收录封面、目录、执行摘要、引言与第一章。其余正文与两篇附录可在线阅读；已制作的独立 PDF 见对应篇章与下载页。",
-    "en": "This Chinese download includes the cover, contents, executive summary, introduction and Chapter 1. Read the remaining chapters and two appendices online; available separate PDFs are linked from their pages and Downloads."
+    "zh": "本下载收录封面、目录、执行摘要、引言与第一章。其余正文与两篇附录可在线阅读；独立篇章 PDF 及附录 A＋B 合订 PDF 见对应篇章与下载页。",
+    "en": "This Chinese download includes the cover, contents, executive summary, introduction and Chapter 1. Other chapters and both appendices are online. Separate chapter PDFs and the combined Appendices A + B PDF are linked from their pages and Downloads."
   },
   "about": {
     "zh": "本报告由中国科协联合国咨商开源创新专委会牵头，连接开源实践与可持续发展议题。研究以四大支柱组织观察，用地图、榜单、技术全景和模型生态分析理解发展质量，推动持续共同创造及其公共价值。",

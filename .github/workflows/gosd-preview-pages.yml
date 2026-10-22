@@ -2,7 +2,7 @@ name: Publish GOSD preview to Pages
 
 on:
   push:
-    branches: [main, 'codex/appendix-a-publication']
+    branches: [main, 'codex/appendix-a-publication', 'codex/appendix-b-publication']
     paths:
       - 'preview/**'
       - 'chapters/chapter1/**'
@@ -85,6 +85,8 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: python3 preview/web/check_appendix_browser.py --output _site --base-path "$BASE_PATH"
+      - name: Emit appendix review images
+        run: python3 preview/web/emit_appendix_review.py
       - name: Upload publication review files
         if: always()
         uses: actions/upload-artifact@v4
@@ -92,6 +94,8 @@ jobs:
           name: appendix-publication-review
           path: |
             preview/content/report-assets/appendix-a/
+            preview/content/report-assets/appendix-b/
+            preview/content/report-assets/appendices/
             preview/content/report-assets/frontmatter/
             tmp/publication-review/
           if-no-files-found: warn

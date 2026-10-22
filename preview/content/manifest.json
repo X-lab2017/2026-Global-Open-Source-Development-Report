@@ -1,8 +1,8 @@
 {
   "schema_version": "2.0",
   "edition": 2026,
-  "structure_version": "0.6-chapter1-interactive-preview",
-  "updated_at": "2026-10-18",
+  "structure_version": "2026-10-22-two-appendices",
+  "updated_at": "2026-10-22",
   "status": "content-preview",
   "title": {
     "zh": "2026 全球开源发展报告",
@@ -933,14 +933,16 @@
         "en": "Appendix B: Model openness and digital public goods"
       },
       "question": {
-        "zh": "如何组织公共价值的评估与证据？",
-        "en": "How can public-value assessment and evidence be organized?"
+        "zh": "如何查证模型开放条件，并连接正式认可与公共用途？",
+        "en": "How can model openness be verified and connected to recognition and public uses?"
       },
       "kind": "dpg",
       "source_path": "appendices/附录-开源人工智能数字公共产品-DPG-评估框架.md",
-      "status": "preview",
+      "status": "published",
       "template": "methodology",
-      "research_status": "pending-review"
+      "research_status": "publication-reference",
+      "source_path_en": "appendices/appendix-b.en.md",
+      "updated_at": "2026-10-22"
     },
     {
       "id": "downloads",
@@ -999,7 +1001,7 @@
     "visual_baseline": "V5：云白阅读、深海蓝发布、青金强调",
     "brand_repository": "X-lab2017/osdg-brand",
     "primary_locale": "zh",
-    "english_status": "architecture-translated-full-text-pending",
+    "english_status": "bilingual-navigation-and-appendices; remaining-full-translation-partial",
     "theme_modes": [
       "light",
       "dark"
@@ -1070,8 +1072,8 @@
   "implementation_status": {
     "manifest": "approved-framework",
     "website_renderer": "content-preview-implemented",
-    "full_text_renderer": "chapter1-and-methods-implemented",
-    "pdf_pipeline": "pending"
+    "full_text_renderer": "six-chapters-and-two-appendices",
+    "pdf_pipeline": "source-backed-chapter-and-appendix-publication"
   },
   "framework_entry": {
     "id": "framework",
@@ -1173,5 +1175,5 @@
       "section": "1.3"
     }
   ],
-  "version": "0.7-review"
+  "version": "2026-10-22-appendices"
 }
