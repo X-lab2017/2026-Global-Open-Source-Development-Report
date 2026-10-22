@@ -28,3 +28,5 @@ html[data-theme=dark] .methods-publication .reader-table td,html[data-theme=dark
 .appendix-companions{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2rem;padding-top:1.25rem;border-top:1px solid #ccdfe2;font-size:.9rem;line-height:1.7}
 html[data-theme=dark] .appendix-companions{border-color:#36505b}
 @media print{.appendix-companions{display:none}}
+
+@media(max-width:640px){.methods-publication .reader-table[data-columns="2"]{min-width:0;table-layout:fixed}.methods-publication .reader-table[data-columns="2"] td:first-child,.methods-publication .reader-table[data-columns="2"] th:first-child{width:31%}}

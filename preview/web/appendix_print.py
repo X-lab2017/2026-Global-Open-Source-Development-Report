@@ -2,7 +2,7 @@
 from pathlib import Path
 from urllib.parse import quote
 import argparse,hashlib,html,json,re
-from reportlab.platypus import BaseDocTemplate,PageTemplate,Frame,Paragraph,Table,TableStyle,KeepTogether
+from reportlab.platypus import BaseDocTemplate,PageTemplate,Frame,Paragraph,Table,TableStyle,KeepTogether,PageBreak
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.colors import HexColor
 from reportlab.lib.pagesizes import A4
@@ -69,7 +69,7 @@ class Document(BaseDocTemplate):
  def __init__(self,path):
   super().__init__(str(path),pagesize=A4,leftMargin=46,rightMargin=46,topMargin=60,bottomMargin=57,title='2026 全球开源发展报告 · 附录 '+LETTER+'：'+TITLE,author='GOSD',pageCompression=1,invariant=1)
   self.headings=[]
-  self.addPageTemplates(PageTemplate('appendix',[Frame(46,57,WIDTH,A4[1]-117,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=self.draw_page))
+  self.addPageTemplates(PageTemplate('appendix',[Frame(46,57,WIDTH,A4[1]-117,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPageEnd=self.draw_page))
  def draw_page(self,c,doc):
   c.saveState();c.setFont(FONT,8.5);c.setFillColor(HexColor(MUTED))
   c.drawString(46,A4[1]-35,'GOSD 2026 / 全球开源发展报告')
@@ -87,7 +87,9 @@ def flow():
   if not line:i+=1;continue
   if line.startswith('# '):
    out.extend([para('附录 '+LETTER,'note'),para(line[2:].split('：',1)[-1],'title')]);i+=1;continue
-  if line.startswith('## '):out.append(para(line[3:],'section'));i+=1;continue
+  if line.startswith('## '):
+   if LETTER=='B' and not line.startswith('## B.1 '):out.append(PageBreak())
+   out.append(para(line[3:],'section'));i+=1;continue
   if line.startswith('|'):
    rows=[]
    while i<len(lines) and lines[i].strip().startswith('|'):

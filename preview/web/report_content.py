@@ -95,7 +95,7 @@ def render(src,lang,prefix,skip_title=True):
                 continue
             folded=src==PARTS[2] and rows[0][0]=='支柱／维度'
             if folded:out.append('<details class="osdi-reference-table"><summary>'+T(lang,'完整指标清单（29项，查证用）','Full indicator table (29 measures)')+'</summary>')
-            out.append('<div class="reader-table-wrap" role="region" tabindex="0" aria-label="'+T(lang,'报告数据表，可横向滚动','Report table, horizontally scrollable')+'"><table class="reader-table"><thead><tr>'+''.join('<th scope="col">'+inline(c,src,lang)+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+inline(c,src,lang)+'</td>' for c in row)+'</tr>' for row in rows[1:])+'</tbody></table></div>')
+            out.append('<div class="reader-table-wrap" role="region" tabindex="0" aria-label="'+T(lang,'报告数据表，可横向滚动','Report table, horizontally scrollable')+'"><table class="reader-table" data-columns="'+str(len(rows[0]))+'"><thead><tr>'+''.join('<th scope="col">'+inline(c,src,lang)+'</th>' for c in rows[0])+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+inline(c,src,lang)+'</td>' for c in row)+'</tr>' for row in rows[1:])+'</tbody></table></div>')
             if folded:out.append('</details>')
             continue
         if line.startswith('$$'):

@@ -42,6 +42,11 @@ try:
       page.screenshot(path=str(qa/f'web-{letter}-{lang}-{width}-{theme}.png'),full_page=True,animations='disabled')
       if letter=='b' or (lang=='zh' and width==1440 and theme=='light'):
        page.screenshot(path=str(qa/f'view-{letter}-{lang}-{width}-{theme}.png'),animations='disabled')
+      if width==390 and lang=='zh' and theme=='light':
+       page.locator('.side-toggle').focus();page.keyboard.press('Enter')
+       assert page.locator('.side-toggle').get_attribute('aria-expanded')=='true'
+       local=page.locator('.book-nav .local-section').first;local.focus();page.keyboard.press('Enter')
+       assert '#'+page.locator('.methods-publication h3').first.get_attribute('id') in page.url
       if letter=='b' and lang=='zh' and theme=='light':
        page.locator('.methods-publication h3').nth(3).scroll_into_view_if_needed()
        page.screenshot(path=str(qa/f'view-b-standard-{width}.png'),animations='disabled')

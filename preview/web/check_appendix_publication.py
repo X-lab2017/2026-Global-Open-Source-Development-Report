@@ -48,6 +48,7 @@ def main():
   for i,page in enumerate(doc):
    assert abs(page.rect.width-595.28)<1 and abs(page.rect.height-841.89)<1
    assert len(page.get_text().strip())>100,('empty page',letter,i+1)
+   assert 'GOSD 2026' in page.get_text(clip=fitz.Rect(0,0,page.rect.width,50)),('missing running header',letter,i+1)
    for block in page.get_text('dict')['blocks']:
     for line in block.get('lines',[]):
      for span in line['spans']:

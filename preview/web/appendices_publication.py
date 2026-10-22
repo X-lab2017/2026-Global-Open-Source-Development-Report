@@ -4,7 +4,7 @@ import hashlib,html,json
 import appendix_publication as A
 import appendix_b_publication as B
 ROOT=Path(__file__).resolve().parents[2]
-EDITION='2026-10-22-appendices'
+EDITION='2026-10-22-appendices-v2'
 DIRECTORY=ROOT/'preview/content/report-assets/appendices'
 PDF_NAME='GOSD-2026-appendices-A-B.pdf'
 PDF_URL='/assets/report/appendices/'+PDF_NAME+'?v='+EDITION
