@@ -31,7 +31,7 @@ rows=list(csv.DictReader((assets/'fig-2-1-2_platform-coverage.csv').open()));ass
 assert next(r for r in rows if r['country_code']=='CN')['cross_github_overlap_status']=='deduplicated'
 five=list(csv.DictReader((v.ROOT.parent/'data/processed/chapter2/fig-2-1-2_five_region_total_developers.csv').open()))
 assert [r['total'] for r in data['five_group_records']]==[int(r['developers'])/10000 for r in five]
-assert next(r for r in data['five_group_records'] if r['id']=='EU')['active']==675.3891
+assert next(r for r in data['five_group_records'] if r['id']=='EU')['active']==703.956
 geo=json.loads((assets/'map-geometry.json').read_text());spec=json.loads((assets/'map-provenance.json').read_text())
 assert spec['aspect_scale']==.75 and spec['shape_simplification'] is False
 assert not any(r['id'] in ['TW','HK','MO'] for r in geo['world'])

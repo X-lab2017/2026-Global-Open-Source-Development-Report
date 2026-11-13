@@ -2767,32 +2767,32 @@
     {
       "id": "US",
       "name": "美国",
-      "total": 3029.8253,
-      "active": 465.1526
+      "total": 3241.0529,
+      "active": 494.1448
     },
     {
       "id": "EU",
       "name": "欧洲",
-      "total": 3014.812,
-      "active": 675.3891
+      "total": 3251.3635,
+      "active": 703.956
     },
     {
       "id": "CN",
       "name": "中国",
       "total": 2918.6672,
-      "active": 454.534
+      "active": 370.0
     },
     {
       "id": "IN",
       "name": "印度",
-      "total": 2457.6236,
-      "active": 272.3577
+      "total": 2672.7004,
+      "active": 285.0885
     },
     {
       "id": "SOUTH",
       "name": "全球南方代表组",
-      "total": 2033.1193,
-      "active": 300.4584
+      "total": 2206.1649,
+      "active": 314.7693
     }
   ],
   "five_group_source": {
